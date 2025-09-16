@@ -1,7 +1,7 @@
 \documentclass[UTF8]{ctexart}
 
 \makeatletter
-\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
 \makeatother
 
 \usepackage{FulcrumCN}
@@ -43,21 +43,78 @@
                 [Divides]
                 [猫猫]
                 \DEF*
-                    [ \(a, b:\Z\)]
+                    [ \(a, b:\Z\), \(a\neq 0\)]
                     { \(a\) 整除 \(b\) }
-                    {\exists[\(n\)][\(b=an\)][\(\Z\)]}
+                    {\(\exists[n][b=an][\Z]\)}
                     [ \(a\mid b\)]
+
+                \DEF*
+                    { \(a\) 不整除 \(b\) }
+                    {\(\neg(a\mid b)\)}
+                    [ \(a\nmid b\)]
             \end{dfn}
             
             \begin{ppt}
-                [DivTrans]
-                {整除的传递性}
-                [Transitivity of Divisible Relationship]
+                [DivPO]
+                {整除的偏序性}
+                [Partial Order of Divisibility]
                 [猫猫]
                 \THM
-                    [\decl{ \(a, b, c\)}{\(\Z\)}, \(a\mid b\), \(b\mid c\)]
-                    {\(a\mid c\)}
+                    {整除关系是偏序关系}
             \end{ppt}
+            
+            \begin{ppt}
+                [DivLinear]
+                {整除的线性性}
+                [Linearity of Divisibility]
+                [猫猫]
+                \THM
+                    {整除关系是线性关系}
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {整除的绝对值性质}
+                []
+                [猫猫]
+                \THM
+                    [\decl{}[]]
+                    {}
+            \end{ppt}
+            
+            \begin{thm}
+                []
+                {余数唯一性}
+                []
+                [猫猫]
+                \THM
+                    [ \(a, b:\Z\), \(a>0\)]
+                    {\(\existsuniq[r][\existsuniq[n][b=an+r][\Z]][\Z/a\Z]\)}
+            \end{thm}
+            
+            \begin{dfn}
+                []
+                {不完全商}
+                []
+                [猫猫]
+                \DEF
+                    [ \(a, b:\Z\), \(a\neq 0\)]
+                    { \(b\) 除以 \(a\) 的不完全商}
+                    {}
+                    [ \(b/a\)]
+            \end{dfn}
+            
+            \begin{dfn}
+                [Remainder]
+                {余数}
+                [Remainder]
+                [猫猫]
+                \DEF
+                    [ \(a, b:\Z\), \(a>0\)]
+                    { \(b\) 除以 \(a\) 的余数}
+                    {\(b - a\cdot(b/a)\)}
+                    [ \(b\% a\)]
+            \end{dfn}
 
         \section{同余方程}
 

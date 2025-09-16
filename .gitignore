@@ -6,3 +6,4 @@ Fulcrum-Template
 *.log
 *.out
 *.synctex.gz
+*.toc

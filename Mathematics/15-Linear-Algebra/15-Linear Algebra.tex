@@ -1,9 +1,5 @@
 \documentclass[UTF8]{ctexart}
 
-\makeatletter
-\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
-\makeatother
-
 \usepackage{FulcrumHabitCN}
 
 \begin{document}
@@ -1541,9 +1537,9 @@
 			[]
 			[]
 
-			矩阵$A$各行向量组张成的线性空间称为矩阵$A$的\textbf{行空间(Row Space)}, 记作$\RRow A$, 也记作$\Range A^T$, 行空间是矩阵对应线性映射的定义域; 
+			矩阵$A$各行向量组张成的线性空间称为矩阵$A$的\textbf{行空间(Row Space)}, 记作$\RRow A$, 也记作$\Im A^T$, 行空间是矩阵对应线性映射的定义域; 
 			
-			矩阵$A$各列向量组张成的线性空间称为矩阵$A$的\textbf{列空间(Column Space)}, 记作$\CCol A$, 也记作$\Range A$, 列空间是矩阵对应线性映射的值域; 
+			矩阵$A$各列向量组张成的线性空间称为矩阵$A$的\textbf{列空间(Column Space)}, 记作$\CCol A$, 也记作$\Im A$, 列空间是矩阵对应线性映射的值域; 
 
 			满足$Av=\mathbf{0}$的全体向量$v$组成矩阵$A$的\textbf{零空间}, 记作$\Null A$, 零空间是矩阵对应线性映射的核; 
 
@@ -2291,7 +2287,7 @@
 			[]
 			[]
 
-            $r(A + B) \leq r\begin{pmatrix} A \\B \\ \end{pmatrix} \leq r(A) + r(B)$
+            $r(A + B) \leq r\begin{pmatrix} A \\ B \\ \end{pmatrix} \leq r(A) + r(B)$
         \end{thm}
 
         \begin{thm}
@@ -2305,12 +2301,12 @@
         \end{thm}
 	\subsection{适定、欠定线性方程组的解}
 
-		考虑齐次线性方程组$\A\x=\mathbf{0}$, 其中$\A$是一个$m$行$n$列的矩阵
+		考虑齐次线性方程组$\bm{A}\bm{x}=\mathbf{0}$, 其中$\bm{A}$是一个$m$行$n$列的矩阵
 
-		容易验证这个齐次线性方程组的解是一个线性空间, 即矩阵$\A$的零空间$\Null\A$. 
+		容易验证这个齐次线性方程组的解是一个线性空间, 即矩阵$\bm{A}$的零空间$\Null\bm{A}$. 
 
-		设$\rank\A=r$, 则经过适当的列交换与初等行变换后, 有: (列交换需要改变解中各个元的顺序)
-		\[\A\sim\mathbf{B}:=
+		设$\rank\bm{A}=r$, 则经过适当的列交换与初等行变换后, 有: (列交换需要改变解中各个元的顺序)
+		\[\bm{A}\sim\mathbf{B}:=
 		\begin{bmatrix}
 			1 & 0 & \cdots & 0 & c_{1,r+1} & \cdots & c_{1,n}\\
 			0 & 1 & \cdots & 0 & c_{2,r+1} & \cdots & c_{2,n}\\
@@ -2341,7 +2337,7 @@
 			-I_d
 		\end{bmatrix}=\mathbf{O}$是一个列满秩阵. 
 
-		则$\B$的零空间的一组基是: 
+		则$\bm{B}$的零空间的一组基是: 
 		\[\eta_1:=
 		\begin{bmatrix}
 			c_{1,r+1}\\
@@ -2380,16 +2376,16 @@
 			-1
 		\end{bmatrix}\]
 
-		于是$\Null\A=\mathrm{span}\{\eta_1,\eta_2,\cdots,\eta_{n-r}\}$中的全体向量是齐次线性方程组$\A\x=\mathbf{0}$的解. 
+		于是$\Null\bm{A}=\mathrm{span}\{\eta_1,\eta_2,\cdots,\eta_{n-r}\}$中的全体向量是齐次线性方程组$\bm{A}\bm{x}=\mathbf{0}$的解. 
 
-		现在考虑非齐次线性方程组$\A\x=\bm\beta$. 
+		现在考虑非齐次线性方程组$\bm{A}\bm{x}=\bm\beta$. 
 
-		设$\gamma$是方程组的一个解, 则对任意解$\x$有: 
-		\[\A(\x-\gamma)=\mathbf{0}\]
+		设$\gamma$是方程组的一个解, 则对任意解$\bm{x}$有: 
+		\[\bm{A}(\bm{x}-\gamma)=\mathbf{0}\]
 
-		于是$\x-\gamma$是齐次线性方程组(称为该线性方程组的\textbf{相伴齐次线性方程组})$\A\x=\mathbf{0}$的解. 
+		于是$\bm{x}-\gamma$是齐次线性方程组(称为该线性方程组的\textbf{相伴齐次线性方程组})$\bm{A}\bm{x}=\mathbf{0}$的解. 
 
-		于是$\x$的全体解为$\{\gamma+v|v\in\mathrm{span}\{\eta_1,\eta_2,\cdots,\eta_{n-r}\}\}$
+		于是$\bm{x}$的全体解为$\{\gamma+v|v\in\mathrm{span}\{\eta_1,\eta_2,\cdots,\eta_{n-r}\}\}$
 
 	\subsection{矩阵与线性映射的关系}
 		矩阵可以看作是线性映射的一种表示形式，线性映射可以被矩阵表示。在这里我们举例如：
@@ -2432,8 +2428,8 @@
 				\item 矩阵的乘积$A\cdot B$对应线性映射的复合$\varphi\circ\psi$.
 				\item 矩阵的转置$A^T$对应对偶映射$\varphi^*$.
 				\item 矩阵的逆$A^{-1}$对应线性映射的逆映射$\varphi^{-1}$.
-				\item 矩阵的行空间$\Range A^T$对应线性映射的原像空间（定义域）。
-				\item 矩阵的列空间$\Range A$对应线性映射的像空间（值域）$\Im\varphi$.
+				\item 矩阵的行空间$\Im A^T$对应线性映射的原像空间（定义域）。
+				\item 矩阵的列空间$\Im A$对应线性映射的像空间（值域）$\Im\varphi$.
 				\item 矩阵的零空间$\Null A$对应线性映射的核空间$\ker \varphi$.
 				\item 矩阵的秩$\rank A$对应线性映射的像空间的维度$\dim\Im\varphi$.
 			\end{itemize}
@@ -3160,7 +3156,7 @@
 			[]
 
 			$\R_n$空间上的一种内积运算$``\cdot":\R_n\times\R_n\to\R$:定义为: 
-			\[\alpha:=\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}, \beta:=\begin{bmatrix}y_1\\y_2\\\vdots\\y_n\end{bmatrix},\alpha\cdot\beta=\sum_{i=1}^{n}x_iy_i\]
+			\[\alpha:=\begin{bmatrix}x_1\\bm{x}_2\\\vdots\\bm{x}_n\end{bmatrix}, \beta:=\begin{bmatrix}y_1\\y_2\\\vdots\\y_n\end{bmatrix},\alpha\cdot\beta=\sum_{i=1}^{n}x_iy_i\]
 		\end{dfn}
 		
 		\begin{dfn}
@@ -3399,10 +3395,10 @@
 			[]
 			[]
 
-			对于超定的线性方程组$\A\x=\bv$而言(注意: 它没有解), 定义向量$\x$制造的\textbf{残差(Residual)} 为$r(\x)=\bv-\A\x$. 
+			对于超定的线性方程组$\bm{A}\bm{x}=\bm{\beta}$而言(注意: 它没有解), 定义向量$\bm{x}$制造的\textbf{残差(Residual)} 为$r(\bm{x})=\bm{\beta}-\bm{A}\bm{x}$. 
 			
-			该方程组的\textbf{最小二乘解(Least Squares Solution)}是指一个$\x_0$满足: 
-			\[\forall \x, r(\x_0)\leq r(\x)\]
+			该方程组的\textbf{最小二乘解(Least Squares Solution)}是指一个$\bm{x}_0$满足: 
+			\[\forall \bm{x}, r(\bm{x}_0)\leq r(\bm{x})\]
 		\end{dfn}
 	
 		\begin{thm}
@@ -3411,47 +3407,47 @@
 			[]
 			[]
 
-			当且仅当残差与$\A$的像空间正交时其模最小. 
-			\[\forall\x, ||\A\x-\bv||\geq||\p-\bv||\Longleftrightarrow \forall\x, \<\p-\bv,\A\x\>=0. \]
+			当且仅当残差与$\bm{A}$的像空间正交时其模最小. 
+			\[\forall\bm{x}, ||\bm{A}\bm{x}-\bm{\beta}||\geq||\bm{p}-\bm{\beta}||\Longleftrightarrow \forall\bm{x}, \<\bm{p}-\bm{\beta},\bm{A}\bm{x}\>=0. \]
 		\end{thm}
 		
 		\begin{prf}
-			\[||\A\x-\bv||\geq||\p-\bv||\Longleftrightarrow||\A\x-\bv||^2\geq||\p-\bv||^2\]
+			\[||\bm{A}\bm{x}-\bm{\beta}||\geq||\bm{p}-\bm{\beta}||\Longleftrightarrow||\bm{A}\bm{x}-\bm{\beta}||^2\geq||\bm{p}-\bm{\beta}||^2\]
 			\[\begin{cases}
-			||\A\x-\bv||^2=(\A\x-\bv)^2=[(\p-\bv)+(\A\x-\p)]^2\\
-			||\p-\bv||^2=(\p-\bv)^2
+			||\bm{A}\bm{x}-\bm{\beta}||^2=(\bm{A}\bm{x}-\bm{\beta})^2=[(\bm{p}-\bm{\beta})+(\bm{A}\bm{x}-\bm{p})]^2\\
+			||\bm{p}-\bm{\beta}||^2=(\bm{p}-\bm{\beta})^2
 			\end{cases}\]
 			\[\begin{aligned}
-			\Longrightarrow||\A\x-\bv||^2-||\p-\bv||^2 & = [(\p-\bv)+(\A\x-\p)]^2-(\p-\bv)^2\\
-			& = 2(\p-\bv)\cdot(\A\x-\p)+(\A\x-\p)^2\\
-			& = 2(\p-\bv)\cdot\A\x-2(\p-\bv)\cdot\p+(\A\x-\p)^2\\
+			\Longrightarrow||\bm{A}\bm{x}-\bm{\beta}||^2-||\bm{p}-\bm{\beta}||^2 & = [(\bm{p}-\bm{\beta})+(\bm{A}\bm{x}-\bm{p})]^2-(\bm{p}-\bm{\beta})^2\\
+			& = 2(\bm{p}-\bm{\beta})\cdot(\bm{A}\bm{x}-\bm{p})+(\bm{A}\bm{x}-\bm{p})^2\\
+			& = 2(\bm{p}-\bm{\beta})\cdot\bm{A}\bm{x}-2(\bm{p}-\bm{\beta})\cdot\bm{p}+(\bm{A}\bm{x}-\bm{p})^2\\
 			\end{aligned}\]
 			
 			(1)必要性: 
-				\[\forall\x, (\p-\bv),\A\x=0\Longrightarrow(\p-\bv)\cdot\p=0\]
+				\[\forall\bm{x}, (\bm{p}-\bm{\beta}),\bm{A}\bm{x}=0\Longrightarrow(\bm{p}-\bm{\beta})\cdot\bm{p}=0\]
 				\[\begin{aligned}
-				\Longrightarrow||\A\x-\bv||^2-||\p-\bv||^2 & = 2(\p-\bv)\cdot\A\x-2(\p-\bv)\cdot\p+(\A\x-\p)^2\\
-				& = (\A\x-\p)^2\\
-				& \geq 0(\text{当且仅当$\A\x=\p$时取等号})\\
+				\Longrightarrow||\bm{A}\bm{x}-\bm{\beta}||^2-||\bm{p}-\bm{\beta}||^2 & = 2(\bm{p}-\bm{\beta})\cdot\bm{A}\bm{x}-2(\bm{p}-\bm{\beta})\cdot\bm{p}+(\bm{A}\bm{x}-\bm{p})^2\\
+				& = (\bm{A}\bm{x}-\bm{p})^2\\
+				& \geq 0(\text{当且仅当$\bm{A}\bm{x}=\bm{p}$时取等号})\\
 				\end{aligned}\]
 				
 			(2)充分性: 运用反证法. 
 				
-				取$\x=\p_0$, 其中$\p_0$满足$\forall\x, (\p_0-\bv)\cdot\A\x=0$
+				取$\bm{x}=\bm{p}_0$, 其中$\bm{p}_0$满足$\forall\bm{x}, (\bm{p}_0-\bm{\beta})\cdot\bm{A}\bm{x}=0$
 				
-				*一般情况下, 这样的$\x$的存在性需要在正交补空间内寻找, 而后者的存在性由线性代数基本定理或是线性空间的直和条件给出, 这超出了我们讨论的范围. 但从直觉上讲, 根据我们对立体几何的了解, 我们相信可以作出相应的垂直向量. 
+				*一般情况下, 这样的$\bm{x}$的存在性需要在正交补空间内寻找, 而后者的存在性由线性代数基本定理或是线性空间的直和条件给出, 这超出了我们讨论的范围. 但从直觉上讲, 根据我们对立体几何的了解, 我们相信可以作出相应的垂直向量. 
 				
-				根据必要性, 显然有$||\p_0-\bv||^2>||\p-\bv||^2$, 矛盾. $\square$
+				根据必要性, 显然有$||\bm{p}_0-\bm{\beta}||^2>||\bm{p}-\bm{\beta}||^2$, 矛盾. $\square$
 
-				所要找的$\p$只需满足$$\forall\x, (\p-\bv)\perp\A\x$$
+				所要找的$\bm{p}$只需满足$$\forall\bm{x}, (\bm{p}-\bm{\beta})\perp\bm{A}\bm{x}$$
 		
-				这个算式还不能给出直接的$\p$乃至$\x_0$的计算方法. 于是现在我们回顾$\A\x$最初的矩阵-向量表示法. 
+				这个算式还不能给出直接的$\bm{p}$乃至$\bm{x}_0$的计算方法. 于是现在我们回顾$\bm{A}\bm{x}$最初的矩阵-向量表示法. 
 				
-				这个式子不但可以理解为$\A$对$\x$做了线性变换, 还可以理解为$\A$的各列按照$\x$各个元素的权重进行了线性组合; 而$\x$是可以任意取值的, 因而$\{\A\x||\forall\x\}$是变换$\A$的值域, 它是矩阵$\A$各个列所有可能的线性组合得到的向量的全体. 而由于内积运算可以与加法和数乘运算交换顺序进行(也就是满足结合律和分配律)因此只要$(\p-\bv)$与矩阵$\A$的每一列对应的向量都垂直, 它就必然与全体$\A\x$都垂直. 
+				这个式子不但可以理解为$\bm{A}$对$\bm{x}$做了线性变换, 还可以理解为$\bm{A}$的各列按照$\bm{x}$各个元素的权重进行了线性组合; 而$\bm{x}$是可以任意取值的, 因而$\{\bm{A}\bm{x}||\forall\bm{x}\}$是变换$\bm{A}$的值域, 它是矩阵$\bm{A}$各个列所有可能的线性组合得到的向量的全体. 而由于内积运算可以与加法和数乘运算交换顺序进行(也就是满足结合律和分配律)因此只要$(\bm{p}-\bm{\beta})$与矩阵$\bm{A}$的每一列对应的向量都垂直, 它就必然与全体$\bm{A}\bm{x}$都垂直. 
 				
-				也就是说, $\p$只需满足以下条件: 
+				也就是说, $\bm{p}$只需满足以下条件: 
 				
-				$$(\p-\bv)\cdot\begin{bmatrix}
+				$$(\bm{p}-\bm{\beta})\cdot\begin{bmatrix}
 				a_{1,j}\\
 				a_{2,j}\\
 				\vdots\\
@@ -3465,7 +3461,7 @@
 				a_{1,2} & a_{2,2} & \cdots & a_{m,2}\\
 				\vdots & \vdots & \ddots & \vdots\\
 				a_{1,n} & a_{2,n} & \cdots & a_{m,n}\\
-				\end{bmatrix}(\p-\bv)=
+				\end{bmatrix}(\bm{p}-\bm{\beta})=
 				\begin{bmatrix}
 				0\\
 				0\\
@@ -3473,11 +3469,11 @@
 				0\\
 				\end{bmatrix}$$
 				
-				左边的矩阵与$m$条方程, $n$个未知数的系数矩阵$\A$相比恰好关于其主对角线对称, 这样的矩阵称为$\A$的转置, 记为$\A^T$或$\A'$. 
+				左边的矩阵与$m$条方程, $n$个未知数的系数矩阵$\bm{A}$相比恰好关于其主对角线对称, 这样的矩阵称为$\bm{A}$的转置, 记为$\bm{A}^T$或$\bm{A}'$. 
 				
 				于是我们有了: 
 				
-				$$\A^T(\p-\bv)=\A^T(\A\x_0-\bv)=\mathbf{0}\Longrightarrow \A^T\A\x_0=\A^T\bv$$
+				$$\bm{A}^T(\bm{p}-\bm{\beta})=\bm{A}^T(\bm{A}\bm{x}_0-\bm{\beta})=\mathbf{0}\Longrightarrow \bm{A}^T\bm{A}\bm{x}_0=\bm{A}^T\bm{\beta}$$
 				
 				这就是最小二乘问题的解.
 		\end{prf} 
@@ -3488,7 +3484,7 @@
 			[]
 			[]
 
-			称方程$\A^T\A \x=\A^T\beta$是线性方程组$\A\x=\bv$的\textbf{正规化方程(Regularized Equation)}。
+			称方程$\bm{A}^T\bm{A} \bm{x}=\bm{A}^T\beta$是线性方程组$\bm{A}\bm{x}=\bm{\beta}$的\textbf{正规化方程(Regularized Equation)}。
 		\end{dfn}
 
 		\begin{ppt}
@@ -3521,7 +3517,7 @@
 			[]
 			[]
 			
-			超定线性方程组$\A\x=\bv$的最小二乘解即是其正规化方程$\A^T\A\x=\A^T\bv$的解. 
+			超定线性方程组$\bm{A}\bm{x}=\bm{\beta}$的最小二乘解即是其正规化方程$\bm{A}^T\bm{A}\bm{x}=\bm{A}^T\bm{\beta}$的解. 
 		\end{thm}
 
 	\subsection{复内积空间}
@@ -5562,12 +5558,12 @@
 				\forall u\in V_2, f_2:V_1\to\K(f_2(v)=f(v,u))\text{是线性的}\\
 			\end{cases}\]
 
-			$V_1\times V_2$上全体双线性型的集合记作$\B(V_1,V_2,\K)$, 不致混淆的情况下简记为$\B$. 
+			$V_1\times V_2$上全体双线性型的集合记作$\bm{B}(V_1,V_2,\K)$, 不致混淆的情况下简记为$\bm{B}$. 
 
 			如下定义双线性型的加法和数乘运算: 
-			\[\forall f,g\in\B, \forall(u,v)\in V_1\times V_2, \]
-			\[``+":\B^2\to\K((f+g)(u,v):=f(u,v)+g(u,v))\]
-			\[``\cdot":\K\times\B((kf)(u,v):=k(f(u,v)))\]
+			\[\forall f,g\in\bm{B}, \forall(u,v)\in V_1\times V_2, \]
+			\[``+":\bm{B}^2\to\K((f+g)(u,v):=f(u,v)+g(u,v))\]
+			\[``\cdot":\K\times\bm{B}((kf)(u,v):=k(f(u,v)))\]
 
 			内积是一种特殊的双线性型. 
 		\end{dfn}
@@ -5588,7 +5584,7 @@
 			[]
 			[]
 			
-			\[\dim\B=\dim V_1\times V_2\]
+			\[\dim\bm{B}=\dim V_1\times V_2\]
 		\end{ppt}
 		\begin{prf} 
 			\[\dim V_1:=m, \dim V_2:=n\]
