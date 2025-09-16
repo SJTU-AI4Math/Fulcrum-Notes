@@ -4,19 +4,16 @@
 \def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
 \makeatother
 
-\usepackage{FulcrumHabitCN}
-\usepackage{amsmath,amssymb,amsthm,amsfonts}
-\usepackage{mathtools}
-\usepackage{physics}
-\usepackage{esint}
+% ----------------------------------------------
+\usepackage{FulcrumCN}
+\usepackage{OperatorListCN}
+\usepackage{F4Analysis}
+\usepackage{F4Algebra}
+\usepackage{F4Topology}
+% ----------------------------------------------
 
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true, 
-    linkcolor=blue, 
-    filecolor=magenta, 
-    urlcolor=cyan
-}
+\usepackage{mathtools}
+\usepackage{esint}
 
 % 自定义超链接样式
 \newcommand{\hyperrefc}[2]{\hyperref[#1]{\textcolor{purple}{#2}}}
@@ -40,22 +37,14 @@
 \newfontfamily{\fontik}[AutoFakeSlant=0.225,AutoFakeBold=3,Path="C:/Windows/fonts/"]{Inkfree.ttf}
 \newCJKfontfamily{\cjksh}[AutoFakeSlant=0.225,AutoFakeBold=3,Path="C:/Windows/fonts/"]{FZShouHCGTJW.TTF}
 \fi
-\usepackage{geometry}
-\geometry{
-    paper =a4paper,
-    top =1.5cm,
-    bottom =2cm,
-    left=1.5cm,
-    right =1.5cm
-}
+
 \setlength{\parindent}{0pt}
 \linespread{1.5}
 
 \newcommand{\continued}{{\Large to be continued...}}
 
-\DeclareMathOperator{\ii}{\mathrm{i}}
+%\DeclareMathOperator{\ii}{\mathrm{i}}
 \DeclareMathOperator{\ee}{\mathrm{e}}
-\DeclareMathOperator{\HF}{\mathcal{H}}
 \DeclareMathOperator{\Log}{Log}
 
 % 超链接：
@@ -82,7 +71,7 @@
 \subsection{复数的基本运算}
 类比实数的运算，复数遵从和实数一样的运算基本规律。我们已经从初等代数中了解到了
 \begin{dfn}
-    [UUID]
+    [ImaginaryUnit]
     {虚数单位}
     [Imaginary Unit]
     [Dedicatia]
@@ -187,11 +176,11 @@
     \end{cases}\]
 \end{ppt}
 \begin{dfn}
-    [UUID]
-    {复数的三角表示\label{dfn:AngularForm}}
+    [AngularForm]
+    {复数的三角表示}
     [Angular Form of Complex Number]
     [Dedicatia]
-    复数$z=a+b\ii$具有极坐标形式$r(\cos\theta+\ii\sin\theta)$, 其中$r>0, \theta\in\R$, 这称之为该复数的三角表示式。其中的$r$称为复数的模长且等于绝对值，$\theta$为该复数的\textbf{辐角(Argument)}，记作$\operatorname{arg} z$. 通常取$\theta\in[0,2\pi)$中的值为\textbf{辐角的主值(Principal Argument)}。
+    复数$z=a+b\ii$具有极坐标形式$r(\cos\theta+\ii\sin\theta)$, 其中$r>0, \theta\in\R$, 这称之为该复数的三角表示式。其中的$r$称为复数的模长且等于绝对值，$\theta$为该复数的\textbf{辐角(Argument)}，记作$\operatorname{Arg} z$. 通常取$\theta\in[0,2\pi)$中的值为\textbf{辐角的主值(Principal Argument)}，这时可以记作$\arg{z}$.
 \end{dfn}
 \begin{thm}
     [UUID]
@@ -291,8 +280,8 @@
     称函数$f(z)$在$a$点连续，必需而且只需$\lim\limits_{z\to a}f(z)=f(a)$. 称在一个集合$D$上所有点都连续的函数叫做$D$上的连续函数。
 \end{dfn}
 \begin{dfn}
-    [UUID]
-    {导数（形式上的定义）\label{dfn:Derivative}}
+    [Derivative]
+    {导数（形式上的定义）}
     [Derivative (Formational)]
     [Dedicatia]
     我们先给出适合于所有类型的复函数的导数定义：
@@ -320,13 +309,13 @@
 由上面的讨论我们可以发现，真正具有重大研究意义的应是\textbf{复变量的复值函数的导数}。
 \subsection{全纯函数}
 \begin{dfn}
-    [UUID]
-    {解析函数\label{dfn:AnalyticalFunction} / 全纯函数}
+    [AnalyticalFunction]
+    {解析函数 / 全纯函数}
     [Analytic Function / Holomorphic Function]
     [Dedicatia]
     设函数$f(z)$在区域$D\in\C$上有定义，对每一点$z_0\in D$, 导数
     \[f'(z_0)=\lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}\]
-    都存在且有限，那么就称$f(z)$在$D$上是\textbf{解析函数 / 全纯函数}. 也可以记作$f(z)\in\HF(D)$.
+    都存在且有限，那么就称$f(z)$在$D$上是\textbf{解析函数 / 全纯函数}. 也可以记作$f(z)\in\mathcal{H}(D)$.
 \end{dfn}
 \begin{ppt}
     [UUID]
@@ -475,8 +464,8 @@
     设 \(\sum u_n\) 是 \(D\) 上的一个函数项级数, 对 \(x_0\in D\), 若数列 \(S_n(x_0)\) 是收敛的数项级数, 则称函数列 \(f_n\) 在点 \(x_0\) 处\textbf{收敛}；如果$S_n(x)$在区间$[a,b]$上的任意一点$x_0$都收敛，则称$f_n(x)$在区间$[a,b]$上逐点收敛。
 \end{dfn}
 \begin{dfn}
-    [UUID]
-    {一致收敛\label{dfn:UniformConvergence}}
+    [UniformConvergence]
+    {一致收敛}
     [Uniform Convergence]
     [Dedicatia]
     称定义在 \(D\) 上的函数项级数 \(f_n\) 在 \(D\) 上\textbf{一致收敛} 于函数 \(f\), 若: 
@@ -511,8 +500,8 @@
 \end{thm}
 现在我们来研究最简单的级数形式：\PowerSeries ：
 \begin{dfn}
-    [UUID]
-    {幂级数\label{dfn:PowerSeries}}
+    [PowerSeries]
+    {幂级数}
     [Power Series]
     [Dedicatia]
     对于某个函数项级数$\sum_{n = 0}^{\infty} u_n(z) $，当其中的每一项$u_n(z)$为$a_n(z-z_0)^n$的形式时，称这种函数项级数为（一般的）\textbf{幂函数项级数}, 简称\textbf{幂级数}. 当$z_0=0$时，即为
@@ -554,7 +543,7 @@
     [Dedicatia]
     当数项级数$\sum\limits_{n=0}^\infty a_n$收敛时，如果$z$趋近于1时保持$\frac{|1-z|}{1-|z|}$有界，那么$f(z)=\sum\limits_{n=0}^\infty a_nz^n$也就趋近于$f(1)$.
 \end{xmp}
-由于\PowerSeries 可以无限次求导，所以我们有\AnalyticalFunction 的\PowerSeries 定义：
+由于\PowerSeries 可以无限次求导，所以我们有\AnalyticalFunction 的形式的\PowerSeries 定义：
 \begin{dfn}
     [UUID]
     {解析函数}
@@ -564,23 +553,13 @@
     \[f(z)=\sum_{n=0}^{\infty}a_n(z-z_0)^n,\]  
     则称它在 \(z_0\) 处是\AnalyticalFunction 。  
 \end{dfn}
-\begin{ppt}
-    [UUID]
-    {解析函数可以展开为收敛的幂级数}
-    []
-    [Dedicatia]
-    一旦复可导，则
-    1. 任意阶复导数 \(f^{(n)}(z)\) 都存在；  
-    2. 在 \(z_0\) 的某个邻域内可展成收敛的泰勒级数  
-    \[f(z)=\sum_{n=0}^{\infty}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n.\]  
-\end{ppt}
 在复数域上，\AnalyticalFunction 与全纯函数完全等价。
 \section{作为映照的解析函数}
 \subsection{度量空间与拓扑空间}
 为了研究清楚复函数的连续性问题，我们有必要引入拓扑学。在考察“任意近”这个定义时，对“近”这个概念如何给出依赖拓扑学。
 \begin{dfn}
-    [UUID]
-    {度量空间\label{dfn:MetricSpace}}
+    [MetricSpace]
+    {度量空间}
     [Metric Space]
     [Dedicatia]
     集合$S$称为度量空间，对于每一个$x\in S, y\in S$, 定义了二元函数$d(x,y)$满足：
@@ -608,7 +587,23 @@
     \[d(z_1,z_2)=\frac{|z_1-z_2|}{\sqrt{1+|z_1|^2}\sqrt{1+|z_2|^2}}\]
     为扩充复平面上的距离。
 \end{xmp}
-接下来我们的所用的拓扑学概念都是由\hyperrefc{dfn:MetricSpace}{度量空间}诱导产生。
+\begin{dfn}
+    {范数}
+    [Norm]
+    设一个定义在某数域$\F$的线性空间$X$上的运算关系：$x\mapsto\lVert x\rVert$满足：
+    \begin{enumerate}
+        \item $\left\lVert x\right\rVert\geq 0$;
+        \item $\left\lVert x\right\rVert=0\Longleftrightarrow x=0$;
+        \item $\left\lVert kx\right\rVert=|k|\cdot\left\lVert x\right\rVert $, $k\in\F$;
+        \item $\forall y\in X$, $\left\lVert x+y\right\rVert\leq\left\lVert x\right\rVert+\left\lVert y\right\rVert   $. 
+    \end{enumerate}
+    则称$\left\lVert x\right\rVert $是$X$上的\textbf{范数}.
+\end{dfn}
+\begin{dfn}
+    {赋范空间}
+    称$(X,\left\lVert \cdot\right\rVert )$是一个\textbf{赋范空间}，若$\left\lVert \cdot\right\rVert $是一种范数。
+\end{dfn}
+在复分析中，我们的所用的拓扑学概念都是由\hyperrefc{dfn:MetricSpace}{度量空间}诱导产生。所以它具有很好的性质。
 \begin{dfn}
     [UUID]
     {开球}
@@ -673,8 +668,8 @@
     任何一条简单闭曲线都会将二维平面（如复平面$\C$）恰好分成两个不相交的区域：一个有界的内部和一个无界的外部，并且这条曲线本身就是这两个区域的共同边界。
 \end{thm}
 \begin{dfn}
-    [UUID]
-    {拓扑空间\label{dfn:TopologicalSpace}}
+    [TopologicalSpace]
+    {拓扑空间}
     [Topological Space]
     [Dedicatia]
     设非空集合$S$具有一个子集族$\tau$, 即$\tau\subseteq\mathcal{P}(S) $, 若满足：
@@ -692,6 +687,15 @@
     [Dedicatia]
     拓扑$\tau$中的元素称为\textbf{开集}。在度量空间中也称为\textbf{区域}。
 \end{ppt}
+\begin{xmp}
+    {概念的实例}
+    我们以$\R$上的集合$(0,1]$为例，那么：
+    \begin{itemize}
+        \item 其内部指的是$(0,1)$;
+        \item 其闭包指的是$[0,1]$;
+        \item 其边界指的是$\{0,1\}$.
+    \end{itemize}
+\end{xmp}
 \begin{dfn}
     [UUID]
     {子空间拓扑}
@@ -774,8 +778,8 @@
     则称这个有限子集为一个\textbf{有限子覆盖}。
 \end{dfn}
 \begin{dfn}
-    [UUID]
-    {紧致性\label{dfn:Compactness}}
+    [Compactness]
+    {紧致性}
     [Compactness]
     [Dedicatia]
     称一个集合$X$是\textbf{紧致的}，如果 \(X\) 的每一个开覆盖都有一个有限子覆盖.
@@ -825,8 +829,8 @@
     聚点 \( x \) 是这样的点，其任意去心邻域内都包含一个集合 \( A \) 中的点。
 \end{dfn}
 \begin{dfn}
-    [UUID]
-    {可数紧性\label{dfn:CountableCompactness}}
+    [CountableCompactness]
+    {可数紧性}
     [Countable Compactness]
     [Dedicatia]
     称一个集合$X$是可数紧的，当其中的任意序列都存在聚点（但不要求收敛）。这个性质也被称为\textbf{Bolzano-Weierstrass性质}. 在有些教材中，它也被简称为\textbf{列紧性}。
@@ -930,16 +934,16 @@
     设 \( f: \Omega \to \mathbb{C} \) 是定义在复平面上的开集 \( \Omega \) 上的复函数。如果 \( f \) 在 \(\forall z_0 \in \Omega \) 都可导，就称$f$是\AnalyticalFunction 。
 \end{dfn}
 \begin{dfn}
-    [UUID]
-    {共形映照\label{dfn:ConformalMapping}}
+    [ConformalMapping]
+    {共形映照}
     [Conformal Mapping]
     [Dedicatia]
     设 \( f: \Omega \to \mathbb{C} \) 是定义在复平面上的开集 \( \Omega \) 上的复函数。如果 \( f \) 在某点 \( z_0 \in \Omega \) 处可导且 \( f'(z_0) \neq 0 \)，则称 \( f \) 在 \( z_0 \) 处是\textbf{共形的}。共形性保证了其具有局部的单调性和逆映射。\\
     如果 \( f \) 在 \( \Omega \) 的每一个点上都是共形的，则称 \( f \) 是 \( \Omega \) 上的\textbf{共形映照}。
 \end{dfn}
 \begin{ppt}
-    [UUID]
-    {常解析函数\label{dfn:TrivialAnalyticalFunction}}
+    [TrivialAnalyticalFunction]
+    {常解析函数}
     []
     [Dedicatia]
     如果一个\AnalyticalFunction 在某定义域$\Omega$上导数恒为0，那么它必定是常函数。
@@ -1091,27 +1095,6 @@
 \end{dfn}
 \continued
 \subsection{初等解析函数}
-对于一般的实函数，我们可以研究其图像。但是对于复函数，该怎么画它的图像呢？我们先从\AnalyticalFunction 说起。\\
-例如，对于函数
-\[w=f(z)=z^2\]
-我们根据实部与虚部拆开，得到
-\[w=f(x,y)=u(x,y)+\ii v(x,y)=(x+\ii y)^2=(x^2-y^2)+\ii(2xy)\]
-这时自然就会想到，函数$f(z)$将$z$平面的直线$x=x_0$映射到$w$平面的曲线$u_0(y)=u(x_0,y)=x_0^2-y^2$, 将$z$平面的直线$y=y_0$映射到$w$平面的曲线$v_0(x)=v(x,y_0)=2xy_0$. 根据\AnalyticalFunction 的共形性，这两条曲线在$f'(z)\neq 0$的地方是正交的。
-\begin{dfn}
-    [UUID]
-    {势函数与流函数}
-    [Equipotential Function and Stream Function]
-    [Dedicatia]
-    称\AnalyticalFunction $w=f(z)=u(x,y)+\ii v(x,y)$对应于一个\textbf{复位势}，实部$u(x,y)$称为势函数，虚部$v(x,y)$称为流函数。这个命名来源于场论。
-\end{dfn}
-\begin{ppt}
-    [UUID]
-    {势函数与流函数的正交性}
-    []
-    [Dedicatia]
-    势函数与流函数在\ConformalMapping 下的点是正交的。这一点可以通过Cauchy-Riemann方程证得。
-\end{ppt}
-由此，我们可以将原坐标系的网格映照到新坐标系下的一簇正交曲线网。这也为我们提供了一种表示作为映照的复变函数的方法（画网格）。\par
 接下来要将我们熟悉的实数函数（如指数、对数、三角函数）的定义域扩展到复数，同时尽可能保持其重要的代数性质和解析性。
 \begin{thm}
     [UUID]
@@ -1236,6 +1219,31 @@
     称指数函数$\exp z$和$\ln z$通过有限次四则运算和有限次复合运算后得到的函数全体为\textbf{初等函数}. 由于这两个函数本身都是解析的，所以所有的初等函数都是\AnalyticalFunction 。
 \end{dfn}
 由此便可以发现复函数的性质：与实数情况不同，所有的初等函数都可以用$\exp z$和$\ln z$表示而无需独立定义。
+\subsection{复函数视角下的场论}
+对于一般的实函数，我们可以研究其图像。但是对于复函数，该怎么画它的图像呢？我们先从\AnalyticalFunction 说起。\\
+例如，对于函数
+\[w=f(z)=z^2\]
+我们根据实部与虚部拆开，得到
+\[w=f(x,y)=u(x,y)+\ii v(x,y)=(x+\ii y)^2=(x^2-y^2)+\ii(2xy)\]
+这时自然就会想到，函数$f(z)$将$z$平面的直线$x=x_0$映射到$w$平面的曲线$u_0(y)=u(x_0,y)=x_0^2-y^2$, 将$z$平面的直线$y=y_0$映射到$w$平面的曲线$v_0(x)=v(x,y_0)=2xy_0$. 根据\AnalyticalFunction 的共形性，这两条曲线在$f'(z)\neq 0$的地方是正交的。
+\begin{dfn}
+    [UUID]
+    {势函数与流函数}
+    [Equipotential Function and Stream Function]
+    [Dedicatia]
+    称\AnalyticalFunction $w=f(z)=u(x,y)+\ii v(x,y)$对应于一个\textbf{复位势}，实部$u(x,y)$称为势函数，虚部$v(x,y)$称为流函数。这个命名来源于场论。
+\end{dfn}
+\begin{ppt}
+    [UUID]
+    {势函数与流函数的正交性}
+    []
+    [Dedicatia]
+    势函数与流函数在\ConformalMapping 下的点是正交的。这一点可以通过Cauchy-Riemann方程证得。
+\end{ppt}
+由此，我们可以将原坐标系的网格映照到新坐标系下的一簇正交曲线网。这也为我们提供了一种表示作为映照的复变函数的方法（画网格）。\\
+设不可压缩流体在平面上具有速度场$\vec{v}=v_x+\ii v_y$. 那么取路径微元$\dd{s}$, 其在该处的径向和法向分别是
+\[\vec{\tau}=\dv{x}{s}+\ii\dv{y}{s},\qquad\vec{n}=-\ii\tau=\dv{y}{s}-\ii\dv{x}{s}\]
+\[v_\tau=\vec{v}\cdot\vec{\tau}=v_x\dv{x}{s}+v_y\dv{y}{s}\]
 \section{复积分理论}
 \subsection{复函数的线积分}
 我们尽可能希望复积分能参照已有的实积分体系。因为实积分是我们较为熟悉的，其存在性已经证明完成。
@@ -1331,8 +1339,8 @@
     \[\pdv{F}{x}=p,\quad\pdv{F}{y}=q.\]
 \end{thm}
 \begin{dfn}
-    [UUID]
-    {全微分 / 正合微分 / 恰当微分\label{dfn:ExactDifferential}}
+    [ExactDifferential]
+    {全微分 / 正合微分 / 恰当微分}
     [Total Differential / Exact Differential]
     [Dedicatia]
     我们称与路径无关的线积分中的积分表达式$p\dd{x}+q\dd{y}$为一个\textbf{全微分 / 正合微分}. 可以写作
@@ -1432,8 +1440,8 @@
 \end{thm}
 将上面的定理汇总到一起，就有：
 \begin{thm}
-    [UUID]
-    {Cauchy积分定理\label{thm:Cauchy}}
+    [Cauchy]
+    {Cauchy积分定理}
     [Cauchy's Intergral Theorem]
     [Dedicatia]
     设$f$在某种区域$D$上解析，那么对于$D$上的任一条闭曲线$\gamma$，都有
@@ -1467,8 +1475,8 @@
 \end{prf}
 现在我们可以定义：
 \begin{dfn}
-    [UUID]
-    {环绕数 / 指示数\label{dfn:WindingNumber}}
+    [WindingNumber]
+    {环绕数 / 指示数}
     [Winding Number / Indicating Number]
     [Dedicatia]
     设复平面内一点$a$和一条曲线$\gamma$, 定义
@@ -1500,8 +1508,8 @@
     \[n(\gamma,a)f(a)=\frac{1}{2\pi\ii}\int_\gamma\frac{f(z)}{z-a}\dd{z} \]
 \end{thm}
 \begin{crl}
-    [UUID]
-    {表示公式\label{crl:CauchyRepresenting}}
+    [CauchyRepresenting]
+    {表示公式}
     []
     [Dedicatia]
     Cauchy积分公式在$n(\gamma,a)=1$时的情形叫做\textbf{表示公式}:
@@ -1520,8 +1528,8 @@
 \[f(z)=\frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\dd{\zeta}\]
 只要这一积分可以在积分号下对$z$微分，那么就可以得到高阶导数。
 \begin{dfn}
-    [UUID]
-    {高阶导数\label{dfn:HighOrderedDerivative}}
+    [HighOrderedDerivative]
+    {高阶导数}
     [High-ordered Derivatives]
     [Dedicatia]
     限制在圆$\gamma$内时，在形式上，函数$f(z)$的高阶导数为
@@ -1592,7 +1600,7 @@
 \end{prf}
 \subsection{Taylor定理与解析函数的奇点}
 \begin{dfn}
-    [UUID]
+    [RemovableSingularity]
     {可去奇点}
     [Removable Singularity]
     [Dedicatia]
@@ -1632,7 +1640,7 @@
     那么 \( g(z) \) 在整个复平面上都是解析的。
 \end{xmp}
 \begin{thm}
-    [UUID]
+    [Taylor]
     {Taylor定理\label{thm:Taylor}}
     [Taylor's Theorem]
     [Dedicatia]
@@ -1661,7 +1669,7 @@
 \end{prf}
 我们已经讨论过一类奇点。自然可以发现另一类：
 \begin{dfn}
-    [UUID]
+    [PolarSingularity]
     {极点}
     [Polar Singularity]
     [Dedicatia]
@@ -1669,8 +1677,8 @@
 \end{dfn}
 通过取倒数可以发现，这里的极点与有理分式的极点并无区别。为此我们新定义：
 \begin{dfn}
-    [UUID]
-    {亚纯函数 / 半纯函数\label{dfn:MeromorphicFunction}}
+    [MeromorphicFunction]
+    {亚纯函数 / 半纯函数}
     [Meromorphic Function]
     [Dedicatia]
     在区域$D$上，一个除了极点之外处处解析的函数称为\textbf{亚纯函数/半纯函数}.\\
@@ -1705,20 +1713,24 @@
     如果存在$h\in\Z$, $\alpha>h$时该极限为0, $\alpha\leq h$时该极限为$\infty$, 就称$h$为该极点的阶数。
 \end{dfn}
 \begin{dfn}
-    [UUID]
-    {简单奇点}
+    [SimpleSingularity]
+    {单极点}
     [Simple Singularity]
     [Dedicatia]
-    对于阶数为1的极点我们称之为简单奇点。
+    对于阶数为1的极点我们称之为\textbf{单极点}。
 \end{dfn}
 而对于(iii)条件，函数在该奇点处的行为是混乱的。我们就定义：
 \begin{dfn}
-    [UUID]
-    {本性奇点\label{dfn:EssentialSingularity}}
+    [EssentialSingularity]
+    {本性奇点}
     [Essential Singularity]
     [Dedicatia]
     如果函数 \( f(z) \) 在点 \( z_0 \) 的一个去心邻域内解析，且极限 \( \lim\limits_{z \to z_0} f(z) \) 不存在也非无穷，则称 \( z_0 \) 为 \( f(z) \) 的\textbf{本性奇点}。
 \end{dfn}
+\begin{thm}
+    {本性奇点的Weierstass条件}
+    $z_0$是$f(z)$的本性奇点的充要条件是: $\forall\,A\in\hat{\C}$, 都能在$z_0$的邻域内找到一列收敛到$z_0$的序列$\{z_n\}$, 使得$\lim_{n\to\infty}f(z_n)=A$.
+\end{thm}
 \begin{thm}
     [UUID]
     {Picard定理}
@@ -1901,8 +1913,8 @@
 \end{cxmp}
 能否得到更为一般的积分定理呢？考虑\CauchyThm 与\hyperref[dfn:WindingNumber]{环绕数}脱不开干系，环绕数又可以帮我们确定单连通性，所以在环绕数上做文章：
 \begin{dfn}
-    [UUID]
-    {同调于零 / 零调\label{dfn:NullHomologous}}
+    [NullHomologous]
+    {同调于零 / 零调}
     [Homologous to Zero / Null Homology]
     [Dedicatia]
     区域$D$中的$\gamma$称为关于$D$\textbf{同调于零/零调}，如果对于$D$的补集中的任意点$a$都有$n(\gamma,a)=0$.
@@ -1953,9 +1965,9 @@
 \end{dfn}
 将Cauchy积分定理用于多连通域，就得到：
 \begin{thm}
-    [UUID]
+    [CombinedClosedCircuit]
     {复合闭路定理}
-    []
+    [Combined Closed-Circuit Theorem]
     [Dedicatia]
     设 $C$ 是一条简单闭曲线，$C_1, C_2, \ldots, C_n$ 是包含在 $C$ 内部的 $n$ 条互不包含也互不相交的简单闭曲线。如果函数 $f(z)$ 在以 $C, C_1, \ldots, C_n$ 为边界的多连通区域$D$上解析，且在闭区域 $\overline{D}$ 上连续，则有：
     $$\oint_C f(z) \dd z = \sum_{k=1}^n \oint_{C_k} f(z) \dd z$$
@@ -2026,7 +2038,19 @@ Ai有一个生动的比喻:\\
     设$f(z)$在区域$D$上除去$h$阶极点$a$之外解析，这时在$0<|z-a|<\delta$的邻域内$f(z)$可以展开成
     \[f(z)=B_h(z-a)^{-h}+\cdots+B_1(z-a)^{-1}+\varphi(z)\]
     那么$\underset{z=a}{\Res}f(z)=B_1$.\\
-    特别地，如果是简单奇点，那么$\underset{z=a}{\Res}f(z)=(z-a)f(z)\Big|_{z=a}$.
+    特别地，如果是单极点，那么$\underset{z=a}{\Res}f(z)=(z-a)f(z)\Big|_{z=a}$.
+\end{crl}
+\begin{cxmp}
+    {极点是$\infty$时的特殊情形}
+    公式$\underset{z=a}{\Res}f(z)=(z-a)f(z)\Big|_{z=a}$常不适用于极点$\infty$.\\
+    即使$\infty$是可去奇点，$\underset{z=\infty}{\Res}f(z)$也可能不为0.
+\end{cxmp}
+\begin{crl}
+    {极点留数的L'Hospital法则}
+    设$f=\frac{\varphi}{\psi}$在$a$处有极点，那么
+    \[\underset{z=a}{\Res}f(z)=\frac{\varphi(a)}{\psi'(a)}\]
+    如果还是极点，即$a$是$\varphi, \psi$的$n$, $n+1$阶零点，那么
+    \[\underset{z=a}{\Res}f(z)=\lim_{z\to a}\frac{(z-a)\varphi(z)}{\psi(z)}=\frac{(n+1)\varphi^{(n)}(a)}{\psi^{(n+1)}(a)}\]
 \end{crl}
 \begin{dfn}
     [UUID]
@@ -2052,7 +2076,7 @@ Cauchy积分公式可以看作留数定理的特例：
     [Dedicatia]
     设$f(z)$在开集$D$上解析，$\gamma$是$D$中一条闭曲线，那么对于不在$\gamma$上的点$a$, 必然有
     \[n(\gamma,a)f(a)=\frac{1}{2\pi\ii}\int_\gamma\frac{f(z)}{z-a}\dd{z} \]
-    这是因为函数$\frac{f(z)}{z-a}$在$z=a$处有一个简单奇点，那么在该处的留数就是$f(a)$, 环绕数是1, 得到这个公式。
+    这是因为函数$\frac{f(z)}{z-a}$在$z=a$处有一个单极点，那么在该处的留数就是$f(a)$, 环绕数是1, 得到这个公式。
 \end{crl}
 如果奇点出现在了积分区域的边界，那么留数定理就要也随之推广：
 \begin{thm}
@@ -2101,7 +2125,7 @@ Cauchy积分公式可以看作留数定理的特例：
     \[I=-\ii\int_{|z|=1}\frac{\dd{z}}{z\pqty{a+\frac{1}{2}\qty(z+\frac{1}{z})}}=-2\ii\int_{|z|=1}\frac{\dd{z}}{z^2+2az+1}=-2\ii\int_{|z|=1}\frac{\dd{z}}{(z-z_1)(z-z_2)}\]
     其中
     \[z_1=-a+\sqrt{a^2+1},\qquad z_2=-a-\sqrt{a^2+1}\]
-    这里的$z_1, z_2\in\R$都是简单奇点。并且$|z_1|<1$, $z_2>1$, 只有$z_1$在该闭链$C:|z|=1$中。根据留数定理：
+    这里的$z_1, z_2\in\R$都是单极点。并且$|z_1|<1$, $z_2>1$, 只有$z_1$在该闭链$C:|z|=1$中。根据留数定理：
     \[I=(2\pi\ii)(-2\ii)\underset{z=z_1}{\Res}f(z)=\frac{4\pi}{z_1-z_2}=\frac{2\pi}{\sqrt{a^2+1}}\]
 \end{xmp}
 我们在学习反常实积分时有一个概念：
@@ -2145,7 +2169,7 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     求取$g(z)$的极点与留数：
     \[g(z)=\frac{\exp 2\ii z}{(z+\ii)(z-\ii)}\]
     极点位于$z=\pm i$, 但我们只取在上半平面的极点$z=i$即可：
-    \[\underset{z=i}{g(z)}=\eval(\frac{\exp 2\ii z}{z+i}|_{z=i}=\frac{\exp(-2)}{2\ii}\]
+    \[\underset{z=i}{g(z)}=\eval{\frac{\exp 2\ii z}{z+i}}_{z=i}=\frac{\exp(-2)}{2\ii}\]
     使用留数意义下的Cauchy积分公式：
     \[I=\oint_C g(z)\dd{z}=2\pi\ii\sum_{y>0}\underset{y>0}{\Res}g(z)=2\pi\ii\cdot\frac{\exp(-2)}{2\ii}=\frac{\pi}{\ee^2}.\]
 \end{xmp}
@@ -2155,7 +2179,7 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     {绕行引理}
     []
     [Dedicatia]
-    如果 $z=a$ 是 $f(z)$ 的一个简单奇点，那么当以小半圆弧 $C_\delta$ 绕过它时（逆时针方向），有：
+    如果 $z=a$ 是 $f(z)$ 的一个单极点，那么当以小半圆弧 $C_\delta$ 绕过它时（逆时针方向），有：
     $$\lim_{\delta \to 0} \int_{C_\delta} f(z) \dd z = \pi \ii \underset{z=z_0}{\Res}f(z)$$
     与上面的计算方法合在一起就是：
     \[\int_{-\infty}^{\infty} R(x) \cos(ax) \dd x +\ii\int_{-\infty}^{\infty} R(x) \sin(ax) \dd x =2\pi\ii\sum_{y=0}\underset{z=a}{\Res}(R(z)\exp\ii z)+\pi\ii\sum_{y>0}\underset{z=a}{\Res}(R(z)\exp\ii z).\]
@@ -2288,7 +2312,44 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
 
 \section{函数的级数展开与因子分解}
 \subsection{Weierstrass定理}
-在之前的章节中我们研究幂级数，主要是为了定义复数域上的初等解析函数。现在我们可以来研究一般的幂级数：
+在之前的章节中我们研究幂级数，主要是为了定义复数域上的初等解析函数。其上的定理成立：
+\begin{thm}
+    [UUID]
+    {Hadamard定理}
+    [Hadamard's Theorem]
+    [Dedicatia]
+    对于每个\PowerSeries , 其存在一个非负值$R$, 称为它的\textbf{收敛半径}，满足：
+    \begin{enumerate}
+        \item 每一个复数$|z|<R$都可以使幂级数绝对收敛。设$0\leqslant\rho <R$, 当$|z|\in[0,\rho]$时，级数\UniformConvergence ；
+        \item 当$|z|>R$时幂级数发散；
+        \item \textbf{当$|z|<R$时的和是\AnalyticalFunction }，根据一致收敛性，其导数可以逐项微分求得。
+    \end{enumerate}
+    这个$R$由公式
+    \[\frac{1}{R}=\lim_{n\to \infty}\sup\sqrt[n]{|a_n|}\]
+    确定。\\
+    但是，在$|z|=R$时，级数的敛散性是不明的，需要额外判断。
+\end{thm}
+\begin{cxmp}
+    {收敛半径处的不确定性}
+    幂级数在收敛半径的某处发散，其和函数在此处未必不解析：
+    \[\frac{1}{1-z}=1+z+\cdots+z^n+\cdots\quad(|z|<1) \]
+    在$z=-1$的情形；\\
+    幂级数在收敛半径的某处收敛，其和函数在此处不一定解析：
+    \[(1-z)\ln(1-z)+z=\sum_{n=1}^{\infty}\frac{z^{n+1}}{n(n+1)}\]
+    在$z=1$的情形。
+\end{cxmp}
+\begin{thm}
+    [UUID]
+    {Abel第二定理}
+    [Abel's Second Law of Power Series]
+    [Dedicatia]
+    设\PowerSeries $(\star)$的收敛半径为 \( R \), 如果这个级数在 \( z = R \) 处收敛，即
+    \[\sum_{n=0}^{\infty} a_n R^n\]
+    收敛，那么函数
+    \[f(z) = \sum_{n=0}^{\infty} a_n z^n\]
+    在 \( z \) 从复平面上的圆盘 \( |z| < R \) 内趋近于 \( z = R \) 时的极限等于级数在 \( z = R \) 处的和，即
+    \[\lim_{\substack{z \to R \\ |z| < R}} f(z) = \sum_{n=0}^{\infty} a_n R^n.\]
+\end{thm}
 \begin{thm}
     [UUID]
     {一致收敛保持解析性}
@@ -2298,7 +2359,7 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
 \end{thm}
 \begin{xmp}
     [UUID]
-    {一致收敛你的解析性实例}
+    {一致收敛的解析性实例}
     []
     [Dedicatia]
     我们取$f_n(z)=\frac{z}{2z^n+1}$, 取圆盘$|z|<1$作为开集$D$, 那么在这个圆盘中显然有$\lim\limits_{z\to\infty}f_n(z)=z$.
@@ -2332,13 +2393,94 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     其中$C$是包含于$D$中的曲线$|z-z_0|=\rho$. 
 \end{thm}
 \begin{thm}
-    [UUID]
+    [TaylorSeries]
     {Taylor级数}
-    []
+    [Taylor's Series]
     [Dedicatia]
     设$f(z)$在开集$D$上解析，$z_0$是$D$中的一个点，那么在$D$中以$z_0$为圆心的最大开圆盘内，下式成立：
     \[f(z)=f(z_0)+\frac{f'(z_0)}{1!}(z-z_0)+\cdots+\frac{f^{(n)}}{n!}(z-z_0)^n+\cdots\]
 \end{thm}
+由于是无穷的级数，所以这里不再需要余项。这时，我们可以证明以下的经典幂级数展开式：
+\begin{xmp}
+    {初等解析函数的幂级数展开式实例\label{xmp:TaylorCommon}}
+    与实分析一样，有：
+    \[\exp z=1+z+\frac{z^2}{2!}+\cdots+\frac{z^n}{n!}+\cdots\]
+    \[\sin z=z-\frac{z^3}{6!}+\cdots+(-1)^{n-1}\frac{z^{2n-1}}{(2n-1)!}+\cdots\]
+    \continued
+\end{xmp}
+但是复分析中的Taylor级数无法规避奇点问题。所以现在我们考虑新的级数：
+\begin{thm}
+    [Laurent]
+    {Laurent级数}
+    [Laurent's Series]
+    [Dedicatia]
+    设在圆环$R_1<|z-z_0|<R_2(R_1\geqslant 0, R_2\leqslant+\infty )$内的\AnalyticalFunction $f(z)$必定可以写成同时包含正幂和负幂的级数：
+    \[f=\sum_{n=-\infty}^{+\infty}a_n(z-z_0)^n\tag{$\bullet$}\]
+    其中
+    \[a_n=\frac{1}{2\pi\ii}\oint_{\gamma}\frac{f(\zeta)}{(\zeta-z_0)^{n+1}}\dd{\zeta}\]
+    $\gamma$是$|\zeta-z_0|=\rho(R_1<\rho< R_2)$的圆周。\\
+    这时称得到的级数$(\bullet)$为\textbf{Laurent级数}，也叫Laurent展式；称其负数次幂为\textbf{主要部分}。
+\end{thm}
+\begin{prf}
+    已知 $f(z)$ 在圆环 $R_1 < |z - z_0| < R_2$ 上解析。选择两个同心圆 $C_1$ 和 $C_2$ 使得 $C_2$ 的半径为 $r_2$ ($R_1 < r_2 < R_2$), $C_1$ 的半径为 $r_1$ ($R_1 < r_1 < r_2$), 使得点 $z$ 位于两个圆之间 ($r_1 < |z - z_0| < r_2$):\\
+    对于圆环内的一点 $z$, 由\hyperref[thm:CombinedClosedCircuit]{复合闭路定理}可得：
+    $$f(z) = \frac{1}{2\pi\ii} \oint_{C_2} \frac{f(\zeta)}{\zeta - z} \dd\zeta - \frac{1}{2\pi i} \oint_{C_1} \frac{f(\zeta)}{\zeta - z}  \dd\zeta$$
+    对于积分路径 $C_2$，有 $|\zeta - z_0| = r_2 > |z - z_0|$。将核函数 $\frac{1}{\zeta - z}$ 展开为关于 $\frac{z-z_0}{\zeta-z_0}$ 的几何级数：
+    $$\frac{1}{\zeta - z} = \frac{1}{(\zeta - z_0) - (z - z_0)} = \frac{1}{\zeta - z_0} \cdot \frac{1}{1 - \frac{z-z_0}{\zeta-z_0}} = \sum_{n=0}^{\infty} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}}$$
+    这个级数在 $C_2$ 上一致收敛。将其代入第一个积分：
+    $$\frac{1}{2\pi\ii} \oint_{C_2} \frac{f(\zeta)}{\zeta - z} \dd\zeta = \frac{1}{2\pi\ii} \oint_{C_2} f(\zeta) \sum_{n=0}^{\infty} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}} \dd\zeta = \sum_{n=0}^{\infty} \underbrace{\left[ \frac{1}{2\pi i} \oint_{C_2} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} d\zeta \right]}_{a_n} (z - z_0)^n$$
+    对于积分路径 $C_1$，情况相反：有 $|\zeta - z_0| = r_1 < |z - z_0|$。为了能使用几何级数，我们需要对核函数进行另一种形式的改写
+    $$\frac{1}{\zeta - z} = \frac{-1}{z - \zeta} = \frac{-1}{(z - z_0) - (\zeta - z_0)} = \frac{-1}{z - z_0} \cdot \frac{1}{1 - \frac{\zeta-z_0}{z-z_0}}$$
+    因为 $\left| \frac{\zeta-z_0}{z-z_0} \right| < 1$，所以可以展开几何级数：
+    $$\frac{1}{\zeta - z} = -\sum_{m=0}^{\infty} \frac{(\zeta - z_0)^m}{(z - z_0)^{m+1}}$$
+    令 $n = -(m+1)$，即 $m = -n - 1$。当 $m$ 从 $0$ 到 $\infty$ 时，$n$ 从 $-1$ 到 $-\infty$。重写上式：
+    $$\frac{1}{\zeta - z} = -\sum_{n=-1}^{-\infty} \frac{(\zeta - z_0)^{-n-1}}{(z - z_0)^{-n}} = \sum_{n=-\infty}^{-1} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}}$$
+    现在将这个展开式代入第二个积分：
+    $$-\frac{1}{2\pi i} \oint_{C_1} \frac{f(\zeta)}{\zeta - z}  d\zeta = -\frac{1}{2\pi i} \oint_{C_1} f(\zeta) \left( \sum_{n=-\infty}^{-1} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}} \right) d\zeta = \sum_{n=-\infty}^{-1} \underbrace{\left[ \frac{1}{2\pi i} \oint_{C_1} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} d\zeta \right]}_{a_n} (z - z_0)^n$$
+    合并，得到
+    $$f(z) = \sum_{n=0}^{\infty} a_n (z - z_0)^n + \sum_{n=-\infty}^{-1} a_n (z - z_0)^n = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n$$
+    其中，系数 $a_n$ 由统一的公式给出：
+    $$a_n = \frac{1}{2\pi i} \oint_C \frac{f(\zeta)}{(\zeta - z_0)^{n+1}}  d\zeta$$
+    这里的积分路径 $C$ 是圆环内任意一条绕 $z_0$ 的正向简单闭曲线。
+\end{prf}
+这时，\hyperref[thm:TaylorSeries]{Taylor级数}是Laurent级数在: $f(z)$在$z_0$处解析的条件下的特例：这时就将Laurent级数中的圆环就是一个圆盘. 作出Laurent级数，根据系数$a_n$的计算公式和\CauchyThm , 所有的负数幂系数都等于0. 这时的Laurent级数就变成了Taylor级数。只要在非奇点处附近展开就会得到Taylor级数。因此我们一般在奇点处求取Laurent级数。
+\begin{xmp}
+    {求解Laurent级数的实例}
+    计算：
+    \[f(z)=\frac{1}{z(z-1)}\]
+    在圆环$|z|>1$时的\hyperref[thm:Laurent]{Laurent级数}.\\
+    先进行部分分式分解：
+    \[f(z)=\frac{1}{z}-\frac{1}{z+1}\]
+    $\frac{1}{z}$已经是Laurent级数的一部分，所以我们考虑$\frac{1}{1+z}$.\\
+    根据\hyperref[xmp:TaylorCommon]{Taylor展开式}
+    \[\frac{1}{1 + w} = \sum_{n=0}^{\infty} (-1)^n w^n, \quad \text{对于} |w| < 1\tag{$\ast$}\]
+    但$|z|>1$不满足上面的使用条件，所以我们采取这种策略：
+    \[\frac{1}{1+z}=\frac{1}{z}\frac{1}{1+\frac{1}{z}}\]
+    这时可以保证$\left\lvert \frac{1}{z}\right\rvert <1$. 这时再使用$(\ast)$, 得到
+    \[f(z)=\frac{1}{z}-\sum_{n=0}^{+\infty}(-1)^n\qty(\frac{1}{z})^{n+1}.\]
+\end{xmp}
+\begin{thm}
+    {解析函数的孤立奇点与Laurent级数的关系}
+    设$z_0$是在其邻域内解析的函数$f$的一个奇点。那么
+    \begin{itemize}
+        \item 如果$z_0$是\hyperref[dfn:RemovableSingularity]{可去奇点}, 那么在$z_0$处的$f$的Laurent级数中不含负数次幂；
+        \item 如果$z_0$是\hyperref[dfn:PolarSingularity]{极点}, 那么在$z_0$处的$f$的Laurent级数中只含有有限多项负数次幂；
+        \item 如果$z_0$是\hyperref[dfn:EssentialSingularity]{本性奇点}, 那么在$z_0$处的$f$的Laurent级数中有无限多项负数次幂。
+    \end{itemize}
+\end{thm}
+\begin{crl}
+    {留数与Laurent级数的关系}
+    奇点的留数等于在奇点处的Laurent级数的负一次幂系数$a_{-1}$.
+\end{crl}
+这使得我们有方法计算任意奇点的留数。
+\begin{crl}
+    {高阶极点的留数的求法}
+    对于$m$阶极点，则$f$在$z_0$附近有
+    \[f(z)=\frac{1}{(z-z_0)^m}\varphi(z)\]
+    $\varphi(z)$在$z_0$处解析且不为0. 这时根据\hyperref[thm:Laurent]{Laurent级数}的负一次幂项系数等于$\varphi(z)$的\hyperref[thm:TaylorSeries]{Taylor级数}的$m-1$次幂项系数，可得
+    \[\underset{z=z_0}{\Res}f(z)=a_{-1}=\frac{\varphi^{(m-1)}}{(m-1)!}=\frac{1}{(m-1)!}\varphi^{(m-1)}(z)=\frac{1}{(m-1)!}\lim_{z\to z_0}\dv[m-1]{z}((z-z_0)^mf(z))\]
+\end{crl}
+
 \subsection{亚纯函数的部分分式展开}
 \subsection{无穷乘积与典范乘积}
 \subsection{Weierstrass因子分解定理}
