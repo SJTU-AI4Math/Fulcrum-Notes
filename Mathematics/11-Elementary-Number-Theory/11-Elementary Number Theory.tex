@@ -1,0 +1,70 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\makeatother
+
+\usepackage{FulcrumCN}
+
+\usepackage{OperatorListCN}
+\usepackage{F4Logic}
+\usepackage{F4Set}
+\usepackage{F4Type}
+\usepackage{F4NumberTheory}
+
+% margin
+\usepackage{geometry}
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+\linespread{1.2}
+
+\begin{document}
+\tableofcontents
+\newpage
+
+    \begin{center}
+        {\LARGE\textbf{初等数论}}
+
+        Fulcrum4Math
+    \end{center}
+
+    \section{整除理论}
+
+        \subsection{整除}
+            
+            \begin{dfn}
+                [Div]
+                {整除}
+                [Divides]
+                [猫猫]
+                \DEF*
+                    [ \(a, b:\Z\)]
+                    { \(a\) 整除 \(b\) }
+                    {\exists[\(n\)][\(b=an\)][\(\Z\)]}
+                    [ \(a\mid b\)]
+            \end{dfn}
+            
+            \begin{ppt}
+                [DivTrans]
+                {整除的传递性}
+                [Transitivity of Divisible Relationship]
+                [猫猫]
+                \THM
+                    [\decl{ \(a, b, c\)}{\(\Z\)}, \(a\mid b\), \(b\mid c\)]
+                    {\(a\mid c\)}
+            \end{ppt}
+
+        \section{同余方程}
+
+        \section{原根与指标}
+        
+        
+
+
+
+\end{document}

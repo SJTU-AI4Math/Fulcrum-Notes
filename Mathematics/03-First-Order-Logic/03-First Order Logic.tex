@@ -1,0 +1,677 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\makeatother
+
+\usepackage{FulcrumHabitCN}
+
+% ams package
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+% margin
+\usepackage{geometry}
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+\linespread{1.2}
+
+% more math operators' support
+\usepackage{physics}
+
+% Boldface
+\usepackage{bm}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Gaussian Elimination
+\usepackage{gauss}
+
+% Commutative Graph
+\usepackage[all]{xy}
+
+% Comment
+\usepackage{comment}
+
+% Colors
+\usepackage{xcolor}
+
+% Reference support
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan
+} % 请在此处自定义链接的颜色，相当于\textcolor
+
+\newcommand{\LT}{\ensuremath{\mathbf{T}}}
+\newcommand{\LF}{\ensuremath{\mathbf{F}}}
+\newcommand{\assign}[2]{\ensuremath{{[\![#1]\!]}_{#2}}}
+
+% Info
+\title{Title}
+\author{Fulcrum4Math}
+\date{\today}
+
+\begin{document}
+    \begin{center}
+        {\LARGE\textbf{First Order Logic}}
+
+        Fulcrum4Math Team at SJTU
+    \end{center}
+
+    \section{一阶形式逻辑}
+
+        \subsection{命题逻辑}
+
+            \begin{dfn}
+                []
+                {命题}
+                [Proposition]
+                [猫猫]
+                元对象, 称为\textbf{命题}. 
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {真值}
+                [Truth Value]
+                [猫猫]
+                定义命题 \(\LT\), \(\LF\), 称为\textbf{真值}. 
+
+                其中 \(\LT\) 称为\textbf{恒真式 (Tautology)}, \(\LF\) 称为\textbf{矛盾 (Contradiction)}. 
+
+                由真值组成的集合称为\textbf{真值集合}: \(\{\LT,\LF\}\). 
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {真值指派}
+                [Truth Assignment]
+                [猫猫]
+                设 \(\Sigma\) 是简单命题的集合, 则映射 \(\mathcal{J}:\Sigma\to\{\LT,\LF\}\) 称为是一个 \(\Sigma\) 上的\textbf{真值指派}. 
+
+                设 \(x\) 是命题, 且只依赖于 \(\Sigma\) 中的元素, 记 \(x\) 在真值指派 \(\mathcal{J}\) 下的真值为 \(\assign{x}{\mathcal{J}}\). 
+
+                定义 \(\Sigma\) 中元素在真值指派 \(\mathcal{J}\) 下的真值为其在映射 \(\mathcal{J}\) 下的像: 
+                \[x\in\Sigma\to\assign{x}{\mathcal{J}}=\mathcal{J}(x)\]
+                
+                若真值命题在真值指派的定义域中, 规定真值的真值指派总是其自身: 
+                \[\mathcal{J}(\LT)=\LT, \mathcal{J}(\LF)=\LF\]
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {逻辑等价}
+                [Logically Equivalent]
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则称 \(p\) 和 \(q\) \textbf{逻辑等价}当且仅当对任意真值指派 \(\mathcal{J}\), 有 \(\assign{p}{\mathcal{J}}=\assign{q}{\mathcal{J}}\), 记作 \(p\equiv q\). 
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {逻辑等价是等价关系}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {语义后承}
+                [Semantic Consequence]
+                [猫猫]
+                设 \(\Phi\) 是命题集合, \(\varphi\) 是命题, 称 \(\varphi\) 是 \(\phi\) 的\textbf{语义后承}, 记作 \(\Phi\models\varphi\), 当且仅当: 对任意真值指派 \(\mathcal{J}\), 若 \(\Phi\) 中的每个命题在 \(\mathcal{J}\) 指派下均为真, 则 \(\assign{\varphi}{\mathcal{J}}=\LT\).  
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {合取}
+                [Conjunction]
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则 \(p \land q\) 是命题, 称为命题 \(p\) 与 \(q\) 的\textbf{合取}. 
+
+                命题 \(p\land q\) 在 \(\{p,q\}\) 上的真值指派 \(\mathcal{J}\) 由以下真值表定义: 
+                \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    \(\assign{p}{\mathcal{J}}\) & \(\assign{q}{\mathcal{J}}\) & \(\assign{p\land q}{\mathcal{J}}\) \\
+                    \hline
+                    \LT & \LT & \LT \\
+                    \LT & \LF & \LF \\
+                    \LF & \LT & \LF \\
+                    \LF & \LF & \LF \\
+                    \hline
+                \end{tabular}
+                \end{center}
+
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {析取}
+                [Disjunction]
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则 \(p \lor q\) 是命题, 称为命题 \(p\) 与 \(q\) 的\textbf{析取}. 
+
+                命题 \(p\lor q\) 在 \(\{p,q\}\) 上的真值指派 \(\mathcal{J}\) 由以下真值表定义:
+                \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    \(\assign{p}{\mathcal{J}}\) & \(\assign{q}{\mathcal{J}}\) & \(\assign{p\lor q}{\mathcal{J}}\) \\
+                    \hline
+                    \LT & \LT & \LT \\
+                    \LT & \LF & \LF \\
+                    \LF & \LT & \LF \\
+                    \LF & \LF & \LF \\
+                    \hline
+                \end{tabular}
+                \end{center}
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {否定}
+                [Negation]
+                [猫猫]
+                设 \(p\) 是命题, 则 \(\neg p\) 是命题, 称为命题 \(p\) 的\textbf{否定}.
+
+                命题 \(\neg p\) 在 \(\{p\}\) 上的真值指派 \(\mathcal{J}\) 由以下真值表定义:
+                \begin{center}
+                \begin{tabular}{|c|c|}
+                    \hline
+                    \(\assign{p}{\mathcal{J}}\) & \(\assign{\neg p}{\mathcal{J}}\) \\
+                    \hline
+                    \LT & \LF \\
+                    \LF & \LT \\
+                    \hline
+                \end{tabular}
+                \end{center}
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {逻辑运算的真值映射}
+                []
+                [猫猫]
+                将逻辑运算 \(*\) 在真值指派 \(\mathcal{J}\) 下对各参数命题真值的映射定义为该运算的\textbf{真值映射}, 记作 \(\assign{*}{\mathcal{J}}\). 
+                \[\assign{\land}{\mathcal{J}}:=(\assign{p}{\mathcal{J}}, \assign{q}{\mathcal{J}})\mapsto\assign{p\land q}{\mathcal{J}}\]
+                \[\assign{\lor}{\mathcal{J}}:=(\assign{p}{\mathcal{J}}, \assign{q}{\mathcal{J}})\mapsto\assign{p\lor q}{\mathcal{J}}\]
+                \[\assign{\neg}{\mathcal{J}}:=\assign{p}{\mathcal{J}}\mapsto\assign{\neg p}{\mathcal{J}}\]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {双重否定率}
+                [Double Negation Law]
+                [猫猫]
+                任何命题否定的否定逻辑等价于其自身: 
+                \[\neg(\neg x)\equiv x\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {幂等律}
+                [Idempotent Laws]
+                [猫猫]
+                任何命题与其自身的合取及析取是其自身: 
+                \[x\land x\equiv x\]
+                \[x\lor x\equiv x\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {交换律}
+                [Commutative Laws]
+                [猫猫]
+                合取及析取运算满足交换律: 
+                \[p\land q\equiv q\land p\]
+                \[p\lor q\equiv q\lor p\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {结合律}
+                [Associative Laws]
+                [猫猫]
+                合取及析取运算满足结合律: 
+                \[(p\land q)\land r\equiv p\land(q\land r)\]
+                \[(p\lor q)\lor r\equiv p\lor(q\lor r)\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {分配律}
+                [Distributive Laws]
+                [猫猫]
+                合取及析取运算满足分配律: 
+                \[p\land(q\lor r)\equiv(p\land q)\lor(p\land r)\]
+                \[p\lor(q\land r)\equiv(p\lor q)\land(p\lor r)\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {De Morgan 律}
+                [De Morgan's Laws]
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则有: 
+                \[\neg(p\land q)\equiv(\neg p)\lor(\neg q)\]
+                \[\neg(p\lor q)\equiv(\neg p)\land(\neg q)\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {否定律}
+                [Negation Laws]
+                [猫猫]
+                设 \(x\) 是命题, 则有: 
+                \[x \lor (\neg x)\equiv \LT\]
+                \[x \land (\neg x)\equiv \LF\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {真值律}
+                [Laws of Logical Constants]
+                [猫猫]
+                设 \(x\) 是命题, 则有: 
+                \[x\land\LT\equiv x\]
+                \[x\lor\LF\equiv x\]
+                \[x\lor\LT\equiv \LT\]
+                \[x\land\LF\equiv \LF\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {吸收率}
+                [Absorption Laws]
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则有: 
+                \[p\lor(p\land q)\equiv p\]
+                \[p\land(p\lor q)\equiv p\]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {蕴含}
+                [Implication]
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则称命题 \(p\) 蕴含命题 \(q\) 为\textbf{蕴含}, 记作 \(p\to q\). 
+                
+                命题 \(p\to q\) 在 \(\{p,q\}\) 上的真值指派 \(\mathcal{J}\) 由以下真值表定义: 
+                \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    \(\assign{p}{\mathcal{J}}\) & \(\assign{q}{\mathcal{J}}\) & \(\assign{p\to q}{\mathcal{J}}\) \\
+                    \hline
+                    \LT & \LT & \LT \\
+                    \LT & \LF & \LF \\
+                    \LF & \LT & \LT \\
+                    \LF & \LF & \LT \\
+                    \hline
+                \end{tabular}
+                \end{center}
+
+                规定 \(\to\) 算子是右结合的: 
+                \[p\to q\to r:=p\to(q\to r)\]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {蕴含的等价表述}
+                []
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则有: 
+                \[p\to q\equiv\neg p\lor q\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {条件恒真}
+                []
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则有:
+                \[p\to q\to p\equiv\LT\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {析取条件的分离}
+                []
+                [猫猫]
+                设 \(p\), \(q\), \(r\) 是命题, 则有: 
+                \[p\lor q\to r\equiv (p\to r)\land(q\to r)\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {合取条件的 Curry 化}
+                [Currying]
+                [猫猫]
+                设 \(p\), \(q\), \(r\) 是命题, 则有: 
+                \[p\land q\to r\equiv p\to q\to r\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {反证法}
+                [Proof by Contradiction]
+                [猫猫]
+                设 \(p\) 是命题, 则有: 
+                \[\neg p\equiv p\to\LF\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {语义后承的推导}
+                []
+                [猫猫]
+                设 \(\Phi\) 是命题集合, \(\varphi, \psi\) 是命题, 则 \(\Phi, \varphi\models\psi\) 当且仅当 \(\Phi\models\varphi\to\psi\). 
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {蕴含的应用}
+                []
+                [猫猫]
+                \[p\to q, p\models q\]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {等价命题}
+                [Equivalent Proposition]
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则 \(p\leftrightarrow q\) 是命题, 称为 \(p\) 和 \(q\) 的\textbf{等价}. 
+
+                命题 \(p\leftrightarrow q\) 在 \(\{p,q\}\) 上的真值指派 \(\mathcal{J}\) 由以下真值表定义: 
+                \begin{center}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    \(\assign{p}{\mathcal{J}}\) & \(\assign{q}{\mathcal{J}}\) & \(\assign{p\leftrightarrow q}{\mathcal{J}}\) \\
+                    \hline
+                    \LT & \LT & \LT \\
+                    \LT & \LF & \LF \\
+                    \LF & \LT & \LF \\
+                    \LF & \LF & \LT \\
+                    \hline
+                \end{tabular}
+                \end{center}
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {等价命题的析取表述}
+                []
+                [猫猫]
+                设 \(p\), \(q\) 是命题, 则: 
+                \[p\leftrightarrow q\equiv(p\to q)\land(q\to p)\]
+            \end{ppt}
+
+        \subsection{逻辑推理}
+
+            \begin{dfn}
+                []
+                {重言式 / 永真式}
+                [Tautology]
+                [猫猫]
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {矛盾式}
+                [Contradiction]
+                [猫猫]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {否定运算将永真式变为矛盾式, 将矛盾式变为永真式}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {可满足性}
+                [Satisfiability]
+                [猫猫]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {可满足意味着非矛盾式, 恒真式意味着否定不可满足}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {合取范式}
+                [Conjunctive Normal Form]
+                [猫猫]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {任何复合命题总能表示为合取范式}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {析取范式}
+                [Disjunctive Normal Form]
+                [猫猫]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {任何复合命题总能表示为析取范式}
+                []
+                [猫猫]
+            \end{ppt}
+        
+        \subsection{一阶形式逻辑}
+            
+            \begin{dfn}
+                []
+                {一阶形式语句}
+                [First Order Language]
+                [猫猫]
+                一个\textbf{一阶形式语句}是由以下代符和算子组成的对象: 
+                \begin{enumerate}
+                    \item \textbf{变量代符 (Variable Symbols)}; 
+                    \item \textbf{常量代符 (Constant Symbols)}; 
+                    \item \textbf{函数代符 (Function Symbols)}; 
+                    \item \textbf{谓词代符 (Predicate Symbols)}; 
+                    \item \textbf{命题 (Proposition)}. 
+                \end{enumerate}
+
+                不含命题的一阶形式语句称为\textbf{项 (Term)}. 
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {\(S\)-结构}
+                [\(S\)-Structure]
+                [猫猫]
+                设代符集 \(S\), 一个 \(S\)-结构 \(\mathcal{A}=(A,\alpha)\) 是由以下信息组成的对象: 
+                \begin{enumerate}
+                    \item \textbf{论域 (Domain)} \(A\); 
+                    \item \textbf{谓词解释 (Predicate Interpretation)} \(\alpha|_\text{P} : S|_\text{P}\to (A\times A\to\{\LT, \LF\})\); 
+                    \item \textbf{函数解释 (Function Interpretation)} \(\alpha|_\text{F} : S|_\text{F}\to (A^n\to A)\); 
+                    \item \textbf{常量解释 (Constant Interpretation)} \(\alpha|_\text{C} : S|_\text{C}\to A\). 
+                \end{enumerate}
+
+                若一个命题中由代符集 \(S\) 生成, 则称此命题是一个 \textbf{\(S\)-命题 (\(S\)-Proposition)}. 
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {量词}
+                [Quantifier]
+                [猫猫]
+                若命题中的变量代符被量词约束, 称此变量代符\textbf{被约束 (Binded)}, 否则称之 \textbf{自由 (Free)}. 
+
+                设 \(x\) 是变量代符, \(\phi\) 是命题, 则: 
+
+                1. \(\forall x, \phi\) 是命题, 称 \(x\) 被\textbf{全称量词 (Universal Quantifier)} 约束. 一个 \(S\)-解释指派 \(\forall x, \phi\) 为真, 当且仅当在 \(S\) 中的任意 \(t\), 在将 \(\phi\) 中所有自由变量 \(x\) 替换为 \(t\) 后, \(\phi\) 在 \(S\)-解释下为真. 
+
+                2. \(\exists x, \phi\) 是命题, 称 \(x\) 被\textbf{存在量词 (Existential Quantifier)} 约束. 一个 \(S\)-解释指派 \(\exists x, \phi\) 为真, 当且仅当在 \(S\) 中存在 \(t\), 在将 \(\phi\) 中所有自由变量 \(x\) 替换为 \(t\) 后, \(\phi\) 在 \(S\)-解释下为真. 
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {量词否定律}
+                []
+                [猫猫]
+                设 \(x\) 是变量代符, \(\phi\) 是命题, 则有: 
+                \[\neg(\forall x, \phi)\equiv\exists x, \neg\phi\]
+                \[\neg(\exists x, \phi)\equiv\forall x, \neg\phi\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {量词分配律}
+                []
+                [猫猫]
+                设 \(x\) 是变量代符, \(\phi\), \(\psi\) 是命题, 则有: 
+                \[\forall x, (\phi\land\psi)\equiv(\forall x, \phi)\land(\forall x, \psi)\]
+                \[\exists x, (\phi\lor\psi)\equiv(\exists x, \phi)\lor(\exists x, \psi)\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {量词弱分配律}
+                []
+                [猫猫]
+                设 \(x\) 是变量代符, \(\phi\), \(\psi\) 是命题, 则有: 
+                \[\forall x, \phi\lor\forall x, \psi\models\forall x, (\phi\lor\psi)\]
+                \[\exists x, (\phi\land\psi)\models\exists x, \phi\land\exists x, \psi\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {量词交换律}
+                []
+                [猫猫]
+                设 \(x\), \(y\) 是变量代符, \(\phi\) 是命题, 则有: 
+                \[\forall x, \forall y, \phi\equiv\forall y, \forall x, \phi\]
+                \[\exists x, \exists y, \phi\equiv\exists y, \exists x, \phi\]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {量词弱交换律}
+                []
+                [猫猫]
+                设 \(x\), \(y\) 是变量代符, \(\phi\) 是命题, 则有: 
+                \[\exists x, \forall y, \phi\models\forall y, \exists x, \phi\]
+            \end{ppt}
+
+            \begin{cxmp}
+                []
+                {量词约束的变量未必要在后续命题中出现}
+                []
+                [猫猫]
+            \end{cxmp}
+
+            \begin{cxmp}
+                []
+                {同一记号未必被视为同一变量代符}
+                []
+                [猫猫]
+                以下命题中, 变量代符 \(x\) 在不同量词下被视为不同的变量代符: 
+                \[\exists x, \forall x, P(x)\]
+            \end{cxmp}
+
+            \begin{dfn}
+                []
+                {开 / 闭命题}
+                [Open / Closed Proposition]
+                [猫猫]
+                命题称为是\textbf{闭命题}, 若其中全体变量代符均被量词约束, 否则称为\textbf{开命题}. 
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {\(S\)-解释}
+                [\(S\)-Interpretation]
+                [猫猫]
+                设 \(S\) 是一个代符集, 一个 \(S\)-解释 \(\mathcal{J}=(\mathcal{A},\beta)\) 是由以下信息组成的对象: 
+                \begin{enumerate}
+                    \item \(S\)-结构 \(\mathcal{A}=(A,\alpha)\); 
+                    \item \(S\)-指派 \(\beta:S\to A\)
+                \end{enumerate}
+
+                方便起见, 约定以下简记: 
+                \begin{enumerate}
+                    \item 对于谓词代符 \(P\), 简记 \(\mathcal{J}(P):=\mathcal{A}(P):=\alpha(P)\); 
+                    \item 对于函数代符 \(f\), 简记 \(\mathcal{J}(f):=\mathcal{A}(f):=\alpha(f)\); 
+                    \item 对于常量代符 \(c\), 简记 \(\mathcal{J}(c):=\mathcal{A}(c):=\alpha(c)\); 
+                    \item 对于自由变量代符 \(x\), 简记 \(\mathcal{J}(x):=\mathcal{A}(x):=\beta(x)\). 
+                    \item 对于项 \(t\), 简记 \(\assign{t}{\mathcal{J}}:=\mathcal{J}(t)\). 
+                    \item 对于命题 \(\phi\), 简记 \(\assign{\phi}{\mathcal{J}}:=\mathcal{J}(\phi)\). 
+                \end{enumerate}
+
+                约定函数 \(\mathcal{J}\) 与任何算子皆是交换的. 
+            \end{dfn}
+
+    \section{证明论}
+        
+        \subsection{推理规则}
+            
+            \begin{dfn}
+                []
+                {自然推理系统}
+                [Natural Deduction System]
+                [猫猫]
+                一个\textbf{自然推理系统}中, 递归地认为 \(\Phi\vdash\psi\) 当且仅当它能够通过有限次以下步骤推理得到: 
+                \begin{enumerate}
+                    \item \textbf{全称命题应用}: 
+                    \[\frac{\Phi\vdash\forall x, \phi}{\Phi\vdash\phi[x\mapsto t]}\]
+                    \item \textbf{存在命题构造 (use)}: 
+                    \[\frac{\Phi\vdash\phi[x\mapsto t]}{\Phi\vdash\exists x, \phi}\]
+                    \item \textbf{全称命题构造 (intro)}: 
+                    \[\frac{\Phi\vdash\psi, \text{\(x\) 不在 \(\Phi\) 中自由出现}}{\Phi\vdash\forall x}\]
+                    \item \textbf{存在命题实例化 (rcases)}: 
+                    \[\frac{\Phi, \phi\vdash\psi, \text{\(x\) 不在 \(\Phi,\psi\) 中自由出现}}{\Phi,\exists x, \phi\vdash\psi}\]
+                    \item \textbf{合取构造 (constructor)}: 
+                    \[\frac{\Phi\vdash\phi,\psi}{\Phi\vdash\phi\land\psi}\]
+                    \item \textbf{合取提取 (rcases)}: 
+                    \[\frac{\Phi\vdash\phi\land\psi}{\Phi\vdash\phi}\]
+                    \[\frac{\Phi\vdash\phi\land\psi}{\Phi\vdash\psi}\]
+                    \item \textbf{析取构造 (left / right)}: 
+                    \[\frac{\Phi\vdash\phi}{\Phi\vdash\phi\lor\psi}\]
+                    \[\frac{\Phi\vdash\psi}{\Phi\vdash\phi\lor\psi}\]
+                    \item \textbf{分类讨论 (cases)}: 
+                    \[\frac{(\Phi, \phi_1\vdash\psi), (\Phi, \phi_2\vdash\psi)}{\Phi, \phi_1\lor\phi_2\vdash\psi}\]
+                    \item \textbf{排中律}: 
+                    \[\frac{\Phi\vdash\LT}{\Phi\vdash\psi\lor\neg\psi}\]
+                    \item \textbf{矛盾律}: 
+                    \[\frac{\Phi\vdash\LT}{\Phi,\LF\vdash\psi}\]
+                    \item \textbf{条件恒真 (exact)}: 
+                    \[\frac{\psi\in\Phi}{\Phi\vdash\psi}\]
+                    \item \textbf{推理传递}: 
+                    \[\frac{\Psi\subseteq\Phi, \Psi\vdash\psi}{\Phi\vdash\psi}\]
+                    \item \textbf{蕴含运用 (apply)}: 
+                    \[\frac{\Phi\vdash\phi, \Phi\vdash\phi\to\psi}{\Phi\vdash\psi}\]
+                    \item \textbf{蕴含构造}: 
+                    \[\frac{\Phi,\phi\vdash\psi}{\Phi\vdash\phi\to\psi}\]
+                \end{enumerate}
+            \end{dfn}
+            
+
+\end{document}

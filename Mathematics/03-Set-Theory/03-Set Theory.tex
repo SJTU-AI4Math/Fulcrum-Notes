@@ -1,0 +1,757 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\makeatother
+
+\usepackage{FulcrumHabitCN}
+
+% ams package
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+% margin
+\usepackage{geometry}
+
+% \dd
+\usepackage{physics}
+
+% Boldface
+\usepackage{bm}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Gaussian Elimination
+\usepackage{gauss}
+
+% Commutative Graph
+\usepackage[all]{xy}
+
+% Comment
+\usepackage{comment}
+
+\title{Title}
+\author{Fulcrum4Math}
+\date{\today}
+
+
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+
+\linespread{1.2}
+
+\begin{document}
+
+\section{Zermelo-Fraekel公理集合论(承认选择公理, 即ZFC公理体系)}
+
+    \begin{axm}
+        []
+        {外延公理}
+        []
+        []
+
+
+        若两集合拥有相同元素, 则两集合相等. 
+        \[X=Y\Longleftrightarrow\forall x\in X, x\in Y; \forall y\in Y, y\in X\]
+    \end{axm}
+    
+    \begin{dfn}
+        []
+        {空集(Empty Set)}
+        []
+        []
+
+
+        假设$X$是任意集合, 
+        \[\varnothing:=\{x\in X|x\neq x\}\]
+    \end{dfn}
+    
+    \begin{axm}
+        []
+        {配对公理}
+        []
+        []
+
+
+        可以将两个集合配对组成一个新集合. 
+        \[\forall x,y, \exists\{x,y\}\]
+    \end{axm}
+    
+    \begin{dfn}
+        []
+        {有序对(Ordered Pair)}
+        []
+        []
+
+        \[(x,y):=\{\{x\},\{x,y\}\}\]
+    \end{dfn}
+    
+    \begin{dfn}
+        []
+        {Catesian乘积}
+        []
+        []
+
+        \[X\times Y:=\{(x,y)|x\in X, y\in Y\}\]
+    \end{dfn}
+
+    由以上两条可归纳定义有限多元素组及Catesian乘积. 
+
+    \begin{dfn}
+        设$P$为关于集合的一个性质, 以$P(x)$表示集合$x$满足性质$P$. 
+    \end{dfn}
+    
+    \begin{axm}
+        []
+        {分离公理模式}
+        []
+        []
+
+
+        可以从一个集合中筛选出满足某个条件的元素组成一个新集合. 
+        \[\forall X, \exists Y=\{x\in X|P(x)\}\]
+    \end{axm}
+    
+    \begin{axm}
+        []
+        {并集公理}
+        []
+        []
+
+
+        可以将一个集族中全体集合的元素合并为一个新集合. 
+        \[\forall X, \exists\bigcup X:=\{x|\exists y\in X: x\in y\}\]
+    \end{axm}
+    
+    \begin{axm}
+        []
+        {幂集公理}
+        []
+        []
+
+
+        可以将集合的全体子集取出组成一个新的集合. 
+        \[\forall X, \exists\PP(X):=\{x|x\subseteq X\}\]
+    \end{axm}
+    
+    \begin{dfn}
+        []
+        {归纳集}
+        []
+        []
+
+
+        集合$X$称为是一个\textbf{归纳集}, 若$\forall x\in X, x'\in X$, 其中$x'$称为$x$的后继. 
+    \end{dfn}
+    
+    \begin{axm}
+        []
+        {无穷公理}
+        []
+        []
+
+        
+        存在无穷集. (通过定义$x$的后继$x'=x\cup\{x\}$实现. )
+        \[\exists X: \varnothing\in X\wedge\forall x\in X, x\cup\{x\}\in X\]
+    \end{axm}
+    
+    \begin{axm}
+        []
+        {替换公理模式}
+        []
+        []
+
+    \end{axm}
+    
+    \begin{axm}
+        []
+        {正则公理}
+        []
+        []
+
+
+        任何非空集都含有一个对从属关系$\in$极小的元素. 
+    \end{axm}
+    
+    \begin{thm}
+        不存在无穷的从属链: 
+        \[\nexists \{x,x_1,x_2,\cdots\}: x\ni x_1\ni x_2\ni \cdots\]
+    \end{thm}
+    
+    \begin{axm}
+        []
+        {选择公理}
+        []
+        []
+
+
+        对由非空集合组成集族, 可构造选择函数, 从每个集合中选择一个元素组成一个新集合. 
+        \[X: \forall x\in X, x\neq\varnothing\Longrightarrow\exists g:X\to\bigcup X: \forall x\in X, g(x)\in x\]
+    \end{axm}
+
+\section{序结构与序数}
+
+    \begin{dfn}
+        []
+        {偏序关系}
+        []
+        []
+
+
+        定义在集合$S$上的二元关系$"\leq"$称为是一个\textbf{偏序关系}, 若它具有: 
+
+        (1)自反性: 
+        \[\forall x\in S, x\leq x\]
+        
+        (2)传递性: 
+        \[x\leq y\wedge y\leq z\Longrightarrow x\leq z\]
+
+        (3)反对称性: 
+        \[x\leq y\wedge y\leq x\Longrightarrow x=y\]
+
+        此时称结构$(P,\leq)$为\textbf{偏序集}. 
+
+        若二元关系$"\leq"$满足$(1), (2)$, 称为\textbf{预序关系}, 相应的结构$(S,\leq)$称为\textbf{预序集}. 
+    \end{dfn}
+    
+    \begin{dfn}
+        []
+        {保序映射}
+        []
+        []
+
+
+        设结构$(S,\leq_S),(T,\leq_T)$是预序集, 映射$f:S\to T$称为是\textbf{保序映射}, 若: 
+        \[\forall x,y\in S: x\leq_S y\Longrightarrow f(x)\leq_T f(y)\]
+    \end{dfn}
+
+    方便起见, 记$x\leq y\wedge x\neq y$为$x<y$, 及引入$\geq, >$符号. 
+    
+    \begin{dfn}
+        []
+        {全序集/线序集(Linearly Ordered Set)/链}
+        []
+        []
+
+
+        偏序集$S$称为是一个全序集, 若: 
+        \[\forall x,y\in S, x\leq y\vee y\leq x\]
+    \end{dfn}
+
+\section{无穷递归原理}
+
+\section{基数}  
+    
+    \begin{dfn}
+        []
+        {等势}
+        []
+        []
+
+
+        集合$X,Y$称为是\textbf{等势(have the same Cardinality)}的, 若$\exists$双射$\phi:X\to Y$. 
+    \end{dfn}
+    
+    \begin{thm}
+        []
+        {}
+        []
+        []
+        $\forall$不可数集$X$, 
+        \[\card X^2=\card X\]
+    \end{thm}
+
+    证明: 
+
+    % 以下这段是从旧的数分部分拷过来的：
+			
+			\begin{dfn}
+				[]
+				{可数集(Countable Set)}
+				[]
+				[]
+                集合$S$称为是一个可数集, 若$\card(S)=\aleph_0$
+			\end{dfn}
+				
+			\begin{ppt}
+                []
+                {}
+                []
+                []
+				可数集的子集是可数集. 
+			\end{ppt}
+			
+			证明: 
+				
+				设任意可数集$S=\{a_1,a_2,\cdots,a_n,\cdots\}$
+				\[\forall S'=\{a_i|a_i\in S\}\subseteq S: |S'|=+\infty, \]
+				\[f(a_i):=|S'\cap\{a_1,a_2,\cdots,a_i\}|\]
+				
+				有$f:S'\to\mathbb{Z}^+$是双射, 即$S'$是可数集. $\square$
+			
+			\begin{thm}
+                []
+                {}
+                []
+                []
+				设集族$\bar S=\{S_i|S_i\mbox{是可数集}\}$是可数集, 则: 
+				\[S=\bigcup_{S_i\in \bar S}S_i\mbox{是可数集. }\]
+			\end{thm}
+			
+			证明: 
+				
+				$\because S_i\in\bar S$是可数集, $\Longrightarrow$可设$S_i=\{a_{i,1},a_{i,2},\cdots, a_{i,n},\cdots\}$
+				
+				将$a_{i,j}$写成矩形数阵形式: 
+				\[\begin{matrix}
+				\xymatrix{
+				a_{1,1}\ar[d] & a_{1,2}\ar[ddl] & a_{1,3}\ar[dddll] & a_{1,4}\ar[ddddlll] & \cdots & a_{1,n} & \cdots\\
+				a_{2,1}\ar[ur] & a_{2,2}\ar[ur] & a_{2,3}\ar[ur] & a_{2,4}\ar[ur] & \cdots & a_{2,n}& \cdots\\
+				a_{3,1}\ar[ur] & a_{3,2}\ar[ur] & a_{3,3}\ar[ur] & a_{3,4}\ar[ur] & \cdots & a_{3,n}& \cdots\\
+				a_{4,1}\ar[ur] & a_{4,2}\ar[ur] & a_{4,3}\ar[ur] & a_{4,4}\ar[ur] & \cdots & a_{4,n}& \cdots\\
+				\vdots\ar[ur] & \vdots\ar[ur] & \vdots\ar[ur] & \vdots\ar[ur] & \ddots & \vdots & \cdots\\
+				a_{m,1} & a_{m,2} & a_{m,3} & a_{m,4} & \cdots & a_{m,n} & \cdots\\
+				\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+				}
+				\end{matrix}\]
+				
+				按照折线方向构造一个元素序列$\{a'_n\}$, 其中: 
+				
+				\[a_{m,n}\mbox{的序数为}\frac{(m+n-1)(m+n-2)}{2}+n\]
+				
+				\[f(a_{m,n})=|\{a'_1,a'_2,\cdots,a'_{\frac{(m+n-1)(m+n-2)}{2}+n}\}|\]
+				
+				有$f$为双射, $\Longrightarrow S$是可数集. $\square$
+				
+			\begin{thm}
+                []
+                {}
+                []
+                []
+				有理数集$\mathbb{Q}$是可数集. 
+			\end{thm}
+				
+				证明: 
+				
+					\[\mathbb{Q}=\bigcup_{p\in\mathbb{Z}}\{\frac{p}{q}|q\in(\mathbb{Z}-\{0\})\}\]
+					
+					其中$\mathbb{Z}, (\mathbb{Z}-\{0\})$都是可数集, $\Longrightarrow\mathbb{Q}$是可数集. $\square$
+
+    \section{二元关系}
+
+    \subsection{二元关系}
+        \begin{dfn}
+            [UUID]
+            {二元关系}
+            [Binary Relations]
+            [czy]
+            如果 \( R \subseteq A \times B \)，则 \( R \) 是从 \( A \) 到 \( B \) 的\textbf{二元关系}。\\
+            如果 \( R \subseteq A \times A \)，则 \( R \) 是 \( A \) 上的\textbf{二元关系}。\\
+            \( a R b \iff (a, b) \in R \)，其中 \( a \in A \land b \in B \)。
+        \end{dfn}
+
+        \begin{dfn}
+            [UUID]
+            {二元关系的性质}
+            [Properties of Binary Relations on \( A \)]
+            [czy]
+            令\( R \subseteq A \times A \)，则R可能拥有的性质如下：
+            \begin{enumerate}
+                \item \textbf{自反性(Reflexive)}：\( \forall a \in A, \; a R a \)。
+                \item \textbf{对称性(Symmetric)}：\( \forall a, b \in A, \; a R b \implies b R a \)。
+                \item \textbf{反对称性(Antisymmetric)}：\( \forall a, b \in A, \; a R b \land b R a \implies a = b \)。
+                \item \textbf{传递性(Transitive)}：\( \forall a, b, c \in A, \;  a R b \land b R c, \implies a R c \)。
+            \end{enumerate}
+        \end{dfn}
+
+        \begin{xmp}
+            [UUID]
+            {二元关系举例及其性质}
+            [Examples of Binary Relations and Their Properties]
+            [czy]
+            \begin{enumerate}
+                \item \textbf{小于等于关系}
+                    设 \( A = \mathbb{R} \)（实数集），定义关系 \( R \) 为：
+                    \[
+                    R = \{ (a, b) \mid a \leq b \}
+                    \]
+
+                    \begin{itemize}
+                        \item \textbf{自反性}：是。因为 \( \forall a \in \mathbb{R}, \; a \leq a \)。
+                        \item \textbf{对称性}：否。例如，\( 1 \leq 2 \) 但 \( 2 \nleq 1 \)。
+                        \item \textbf{反对称性}：是。如果 \( a \leq b \land b \leq a \)，则 \( a = b \)。
+                        \item \textbf{传递性}：是。如果 \( a \leq b \land b \leq c \)，则 \( a \leq c \)。
+                    \end{itemize}
+                \item \textbf{整除关系}
+                    设 \( A = \mathbb{Z}^+ \)，定义关系 \( R \) 为：
+                    \[
+                    R = \{ (a, b) \mid a \mid b \}
+                    \]
+                    
+                    \begin{itemize}
+                        \item \textbf{自反性}：是。因为 \( \forall a \in \mathbb{Z}^+, \; a \) 整除 \( a \)。
+                        \item \textbf{对称性}：否。例如，\( 2 \) 整除 \( 4 \)，但 \( 4 \) 不整除 \( 2 \)。
+                        \item \textbf{反对称性}：是。如果 \( a \) 整除 \( b \land b \) 整除 \( a \)，则 \( a = b \)。
+                        \item \textbf{传递性}：是。如果 \( a \) 整除 \( b \land b \) 整除 \( c \)，则 \( a \) 整除 \( c \)。
+                    \end{itemize}
+                \item \textbf{空关系 (Empty Relation)}
+                设 \( A \) 是一个集合，定义关系 \( R \) 为：
+                \[
+                R = \emptyset
+                \]
+                即 \( R \) 不包含任何元素。
+                
+                \begin{itemize}
+                    \item \textbf{自反性}：否。除非 \( A = \emptyset \)，否则 \( R \) 不满足自反性。
+                    \item \textbf{对称性}：是。因为 \( R \) 中没有元素，对称性条件自动满足。
+                    \item \textbf{反对称性}：是。因为 \( R \) 中没有元素，反对称性条件自动满足。
+                    \item \textbf{传递性}：是。因为 \( R \) 中没有元素，传递性条件自动满足。
+                \end{itemize}
+            \item \textbf{全关系 (Universal Relation)}
+                设 \( A \) 是一个集合，定义关系 \( R \) 为：
+                \[
+                R = A \times A
+                \]
+                即 \( R \) 包含所有 \( A \) 中的元素对。
+                
+                \begin{itemize}
+                    \item \textbf{自反性}：是。因为 \( \forall a \in A, \; (a, a) \in R \)。
+                    \item \textbf{对称性}：是。如果 \( (a, b) \in R \)，则 \( (b, a) \in R \)。
+                    \item \textbf{反对称性}：否。除非 \( A \) 只有一个元素，否则存在 \( a \neq b \) s.t. \( (a, b) \in R \land (b, a) \in R \)。
+                    \item \textbf{传递性}：是。如果 \( (a, b) \in R \land (b, c) \in R \)，则 \( (a, c) \in R \)。
+                \end{itemize}
+            \end{enumerate}
+        \end{xmp}
+        
+        \begin{dfn}
+            [UUID]
+            {逆关系}
+            [Inverse Relation]
+            [czy]
+            如果 \( R \subseteq A \times B \)，则 \( R \) 的\textbf{逆关系} \( R^{-1} \subseteq B \times A \) 定义为：
+            \[
+            R^{-1} = \{ (b, a) \mid (a, b) \in R \}
+            \]
+        \end{dfn}
+
+        \begin{ppt}
+            [UUID]
+            {}
+            []
+            [czy]
+            \( (R^{-1})^{-1} = R \)
+        \end{ppt}
+
+        \begin{dfn}
+            [UUID]
+            {关系的复合}
+            [Composition of Relations]
+            [czy]
+            \( R \subseteq B \times C \), \( S \subseteq A \times B \)，则 \( R \) 和 \( S \) 的\textbf{复合} \( R \circ S \subseteq A \times C \) 定义为：
+            \[
+            R \circ S = \{ (a, c) \mid \exists b \in B, \; (a, b) \in S \land (b, c) \in R \}
+            \]
+        \end{dfn}
+
+        \begin{ppt}
+            [UUID]
+            {}
+            []
+            [czy]
+            \( (R \circ S)^{-1} = S^{-1} \circ R^{-1} \)
+        \end{ppt}
+
+        \begin{ppt}
+            [UUID]
+            {}
+            []
+            [czy]
+            \( R \circ (S \circ T) = (R \circ S) \circ T \)
+        \end{ppt}
+
+        \begin{ppt}
+            [UUID]
+            {性质的等价表示}
+            [Properties in Terms of Relations]
+            [czy]
+            \begin{itemize}
+                \item \( R \) 是\textbf{自反的} \( \iff I_A \subseteq R \)，其中 \( I_A = \{ (a, a) \mid a \in A \} \)。
+                \item \( R \) 是\textbf{对称的} \( \iff R = R^{-1} \)。
+                \item \( R \) 是\textbf{传递的} \( \iff R \circ R \subseteq R \)。
+                \item \( R \) 是\textbf{反对称的} \( \iff R \cap R^{-1} \subseteq I_A \)。
+            \end{itemize}
+        \end{ppt}
+
+
+        \begin{dfn}
+            [UUID]
+            {等价关系}
+            [Equivalence Relation]
+            [czy]
+            如果关系 \( R \subseteq A \times A \) 满足自反性、对称性和传递性，则 \( R \) 是 \( A \) 上的\textbf{等价关系}。
+        \end{dfn}
+
+        \begin{dfn}
+            [UUID]
+            {等价类}
+            [Equivalence Class]
+            [czy]
+            如果 \( R \) 是 \( A \) 上的等价关系且 \( a \in A \)，则 \( a \) 的\textbf{等价类}定义为：
+            \[
+            [a]_R = \{ b \in A \mid a R b \}
+            \]
+        \end{dfn}
+
+        \begin{thm}
+            [UUID]
+            {}
+            []
+            [czy]
+            设 \( R \) 是集合 \( A \) 上的等价关系，\( a, b \in A \)，则：
+            \[
+            a R b \iff [a]_R = [b]_R
+            \]
+        \end{thm}
+            
+        \begin{prf}
+
+                “\(\Rightarrow\)”： \( a R b \implies b R a \) \( \forall c \in A \),\\
+                \(
+                c \in [a]_R \iff c R a \iff c R b \iff c \in [b]_R
+                \)
+                \( \therefore [a]_R = [b]_R \).
+
+                “\(\Leftarrow\)”：\( b R b \implies  b \in [b]_R = [a]_R \) \( \therefore a R b \).\qed
+        \end{prf}
+
+        \begin{ppt}
+            [UUID]
+            {}
+            []
+            [czy]
+            设 \( R \) 是集合 \( A \) 上的等价关系，\( a, b \in A \)，则：
+            \[
+            a R b \iff [a]_R \cap [b]_R \neq \emptyset.
+            \]
+        \end{ppt}
+        
+        \begin{prf}
+                “\(\Rightarrow\)”：显然。
+
+                “\(\Leftarrow\)”: \( [a]_R \cap [b]_R \neq \emptyset \implies c \in A , c \in [a]_R \land c \in [b]_R \),\\
+                \(
+                \therefore c R a , c R b \implies a R c , c R b \implies a R b.
+                \)
+                \qed            
+        \end{prf}
+
+        \begin{dfn}
+            [UUID]
+            {划分}
+            [Partition]
+            [czy]
+            集合 \( P \subseteq \mathcal{P}(A) \) 称为 \( A \) 的\textbf{划分}，如果满足：
+            \begin{enumerate}
+                \item \( \forall B \in P, \; B \neq \emptyset \)。
+                \item \( \forall B_1, B_2 \in P, \; \text{如果 } B_1 \neq B_2, \text{ 则 } B_1 \cap B_2 = \emptyset \)。
+                \item \( \bigcup P = A \)。
+            \end{enumerate}
+        \end{dfn}
+
+        \begin{lma}
+            [UUID]
+            {}
+            []
+            [czy]
+            \( P \) 是 \( A \) 的划分, \( a \in A \) \(\implies \exists ! B \in P s.t. a \in B \)。
+        \end{lma}
+
+        \begin{thm}
+            [UUID]
+            {}
+            []
+            [czy]
+            如果 \( R \) 是 \( A \) 上的等价关系，则等价类的集合 \( \{ [a]_R \mid a \in A \} \) 构成 \( A \) 的一个划分。
+        \end{thm}
+        
+        \begin{thm}
+            [UUID]
+            {}
+            []
+            [czy]
+            设 \( P \) 是集合 \( A \) 的一个划分，定义关系 \( R \) 为：
+            \[
+            R = \{ (a, b) \in A \times A \mid \exists B \in P, \; a \in B \text{ 且 } b \in B \}
+            \]
+            则 \( R \) 是 \( A \) 上的等价关系，且 \( P = \{ [a]_R \mid a \in A \} \)。
+        \end{thm}
+
+        \begin{prf}
+            \begin{itemize}
+                \item \textbf{自反性}：\(\forall a \in A \)，\(\exists B \in P \) s.t. \( a \in B \)，\(\therefore a R a \)。
+                \item \textbf{对称性}：\(\forall a, b \in A \)，如果 \( a R b \)，则\(\exists B \in P \) s.t. \( a \in B \land b \in B \)，\(\therefore b R a \)。
+                \item \textbf{传递性}：\(\forall a, b, c \in A \)，如果 \( a R b \land b R c \)，则\(\exists B, B' \in P \) s.t. \( a, b \in B \land b, c \in B' \)。由于 \( b \in B \cap B' \)，且 \( P \) 是划分，故 \( B = B' \)，\(\therefore a R c \)。
+            \end{itemize}
+
+            \(\therefore\) \( R \) 是 \( A \) 上的等价关系.
+
+            下证 \( P = \{ [a]_R \mid a \in A \} \).
+
+            \begin{itemize}
+                \item “\(\subseteq\)”：\(\forall B \in P \)，\(\exists a \in B \)，只需证明 \( [a]_R = B \)。
+                \begin{itemize}
+                    \item (i) \(\forall b \in [a]_R \)，有 \( a R b \)，\(\therefore \exists B' \in P \) s.t. \( a, b \in B' \)，故 \( B = B' \)，\(\therefore b \in B \)。
+                    \item (ii) \(\forall b \in B \)，有 \( a R b \)，\(\therefore b \in [a]_R \)。综上，\( [a]_R = B \)。
+                \end{itemize}
+                \item “\(\supseteq\)”：\(\forall a \in A \)，\(\exists B \in P \) s.t. \( a \in B \)，只需证明 \( [a]_R = B \)。
+            \end{itemize}
+            \qed
+        \end{prf}
+
+    \subsection{闭包}
+
+        \begin{dfn}
+            [UUID]
+            {闭包}
+            [Closure]
+            [czy]
+            设 \( R \subseteq A \times A \)，对于性质P，\( R' \) 是 \( R \) 的\textbf{闭包}，当且仅当：
+            \begin{enumerate}
+                \item \( R \subseteq R' \);
+                \item \( R' \) 具有性质P;
+                \item \(\forall T \subseteq A \times A \)，如果 \( R \subseteq T \) 且 \( T \) 具有性质P，则 \( R' \subseteq T \)。
+            \end{enumerate}
+        \end{dfn}
+
+        \begin{dfn}
+            [UUID]
+            {}
+            []
+            [czy]
+            设 \( R \subseteq A \times A \)，定义：
+            \[
+            R^1 = R, \quad R^{n+1} = R^n \circ R, \quad R^+ = \bigcup_{n=1}^{\infty} R^n, \quad R^* = \bigcup_{n=0}^{\infty} R^n
+            \]
+        \end{dfn}
+
+        \begin{lma}
+            [UUID]
+            {}
+            []
+            [czy]            
+                如果 \( R \subseteq R' \land T \subseteq T' \)，则 \( R \circ T \subseteq R' \circ T' \)。
+        \end{lma}
+
+        \begin{lma}
+            [UUID]
+            {}
+            []
+            [czy]
+                如果 \( R_1, R_2, \ldots, T \subseteq A \times B \)，且\(\forall n \in \mathbb{Z}^+ \)，有 \( R_n \subseteq T \)，则 \( \quad \bigcup_{n=1}^{\infty} R_n \subseteq T \)。
+        \end{lma}
+
+        \begin{lma}
+            [UUID]
+            {}
+            []
+            [czy]
+                \( R^n \circ R^m = R^{n+m} \)（\( n, m \in \mathbb{Z}^+ \)）。
+        \end{lma}
+
+        \begin{lma}
+            [UUID]
+            {}
+            []
+            [czy]
+            \( R^+ \) 是传递的。
+            \end{lma}
+
+            \begin{prf}
+            假设 \( a R^+ b \land b R^+ c \)，则\(\exists n, m \in \mathbb{Z}^+ \) s.t. \( a R^n b \land b R^m c \)。
+            \[
+            \therefore a (R^n \circ R^m) c \quad \text{即} \quad a R^{n+m} c
+            \]
+            由于 \( R^{n+m} \subseteq R^+ \)，故 \( a R^+ c \)。\( \therefore R^+ \) 是传递的。
+            \qed
+        \end{prf}
+
+        \begin{lma}
+            [UUID]
+            {}
+            []
+            [czy]
+            如果 \( R \subseteq T \subseteq A \times A \)，且 \( T \) 是传递的，则 \( R^+ \subseteq T \)。
+        \end{lma}
+
+        \begin{prf}
+            \(\forall n \in \mathbb{Z}^+ \)，证明 \( R^n \subseteq T \)：
+            \begin{itemize}
+                \item (1) 当 \( n = 1 \) 时，\( R^1 = R \subseteq T \)。
+                \item (2) 假设 \( n = k \) 时 \( R^k \subseteq T \)，则 \( R^{k+1} = R^k \circ R \subseteq T \circ T \subseteq T \)（因为 \( T \) 是传递的）。
+            \end{itemize}
+            根据定义，\( R^+ = \bigcup_{n=1}^{\infty} R^n \subseteq T \)。
+            \qed
+        \end{prf}
+
+        \begin{thm}
+            [UUID]
+            {}
+            []
+            [czy]
+            \( R^+ \) 是 \( R \) 的传递闭包。
+        \end{thm}
+
+        \begin{prf}
+            由引理已证。
+            \qed
+        \end{prf}
+
+    \subsection{函数}
+
+        \begin{dfn}
+            [UUID]
+            {函数}
+            [Functions]
+            [czy]
+            \( F \subseteq A \times B \) 是一个\textbf{函数}，当且仅当满足以下条件：
+            \begin{enumerate}
+                \item \(\forall x \in A \)，\(\exists y \in B \) s.t. \( x F y \)。
+                \item \(\forall x \in A \)，如果 \( x F y_1 \land x F y_2 \)，则 \( y_1 = y_2 \)。
+            \end{enumerate}
+
+            记法：\( F: A \rightarrow B \) 表示 \( F \) 是从 \( A \) 到 \( B \) 的函数。
+
+            \(\forall x \in A \)，\( F(x) \) 表示唯一的 \( y \in B \) s.t. \( x F y \)。
+        \end{dfn}
+
+        \begin{ppt}
+            [UUID]
+            {}
+            []
+            [czy]
+            设 \( F, G: A \rightarrow B \) 是两个函数，则 \( F = G \Longleftrightarrow\forall x \in A , F(x) = G(x) \).
+        \end{ppt}
+
+        \begin{thm}
+            [UUID]
+            {}
+            []
+            [czy]
+            设 \( F: B \rightarrow C \) 和 \( G: A \rightarrow B \) 是两个函数，则：
+            \begin{enumerate}
+                \item \( F \circ G: A \rightarrow C \) 是一个函数。
+                \item \(\forall x \in A \)，\( (F \circ G)(x) = F(G(x)) \)。
+            \end{enumerate}
+        \end{thm}
+    
+
+\end{document}

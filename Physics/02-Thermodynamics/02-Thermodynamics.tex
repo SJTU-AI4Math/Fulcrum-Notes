@@ -1,0 +1,820 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{../Fulcrum-Template/}{../Fulcrum-Template/OperatorList/}}
+\makeatother
+
+% ams package
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+% margin
+\usepackage{geometry}
+
+% \dd
+\usepackage{physics}
+
+% Boldface
+\usepackage{bm}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Gaussian Elimination
+\usepackage{gauss}
+
+% Commutative Graph
+\usepackage[all]{xy}
+
+% Comment
+\usepackage{comment}
+
+\title{Title}
+\author{Fulcrum4Math}
+\date{\today}
+
+% General
+\DeclareMathOperator{\N}{\mathbb{N}}                    % Set of Natural Numbers
+\DeclareMathOperator{\Z}{\mathbb{Z}}                    % Set of Integers
+\DeclareMathOperator{\Q}{\mathbb{Q}}                    % Set of Rational Numbers
+\DeclareMathOperator{\R}{\mathbb{R}}                    % Set of Real Numbers
+\DeclareMathOperator{\C}{\mathbb{C}}                    % Set of Complex Numbers
+
+\DeclareMathOperator{\Id}{Id}                           % Identity
+
+\DeclareMathOperator{\Ker}{Ker}                         % Kernel of a Homomorphism
+\DeclareMathOperator{\Image}{Im}                        % Image of a mapping
+
+% Set Theory
+\DeclareMathOperator{\PP}{\mathcal{P}}                  % Power Sets
+\DeclareMathOperator{\card}{card}                       % Cardinality
+
+% Category Theory
+\DeclareMathOperator{\Cat}{\mathcal{C}}                 % Category
+
+\DeclareMathOperator{\Hom}{Hom}                         % Set of Homomorphisms
+\DeclareMathOperator{\End}{End}                         % Set of Endomorphisms
+\DeclareMathOperator{\Aut}{Aut}                         % Set of Automorphisms
+\DeclareMathOperator{\Isom}{Isom}                       % Set of Isomorphisms
+
+% Topology
+\DeclareMathOperator{\T}{\mathcal{T}}                   % Topology
+
+\DeclareMathOperator{\intr}{int}                        % Interior
+\DeclareMathOperator{\cl}{cl}                           % Closure
+
+\DeclareMathOperator{\U}{\overset{\circ}{\mathit{U}}}   % Deleted Neighbourhood
+
+% Linear Algebra
+\DeclareMathOperator{\K}{\mathbb{K}}                    % Number Field
+\DeclareMathOperator{\F}{\mathbb{F}}                    % Number Field (F)
+
+\DeclareMathOperator{\al}{\bm\alpha}                    % Boldfaced vector alpha
+\DeclareMathOperator{\bt}{\bm\beta}                     % Boldfaced vector beta
+\DeclareMathOperator{\x}{\bm{x}}                        % Boldfaced vector x
+
+% \DeclareMathOperator{\A}{\bm{A}}                    % Boldfaced matrix A
+% \DeclareMathOperator{\B}{\bm{B}}                    % Boldfaced matrix B
+% \DeclareMathOperator{\Cc}{\bm{C}}                   % Boldfaced matrix C
+
+\DeclareMathOperator{\CCol}{Col}                        % Column Space
+\DeclareMathOperator{\RRow}{Row}                        % Row Space
+\DeclareMathOperator{\Null}{Null}                       % Null Space
+
+\renewcommand{\span}{\mathrm{span}\text{ }}             % Span
+
+\DeclareMathOperator{\diag}{diag}                       % Diagonal Matrix
+
+\newcommand{\<}{\langle}                                
+\renewcommand{\>}{\rangle}                              % These two for ordinary Hilbert Inner Products <x,y>
+\newcommand{\inprod}[2]{\<#1,#2\>}
+\newcommand{\ocinterval}[2]{(#1,#2]}
+\newcommand{\cointerval}[2]{[#1,#2)}
+\newcommand{\ccinterval}[2]{[#1,#2]}
+\newcommand{\oointerval}[2]{(#1,#2)}
+
+% Mathematical Analysis
+
+\DeclareMathOperator*{\ulim}{\overline{\lim}}
+\DeclareMathOperator*{\llim}{\underline{\lim}}
+\newcommand{\diff}[3]{\left. #1 \right|_{#2}^{#3}}
+
+\newcommand{\Ball}[2]{\mathcal{B}\left(#1,#2\right)}	% Open Ball
+
+% Theorem template below copied from https://zhuanlan.zhihu.com/p/763738880
+
+% ————————————————————————————————————自定义颜色————————————————————————————————————
+\definecolor{dfn_green1}{RGB}{0, 156, 39} % 深绿
+\definecolor{dfn_green2}{RGB}{214, 254, 224} % 浅绿
+
+\definecolor{thm_blue1}{RGB}{0, 91, 156} % 深蓝
+\definecolor{thm_blue2}{RGB}{218, 240, 255} % 浅蓝
+
+\definecolor{ppt_pink1}{RGB}{172, 0, 175} % 深粉
+\definecolor{ppt_pink2}{RGB}{255, 237, 255} % 浅粉
+
+\definecolor{crl_orange1}{RGB}{225, 124, 0} % 深橙
+\definecolor{crl_orange2}{RGB}{255, 235, 210} % 浅橙
+
+\definecolor{xmp_purple1}{RGB}{119, 0, 229} % 深紫
+\definecolor{xmp_purple2}{RGB}{239, 223, 255} % 浅紫
+
+\definecolor{cxmp_red1}{RGB}{211, 0, 35} % 深红
+\definecolor{cxmp_red2}{RGB}{255, 214, 220} % 浅红
+
+\definecolor{prf_grey1}{RGB}{120, 120, 120} % 深灰
+\definecolor{prf_grey2}{RGB}{233, 233, 233} % 浅灰
+
+\definecolor{axm_yellow1}{RGB}{192, 192, 0} % 深黄
+\definecolor{axm_yellow2}{RGB}{255, 255, 172} % 浅黄
+
+% 将RGB换为rgb，颜色数值取值范围改为0到1
+% ————————————————————————————————————自定义颜色————————————————————————————————————
+
+% ————————————————————————————————————盒子设置————————————————————————————————————
+
+\usepackage{tcolorbox} % 盒子效果
+\tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
+
+% tolorbox提供了tcolorbox环境，其格式如下：
+% 第一种格式：\begin{tcolorbox}[colback=⟨背景色⟩, colframe=⟨框线色⟩, arc=⟨转角弧度半径⟩, boxrule=⟨框线粗⟩]   \end{tcolorbox}
+% 其中设置arc=0mm可得到直角；boxrule可换为toprule/bottomrule/leftrule/rightrule可分别设置对应边宽度，但是设置为0mm时仍有细边，若要绘制单边框线推荐使用第二种格式
+% 方括号内加上title=⟨标题⟩, titlerule=⟨标题背景线粗⟩, colbacktitle=⟨标题背景线色⟩可为盒子加上标题及其背景线
+% 第二种格式：\begin{tcolorbox}[enhanced, colback=⟨背景色⟩, boxrule=0pt, frame hidden, borderline={⟨框线粗⟩}{⟨偏移量⟩}{⟨框线色⟩}]   {\end{tcolorbox}}
+% 将borderline换为borderline east/borderline west/borderline north/borderline south可分别为四边添加框线，同一边可以添加多条
+% 加入breakable属性可以支持盒子拆分到两页中。
+% 偏移量为正值时，框线向盒子内部移动相应距离，负值反之
+
+\newenvironment{dfn_box}{
+    \begin{tcolorbox}[enhanced, colback=dfn_green2, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{dfn_green1},breakable]
+    }
+    {\end{tcolorbox}}
+    
+\newenvironment{axm_box}{
+    \begin{tcolorbox}[enhanced, colback=axm_yellow2, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{axm_yellow1},breakable]
+    }
+    {\end{tcolorbox}}
+    
+\newenvironment{thm_box}{
+    \begin{tcolorbox}[enhanced, colback=thm_blue2, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{thm_blue1},breakable]
+    }
+    {\end{tcolorbox}}
+    
+\newenvironment{ppt_box}{
+    \begin{tcolorbox}[enhanced, colback=ppt_pink2, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{ppt_pink1},breakable]
+    }
+    {\end{tcolorbox}}
+    
+\newenvironment{xmp_box}{
+    \begin{tcolorbox}[enhanced, colback=xmp_purple2, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{xmp_purple1},breakable]
+    }
+    {\end{tcolorbox}}
+    
+\newenvironment{prf_box}{
+    \begin{tcolorbox}[enhanced, colback=prf_grey2, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{prf_grey1},breakable]
+    }
+    {\end{tcolorbox}}
+
+% tcolorbox宏包还提供了\tcbox指令，用于生成行内盒子，可制作高光效果
+
+        % \newcommand{\hl}[1]{
+        %     \tcbox[on line, arc=0pt, colback=hlan!5!white, colframe=hlan!5!white, boxsep=1pt, left=1pt, right=1pt, top=1.5pt, bottom=1.5pt, boxrule=0pt]
+        % {\bfseries \color{hlan}#1}}
+        
+% 其中on line将盒子放置在本行（缺失会跳到下一行），boxsep用于控制文本内容和边框的距离，left、right、top、bottom则分别在boxsep的参数的基础上分别控制四边距离
+% ————————————————————————————————————盒子设置————————————————————————————————————
+
+% ————————————————————————————————————定理类环境设置————————————————————————————————————
+\newtheoremstyle{MyStyle}{0pt}{}{}{\parindent}{\bfseries}{}{1em}{} % 定义新定理风格。格式如下：
+%\newtheoremstyle{⟨风格名⟩}
+%                {⟨上方间距⟩} % 若留空，则使用默认值
+%                {⟨下方间距⟩} % 若留空，则使用默认值
+%                {⟨主体字体⟩} % 如 \itshape
+%                {⟨缩进长度⟩} % 若留空，则无缩进；可以使用 \parindent 进行正常段落缩进
+%                {⟨定理头字体⟩} % 如 \bfseries
+%                {⟨定理头后的标点符号⟩} % 如点号、冒号
+%                {⟨定理头后的间距⟩} % 不可留空，若设置为 { }，则表示正常词间间距；若设置为 {\newline}，则环境内容开启新行
+%                {⟨定理头格式指定⟩} % 一般留空
+% 定理风格决定着由 \newtheorem 定义的环境的具体格式，有三种定理风格是预定义的，它们分别是：
+% plain: 环境内容使用意大利斜体，环境上下方添加额外间距
+% definition: 环境内容使用罗马正体，环境上下方添加额外间距
+% remark: 环境内容使用罗马正体，环境上下方不添加额外间距
+\theoremstyle{MyStyle} % 设置定理风格 
+
+% 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
+
+\newtheorem{definition}{概念}[subsection]
+\newenvironment{cpt}{\begin{dfn_box}\begin{definition}}{\end{definition}\end{dfn_box}}
+
+\newtheorem{axm}[definition]{定律}
+\newenvironment{thr}{\begin{axm_box}\begin{axm}}{\end{axm}\end{axm_box}}
+
+\newtheorem{theorem}[definition]{定理}
+\newenvironment{thm}{\begin{thm_box}\begin{theorem}}{\end{theorem}\end{thm_box}}
+
+\newtheorem{property}{性质}[definition]
+\newenvironment{ppt}{\begin{ppt_box}\begin{property}}{\end{property}\end{ppt_box}}
+
+\newtheorem{example}{例}[definition]
+\newenvironment{xmp}{\begin{xmp_box}\begin{example}}{\end{example}\end{xmp_box}}
+
+\newtheorem*{myproof}{推导: \newline}
+\newenvironment{prf}{\begin{prf_box}\begin{myproof}}{\end{myproof}\end{prf_box}}
+
+% ————————————————————————————————————定理类环境设置————————————————————————————————————
+    % \newtheorem{xmp}{例}[subsection]
+    % \newtheorem{thm}{定理}[subsection]
+    % \newtheorem{crl}{推论}[thm]
+    % \newtheorem{dfn}[thm]{定义}
+    % \newtheorem{ppt}{性质}[thm]
+    % \newtheorem{lma}[thm]{引理}
+    % \newtheorem{axm}{公理}
+    % \newtheorem{pbm}{题}
+    % \newtheorem*{prf}{证明}
+    % \newtheorem*{ans}{解答}
+
+    % \newtheorem{dfn}{Definition}
+    % \newtheorem{thm}{Theorem}
+    % \newtheorem{lma}{Lemma}
+    % \newtheorem{axm}{Axiom}
+    % \newtheorem{pbm}{Problem}
+    % \newtheorem*{prf}{Proof}
+    % \newtheorem*{ans}{Answer}
+    % English Version
+% ------------------******-------------------
+
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+
+\linespread{1.2}
+
+\DeclareMathOperator{\kg}{\mathrm{kg}}
+\DeclareMathOperator{\m}{\mathrm{m}}
+\DeclareMathOperator{\s}{\mathrm{s}}
+\DeclareMathOperator{\J}{\mathrm{J}}
+\DeclareMathOperator{\New}{\mathrm{N}}
+\DeclareMathOperator{\mol}{\mathrm{mol}}
+\DeclareMathOperator{\Pa}{\mathrm{Pa}}
+\DeclareMathOperator{\Ltr}{\mathrm{L}}
+\DeclareMathOperator{\Kv}{\mathrm{K}}
+
+\DeclareMathOperator{\ihat}{\bm{\hat{\imath}}}
+\DeclareMathOperator{\jhat}{\bm{\hat{\jmath}}}
+\DeclareMathOperator{\khat}{\bm{\hat{\mathit{k}}}}
+
+\begin{document}
+
+
+\begin{center}
+    {\LARGE 热力学笔记}
+\end{center}
+
+\section{经典统计物理}
+
+    \subsection{热力学系统}
+        
+        \begin{cpt}
+            \textbf{物质的量}
+
+            用连续物理量\textbf{物质的量}描述大量微粒的数目, 记作 \(\nu\). 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{Avogadro 常数}
+
+            每摩尔物质中的微粒数目, 记作 \(N_A\): 
+            \[N_A\approx 6.022\times 10^{23}\mol^{-1}\]
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{微粒数}
+
+            无量纲数, 记作 \(N\). 
+            \[N=N_A\cdot\nu\]
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{热力学系统}
+
+            一个由大量微粒组成的质点系称为\textbf{热力学系统}. 
+        \end{cpt}
+    
+        \begin{cpt}
+            \textbf{体积}
+
+            某一时刻热力学系统全体质点的空间点集的测度定义为\textbf{体积}, 记作 \(V\). 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{物质的量密度}
+
+            热力学系统中描述分子位置的统计分布的物理量, 定义为物质的量在空间分布的概率密度, 记作 \(n\): 
+            \[n:=\frac{\dd^3\nu}{\dd^3\bm{r}}=\frac{\dd^3\nu}{\dd x\dd y\dd z}\]
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{均匀态}
+
+            若一个热力学系统的物质的量密度 \(n\) 在空间中处处相等, 则称该热力学系统处于\textbf{均匀态}. 
+
+            此时有: 
+            \[n=\frac{\nu}{V}\]
+        \end{cpt}
+
+    \subsection{分子运动的描述}
+        
+        \begin{cpt}
+            \textbf{速率分布函数}
+
+            设某热力学系统的总物质的量为 \(\nu_0\), 称将某速率映射到热力学系统中微粒运动速率在该速率附近的概率密度的函数为该热力学系统的\textbf{速率分布函数}, 记作 \(f\). 
+            \[f:=\frac{1}{\nu_0}\cdot\frac{\dd\nu}{\dd v}\]
+        \end{cpt}
+        
+        \begin{thm}
+            \textbf{速率分布函数的归一化条件}
+            \[\int_0^{+\infty}f(v)\dd v=1\]
+        \end{thm}
+        
+        \begin{thm}
+            \textbf{分子平均速率}
+            \[\bar{v}=\int_0^{+\infty}vf(v)\dd v\]
+        \end{thm}
+        
+        \begin{thm}
+            \textbf{分子速率平方平均值}
+            \[\overline{v^2}=\int_0^{+\infty}v^2f(v)\dd v\]
+        \end{thm}
+        
+        \begin{thm}
+            \textbf{分子平均平动能}
+            \[\overline{\varepsilon_t}=\frac{1}{2}m\overline{v^2}\]
+        \end{thm}
+        
+        \begin{cpt}
+            \textbf{速度分布函数}
+
+            设某热力学系统的总物质的量为 \(\nu_0\), 称将某速度向量映射到热力学系统中微粒运动速度在该速度附近的概率密度的泛函为该热力学系统的\textbf{速度分布函数}, 记作 \(F\). 
+            \[F(\bm{v}):=\frac{1}{\nu_0}\cdot\frac{\dd^3\nu}{\dd^3\bm{v}}=\frac{1}{\nu_0}\cdot\frac{\dd^3\nu}{\dd v_x\dd v_y\dd v_z}\]
+        \end{cpt}
+        
+        \begin{thm}
+            \textbf{速度分布函数的归一化条件}
+            \[\int_{\R^3}F(\bm{v})\dd\bm{v}=\iiint_{\R^3}F(\bm{v})\dd v_x\dd v_y\dd v_z=1\]
+        \end{thm}
+        
+        \begin{thr}
+            \textbf{速度分布函数的各向同性}
+
+            速度分布函数与速度方向无关: 
+            \[\|\bm{v}_1\|=\|\bm{v}_2\|\implies F(\bm{v}_1)=F(\bm{v}_2)\]
+
+            约定由速度分布函数 \(F\) 生成的速率分布函数 \(f_F\): 
+            \[f_F:=\|\bm{v}\|\mapsto F(\bm{v})\]
+        \end{thr}
+        
+        \begin{thm}
+            \textbf{分子对各速度分量分布对等}
+
+            分子各速度分量的平方平均值相等: 
+            \[\overline{v_x^2}=\overline{v_y^2}=\overline{v_z^2}=\frac{1}{3}\overline{v^2}\]
+        \end{thm}
+        
+        \begin{cpt}
+            由大量微观粒子的统计规律决定的热力学系统的性质称为\textbf{宏观态}, 各属性分别称为热力学系统的\textbf{宏观性质}. 
+
+            描述热力学系统宏观量之间关系的方程称为\textbf{状态方程}. 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{稳定态}
+
+            称一个热力学系统处于\textbf{稳定态}, 若其宏观态不随时间变化. 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{平衡态}
+
+            称一个热力学系统处于\textbf{平衡态}, 若热力学系统不受系统外因素影响, 且处于稳定态. 
+        \end{cpt}
+
+    \subsection{Maxwell-Bolzmann 分布}
+        
+        \begin{thr}
+            \textbf{分子各速度分量分布相互独立}
+            \[F(\bm{v})=f(v_x)f(v_y)f(v_z)\]
+        \end{thr}
+        
+        \begin{thm}
+            \textbf{Maxwell-Bolzmann 分布律}
+
+            分子速度分布函数为: 
+            \[\left(Z:={\left(\frac{2\pi k_B T}{m}\right)}^{\frac{3}{2}}\right)
+            \to F(\bm{v})=\frac{1}{Z}\exp(-\frac{m}{2k_B T}\cdot\bm{v}^2)\]
+
+            分子速率分布函数为: 
+            \[f(v)=\frac{4\pi}{Z}\exp(-\frac{m}{2k_B T}\cdot v^2)v^2\]
+        \end{thm}
+        
+        \begin{cpt}
+            \textbf{最概然速率}
+
+            速率分布函数的极大值点称为\textbf{最概然速率}, 记作 \(v_p\). 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{平均速率}
+            \[\bar{v}=\int_0^{+\infty}vf(v)\dd v\]
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{方均速率}
+            \[\overline{v^2}=\int_0^{+\infty}v^2f(v)\dd v\]
+        \end{cpt}
+
+    \subsection{热力学系统内能}
+        
+        \begin{cpt}
+            \textbf{自由度}
+
+            \textbf{平动自由度}, 记为 \(t\); 
+            \[t:=3\]
+
+            \textbf{旋转自由度}, 记为 \(r\);
+            \[r:=\begin{cases}
+                0, & \text{单原子分子} \\
+                2, & \text{刚性双原子分子} \\
+                3, & \text{非刚性双原子分子或多原子分子}
+            \end{cases}\]
+
+            \textbf{振动自由度}, 记为 \(s\);
+            \[s:=\begin{cases}
+                0, & \text{单原子分子} \\
+                0, & \text{刚性双原子分子} \\
+                1, & \text{非刚性双原子分子或多原子分子}
+            \end{cases}\]
+
+            \textbf{总自由度}记为 \(i\): 
+            \[i:=t+r+2s\]
+        \end{cpt}
+        
+        \begin{xmp}
+            \textbf{单原子分子自由度}
+            \[t=3, r=0, s=0\]
+        \end{xmp}
+
+        \begin{xmp}
+            \textbf{刚性双原子分子自由度}
+            \[t=3, r=2, s=0\]
+        \end{xmp}
+
+        \begin{xmp}
+            \textbf{非刚性双原子分子自由度}
+            \[t=3, r=2, s=1\]
+        \end{xmp}
+        
+        \begin{cpt}
+            \textbf{理想气体内能}
+            \[E=\frac{i}{3}N\overline{\varepsilon_t}\]
+        \end{cpt}
+    
+\section{平衡态}
+
+    \subsection{理想气体方程}
+
+        \begin{cpt}
+            \textbf{压强}
+
+            热力学系统的\textbf{压强}定义为单位面积上所受的平均垂直作用力的大小, 记作 \(p\). 
+        \end{cpt}
+        
+        \begin{thm}
+            \textbf{平衡态理想气体系统的压强}
+
+            设系统中分子数密度为 \(n\), 单个分子质量为 \(m\), 则系统压强满足: 
+            \[p=\frac{1}{3}mn\overline{v^2}=\frac{2}{3}n\overline{\varepsilon_t}\]
+        \end{thm}
+        
+        \begin{prf}
+            假设压强是均匀的, 考察容器壁上面积为 \(S\) 的面元所受微粒作用力 (即单位时间所受冲量): 
+            \[
+            \begin{aligned}
+                p
+                & = \|\bm{p}\|\\
+                & = \frac{\|\bm{F}\|}{S}\\
+                & = \frac{1}{S}\cdot\frac{\dd\bm{\|I\|}}{\dd t}\\
+                & = \frac{1}{S}\cdot\frac{\dd}{\dd t}\int_{\bm{v}.x>0}\frac{\dd p_x}{\dd\bm{v}}\dd\bm{v}\\
+                & = \frac{1}{S}\cdot\frac{\dd}{\dd t}\int_{\bm{v}.x>0}2mv_x\cdot\frac{\dd N}{\dd\bm{v}}\dd\bm{v}\\
+                & = \frac{1}{S}\cdot\frac{\dd}{\dd t}\int_{\bm{v}.x>0}2mv_x\cdot n F(\bm{v})V(\bm{v})\dd\bm{v}\\
+                & = \frac{1}{S}\cdot\frac{\dd}{\dd t}\int_{\bm{v}.x>0}2mnv_x\cdot F(\bm{v})\cdot S v_x t\dd\bm{v}\\
+                & = 2mn\int_{\bm{v}.x>0}F(\bm{v})\cdot v_x^2\dd\bm{v}\\
+                & = mn\int_{\R^3} F(\bm{v})\cdot v_x^2\dd\bm{v}\\
+                & = \frac{1}{3}mn\int_{\R^3} F(\bm{v})\cdot \|\bm{v}\|^2\dd\bm{v}\\
+                & = \frac{1}{3}mn\overline{v^2}\square
+            \end{aligned}\]
+        \end{prf}
+        
+        \begin{cpt}
+            \textbf{Bolzmann 常数}
+
+            Bolzmann 常数, 记为 \(k_B\). 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{温度}
+
+            温度是反映分子平均平动能的物理量, 记作 \(T\): 
+            \[T:=\frac{2\overline{\varepsilon_t}}{3k_B}\]
+        \end{cpt}
+        
+        \begin{ppt}
+            \textbf{最概然速率计算方法}
+            \[v_p=\sqrt{\frac{2k_B T}{m}}\]
+        \end{ppt}
+        
+        \begin{ppt}
+            \textbf{平均速率计算方法}
+            \[\bar{v}=\sqrt{\frac{8k_B T}{\pi m}}\]
+        \end{ppt}
+        
+        \begin{ppt}
+            \textbf{方均速率计算方法}
+            \[\overline{v^2}=\frac{3k_B T}{m}\]
+        \end{ppt}
+
+        \begin{ppt}
+            \textbf{分子平均平动能计算方法}
+            \[\overline{\varepsilon_t}=\frac{3}{2}k_B T\]
+        \end{ppt}
+        
+        \begin{ppt}
+            \textbf{理想气体内能计算方法}
+            \[E=\frac{i}{2}N k_B T\]
+        \end{ppt}
+        
+        \begin{thr}
+            \textbf{Avogadro 定律}
+            
+            在规定的温度和压强下, 由气体构成的热力学系统的体积与物质的量成正比: 
+            \[V=V_M\nu\]
+        \end{thr}
+        
+        \begin{cpt}
+            \textbf{标准状况}
+            
+            \(1\) 标准大气压下冰水混合物的温度及 \(1\) 标准大气压, 记作 \(T_0\) 和 \(p_0\). 
+        \end{cpt}
+        
+        \begin{thr}
+            \textbf{标准状况下气体的摩尔体积}
+            \[V_{0\mol}=22.4(\Ltr\cdot\mol^{-1})\]
+        \end{thr}
+        
+        \begin{cpt}
+            \textbf{普适气体常量}
+
+            记作 \(R\). 
+            \[R:=\frac{p_0 V}{\nu T_0}=\frac{p_0 V_{0\mol}}{T_0}\approx 8.31\J\cdot\mol^{-1}\cdot\Kv^{-1}\]
+        \end{cpt}
+        
+        \begin{ppt}
+            \textbf{Bolzmann 常数计算}
+            \[k_B:=\frac{R}{N_A}\approx 1.38\times 10^{-23}\J\cdot\Kv^{-1}\]
+        \end{ppt}
+        
+        \begin{thm}
+            \textbf{理想气体方程}
+
+            由理想气体组成的热力学系统满足以下状态方程: 
+            \[pV=\nu RT\]
+        \end{thm}
+
+    \subsection{体积功}
+        
+        \begin{cpt}
+            \textbf{准静态过程}
+
+            若热力学系统宏观态在保持平衡态条件下随某非时间参量连续变化, 则称该变化过程为\textbf{准静态过程}. 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{体积功 (Volume Work)}
+
+            热力学系统体积变化时, 系统中微粒对外界所做总功, 称为热力学系统对外做\textbf{体积功}, 记作 \(W\) (英语: Work) 或 \(A\) (德语: Arbeit). 
+        \end{cpt}
+
+        \begin{ppt}
+            \textbf{准静态过程中体积功的计算公式}
+
+            设在一个准静态过程中, 热力学系统体积从 \(V_0\) 变化到 \(V_1\), 则体积功的大小为: 
+            \[W=\int_{V_0}^{V_1}p\dd V\]
+        \end{ppt}
+
+    \subsection{热力学第一定律}
+        
+        \begin{cpt}
+            \textbf{热交换}
+
+            热力学系统在某一过程中, 外界通过非做功的方式改变系统内能, 则称该过程与外界存在\textbf{热交换}. 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{绝热过程}
+
+            热力学系统在某一过程中与外界不存在热交换, 则称该过程为\textbf{绝热过程}. 
+        \end{cpt}
+        
+        \begin{ppt}
+            \textbf{理想气体热力学系统中内能是绝热过程中体积功的态函数}
+        \end{ppt}
+        
+        \begin{cpt}
+            \textbf{热量 (Heat)}
+
+            在准静态过程中, 热力学系统源自热交换的内能变化量定义为\textbf{热量}, 记作 \(Q\). 
+        \end{cpt}
+        
+        \begin{thm}
+            \textbf{热力学第一定律}
+
+            \[\Delta E=Q-W\]
+        \end{thm}
+
+    \subsection{热容}
+        
+        \begin{cpt}
+            \textbf{等压 / 等容变化}
+
+            在准静态过程中, 热力学系统若压强不变, 则称该过程为\textbf{等压变化}; 若体积不变, 则称该过程为\textbf{等容变化}. 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{热容}
+
+            热力学系统在等容变化 \(f_V\) 过程中的热量与温度变化量之比称为 \textbf{定容热容}, 记作 \(C_V\); 
+            \[C_V:=\frac{\Delta_{f_V} Q}{\Delta_{f_V} T}\]
+
+            定容热容与物质的量之比称为\textbf{比定容热容} 或 \textbf{摩尔定容热容}, 记作 \(C_{V,\mol}\): 
+
+            热力学系统在等压变化 \(f_p\) 过程中的热量与温度变化量之比称为 \textbf{定压热容}, 记作 \(C_p\);
+            \[C_p:=\frac{\Delta_{f_p} Q}{\Delta_{f_p} T}\]
+
+            定压热容与物质的量之比称为\textbf{比定压热容} 或 \textbf{摩尔定压热容}, 记作 \(C_{p,\mol}\).
+        \end{cpt}
+        
+        \begin{ppt}
+            \textbf{定容热容的计算}
+
+            理想气体热力学系统的摩尔定容热容是常数: 
+            \[C_{V,\mol}=\frac{i}{2}R\]
+        \end{ppt}
+        
+        \begin{ppt}
+            \textbf{定压热容的计算}
+
+            理想气体热力学系统的摩尔定压热容是常数: 
+            \[C_{p,\mol}=C_{V,\mol}+R=\left(\frac{i}{2}+1\right)R\]
+        \end{ppt}
+        
+        \begin{cpt}
+            \textbf{热容比}
+
+            定压热容与定容热容之比称为\textbf{热容比}, 记作 \(\gamma\): 
+            \[\gamma:=\frac{C_p}{C_V}=\frac{C_{p,\mol}}{C_{V,\mol}}=\frac{i+2}{i}\]
+        \end{cpt}
+        
+        \begin{thm}
+            \textbf{Poisson 方程}
+
+            绝热过程中, 理想气体热力学系统的状态方程满足 Poisson 方程: 
+            \[pV^{\gamma}=C\]
+            
+            即
+            \[p^i V^{i+2}=C\]
+        \end{thm}
+
+    \subsection{多方过程}
+        
+        \begin{cpt}
+            \textbf{热容}
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{多方过程}
+
+            在准静态过程中, 热容为常数的过程称为\textbf{多方过程}. 
+        \end{cpt}
+
+    \subsection{热循环与热机}
+        
+        \begin{cpt}
+            \textbf{热循环}
+
+            初末状态一致的准静态过程称为\textbf{热循环}. 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{做功}
+
+            对外做总功为正的热循环称为\textbf{正循环}, 反之称为\textbf{逆循环}. 
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{热机效率}
+
+            热机的效率定义为正循环做功与输入热量之比, 记作 \(\eta\): 
+            \[\eta:=\frac{W}{Q_{\text{in}}}=\frac{Q_{\text{in}}-Q_{\text{out}}}{Q_{\text{in}}}\]
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{制冷系数}
+        \end{cpt}
+        
+        \begin{cpt}
+            \textbf{Carnot 循环}
+        \end{cpt}
+        
+        \begin{ppt}
+            \textbf{Carnot 循环效率}
+            \[\eta=1-\frac{T_{\text{out}}}{T_{\text{in}}}\]
+        \end{ppt}
+        
+        \begin{cpt}
+            \textbf{Otto 循环}
+
+            绝热压缩比 \(r\) 定义为: 
+            \[r:=\frac{V_1}{V_2}\]
+        \end{cpt}
+        
+        \begin{ppt}
+            \textbf{Otto 循环效率}
+            \[\eta=1-r^{1-\gamma}\]
+        \end{ppt}
+        
+        \begin{cpt}
+            \textbf{Diesel 循环}
+        \end{cpt}
+
+        \begin{ppt}
+            \textbf{Diesel 循环效率}
+        \end{ppt}
+
+    \subsection{热力学第二定律}
+        
+        \begin{cpt}
+            \textbf{熵}
+
+            热力学系统的\textbf{熵}是热力学系统宏观态的一个状态量, 记作 \(S\): 
+            \[\Delta S:=\int_{\varGamma}\frac{\delta Q}{T}\]
+        \end{cpt}
+        
+        \begin{ppt}
+            \textbf{熵的计算}
+            \[
+            \begin{cases}
+            \begin{aligned}
+                S = S_0 + C_V\ln\frac{T}{T_0}+\nu R\ln\frac{V}{V_0}\\
+                S = S_0 + C_V\ln\frac{p}{p_0}+C_p\ln\frac{V}{V_0}\\
+                S = S_0 + C_p\ln\frac{T}{T_0}+\nu R\ln\frac{p}{p_0}
+            \end{aligned}
+            \end{cases}\]
+
+            \textbf{等压过程}
+            \[\Delta S=C_p\ln\frac{V}{V_0}=C_p\ln\frac{T}{T_0}\]
+
+            \textbf{等容过程}
+            \[\Delta S=C_V\ln\frac{T}{T_0}=C_V\ln\frac{p}{p_0}\]
+
+            \textbf{等温过程}
+            \[\Delta S=\nu R\ln\frac{V}{V_0}=\nu R\ln\frac{p}{p_0}\]
+
+            \textbf{绝热过程}
+            \[\Delta S=0\]
+        \end{ppt}
+        
+        \begin{prf}
+            \[
+            \begin{aligned}
+                \int_{\varGamma}\frac{\delta Q}{T}
+                & = \int_{\varGamma}\frac{\dd E - \delta W}{T}\\
+                & = \int_{\varGamma}\frac{\dd E + p\dd V}{T}\\
+                & = \int_{\varGamma}\frac{C_V}{T}\dd T+\int_{\varGamma}\frac{p}{T}\dd V\\
+                & = \int_{T_0}^{T}\frac{C_V}{T}\dd T+\int_{V_0}^{V}\frac{\nu R}{V}\dd V\\
+                & = C_V\ln\frac{T}{T_0}+\nu R\ln\frac{V}{V_0}\\
+            \end{aligned}\]
+        \end{prf}
+    
+\end{document}

@@ -1,0 +1,587 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\makeatother
+
+\usepackage{FulcrumHabitCN}
+% ams package
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+% margin
+\usepackage{geometry}
+
+% \dd
+\usepackage{physics}
+
+% Boldface
+\usepackage{bm}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Gaussian Elimination
+\usepackage{gauss}
+
+% Commutative Graph
+\usepackage[all]{xy}
+
+% Comment
+\usepackage{comment}
+
+\title{Title}
+\author{Fulcrum4Math}
+\date{\today}
+
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+
+\linespread{1.2}
+
+\begin{document}
+    \begin{center}
+        {\LARGE\textbf{实分析笔记}}
+
+        Fulcrum4Math
+    \end{center}
+
+    \tableofcontents
+
+    \newpage
+
+    \section{Lebesgue 测度} % uuid:"05RA.Cat.Section.LebesgueMeasure"
+
+        \subsection{\(\sigma\)-代数与测度空间} % uuid:"05RA.Cat.Subsection.SigmaAlgebraMeasureSpace"
+
+            \begin{dfn}
+                [05RA.Cat.SigmaAlgebra]
+                {\(\sigma\)-代数}
+                [\(\sigma\)-Algebra]
+                [猫猫]
+                \(\Sigma_S\subseteq\PP(S)\), 定义在集合 \(S\) 上的结构 \((S,\Sigma_S)\) 称为是 \(S\) 上的一个 \textbf{\(\sigma\)-代数}当且仅当: 
+
+                (1) \(S\) 在 \(\Sigma_S\) 内; 
+                \[S\in\Sigma_S\]
+
+                (2) \(\Sigma_S\) 对可数并封闭: 
+                \[\forall\{X_i|i\in\N\}\subseteq\Sigma_S, \bigcup_{i\in\N}X_i\in\Sigma_S\]
+
+                (3) \(\Sigma_S\) 对补集封闭: 
+                \[\forall X\in\Sigma_S, S-X\in\Sigma_S\]
+            \end{dfn}
+
+            \begin{ppt}
+                [05RA.Cat.SigmaAlgebraEquivDef]
+                {\(\sigma\)-代数的等价定义}
+                []
+                [猫猫]
+                (1) 可替换为 \(\varnothing\) 在 \(\Sigma_S\) 内; 
+                \[\varnothing\in\Sigma_S\]
+
+                (2) 可替换为 \(\Sigma_S\) 对可数交封闭: 
+                \[\forall\{X_i|i\in\N\}\subseteq\Sigma_S, \bigcap_{i\in\N}X_i\in\Sigma_S\]
+            \end{ppt}
+            
+            \begin{prf}
+                (1) 由 \(\sigma\)-代数对取补运算封闭性即证. 
+
+                (2) 由 De Morgan 公式即证. 
+            \end{prf}
+
+            \begin{dfn}
+                [05RA.Cat.Measure]
+                {测度与测度空间}
+                [Measure and Measure Space]
+                [猫猫]
+                设 \((S,\Sigma_S)\) 是 \(\sigma\)-代数, 集函数 \(\mu:\Sigma_S\to\bar{\R}\) 称为是定义在 \(\Sigma_S\) 上的\textbf{测度}, 若: 
+
+                (1) 测度非负: 
+                \[\forall X\in\Sigma_S, \mu(X)\geq 0\]
+
+                (2) 可数可加性: 
+                \[\forall\{X_i|i\in\N\}\subseteq\Sigma_S(i\neq j\Longrightarrow X_i\cap X_j=\varnothing), \]
+                \[\mu\left(\bigcup_{i\in\N}X_i\right)=\sum_{i\in\N}\mu(X_i)\]
+
+                此时结构 \((S,\Sigma_S,\mu)\) 称为\textbf{测度空间}. 
+            \end{dfn}
+            
+            \begin{ppt}
+                [05RA.Cat.EmptySetZeroMeasure]
+                {空集零测}
+                []
+                [猫猫]
+                \[\mu(\varnothing)=0\]
+            \end{ppt}
+            
+            \begin{prf}
+                \[\mu(\varnothing)+\mu(\varnothing)=\mu(\varnothing\cup\varnothing)=\mu(\varnothing)\Longrightarrow\mu(\varnothing)=0\]
+            \end{prf}
+            
+            \begin{ppt}
+                [05RA.Cat.SubsetMeasure]
+                {子集测度小于等于全集测度}
+                []
+                [猫猫]
+                \[A\subseteq B\Longrightarrow\mu(A)\leq\mu(B)\]
+            \end{ppt}
+            
+            \begin{prf}
+                用子集及其补表示全集即证: 
+                \[B=A\cup(B-A)\Longrightarrow\mu(B)=\mu(A)+\mu(B-A)\geq\mu(A)+0=\mu(A)\square\]
+            \end{prf}
+            
+            \begin{dfn}
+                [05RA.Cat.BorelSets]
+                {Borel 集族}
+                [Borel Sets]
+                [猫猫]
+                \textbf{Borel 集族 (Borel Sets)}
+
+                设拓扑空间 \((S,\T_S)\), \(S\) 上的 \textbf{Borel 集族} \(\mathcal{B}(S)\)是由拓扑 \(\T_S\) 生成的最小 \(\sigma\)-代数: 
+                \[\mathcal{B}(S)=\bigcap_{\T_S\subseteq\Sigma_S}\Sigma_S\]
+            \end{dfn}
+            
+            \begin{dfn}
+                [05RA.Cat.BorelMeasureOnR]
+                {\(\R\) 上在通常拓扑意义下的 Borel 测度}
+                []
+                [猫猫]
+                在对 \(\R\) 赋予通常拓扑得到的拓扑空间 \((\R,\T)\) 上, 定义在 Borel 集上的满足区间的长度为端点之差得到的测度称为 \textbf{Borel 测度}: 
+                \[\forall a,b(a<b)\in\bar\R, \mu\oointerval{a}{b}=b-a\]
+            \end{dfn}
+            
+            \begin{ppt}
+                [05RA.Cat.SinglePointZeroMeasure]
+                {单点集零测}
+                []
+                [猫猫]
+                \[\forall x\in\R, \mu\{x\}=0\]
+            \end{ppt}
+            
+            \begin{prf}
+                考虑以点为中心的开球，并令半径任意小即可: 
+                \[\forall x\in\R, \forall\varepsilon\in\R^+, \{x\}\subseteq\oointerval{x-\frac{\varepsilon}{2}}{x+\frac{\varepsilon}{2}}\]
+                \[\Longrightarrow\forall\varepsilon\in\R^+, \mu\{x\}\leq\varepsilon\Longrightarrow\mu\{x\}=0\square\]
+            \end{prf}
+            
+            \begin{ppt}
+                [05RA.Cat.IntervalBorelMeasure]
+                {区间上的 Borel 测度等于区间长度}
+                []
+                [猫猫]
+                \[\forall a,b\in\bar\R, 
+                \mu\oointerval{a}{b}=
+                \mu\ocinterval{a}{b}=
+                \mu\cointerval{a}{b}=
+                \mu\ccinterval{a}{b}=b-a\]
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.CountableZeroMeasure]
+                {可数集零测}
+                []
+                [猫猫]
+                \[\forall S\subseteq\R(\card S=\aleph_0), \mu(S)=0\]
+            \end{ppt}
+            
+            \begin{prf}
+                由单点集零测性质, 用单点集的可数并表示可数集即证. \(\square\)
+            \end{prf}
+            
+            \begin{cxmp}
+                [05RA.Cat.CantorSet]
+                {Cantor 集}
+                [Cantor Set]
+                [猫猫]
+                Cantor 集是零测的, 但不可数. 
+            \end{cxmp}
+            
+            \begin{thm}
+                [05RA.Cat.BorelMeasureUnique]
+                {Borel 测度唯一}
+                []
+                [猫猫]
+                \[\forall X\in\Sigma_S, \mu_1(X)=\mu_2(X)\]
+            \end{thm}
+            
+        \subsection{\(\R\) 上的 Lebesgue 测度} % uuid:"05RA.Cat.Subsection.LebesgueMeasureOnR"
+        
+            \begin{dfn}
+                [05RA.Cat.CompleteMeasureSpace]
+                {完备测度空间}
+                [Complete Measure Space]
+                [猫猫]
+                测度空间 \((S,\Sigma_S,\mu)\) 称为是一个\textbf{完备测度空间}, 若每个零测集的全体子集都可测: 
+                \[\forall N(\mu(N)=0)\in\Sigma_S, \PP(N)\subseteq\Sigma_S\]
+            \end{dfn}
+            
+            \begin{dfn}
+                [05RA.Cat.LebesgueMeasure]
+                {Lebesgue 内/外测度}
+                [Lebesgue Inner/Outer Measure]
+                [猫猫]
+                首先定义开集与紧集上的 Lebesgue 测度值: 
+
+                ？？？
+
+                对于拓扑空间 \((S,\T)\), 用开集外逼近得到的集函数 \(\mu^*:\PP(S)\to\R\) 称为是 \(\PP(S)\) 上的外测度: 
+                \[\mu^*(X)=\inf_{O\in\T}\sum_{X\subseteq O}\mu(O)\]
+
+                用紧集内逼近得到的集函数 \(\mu_*:\PP(S)\to\R\) 称为是 \(\PP(S)\) 上的内测度: 
+                \[\mu_*(X)=\sup_{C\text{是紧集}}\sum_{C\subseteq X}\mu(C)\]
+            \end{dfn}
+            
+            \begin{dfn}
+                [05RA.Cat.LebesgueMeasurableSet]
+                {Lebesgue 可测集}
+                [Lebesgue Measurable Set]
+                [猫猫]
+                集合 $X$ 被称为是 \textbf{Lebesgue 可测}的, 若其内测度与外测度相等: 
+                \[\mu^*(X)=\mu_*(X)\]
+            \end{dfn}
+            
+            \begin{ppt}
+                [05RA.Cat.ConstantinCaratheodory]
+                {Constantin-Caratheodory 条件}
+                []
+                [猫猫]
+                \(X\) 是 Lebesgue 可测的当且仅当 \(X\) 满足: 
+                \[\forall A\subseteq S, \mu^*(A)=\mu^*((S-X)\cap A)+\mu^*(X\cap A)\]
+            \end{ppt}
+            
+            \begin{cxmp}
+                [05RA.Cat.VitaliSet]
+                {Vitali 集}
+                [Vitali Set]
+                [猫猫]
+                构造: 
+            \end{cxmp}
+            
+            \begin{ppt}
+                [05RA.Cat.OuterMeasureZeroMeasurable]
+                {外测度为零的集合 Lebesgue 可测}
+                []
+                [猫猫]
+                \[\mu^*(S)=0\Longrightarrow S\text{ 是 Lebesgue 可测的}\]
+            \end{ppt}
+            
+            \begin{dfn}
+                [05RA.Cat.MeasurableHullKernel]
+                {可测包/核}
+                [Measurable Hull/Kernel]
+                [猫猫]
+                对集合 \(S\subseteq\R\), 定义其\textbf{可测包}集族为包含 \(S\) 的最小可测集族, 其\textbf{可测核}
+            \end{dfn}
+            
+            \begin{thm}
+                [05RA.Cat.LebesgueMeasurableSetSigmaAlgebra]
+                {Lebesgue 可测集族构成 \(\sigma\)-代数}
+                []
+                [猫猫]
+                Lebesgue 可测集族构成 \(\R\) 上的一个 \(\sigma\)-代数. 
+            \end{thm}
+            
+            \begin{crl}
+                [05RA.Cat.LebesgueMeasurableSetGeneratedByBorelZero]
+                {Lebesgue 可测集族由 Borel 集与零测集生成}
+                []
+                [猫猫]
+                Lebesgue 可测集族是由 \(\mathcal{B}(S)\) 与全体零测集生成的 \(\sigma\)-代数. 
+            \end{crl}
+            
+            \begin{dfn}
+                [05RA.Cat.LebesgueMeasure]
+                {Lebesgue 测度}
+                [Lebesgue Measure]
+                [猫猫]
+                将 Lebesgue 内/外测度限制在 Lebesgue 可测集上得到的集函数称为 \textbf{Lebesgue 测度}. 
+                \[\mu:=\mu^*|_\mathcal{L}=\mu_*|_\mathcal{L}\]
+            \end{dfn}
+            
+            \begin{ppt}
+                [05RA.Cat.BorelMeasureIsLebesgueMeasureOnBorel]
+                {Borel 测度是 Lebesgue 测度在 Borel 集上的限制}
+                []
+                [猫猫]
+                \[\mu_\mathcal{B}=\mu_\mathcal{L}|_{\mathcal{B}(S)}\]
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasureComplete]
+                {Lebesgue 测度完备}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasureTranslationInvariant]
+                {Lebesgue 测度平移不变}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{thm}
+                [05RA.Cat.LittlewoodFirstPrinciple]
+                {Littlewood 第一原理}
+                []
+                [猫猫]
+                有限测度的可测集接近于区间的有限并: 
+                
+                设 \(E\) 为有限测度的可测集, 则 \(\forall\varepsilon\in\R^+\), \(\exists\) 有限空交的开区间族 \({\{I_i\}}_{i=1}^n\), 记其并为 \(T\), 满足: 
+                \[\mu^*(E-F)+\mu^*(F-E)<\varepsilon\]
+            \end{thm}
+
+    \section{Lebesgue 可测函数} % uuid:"05RA.Cat.Section.LebesgueMeasurableFunction"
+
+        *本章的``可测''均指 Lebesgue 可测. 
+
+        *本章默认实值函数的值域是扩充实数集 \(\bar{\R}\). 
+
+        *称一个性质``几乎处处''成立指该性质在除了某零测集外处处成立. 
+
+        \subsection{Lebesgue 可测函数} % uuid:"05RA.Cat.Subsection.LebesgueMeasurableFunction"
+
+            \begin{dfn}
+                [05RA.Cat.LebesgueMeasurableFunction]
+                {Lebesgue 可测函数}
+                [Lebesgue Measurable Functions]
+                [猫猫]
+                设 \((S,\Sigma_S,\mu)\) 是测度空间, 函数 \(f:S\to\bar{\R}\) 称为是 \textbf{Lebesgue 可测函数}, 若 \(\forall\alpha\in\bar{\R}\), 集合 \(\{x\in S|f(x)>\alpha\}\) 是可测的. 
+            \end{dfn}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionEquivDef]
+                {Lebesgue 可测函数的等价定义}
+                []
+                [猫猫]
+                设 \(S\) 是可测集, 则下列叙述互相等价: 
+
+                (1) \(\forall\alpha\in\bar{\R}, \{x\in S|f(x)>\alpha\}\) 是可测集. 
+
+                (2) \(\forall\alpha\in\bar{\R}, \{x\in S|f(x)\geq\alpha\}\) 是可测集. 
+
+                (3) \(\forall\alpha\in\bar{\R}, \{x\in S|f(x)<\alpha\}\) 是可测集. 
+
+                (4) \(\forall\alpha\in\bar{\R}, \{x\in S|f(x)\leq\alpha\}\) 是可测集. 
+            \end{ppt}
+            
+            \begin{xmp}
+                [05RA.Cat.ContinuousFunctionMeasurable]
+                {可测集定义域上的连续实值函数可测}
+                []
+                [猫猫]
+            \end{xmp}
+            
+            \begin{xmp}
+                [05RA.Cat.MonotoneFunctionMeasurable]
+                {定义在区间上的单调函数可测}
+                []
+                [猫猫]
+            \end{xmp}
+            
+            \begin{cxmp}
+                [05RA.Cat.UnmeasurableFunction]
+                {不可测函数}
+                []
+                [猫猫]
+                构造
+            \end{cxmp}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionSinglePreimageMeasurable]
+                {可测函数单点值的原像可测}
+                []
+                [猫猫]
+                设 \(f:S\to\bar{\R}\) 是可测函数, 则 \(\forall\alpha\in\bar{\R}, \{x\in S|f(x)=\alpha\}\) 是可测集. 
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionOpenPreimageMeasurable]
+                {函数可测当且仅当开集的原像可测}
+                []
+                [猫猫]
+                设 \(f:S\to\bar{\R}\) 是实值函数, 则 \(f\) 是可测函数当且仅当开集的原像是可测集. 
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionCombination]
+                {可测函数的拼合}
+                []
+                [猫猫]
+                设可测集 \(S\) 有可测子集 \(T\), 则实值函数 \(f\) 在 \(S\) 上可测当且仅当 \(f|_T\) 和 \(f_{S-T}\) 均可测.
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionTransitivity]
+                {可测函数的传递性}
+                []
+                [猫猫]
+                设 \(f\) 在 \(S\) 上可测, \(f=g\) 在 \(S\) 上几乎处处成立, 则 \(g\) 在 \(S\) 上可测. 
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionAlgebra]
+                {可测函数代数}
+                []
+                [猫猫]
+                设 \(f,g:S\to\bar{\R}\) 是可测函数, 则: 
+                
+                (1) \(\forall k,l\in\bar{\R}\), 函数 \(k f+l g\) 是可测函数. 
+
+                (2) 函数 \(fg\) 是可测函数. 
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionComposition]
+                {可测函数的复合稳定性}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.LebesgueMeasurableFunctionPointwiseLimit]
+                {可测函数的逐点收敛稳定性}
+                []
+                [猫猫]
+                若定义在 \(D\) 上的可测函数序列 \(f_n\) 几乎处处逐点收敛于 \(f\), 则 \(f\) 可测. 
+            \end{ppt}
+
+        \subsection{简单逼近定理} % uuid:"05RA.Cat.Subsection.SimpleFunctionApproximationTheorem"
+            
+            \begin{dfn}
+                [05RA.Cat.IndicatorFunction]
+                {指示/示性/特征函数}
+                [Indicator/Characteristic Function]
+                [猫猫]
+                集合 \(A\subseteq S\) 的指示函数 \(\chi_A:S\to\{0,1\}\) 定义为:
+                \[\chi_A=
+                \begin{cases}
+                    1, & x\in A\\
+                    0, & x\notin A
+                \end{cases}\]
+            \end{dfn}
+            
+            \begin{ppt}
+                [05RA.Cat.MeasurableSetIndicatorFunction]
+                {集合可测当且仅当其指示函数可测}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{dfn}
+                [05RA.Cat.SimpleFunction]
+                {简单函数/单纯函数}
+                [Simple Function]
+                [猫猫]
+                定义在可测集上的实值函数 \(f:E\to\bar{\R}\) 称为是\textbf{简单函数}, 若其值域是有限集. 
+            \end{dfn}
+            
+            \begin{ppt}
+                [05RA.Cat.SimpleFunctionAlgebra]
+                {简单函数代数}
+                [Simple Function Algebra]
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                [05RA.Cat.SimpleFunctionCanonicalRepresentation]
+                {简单函数的典范表示}
+                []
+                [猫猫]
+                简单函数能表示为有限个集合的指示函数的线性组合: 
+                \[f=\sum_{i=1}^{n}C_i\cdot\chi_{A_i}(A_i=\{x\in A_i|f(x)=C_i\})\]
+            \end{ppt}
+            
+            \begin{lma}
+                [05RA.Cat.SimpleFunctionApproximationLemma]
+                {简单逼近引理}
+                [Simple Function Approximation Lemma]
+                [猫猫]
+                可测函数可以被简单函数良好控制: 
+
+                设 \(f:E\to\bar{\R}\) 是可测函数, \(f\) 在 \(E\) 上有界, 则 \(\forall\varepsilon>0\), \(\exists E\) 上的简单函数 \(\varphi_\varepsilon, \psi_\varepsilon\) 满足: 
+                \[\forall x\in E, \varphi_\varepsilon\leq f\leq\psi_\varepsilon\wedge 0\leq\psi_\varepsilon-\varphi_\varepsilon<\varepsilon\]
+            \end{lma}
+            
+            \begin{thm}
+                [05RA.Cat.SimpleFunctionApproximationTheorem]
+                {简单逼近定理}
+                [Simple Function Approximation Theorem]
+                [猫猫]
+                可测函数可以被简单函数逼近: 
+
+                定义在可测集 \(E\) 上的扩充实值函数 \(E\) 是可测的 \(\iff\exists E\) 上的简单函数序列 \(\{\varphi_n\}\) 满足: 
+                
+                (1) \(\{\varphi_n\}\) 逐点收敛到 \(f\); 
+
+                (2) \[\forall n\in\N, \forall x\in E, |\varphi_n|\leq|f|\]
+
+                其中若 \(f\) 非负, 则可选取满足上述条件且递增的 \(\{\varphi_n\}\). 
+            \end{thm}
+
+        \subsection{Littlewood 原理} % uuid: "05RA.Cat.Subsection.LittlewoodsPrinciples"
+
+            \begin{lma}
+                [05RA.Cat.EgoroffsLemma]
+                {}
+                []
+                [猫猫]
+                设 \(E\) 是有限测度可测集, \(\{f_n\}\) 是 \(E\) 上逐点收敛于 \(f\) 的可测函数序列, 则: 
+                \[\forall\varepsilon\in\R^+, \forall\delta\in\R^+, \exists E_\varepsilon\subseteq E(\mu(E-E_\varepsilon)<\delta), \exists N\in\N, \forall n\geq N, \forall x\in E_\varepsilon, |f_n-f|<\varepsilon\]
+            \end{lma}
+
+            \begin{thm}
+                [05RA.Cat.EgoroffsTheorem]
+                {Egoroff 定理 (Littlewood 第三原理)}
+                [Egoroff's Theorem]
+                [猫猫]
+                逐点收敛于某一的可测函数序列近似是一致收敛的: 
+
+                设 \(E\) 是有限测度可测集, \(\{f_n\}\) 是 \(E\) 上逐点收敛于 \(f\) 的可测函数序列, 则: 
+                \[\forall\varepsilon\in\R^+, \exists E_\varepsilon\subseteq E(\mu(E-E_\varepsilon)=0), \{f_n\}\text{ 在 \(E_\varepsilon\) 上一致收敛于} f\]
+            \end{thm}
+            
+            \begin{lma}
+                [05RA.Cat.LittlewoodsSecondPrinciple]
+                {Littlewood 第二原理}
+                [Littlewood's Second Principle]
+                [猫猫]
+                简单函数接近于连续函数: 
+                
+                设 \(f\) 为可测集 \(E\) 上的简单函数, 则: 
+                \[\forall\varepsilon\in\R^+, \exists g\in\mathcal{C}(\R), \exists E_\varepsilon\subseteq E(\mu(E-E_\varepsilon)<\varepsilon), \forall x\in E_\varepsilon, f=g\]
+            \end{lma}
+            
+            \begin{thm}
+                [05RA.Cat.LusinsTheorem]
+                {Lusin 定理}
+                [Lusin's Theorem]
+                [猫猫]
+                可测函数接近于连续函数: 
+                
+                设 \(f\) 为可测集 \(E\) 上的可测函数, 则: 
+                \[\forall\varepsilon\in\R^+, \exists g\in\mathcal{C}(\R), \exists E_\varepsilon\subseteq E(\mu(E-E_\varepsilon)<\varepsilon), \forall x\in E_\varepsilon, f=g\]
+            \end{thm}
+
+    \section{Lebesgue 积分} % uuid:"05RA.Cat.Section.LebesgueIntegral"
+
+        \subsection{有限测度集上有界可测函数的 Lebesgue 积分}
+            
+            \begin{dfn}
+                [05RA.Cat.SimpleLebesgueIntegral]
+                {简单函数的 Lebesgue 积分}
+                [Lebesgue Integral of Simple Functions]
+                [猫猫]
+                设 \(f\) 是有限测度可测集 \(E\) 上的简单函数, 其典范表示为 \(f=\sum\limits_{i=1}^{n}C_i\cdot\chi_{E_i}(E_i=\{x\in E_i|f(x)=C_i\})\), 则可如下定义 \(f\) 在 \(E\) 上的 Lebesgue 积分: 
+                \[\int_E f:=\sum_{i=1}^n C_i\cdot\mu(E_i)\]
+            \end{dfn}
+\end{document}

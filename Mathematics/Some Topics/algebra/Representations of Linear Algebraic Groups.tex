@@ -1,0 +1,371 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8]{inputenc}
+\renewcommand{\cftsecfont}{\normalfont\bfseries} % 章节标题字体
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newenvironment{definition}[2][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{example}[2][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\begin{document}
+\newenvironment{rmk}[2][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Duality for Group Representations}%replace X with the appropriate number
+\author{Tang Junwei\\ %replace with your name
+Introduction to Representations of Groups and Algebras} %if necessary, replace with your course title
+ 
+\maketitle
+\tableofcontents
+\section{Linear Algebraic Groups}
+Since each classical groups $G\subset \mathbf{GL}(n,\mathbb{C})$ can be  defined by algebraic equations, we can study G using algebraic techniques. We require the algebraic equation defining $G$ be the polynomial in complex matrix entries.
+
+\begin{definition}{1.1}
+A subgroup $G \subset \mathbf{GL} (n,\mathbb{C})$ is a \textbf{linear algebraic group}, if there is set $\mathrm{A}$ of polynomial functions on $M_{n}(\mathbb{C})$ s.t. $$G=\{g \in \mathbf{GL} (n,\mathbb{C}):f(g)=0 \text{ for all } f \in \mathrm{A}\}$$where $f$ is a polynomial function on $M_{n}(\mathbb{C})$ if $f$ is a polynomial over $\mathbb{C}$ on its matrix entries.
+\end{definition}
+
+\begin{example}{1.2}
+    $\mathbf{GL}(n,\mathbb{C})$ is defined by the zero polynomial.
+\end{example}
+
+\begin{example}{1.3}
+    $\mathbf{SL}(n,\mathbb{C})$ is defined by $det(x) - 1 =0$.
+\end{example}
+
+
+Under such a definition, linear algebraic group has a structure of algebraic variety.
+
+
+\section{Regular Functions and Regular Representations}
+In order to hold the structure of algebraic variety under multiplication and inversion, we need to contain $det^{-1}$ in the algebra of "polynomial" functions on a linear algebraic group $G$. So we have the following definition.
+
+\begin{definition}{2.1}
+    For group $\mathbf{GL}(n,\mathbb{C})$, the algebra of \textbf{regular functions} is defined as$$\mathrm{O}[\mathbf{GL}(n,\mathbb{C})]=\mathbb{C}[x_{11},x_{12},...,x_{nn},det(x)^{-1}]$$
+\end{definition}
+Similarly, we can define the algebra of regular functions on $\mathbf{GL}(V)$, where $dimV<\infty$.
+
+\begin{definition}{2.2}
+    Let $G \subset \mathbf{GL}(n,\mathbb{C})$ be a linear algebraic group. A complex-valued function $f$ is \textbf{regular} if it is the restriction to G of a regular function on $\mathbf{GL}(n,\mathbb{C})$
+\end{definition}
+\vspace{1cm}
+Set$$\mathrm{I}_{G}=\{f\in \mathrm{O}[\mathbf{GL}(n,\mathbb{C})]:f(G)= 0\}$$which is an ideal in $\mathrm{O}[\mathbf{GL}(n,\mathbb{C})]$,then we have$$\mathrm{O}[G] \cong \mathrm{O}[\mathbf{GL}(n,\mathbb{C})]/ \mathrm{I}_{G}$$
+
+Let $G$ and $H$ be linear algebraic groups and let $\phi :G \to H$ be a map. If we can define $\phi^{*}:\mathrm{O}[H]\to\mathrm{O}[G],h\mapsto\phi\circ h$, then we call $\phi$ is \textbf{regular}. And if $\phi$ is group homomorphism, then it is a \textbf{algebraic group homomorphism}.\\
+
+We need to use this lemma for the proof of the following proposition.
+    \begin{lemma}{2.3}
+        Let $G$ and $H$ be the finite-dimensional linear algebraic groups. Then the algebra homomorphism carrying $f^{'} \otimes f^{''} \in \mathrm{O}[G]\otimes \mathrm{O}[H]$ to the function $(g,h)\mapsto f^{'}(g)f^{''}(h)$ gives an isomorphism
+        $$
+            \mathrm{O}[G] \otimes \mathrm{O}[H] \cong \mathrm{O}[G \times H]
+        $$
+    \end{lemma}
+\begin{proposition}{2.4}
+    The maps $\eta:G\times G \to G$ and $\mu:G \to G$ given by group multiplication and inversion are regular. If $f \in \mathrm{O}[G]$, then there exist an integer $p$ and $f_i', f_i'' \in \mathrm{O}[G]$ for $i = 1, \dots, p$ such that
+\[
+f(gh) = \sum_{i=1}^p f_i'(g) f_i''(h) \quad \text{for } g, h \in G.
+\]
+\end{proposition}
+\begin{proof}
+        Cramer's rule says that $\eta$ is regular.\\
+        By matrices multiplication and the multiplication property of the determinant, we know the above formula is held for all $f\in \mathrm{O}[G]$\\
+        Using $\mathrm{O}[G] \otimes \mathrm{O}[G] \cong \mathrm{O}[G \times G]$, we can write the above formula as
+        $$
+            \mu^{*}(f)=\sum_i f_{i}^{'}\otimes f_{i}^{''}
+        $$
+        This shows $\eta$ is regular.
+    \end{proof}
+\begin{definition}{2.5}
+    Let $G$ be a linear algebraic group, ($\rho$, $V$) is a representation of $G$. ($\rho$, $V$) is \textbf{regular} if $dimV<\infty$ and functions on $G$, $$g\mapsto\langle v^*,\rho(g)v\rangle$$are regular for all $v\in V$ and $v^*\in V^*$. And such functions we call them \textbf{matrix coefficients}.
+\end{definition}
+
+\begin{definition}{2.6}
+   Suppose $ \rho $ is a representation of $ G $ on an infinite-dimensional vector space $ V $. 
+    We say that $ (\rho, V) $ is \textbf{locally regular} if every finite-dimensional subspace $ E \subset V $ is contained in a finite-dimensional $ G $-invariant subspace $ F $ such that the restriction of $ \rho $ to $ F $ is a regular representation.
+\end{definition}
+
+\section{Schur's Lemma}
+In lecture, we learn the Schur's Lemma in the case of finite-dimensional associative algebra. But in representations of linear algebra groups, we need to consider the case of countable-dimensional.
+
+\begin{lemma}{3.1}
+    Let $(\rho, V)$ and $(\tau, W)$ be irreducible representations of an associative algebra $A$. Assume that $V$ and $W$ have countable dimension over $\mathbb{C}$. Then
+\[
+\dim \operatorname{Hom}_A(V, W) = 
+\begin{cases}
+1 & \text{if } (\rho, V) \cong (\tau, W), \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+\end{lemma}
+\begin{proof}
+    Let \( T \in \operatorname{Hom}_A(V, W) \). Then \( \operatorname{Ker}(T) \) and \( \operatorname{Im}(T) \) are invariant subspaces of \( V \) and \( W \), respectively. If \( T \neq 0 \), then \( \operatorname{Ker}(T) \neq V \) and \( \operatorname{Im}(T) \neq 0 \). Hence, by the irreducibility of the representations, \( \operatorname{Ker}(T) = 0 \) and \( \operatorname{Im}(T) = W \), so that \( T \) is a linear isomorphism. Thus, \( \operatorname{Hom}_A(V, W) \neq 0 \) if and only if \( (\rho, V) \cong (\tau, W) \).
+
+    Suppose the representations are equivalent. If \( S, T \in \operatorname{Hom}_A(V, W) \) are nonzero, then \( R = T^{-1}S \in \operatorname{End}_A(V) \). Assume, for the sake of contradiction, that \( R \) is not a multiple of the identity operator. Then for any \( \lambda \in \mathbb{C} \), we would have \( R - \lambda I \) nonzero and hence invertible. Since $V$ has countable dimension, then  the set$$\{(R-\lambda_1 I)^{-1}v,...,(R-\lambda_m I)^{-1}v\}$$ is linearly dependent. 
+    
+    Suppose there is a linear relation$$\sum_{i=1}^m a_i(R-\lambda_i I)^{-1}v=0$$ Multiplying by $\prod_{i=1}^m(R-\lambda_i I)^{-1}$, we obtain $f(R)v = 0$, where$$f(x)= \sum_{i=1}^ma_i\prod_{j\neq i}(x-\lambda_i)^{-1}$$Since $f$ is nonzero, $f(x) = a(x-\mu_1)...(x-\mu_m)$, then $a(R-\mu_1 I)...(R-\mu_m I)v = 0$, which is wrong.
+\end{proof}
+
+\begin{rmk}{3.2}
+    The above techniques can be used to proof Hilbert's Nullstellensatz!
+\end{rmk}
+
+\section{Jacobson Density Theorem}
+
+\begin{theorem}{4.1}
+    Let \( V \) be a countable-dimensional vector space over \( \mathbb{C} \). Let \( R \)
+    be a subalgebra of \( \text{End}(V) \) that acts irreducibly on \( V \). Assume that for every finite-dimensional subspace \( W \) of \( V \) there exists \( r \in R \) so that \( r|_W = I|_W \). Then
+    \( R[v_1, \ldots, v_n] = V^{(n)} \) whenever \( \{v_1, \ldots, v_n\} \) is a linearly independent subset of \( V \).
+\end{theorem}
+
+\begin{proof}
+    The proof is by induction on $n$. If $n = 1$, the assertion is the definition of irreducibility. Assume that the theorem holds for $n$. Suppose $\{v_1, \ldots, v_{n+1}\}$ is a linearly independent set in $V$.
+Given any elements $x_1, \ldots, x_{n+1}$ in $V$, we must find $r \in R$ such that
+\[ r(v_i) = x_i \quad \text{for} \quad i = 1, \ldots, n+1. \]
+
+The introduction hypothesis implies that there exists $r_0 \in R$ such that $r_0(v_i) = x_i \text{ for } i=1,...,n $. Define $B = \{r\in R:r[v_1,...,v_n] = 0\}$. Since $Bv_{n+1}\subset V$ is R-invarient subspace, $Bv_{n+1} = V$ or $Bv_{n+1} = 0$. Suppose $Bv_{n+1} = V$, then exists $r^{'} \in B$ such that $r^{'}v_{n+1} = x_{n+1}$, then let $r = r_0+r^{'}$ and the theorem follows. If $Bv_{n+1} = 0$,then we consider$$W=R[v_1,...,v_{n+1}]\text{ and }U=\{[0,...,v]\in V^{(n+1)}:v\in V\}$$
+
+It follows that $V^{(n+1)}=W\oplus U$, then we can define a projection $P:V^{(n+1)}\to W$, which is a R-algebra homomorphism. P can be phased in the form of matrix $[P_{ij}]$, where each $P_{ij}\in \mathrm{End}_R(V)$. By Schur's Lemma, each $P_{ij}$ is a multiple of identity. For any $[w_i]\in V^{(n+1)}$, there exists $T\in \mathrm{End}(V)$ such that $Tv_i=w_i$ since $\{v_i\}$ is independent.Then we have
+$$P[w_i]= PT^{(n+1)}[v_i]=[\sum_j p_{ij}Tv_j]=T^{(n+1)}[\sum_j p_{ij}v_j]=T^{(n+1)}P[v_i]=T^{(n+1)}[v_i]=[w_i]$$
+
+Thus $[w_i]\in W$, which implies $W = V^{(n+1)}$.
+\end{proof}
+\vspace{1cm}
+Then we obtain two useful corollaries.
+\begin{corollary}{4.2}
+    If $X$ is a finite-dimensional subspace of $V$ and $f\in \mathrm{Hom}(X,L)$, then there exists $r\in R$ such that $r\vert_{X} = f$.
+\end{corollary}
+\begin{corollary}{4.3}
+    (Burnside) $R$ acts irreducibly on $L$ and $dimL<\infty$, then $R=\mathrm{End}(L)$.
+\end{corollary}
+\section{Double Commutant Theorem}
+Let $V$ be a vector space. For any subset $S \subseteq \text{End}(V)$ we define
+\[ \text{Comm}(S) = \{ x \in \text{End}(V) : xs = sx \text{ for all } s \in S \} \]
+and call it the \textbf{commutant} of $S$. We observe that $\text{Comm}(S)$ is an associative algebra with unit $I_V$. We have the following general result for the commutants of algebras.
+\begin{theorem}{5.1}
+    Suppose $A\subset End(V)$ is an associative algebra with identity. Set $B = Comm(A)$. If $V$ is a completely reducible $A$-module, then A = Comm(B).
+\end{theorem}
+\begin{proof}
+    Obviously, we have $A\subset Comm(B)$.
+    Let $T \in \mathrm{Comm}(B)$ and fix a basis $\{v_1, \ldots, v_n\}$ for $V$. It will suffice to find an element $S \in A$ such that $Sv_i = Tv_i$ for $i = 1, \ldots, n$. Let $w_0 = v_1 \oplus \cdots \oplus v_n \in V^{(n)}$. Since $V^{(n)}$ is a completely reducible $A$-module , the cyclic submodule $M = Aw_0$ has an $A$-invariant complement. Thus there is a projection $P: V^{(n)} \to M$ that commutes with $A$. The action of $P$ is given by an $n \times n$ matrix $[p_{ij}]$, where $p_{ij} \in \mathsf{B}$. Since $Pw_0 = w_0$ and $Tp_{ij} = p_{ij}T$, we have
+    $$ P(Tv_1 \oplus \cdots \oplus Tv_n) = Tv_1 \oplus \cdots \oplus Tv_n \in M. $$
+    
+    Hence by definition of $M$ there exists $S \in {A}$ such that
+    $$ Sv_1 \oplus \cdots \oplus Sv_n = Tv_1 \oplus \cdots \oplus Tv_n. $$
+    
+    This proves that $T = S$, so $T \in A$.
+\end{proof}
+\section{Decomposition of Representations of Algebras}
+    Let $A$ be an associative algebra with unit $1$. If $U$ is a finite-dimensional irreducible $A$-module, we denote by $[U]$ the equivalence class of all $A$-modules equivalent to $U$. Let $\widehat{A}$ be the set of all equivalence classes of finite-dimensional irreducible $A$-modules. Suppose that $V$ is an $A$-module (do not assume that $V$ is finite-dimensional). For each $\lambda \in \widehat{A}$ we define the \textbf{$\lambda$-isotypic subspace}
+    $$
+    V_{(\lambda)} = \sum_{\substack{U \subset V , [U] = \lambda}} U.
+    $$
+    
+    Fix a module $F^{\lambda}$ in the class $\lambda$ for $\lambda \in \widehat{A}$, there is a linear map
+    $$S_{\lambda}:\mathrm{Hom}_{A}(F^{\lambda},V)\otimes F^{\lambda} \to V, u\otimes w\mapsto u(w)$$
+    
+    Tensor product of linear space $\mathrm{Hom}_{A}(F^{\lambda},V)\otimes F^{\lambda}$ can be considered as $A$-module with action $x(u\otimes w) = u\otimes x(w)$ for $x\in A$. Then $S_{\lambda}$ is $A$-module homomorphism. By Schur's Lemma, $u(F^{\lambda})$ is an irreducible $A$-module isomorphic to $F^{\lambda}$. Hence, $S_{\lambda}$ is a $A$-module homomorphism from $\mathrm{Hom}_{A}(F^{\lambda},V)\otimes F^{\lambda}$ to $V_{(\lambda)}$.
+\begin{definition}{6.1}
+    The $A$-module $V$ is \textbf{locally completely reducible} if the cyclic $A$-submodule $Av$ is finite-dimensional and completely reducible for every $v \in V$.
+\end{definition}
+\begin{example}{6.2}
+    If $G$ is a reductive linear algebraic group, then by Proposition 2.3, $O[G]$ is a locally completely reducible module for the group algebra $A[G]$ relative to the left or right translation action of $G$.
+\end{example}
+\begin{proposition}{6.3}
+    Let $V$ be a locally completely reducible $A$-module. Then the map $S_{\lambda}$ gives an $A$-module isomorphism $\mathrm{Hom}_{A}(F^{\lambda}, V) \otimes F^{\lambda} \cong V_{(\lambda)}$ for each $\lambda \in \widehat{A}$. Furthermore,
+    $$ 
+    V = \bigoplus_{\lambda \in \widehat{{A}}} V_{(\lambda)}\quad 
+    $$
+\end{proposition}
+\begin{proof}
+    Obviously, $S_{\lambda}$ is surjective. To show $S_{\lambda}$ is injective, let $u_{i}\in \mathrm{Hom}_{A}(F^{\lambda},V)$ and $w_i \in F^{\lambda}$ for $i = 1,...,k$ such that $\sum_{i=1}^{k}u_i(w_i)=0$. We can suppose $\{w_i\}$ is independent and $u_i \neq 0$ for $i=1,...,k$. Consider $W=\sum_{i=1}^{k}u_i(F^{\lambda})$, which is finite-dimensional reducible submodule of V, so it can be written as $$W=\bigoplus_{j=1}^{m}W_j$$where each $[W_j]=\lambda$. We can construct projections $\phi_j: W\to W_j \to F^{\lambda}$. Then $\phi_j \circ u_i \in \mathrm{End}_A(F^{\lambda})$, thus $\phi_j \circ u_i = c_{ij} I$ by Schur's Lemma. Then
+    $$
+    \sum_{i=1}^k\phi_j \circ u_i(w_i) = \sum_{i=1}^kc_{ij}w_i=0\text{ for $j = 1,...,m$}
+    $$
+    Hence, all $c_{ij}=0$ by the linearly independency of $\{w_i\}$, which means all $u_i = 0$. So $S_{\lambda}$ is injective.\\
+    
+    From the definition of locally completely reducibility, we know $V$ is the sum of all $V_{(\lambda)}$. Fix distinct classes $\{\lambda_1, \ldots, \lambda_d\} \subset \widehat{A}$ such that $V(\lambda_i) \neq \{0\}$. We will prove by induction on $d$ that the sum $E = V(\lambda_1) + \cdots + V(\lambda_d)$ is direct. Let $d > 1$ and assume that the result holds for $d - 1$ summands. Set $U = V(\lambda_1) \oplus \cdots \oplus V(\lambda_{d-1})$. Then $E = U + V(\lambda_d)$. For $i < d$ let $p_i : U \longrightarrow V(\lambda_i)$ be the projection corresponding to this direct sum decomposition. Suppose that there exists a nonzero vector $v \in U \cap V(\lambda_d)$. The $A$-submodule $Av$ of $V(\lambda_d)$ is then nonzero, finite-dimensional, and completely reducible. Hence there is a decomposition
+    $$
+    Av = W_1 \oplus \cdots \oplus W_r \quad \text{with} \quad [W_i] = \lambda_d
+    $$
+    
+    On the other hand, since $Av \subset U$, there must exist an $i < d$ such that $p_i(Av)$ is nonzero. But $p_i(Av)$ is a direct sum of irreducible modules of type $\lambda_i$. Hence $U \cap V(\lambda_d) = (0)$, and we have $E = V(\lambda_1) \oplus \cdots \oplus V(\lambda_d)$.
+\end{proof}
+\begin{definition}{6.4}
+    The set
+    $$\mathrm{Spec}(V)=\{\lambda\in\widehat{A}:dim\mathrm{Hom}_A(F^{\lambda},V)\neq0\}$$
+    is called \textbf{spectrum} of the $A$-module V.
+\end{definition}
+
+\section{General Duality Theorem}
+    Assume that $G \subset \mathbf{GL}(n, \mathbb{C})$ is a reductive linear algebraic group. Let $\widehat{G}$ denote the equivalence classes of irreducible regular representations of $G$ and fix a representation $(\pi^\lambda, F^\lambda)$ in the class $\lambda$ for each $\lambda \in \widehat{G}$. We view representation spaces for $G$ as modules for the group algebra $A[G]$ and identify $\widehat{G}$ with a subset of $\widehat{A[G]}$.\\
+    
+    Let $(\rho, L)$ be a locally regular representation of $G$ with $\dim L$ countable. Then $\rho$ is a locally completely reducible representation of $A[G]$, and the irreducible $A[G]$-submodules of $L$ are irreducible regular representations of $G$, since $G$ is reductive. Thus the nonzero isotypic components $L_{(\lambda)}$ are labeled by $\lambda \in \widehat{G}$. We shall write $\mathrm{Spec}(\rho)$ for the set of representation types that occur in the primary decomposition of $L$. Then by Proposition 6.3 we have
+    
+\begin{equation}
+    L \cong \bigoplus_{\lambda \in \mathrm{Spec}(\rho)} \mathrm{Hom}_{G}(F^\lambda, L) \otimes F^\lambda
+\end{equation}
+    as a $G$-module, with $g \in G$ acting by $I \otimes \pi^\lambda(g)$ on the summand of type $\lambda$. We now focus on the $\textbf{multiplicity spaces}$ $\mathrm{Hom}_{G}(F^\lambda, L)$ in this decomposition.\\
+    
+    Assume that $R \subset \mathrm{End}(L)$ is a subalgebra that satisfies the following conditions:
+
+    \begin{enumerate}[label=(\roman*)]
+        \item $R$ acts irreducibly on $L$,
+        \item if $g \in G$ and $T \in R$ then $\rho(g) T \rho(g)^{-1} \in R$, so $G$ acts on $R$, and
+        \item the representation of $G$ on $R$ in (ii) is locally regular.
+    \end{enumerate}
+
+    If $\dim L < \infty$, the only choice for $R$ is $\mathrm{End}(L)$ by Corollary 4.3. \\
+    
+    Fix $R$ satisfying the conditions (i) and (ii) and let
+    
+    $$
+    R^G = \{ T \in R : \rho(g)T = T\rho(g) \quad \text{for all } g \in G \}
+    $$
+    
+    Since $G$ is reductive, we may view $L$ as a locally completely irreducible representation of $A[G]$. Let $E^{\lambda}=\mathrm{Hom}_{G}(F^{\lambda},V)$. Since elements of $R^G$ commute with elements of $A[G]$, $R^G$ has a natural left multiplication action on $E^\lambda$. Hence as a module for the algebra $R^G \otimes A[G]$, the space L decomposes as $$L\cong \bigoplus_{\lambda \in \mathrm{Spec}(\rho)}E^{\lambda}\otimes F^{\lambda}$$
+    
+    \begin{lemma}{7.1}
+    Let $X \subset L$ be a finite-dimensional $G$-invariant subspace. Then $R^G|_X = \mathrm{Hom}_G(X, L)$.
+    \end{lemma}
+    
+    \begin{proof}
+    Let $T \in \mathrm{Hom}_G(X, L)$. Then by Corollary 4.2 there exists $r \in R$ such that $r|_X = T$. Since $G$ is reductive, condition (iii) and Proposition 6.3 furnish a projection $r \mapsto r^\sharp$ from $R$ to $R^G$. And $X$ is $G$-invarient implies that $r^\sharp|_X = (r|_X)^{\sharp}$. Since $T$ commutes with action of $G$, $T=T^{\sharp}$. Thus, $T=T^{\sharp}=(r|_X)^{\sharp}=r^{\sharp}|_X$
+    \end{proof}
+    
+    \begin{theorem}{7.2} 
+        \textbf{(Duality)} Each multiplicity space $E^\lambda$ is an irreducible $R^G$-module. Furthermore, if $\lambda, \mu \in \mathrm{Spec}(\rho)$ and $E^\lambda \cong E^\mu$ as an $R^G$ module, then $\lambda = \mu$.
+    \end{theorem}
+    \begin{proof}
+        We first prove that the action of $R^G$ on $\mathrm{Hom}_G(F^\lambda, L)$ is irreducible. Let $T \in \mathrm{Hom}_G(F^\lambda, L)$ be nonzero. Given another nonzero element $S \in \mathrm{Hom}_G(F^\lambda, L)$ we need to find $r \in R^G$ such that $rT = S$. Let $X = TF^\lambda$ and $Y = SF^\lambda$. Then by Schur's lemma $X$ and $Y$ are isomorphic $G$-modules of class $\lambda$. Thus Lemma 7.1 implies that there exists $u \in R^G$ such that $u|_X:X\xrightarrow{\sim}Y$ . Thus $uT : F^\lambda \to SF^\lambda$ is a $G$-module isomorphism. Schur's lemma implies that there exists $c \in \mathbb{C}$ such that $cuT = S$, so we take $r = cu$.
+
+        We now show that if $\lambda \neq \mu$ then $\mathrm{Hom}_G(F^\lambda, L)$ and $\mathrm{Hom}_G(F^\mu, L)$ are inequivalent modules for $R^G$. Suppose
+        $$
+        \phi : \mathrm{Hom}_G(F^\lambda, L) \longrightarrow \mathrm{Hom}_G(F^\mu, L)
+        $$
+        is a $R^G$-module homomorphism. Let $T \in \mathrm{Hom}_G(F^\lambda, L)$ be nonzero and set $S = \phi(T)$. We want to show that $S = 0$. Consider direct sum $U = TF^\lambda \oplus SF^\mu$. Let $p : U \to SF^\mu$ be the corresponding projection. Then Lemma 7.1 implies that there exists $r \in R^G$ such that $r|_U = p$. Since $pT = 0$, we have $rT = 0$. Hence
+
+        $$
+         0 = \phi(rT) = r\phi(T) = rS = pS = S,
+        $$
+        which proves that $\phi = 0$.
+    \end{proof}
+    The following corollary is obvious.
+    \begin{corollary}{7.3}
+        Let $\sigma$ be the representation of $R^G$ on $L$, and let $\mathrm{Spec}(\sigma)$ denote the set of equivalence classes of the irreducible representations $\{E_\lambda\}$ of the algebra $R^G$ that occur in $L$. Then the following hold:
+    
+        \begin{enumerate}
+            \item The representation $(\sigma, L)$ is a direct sum of irreducible $R^G$-modules, and each irreducible submodule $E_\lambda$ occurs with finite multiplicity $\dim F^\lambda$.
+            \item The map $F^\lambda \mapsto E_\lambda$ sets up a bijection between $\mathrm{Spec}(\rho)$ and $\mathrm{Spec}(\sigma)$.
+        \end{enumerate}
+    \end{corollary}
+    We have the following corollary.
+    \begin{corollary}{7.4}
+    Assume $\dim L < \infty$. Set $A = \mathrm{Span}\rho(G)$ and $B = \mathrm{End}_A(L)$. Then $L$ is a completely reducible $B$-module. Furthermore, the following hold:
+
+    \begin{enumerate}
+        \item Suppose that for every $\lambda \in \mathrm{Spec}(\rho)$ there is given an operator $T_\lambda \in \mathrm{End}(F^\lambda)$. Then there exists $T \in A$ that acts by $I \otimes T_\lambda$ on the $\lambda$ summand.
+        \item Let $T \in A \cap B$ (the center of $A$). Then $T$ acts by a scalar $\hat{T}(\lambda) \in \mathbb{C}$ on $E^\lambda \otimes F^\lambda$. Conversely, given any complex-valued function $f$ on $\mathrm{Spec}(\rho)$, there exists $T \in A \cap B$ such that $\hat{T}(\lambda) = f(\lambda)$.
+    \end{enumerate}
+    \end{corollary}
+
+    \begin{proof}
+    Since $L$ is the direct sum of $B$-invariant irreducible subspaces by Theorem 7.2.
+    
+    (1): Let $T \in \mathrm{End}(L)$ be the operator that acts by $I \otimes T_\lambda$ on the $\lambda$ summand. Then $T \in \mathrm{Comm}(B)$, and hence $T \in A$ by the double commutant theorem.
+    
+    (2): The action of $T$ on the $\lambda$ summand is by an operator of the form $I \otimes S_\lambda$ with $S_\lambda \in Z(\mathrm{End}(F^\lambda))$. Such an operator must be a scalar multiple of the identity operator. The converse follows from (1).
+    \end{proof}
+\section{Application: Schur-Weyl Duality}
+Let $(\rho, \C^n)$ be a representation of $\mathbf{GL}(n,\C)$, then define a new representaion $(\rho^{\otimes k},\bigotimes^k \C^n)$ of $\mathbf{GL}(n,\C)$ as follow
+$$
+\rho^{\otimes k}(g)(\bigotimes_{i=1}^kv)=\bigotimes_{i=1}^k\rho(g)v \text{ for all }g\in\mathbf{GL}(n,\C)
+$$
+
+We can permute the positions of vectors in the tensor product without changing the action of $g$. It motivates us to define an action of $\mathsf{S_k}$ on $\bigotimes^k \C^n$ as follow
+$$
+{\sigma}_k(s)(\bigotimes_{i=1}^kv)=v_{s^{-1}(1)}\otimes...\otimes v_{s^{-1}(k)}
+$$
+Let $A = \mathrm{Span}\rho_k(\mathbf{GL}(n,\C))$ and $B = \mathrm{Span}\sigma_k(\mathsf{S}_k)$. Then we have $A\subset Comm(B)$.
+
+\begin{theorem}{8.1}
+    \textbf{(Schur)} $A=Comm(B)$ and $B=Comm(A)$.
+\end{theorem}
+\begin{proof}
+    We only need to proof $Comm(B)\subset A$.
+
+    Let $\{e_1,...,e_n\}$ be the standard basis of $\C^n$. For the ordered k-tuple $I=(i_1,...,i_k)$ with $1\le i_j\le n$, define $e_I=e_{i_1}\otimes...\otimes e_{i_k}$. All the tensors $\{e_I\}$ form a basis for $\bigotimes^k \C^n$. The group $\mathsf{S_k}$ acts on this basis by $\sigma_k(s)e_I=e_{s\cdot I}$.
+
+    Suppose $T\in \mathrm{End}(\bigotimes^k \C^n)$ has matrix $[a_{I,J}]$ relative to the basis ${e_I}$:
+    $$
+    Te_J=\sum_Ia_{I,J}e_I
+    $$
+    Then we have 
+    $$
+    T(\sigma_k(s)e_J)=T(e_{s\cdot J})=\sum_Ia_{I,s\cdot J}e_I\text{ and } \sigma_k(s)T(e_J)=\sum_Ia_{s^{-1}\cdot I,J}e_I
+    $$
+    for $s\in \mathsf{S_k}$. Thus $T\in Comm(B)$ if and only if $a_{s\cdot I,s\cdot J}=a_{I,J}$ for all $I,J\text{ and }s$. 
+
+    Consider the nondegenerate bilinear form $(X, Y) = \mathrm{tr}(XY)$ on $\mathrm{End}\left(\bigotimes^k \mathbb{C}^n\right)$. We claim that the restriction of this form to $\mathrm{Comm}(B)$ is nondegenerate. Indeed, we have a projection $X \mapsto X^\sharp$ of $\mathrm{End}\left(\bigotimes^k \mathbb{C}^n\right)$ onto $\mathrm{Comm}(B)$ given by averaging over $S_k$:
+    $$
+    X^\sharp = \frac{1}{k!} \sum_{s \in S_k} \sigma_k(s) X \sigma_k(s)^{-1}.
+    $$
+    If $T\in Comm(B)$, we can check that $(X^{\sharp},T) = (X,T)$. Thus $(Comm(B), T)=0$ implies $(X,T)=0$ for all $X\in \mathrm{End}(\bigotimes^k\C^n)$ so $T=0$. Hence the bilinear form on $Comm(B)$ is nondegenerate.
+
+    To prove $Comm(B) =A$, it suffices to show that if $T\in Comm(B)$ is orthogonal to $A$ then $T = 0$. If $g=[g_{ij}]\in \mathbf{GL}(n,\C)$, then $\rho_k(g)$ has matrix $[g_{I,J}]=[g_{i_1j_1}...g_{i_kj_k}]$ by definition. We assume that
+    $$
+    (T,\rho_k(g))=\sum_{I,J}a_{I,J}g_{j_1,i_1}...g_{j_k,i_k}
+    $$
+    for all $g\in \mathbf{GL}(n,\C)$. Then we define a polynomial function $f_T$ on $M_n(\C)$ by 
+    $$
+    f_T(X)= \sum_{I,J}a_{I,J}x_{j_1,i_1}...x_{j_k,i_k}=\sum_{I,J}a_{I,J}x_{J,I}
+    $$
+    for $X=[x_{ij}]\in M_n(\C)$. It follows that $det(X)f_T(X)= 0$, thus $f_T(X)=0$.
+
+    Under the natural action of $\mathsf{S_k}$, the set $\mathrm{O}= \{(I,J):I,J \text{ are the ordered k-turples}\}$ splits into different orbits.If $(I,J)$ and $(I',J')$ are in the same orbit, then $a_{I,J}=a_{I',J'}$ and $x_{J,I}=x_{J',I'}$. So we have the corresponding equivalence classes $\Gamma=\{\gamma=[(I,J)]:\gamma \in \mathrm{O}\}$. Thus we can simplify $f_T$ as
+    $$
+    f_T(X)= \sum_{\gamma \in \Gamma}|\mathsf{S_k \cdot \gamma}|a_{\gamma}x_{\gamma}
+    $$
+    But the $\{x_{\gamma}\}$ is independent, so it implies $T=0$.
+
+\begin{corollary}{8.2}
+    \textbf{(Schur-Weyl Duality)} There are irreducible, mutually inequivalent $S_k$-modules $E^\lambda$ and irreducible, mutually inequivalent $\mathrm{GL}(n, \mathbb{C})$-modules $F^\lambda$ such that
+    $$
+    \bigotimes_{i=1}^k\C^n \cong \bigoplus_{\lambda \in \mathrm{Spec}(\rho_k)}E^{\lambda}\otimes F^{\lambda}
+    $$
+    is a representation of $\mathsf{S_k} \times \mathbf{GL}(n,\C)$
+\end{corollary}
+\end{proof}
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+  
+\end{document}

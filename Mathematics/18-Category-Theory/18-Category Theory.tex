@@ -1,0 +1,89 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\makeatother
+
+\usepackage{FulcrumHabitCN}
+
+\usepackage{tikz-cd}
+
+\begin{document}
+
+\section{范畴论}
+
+    \begin{dfn}
+        []
+        {范畴(Category)}
+        []
+        []
+        
+        一个对象集合$\Ob(\C)$(元素称为\textbf{对象(Object)})和一个态射集合$\Mor(\C)$(元素称为\textbf{态射(Morphism)})组成一个\textbf{范畴(Category)}: 
+        \[\C=(\Ob(\C),\Mor(\C))\]
+
+        其中有映射$s,t:\Mor(\C)\to\Ob(\C): $对于$\Mor(\C)$中的态射, $s$给出\textbf{来源}, $t$给出\textbf{目标}, 即: 
+        \[\Ob(\C):=\{X,Y\}, \Mor(\C):=\{f\}, \C:=(\Ob(\C),\Mor(\C))\]
+        \[\C: \xymatrix{
+            X\ar[r]^f & Y
+        }\]
+        \[\begin{tikzcd}
+            \Mor(\C) \arrow[r, "s", shift left] \arrow[r, "t"', shift right] & \Ob(\C)
+        \end{tikzcd}\]
+        \[s(f)=X, t(f)=Y\]
+        \[\Hom_{\C}(X,Y):=s^{-1}(X)\cap t^{-1}(Y)\]
+        
+        $\Hom_{\C}(X,Y)$称为$\Hom$-集, 其元素称为从$X$到$Y$的态射. 
+        \[\forall X\in \Ob(\C)\Longrightarrow\Id_X\in\Hom_{\C}(X,X)\]
+        
+        $\Id_X$称为$X$到自身的\textbf{恒等态射}. 
+        $\forall X,Y,Z\in\Ob(\C)$, 定义态射间的\textbf{合成运算}("$\circ$"): 
+        \[\circ: \Hom_{\C}(Y,Z)\times\Hom_{\C}(X,Y)\to\Hom_{\C}(X,Z)\]
+        \[(f,g)\mapsto f\circ g\]
+        
+        其中态射在合成运算下须满足类似幺半群的结构: 
+        
+        (1)满足结合律: \[\forall f,g,h\in\Mor(\C), \exists f\circ(g\circ h), (f\circ g)\circ h\Longrightarrow f\circ(g\circ h)=(f\circ g)\circ h\]
+        故上述等式可写作$f\circ g\circ h$
+
+        (2)来源与目标各自的恒等映射的合成分别具有左, 右恒等元的性质: 
+        \[\forall f\in\Hom_{\C}(X,Y), f\circ\Id_X=f=\Id_Y\circ f\]
+
+        运算$\circ$在不致混淆时可省略书写. 
+    \end{dfn}
+
+    \begin{dfn}
+        []
+        {空范畴}
+        []
+        []
+
+
+        范畴$\C$称为\textbf{空范畴}, 记作$\mathbf{0}$, 若$\Ob(\C)=\Mor(\C)=\varnothing$. 
+    \end{dfn}
+    
+    \begin{dfn}
+        []
+        {同构}
+        []
+        []
+
+
+        态射$X\overset{f}{\longrightarrow}Y$称为是一个\textbf{同构}, 若: 
+        \[\exists Y\overset{g}{\longrightarrow}X: fg=\Id_Y, gf=\Id_X\]
+        从$X$到$Y$的全体同构组成从$X$到$Y$的\textbf{同构集}, 记作$\Isom_{\C}(X,Y)$. 
+    \end{dfn}
+    
+    \begin{dfn}
+        []
+        {自同态与自同构}
+        []
+        []
+
+        \[\End_{\C}(X):=\Hom_{\C}(X,X)\]
+        称作$X$的自\textbf{同态集}, 其中的元素称为$X$的\textbf{自同态(Endomorphism)}, $(\End_{\C}(X),\circ)$是幺半群; 
+        \[\Aut_{\C}(X):=\Isom_{\C}(X,X)\]
+        称作$X$的\textbf{自同构集}, 其中的元素称为$X$的\textbf{自同构(Automorphism)}, $(\Aut_{\C}(X),\circ)$是群. 
+    \end{dfn}
+
+
+\end{document}

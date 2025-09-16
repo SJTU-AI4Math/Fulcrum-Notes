@@ -1,0 +1,1144 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsfonts,amssymb,amsthm,geometry,amsmath,tikz-cd,bm}
+\usepackage{gauss}
+\usepackage[all]{xy}
+
+\setCJKmainfont[AutoFakeBold=3, AutoFakeSlant=0.25]{SimSun}
+\setCJKmonofont[AutoFakeBold=3, AutoFakeSlant=0.25]{FangSong}
+\setCJKsansfont[AutoFakeBold=3, AutoFakeSlant=0.25]{SimHei}
+
+\title{线性代数 笔记}
+\author{平衡天客}
+\date{\today}
+
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\DeclareMathOperator{\rank}{rank}
+	
+\DeclareMathOperator{\B}{\mathcal{B}}
+\DeclareMathOperator{\x}{\mathbf{x}}
+\DeclareMathOperator{\A}{\mathbf{A}}
+\DeclareMathOperator{\bv}{\mathbf{\beta}}
+\DeclareMathOperator{\p}{\mathbf{p}}
+\DeclareMathOperator{\K}{\mathbb{K}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\F}{\mathbb{F}}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\lcm}{lcm}
+
+\DeclareMathOperator{\T}{\mathcal{T}}
+\DeclareMathOperator{\PP}{\mathcal{P}}
+
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\CCol}{Col}
+\DeclareMathOperator{\RRow}{Row}
+\DeclareMathOperator{\Null}{Null}
+\DeclareMathOperator{\diag}{diag}
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+
+
+\DeclareMathOperator{\MC}{\mathcal{C}}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Mor}{Mor}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Isom}{Isom}
+
+\DeclareMathOperator{\ii}{\mathrm{i}}
+
+
+\DeclareMathOperator{\like}{\overset{\heartsuit}{\leadsto}}
+\DeclareMathOperator{\likes}{\overset{\heartsuit}{\rightarrow}}
+
+
+\newtheorem{thm}{定理}[subsection]
+\newtheorem{dfn}[thm]{定义}
+\newtheorem{ppt}{性质}[thm]
+\newtheorem{lma}{引理}[thm]
+\newtheorem{xmp}{例}[subsection]
+\newtheorem{axm}{公理}
+
+\begin{document}
+    
+    \begin{center}
+        {\Large\textbf{猫猫小讲坛 代数基础知识}}
+
+        {\scriptsize 其实我也不知道什么是代数, 如果说凡有结构的东西都是代数的话那么这些也算是代数吧}
+    \end{center}
+
+    \tableofcontents
+
+    \section{集合那些事儿 Stories about Sets}
+
+        \subsection{罗素悖论? Russell's Paradox? }
+
+            小镇上只有一位理发师, 他只给小镇上不给自己理发的人理发 -- 那么理发师会为自己理发吗? 
+
+            \begin{xmp}
+                \textbf{Russell悖论}
+                \[\exists\{x|x\notin x\}\Longrightarrow(x\in x\iff x\notin x)\]
+            \end{xmp}
+
+            矛盾! 
+
+            我们高中所学习的描述集合的方式属于Cantor的朴素集合论语言, 这套系统会产生奇怪的矛盾, 比如上面提到的Russell悖论在高中的朴素集合论语言体系下就是合规的. 于是, 我们要制定一套能够安全使用的公理化集合论, 避免这样奇怪的矛盾出现. 
+
+            通常来说, 我们讨论的公理集合论体系是承认选择公理的Zermelo-Fraekel公理集合论. 这套理论一般简写作ZFC公理集合论, 其中Russell悖论涉及的集合无法被合法地构造出来, 于是消解了悖论. 在这一理论框架下, 任何数学对象本质上都是集合. 
+
+            我们看一个小例子, 理解一下ZFC公理集合论是如何运作的: 
+    
+            \begin{axm}
+                \textbf{配对公理}
+
+                可以将两个集合配对组成一个新集合. 
+                \[\forall x,\forall y, \exists\{x,y\}\]
+            \end{axm}
+
+            这条公理本质上是在说, 我们允许一种构造新集合的方法, 那就是把已有的两个集合打个包成为一个新的集合. 类似地, ZFC公理集合论的其他公理事实上就是在说, 我们如何依据既有的集合来构造新的集合是合法的, 相当于为集合``制礼作乐'', 为任何新集合的生成制定了严格的标准, 以此来避免非法集合的产生. 不过事实上, 这套公理也不如Hilbert所希望的那样``完美'', 我们会在课后观看油管知识博主真理元素Veritasium的视频来了解一下Godel第二不完备性定理之类的知识. 
+
+            这样理解, 就明白为什么ZFC公理体系中几乎每一条公理都是在说``抽象的废话''. 因为本质上, 在承认公理之前, 所有的数学操作都没有被允许, 而严谨的公理集合论要求``法无允许不可为'', 从而只有当一条公理被承认, 我们所习惯的数学操作才能够进行. 而之所以它们看起来是``废话'', 正是因为这些公理被精心地挑选, 以使得我们的数学操作是符合人类直觉的, 这样建构的数学才``有用''. 
+
+            这里所谓的``有用''也并非指事功意义上的``有用'', 而是说人类认为这样建构的数学``有价值'', 是``美丽的''. 理论上来说, 我们甚至可以推翻所有的数学公理而另起炉灶, 就像有不基于十二平均律的音乐一般, 建立一套独立于主流数学体系的数学. 只是这样的数学``不够美'', 与人类的思维习惯相差太远, 从而难以获得认可; 不过另一方面, 或许这些``无人区''也正隐藏着突破口. 
+            
+            后继的数学理论则确保了我们所讨论的数学语境不会超出这些生成的集合, 在这一前提下我们可以进行所有的数学操作, ``从心所欲而不逾矩'', 这个概念称为Grothendieck宇宙, 我们不加以展开, 感兴趣的同学可以自行了解. 下面我们来看一下配对公理的外延, 说说这条公理``有什么用'': 
+            
+            \begin{dfn}
+                \textbf{有序对(Ordered Pair)}
+                \[(x,y):=\{\{x\},\{x,y\}\}\]
+            \end{dfn}
+
+            我们高中熟悉的二维坐标表示, 怎么变成了集合? 
+
+            细想来, 我们需要在只知道集合$x,y$的情况下给数学对象$(x,y)$下一个严格的定义. 而我们手头的数学工具只有ZFC公理体系提供的操作方法. 而数学对象$(x,y)$仅有的两条性质是: 它依赖且仅依赖于$x,y$的定义, 同时二者是有序的. 集合$\{x,\{x,y\}\}$恰符合这两个条件, 因此它的数学性质与我们熟知的数学对象$(x,y)$完全一致, 我们便可以说这个集合和我们想要定义的有序对是同一个概念. 
+            
+            至此, 是不是有些明白什么叫``万物皆集合''了? 别急, 我们在第三章还会运用无穷公理构造自然数. 
+
+            当然, 你可能想说, 那我岂不可以写出$x\cup(x,y)=(x,y)$这样荒诞而无意义的式子? 的确可以, 但正如我们之前所说, 这样的数学``正确而无用''. 在ZFC公里集合论中任何数学对象本质上都是集合, 于是询问两个性质不明的集合的并是无意义的. 
+
+            有了有序对之后, 我们便可以定义Cartesian乘积: 
+            
+            \begin{dfn}
+                \textbf{Cartesian乘积}
+                \[X\times Y:=\{(x,y)|x\in X, y\in Y\}\]
+            \end{dfn}
+
+            Cartesian是Decartes的形容词形式, 我们习惯称为笛卡尔, 就是那个观察蜘蛛网搞出了解析几何让大家高中有题可做的笛卡尔. 
+
+            由以上两条还可归纳定义有限多元素组及Cartesian乘积. 
+            
+            我们下面会看到, 集合上一些最基本的结构也依赖Cartesian乘积给出. 
+
+        \subsection{建立一道关系! Let's Build a Relationship! }
+            
+            \begin{dfn}
+                \textbf{二元关系(Binary Operation)}
+
+                一个$A\times B$的子集$R$称为定义在集合$A$到集合$B$上的一个\textbf{二元关系}. 
+
+                定义在集合$S$到自身的一个二元关系也可简称为一个定义在集合$S$上的关系. 
+
+                我们可以归纳地定义有限多元关系. 
+            \end{dfn}
+
+            关于``归纳地''一词的含义, 我们会在第三章数系构造中详细论说为什么数学归纳法是正确的. 
+
+            如果有一点图论知识, 那么一个$A$到$B$上的二元关系可以被画成一个有向二部图, 注意二元关系中前后两个集合是不能够反过来的. 
+            
+            {\scriptsize 我们暂且在二元性别框架以及传统异性恋性取向下讨论下面各个案例, 并无任何歧视性少数群体及其他可能感到冒犯的少数群体的意向, 敬请包容. }
+            
+            \begin{xmp}
+                我们想象$\mathcal{B}$与$\mathcal{G}$分别代表上海西南某高校某学院全体男生与全体女生组成的集合. 我们现在考虑全体``某男生喜欢某女生''可能性组合的集合, 它构成了$\mathcal{B}\times\mathcal{G}$. 
+
+                但我们知道, ``每个男生都喜欢每一个女生''是不太可能的, 也即是说, 在$\mathcal{B}\times\mathcal{G}$这全部的可能性中, 只有若干个``某男生喜欢某女生''真正成立. 
+
+                现在我们考虑使得``某男生喜欢某女生''这一叙述真正成立的元素对组成的集合: 
+                
+                它是一个定义在$\mathcal{B}$到$\mathcal{G}$的二元关系, 其元素是一些形如$(b,g)$的有序元素对. 
+                
+                我们将这一关系记作$\mathcal{B}\like\mathcal{G}$. 
+
+                于是记号$``\like"$实际上是一个集合, 我们可以写出$(b,g)\in``\like"$这样的表达式, 它意味着这个特定的男生小$b$喜欢这个特定的女生小$g$.     
+            \end{xmp}
+
+            在介绍我们不太熟悉的关系之前, 我们先来看看一种熟悉的关系: 映射. 
+
+            从人类思维的习惯上来讲, 我们可以说``映射是函数的推广''. 但从逻辑的顺序上来讲, 应当说``函数是特殊的(陪域为数集)映射''. 
+            
+            \begin{axm}
+                \textbf{幂集公理}
+        
+                可以将集合的全体子集取出组成一个新的集合. 
+                \[\forall X, \exists\PP(X):=\{x|x\subseteq X\}\]
+            \end{axm}
+            
+            \begin{dfn}
+                \textbf{映射(Mapping)}
+
+                一个由$A$到$B$的二元关系$f$称为是一个\textbf{映射(Mapping)}, 若它满足: 
+
+                (1)定义域中的元素全部涉入关系: 
+                \[\forall a\in A, \exists b\in B((a,b)\in f)\]
+
+                (2)像唯一: 
+                \[(a,b_1),(a,b_2)\in f\Longrightarrow b_1=b_2\]
+
+                其中我们把$A$称为映射$f$的\textbf{定义域(Domain)}, $B$称为映射$f$的\textbf{陪域(Codomain)}, 同时将映射$f$写作: 
+                \[f:A\to B\qquad\text{或}\qquad A\overset{f}{\longrightarrow} B\]
+
+                假设$(a,b)\in f$, 我们知道这样的$b$是唯一的, 于是在已知$f$的条件下, 给出了$a$相当于给出了相对应的$b$, 我们说$f$把$a$映射到了$b$, 将$b$称为$a$的\textbf{像(Image)}, $a$称为$b$的\textbf{逆像/原像(Inverse Image)}. 这一``映射''过程可以写作: 
+                \[f(a)=b\qquad\text{或}\qquad a\overset{f}{\mapsto} b\]
+
+                注意在表示元素的时候我们习惯上在箭头左边多加一条竖线. 
+
+                但是注意, $B$中的元素未必均涉入了映射关系. 于是我们将所有$B$中涉入了映射关系的元素取出, 称为映射$f$的\textbf{像(Image)}, 记作$\Image f$, 有时也写作$f(A)$. 
+                \[f(A):=\Image f:=\{b\in B|\exists a\in A((a,b)\in f)\}\]
+            \end{dfn}
+            
+            \begin{xmp}
+                我们回到刚刚的那个关系``$\like$'', 它能构成一个映射吗? 
+
+                事实上他不能. 首先, 并不是每一个$\mathcal{B}$中的男生都有自己心仪的佳人; 其次, 尽管我们不希望看到这种事发生, 但是你懂的. 
+            \end{xmp}
+
+            一个有趣的问题. 设$f:A\times B\to C$, 那么关系$f$中的元素长什么样? 
+
+            按照映射作为``关系''的观点, $f$内的元素是形如$((a,b),c)$的元素组. 接下来我们可以做一些有趣的事情: 
+            \[g:A\to B\times C\qquad h_a:B\to C\]
+            \[g(a):=h_a\subseteq B\times C\]
+
+            于是我们可以将$f(a,b)=c$写成$g(a)(b)=c$的形式, 这样就可以把任何多元函数写成一元函数的嵌套, 这种技巧在一些函数式编程语言中会用到. 
+
+            \begin{dfn}
+                \textbf{映射(关系)的限制}
+
+                为了方便讨论, 我们引入一种经常对映射(关系)进行的操作: 限制. 简单来说就是, 把映射的定义域(或是关系的一端)缩小, 从而使得诱导出的新映射(关系)只对我们想要的部分作用. 
+                \[S\subseteq A\qquad f|_S:=\{(a,b)\in f|a\in S\}\subseteq f\]
+            \end{dfn}
+            
+            \begin{xmp}
+                如果你$\in\Image f\subseteq\mathcal{G}$, 你可以把我们先前定义的``$\like$''关系限制到你想查看的定义域上, 然后观察它是否构成一个映射; 以及如果它真的是, 检查这个映射的像是否是$\{\text{你}\}$. 
+            \end{xmp}
+            
+            \begin{dfn}
+                \textbf{映射的分类}
+
+                映射$f$称为是一个\textbf{单射(Injection)}, 若$f$的像中任何元素均有唯一原像; 
+
+                映射$f$称为是一个\textbf{满射(Surjection)}, 若$f$的陪域等于$f$的像. 
+
+                映射$f$称为是一个\textbf{双射(Bijection)}, 若$f$既是单的, 又是满的, 也即一一对应. 
+
+                我们可以构造一个广义的逆映射$f^{-1}:\Image f\to\mathcal{P}(A)$来返回每一个$f$的像元素的原像. 
+                
+                当$f$是满射时, 左侧可写为$B$; 当$f$是单射时, 右侧可写为$A$; 当$f$是双射时, $f^{-1}:B\to A$是严格意义上的逆映射. 
+            \end{dfn}
+            
+            \begin{xmp}
+                现在我们规定``$\like$''是一个映射, 我们把它记为``$\likes$''$:\mathcal{B}\to\mathcal{G}$. 
+                
+                如果``$\likes$''是单射, 那么意味着$\mathcal{B}$里的每个元素都不会遇到情敌; 
+
+                如果``$\likes$''是满射, 那么意味着$\mathcal{G}$里没有元素幸免于难; 
+
+                如果``$\likes$''是双射... 世上哪有这种好事你以为大学是过家家吗(不是)(大雾)
+            \end{xmp}
+
+            映射的性质想必学过函数的各位都十分清楚, 我们接下来介绍一种各位一定也十分熟悉却未必统一思考过的关系: 
+
+            \begin{dfn}
+                \textbf{等价关系}
+
+                集合$S$上的一个等价关系$``\sim"$指的是一个满足以下条件的关系: (我们将$(a,b)\in``\sim"$简记为$a\sim b$)
+
+                (1) 自反性: 
+                \[\forall a\in S\Longrightarrow a\sim a\]
+                
+                (2) 对称性: 
+                \[a\sim b\Longrightarrow b\sim a\]
+
+                (3) 传递性: 
+                \[a\sim b\wedge b\sim c\Longrightarrow a\sim c\]
+            \end{dfn}
+
+            这样的定义乍一看或许有些抽象, 但我们可以通过一些解读和一些例子来理解它. 
+            
+            \begin{xmp}
+                一些常见的等价关系: 
+                
+                (1) Euclidean空间(例如我们熟悉的二, 三维空间$\R^2,\R^3$)上两条直线的平行关系(不排除重合); 
+                
+                (2) 二维平面上两个三角形的全等, 相似关系; 
+
+                (3) 整数的同余关系. 
+            \end{xmp}
+            
+            \begin{xmp}
+                一些常见的非等价关系: 
+
+                (1) 大于等于/小于等于关系, 稍后我们会说到偏序关系. (不交换)
+                
+                (2) 二元向量组的线性无关(不共线性); (不传递)
+
+                (3) 三维空间中直线的垂直(正交)关系; (不传递)
+            \end{xmp}
+
+            细觇每个等价关系, 注意到每个等价关系都好像用某一个性质作为``标尺'', 划分了元素之间的``相同''与``不同''. 事实上, 等价关系所完成的事情正是对集合中的元素依据它们相同的性质进行``分类'', 从而帮助我们更好地聚焦于它们之间不同的性质. 
+            
+            \begin{dfn}
+                \textbf{商集与等价类}
+
+                集合$S$关于定义在其上的等价关系$``\sim"$的\textbf{商集}定义为一个$S$的子集族$Q=\{Q_i|i\in I\}$($I$为某个指标集)该族中的每个集合称为集合$S$关于等价关系$``\sim"$一个\textbf{等价类}, 若它们满足: 
+
+                (1)同一等价类中的元素两两等价: 
+                \[\forall i\in I, \forall a,b\in Q_i, a\sim b\]
+
+                (2)不同等价类的元素间均不等价: 
+                \[\forall i,j\in I(i\neq j), \forall a\in Q_i, \forall b\in Q_j, a\not\sim b\]
+
+                $Q$是集合$S$关于等价关系$``\sim"$的商集记作$Q=S/\sim$
+            \end{dfn}
+
+            引入集族对于对这个概念不熟悉的同学而言可能导致混乱, 本质上而言, 商集是$S$的子集族, 等价类是$S$的子集, 商集是由等价类. 
+            
+            \begin{xmp}
+                现从$\mathcal{B}$中取出(比如)$32$个元素记为$X_{21}$, 现要求把他们分入$X21$楼的各个寝室中, 每个寝室$4$个人. 
+
+                还记得你小学第一次学习除法的时候吗? 这个例子教会了你怎么写出$32\div 4=8$(个寝室). 
+
+                在这个式子中, $32$是被除数, $4$是除数, $8$是\textbf{商}(天呐我居然还记得这个). 
+
+                现在, 记这$8$个不同的寝室为$R_{101},R_{102},\cdots,R_{108}$, 定义一个关系称为\textbf{室友关系}, 记作$\spadesuit$: 若两个人处于同一寝室中, 则称他们满足室友关系. 容易验证, 室友关系是一个等价关系. 
+
+                那么我们得出$X_{21}/\spadesuit=\{R_{101},R_{102},\cdots,R_{108}\}$, 其中$\{R_{101},R_{102},\cdots,R_{108}\}$是$X_{21}$的子集族, 是商集; 而每个房间$R_{10i}$是一个等价类. 
+
+                同一个等价类的元素具有``同寝室''这个共同性质, 于是如此分类我们消解了个体差异性, 而让我们更好地抓住了寝室与寝室之间的不同这一主要矛盾. 这样考虑到寝室卫生更多地是一个寝室属性而不是个人属性, 我们在军训检查卫生的时候就可以依据这个标准对寝室扣分而不是对每个人分别扣分了(不是)
+            \end{xmp}
+            
+            可以看出, ``等价关系''本质上就是在对元素进行分类. 如果再引入更高级的结构概念, 我们便能构造``商群'', ``商空间''等等概念. 
+
+            最后一种关系也是我们熟悉的, 只是我们现在不具体地讨论它. 当讲到实数的序结构时我们会进一步谈论这个话题. 
+
+            \begin{dfn}
+                \textbf{偏序关系}
+        
+                定义在集合$S$上的二元关系$"\leq"$称为是一个\textbf{偏序关系}, 若它具有: 
+        
+                (1)自反性: 
+                \[\forall x\in S, x\leq x\]
+                
+                (2)传递性: 
+                \[x\leq y\wedge y\leq z\Longrightarrow x\leq z\]
+        
+                (3)反对称性: 
+                \[x\leq y\wedge y\leq x\Longrightarrow x=y\]
+        
+                此时称结构$(P,\leq)$为\textbf{偏序集}. 
+        
+                偏序集$(P,\leq)$称为是一个\textbf{全序集/线序集(Linearly Ordered Set)/链(Chain)}, 若: 
+                \[\forall x,y\in S, x\leq y\vee y\leq x\]
+            \end{dfn}
+
+        \subsection{多少? How many? }
+        
+            \begin{xmp}
+                我们先介绍一下经典的Hilbert无限旅馆的故事. 
+    
+                现有一座神奇地拥有无限房间的旅馆, 其房间号从$1$开始, $2,3,\cdots$永远地持续下去. 而每个房间中也都住着唯一一位住客, 他的名字与他的房间号相同, 我们将他们称为$1$先生, $2$先生, 以此类推. 
+    
+                有一天, 又来了一位自称$0$先生的住客也想住进旅馆. 可是旅馆已经住满了, 每一个房间都有一位住客. 于是聪明的旅店前台(说的就是你)想了一个好办法, 让每位先生都住到比自己房间号大$1$的房间里去, 将$1$号房间腾出来给$0$先生住. 
+
+                结果第二天, 来了一辆``负数号''无限列车, 其也有无限个车厢, $1$号车厢住了位$-1$先生, $2$号车厢住了位$-2$先生, 以此类推. 他们全部要入住旅馆. 于是聪明的旅店前台让原本$1$号房间的住客搬到$2$号房间, $2$号房间的住客搬到$4$号房间, 以此类推, 将全部的奇数号房间腾给了``负数号''列车上的全部先生们. 
+
+                第三天, 隔壁拥有无限层高, 每层有无限房间的``有理数''大楼的全部住客要搬进旅店, 聪明的你也妙手解决了每位住客的需求. 
+
+                直到第四天, 所有的实数来了, 你手足无措...
+            \end{xmp}
+
+            在开始正式讨论等势概念之前, 我们再引入一个古怪的悖论: 
+
+            \begin{xmp}
+                \textbf{Cantor悖论}
+
+                在ZFC公理体系中, 不存在由全体集合组成的集合. 
+
+                我们运用反证法. 假设存在一个由全体集合组成的集合$``\bigstar"$, 那么$\forall x, x\in\bigstar$. 
+                
+                考虑$\bigstar$的全体子集, 有$\PP(\bigstar)\subseteq\bigstar$, 那么我们一定可以构造满射$\varphi:\bigstar\to\PP(\bigstar)$, 取$\varphi$为恒等映射即可. 
+                
+                然而对任何满足条件的$\varphi$, 它一定不是满射. 我们考虑$\bigstar$的子集$X:=\{x\in\bigstar|x\notin f(x)\}$, 于是: 
+                \[X\in\PP(\bigstar)\Longrightarrow\exists x\in\bigstar(f(x)=X)\]
+                \[x\in X\Longrightarrow x\notin f(x)=X\Longrightarrow x\notin X\]
+                \[x\notin X\Longrightarrow x\in f(x)=X\Longrightarrow x\in X\]
+
+                无论如何都会产生矛盾. $\square$
+            \end{xmp}
+            
+            \begin{dfn}
+                \textbf{势的比较}
+
+                称集合$S$的势小于等于$T$, 若能够构造单射$f:S\to T$(或能构造满射$g:T\to S$, 容易验证这两种定义是等价的. ). 
+
+                集合$S$与$T$称为是\textbf{等势}的, 若$S$的势小于等于$T$且$T$的势小于等于$S$. 
+                
+                等势的定义可以等价为能够构造双射$f:S\to T$. 
+            \end{dfn}
+
+            等势关系事实上满足等价关系的所有条件, 然而却存在一个根本的问题: 它不是定义在任何集合上的关系. 事实上, 考虑到对任何两个集合判断其等势性是可行的, 等势关系理应定义在全体集合构成的类上, 但我们在说明了势的偏序性以后马上会通过Cantor悖论知道, 全体集合构成的集合是不存在的. 
+
+            严格处理这个问题需要用到ZFC公理集合论无法处理的真类概念, 我们这里不去讨论真类, 只勉强将这个关系能够成立接受下来. 
+
+            类似地, 等势关系作为一种``类''上的``等价关系'', 也可以有``等价类''的概念, 我们称为``等势类''. 它事实上代表了一系列互相等势集合的公共``模型'', 当然我们也不妨取出其中的一个代表元构成一个序数集, 不过严格讨论序数集又会牵扯出很多麻烦的事情, 我们在这里依然勉强将基数的概念接受下来. 
+
+            \begin{dfn}
+                \textbf{基数/势(Cardinality)}
+
+                集合$S$的等势类称为集合的\textbf{基数}或\textbf{势}, 记作$\card S$, 在不引起混淆时也写作$|S|$. 
+            \end{dfn}
+
+            \begin{dfn}
+                \textbf{可数无穷大(Countable Infinity)}
+
+                自然数集$\N$的基数称为\textbf{可数无穷大(Countable Infinity)}, 记作$\card\N=\aleph_0$
+            \end{dfn}
+
+            其中$\aleph$符号是希伯来语首字母, Cantor选取这个符号还颇有一番讲究, 感兴趣的同学们可以研究一下. 
+            
+            \begin{dfn}
+                \textbf{可数集(Countable Set)}
+
+                基数为$\aleph_0$的集合称为\textbf{可数集(Countable Set)}. 
+            \end{dfn}
+            
+            \begin{thm}
+                简单的基数算术
+                
+                (1)\[\aleph_0+\aleph_0=\aleph_0\]
+                
+                (2)\[\aleph_0\times\aleph_0=\aleph_0\]
+            \end{thm}
+
+            证明: 
+                
+                本质上这其实就是Hilbert无限旅馆问题. 
+
+                (1)的证明是十分简单的; 
+
+                (2) 将$a_{i,j}$写成矩形数阵形式: 
+				\[\begin{matrix}
+				\xymatrix{
+				a_{1,1}\ar[d] & a_{1,2}\ar[ddl] & a_{1,3}\ar[dddll] & a_{1,4}\ar[ddddlll] & \cdots & a_{1,n} & \cdots\\
+				a_{2,1}\ar[ur] & a_{2,2}\ar[ur] & a_{2,3}\ar[ur] & a_{2,4}\ar[ur] & \cdots & a_{2,n}& \cdots\\
+				a_{3,1}\ar[ur] & a_{3,2}\ar[ur] & a_{3,3}\ar[ur] & a_{3,4}\ar[ur] & \cdots & a_{3,n}& \cdots\\
+				a_{4,1}\ar[ur] & a_{4,2}\ar[ur] & a_{4,3}\ar[ur] & a_{4,4}\ar[ur] & \cdots & a_{4,n}& \cdots\\
+				\vdots\ar[ur] & \vdots\ar[ur] & \vdots\ar[ur] & \vdots\ar[ur] & \ddots & \vdots & \cdots\\
+				a_{m,1} & a_{m,2} & a_{m,3} & a_{m,4} & \cdots & a_{m,n} & \cdots\\
+				\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+				}
+				\end{matrix}\]
+            
+            \begin{axm}
+                \textbf{连续统假设(Continuum Hypothesis)}
+                \[\aleph_1=2^{\aleph_0}\]
+            \end{axm}
+
+            连续统假设, Godel在1938年证明了它无法被证伪, Cohen在1963年证明了它无法被证明. 
+
+            \textbf{或者更好的说法是, 连续统假设不与既有的集合论公理矛盾, 且独立于既有的集合论公理, 可以被作为一条新的公理引入. }
+
+    \section{结构那些事儿 Stories about Structures}
+
+        \subsection{元素异同? Elements Agree to Disagree? }
+
+            数学中一个最原本的问题, 就是什么``相同'', 什么``不同''. 
+            
+            什么是结构? 
+
+            ``万物皆集合'', 于是结构一定是就集合而言的. 对一个集合而言, 其中的元素间具有相同性, 也具有不同性. 假若对一个集合的所有元素而言, 它们的各项性质相同, 没有什么不同性, 或是任意两个的性质都完全不同, 没有什么相同性, 那么这个集合的性质是\textbf{无趣的}, 或者说它的结构是\textbf{平凡的(Trivial)}, 我们不想去关心这样的集合. 
+
+            我们想要关心的是有美丽结构的集合. 而我们说一个结构美丽, 就是说集合的各个元素之间有相同点, 亦有不同点, 而且这些相同性与不同性的结合非常神奇, 非常美好, 非常\textbf{不平凡}, 这样的结构才是我们想要关心的. 
+
+        \subsection{在集合上建筑! Build over Sets! }
+
+            Nicolas Bourbaki认为数学只有三种母结构: 代数结构, 拓扑结构和序结构. 
+
+            所谓代数结构, 就是说集合中用来取代``数''的``元素''虽已不再是``数'', 却具有``数''的性质, 或者说元素借助元素发生变化: 这种数学操作就是运算. 
+
+            \begin{dfn}
+                \textbf{二元运算(Binary Operation)}
+
+                集合$S$上的一个二元运算$``\cdot"$指的是一个$S\times S\to S$的映射. 
+            \end{dfn}
+            
+            我们罗列一些经典的结构, 我们不去讨论这些结构中具体的性质, 但是我们可以从中归纳得出, 代数结构一般``长什么样子'': 
+
+            \begin{dfn}
+                结构$(G,\cdot)$被称为是一个\textbf{群(Group)}, 若$G$上的二元运算$``\cdot":G^2\to G$满足: 
+                
+                (1)乘法结合律: 
+                \[\forall a,b,c\in G\Longrightarrow(ab)c = a(bc)\]
+                
+                (2)恒等元存在: 
+                \[\exists e\in G(\forall a\in G\Longrightarrow ea=ae=a)\]
+                
+                上式中$e$称为\textbf{恒等元(Identity)}. 
+                
+                (3)逆元存在: 
+                \[\forall a\in G, \exists a'\in G(aa'=a'a=e)\]
+                
+                上式中$a$称为a的\textbf{逆元(Inverse)}, 记作$a^{-1}$. 
+
+                称一个群为加法群时一般将乘号$``\cdot"$写作加号$``+"$
+                
+                群$(G,\cdot)$被称为是一个\textbf{Abel群(Abelian Group)}或\textbf{交换群(Commutative Group)}, 抑或者是\textbf{加法群(Addition Group)}, 若乘法交换律成立: 
+			    \[\forall a,b\in G\Longrightarrow ab=ba\]
+            \end{dfn}
+
+            群是为研究\textbf{对称性}而诞生的代数结构. 所谓\textbf{对称性}, 就是说数学对象经过变化之后与原来相同. 
+
+            我们来看一些经典的群结构: 
+            
+            \begin{xmp}
+                八阶\textbf{二面体群(Dihedral Group)}$D_4$
+
+                所谓``二面体''说的就是平面图形, 所以$D_4$事实上描述的就是正方形的对称性. 
+
+                计顺时针旋转$90^\circ$的操作为$R$, 上下翻转的操作为$F$, 那么八阶二面体群的$8$个元是: 
+                \[\{e,R,R^2,R^3,RF,R^2F,R^3F\}\]
+
+                这$8$个元分别对应了对正方体保持不变, 顺时针旋转$90^\circ$, $180^\circ$, $270^\circ$, 上下翻转, 左右翻转和两种对角翻转的$8$种操作. 
+            \end{xmp}
+            
+            \begin{xmp}
+                \textbf{魔方群}
+
+                将一个魔方的每一种状态(不计整体旋转)组成一个集合, 将还原状态视为恒等元. 我们知道魔方的每一种状态都能通过几种不同的``拧魔方''操作得到, 那么将两种状态的操作流程叠加得到的状态作为两个元素的乘积, 得到一个群. 
+            \end{xmp}
+
+            \begin{dfn}
+                \textbf{线性空间(Linear Space)/向量空间(Vector Space)}
+
+                结构$(V,+,\cdot)$称为是一个数域$\K$上的\textbf{线性空间(Linear Space)}, 集合$V$中的元素称为\textbf{向量(vector)}, 若在$V$上定义了两种运算: 加法$``+": V\times V\to V$ 和数乘: $``\cdot": \K\times V \to V$, 满足:
+    
+                (1)代数结构$(V,+)$是一个Abel群. 
+    
+                (2)数乘结合律成立: 
+                \[\forall k,l\in \K, \forall \alpha \in V, k(l\alpha) =(kl)\alpha\]
+                
+                * 上述等式通常记为$kl\alpha$. 
+    
+                (3)数乘分配律对$V$中的元素成立: 
+                \[\forall k\in \K, \forall \alpha , \beta \in V, k(\alpha +\beta)=k\alpha+k\beta\]
+    
+                (4)数乘分配律对数域$\K$中的数成立: 
+                \[\forall k,l\in \K, \forall \alpha \in V, (k+l)\alpha =k\alpha +l\alpha\]
+                
+                (5)数乘恒等元存在: 
+                \[\exists 1\in \K: \forall \alpha \in V, 1\alpha=\alpha\]
+            \end{dfn}
+            
+            \begin{dfn}
+                \textbf{拓扑空间(Topological Space)}
+                
+                对集合$S$, $\T\in\PP(S)$称为是$S$上的一个\textbf{拓扑(Topology)}, 若: 
+
+                (1) 空集, 全集属于$\T$: $\varnothing, S\in \T$
+
+                (2) 对任意并封闭: $\bigcup\limits_{i\in I} S_i\in\T$对任何$S_i\in\T$(其中$I$是任意集)成立. 
+
+                (3) 对有限交封闭: $\bigcap\limits_{j\in J} S_j\in\T$对任何$S_j\in\T$(其中$J$是有限集)成立. 
+
+                此时称$(S,\T)$为一个\textbf{拓扑空间(Topological Space)}. 
+
+                $\T$中的元素称为关于拓扑$\T$的\textbf{开集(Open Sets)}; 
+                
+                开集关于全集$S$的补集称为关于拓扑$\T$的\textbf{闭集(Closed Sets)}. 
+
+                拓扑结构事实上就是在指明一个集合的子集中, 哪些被认为是``开''的. 但一般意义下的拓扑结构过于抽象了, 我们不详细加以介绍, 只通过实数上通常拓扑的定义来为之后介绍实数结构的搭建做一个浅显的引入. 
+            \end{dfn}
+
+			\begin{dfn}
+				\textbf{度量空间/距离空间(Metric Space)}
+
+				设$S$为一个集合, 函数$d:S^2\to N$($N$是一个``数集'')称为是$S$上的一个\textbf{度量(Metric)/距离(Distance)}, 若$d$满足: 
+
+				(1)\[d(x,y)=0\iff x=y\]
+
+				(2)交换性: 
+				\[\forall x,y\in S, d(x,y)=d(y,x)\]
+
+				(3)三角不等式: 
+				\[\forall x,y,z\in S, d(x,y)+d(y,z)\geq d(x,z)\]
+
+				此时称结构$(S,d)$为一个\textbf{度量空间/距离空间(Metric Space)}. 
+			\end{dfn}
+
+            事实上, 距离总是非负的, 这可以通过在三角不等式中令$y=z$得到. 
+
+            容易验证我们熟悉的Euclid距离与Manhattan距离是特殊的度量: 
+            
+            \begin{xmp}
+                \textbf{Euclid度量(Euclidean Metric)与曼哈顿度量(Manhattan Metric)}
+                \[\forall\bm x,\bm y\in \R^n, \bm x:=(x_1,x_2,\cdots,x_n), \bm y:=[y_1,y_2,\cdots,y_n]\]
+                \[d_E(\bm x,\bm y):=\sqrt{{(x_1-y_1)}^2+{(x_2-y_2)}^2+\cdots+{(x_n-y_n)}^2}\]
+                \[d_M(\bm x,\bm y):=|x_1-y_1|+|x_2-y_2|+\cdots+|x_n-y_n|\]
+            \end{xmp}
+            
+            \begin{dfn}
+                \textbf{开球}
+
+                度量空间$(S,d)$中, 围绕元素$x_0$的半径为$r(r>0)$的开球定义为$\{x\in S|d(x,x_0)<r\}$, 记作$\B(x_0,r)$. 
+
+                我们习惯称之为$\varepsilon$-邻域, 开球只是它在度量空间中的一般表述. 
+            \end{dfn}
+            
+            \begin{dfn}
+                \textbf{通常拓扑}
+
+                依据Euclid度量建立的以下拓扑称为是$\R$上赋予的\textbf{通常拓扑}. 其中, 一个集合$S$被认为是开的, 若: 
+                \[\forall x\in S, \exists r\in\R^+(\B(x,r))\subseteq S\]
+
+                通常拓扑也揭示了开集之为``开''的命名缘由: 开集对其中任何一个元素而言都是``开放''的, 它可以自由地向四周行走而不迈出集合外. 
+            \end{dfn}
+            
+        \subsection{在说哪个范畴? Talkin' which Category? }
+            
+            \begin{xmp}
+                现假设学院要举办军训晚会, 给3营26连($C_{26}$)安排了舞台剧表演任务, 其中小班长分别担任主要角色, 其他学生担任群演, 且要求满足: 本来是同个小班的同学当同一类群演, 本来是不同小班的同学不当同一类群演. 
+
+                现在3营26连临时被抽调负责其他任务, 转由3营31连($C_{31}$)承担该舞台剧表演, 要求对应角色演员的情况和原本一致, 假设两连各班人数安排完全一致, 那么应该如何安排对接工作? 
+
+                我们相当于要构造一个双射$``f":C_{21}\to C_{26}$, 它满足: 
+                \[\begin{cases}
+                    f(\text{26连全体小班长})=\text{31连全体小班长}\\
+                    \text{对26连的每个小班$A$, 都有31连的某个小班$B$满足: }f(A)=B\\
+                \end{cases}\]
+
+                这样的一个映射虽然替换掉了所有的人, 却保留了原本2401班级的班组织结构, 因为它很大程度上保证了各元素之间``同''与``不同''的关系不变. 
+            \end{xmp}
+            
+            \begin{dfn}
+                \textbf{范畴(Category)}
+        
+                一个对象集合$\Ob(\MC)$(元素称为\textbf{对象(Object)})和一个态射集合$\Mor(\MC)$(元素称为\textbf{态射(Morphism)}) 组成一个\textbf{范畴(Category)}: 
+                \[\MC=(\Ob(\MC),\Mor(\MC))\]
+        
+                其中有映射$s,t:\Mor(\MC)\to\Ob(\MC): $对于$\Mor(\MC)$中的态射, $s$给出\textbf{来源}, $t$给出\textbf{目标}, 即: 
+                \[\Ob(\MC):=\{X,Y\}, \Mor(\MC):=\{f\}, \MC:=(\Ob(\MC),\Mor(\MC))\]
+                \[\MC: \xymatrix{
+                    X\ar[r]^f & Y
+                }\]
+                \[\begin{tikzcd}
+                    \Mor(\MC) \arrow[r, "s", shift left] \arrow[r, "t"', shift right] & \Ob(\MC)
+                \end{tikzcd}\]
+                \[s(f)=X, t(f)=Y\]
+                \[\Hom_{\MC}(X,Y):=s^{-1}(X)\cap t^{-1}(Y)\]
+                
+                $\Hom_{\MC}(X,Y)$称为$\Hom$-集, 其元素称为从$X$到$Y$的态射. 
+                \[\forall X\in \Ob(\MC)\Longrightarrow\Id_X\in\Hom_{\MC}(X,X)\]
+                
+                $\Id_X$称为$X$到自身的\textbf{恒等态射}. 
+                $\forall X,Y,Z\in\Ob(\MC)$, 定义态射间的\textbf{合成运算}("$\circ$"): 
+                \[\circ: \Hom_{\MC}(Y,Z)\times\Hom_{\MC}(X,Y)\to\Hom_{\MC}(X,Z)\]
+                \[(f,g)\mapsto f\circ g\]
+                
+                其中态射在合成运算下须满足类似幺半群的结构: 
+                
+                (1)满足结合律: \[\forall f,g,h\in\Mor(\MC), \exists f\circ(g\circ h), (f\circ g)\circ h\Longrightarrow f\circ(g\circ h)=(f\circ g)\circ h\]
+                故上述等式可写作$f\circ g\circ h$
+        
+                (2)来源与目标各自的恒等映射的合成分别具有左, 右恒等元的性质: 
+                \[\forall f\in\Hom_{\MC}(X,Y), f\circ\Id_X=f=\Id_Y\circ f\]
+        
+                运算$\circ$在不致混淆时可省略书写. 
+        
+                态射$X\overset{f}{\longrightarrow}Y$称为是一个\textbf{同构}, 若: 
+                \[\exists Y\overset{g}{\longrightarrow}X: fg=\Id_Y, gf=\Id_X\]
+                
+                从$X$到$Y$的全体同构组成从$X$到$Y$的\textbf{同构集}, 记作$\Isom_{\MC}(X,Y)$. 
+                \[\End_{\MC}(X):=\Hom_{\MC}(X,X)\]
+                称作$X$的自\textbf{同态集}, 其中的元素称为$X$的\textbf{自同态(Endomorphism)}, $(\End_{\MC}(X),\circ)$是幺半群; 
+                \[\Aut_{\MC}(X):=\Isom_{\MC}(X,X)\]
+                称作$X$的\textbf{自同构集}, 其中的元素称为$X$的\textbf{自同构(Automorphism)}, $(\Aut_{\MC}(X),\circ)$是群. 
+            \end{dfn}
+            
+            \begin{xmp}
+                四类\textbf{态射(Morphism)}
+
+                基于同样的想法, 我们时常需要辗转于不同数学结构之间, 讨论这些结构之间关系. 这样如果我们能找到某一类结构的共同特征, 就可以建立起更好的对称性, 省去对每个结构单独讨论的工作. 
+
+                例如在我们之前讨论的各种结构中都能找到某一类特别的映射, 这类映射改变了同一类结构所基于的集合, 却保证了结构本身的一致性. 我们习惯性把这一类映射统称为\textbf{同态(Homomorphism)}, 这两个词的英语都是; 若这个映射是双射, 也就是说它指示了两个结构间一一对应式的完全一致性, 我们更进一步称其为\textbf{同构(Isomorphism)}, 也就是说这两个结构严格一致. 更进一步地, 我们会构造一个结构到它自身的同态, 同构, 此时我们称为\textbf{自同态(Endomorphism)}与\textbf{自同构(Automorphism)}. 
+                
+                它们常常在不同数学领域中有着不同的名字, 但本质上是一样的, 例如: 
+                \newline
+                
+                (1) 在群结构中, 保证结构不变性的同态是\textbf{群同态}: 
+
+                群是最简单的代数结构, 它只涉及了一种运算$``\cdot"$, 它也是唯一指定了元素之间同与不同的因素, 因而只要保证乘法运算结构的不变性就保证了群结构的不变性. 
+
+                设结构$(G_1,\cdot_1),(G_2,\cdot_2)$是群, 映射$f:G_1\to G_2$称为是\textbf{同态(Homomorphism)}, 若$\forall a,b\in G: f(a\cdot_1 b)=f(a)\cdot_2 f(b)$. 
+                
+                称同态$f$为G上的\textbf{自同态(Endomorphism)}, 若$(G_1,\cdot_1)=(G_2,\cdot_2):=(G,\cdot)$. 
+                
+                称同态$f$为\textbf{同构(Isomorphism)}, 若$f$是双射. 
+                
+                称同构$f$为G上的\textbf{自同构(Automorphism)}, 若$(G_1,\cdot_1)=(G_2,\cdot_2):=(G,\cdot)$. 
+                \newline
+
+                (2) 在线性空间结构中, 保证结构不变性的同态是\textbf{线性映射}: 
+
+                线性空间的定义涉及了两种运算, 且其中的数乘运算给出了线性空间所基于的数域, 因而为了保证线性空间结构的不变性, 我们要在保证数域同构(相同)的前提下保证映射关于加法与乘法的不变性. 
+                
+                设$(V_{1},+_1,\cdot_1),(V_{2},+_2,\cdot_2)$都是数域$\K$上的线性空间, 映射$\varphi: V_{1}\to V_{2}$称为是一个\textbf{线性映射(Linear mapping)}, 若$\forall \alpha, \beta\in V_{1}, k\in \K$, 
+                \[\varphi (\alpha+\beta)=\varphi(\alpha)+\varphi(\beta)\]
+                \[\varphi(k\alpha)=k\varphi(\alpha)\]
+                
+                称$\varphi$为线性空间$V$上的\textbf{线性变换(Linear Transformation)}, 若$V_{1}=V_{2}=V$. 线性变换就是线性空间的自同态. 
+                
+                称$\varphi$为\textbf{线性同构(Linear Isomorphism)}, 若$\varphi$是双射. 
+                
+                称$\varphi$为线性空间$V$上的\textbf{线性自同构(Linear Automorphism)}, 若$\varphi$是线性变换且是同构. 
+
+                运用这些概念, 我们可以借助基变换的知识把所有有限维线性空间之间的线性映射写成数域上的运算, 也就是矩阵的形式: 
+                
+                设线性映射$\varphi:V_1\to V_2, \dim V_1=m, \dim V_2=n$, 可绘制如下交换图: 
+                \[\begin{matrix}
+                \xymatrix{
+                V_1\ar[r]^\varphi\ar[d]^{\eta_1} & V_2\ar[d]^{\eta_2}\\
+                \K_m\ar[r]^{\varphi^*}\ar[u] & \K_n\ar[u]
+                }
+                \end{matrix}\]
+
+                这张图中, $\eta_1,\eta_2$是由线性空间的基给出的坐标映射, 它们是线性同构, 这意味着我们讨论$V_1$,$V_2$这两个任意类型的线性空间时, 可以仅保留向量间的运算结构而舍弃向量的类型, 从而将线性空间转化为熟悉的$\K_n$情况进行讨论. 事实上, $\varphi^*$代表的就是线性映射$\varphi$的表示矩阵. 
+                \newline
+
+                (3) 在拓扑结构中, 保证结构不变性的同态是\textbf{连续映射}: 
+
+                设拓扑结构$(S_1,\mathcal{T}_1),(S_2,\mathcal{T}_2)$, 
+
+                $f:S_1\to S_2$称为是一个\textbf{连续映射}, 若$f$在$S_1$的任何一点处连续. 这意味着: 
+                \[\forall x\in S_1, y:=f(x), \forall U(y), \exists U(x)(f\left(U(x)\right)\subseteq U(y))\]
+
+                其中当$f$是双射且其逆映射也连续时, 称$f$为\textbf{同胚(Homeomorphism)}. 注意这个东西的拼写和\textbf{同态(Homomorphism)}不一样, 它不是Homo. (我是说它不是Homo-开头的)
+
+                拓扑结构的概念对我们而言有些抽象, 我们不深入探讨它. 
+                \newline
+                
+                (4) 在序结构中, 保证结构不变性的同态是\textbf{保序映射}: 
+
+                对于定义在集合$X,Y$上的序结构$(X,\leq_X)$,$(Y,\leq_Y)$, $f:X\to Y$称为是一个\textbf{保序映射}, 若: 
+                \[\forall x_1,x_2\in X(x_1\leq_X x_2)\Longrightarrow f(x_1)\leq_Y f(x_2)\]
+                
+                眼尖的同学们看着上面的定义有些熟悉. 没错, 上述定义我们一般俗称\textbf{单调函数}, 只不过我们高中使用的是它在数集上的特殊情况. 如果集合$X,Y$都取同一个集合, 譬如我们熟悉的$\R$, 那么我们可以忽略偏序关系$\leq_X$与$\leq_Y$的差异而统一写作$\leq$, 此时$f$就是我们熟悉的单调函数了, 它是序结构$(\R,\leq)$上的一个自同态. 
+            \end{xmp}
+
+    \section{实数那些事儿 Stories about Real Numbers}
+
+        \subsection{ShuXi的身影? A Familiar `Figure'? }
+
+            什么是``数''? 
+
+            我们对``数''的认识始于数数. 从这一意义上而言, 这种原初的直觉认识正反映了Peano公理的思想: 
+            
+            \begin{axm}
+                \textbf{Peano公理}
+                
+                集合$N$定义为\textbf{自然数(Natural Number)}集, 若$N$满足: 
+                
+                (1)\[\exists 0\in N\]
+                
+                (2)\[\exists s:N\to N\]
+                
+                (3)\[s\text{是单射. }\]
+                
+                (4)\[\nexists x\in\N(s(x)=0)\]
+                
+                (5) 归纳公理: 
+                
+                若$N$满足上述公理, 则$N$包含全体自然数. 
+            
+                为了与一般的$N$区分, 表示自然数集时该记号写作$\mathbb{N}$. 
+            \end{axm}
+            
+            第一条向我们阐述了: “数数”需要一个起点作为后继映射的生成元, 因而必须有一个数来充任之. 事实上, $0$不必是唯一的起点, 将$0$替换成任何元素能同样地构造出我们所熟知的正整数集$\mathbb{N}^*$. 从满足“数数”需求的角度上来讲, 两种定义方式能够同等地满足我们的需要. 
+            
+            $0$的加入是为了使自然数在加法意义上拥有恒等元, 从而具有幺半群结构. 
+            
+            第二条以后继映射的形式规定了“数数”的唯一后继过程, 它反映了“数”这一动作的本质. 
+            
+            第三条规定了“数数”的历程唯一性, 避免了出现“分支”的情况. 
+            
+            第四条规定了自然数不会在$0$处“成环”, 它与前一条一起确保了自然数的无限性. 事实上, 若无第四条, “成环”的自然数可以构成一个循环群结构, 如果相应地调整度量的要求, 或许我们也能够建立一套十分有趣的数学体系. 但在此我们界定排除这种情况. 
+            
+            第五条是较为迷惑性的. 这种叙述方式所表达的意思是, ``通过我们上述构造得到的全部数已然构成了自然数集''. 这条公理事实上是我们熟悉的数学归纳法正确的前提. 
+            
+            \begin{thm}
+                \textbf{数学归纳法原理}
+
+                如果一个关于自然数的命题$P(n)$对$n=1$时成立, 且$\forall k\in\N, n=k$时成立蕴含了$n=k+1$时成立, 那么$P(n)$对一切$n\in\N$成立. 
+            \end{thm}
+
+            这个问题不好说清, 其关键在于, 什么叫$P(n)$对全体自然数$n$成立, 或者说在这其中全体自然数的$n$的定义是什么? 回顾公理5, 我们明白: 每一个自然数$n$的定义就是由首项与后继关系给出的, 因此把这个自然数的概念代换为其定义, 我们就直接得到了数学归纳法的表述. 
+
+            接下来我们给出一个自然数集的构造. 
+
+            为什么给出了Peano公理还要构造自然数集? Peano公理的本质是说明了``什么样的集合可以被当作是一个自然数集''这件事, 但它并没有说明``存在这样的集合''一定是正确的. 根据ZFC公理集合论, 构造新集合的方法只能从ZFC体系的9条公理给出, 于是我们要借助ZFC公理给出一个自然数集的构造才算是真正建立起了自然数集. 当然, 在序数视角下我们可以以等价类的方式来考虑这个问题, 但那会制造很多麻烦. 
+            
+            \begin{thm}
+                \textbf{自然数集的公理化集合构造}
+
+                如下定义$0$和$s:N\to N$, 得到的集合$N$是一个符合Peano公理的自然数集. 
+                \[0:=\varnothing\]
+                \[\forall x\in N, s(x):=x\cup\{x\}\]
+            \end{thm}
+
+            由于我们的构造已经覆盖了Peano公理中给出自然数的全部条件, 这个定理是自动正确的. 
+
+            这样构造得到的自然数长这样: 
+            \[\begin{cases}
+                0=\varnothing\\
+                1=\{\varnothing\} & =\{0\}\\
+                2=\{\varnothing,\{\varnothing\}\} & =\{0,1\}\\
+                3=\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\} & =\{0,1,2\}\\
+                \vdots\\
+                n=\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\},\cdots\} & =\{0,1,2,\cdots,n-1\}\\
+                \vdots
+            \end{cases}\]
+
+            即每一个自然数被定义为其之前所有有理数组成的集合. ZFC公理体系中的无限公理允许了全体自然数组成集合的存在, 像这样的集合叫做归纳集. 
+
+            自然数集$\N$及其上的加法事实上已经具有幺半加法群结构. 将幺半群补全为一个加法群, 便得到了整数集$\Z$. 
+
+            在整数集的基础上, 我们可以进一步定义整数的乘法, 使$\Z$具有交换环结构. 若再进一步定义乘法的逆运算: 除法, 并诱导出剩余的元素, 得到的代数结构是交换除环, 也称为\textbf{域}. 于是我们有了有理数. 
+
+            \begin{dfn}
+                集合$\K$称为是一个\textbf{域(Field)}, 若在$\K$上定义了两种$\K^2\to \K$的二元运算加法"$+$"和乘法"$\cdot$", 满足: 
+                
+                (1)$\K$对加法运算封闭: 
+                \[\forall a,b\in \K, a+b\in \K\]
+                
+                (2)有一种加法运算的逆运算"$-$", 且$\K$对该减法运算封闭: 
+                \[\forall a,b\in \K, \exists (b-a)\in \K: a+(b-a)=b\]
+                
+                (3)$\K$对乘法运算封闭: 
+                \[\forall a,b\in \K, a\cdot b\in \K\]
+                
+                (4)有一种乘法运算的逆运算"$/$", 且$\K$对除数不为零的除法运算封闭: 
+                \[\forall a,b\in \K(a\neq 0), \exists (b/a)\in \K: a\cdot(b/a)=b\]
+            \end{dfn}
+
+            有理数域的构造可以借助数论知识构造等价关系, 由$\Z\times\Z$对其取商集直接构造得到, 我们不具体写了. 
+                
+            \begin{thm}
+                有理数域是由$0$和$1$生成的``最小''的无限数域. 
+            \end{thm}
+
+            证明: 
+                
+                这个定理的证明本质上帮我们梳理了有理数域是如何从Peano公理定义自然数以来, 通过扩充代数结构一步步生成得到的. 
+                \[1\in\K\Longrightarrow\underbrace{1+1+\cdots +1}_{n\mbox{个}1}=n \in \K\Longrightarrow -n\in \K\Longrightarrow \Z \subseteq \K\]
+                \[\Longrightarrow \forall \frac{p}{q}\in \mathbb{Q}(p,q\in \Z\subseteq \K, q\neq 0, \gcd(p,q)=1), \frac{p}{q}=p/q \in \K\]
+                \[\Longrightarrow \mathbb{Q} \subseteq \K\]
+                
+                又$\mathbb{Q}$本身已然是数域$\Longrightarrow$全体无限数域的交集为$\mathbb{Q}$. $\square$
+            
+            通过对有理数进行通分, 我们可以将整数的全序结构推广至有理数上. 至此, 有理数已然具备域结构和全序结构. 
+
+        \subsection{何谓连续? What about Continuity? }
+
+            我们现在可以更加细致地讨论``什么是实数''这个问题. 
+
+            回顾``实数''概念诞生之初: $I\pi\pi\alpha\sigma o\varsigma$因发现边长为$1$的正方形的对角线长不能表示为两整数之比而被$\varPi \upsilon\theta\alpha\gamma o\rho\alpha\varsigma$学派的学生扔进大海. 自那时起, 人们意识到有理数上有``洞''. 
+
+            什么是``洞''? 我们知道$x^2=-1$在实数上也是无解的, 然而这一缺陷并未让我们感到实数上有``洞''. $\sqrt{2}$的发现之所以如此令人震惊, 是因为它与有理数如此之``像'', 以至于我们在直觉上清晰地感觉到它应当与其他有理数同列, 然而它又并非是有理数. 正是因为面对着一个正方形, 我们几乎能用一把尺量出这个数的大小: $1.414213562\cdots$. 我们清楚地知道, $1.41$比它要小一些, 而$1.42$比它要大一些, 那么它理应是个介于二者之间的``数'', 这样我们才能比较出这个大小. 更严格地说, 对于每一个有理数, 我们都能清楚地判断它是比$\sqrt{2}$大还是小, 但我们就是找不到一个等于$\sqrt{2}$的有理数. 这和一个``洞''在自然语言上带给我们的直观感受是一致的: 它的周围都``有'', 偏偏在这一点``无''. 而在有理数上, 这个``周围''是由偏序关系给出的, 也就是说, 我们所说的``洞'', 是在一条由偏序关系给出的\textbf{链}, 或者说, \textbf{全序集}上的洞. 
+
+            于是补上``洞''的方式很简单: 承认在``周围''都有有理数的前提下, 这一点也有一个数. 我们用数学语言把这个思想表示出来: 
+            \[\forall X,Y\subseteq\R(X,Y\neq\varnothing\wedge\forall x\in X, y\in Y, x\leq y), \exists c\in\R(\forall x\in X, y\in Y, x\leq c\leq y)\]
+
+            这就是实数定义中的\textbf{连续性公理(Axiom of Continuity)}. 
+
+            \begin{dfn}
+                \textbf{实数结构(Real Number Structure)}
+
+                结构$(\R,+,\cdot,\leq)$被称为\textbf{实数结构(Real Number Structure)}, $\R$被称为\textbf{实数集(Set of Real Numbers)}, 其元素称为\textbf{实数(Real Number)}, 若其满足: 
+
+                (1)$(\R,+,\cdot)$是一个域; 
+
+                (2)$(\R,\leq)$是全序的, 且满足: 
+                \[x,y,z\in\R, x\leq y\Longrightarrow x+z\leq y+z\]
+                \[x\geq 0, y\geq 0\Longrightarrow xy\geq 0\]
+
+                (3)\textbf{连续性公理}
+                \[\forall X,Y\subseteq\R(X,Y\neq\varnothing\wedge\forall x\in X, y\in Y, x\leq y), \exists c\in\R(\forall x\in X, y\in Y, x\leq c\leq y)\]
+            \end{dfn}
+        
+            \begin{thm}
+                \textbf{确界存在性定理}
+
+                有上界的实数集子集有上确界, 有下界的实数集子集有下确界. (将上界集合简记为$\{M\}$)
+                \[\forall S\subseteq\R[(S\neq\varnothing)\wedge(\exists M\in S(\forall x\in S,x\leq M))]\Longrightarrow\exists\min\{M\}\]
+            \end{thm}
+
+            证明: 
+
+                先证明上确界存在性, 对下确界同理. 
+
+                $S$,$\{M\}$皆非空, 且: 
+                \[\forall x\in S,\forall M\in\{M\}, x\leq M\]
+                
+                由连续性公理知: 
+                \[\exists c\in \R(\forall x\in S, \forall M\in\{M\}, x\leq c\leq M)\]
+
+                即$c=\min\{M\}\Longrightarrow c=\inf(S)$. $\square$
+
+        \subsection{从何处来? Where from? }
+
+            我们对于实数最早的认识来自于无限小数. 然而这个定义留下了诸多问题. 一个无限不循环小数的严格定义是什么? 这引出了民科经典$0.999\cdots=1$之类的问题. 解决这个问题的关键在于, 给出无限小数$0.999\cdots$这个数的严格定义. 
+
+            在已经定义了实数集的情况下, 我们可以容易地把一个无限小数写成一个收敛的无穷级数: 
+            \[x:=x_0.x_1x_2x_3\cdots x_n\cdots:=\sum_{i=0}^{+\infty}{10}^{-i} x_i:=\lim_{n\to+\infty}\sum_{i=0}^{n}{10}^{-i} x_i\qquad(x_0\in\Z;x_i\in\{0,1,\cdots 9\}(i>0))\]
+
+            这样只要给出无限序列$\{x_1,x_2,\cdots\}$的严格定义即可严格定义$x$. 于是, 我们可以写出$0.999\cdots$这个数的严格定义: 
+            \[0.999\cdots=\lim_{n\to+\infty}\sum_{i=1}^{n}9\times{10}^{-i}=1\]
+            
+            这样就解决了这个经典的民科问题. 
+
+            然而, 这样的级数式不能作为实数集的定义, 这是因为我们习惯的极限的定义本身依赖对结果$x$进行代数运算, 而代数运算的定义建立在集合已经完成定义的基础之上, 这样就产生循环定义了, 这在数学中是不允许的. 
+
+            于是我们要换一种策略来讲述这个故事, 以及接下来说明为何用仅通过无限小数来定义实数不是一个好主意: 
+
+            我们现在在仅定义了有理数的语境下进行讨论. 在有理数域上, 由于有理数是稠密的, 极限的定义可以同样写出, 只是``收敛''不再等价于``存在极限'', 需要另外定义. 
+            
+            我们仍然选择关注这个无穷和式: 
+            \[\sum_{i=0}^{+\infty}{10}^{-i} x_i=\lim_{n\to+\infty}\sum_{i=0}^{n}{10}^{-i} x_i\]
+
+            注意到$\sum\limits_{i=0}^{n}{10}^{-i} x_i$在有理数内可能是没有极限的, 此时其实意味着它在实数内的极限是无理数. 事实上, 我们希望用它来定义无理数, 于是我们熟悉的那种定义相当于引入了一条公理: 我们默认这个级数是有意义的. 
+
+            但我们事实上希望这样的公理越少越好, 参考实数连续性公理, 我们借助序性来构造链上的那些``洞''. 
+
+            \begin{dfn}
+                \textbf{无限小数}
+
+                称一个无限序列$\{x_i|i\in\N,x_0\in\Z;x_i\in\{0,1,\cdots 9\}(i>0)\}$声明了一个实数, 全体这样的序列称为. 
+
+                其上的序关系我们这样定义: 
+                \[a:=\{x_0,x_1,\cdots\}\qquad b:=\{y_0,y_1,\cdots\}\]
+                \[a\leq b\iff\exists i\in\N(\forall j<i, x_j=y_j\wedge x_i<y_i)\]
+
+                这个定义有个漏洞, 就是它漏掉了$\{\cdots,x_i+1,0,0,\cdots\}\leq\{\cdots,x_i,9,9,\cdots\}$等的一种情况, 这也是直接由无限小数定义实数会造出这个民科问题的原因. 这里我们有两种解决方案, 其一是在定义中直接强制规定不允许出现全部为$9$的循环节, 其二是通过有理数级数的方式建立等价关系认为二者相等. 
+            \end{dfn}
+            
+            \begin{thm}
+                有理数可以写成无限循环小数(计循环节为$0$的情况)的级数和. 
+            \end{thm}
+
+            这个定理我们之前习题课证过了, 这里就不证了. 需要关注的是, 这个定理允许我们把无限序列中的循环小数当作有理数处理. 
+
+            为什么说这个构造很麻烦? 读者不妨自己尝试完成这个集合上域结构的良好定义, 在要处理无限不循环小数乘积时显得极为麻烦, 直接被下面一种定义方式薄纱: 
+
+            \begin{dfn}
+				\textbf{Cauchy列(Cauchy Sequence)}
+
+				一个有理数序列$\{a_n\}$被称为是\textbf{Cauchy}的, 若: 
+				\[\forall\varepsilon\in\mathbb{Q}^+, \exists N\in\mathbb{Z}^+: \forall i,j>n, |a_{i}-a_{j}|<\varepsilon\]
+
+                注意我们这里运用有理数的定义形式, 这也正是Cauchy列的妙处所在: 它只关心数列的敛散性而无需指明极限, 因而在极限非有理数时它仍然适用, 所以它可以用来定义实数. 事实上, Cauchy序列的定义在任何装备了度量的空间上均适用, 此时我们称补全全体Cauchy列极限的的过程为\textbf{度量完备化}, 完备的度量空间称为\textbf{Banach空间}. 
+			\end{dfn}
+
+            Cauchy列的等价关系相比之下就很容易思考出来, 用它来构造代数结构和序结构也更加方便, 因为我们可以直接将序列中各有理数项的性质延伸至序列本身. 
+
+            除了上两种构造之外, 直接运用连续性公理对实数进行构造的方式称为Dedekind切割构造. 
+        
+            \begin{dfn}
+				集合偶$(A,B)(A,B\subseteq\mathbb{Q})$称为$\mathbb{Q}$一个\textbf{分割}, 若: 
+				
+				(1)$A\cup B=\mathbb{Q}$
+				
+				(2)$A\cap B=\varnothing$
+				
+				(3)$\forall a\in A, b\in B, a<b$
+				
+				记作$A|B$, 全体分割组成的集合记为$R$. 
+			\end{dfn}
+			
+			\begin{dfn}
+				设$A$中极大元$a=\max A$与$B$中极小元$b=\min B$: 
+				
+				可以将全体分割分为不重复的四类: 
+				
+				(1)$\nexists a, \nexists b$
+				
+				(2)$\exists a, \nexists b$
+				
+				(3)$\nexists a, \exists b$
+				
+				(4)$\exists a, \exists b$
+				
+				分别称为第一、二、三、四类分割. 
+			\end{dfn}
+			
+			\begin{ppt}
+				第四类分割不存在. 
+			\end{ppt}
+			
+			证明: 
+				\[\exists a, \exists b\Rightarrow a<b\]
+				\[a<\frac{a+b}{2}<b, \frac{a+b}{2}\in\mathbb{Q}\]
+				\[\frac{a+b}{2}\notin A\cup B\]
+				
+				与$A\cup B=\mathbb{Q}$矛盾. $\square$
+            
+            最后, 与无限小数定义同样地, 我们建立一个等价关系来判定哪些分割指示了相同的实数, 这样的构造可以有诸多等价的说法, 我们不妨选取一个便于理解的: 
+
+            建立等价关系$``\sim"$如下: 两个分割$A|B\sim C|D$, 当且仅当: 
+            \[\forall\varepsilon\in\mathbb{Q}^+, \exists a\in A, b\in B, c\in C, d\in D(d-a<\varepsilon\wedge b-c<\varepsilon)\]
+            
+            于是不妨将实数$\R$定义为全体分割关于该等价关系的商集: 
+            \[\R:=R/\sim\]
+
+            如果要确保$\mathbb{Q}\subseteq\R$, 我们还可以进一步构造等价关系说明第二, 第三类分割分别与$\mathbb{Q}$一一对应, 而第一类分割事实上与无理数一一对应(在$\sim$下两两不等价). 
+
+            Dedekind切割本质上重新诠释了连续性公理, 也就是说它是由实数序结构引导得到的产物, 我们也可以发现在切割上定义偏序关系(其实是预序关系)十分容易. 运用Dedekind切割构造可以进一步定义实数集上的域结构, 和拓扑结构, 但给出严格定义的工作较为麻烦, 我们不再具体地书写这些内容. 
+
+            事实上, 我们学过的一系列实数完备性定理, 其他还包括Bolzano-Weiestrass列紧性定理, Cauchy-Cantor闭区间套定理, Heine-Borel-Lebesgue有限开覆盖条件(拓扑空间的紧性条件)等都能够用来构造实数集, 且它们互相之间都是等价的. 只是具体去书写这些内容太过繁琐, 我们今天不详加介绍了. 
+
+            {\scriptsize 如果有同学感兴趣回去研究写完记得把代码发我懒得自己敲笔记了(不是)}
+
+            到此, 我们对于实数的各项性质应当有了更加深刻的理解. 简单来说, 从逻辑角度上来讲, 每一条可以用来等价构造实数的定理描述了实数一个角度的性质. 
+            
+            我们在实数上所做的各种操作, 有些如加减乘除, 它们来自于域结构; 有些如极限, 它们来自于拓扑结构; 又有些如上下确界, 它们来自于序结构. 它们原本各自为阵, 而当它们交汇到一起, 便构成了实数结构. 实数结构是复杂的, 因为我们要同时处理来自不同结构的诸多数学操作; 同时它的性质又极其良好, 正因为每个结构保证了这些操作在自己分内是合法的, 而一系列实数公理确保了它们能够兼容, 从而让我们放心地进行各类操作而不用担心出现问题. 
+
+            重新会会这个熟悉实数结构吧: 
+            \[(\R,+,\cdot,\leq,d,\T)\]
+            
+            \begin{center}
+                完. $\square$
+            \end{center}
+
+    \section{复数那些事儿 Stories about Complex Numbers}
+
+        \subsection{为什么需要新数? Why we need that numbers?}
+
+            我们已经建立了一套相当完备的``数''体系. 在这里, 你可以找到绝大多数你希望的良好性质(也就是上面提到的完备性, 局部紧致性等等). 按照道理, 我们现在可以安心研究这套看起来很完美的系统就可以了. 
+
+            事实上绝大多数工科数学确实是这么想的. 这套系统与现有的客观物质世界有完美的对应性. 但是从我们上过初中就会发现一个缺陷:
+
+            \begin{xmp}
+                最简单的一元二次方程
+                \[x^2+1=0\]
+
+                在实数域$\R$上没有解.
+            \end{xmp}
+
+            实际上还不止, 任何$\Delta<0$的一元二次方程在$\R$内都没有解. 这下, 我们的数又不够用了. 该怎么办呢? 你直觉上感觉, 之所以没有解, 就是对负数开根号开不了导致的. 根据``缺什么补什么'', 我只要规定负数也能开根号不就行了? 为了区别于实数, 你便给它起名叫:
+
+            \begin{dfn}
+                \textbf{虚数单位(Imaginary Unit)}
+
+                定义虚数单位``$\ii$'', 其中$\ii^2=-1$.
+            \end{dfn}
+
+            那么, 你就可以强塞给上面所说的一元二次方程$x^2+1=0$一个解: $x=\ii$. 另一个解也就被揪了出来, 是$x=-\ii$. 事实上这也是数学家的想法:
+
+            \begin{dfn}
+                \textbf{复数(Complex Numbers)}
+
+                我们已经构造出了$\R$. 定义$\R$上的二元有序实数对的集合$C:=\{(a,b): a\in\R, b\in\R\}$: 
+
+                (1)加法运算:
+                \[(a,b)+(c,d)=(a+c,b+d)\]
+
+                (2)乘法运算:
+                \[(a,b)\cdot(c,d)=(a\cdot c-b\cdot d, a\cdot d+b\cdot c)\]
+
+                这时得到的结构$(C, +, \cdot)$就成为了我们需要的复数结构, 其中的元素称为\textbf{复数}, 复数组成的集合叫做\textbf{复数集}, 记作$\C$. 一个复数就是一个二元有序实数对$(a,b)$.
+            \end{dfn}
+
+            眼尖的小朋友可以看到, 虚数单位$\ii$的定义已经出现在了乘法运算中:
+            \[(0,1)\cdot(0,1)=(-1,0)\]
+
+            所以这种构造和我们上面说的完全是一回事. 一个复数$z:(a,b)$就可以写成$z=a+b\ii$的形式, 其中$a$称为\textbf{实部}, $b$称为\textbf{虚部}, 分别记作$\Re z$和$\Im z$.
+
+            为什么说$\C$是``域''呢? 你可以验证一下域公理. $\C$都满足了这些公理. 具体来说, 是:
+            \begin{enumerate}
+                \item 对加法具有封闭性, 满足结合律, 交换律, 存在零元$(0,0)$, 存在负元;
+                \item 对乘法具有封闭性, 满足结合律, 交换律, 存在单位元$(1,0)$, 存在负元; 
+                \item 加法与乘法的相容性: 具有左右分配律.
+            \end{enumerate}
+
+            \begin{xmp}
+                \textbf{复数存在除法(乘法逆元)}
+
+                $z=a+b\ii\neq 0$的乘法逆元为
+                \[z^{-1}=\frac{1}{a+b\ii}=\frac{a-b\ii}{a^2+b^2}\]
+            \end{xmp}
+
+        \subsection{得到了什么, 又失去了什么? Get What and Lose What?}
+
+            虽然我们用实数构造出了复数, 确实可以解一些燃眉之急, 但是你不得不发现, 看似就多了一个$\ii$而已, 但这种新数的性质和旧数(实数)真是很不一样.
+
+            \begin{ppt}
+                \textbf{复数没有序关系}
+
+                不可能在$\C$上定义一个与加法和乘法相容的全序关系, 使其成为一个有序域.
+            \end{ppt}
+
+            这是什么意思呢? 我们可以轻易发现矛盾: 假设 $\ii > 0$, 那么两边乘以$\ii$(正数)得到$i^2>0$, 即$-1 > 0$, 这显然是矛盾的. 假设$\ii<0$, 那么$\ii-\ii<0-\ii \Longrightarrow 0 < -\ii$, 两边再乘以$-\ii$(正数)得到$0<(-\ii)^2 \Longrightarrow 0 < -1$, 同样矛盾. 你还可以有其他构造矛盾的方法, 总之就是不行. 数学中的三种结构之一的序结构, 在复数中旧被扔掉了. 这有什么后果呢? (不知道啊...大概是分析学的问题吧)
+
+            但是没关系, 复数域带来一种及其良好的性质:
+            
+            \begin{ppt}
+                复数是代数闭域.
+            \end{ppt}
+
+            \begin{dfn}
+                \textbf{代数闭域}
+
+                一个数域$\F$被称为\textbf{代数闭域}, 若其满足以下两个条件之一:
+
+                (1)任何系数在$\F$中的一元多项式方程, 都至少有一个根在$\F$中. 即对于任意多项式$p(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$, 其中系数$a_n, a_{n-1}, ..., a_0$都属于$\F$, 都存在一个元素 $r \in \F$, 使得 $p(r) = 0$. 
+
+                (2)任何系数在$\F$中的一元多项式, 都可以在$\F$中分解为一次因式的乘积(即完全分解). 
+
+                这两个条件本质上是同一个条件: 如果有根, 就可以分解出一个一次因式$(x - r)$, 然后对商多项式继续这个过程, 最终就能完全分解.
+            \end{dfn}
+
+            这说明一件有趣的事情. 我们不妨这样比喻, 实数域$\R$旧像一个有围墙但没有顶的院子, 而复数域$\C$则像一个带透明穹顶的封闭体育馆: 在这个体育馆中``踢球''(也就是解一元多项式方程)你无需担心会踢到场外. 这也便是
+
+            \begin{thm}
+                \textbf{代数基本定理}
+
+                1. 复多项式在复数域内必有至少一个根.
+
+                2. 考虑重数, $n$次复多项式在复数域内有$n$个根.
+            \end{thm}
+
+            这个定理现在证明起来, 虽然有很多方法, 但是无一例外都免不了复分析. 我们就先不管它了(不是). 但是这种思想是深邃的, 我们可以用
+
+            \begin{dfn}
+                \textbf{重新定义复数: 实数的代数扩张}
+
+                复数域$\C$是实数域$\R$的最小代数扩张. 这也就是说, 我们将实数域内的不可约多项式$x^2+1$的根强行引入, 构造得到的商环$\R[x]/(x^2+1)$是一个完备的域.
+            \end{dfn}
+
+            来构造复数. 作为一个简单应用, 你不妨来考虑一下方程$z^2=\ii$的解是什么样的?
+
+
+\end{document}

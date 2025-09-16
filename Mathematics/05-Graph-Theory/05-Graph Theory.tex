@@ -1,0 +1,405 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\makeatother
+
+\usepackage{FulcrumHabitCN}
+
+% ams package
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+% margin
+\usepackage{geometry}
+
+% \dd
+\usepackage{physics}
+
+% Boldface
+\usepackage{bm}
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Gaussian Elimination
+\usepackage{gauss}
+
+% Commutative Graph
+\usepackage[all]{xy}
+
+% Comment
+\usepackage{comment}
+
+\title{Title}
+\author{Fulcrum4Math}
+\date{\today}
+
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+
+\linespread{1.2}
+
+\begin{document}
+    \begin{center}
+        {\LARGE\textbf{图论笔记}}
+
+        Fulcrum4Math
+    \end{center}
+
+    \tableofcontents
+
+    \newpage
+
+    \section{基本概念} % uuid:"11GT.Cat.Section.SectionName"
+
+        \subsection{图} % uuid:"11GT.Cat.Subsection.SubsectionName"
+            
+            \begin{dfn}
+                []
+                {图}
+                [Graph]
+                [猫猫]
+                集合对 \(G:=(V,E)\) 称为是一个\textbf{图}, 若 \(\card(V)\in\N\), \(E\subseteq \N\times V^2\). 其中 \(V\) 中元素称为\textbf{顶点 (Vertices)}, \(E\) 中元素称为\textbf{边 (Edges)}. 
+
+                称边 \(e\in E\) \textbf{连接 (Connect)} 顶点 \(a,b\in V\), 若 \(\exists i\in\N, (i,a,b)\in E\), 此时称顶点 \(a,b\) \textbf{相邻 (Adjacent)}. 
+
+                连接顶点与自身的边称为一个\textbf{自环 (Loop)}.
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {子图}
+                [Subgraph]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {诱导子图}
+                [Induced Subgraph]
+                [猫猫]
+            \end{dfn}
+
+        \subsection{简单无向图}
+
+            \begin{dfn}
+                []
+                {简单图}
+                [Simple Graph]
+                [猫猫]
+                图 \(G:=(V,E)\) 称为是一个\textbf{简单图}, 若 \(G\) 中不存在自环, 且任意两顶点之间至多有一条边. 
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {无向图}
+                [Undirected Graph]
+                [猫猫]
+                图 \(G:=(V,E)\) 称为是一个\textbf{无向图}, 若 \(E\) 对称. 
+
+                此时可将 \(E\) 视为其关于对称关系的商集. 
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {邻域}
+                [Neighbourhood]
+                [猫猫]
+                设 \(G:=(V,E)\) 是简单无向图, 顶点 \(v\in V\), 全体与 \(v\) 相邻的点称为 \(v\) 的\textbf{邻域}, 记作 \(\mathcal{N}(v)\). 
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {度}
+                [Degree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {握手定理}
+                [The Handshaking Theorem]
+                [猫猫]
+            \end{ppt}
+            
+            \begin{dfn}
+                []
+                {路径}
+                [Path]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {圈}
+                [Circuit]
+                [猫猫]
+                图 \(G:=(V,E)\) 中的\textbf{圈}, 是指一个路径, 其首尾相连, 且不包含重复顶点. 
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {连通图}
+                [Connected Graph]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {连通分支}
+                [Connected Component]
+                [猫猫]
+            \end{dfn}
+
+        \subsection{简单有向图}
+
+            \begin{dfn}
+                []
+                {有向图}
+                [Directed Graph]
+                [猫猫]
+                图 \(G:=(V,E)\) 称为是一个\textbf{有向图}, 若它不是无向图. 
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {出 / 入邻域}
+                [In / Out-Neighbourhood]
+                [猫猫]
+                设 \(G:=(V,E)\) 是简单无向图, 顶点 \(v\in V\), 全体与 \(v\) 相邻的点称为 \(v\) 的\textbf{邻域}, 记作 \(\mathcal{N}(v)\). 
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {出 / 入度}
+                [In / Out-Degree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {握手定理}
+                [The Handshaking Theorem]
+                [猫猫]
+            \end{ppt}
+            
+            \begin{dfn}
+                []
+                {有向路径}
+                []
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {有向圈}
+                [Directed Circuit]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {强连通图}
+                [Strongly Connected Graph]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {强连通分支}
+                [Strongly Connected Component]
+                [猫猫]
+            \end{dfn}
+
+        \subsection{Hamilton 路径与圈}
+
+        \subsection{\(n\)-部图与完全图}
+            
+            \begin{thm}
+                []
+                {Turan 定理}
+                [Turan's Theorem]
+                [猫猫]
+            \end{thm}
+
+        \subsection{Ramsey 问题}
+
+    \section{树}
+
+        \subsection{基本概念}
+            
+            \begin{dfn}
+                []
+                {树}
+                [Tree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {树是最大无圈图}
+                []
+                [猫猫]
+                对树添加边将产生圈. 
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {树是最小连通图}
+                []
+                [猫猫]
+                对树删除边将破坏连通性. 
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {树的边数固定}
+                []
+                [猫猫]
+                设 \(T\) 是一个树, 则 \(\card(E)=\card(V)-1\). 
+            \end{ppt}
+            
+            \begin{dfn}
+                []
+                {子树}
+                [Subtree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {\(m\)-叉树}
+                [\(m\)-ary Tree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {\(m\)-叉树的节点数可控}
+                []
+                [猫猫]
+            \end{ppt}
+
+        \subsection{有根树}
+            
+            \begin{dfn}
+                []
+                {有根树}
+                [Rooted Tree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {高度}
+                [Height]
+                [猫猫]
+            \end{dfn}
+
+        \subsection{最小生成树}
+            
+            \begin{dfn}
+                []
+                {生成树}
+                [Spanning Tree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {无向图连通性的生成树判定}
+                []
+                []
+            \end{ppt}
+            
+            \begin{dfn}
+                []
+                {最小生成树}
+                [Minimal Spanning Tree]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {Prim 算法}
+                [Prim's Algorithm]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {Prim 算法正确性}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {Prim 算法完备性}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {Prim 算法复杂度}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{dfn}
+                []
+                {Kruskal 算法}
+                [Kruskal's Algorithm]
+                [猫猫]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {Kruskal 算法正确性}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {Kruskal 算法完备性}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {Kruskal 算法复杂度}
+                []
+                [猫猫]
+            \end{ppt}
+
+        \subsection{树的遍历}
+            
+            \begin{dfn}
+                []
+                {深度优先搜索}
+                [Depth First Search (DFS)]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {回边总是连接祖孙节点}
+                []
+                [猫猫]
+            \end{ppt}
+
+        \subsection{Huffman 编码}
+            
+\end{document}

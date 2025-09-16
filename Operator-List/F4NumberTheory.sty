@@ -1,0 +1,4 @@
+\let\oldmid\mid
+\RenewDocumentCommand{\mid}{soo}{\catref[#1]{dfn:Div}{\oarg{#2}\ensuremath{\oldmid}\oarg{#3}}[整除]}
+
+\DeclareMathOperator{\lcm}{lcm}                         % LCM

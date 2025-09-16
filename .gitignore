@@ -1,0 +1,8 @@
+Fulcrum-Template
+
+*.fdb_latexmk
+*.aux
+*.fls
+*.log
+*.out
+*.synctex.gz

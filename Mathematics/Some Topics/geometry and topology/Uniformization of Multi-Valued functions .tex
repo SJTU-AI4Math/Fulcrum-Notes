@@ -1,0 +1,230 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8]{inputenc}
+\renewcommand{\cftsecfont}{\normalfont\bfseries} % 章节标题字体
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newenvironment{definition}[2][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{example}[2][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\begin{document}
+\newenvironment{rmk}[2][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Uniformization of Multi-Valued Functions}%replace X with the appropriate number
+\author{Tang Junwei} %replace with your name} %if necessary, replace with your course title
+ 
+\maketitle
+\tableofcontents
+\newpage
+\section{Multi-Valued Functions}
+\begin{definition}{1.1}
+    Let $X$ and $Y$ be two sets, $P(Y)$ is the set of all of subsets contained in Y. The Function $f$ is called a multi-valued function, if $f: X\to P(Y)$. Such $f$ can be denoted by $f:X\rightarrowtail Y$. The domain of definition of $f$ is denoted by $D(f)$.
+\end{definition}
+\begin{example}{1.2}
+    The function $\sqrt{-}:\C\to\C$ is a multi-valued function.
+\end{example}
+\begin{definition}{1.3}
+    Let $X$ and $Y$ be two topology spaces, $f:X\rightarrowtail Y$ is a multi-valued function. For $x\in D(f)$, $x$ is called a regular point, if there exists neighborhood $U$ of $x$, a disjoint collection $\{V_i:i\in I\}$ of open sets in Y and a collection of continous maps $\{f_i:U\to V_i:i\in I\}$, such that for any $y\in U$, we have $f(y)=\{f_i(y):i\in I\}$.\\
+    
+    All of regular points in $D(f)$ forms a open set $R(f)$, and points in $D(f)- R(f)$ are called branching points.
+\end{definition}
+\begin{example}{1.4}
+    Consider $P_n=\{\text{all the monic polynomials over $\mathbb{C}$ with degree $d\leq n$ }\}$, we view it as $\C^n$ with Euclidean topology. Then we define $\Psi:P_n\rightarrowtail\C$, $\Psi(f)=\{\text{the roots of $f$}\}$. We find that $R(P_n)=\{\text{all the separable polynomails}\}$, denoted by $P_n^s$.
+\end{example}
+\section{Regular Path Lifting Theorem}
+\begin{definition}{2.1}
+    Consider multi-valued function $f:X\rightarrowtail Y$. A path $\gamma: I\to R(f)$ in $R(f)$ is a regular path. The path $\tilde{\gamma}:I\to Y$ is a lift of $\gamma$, if $\tilde{\gamma}(t) \in f(\gamma (t))$ for any $t\in I$.
+\end{definition}
+\begin{theorem}{2.2}
+    There is a multi-valued function between topology spaces $f:X\rightarrowtail Y$.
+    Suppose $\gamma:I\to R(f)$ is a regular path, $x_0 = \gamma(0)$. Choose $y_0\in f(x_0)$, then there exists a unique lift $\tilde{\gamma}$ of $\gamma$, such that $\tilde{\gamma}(t) \in f(\gamma (t))$ for any $t\in I$ and $\tilde{\gamma}(0)=y_0$.
+\end{theorem}
+\begin{proof}
+    $\forall x\in\gamma(I),\exists \text{ a neighborhood } U_x \text{ of } x$, a disjoint collection $\{V_i:i\in I\}$ of open sets in Y and a collection of continous maps $\{f_i^x:U_x\to V_i:i\in f(x)\}$, such that for any $y\in U_x$, we have $f(y)=\{f_i^x(y):i\in f(x)\}$. The collection $\{U_x:x\in\gamma(I)\}$ forms a open covering of subspace $\gamma(I)$. By Lebesgue's Lemma, $\exists n \in \mathbb{N}$, such that $\gamma([\frac{i-1}{n},\frac{i}n{}]) \subset U_{x_i}$ for some $x_i\in \gamma(I)$, where $1\leq i\leq n$.\\
+
+    Then for $\frac{i-1}{n}\leq t\leq \frac{i}{n}$, we can define $\tilde{\gamma}(t)=f^{x_i}_{\tilde{\gamma}(\frac{i-1}{n})} (\gamma(t))$ inductively, the basic case holds because we fix $y_0 = \tilde{\gamma}(0)$. By Pasting Lemma we can check $\tilde{\gamma}$ is a path in Y. Also we can check $\tilde{\gamma}(t) \in f(\gamma (t))$ for any $t\in I$. Thus $\tilde{\gamma}$ is the lift we need and it is unique.
+    
+\end{proof}
+Using the same techique, we can also proof the following theorem.
+    
+\begin{theorem}{2.3}
+    If two paths $\eta$ and $\gamma$ are homotopic rel endpoints, then their lifts $\tilde{\eta}$ and $\tilde{\gamma}$ are also homotopic rel endpoints.
+\end{theorem}
+\section{Uniformization Groups}
+\begin{definition}{3.1}
+    For a multi-valued function $f:X\rightarrowtail Y$ and a path $\gamma :I\to X$ from $x_0$ to $x_1$, we define $M(f,\gamma): f(x_0)\to f(x_1)$, $y_0 \in f(x_0) \mapsto \tilde{\gamma}_{y_0}(1)$.
+\end{definition}
+ By theorem 2.2 we can check this map is well-defined. Theorem 2.3 shows that $M(f,\gamma)$ depends on the homotopy class of $\gamma$, and $M(f,\gamma)$ is bijective obviously.
+\begin{theorem}{3.2}
+    Consider multi-valued function $f:X\rightarrowtail Y$. Fix $x_0\in R(f)$, then we have group homomorphism:
+     $$
+     \rho:\pi_1(R(f),x_0)\xrightarrow{}\mathsf{S}_{f(x_0)}
+     $$
+     $$
+     [\gamma]\mapsto M(f,\gamma)
+     $$
+     
+     Such $\rho$ is called the uniformization homomorphism of $f$, and the image of $\rho$ is called the uniformization group of $f$, denoted by $M(f,x_0)$
+\end{theorem}
+\begin{proof}
+    By theorem 2.3, we know that if $[\gamma_1]=[\gamma_2]$, then $M(f,\gamma_1)= M(f,\gamma_2)$. Since $M(f,\gamma)$ is bijective, $M(f,\gamma)\in \mathsf{S}_{f(x_0)}$.
+
+    Since $\rho([\gamma])\rho({\eta})=M(f,\gamma)M(f,\eta)=M(f,\gamma \cdot \eta)=\rho([\gamma \cdot \eta])=\rho([\gamma])\rho([\eta])$, $\rho$ is a group homomorphism.
+\end{proof}
+We have the following proposition.
+\begin{proposition}{3.3}
+    If $x_1$ and $x_2$ are in the same path connected component of $R(f)$, then $M(f,x_1)\cong M(f,x_2)$.
+\end{proposition}
+
+\begin{definition}{3.4}
+    Let $G$ be a group. The commutant of $G$, $G^{'}$, is the subgroup $\{aba^{-1}b^{-1}:\forall a,b\in G\}$.Then we define $G^{(1)}=G/G^{'}$ and $G^{(k)}=G^{(k-1)}/(G^{(k-1)})^{'}$ for $2\leq k $. The length of $G$, $I(G)$, is the smallest integer $n$ such that $G^{(n)}=(e)$.
+\end{definition}
+\begin{definition}{3.5}
+    For a multi-valued function $f:X\rightarrowtail Y$, the complexity of $f$ is defined as follow
+    $$
+    c(f)=max\{I(M(f,x_0)):\forall x_0\in X\}
+    $$
+\end{definition} 
+\begin{example}{3.6}
+    Consider $\sqrt[n]{-}:\C \rightarrowtail \C$. $R(f)=\C-\{0\}$. Choose base point $x_0=1$, $\pi_1(R(\sqrt[n]{-}),x_0)$ is generated by $[\gamma]$, where $\gamma(t)=e^{i2\pi t}$ . And $\sqrt[n]{x_0}= \{1,\xi,...,\xi^{n-1}\}$, where $\xi=e^{\frac{2\pi i}{n}}$. Then $\gamma$ has n lifts $\tilde{\gamma}_{\xi^k}(t)=\xi^ke^{\frac{2\pi i}{n}}$, thus $M(\sqrt[n]{-},\gamma)=(1\xi \xi^2...\xi^{n-1})$. Hence, $M(\sqrt[n]{-},x_0)\cong \mathbb{Z}_n$ and $c(\sqrt[n]{-})=1$
+\end{example}
+\begin{example}{3.7}
+    $M(\Psi_n,x_0)\cong\mathsf{S}_n$, where $\Psi_n$ maps a polynomial to its roots and $x_0$ is $p(z)=z^n-1$.
+\end{example}
+\begin{proof}
+    The polynomial $x_0$ has roots $\{1,\xi,...,\xi^{n-1}\}$. For $\xi^j$ and $\xi^k$, choose a path $\eta$ from $\xi^j$ to $\xi^k$ and a path $\lambda$ from $\xi^k$ to $\xi^j$, such that $\eta(0,1)\cap \Psi_n=\varnothing$ and $\lambda(0,1)\cap \Psi_n = \varnothing$. Consider the polynomial
+    $$
+    p_t(z)=(z-\eta(t))(z-\lambda(t))\prod_{i\neq j,k}(z-\xi^i)
+    $$
+    We can define a closed path $\gamma:I\to P_n^s$, $t\mapsto p_t(z)$, which start from $x_0$ and $(\xi^j \xi^k)=M(\Psi_n,\gamma)\in M(\Psi_n)$. Hence $M(\Psi_n,x_0)\cong\mathsf{S}_n$.
+\end{proof}
+\section{The Solvability of Multi-Valued Functions}
+For the discussion, we will directly give the following definitions and theorems.
+\begin{definition}{4.1}
+    Given a multi-valued function $f:X\rightarrowtail Y$ and a regular closed path $\gamma:I\to R(f)$. The path $\gamma$, is called 1-st commutant path if there exists regular closed paths $\gamma_1$ and $\gamma_2$, such that $\gamma = \gamma_1 \gamma_2 \bar{\gamma_1}\bar{\gamma_2}$. \\
+    The path $\gamma$ is called k-th commutant path if there exists (k-1)-th commutant paths $\gamma_1$ and $\gamma_2$, such that $\gamma = \gamma_1 \gamma_2 \bar{\gamma_1}\bar{\gamma_2}$.
+\end{definition}
+\begin{definition}{4.2}
+    A regular closed path $\gamma$ is liftable if $\rho(\gamma): f(x_0)\to f(x_0)$ is identity. 
+\end{definition}
+Obviously, if the complexity of $f:X\rightarrowtail Y$ is 1, then there exists a regular closed path which is unliftable, and each 1-st commutant path is liftable, since $M(f,x_0)$ is an abelian group.
+Then by induction, we can proof the following theorem.
+\begin{theorem}{4.3}
+
+    $c(f)=k \Leftrightarrow$ All k-th commutant paths are liftable, and there exists a (k-1)-th unliftable commutant path.\\
+    $c(f)=\infty \Leftrightarrow \forall k>0$, there exists a k-th unliftable commutant path.
+\end{theorem}
+\begin{definition}{4.4}
+    Given two multi-valued functions $f:X\rightarrowtail Y$ and $g:Y\rightarrowtail Z$. The composition of $f$ and $g$ is $g\circ f:X\rightarrowtail Z,x\mapsto \bigcup_{y\in f(x)}g(y)$.
+\end{definition}
+\begin{theorem}{4.5}
+    If $R(g)=Y$, then $c(g\circ f)\leq c(g)+c(f)$.
+\end{theorem}
+\begin{proof}
+    Without the loss of generality, we assume $c(g)=1$, and suppose $c(f)=1$. Choose a (k+1)-th commutant path $\gamma$ in $R(g\circ f)$ base at $x_0$, i.e. there exists k-th commutant path $\gamma_1$ and $\gamma_2$ such that $\gamma=\gamma_1 \gamma_2 \bar{\gamma_1}\bar{\gamma_2}$. Since $c(f) = k$, then $\gamma_1$ and $\gamma_2$ can be lifted to $\tilde{\gamma_1}$ and $\tilde{\gamma_2}$ by $f$, and endpoint is $y_0\in f(x_0)$. Thus $\gamma$ has a lift $\tilde{\gamma}$ in Y, satisfying $\tilde{\gamma}=\tilde{\gamma_1}\tilde{\gamma_2}\bar{\tilde{\gamma_1}}\bar{\tilde{\gamma_2}}$. Since $c(g)=1$, $\tilde{\gamma}$ has a lift $\hat{\gamma}$ in $Z$ by $g$ with endpoint $z_0 \in g(y_0)\subset g \circ f(x_0)$. Hence, by theorem 4.3, $c(g\circ f)\leq k+1$.
+\end{proof}
+\begin{definition}{4.6}
+    Given $f,g:X\rightarrowtail Y$, we say that $f\subset g$ if $f(x)\subset g(x)\forall x\in X$.
+\end{definition}
+\begin{theorem}
+    If $f\subset g$ and $R(f)\subset R(g)$, then $c(f)\leq c(g)$.
+\end{theorem}
+\begin{proof}
+    Using theorem 4.3 and definition 4.4, the proof is trivial.
+\end{proof}
+In summary, we have the following useful theorem.
+\begin{theorem}{4.7}
+    Suppose $f:X\rightarrowtail Y$ is contained the composition of multi-valued functions $X\rightarrowtail X_1\rightarrowtail \dots\rightarrowtail X_n = Y$, and each component function $f_i:X_{i-1}\rightarrowtail X_{i}$ is regular. Then $c(f)\leq\sum_{i=1}^nc(f_i)$.
+\end{theorem}
+\begin{definition}{4.8}
+    A multi-valued function $f$ is solvable if $c(f)<\infty$, otherwise it is unsolvable.
+\end{definition}
+Immediately, an unsolvable function is not a composition of finite many solvable function.
+\section{A Topology Proof of Abel Theorem}
+Before proofing Abel Theorem, we need to introduce some facts about Zariski topology on $\C^n$.
+\begin{definition}{5.1}
+    Subset $A\subset \C^n$ is a Zariski closed set, if there exists finite many polynomials $f_1,...,f_k$, such that every point in $A$ is the root of one if the above polynomials.
+\end{definition}
+
+\begin{proposition}{5.2} We have some facts about Zariski topology.
+    \begin{enumerate}
+    \item Arbitrary intersection of Zarisiki closed set is closed.
+    \item Finte union of Zarisiki closed set is closed.
+    \item The inverse image of a Zariski closed(open) set under polynomial map is closed(open).
+    \item Finite intersection of nonempty Zariski open sets is nonempty.
+    \item Nonempty Zariski open sets are path connected.
+\end{enumerate}
+\end{proposition}
+To translate the algebraic language of Abel Theorm into the language of multi-valued function, we need to define the rational function and the radical function.
+\begin{definition}{5.3}
+    Consider multivariate polynomial functions $f_1,...,f_m,g_1,...,g_m:\C^n\to\C$, we call the function 
+    $$
+    (\frac{f_1}{g_1},...,\frac{f_m}{g_m}):U\to \C^m
+    $$
+    $$
+    (z_1,...,z_n)\mapsto (\frac{f_1(z_1,...,z_n)}{g_1(z_1,...,z_n)},...,\frac{f_m(z_1,...,z_n)}{g_m(z_1,...,z_n)})
+    $$
+    rational function, where $U=\{(z_1,...,z_n)\in \C^n:g_i(z_1,...,z_n)\neq 0 \forall 1\leq i\leq m\}$ is a Zariski open set.
+\end{definition}
+\begin{definition}{5.4}
+    Let $k_1,...,k_n$ be integers. We call the function
+    $$
+    f:\C^n \rightarrowtail \C^n
+    $$
+    $$
+    (z_1,...,z_n)\mapsto\{(y_1,...,y_n)\in \C^n:y_i \in \sqrt[k_i]{z_i}\forall 1\leq i\leq n\}
+    $$
+    multivariate radical function. And $R(f)=\{(z_1,...,z_n)\in \C^n:z_i\neq 0\}$.
+\end{definition}
+\begin{definition}{5,5}\textbf{(Roots-Finding Formula for Equation of Degree n)}
+    Let $U$ be a nonempty Zariski open set in $P_n\cong \C^n$. Consider composition multi-valued function
+    $$
+    f:U\rightarrowtail \C^{n_1}\rightarrowtail...\rightarrowtail\C
+    $$
+    where each $f_i:\C^{n_{i-1}}\rightarrowtail \C^{n_{i}}$ is either a rational function, or a multivariate radical function. If $\Psi_n|_{U}\subset f$, then we call $f$ the roots-finding formula for equation of degree $n$.
+\end{definition}
+\begin{theorem}{5.6}\textbf{(Abel-Ruffini Theorem)}
+    If $n\geq 5$, there doesn't exist the roots-finding formula.
+\end{theorem}
+\begin{proof}
+    First we will proof $M(\Psi_n|_{U})\cong \mathsf{S}_n$.\\
+
+    Consider function $\sigma:\C^n\to P_n$, $(z_1,...,z_n)\mapsto(z-z_1)...(z-z_n)$ and $g\in \mathsf{S}_n$. Choose $p_0\in U\cap R(\Psi_n)$, $p_0$ has roots $r_1,...,r_n$. Then we have $\sigma(r_1,r_2,...,r_n)= \sigma(r_{g(1)},r_{g(2)},...,r_{g(n)})=p_0$. Since $\sigma$ is continous, then $(r_1,r_2,...,r_n)$, $(r_{g(1)},r_{g(2)},...,r_{g(n)})\in \sigma^{-1}(U\cap R(\Psi_n))$ can be connected by a path $\gamma$. Thus we obtain a regular path $\sigma \circ \gamma$ base at $p_0$ and $M(\Psi_n, \sigma \circ \gamma) = g$. Hence $M(\Psi_n|_U)=\mathsf{S}_n$.\\
+
+    Let $n\geq 5$, suppose exists roots-finding formula, i.e. $\Psi_n|_U\subset f:U\rightarrowtail\C^{n_1}\rightarrowtail...\rightarrowtail\C$. Define $V_i= R(f_i)$, then each $V_i$ is nonempty Zariski open set. Then construct $U_i = V_i\cap f_i^{-1}(U_{i+1})$ by induction, we have $\Psi_n|_{U_1} \subset f|_{U_1}:U_1\mathrel{\overset{f_1|_{U_1}}{\rightarrowtail}}U_2\mathrel{\overset{f_2|_{U_2}}{\rightarrowtail}}...\mathrel{\overset{f_k|_{U_k}}{\rightarrowtail}}\C$, where each $f_i|_{U_i}$ is regular and solvable, but $\Psi_n|_{U_1}$ is unsolvable, then by theorem 4.7 this implies contradiction.
+    
+    
+\end{proof}
+---------------------------
+  
+\end{document}

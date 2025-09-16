@@ -1,0 +1,445 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\makeatother
+
+\usepackage{FulcrumHabitCN}
+
+\begin{document}
+    \begin{center}
+        {\LARGE\textbf{This is the Title}}
+
+        Subtitle
+    \end{center}
+
+    \setcounter{section}{-1}
+    \section{符号表}
+
+        \setcounter{subsection}{-1}
+        \subsection{一般约定}
+        
+            \begin{center}
+                \small
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $\N$ & 自然数环 & Natural Number Ring & $\N^*$ & 正整数集 & Set of Positive Integers\\
+                    \hline
+                    $\Z$ & 整数环 & Integer Ring & $\Q$ & 有理数域 & Rational Number Field\\
+                    \hline
+                    $\R$ & 实数域 & Real Number Field & $\C$ & 复数域 & Complex Number Field\\
+                    \hline
+                    $\mathbb{H}$ & Hamilton 四元数环 & Hamilton Quaternions & $\bar{\R}$ & 扩充实数 & Extended Real Number\\
+                    \hline
+                    $\mathbb{S}^+$, $\mathbb{S}^-$ & 正/负数 & Positive/Negative Numbers & $\mathbb{S}^{\geq 0}$, $\mathbb{S}^{\leq 0}$ & 非负/非正数 & Non-Negative/Non-Positive Numbers\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{数理逻辑}
+        
+            \begin{center}
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $\forall$ & 对于任意 & For all & $\exists$ & 存在 & Exists\\
+                    \hline
+                    $\nexists$ & 不存在 & doesn't exist &$\exists !$& 唯一存在 & uniquely exists\\
+                    \hline
+                    $\Longrightarrow$ & 蕴含 & & $\iff$ & 等价于/当且仅当 & iff/if and only if\\
+                    \hline
+                    $\wedge$ & 且 & And & $\vee$ & 或 & Or\\
+                    \hline
+                    $\neg$ & 否定 & Not & $\oplus$ & 异或 & eor/exclusive or\\
+                    \hline
+                    $\equiv$ & 等价 & equals to & $P(x_1,x_2,...,x_n)$ & 命题函数 & Proposition function\\
+                    \hline
+                    $:=$ & 定义为 & Define as & $(S,*)$ & 集合 $S$ 上的结构 & Structure over $S$\\
+                    \hline
+                    $\mathbb{T}$ & 永真式 & Tautology & $\mathbb{F}$ & 矛盾式 & Contradictory Formula\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{集合论}
+        
+            \begin{center}
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $\in$ & 属于 & In & $\subseteq$ & 包含于 & Subset of\\
+                    \hline
+                    $\cap$ & 交集 & Intersection & $\cup$ & 并集 & Union\\
+                    \hline
+                    $-$ & 差集 &  & $\complement_U S$, $\bar{S}$ & 补集 & Complement\\
+                    \hline
+                    $\varnothing$ & 空集 & Empty Set & $(x,y)$ & 有序对 & Ordered Pairs\\
+                    \hline
+                    $A\times B$ & Cartesian 乘积 & Cartesian Product & $P(x)$ & $x$ 满足性质 $P$ & $x$ fits property $P$\\
+                    \hline
+                    $\{x\in X|P(x)\}$ & 分离公理模式 & & $\mathcal{P}(X)$ & $X$ 的幂集 & Power set of $X$\\
+                    \hline
+                    $aRb$ & $a,b$ 满足关系 $R$ & & $S/\sim$ & 商集 & Quotient Set\\
+                    \hline
+                    $f:D\to R$ & 映射 & Mapping & $x\mapsto y$ & 映射至 & Maps to\\
+                    \hline
+                    $g\circ f$ & 复合 & Composition & $f|_X$ & 限制 & Restriction\\
+                    \hline
+                    $f(D)$, $\Image f$ & 映射的像 & Image &\\
+                    \hline
+                    $\leq$ & 偏序关系 & & $<$ & 严格偏序关系 &\\
+                    \hline
+                    $\max$ & 最大元 & Maximum & $\min$ & 最小元 & Minimum\\
+                    \hline
+                    $\sup$ & 上确界 & Supremum & $\inf$ & 下确界 & Infimum\\
+                    \hline
+                    $\card$ & 基数/势 & Cardinality & $\aleph_0$ & 可数无穷基数 & Countable Infinity\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{范畴论}
+        
+            \begin{center}
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $\Ob(\mathcal{C})$ & 对象 & Objects & $\Mor(\mathcal{C})$ & 态射 & Morphisms\\
+                    \hline
+                    $\Hom_\mathcal{C}(X,Y)$ & 同态 & Homomorphisms & $\Isom_\mathcal{C}(X,Y)$ & 同构 & Isomorphisms\\
+                    \hline
+                    $\End_\mathcal{C}(X)$ & 自同态 & Endomorphisms & $\Aut_\mathcal{C}(X)$ & 自同构 & Automorphisms\\
+                    \hline
+                    $\Id$ & 恒等态射 & Identity & $\0$ & 空范畴 &\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{抽象代数}
+        
+            \begin{center}
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $
+                    \begin{pmatrix}
+                        x_1 & \cdots & x_n\\
+                        y_1 & \cdots & y_n
+                    \end{pmatrix}$ & 置换 & Permutation & $(x_1,\cdots,x_n)$ & 循环 & Cycle\\
+                    \hline
+                    $(G,\cdot)$ & 群 & Group\\
+                    \hline
+                    $e$ & 恒等元 & Identity & $a^{-1}$ & 逆元 & Inverse\\
+                    \hline
+                    $|G|$ & 群的阶 & Order &\\
+                    \hline
+                    $C_n$ & 循环群 & Cyclic Group & $S_m$ & 对称群 & Symmetric Group\\
+                    \hline
+                    $A_m$ & 交错群 & Alternating Group\\
+                    \hline
+                    $\leq$ & 子群 & Subgroup & $<$ & 真子群 &\\
+                    \hline
+                    $\<S\>$ & 生成子群 & Generated Subgroup & $|a|$ & 周期 & Period\\
+                    \hline
+                    $[G:H]$ & 指数 & Index & $\bar{a}$ & 陪集 & Coset\\
+                    \hline
+                    $\trianglelefteq$ & 正规子群 & Normal Subgroup & $\triangleleft$ & 真正规子群 &\\
+                    \hline
+                    $G/N$ & 商群 & Quotient Group & $\cong$ & 同构 & Isomorphic\\
+                    \hline
+                    $\Ker$ & 同态核 &\\
+                    \hline
+                    $*$ & 作用 & Operator & $\stab$ & 稳定化子 & Stablizer\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{高等代数}
+        
+            \begin{center}
+                \scriptsize
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $\K$, $\F$ & (数)域 & Field\\
+                    \hline
+                    $\mathbf{V}$ & 线性空间 & Linear Space & $\bm{v}$ & 向量 & Vector\\
+                    \hline
+                    $\0$ & 零向量 & Zero Vector & $\0$ & 零空间 & Zero Space\\
+                    \hline
+                    $\rank S$ & 秩 & Rank & $\dim\mathbf{V}$ & 维度 & Dimension\\
+                    \hline
+                    $\spn\{\bm{\alpha}_1,\cdots,\bm{\alpha}_n\}$ & 张成 & Span &\\
+                    \hline
+                    $\mathbf{V}+\mathbf{W}$ & 子空间和 & Sum & $\mathbf{V}\cap\mathbf{W}$ & 子空间交 & Intersection\\
+                    \hline
+                    $\mathbf{V}\oplus\mathbf{W}$ & 直接和 & Direct Sum & $\mathbf{V}/\mathbf{W}$ & 商空间 & Quotient Space\\
+                    \hline
+                    $\cong$ & 线性同构 & Linear Isomorphism &\\
+                    \hline
+                    $
+                    \begin{bmatrix}
+                        a & b\\
+                        c & d
+                    \end{bmatrix}$, $(a_{i,j})_{m\times n}$ & 矩阵 & Matrix & 
+                    $
+                    \begin{vmatrix}
+                        a & b\\
+                        c & d
+                    \end{vmatrix}$, $\det(A)$ & 行列式 & Determinant\\
+                    \hline
+                    $\K_n$ & $n$ 维列向量 & & $\K_{m\times n}$ & 全体 $m\times n$ 矩阵 & $m\times n$ Matrices\\
+                    \hline
+                    $\bm{e}_i$ & 初等单位向量 & & $E_{i,j}$ & 基本矩阵 &\\
+                    \hline
+                    $\CCol A$ & 列空间 & Column Space & $\RRow A$ & 行空间 & Row Space\\
+                    \hline
+                    $\Null A$ & 零空间 & Null Space & $\Null A^{\rmT}$ & 左零空间 & Left Null Space\\
+                    \hline
+                    $A^{\rmT}$ & 转置 & Transpose & $A^*$ & 共轭转置 & Conjugate Transpose\\
+                    \hline
+                    $A^{-1}$ & 逆阵 & Inverse Matrix & $\Id$ & 单位阵 & Identity Matrix\\
+                    \hline
+                    $\adj A$ & 伴随阵 & & $\diag\{\sigma_1,\cdots,\sigma_n\}$ & 对角阵 & Diagonal Matrix\\
+                    \hline
+                    $\GL{n}{\K}$ & 一般线性群 & General Linear Group & $\SL{n}{\K}$ & 特殊线性群 & Special Linear Group\\
+                    \hline
+                    $A\sim B$ & 相抵 & Equivalent & $A\approx B$ & 相似 & Similar\\
+                    \hline
+                    $\tr A$ & 迹 & Trace &\\
+                    \hline
+                    $\tau(x_1,\cdots,x_n)$ & 逆序数 & & $A_{i,j}$ & 代数余子式 & Algebraic Cofactor\\
+                    \hline
+                    $\<\bm{\alpha},\bm{\beta}\>$ & 内积 & Inner Product & $\|\bm{v}\|$ & 范数 & Norm\\
+                    \hline
+                    $\perp$ & 正交 & Orthogonal & $\mathbf{V}^\perp$ & 正交补 & Orthogonal Complement\\
+                    \hline
+                    $\K_n[x_1,\cdots,x_s]$ & 多项式代数 & Polynomial Algebra & $\deg f$ & 次数 & Degree\\
+                    \hline
+                    $f|g$ & 整除 & & $f\nmid g$ & 不整除 &\\
+                    \hline
+                    $\gcd(f,g)$ & 最大公因式 & Greatest Common Factor & $\lcm(f,g)$ & 最小公倍式 & Least Common Multiplication\\
+                    \hline
+                    $\sigma_i(x_1,\cdots,x_n)$ & 初等对称多项式 & Basic Symmetric Polynomial\\
+                    \hline
+                    $\lambda(A)$ & $A$ 的全体特征值 & Eigen Values of $A$ & $\sigma(A)$ & $A$ 的全体奇异值 & Singular Values of $A$\\
+                    \hline
+                    $\Jd{n_i}{\lambda}$ & Jordan 块 & Jordan Blocks & & & \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{拓扑学}
+        
+            \begin{center}
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $\T_S$ & 拓扑 & Topology & $(S,\T_S)$ & 拓扑空间 & Topological Space\\
+                    \hline
+                    $U(x)$ & 邻域 & Neighbourhood & $\mathcal{V}(x)$ & 邻域族 &\\
+                    \hline
+                    $\overset{\circ}{A}$, $\intr A$ & 内部 & Interior & $\bar{A}$, $\cl A$ & 闭包 & Closure\\
+                    \hline
+                    $\partial A$ & 边界 & Boundary & $\lim\limits_{n\to+\infty}$ & 极限 & Limit\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{数学分析}
+        
+            \begin{center}
+                \scriptsize
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $d$ & 度量 & Metric & $(S,d)$ & 度量空间 & Metric Space\\
+                    \hline
+                    $\oointerval{a}{b}$ & 开区间 & Open Intervals & $\ccinterval{a}{b}$ & 闭区间 & Closed Intervals\\
+                    \hline
+                    $\Ball{x}{\delta}$ & 开球 & Open Ball & $\U(x)$ & 去心邻域 & Deleted Neighbourhood\\
+                    \hline
+                    $U^-(x,\delta)$, $U^+(x,\delta)$ & 左/右 $\delta$-邻域 & Left/Right Delta-Neighbourhood & $\lim\limits_{n\to+\infty}x_n$ & 数列极限 & Limits of a Sequence\\
+                    \hline
+                    $\ulim\limits_{n\to+\infty}$ & 上极限 & Upper Limit & $\llim\limits_{n\to+\infty}$ & 下极限 & Lower Limit\\
+                    \hline
+                    $o(f)$ & 高阶无穷小 & Higher-Order Infinitesimals & $O(f)$ & 高阶无穷大 & Higher-Order Infinity\\
+                    \hline
+                    $\sum\limits_{n=1}^{+\infty}$ & 级数和 & Series & $\prod\limits_{n=1}^{+\infty}$ & 无穷乘积 & Infinite Product\\
+                    \hline
+                    $\lim\limits_{x\to x_0+}$, $\lim\limits_{x\to x_0-}$ & 函数左/右极限 & Left/Right Limit of a Function & $\lim\limits_{x\to x_0}$ & 函数极限 & Limit of a Function\\
+                    \hline
+                    $\mathcal{C(D)}$ & $D$ 上全体连续函数 & Continuous Functions & $D(f)$ & 不连续点全体 & Discontinuities\\
+                    \hline
+                    $\dd y$ & 微分 & Differential & $f'(x)$, $\dfrac{\dd f}{\dd x}$ & 导数 & Derivative\\
+                    \hline
+                    $f^{(n)}$, $\dfrac{\dd^n f}{{\dd x}^n}$ & 高阶导数 & Higher-Order Derivatives & & & \\
+                    \hline
+                    $P_{n,x_0}(x)$ & Taylor 多项式 & Taylor Polynomial & $R_{n,x_0}(x)$ & Taylor 余项 & Taylor Remainder\\
+                    \hline
+                    $\int f(x)\dd x$ & 不定积分 & Indefinite Integral & $\|\Xi\|$ & 分割的模 & Norm of a Partition\\
+                    \hline
+                    $\int_a^b f(x)\dd x$ & Riemann 积分 & Riemann Integral & $\diff{F(x)}{a}{b}$ & 差量 & Difference\\
+                    \hline
+                    $\omega_f(D)$ & 振幅 & Amplitude & $\omega_f(\xi)$ & 单点振幅 & \\
+                    \hline
+                    $\int_{-\infty}^{+\infty}$ & 反常积分 & Improper Integral & & & \\
+                    \hline
+                    $\partial f$ & 偏微分 & Partial Differential & $\frac{\partial f}{\partial x}$ & 偏导数 & Partial Derivative\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{实分析}
+        
+            \begin{center}
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $\mu^*$ & 外测度 & Outer Measure & $\mu_*$ & 内测度 & Inner Measure\\
+                    \hline
+                    $\mu$ & Lebesgue 测度 & Lebesgue Measure & & & \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{初等数论}
+
+            \begin{center}
+                \scriptsize
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    $a \mid b$ & $a$ 整除 $b$ & $a$ divides $b$ & $a \nmid b$ & $a$ 不整除 $b$ & $a$ does not divide $b$\\
+                    \hline
+                    $\gcd(a, b)$ & $a$ 和 $b$ 的最大公约数 & Greatest Common Divisor of $a$ and $b$ & $\operatorname{lcm}(a, b)$ & $a$ 和 $b$ 的最小公倍数 & Least Common Multiple of $a$ and $b$\\
+                    \hline
+                    $a \equiv b \pmod{m}$ & $a$ 同余于 $b$ 模 $m$ & $a$ is congruent to $b$ modulo $m$ & $a \not\equiv b \pmod{m}$ & $a$ 不同余于 $b$ 模 $m$ & $a$ isn't congruent to $b$ modulo $m$\\
+                    \hline
+                    $\phi(n)$ & 欧拉函数 & Euler's Totient Function & $\pi(x)$ & 素数计数函数 & Prime Counting Function\\
+                    \hline
+                    $\lambda(n)$ & 卡迈克尔函数 & Carmichael Function & $\zeta(s)$ & 黎曼 zeta 函数 & Riemann Zeta Function\\
+                    \hline
+                    $[a_1,a_2,\dots,a_n]$ & 连分数 & Continued Fraction & $\mathbb{P}$ & 素数集 & Set of Prime Numbers\\
+                    \hline
+                    $\mathbb{Z}_n$ & 模 $n$ 的剩余类环 & Ring of Integers Modulo $n$ & $\mathbb{Z}_n^*$ & 模 $n$ 的单位群 & Group of Units Modulo $n$\\
+                    \hline
+                    $\mathbb{F}_p$ & 有限域（$p$ 为素数） & Finite Field of Order $p$ & $\mathbb{F}_q$ & 有限域（$q$ 为素数幂） & Finite Field of Order $q$\\
+                    \hline
+                    $\lfloor x \rfloor$ & 下取整函数 & Floor Function & $\lceil x \rceil$ & 上取整函数 & Ceiling Function\\
+                    \hline
+                    $\{x\}$ & 小数部分函数 & Fractional Part Function & $\binom{n}{k}$/$C_n^k$ & 二项式系数 & Binomial Coefficient\\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{图论}
+        
+            \begin{center}
+                \scriptsize
+                \begin{tabular}{|c|l|l||c|l|l|}
+                    \hline
+                    符号 & 中文名称 & 英语说明 & 符号 & 中文名称 & 英语说明\\
+                    \hline\hline
+                    \(G = (V, E)\) & 图 & Graph with vertex set \(V\) and edge set \(E\) & \((u, v)\) & 有向边 & Directed Edge\\
+                    \hline
+                    \(\{u, v\}\) & 无向边 & Undirected Edge & \(\deg(v)\) & 顶点度数 & Degree of vertex \(v\)\\
+                    \hline
+                    \(\deg^{-}(v)\) & 顶点入度 & In-degree of vertex \(v\) & \(\deg^{+}(v)\) & 顶点出度 & Out-degree of vertex \(v\)\\
+                    \hline
+                    \(K_n\) & 完全图 & Complete Graph with \(n\) vertices & \(C_n\) & 圈图 & Cycle Graph of size \(n\)\\
+                    \hline
+                    \(W_n\) & 轮图 & Wheel Graph of size \(n\) & \(Q_n\) & \(n\) 立方体图 & \(n\)-Cube Graph\\
+                    \hline
+                    \(K_{n,m}\) & 完全二分图 & Complete Bipartite Graph of sizes \(n, m\) & \(G - e\) & 删除边的子图 & Subgraph by removing edge \(e\)\\
+                    \hline
+                    \(G + e\) & 增加边的图 & Graph by adding edge \(e\) & \(G_1 \cup G_2\) & 图的并 & Union of graphs \(G_1\) and \(G_2\)\\
+                    \hline
+                    \(a, x_1, \dots, x_{n-1}, b\) & 通路 & Path from \(a\) to \(b\) & \(a, x_1, \dots, x_{n-1}, a\) & 回路 & Circuit\\
+                    \hline
+                    \(\kappa(G)\) & 顶点连通度 & Vertex Connectivity of \(G\) & \(\lambda(G)\) & 边连通度 & Edge Connectivity of \(G\)\\
+                    \hline
+                    \(r\) & 平面图面积 & Area of Planar Graph & \(\deg(R)\) & 面度数 & Degree of face \(R\)\\
+                    \hline
+                    \(\chi(G)\) & 着色数 & Chromatic Number of \(G\) & & & \\
+                    \hline
+                \end{tabular}
+            \end{center}
+    \newpage
+
+\section{正文}
+
+\subsection{各环境用法}
+
+    \begin{dfn}
+        [UUID]
+        {定义名称}
+        [Name for the def.]
+        [Contributor]
+        This is a definition. 
+    \end{dfn}
+
+    \begin{thm}
+        [UUID]
+        {定理名称}
+        [Name for the thm.]
+        [Contributor]
+        This is a theorem. 
+    \end{thm}
+
+    \begin{prf}
+        This is a proof. 
+    \end{prf}
+
+    \begin{ppt}
+        [UUID]
+        {性质名称}
+        [Name for the ppt.]
+        [Contributor]
+        This is a property. 
+    \end{ppt}
+
+    \begin{crl}
+        [UUID]
+        {推论名称}
+        [Name for the crl.]
+        [Contributor]
+        This is a corollary. 
+    \end{crl}
+
+    \begin{xmp}
+        [UUID]
+        {正例名称}
+        [Name for the xmp.]
+        [Contributor]
+        This is an example. 
+    \end{xmp}
+
+    \begin{cxmp}
+        [UUID]
+        {反例名称}
+        [Name for the cxmp.]
+        [Contributor]
+        This is a counter example. 
+    \end{cxmp}
+
+    \begin{axm}
+        [UUID]
+        {公理名称}
+        [Name for the axm.]
+        [Contributor]
+        This is an axiom.
+    \end{axm}
+    
+\end{document}
