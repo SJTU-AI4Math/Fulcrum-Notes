@@ -198,14 +198,32 @@
     [Dedicatia]
 \end{dfn}
 \begin{dfn}
-    [LinesComplexReprensting]
+    [LineComplexRepresenting]
     {直线的复平面表示}
     [Representing Lines under Complex Plane]
     [Dedicatia]
-    设直线$\ell$在实数坐标$(x,y)$下的方程为$ax+by+c=0(a^2+b^2\neq 0)$, 使用代换公式
+    设直线在实数坐标$(x,y)$下的方程为$ax+by+c=0(a^2+b^2\neq 0)$, 使用代换公式
     \[x=\frac{z+\bar{z}}{2},\quad y=\frac{z-\bar{z}}{2\ii}\]
     就可以使用复数表示直线方程：
     \[\frac{a-b\ii}{2}z+\frac{a+b\ii}{2}\bar{z}+c=0\]
+    令$A=\frac{a+b\ii}{2}$, 那么上式变为
+    \[\bar{A}z+A\bar{z}+c=0.\]
+\end{dfn}
+\begin{dfn}
+    [CircleComplexRepresenting]
+    {圆的复平面表示}
+    [Representing Circles under Complex Plane]
+    [Dedicatia]
+    以点$a$为圆心，$r$为半径的圆在复平面中用$|z-a|=r$来表示。展开绝对值，变成：
+    \[z\bar{z}-az-a\bar{z}-a\bar{z}+a\bar{a}-r^2=0\]
+\end{dfn}
+\begin{dfn}
+    {复平面内圆的一般方程}
+    设方程
+    \[Az\bar{z}+B\bar{z}+\bar{B}z+C=0\]
+    可以化为
+    \[\qty(z+\frac{B}{A})\qty(\bar{z}+\frac{\bar{B}}{A})=\frac{B\bar{B}-AC}{A^2}\]
+    它表示一个圆，其圆心为$-\frac{B}{A}$, 半径为$\sqrt{\frac{B\bar{B}-AC}{A^2}}$.
 \end{dfn}
 \subsection{扩充复数系统与球面表示}
 正如实数可以引入正负无穷大来扩充一样，我们规定：
