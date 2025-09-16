@@ -1,12 +1,11 @@
-
-
-\DeclareMathOperator{\Con}{Con}
-\DeclareMathOperator{\V}{\mathcal{V}}
-
 % Topology
+\NewDocumentCommand{\intr}{s}{\catref[#1]{dfn:Interior}{\ensuremath{\operatorname{int}}}[内部]}
+\NewDocumentCommand{\cl}{s}{\catref[#1]{dfn:Closure}{\ensuremath{\operatorname{cl}}}[闭包]}
+\NewDocumentCommand{\bd}{s}{\catref[#1]{dfn:Boundary}{\ensuremath{\partial}}[边界]}
+\NewDocumentCommand{\Con}{s}{\catref[#1]{dfn:Continuous-Mapping}{\ensuremath{\operatorname{Con}}}[连续映射]}
+\NewDocumentCommand{\V}{s}{\catref[#1]{dfn:Neighborhood}{\ensuremath{\mathcal{V}}}[邻域]}
+
+\NewDocumentCommand{\U}{s}{\catref[#1]{dfn:Deleted-Neighborhood}{\ensuremath{\overset{\circ}{\mathit{U}}}}[去心邻域]}
+
+% Non-concept operators
 \DeclareMathOperator{\T}{\mathcal{T}}                   % Topology
-
-\DeclareMathOperator{\intr}{int}                        % Interior
-\DeclareMathOperator{\cl}{cl}                           % Closure
-
-\DeclareMathOperator{\U}{\overset{\circ}{\mathit{U}}}   % Deleted Neighbourhood

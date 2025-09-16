@@ -1,0 +1,5 @@
+\let\oldleq\leq
+\NewDocumentCommand{\leq}{s}{\catref[#1]{dfn:LE}{\ensuremath{\oldleq}}[偏序关系, 小于等于]}
+
+\let\oldgeq\geq
+\NewDocumentCommand{\geq}{s}{\catref[#1]{dfn:GE}{\ensuremath{\oldgeq}}[偏序关系, 大于等于]}

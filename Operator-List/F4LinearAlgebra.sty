@@ -1,19 +1,17 @@
 \DeclareMathOperator{\diag}{\text{diag}}                % Diagonal Matrix
-\DeclareMathOperator{\al}{\bm\alpha}                    % Boldfaced vector alpha
-\DeclareMathOperator{\bt}{\bm\beta}                     % Boldfaced vector beta
-\DeclareMathOperator{\x}{\bm{x}}                        % Boldfaced vector x
-\DeclareMathOperator{\0}{\mathbf{0}}                    % Boldfaced vector x
+\NewDocumentCommand{\diag}{s}{\catref[#1]{dfn:Diagonal-Matrix}{\ensuremath{\operatorname{diag}}}[对角矩阵]}
 
-\newcommand{\Jd}[2]{\mathrm{J}_{#1}{(#2)}}              % Jordan Blocks
+\NewDocumentCommand{\Jd}{smm}{\catref[#1]{dfn:Jordan-Block}{\mathrm{J}_{#1}{\left(#2\right)}}[Jordan 块]}
 
-\DeclareMathOperator{\CCol}{Col}                        % Column Space
-\DeclareMathOperator{\RRow}{Row}                        % Row Space
-\DeclareMathOperator{\Null}{Null}                       % Null Space
-\DeclareMathOperator{\rmT}{\mathrm{T}}                  % Transpose
+\NewDocumentCommand{\CCol}{s}{\catref[#1]{dfn:Column-Space}{\ensuremath{\operatorname{Col}}}[列空间]}
+\NewDocumentCommand{\RRow}{s}{\catref[#1]{dfn:Row-Space}{\ensuremath{\operatorname{Row}}}[行空间]}
+\NewDocumentCommand{\Null}{s}{\catref[#1]{dfn:Null-Space}{\ensuremath{\operatorname{Null}}}[零空间]}
+\NewDocumentCommand{\rmT}{s}{\catref[#1]{dfn:Transpose}{\ensuremath{\mathrm{T}}}[转置]}
+\NewDocumentCommand{\trans}{sm}{{#2}^{\IfBooleanTF{#1}{\rmT*}{\rmT}}}
 
-\newcommand{\spn}{\mathrm{span}\text{ }}                % Span
+\NewDocumentCommand{\spn}{s}{\catref[#1]{dfn:LinearSpan}{\ensuremath{\mathrm{span}}}[张成空间]}
 
-\DeclareMathOperator{\adj}{adj}                         % adj Matrix
+\NewDocumentCommand{\adj}{s}{\catref[#1]{dfn:Adjoint-Matrix}{\ensuremath{\operatorname{adj}}}[伴随矩阵]}
 
 \newcommand{\GL}[2]{\mathrm{GL}_{#1}(#2)}               % General Linear Group
 \newcommand{\SL}[2]{\mathrm{SL}_{#1}(#2)}               % Special Linear Group
@@ -22,9 +20,14 @@
 \renewcommand{\>}{\rangle}                              % These two for ordinary Hilbert Inner Products <x,y>
 \newcommand{\inprod}[2]{\left\<#1,#2\right\>}           % Using $\expval{#1}$ (Included in package physics) can replace \<#1\>.
 
-%Linear Algebra
+% Non-concept operators
 \DeclareMathOperator{\B}{\mathcal{B}}
 \DeclareMathOperator{\A}{\mathbf{A}}
 \DeclareMathOperator{\bv}{\mathbf{\beta}}
 \DeclareMathOperator{\p}{\mathbf{p}}
 \DeclareMathOperator{\Range}{\operatorname{Range}}      % Range
+
+\DeclareMathOperator{\al}{\bm\alpha}                    % Boldfaced vector alpha
+\DeclareMathOperator{\bt}{\bm\beta}                     % Boldfaced vector beta
+\DeclareMathOperator{\x}{\bm{x}}                        % Boldfaced vector x
+\DeclareMathOperator{\0}{\mathbf{0}}                    % Boldfaced vector x
