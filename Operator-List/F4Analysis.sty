@@ -7,11 +7,12 @@
 
 % Mathematical Analysis
 
-\DeclareMathOperator*{\ulim}{\overline{\lim}}
-\DeclareMathOperator*{\llim}{\underline{\lim}}
+\NewDocumentCommand{\ulim}{s}{\catref[#1]{dfn:Upper-Limit}{\ensuremath{\overline{\operatorname{lim}}}}[上极限]}
+\NewDocumentCommand{\llim}{s}{\catref[#1]{dfn:Lower-Limit}{\ensuremath{\underline{\operatorname{lim}}}}[下极限]}
+
 \newcommand{\diff}[3]{\left. #1 \right|_{#2}^{#3}}      % This command can be replaced by $\eval{#1}_{#2}^{#3}$ in package physics.
 
-\newcommand{\Ball}[2]{\mathcal{B}\left(#1,#2\right)}	% Open Ball
+\NewDocumentCommand{\Ball}{smm}{\catref[#1]{dfn:Open-Ball}{\mathcal{B}}[开球]\left(#1,#2\right)}	% Open Ball
 
 
 

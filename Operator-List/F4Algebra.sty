@@ -1,18 +1,19 @@
 % Category Theory
-\DeclareMathOperator{\Cat}{\mathcal{C}}                 % Category
 
-\DeclareMathOperator{\Ker}{\hyperref[dfn:Kernel]{Ker}}                         % Kernel of a Homomorphism ($\ker$ is included in package amsmath)
+\NewDocumentCommand{\Ker}{s}{\catref[#1]{dfn:Kernel}{\ensuremath{\operatorname{Ker}}}[态射的核. ]}
+\NewDocumentCommand{\Hom}{s}{\catref[#1]{dfn:Homomorphism}{\ensuremath{\operatorname{Hom}}}[同态集. ]}
+\NewDocumentCommand{\End}{s}{\catref[#1]{dfn:Endomorphism}{\ensuremath{\operatorname{End}}}[自同态集. ]}
+\NewDocumentCommand{\Aut}{s}{\catref[#1]{dfn:Automorphism}{\ensuremath{\operatorname{Aut}}}[自同构集. ]}
+\NewDocumentCommand{\Isom}{s}{\catref[#1]{dfn:Isomorphism}{\ensuremath{\operatorname{Isom}}}[同构集. ]}
 
-\DeclareMathOperator{\Hom}{Hom}                         % Set of Homomorphisms
-\DeclareMathOperator{\End}{End}                         % Set of Endomorphisms
-\DeclareMathOperator{\Aut}{Aut}                         % Set of Automorphisms
-\DeclareMathOperator{\Isom}{Isom}                       % Set of Isomorphisms
-
-\DeclareMathOperator{\Ob}{Ob}                           % Objects of a Category
-\DeclareMathOperator{\Mor}{Mor}                         % Morphisms of a Category
+\NewDocumentCommand{\Ob}{s}{\catref[#1]{dfn:CatObject}{\ensuremath{\operatorname{Ob}}}[范畴的对象类. ]}
+\NewDocumentCommand{\Mor}{s}{\catref[#1]{dfn:Morphism}{\ensuremath{\operatorname{Mor}}}[范畴的态射类. ]}
 
 % Abstract Algebra
-\DeclareMathOperator{\stab}{stab}                       % Stabilizer
+\NewDocumentCommand{\stab}{s}{\catref[#1]{dfn:Stabilizer}{\ensuremath{\operatorname{stab}}}[稳定子. ]}
 
+
+% Non-concept 
+\DeclareMathOperator{\Cat}{\mathcal{C}}                 % Category
 \DeclareMathOperator{\K}{\mathbb{K}}                    % Number Field
 \DeclareMathOperator{\F}{\mathbb{F}}                    % Number Field (F)

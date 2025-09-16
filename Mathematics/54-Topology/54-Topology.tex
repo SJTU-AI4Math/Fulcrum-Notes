@@ -63,7 +63,7 @@
                 证明: 对开集定义运用DeMorgan公式即证. $\square$
 
             \begin{dfn}
-                []
+                [Neighbourhood]
                 {邻域}
                 [Neighbourhood]
                 []
@@ -86,7 +86,7 @@
             \end{xmp}
 
             \begin{dfn}
-                []
+                [Topological-Basis]
                 {基}
                 [Basis]
                 []
@@ -100,18 +100,20 @@
             \end{dfn}
                 
             \begin{dfn}
+                [Interior]
                 {内部}
                 [Interior]
-
-                设拓扑空间$(S,\T)$, $A\subseteq S$, 称包含于$A$的所有开集的并为$A$的\textbf{内部(Interior)}, 记作$\overset{\circ}{A}$或$\intr A$
+                [猫猫]
+                设拓扑空间 $(S,\T)$, $A\subseteq S$, 称包含于 $A$ 的所有开集的并为 $A$ 的\textbf{内部(Interior)}, 记作$\overset{\circ}{A}$或$\intr A$
                 \[\overset{\circ}{A}=\intr A=\underset{X\subseteq A}{\bigcup_{X\in\T}} X=\{x|x\in S; A\in \mathcal{V}(x)\}\]
             \end{dfn}
 
             \begin{dfn}
+                [Closure]
                 {闭包}
                 [Closure]
-
-                设拓扑空间$(S,\T)$, $A\subseteq S$, 称包含$A$的所有闭集的交为$A$的\textbf{闭包(Closure)}, 记作$\bar{A}$或$\cl A$
+                [猫猫]
+                设拓扑空间 $(S,\T)$, $A\subseteq S$, 称包含 $A$ 的所有闭集的交为 $A$ 的\textbf{闭包(Closure)}, 记作$\bar{A}$或$\cl A$
                 \[\bar{A}=\cl A=\underset{A\subseteq X}{\bigcap_{(S-X)\in\T}}X=S-\{\intr(S-A)\}=\{x|x\in S; \forall U(x)\in \mathcal{V}(x), U(x)\cap A\neq\varnothing\}\]
             \end{dfn}
 
@@ -121,11 +123,12 @@
             \end{rmk}
             
             \begin{dfn}
+                [Boundary]
                 {边界}
                 [Boundary]
-
-                设拓扑空间$(S,\T)$, $A\subseteq S$, 称$A$的闭包与$S-A$的闭包的交为$A$的\textbf{边界(Boundary)}, 记作$\partial A$. 
-                \[\partial A=\cl A\cap\cl(S-A)\]
+                [猫猫]
+                设拓扑空间$(S,\T)$, $A\subseteq S$, 称$A$的闭包与$S-A$的闭包的交为$A$的\textbf{边界(Boundary)}, 记作$\bd A$. 
+                \[\bd A=\cl A\cap\cl(S-A)\]
                 \[=\cl(A)-\intr(A)=\{x|x\in S; \forall U(x)\in \mathcal{V}(x), U(x)\cap A\neq\varnothing, U(x)\cap(S-A)\neq\varnothing\}\]
             \end{dfn}
             

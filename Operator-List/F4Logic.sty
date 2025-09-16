@@ -5,7 +5,7 @@
 \RenewDocumentCommand{\exists}{sooo}{\catref[ #1]{dfn:exists}{\ensuremath{\oldexists}\oarg{#2}\IfNoValueTF{#4}{}{ : #4}\IfNoValueTF{#3}{}{, #3}}[存在量词. ]}
 
 \let\oldneg\neg
-\RenewDocumentCommand{\neg}{so}{\catref[#1]{dfn:neg}{\oarg{#2}\ensuremath{\oldneg}}[逻辑非, 即``不''. ]}
+\RenewDocumentCommand{\neg}{so}{\catref[#1]{dfn:neg}{\oarg{#2}\ensuremath{\oldneg}}[否定算子. ]}
 
 \let\oldland\land
 \RenewDocumentCommand{\land}{soo}{\catref[#1]{dfn:land}{\oarg{#2}\ensuremath{\oldland}\oarg{#3}}[合取算子, 即``且''. ]}
