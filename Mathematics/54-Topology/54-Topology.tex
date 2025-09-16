@@ -4,37 +4,14 @@
 \def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
 \makeatother
 
-\usepackage{FulcrumHabitCN}
+\usepackage{FulcrumCN}
 
-% ams package
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsmath}
+\usepackage{OperatorListCN}
+\usepackage{F4Topology}
+\usepackage{F4Set}
 
 % margin
 \usepackage{geometry}
-
-% Tikz
-\usepackage{pgfplots}
-\usepackage{shellesc}
-\pgfplotsset{compat=newest}
-\usepackage{tikz}
-\usetikzlibrary{calc}
-
-% Gaussian Elimination
-\usepackage{gauss}
-
-% Commutative Graph
-\usepackage[all]{xy}
-
-% Comment
-\usepackage{comment}
-
-\title{Title}
-\author{Fulcrum4Math}
-\date{\today}
-
 \geometry{
     paper =a4paper,
     top =3cm,
@@ -42,39 +19,22 @@
     left=2cm,
     right =2cm
 }
-
 \linespread{1.2}
- 
-
-\DeclareMathOperator{\Con}{Con}
-\DeclareMathOperator{\V}{\mathcal{V}}
 
 \begin{document}
 
 \tableofcontents
-\newpage
-
-    \section{集合与逻辑}
-        
-        \subsection{函数}
-
-        \subsection{有限,可数和不可数}
-            
-        \subsection{无限集与选择公理*}
-
-        *注：
-            
-        \subsection{良序集}
-            
+\newpage         
 
     \section{拓扑空间与连续函数}
 
         \subsection{基本概念}
 
             \begin{dfn}
+                [Topology]
                 {拓扑}
                 [Topology]
-                
+                [猫猫]
                 对集合$S$, $\T\in\PP(S)$称为是$S$上的一个\textbf{拓扑(Topology)}, 若: 
 
                 (1) 空集, 全集属于$\T$: $\varnothing, S\in \T$
@@ -155,7 +115,10 @@
                 \[\bar{A}=\cl A=\underset{A\subseteq X}{\bigcap_{(S-X)\in\T}}X=S-\{\intr(S-A)\}=\{x|x\in S; \forall U(x)\in \mathcal{V}(x), U(x)\cap A\neq\varnothing\}\]
             \end{dfn}
 
-            \textit{\scriptsize *考虑到某些教材将补集记作$\bar{A}$, 为避免混淆, 笔记中统一使用$\intr$与$\cl$表示集合的内部与闭包. }
+            \begin{rmk}
+                [猫猫]
+                *考虑到某些教材将补集记作$\bar{A}$, 为避免混淆, 笔记中统一使用$\intr$与$\cl$表示集合的内部与闭包. 
+            \end{rmk}
             
             \begin{dfn}
                 {边界}
@@ -393,27 +356,27 @@
                 \[\forall x,y\in S, \exists\gamma:[0,1]\to S,\gamma(0)=x,\gamma(1)=y,\gamma\in\Con([0,1],S)\]
             \end{dfn}
 
-            \begin{example}
-                设\(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\)，显然S是连通集\((0,1]\)的一个连续像，故S的闭包\(\cl S\)是连通的，但它不是道路连通的。
+            % \begin{example}
+            %     设\(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\)，显然S是连通集\((0,1]\)的一个连续像，故S的闭包\(\cl S\)是连通的，但它不是道路连通的。
 
-                \begin{tikzpicture}
-                    \begin{axis}[
-                        domain=0.01:1, % 定义域
-                        samples=1000, % 采样点数
-                        xlabel=$x$,
-                        ylabel={$x \sin\left(\frac{1}{x}\right)$},
-                        grid=both,
-                        width=10cm,
-                        height=6cm
-                    ]
-                    \addplot[blue] {sin(deg(1/x))};
-                    \end{axis}
-                \end{tikzpicture}
+            %     \begin{tikzpicture}
+            %         \begin{axis}[
+            %             domain=0.01:1, % 定义域
+            %             samples=1000, % 采样点数
+            %             xlabel=$x$,
+            %             ylabel={$x \sin\left(\frac{1}{x}\right)$},
+            %             grid=both,
+            %             width=10cm,
+            %             height=6cm
+            %         ]
+            %         \addplot[blue] {sin(deg(1/x))};
+            %         \end{axis}
+            %     \end{tikzpicture}
 
-                \begin{center}
-                    图1. \(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\)
-                \end{center}
-            \end{example}
+            %     \begin{center}
+            %         图1. \(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\)
+            %     \end{center}
+            % \end{example}
             
             \begin{prf}
                 不妨设\(f:[0,1]\to \cl S\)是连接\((0,0)\)点到\(\cl S\)中一点的道路.
@@ -506,31 +469,40 @@
         \subsection{基本概念}
             
             \begin{dfn}
-                {度量}
-                [metric]
+                [dfn:MetricSpace]
+                {度量空间 / 距离空间}
+                [Metric Space]
+                [猫猫]
+                设 \(S\) 是类型, $d:S^2\to\R$, 定义 $d$ 是 $S$ 上的\textbf{度量}, 当且仅当: 
+                \begin{enumerate}
+                    \item 正定性: 
+                    \[\forall x,y:S, d(x,y)\geq 0\]
+    
+                    \item 对称性: 
+                    \[\forall x,y:S, d(x,y)=d(y,x)\]
+    
+                    \item 三角不等式: 
+                    \[\forall x,y,z:S, d(x,y)+d(y,z)\geq d(x,z)\]
+                \end{enumerate}
 
-                设$S$为一个集合, 函数$d:S^2\to\R$称为是$S$上的一个\textbf{度量(Metric)/距离(Distance)}, 使得下列性质成立：
-
-                (1)\[\forall x,y\in S, d(x,y)\geq0\]
-                等号成立当且仅当$x=y$.
-
-                (2)可交换性：
-                \[\forall x,y\in X, d(x,y)=d(y,x).\]
-
-                (3)三角不等式(Triangular Inequation)：
-                \[\forall x,y,z\in X, d(x,y)+d(y,z)\geq d(x,z)\]
+                定义 $(S,d)$ 为\textbf{度量空间}当且仅当 $d$ 是 $S$ 上的度量. 
             \end{dfn}
-            
-            \begin{dfn}
-                {度量空间}[Metric Space]
-                
-            \end{dfn}
+
+            \begin{ppt}
+                [MetricReflexivity]
+                {度量空间中点到自身距离为零}
+                []
+                [猫猫]
+                设 $(S,d)$ 是度量空间, 则: 
+                \[\forall x:S, d(x,x)=0\]
+            \end{ppt}
 
             \begin{dfn}
+                [OpenBall]
 				{开球}
                 [Open Ball]
-				
-				在度量空间中，包含一点x的开集，由与x的距离小于某个固定的正数r的一切点组成，这个开集称为以x为中心、r为半径的 \textbf{开球(Open Ball)},记作\(U_(x,r)\)或\(B_{r}(x)\)
+                [猫猫]
+				在度量空间中，包含一点x的开集，由与x的距离小于某个固定的正数r的一切点组成，这个开集称为以x为中心, r为半径的 \textbf{开球(Open Ball)},记作\(U_(x,r)\)或\(B_{r}(x)\)
 
 				特别的, 在数轴上，我们称关于\(x\)对称的开区间\((x-\varepsilon,x+\varepsilon)\)为\(x\)的 \textbf{\(\varepsilon\)邻域(\(\varepsilon\)-Neighbourhood)},记作\(B_{\varepsilon}(x)\)或\(U_(x,\varepsilon)\)
 
