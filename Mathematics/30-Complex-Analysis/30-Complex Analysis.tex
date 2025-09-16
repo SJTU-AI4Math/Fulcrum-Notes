@@ -37,6 +37,7 @@
 \newfontfamily{\fontik}[AutoFakeSlant=0.225,AutoFakeBold=3,Path="C:/Windows/fonts/"]{Inkfree.ttf}
 \newCJKfontfamily{\cjksh}[AutoFakeSlant=0.225,AutoFakeBold=3,Path="C:/Windows/fonts/"]{FZShouHCGTJW.TTF}
 \fi
+\usepackage[margin=1.6cm]{geometry}
 
 \setlength{\parindent}{0pt}
 \linespread{1.5}
@@ -195,6 +196,16 @@
     {单位根}
     [Unit Root]
     [Dedicatia]
+\end{dfn}
+\begin{dfn}
+    [LinesComplexReprensting]
+    {直线的复平面表示}
+    [Representing Lines under Complex Plane]
+    [Dedicatia]
+    设直线$\ell$在实数坐标$(x,y)$下的方程为$ax+by+c=0(a^2+b^2\neq 0)$, 使用代换公式
+    \[x=\frac{z+\bar{z}}{2},\quad y=\frac{z-\bar{z}}{2\ii}\]
+    就可以使用复数表示直线方程：
+    \[\frac{a-b\ii}{2}z+\frac{a+b\ii}{2}\bar{z}+c=0\]
 \end{dfn}
 \subsection{扩充复数系统与球面表示}
 正如实数可以引入正负无穷大来扩充一样，我们规定：
@@ -637,21 +648,21 @@
     {内部}
     [Interior]
     [Dedicatia]
-    集合$X$的内部是指包含$X$的最大开集。记作$\operatorname{Int}X$.
+    集合$X$的内部是指包含$X$的最大开集。记作$\intr X$.
 \end{dfn}
 \begin{dfn}
     [UUID]
     {闭包}
     [Closure]
     [Dedicatia]
-    称集合$X$的闭包为包含$X$的最小闭集。一个点属于$X$的闭包，当且仅当它的所有邻域都与$X$有交集。闭包常记作$\operatorname{Cl} X$.
+    称集合$X$的闭包为包含$X$的最小闭集。一个点属于$X$的闭包，当且仅当它的所有邻域都与$X$有交集。闭包常记作$\cl X$.
 \end{dfn}
 \begin{dfn}
     [UUID]
     {边界}
     [Bound]
     [Dedicatia]
-    称集合$X$的边界是其闭包减去其内部。一点属于边界，当且仅当它的邻域同时与$X$和$\lnot X$。记作$\partial X$. $\partial X=\operatorname{Cl} X\backslash\operatorname{Int} X$.
+    称集合$X$的边界是其闭包减去其内部。一点属于边界，当且仅当它的邻域同时与$X$和$\lnot X$。记作$\partial X$. $\partial X=\cl X\backslash\intr X$.
 \end{dfn}
 \begin{ppt}
     [UUID]
@@ -2424,11 +2435,11 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
 \begin{prf}
     已知 $f(z)$ 在圆环 $R_1 < |z - z_0| < R_2$ 上解析。选择两个同心圆 $C_1$ 和 $C_2$ 使得 $C_2$ 的半径为 $r_2$ ($R_1 < r_2 < R_2$), $C_1$ 的半径为 $r_1$ ($R_1 < r_1 < r_2$), 使得点 $z$ 位于两个圆之间 ($r_1 < |z - z_0| < r_2$):\\
     对于圆环内的一点 $z$, 由\hyperref[thm:CombinedClosedCircuit]{复合闭路定理}可得：
-    $$f(z) = \frac{1}{2\pi\ii} \oint_{C_2} \frac{f(\zeta)}{\zeta - z} \dd\zeta - \frac{1}{2\pi i} \oint_{C_1} \frac{f(\zeta)}{\zeta - z}  \dd\zeta$$
+    $$f(z) = \frac{1}{2\pi\ii} \oint_{C_2} \frac{f(\zeta)}{\zeta - z} \dd\zeta - \frac{1}{2\pi\ii} \oint_{C_1} \frac{f(\zeta)}{\zeta - z}  \dd\zeta$$
     对于积分路径 $C_2$，有 $|\zeta - z_0| = r_2 > |z - z_0|$。将核函数 $\frac{1}{\zeta - z}$ 展开为关于 $\frac{z-z_0}{\zeta-z_0}$ 的几何级数：
     $$\frac{1}{\zeta - z} = \frac{1}{(\zeta - z_0) - (z - z_0)} = \frac{1}{\zeta - z_0} \cdot \frac{1}{1 - \frac{z-z_0}{\zeta-z_0}} = \sum_{n=0}^{\infty} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}}$$
     这个级数在 $C_2$ 上一致收敛。将其代入第一个积分：
-    $$\frac{1}{2\pi\ii} \oint_{C_2} \frac{f(\zeta)}{\zeta - z} \dd\zeta = \frac{1}{2\pi\ii} \oint_{C_2} f(\zeta) \sum_{n=0}^{\infty} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}} \dd\zeta = \sum_{n=0}^{\infty} \underbrace{\left[ \frac{1}{2\pi i} \oint_{C_2} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} d\zeta \right]}_{a_n} (z - z_0)^n$$
+    $$\frac{1}{2\pi\ii} \oint_{C_2} \frac{f(\zeta)}{\zeta - z} \dd\zeta = \frac{1}{2\pi\ii} \oint_{C_2} f(\zeta) \sum_{n=0}^{\infty} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}} \dd\zeta = \sum_{n=0}^{\infty} \underbrace{\left[ \frac{1}{2\pi\ii} \oint_{C_2} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} d\zeta \right]}_{a_n} (z - z_0)^n$$
     对于积分路径 $C_1$，情况相反：有 $|\zeta - z_0| = r_1 < |z - z_0|$。为了能使用几何级数，我们需要对核函数进行另一种形式的改写
     $$\frac{1}{\zeta - z} = \frac{-1}{z - \zeta} = \frac{-1}{(z - z_0) - (\zeta - z_0)} = \frac{-1}{z - z_0} \cdot \frac{1}{1 - \frac{\zeta-z_0}{z-z_0}}$$
     因为 $\left| \frac{\zeta-z_0}{z-z_0} \right| < 1$，所以可以展开几何级数：
@@ -2436,11 +2447,11 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     令 $n = -(m+1)$，即 $m = -n - 1$。当 $m$ 从 $0$ 到 $\infty$ 时，$n$ 从 $-1$ 到 $-\infty$。重写上式：
     $$\frac{1}{\zeta - z} = -\sum_{n=-1}^{-\infty} \frac{(\zeta - z_0)^{-n-1}}{(z - z_0)^{-n}} = \sum_{n=-\infty}^{-1} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}}$$
     现在将这个展开式代入第二个积分：
-    $$-\frac{1}{2\pi i} \oint_{C_1} \frac{f(\zeta)}{\zeta - z}  d\zeta = -\frac{1}{2\pi i} \oint_{C_1} f(\zeta) \left( \sum_{n=-\infty}^{-1} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}} \right) d\zeta = \sum_{n=-\infty}^{-1} \underbrace{\left[ \frac{1}{2\pi i} \oint_{C_1} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} d\zeta \right]}_{a_n} (z - z_0)^n$$
+    $$-\frac{1}{2\pi\ii} \oint_{C_1} \frac{f(\zeta)}{\zeta - z}  d\zeta = -\frac{1}{2\pi\ii} \oint_{C_1} f(\zeta) \left( \sum_{n=-\infty}^{-1} \frac{(z - z_0)^n}{(\zeta - z_0)^{n+1}} \right) d\zeta = \sum_{n=-\infty}^{-1} \underbrace{\left[ \frac{1}{2\pi\ii} \oint_{C_1} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} d\zeta \right]}_{a_n} (z - z_0)^n$$
     合并，得到
     $$f(z) = \sum_{n=0}^{\infty} a_n (z - z_0)^n + \sum_{n=-\infty}^{-1} a_n (z - z_0)^n = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n$$
     其中，系数 $a_n$ 由统一的公式给出：
-    $$a_n = \frac{1}{2\pi i} \oint_C \frac{f(\zeta)}{(\zeta - z_0)^{n+1}}  d\zeta$$
+    $$a_n = \frac{1}{2\pi\ii} \oint_C \frac{f(\zeta)}{(\zeta - z_0)^{n+1}}  d\zeta$$
     这里的积分路径 $C$ 是圆环内任意一条绕 $z_0$ 的正向简单闭曲线。
 \end{prf}
 这时，\hyperref[thm:TaylorSeries]{Taylor级数}是Laurent级数在: $f(z)$在$z_0$处解析的条件下的特例：这时就将Laurent级数中的圆环就是一个圆盘. 作出Laurent级数，根据系数$a_n$的计算公式和\CauchyThm , 所有的负数幂系数都等于0. 这时的Laurent级数就变成了Taylor级数。只要在非奇点处附近展开就会得到Taylor级数。因此我们一般在奇点处求取Laurent级数。
