@@ -1,5 +1,4 @@
-\NewDocumentCommand{\Set}{s}{\catref[#1]{dfn:Set}{集合}[集合]}
-
+% Set Theory
 \let\oldin\in
 \RenewDocumentCommand{\in}{soo}{\catref[#1]{dfn:SetMem}{\oarg{#2}\ensuremath{\oldin}\oarg{#3}}[属于]}
 
@@ -24,6 +23,11 @@
 \DeclareMathOperator{\Im}{\hyperref[dfn:Image]{Im}}                        % Image of a mapping
 
 
-% Set Theory
+\NewDocumentCommand{\PS}{so}{\catref[#1]{dfn:Power-Set}{\ensuremath{\mathcal{P}}}[幂集]\IfNoValueTF{#2}{}{\left(#2\right)}}
+
+% Textual concepts
+\NewDocumentCommand{\集合}{s}{\catref[#1]{dfn:Set}{集合}[集合]}
+
+% Legacy
 \DeclareMathOperator{\PP}{\mathcal{P}}                  % Power Sets
-\DeclareMathOperator{\card}{card}                       % Cardinality
+\DeclareMathOperator{\card}{\operatorname{card}}                       % Cardinality

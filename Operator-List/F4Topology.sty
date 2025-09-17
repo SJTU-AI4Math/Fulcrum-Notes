@@ -4,8 +4,23 @@
 \NewDocumentCommand{\bd}{s}{\catref[#1]{dfn:Boundary}{\ensuremath{\partial}}[边界]}
 \NewDocumentCommand{\Con}{s}{\catref[#1]{dfn:Continuous-Mapping}{\ensuremath{\operatorname{Con}}}[连续映射]}
 \NewDocumentCommand{\V}{s}{\catref[#1]{dfn:Neighborhood}{\ensuremath{\mathcal{V}}}[邻域]}
+\NewDocumentCommand{\Nbr}{sm}{\catref[#1]{dfn:Neighbourhood}{\ensuremath{\mathcal{V}}}[邻域]\left(#2\right)}
 
 \NewDocumentCommand{\U}{s}{\catref[#1]{dfn:Deleted-Neighborhood}{\ensuremath{\overset{\circ}{\mathit{U}}}}[去心邻域]}
+
+% Textual concepts
+\NewDocumentCommand{\拓扑}{s}{\catref[#1]{dfn:Topological-Space}{拓扑}}
+\NewDocumentCommand{\拓扑空间}{s}{\catref[#1]{dfn:Topological-Space}{拓扑空间}}
+
+\NewDocumentCommand{\开集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 上的}}}\catref[#1]{dfn:Open-Closed-Set}{\ensuremath{\text{开集}}}}
+\NewDocumentCommand{\闭集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 上的}}}\catref[#1]{dfn:Open-Closed-Set}{\ensuremath{\text{闭集}}}}
+
+\NewDocumentCommand{\邻域}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Neighbourhood}{\ensuremath{\text{邻域}}}}
+
+
+\NewDocumentCommand{\度量}{s}{\catref[#1]{dfn:Metric-Space}{\ensuremath{\text{度量}}}[度量]}
+\NewDocumentCommand{\度量空间}{s}{\catref[#1]{dfn:Metric-Space}{\ensuremath{\text{度量空间}}}[度量空间]}
+
 
 % Non-concept operators
 \DeclareMathOperator{\T}{\mathcal{T}}                   % Topology
