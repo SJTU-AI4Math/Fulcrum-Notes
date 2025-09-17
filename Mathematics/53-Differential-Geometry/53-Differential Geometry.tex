@@ -6,38 +6,9 @@
 
 \usepackage{FulcrumHabitCN}
 
-
-% ams package
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsmath}
-
 % margin
 \usepackage{geometry}
 
-% \dd
-\usepackage{physics}
-
-% Boldface
-\usepackage{bm}
-
-% Tikz
-\usepackage{tikz}
-\usetikzlibrary{calc}
-
-% Gaussian Elimination
-\usepackage{gauss}
-
-% Commutative Graph
-\usepackage[all]{xy}
-
-% Comment
-\usepackage{comment}
-
-\title{Title}
-\author{Fulcrum4Math}
-\date{\today}
 \geometry{
     paper =a4paper,
     top =3cm,
@@ -48,16 +19,11 @@
 
 \linespread{1.2}
 
-% 遗物: 
-\usepackage{tikz-cd}
-
-
-
-
 \begin{document}
 
 \begin{center}
-    {\LARGE\textbf{微分几何笔记}}
+    {\LARGE\textbf{微分几何}}
+
     Fulcrum4Math
 \end{center}
 
@@ -77,23 +43,27 @@
             [Topological-Manifold]
             {拓扑流形}
             [Topological Manifold]
-            []
-            如果一拓扑空间 \(M\) 满足:
+            [刘蕴齐, 猫猫]
+            设 \(M\) 是拓扑空间, 定义 \(M\) 为 \(n\) 维拓扑流形, 当且仅当: 
             \begin{enumerate}
-                \item  \(M\)  是 Hausdorff的.  即,  \( \forall p,q \in M \), 存在两点各自的邻域  \(p \in U,q \in V\)  满足 \( U \cap V = \emptyset \).
-                \item  \(M\) 是第二可数的. 即, 存在可数多个开集构成拓扑基. 
-                \item  \(M\) 是局部欧氏的. 即, 
-                 \(\forall p \in M \), 存在其邻域 \(U_p\) 同胚于  \(R^n\)  中一开集  \(V\),
+                \item \(M\) 是 Hausdorff 空间; 
+                \item \(M\) 是第二可数的: 
+                
+                存在可数多个开集构成拓扑基. 
+                
+                \item \(M\) 是局部欧氏的: 
+                
+                \(\forall p \in M \), 存在其邻域 \(U_p\) 同胚于  \(R^n\)  中一开集  \(V\),
                 (同胚映射 \(\varphi: U \rightarrow V \subset R^n \)  赋予每个点  \(q \in U\)  以  \(R^n\)  坐标 \(\varphi(q)=(x_1(q), \dots,x_n(q))\)  被称为  \(M\)  的一个局部坐标卡 (local coordinate chart)). 
             \end{enumerate}
-        则称 \(M\) 为一个 \(n\) 维拓扑流形. 
+        则称 . 
         \end{dfn}
 
         \begin{dfn}
             [Transition-Function]
             {转移函数}
             [Transition Function]
-            []
+            [刘蕴齐]
             设  \(X\)  是一个  \(n\)  维流形并且  \((U, \phi), (V, \psi)\) 是两个局部坐标卡.  
             如果  \(U \cap V \neq \emptyset\), 那么我们称
             \[ \psi \circ \phi^{-1}: \phi(U \cap V) \rightarrow \psi(U \cap V). \]
@@ -105,7 +75,7 @@
             []
             {光滑兼容}
             [Compatible]
-            []
+            [刘蕴齐]
             设 \(M\) 为一个拓扑流形,
             设两个局部坐标卡 \( U_1 \cap U_2 \neq \emptyset \),
             如果这两个坐标卡之间的转移函数
@@ -119,7 +89,7 @@
             [Atlas]
             {图册}
             [Atlas]
-            []
+            [刘蕴齐]
             设  \(X\)  是一个  \(n\)  维流形.  
             A collection of local charts 
              \(\mathbb{A} = \{(U_{\alpha},\phi_{\alpha})\}\),
@@ -136,7 +106,7 @@
             []
             {圆周的光滑图册}
             []
-            []
+            [刘蕴齐]
             圆周可以视为这样的集合 \(\{ e^{it} \in \mathbb{C} | 0 \leq t \leq 2 \pi \}\). 
             考虑圆周的如下开覆盖 \(\{U_1, U_2\}\), 其中, 
             \[
@@ -160,7 +130,7 @@
             []
             {极大图册存在性}
             []
-            []
+            [刘蕴齐]
             Any atlas  \(\mathbb{A} = \{(U_{\alpha},\phi_{\alpha})\}\)  on a locally Euclidean space is contained in a unique maximal atlas.
         \end{ppt}
         
@@ -168,7 +138,7 @@
             []
             {光滑流形}
             [smooth manifold]
-            []
+            [刘蕴齐]
             一个配备了极大光滑图册的拓扑流形称为一个光滑流形
         \end{dfn}
         
@@ -188,7 +158,7 @@
             []
             {n维欧式空间}
             []
-            []
+            [刘蕴齐]
             坐标映射由恒等映射就可以存在, 这是一个平凡的例子. 
         \end{xmp}
         
@@ -196,7 +166,7 @@
             []
             {n维球面}
             []
-            []
+            [刘蕴齐]
             我们之前给了 \(\mathbb{S}^1\) 的一个光滑图册, 现在我们给出一般 \(\mathbb{S}^n\) 的微光滑图册 (称为球面的面标准光滑结构). 
         \end{xmp}
 
@@ -204,7 +174,7 @@
             []
             {乘积空间}
             []
-            []
+            [刘蕴齐]
             设 \(M,N\) 为两个光滑流形, 则其笛卡尔乘积 \( M\times N\) 是一个光滑流形. 
         \end{xmp}
 
@@ -212,7 +182,7 @@
             []
             {一般线性群}
             []
-            []
+            [刘蕴齐]
             一般线性群
         \end{xmp}
         
@@ -220,7 +190,7 @@
             []
             {射影空间}
             []
-            []
+            [刘蕴齐]
             射影空间是本科几何学习中一个很重要的几何对象, 以下将详细阐述射影空间怎样成为一个微分流形并补充一些相关的知识. 由于这个例子会比较长, 所以我们单独开一个章节去讲. 
         \end{xmp}
 
@@ -230,7 +200,7 @@
             []
             {商拓扑}
             []
-            []
+            [刘蕴齐]
             设 \((X,T)\) 是一个拓扑空间,  \(\sim\) 是 \(X\) 上的一个等价关系. 记 \(X / \sim\) 是由上述等价关系得到的等价类作成的集合. 
             考虑典范的自然投影映射 \(q: X \rightarrow X/\sim: q(x) = [x]\) ([x]表示 \(x\)) 所在的等价类. 
             我们希望在 \(X / \sim\) 上定义拓扑结构. 我们规定 \(U\) 是 \(X / \sim\) 上面的开集当且仅当 \(q^{-1}(U)\) 是 \(X\) 上面的开集. 即考虑 \(\tilde{T}\):
@@ -255,7 +225,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             商映射不是开映射的例子: 在 \(\R\) 上定义等价关系将 \(1\) 和 \(-1\) 等同. 可以自行验证投影映射 \(q: \R \rightarrow \R/\sim\) 不是开映射 (考虑开区间 \((-2,0)\) 的像). 
         \end{cxmp}
         
@@ -268,7 +238,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             设 \(q: X \rightarrow X/\sim\) 是一个商映射.  \(Y\) 是一个拓扑空间, \(f: X/\sim \, \rightarrow Y\) 是一个映射. 那么,  \(f\) 连续当且仅当 \(f \circ q\) 连续.    
         \end{lma}
 
@@ -286,7 +256,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             如果商空间 \(X / \sim\) 是Haussdorff的, 那么, 任意一点 \(p \in X\) 的等价类 \([p]\) 在 \(X\) 中是闭的. 
         \end{ppt}
 
@@ -298,7 +268,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             拓扑空间 \( S \) 上的一个等价关系 \( \sim \) 被称为开的, 如果投影映射 \( q: S \to S/\sim \) 是开映射. 
         \end{dfn}
 
@@ -315,7 +285,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             给定拓扑空间 \( S \) 上的一个等价关系 \( \sim \), 设 \(R\) 表示上述二元关系的定义集, 即
             \[
                 R = \{(x,y) \in S \times S | x \sim y\}.
@@ -327,7 +297,7 @@
             [Quotient-Haussdorff]
             {}
             []
-            []
+            [刘蕴齐]
             设 \( \sim \) 是拓扑空间 \( S \) 上的一个开的等价关系. 那么商空间 \( S/\sim \) 是豪斯多夫的当且仅当等价关系 \( \sim \) 的图像 \( R \) 在 \( S \times S \) 中是闭的. 
         \end{thm}
 
@@ -342,7 +312,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             拓扑空间 \(S\) 是Haussdorff的当且仅当对角线集 \(\Delta\) 是闭的. 
         \end{crl}
 
@@ -350,7 +320,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             设 \( \sim \) 是拓扑空间 \( S \) 上的一个开的等价关系, 投影映射为 \( \pi: S \to S/\sim \). 
             如果 \( \mathcal{B} = \{ B_{\alpha} \} \) 是 \( S \) 的拓扑基, 则其在投影映射 \( \pi \) 下的像 \( \{ \pi(B_{\alpha}) \} \) 成为 \( S/\sim \) 的拓扑基. 
         \end{thm}
@@ -371,7 +341,7 @@
             [corollorytwosecond]
             {}
             []
-            []
+            [刘蕴齐]
             设 \( \sim \) 是第二可数的拓扑空间 \( S \) 上的一个开的等价关系, 那么, 商空间 \(S/\sim\) 也是第二可数的. 
         \end{crl}
 
@@ -381,7 +351,7 @@
             []
             {射影空间}
             [projective space]
-            []
+            [刘蕴齐]
             我们在 \(\mathbb{R}^{n+1}-\{0\}\) 上定义如下的等价关系
             \[
                 x \sim y \Leftrightarrow \text{存在某个非零的实数, 使得}y = tx. 
@@ -393,7 +363,7 @@
             []
             {齐次坐标}
             [homogeneous coordinate]
-            []
+            [刘蕴齐]
             我们将 \((a_0, a_1, \dots, a_n) \in \mathbb{R}^{n+1}-\{0\}\) 所在的等价类记为 \([a_0, a_1, \dots, a_n]\),并将 \([a_0, a_1, \dots, a_n]\) 称为 \(\mathbb{R}^{n+1}-\{0\}\) 上面的齐次坐标. 
         \end{dfn}
 
@@ -401,7 +371,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             几何上, 射影空间可以看做是 \(\mathbb{R}^{n+1}\) 上面的所有过原点的直线作成的空间. 事实上, 射影空间的定义也可以从球面 \(\mathbb{S}^n\) 出发, 在球面上建立等价关系 (两个点等价当且仅当它们是球面上的对径点) 作商空间得到. 
         \end{rmk}
 
@@ -409,7 +379,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             射影空间定义中提到的等价关系是开的. 
         \end{ppt}
 
@@ -429,7 +399,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             实射影空间 \(\mathbb{R}P^n\) 是第二可数的. 
         \end{crl}
 
@@ -441,7 +411,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             实射影空间 \(\mathbb{R}P^n\) 是Haussdorff的. 
         \end{crl}
 
@@ -457,7 +427,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             实射影空间 \(\mathbb{R}P^n\) 是一个 \(C^{\infty}\) 流形. 
         \end{thm}
 
@@ -492,7 +462,7 @@
             []
             {光滑函数}
             [smooth function]
-            []
+            [刘蕴齐]
             设 \(M\) 是一个 \(n\) 维光滑流形,  \(f: M \rightarrow R \)  为一函数, \(p\) 是流形 \(M\) 上一点. 
             如果对任意包含 \(p\) 点的坐标卡 \((U,\phi)\),
              \(f \circ \phi^{-1}\) 在 \(\phi(p)\) 处光滑, 
@@ -509,7 +479,7 @@
             []
             {光滑函数的拉回}
             [pull back]
-            []
+            [刘蕴齐]
             设 \(F:N \rightarrow M\) 是流形之间的映射并且 \(h\) 是 \(M\) 上的光滑函数. (\(F\) 意义下) \(h\) 的拉回 (记为 \(F^{*}h\)) 定义为 \(h \circ F\). 
         \end{dfn}
 
@@ -524,7 +494,7 @@
             []
             {光滑映射}
             [smooth map]
-            []
+            [刘蕴齐]
             设 \(f:M \rightarrow N \) 为两个光滑流形之间的连续映射,
              \(p\) 是流形 \(M\) 上一点. 记  \(q = f(p)\). 
             如果对包含 \(p,q\) 的任意两个局部坐标
@@ -539,7 +509,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             假设  \(F: M \rightarrow N \)  在流形 \(M\) 的一点 \(p\) 处光滑. 设  \((U, \phi)\)  是任意包含 \(p\) 的坐标卡,  \((V, \psi)\) 是任意包含 \(F(p)(\in N)\) 的坐标卡.  那么,  \( \psi \circ F \circ \phi^{-1} \) 在 \(\phi(p)\) 处光滑. 
         \end{ppt}
         
@@ -554,7 +524,7 @@
             []
             {光滑映射的复合}
             []
-            []
+            [刘蕴齐]
             设 \(F: N \rightarrow M\)  和  \(G: M \rightarrow P\) 都是流形之间的光滑映射. 那么, 光滑映射的复合 \(G \circ F\) 也是光滑的. 
         \end{ppt}
         
@@ -564,7 +534,7 @@
             []
             {微分同胚}
             [diffeomorphism]
-            []
+            [刘蕴齐]
             如果光滑流形之间的光滑映射 \( f:M \rightarrow N\) 既单又满, 且 \(f^{-1}\) 也是光滑的, 
             则 \(f\) 被称为一个微分同胚. 
             如果两个流形之间存在一个微分同胚映射, 则称它们是微分同胚的. 
@@ -578,7 +548,7 @@
             []
             {李群}
             [Lie Group]
-            []
+            [刘蕴齐]
             设 \(G\) 是一个拓扑群, 同时是一个微分流形. 若 \(G\) 作为群的乘法 \(\mu: G \times G \rightarrow G\) 与逆映射
              \(\varrho: G \rightarrow G, \varrho(x):= x^{-1}\) 
             都是流形上的光滑映射, 则 \(G\) 称为李群. 
@@ -593,7 +563,7 @@
             []
             {芽}
             [germ]
-            []
+            [刘蕴齐]
             我们定义在流形 \(M\) 中点 \(p\) 处的一个 \(C^{\infty}\) 函数的芽 (germ) 为在 \(p\) 的某邻域上定义的 \(C^{\infty}\) 函数的等价类. 两个函数若在 \(p\) 点的某个邻域上 (这个邻域也许比它们各自的定义域要小) 相等, 则视为等价. 点 \(p\) 处的 \(C^{\infty}\) 实值函数的芽集记作 \(C^{\infty}_p(M)\). 
         \end{dfn}
 
@@ -607,7 +577,7 @@
             []
             {切向量}
             [tangent vector]
-            []
+            [刘蕴齐]
             设 \(M\) 为一光滑流形,  \(p \in M\) 为给定一点. 映射 \( v: C_p^{\infty} (M) \rightarrow R \) 如果满足:
             \begin{enumerate}
                 \item (线性性)  \(v (f + g) =v( f ) + v( g ), v(a f) = av( f ), \forall f,g \in C_p^{\infty} (M), a \in \mathbb{R}\); 
@@ -620,7 +590,7 @@
             []
             {局部坐标}
             [local coordinate]
-            []
+            [刘蕴齐]
             设 \((U, \varphi, x_1, \dots, x_n)\) 是流形M在 \(p\) 点的局部坐标卡. 设 \(r_1, \dots, r_n \) 是 \(\mathbb{R}^n\) 上的标准坐标投射, 也就是说, 对 \(\mathbb{R}^n\) 任意一点  \(x = (x_1, \dots, x_n), r_i(x) = x_i, \forall i= 1,2,3, \dots, n\).
             映射 \(x^i:= r^i \circ \varphi: U \rightarrow \mathbb{R}\) 被称为流形 \(M\) 上的局部坐标. 
         \end{dfn}
@@ -629,7 +599,7 @@
             []
             {偏导数}
             [partial derivative]
-            []
+            [刘蕴齐]
             设 \(f\) 是定义在 \(p\) 的某个邻域上的光滑函数.  
             那么,我们定义流行上关于局部坐标的偏导数算子 \(\frac{\partial}{\partial x^i} |_p: C_p^{\infty} (M) \rightarrow R\) 如下:
                 \[
@@ -648,7 +618,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             设 \((U, \phi, x_1, \dots, x_n)\) 是流形M在 \(p\) 点的局部坐标卡. 那么, 
             \[
                 \frac{\partial}{\partial x^i} |_p (x^j) = \delta^i_{j}.
@@ -674,7 +644,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             若 \(M\) 为一 \(n\) 维光滑流形, 则 \(T_p M\) 是一个 \(n\) 维线性空间. 
         \end{thm}
         
@@ -720,7 +690,7 @@
             []
             {导子}
             [derivation]
-            []
+            [刘蕴齐]
             一个在流形上的 \(p\) 点处的导子是 \(p\) 点的一个切向量. 
         \end{dfn}
         
@@ -728,7 +698,7 @@
             []
             {光滑映射的微分}
             []
-            []
+            [刘蕴齐]
             设 \( F: N \to M \) 是两个流形之间的 \( C^{\infty} \) 映射. 在流形 \( N \) 中的每一点 \( p \), 映射 \( F \) 诱导了一个切空间之间的线性映射, 称为其在点 \( p \) 处的微分, 记作 \( df \) 或 \( F_* \):
             
             \[
@@ -752,7 +722,7 @@
             []
             {链式法则}
             [the Chain Rule]
-            []
+            [刘蕴齐]
             设 \( F: N \to M \) 和 \( G: M \to P \) 都是流形之间的光滑映射且 \(p\) 是流形 \(N\) 上一点. 那么,
             \[
                 {(G \circ F)}_{*,p} = G_{*,F(p)} \circ F_{*,p}.
@@ -767,7 +737,7 @@
             []
             {坐标变换}
             []
-            []
+            [刘蕴齐]
             设 \((U, \phi, x^1, x^2, \dots, x^n)\) 和 \((V, \psi, y^1, y^2, \dots, y^n)\) 是流形 \(M\) 上的 \(p\) 点处的两个局部坐标卡. 那么, 在 \(U \cap V\) 上成立关系式
             \[
                 \frac{\partial}{\partial x^j} = \sum_{i}\frac{\partial y^i}{\partial x^j}\frac{\partial}{\partial y^i}.
@@ -793,7 +763,7 @@
             []
             {流形上的光滑曲线}
             [A smooth curve in a manifold]
-            []
+            [刘蕴齐]
             设 \(M\) 是一个流形,  \((a,b)\) 是一个开区间. 一个光滑映射 \(c: (a, b) \rightarrow M\) 被称为流形 \(M\) 流形上的一条光滑曲线
         \end{dfn}
 
@@ -806,7 +776,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             一条曲线在 \(c(t_0)\) 处的切向量我们使用如下的方式定义:
             \[
                 c'(t_0):= c_{*}(\frac{d}{dt}|_{t_0}) \in T_{c(t_0)}M.
@@ -822,7 +792,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             设 \(c: \R \rightarrow \R^2: c(t) = {(t^2, t^3)}^T\). 试计算 \(c'(t)\). 
         \end{xmp}
 
@@ -830,7 +800,7 @@
             []
             {曲线的切向量在局部坐标卡上的表示}
             []
-            []
+            [刘蕴齐]
             Let \( c: (a,b) \to M \) be a smooth curve, 
             and let \( (U, \phi, x^1, \dots, x^n) \) be a coordinate chart about \( c(t) \). 
             Write \( c^i = x^i \circ c \) for the \( i \)-th component of \( c \) in the chart. Then \( c'(t) \) is given by
@@ -845,7 +815,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             设 \(f: M \to N\) 为两个光滑流形间的光滑映射, 
             \begin{itemize}
                 \item 如果 \( {(df)}_p\)  是单射,\,  \(\forall p\),则称 \(f\)  为一 浸入 (Immersion);
@@ -865,7 +835,7 @@
             []
             {Whitney}
             []
-            []
+            [刘蕴齐]
             任一 \(n\) 维流形 \(M\) 都可以浸入到 \(\mathbb{R}^{2n-1}\) 中. 
         \end{thm}
 
@@ -873,7 +843,7 @@
             []
             {Whitney}
             []
-            []
+            [刘蕴齐]
             任一 \(n\) 维流形 \(M\) 都可以嵌入到 \(\mathbb{R}^{2n}\) 中. 
         \end{thm}
 
@@ -881,7 +851,7 @@
             []
             {浸入但非嵌入的例子}
             []
-            []
+            [刘蕴齐]
              \(f: \mathbb{R} \to \mathbb{R}^2, f(t) = (cost, sint)\). 
             显然f不是单射, 因而不是嵌入. 
             但是我们希望证明  \(df_p\)  是切空间上的单射,  \(\forall p\), 从而证明是浸入. 
@@ -897,7 +867,7 @@
             []
             {向量场}
             [vector field]
-            []
+            [刘蕴齐]
             设 \(M\) 为一个光滑流形, 一个向量场 \(X\) 就是在每点指定一个切向量 \(X(p) \in T_p M\), 如果
             在任一坐标卡 \((U,\phi,x_1,\dots,x_n)\) 下,  \(X\)  可表为
             \[
@@ -918,7 +888,7 @@
             []
             {切丛}
             [tangent bundle]
-            []
+            [刘蕴齐]
             流形 \(M\) 的切丛是 \(M\) 上各点切空间的无交并, 记为 \(TM\), 即
             \[
                 TM:= \displaystyle\bigcup_{p \in M} T_p M.
@@ -944,7 +914,7 @@
             [tangentbundle]
             {}
             []
-            []
+            [刘蕴齐]
             设 \((U, \phi, x^1, \dots, x^n)\) 是流形 \(M\) 上面的一个局部坐标卡. 类似上面的记号, 我们令
             \[
                 T U = \bigcup_{p \in U} T_p U = \bigcup_{p \in U} T_p M
@@ -978,7 +948,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
              \(\mathcal{B}\) 是拓扑基. 也就是说,
             \begin{itemize}
                 \item 对于任意的 \((p,v) \in M\), 存在 \(A \in \mathcal{B}\), 使得 \((p,v) \in A\). 
@@ -992,7 +962,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             流形 \(M\) 存在一个由坐标邻域组成的可数基. 
         \end{lma}
 
@@ -1019,7 +989,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             流形 \(M\) 的切丛 \(TM\) 是第二可数的. 
         \end{ppt}
 
@@ -1031,7 +1001,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             流形 \(M\) 的切丛 \(TM\) 是Haussdorff的. 
         \end{ppt}
 
@@ -1049,7 +1019,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             设 \(\{(U_{\alpha}, \phi_{\alpha})\}\) 是流形 \(M\) 的一个光滑图册. 那么,  \(\{(T U_{\alpha}, \tilde{\phi}_{\alpha})\}\) 是切丛 \(TM\) 的一个光滑图册, 其中,  \(\tilde{\phi}\) 的定义请参见定义 \((\ref{dfn:tangentbundle})\) 
         \end{ppt}
 
@@ -1059,7 +1029,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             对于任意的映射 \(\pi: E \rightarrow M\), 我们称集合 \(M\) 中 \(p\) 点的原像 \(\pi^{-1} (\{p\}):= \pi^{-1}(p)\) 为 \(p\) 点处的纤维 (fiber), 通常记作 \(E_p\). 对于任意的两个陪域相同的映射 \(\pi: E \rightarrow M\) 和 \(\pi': E' \rightarrow M\), 如果一个映射 \(\phi: E \rightarrow E'\) 满足 \(\phi(E_p) \subset E_p '\) 对于任意的 \(p \in M\) 都成立, 那么, 我们称 \(\phi\) 是保持纤维的 (fiber-preserving). 
         \end{dfn}
 
@@ -1072,7 +1042,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             给定两个陪域相同的映射 \(\pi: E \rightarrow M\) 和 \(\pi': E' \rightarrow M\), 映射 \(\phi: E \rightarrow E'\) 是保持纤维的当且仅当下面的图表可交换, 即 \(\pi = \pi' \circ \phi\). 
         \end{ppt}
 
@@ -1086,7 +1056,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             A surjective smooth map  \(\pi: E \rightarrow M\)  of manifolds is said to be locally trivial of rank  \(r\)  if
             it satisfies:
             \begin{itemize}
@@ -1104,7 +1074,7 @@
             []
             {秩r光滑向量丛}
             []
-            []
+            [刘蕴齐]
             A  \(C^{\infty}\)  vector bundle of rank  \(r\)  is a triple  \((E,M,\pi)\)  consisting of manifolds  \(E\)  and  \(M\)  and a surjective smooth map 
              \(\pi: E \rightarrow M\)  that is locally trivial of rank  \(r\). 
             
@@ -1125,7 +1095,7 @@
             []
             {截面}
             [section]
-            []
+            [刘蕴齐]
             向量丛 \(\pi: E \rightarrow M\) 的一个截面是一个映射 \(s: M \rightarrow E\), 它满足 \(\pi \circ s = Id_{M}\), 其中,  \(Id_{M}\) 表示流形 \(M\) 上的恒等映射. 
         \end{dfn}
 
@@ -1138,7 +1108,7 @@
             []
             {光滑截面}
             [smooth section]
-            []
+            [刘蕴齐]
             我们称一个截面是光滑的, 如果它作为流形之间的映射是光滑的. 
         \end{dfn}
 
@@ -1146,7 +1116,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
             设 \(s\) 和 \(t\) 是光滑线丛 \(\pi: E \rightarrow M\) 的两个光滑截面, 设 \(f\) 是流形 \(M\) 上的一个 \(C^{\infty}\) 函数. 那么,
             \begin{enumerate}
                 \item 定义截面的加法 \(s + t: M \rightarrow E\) 如下:
@@ -1167,7 +1137,7 @@
             []
             {向量场}
             [vector field]
-            []
+            [刘蕴齐]
             设 \(M\) 为一个光滑流形, 一个向量场 \(X\) 就是在每点指定一个切向量 \(X(p) \in T_p M\), 如果在任一坐标卡 \((U,\phi,x_1,\dots,x_n)\) 下,  \(X\) 可表为
             \[
             X(p)=\sum_{i=1}^{n} a_{i}(p)\left(\diff{\frac{\partial}{\partial x_{i}}}{p}{}\right)
@@ -1186,7 +1156,7 @@
             []
             {函数的支撑}
             []
-            []
+            [刘蕴齐]
             假设 \(f: X \rightarrow \mathbb{R}\)  是流形 \(X\) 上面的实值函数. 
              \(f\)  的支撑  \(supp(f):= \overline{\{ x | f(x) \neq 0 \}}\) (闭包).
         \end{dfn}
@@ -1195,7 +1165,7 @@
             []
             {开覆盖}
             [open cover]
-            []
+            [刘蕴齐]
             给定拓扑空间 \(X\) 的一族满足 \(\bigcup U_{\alpha} = X\) 的开集 \(\{U_{\alpha} \}\) 被称为拓扑空间 \(X\) 的一个开覆盖. 
         \end{dfn}
 
@@ -1203,7 +1173,7 @@
             []
             {加细}
             []
-            []
+            [刘蕴齐]
             一个开覆盖 \({\{V_j\}}_{j \in J}\)  被称为另一个开覆盖 \({\{U_i\}}_{i \in I}\) 的加细, 如果  \(\forall j \in J\), 存在 \(i \in I\),使得 \(V_j \subset U_i\). 
         \end{dfn}
 
@@ -1211,7 +1181,7 @@
             []
             {局部有限}
             []
-            []
+            [刘蕴齐]
             一个开覆盖 \({\{U_i\}}_{i \in I}\) 被称为是局部有限的, 如果对于任意的 \(p \in X\) 
             存在 \(p\) 点的一个邻域 \(U_p\), 使得  \(U_p \cap U_i \neq \emptyset\)  only for finite many i's.
         \end{dfn}
@@ -1222,7 +1192,7 @@
             []
             {}
             []
-            []
+            [刘蕴齐]
         \end{dfn}
     
 \section{微分形式}
