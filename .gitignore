@@ -7,4 +7,5 @@ Fulcrum-Template
 *.out
 *.synctex.gz
 *.toc
+*.xdv
 ai.mkd

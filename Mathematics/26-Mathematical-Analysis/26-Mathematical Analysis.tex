@@ -10,232 +10,8 @@
 
 \tableofcontents
 \newpage
-	
-		\section{实数结构}
-
-		Bourbaki 学派认为数学由三类基本结构搭建而成: 代数结构, 序结构与拓扑结构. 
-
-		\subsection{域结构}
-
-			见线性代数或抽象代数. 
-
-		\subsection{完备偏序结构}
-
-			广义的序结构包含了更加普适的抽象的理论框架, 在数学分析中我们仅使用最为基本, 直观的部分: 
-			
-			\begin{dfn}
-			    []
-			    {偏序关系}
-			    [Partial Order]
-			    []
-				设 \(S\) 是一个集合, \(\leq\) 是 \(S\) 上的一个二元关系, 则称 \(\leq\) 为 \(S\) 上的一个\textbf{偏序关系 (Partial Order)}, 若它满足: 
-
-				(1) 反身性:
-				\[\forall a\in S, a\leq a\]
-
-				(2) 反对称性:
-				\[\forall a,b\in S, a\leq b\land b\leq a \implies a=b\]
-
-				(3) 传递性:
-				\[\forall a,b,c\in S, a\leq b\land b\leq c \implies a\leq c\]
-			\end{dfn}
-		
-			\begin{dfn}
-			    []
-			    {有界集}
-			    [Bounded Set]
-			    []
-				设偏序结构 \((S,\leq)\), 子集 \(X\subseteq S\), 则: 
-				
-				(1) 称元素 \(a\in S\) 为 \(X\)的一个\textbf{上界 (Upper Bound)}, 若: 
-				\[\forall x\in S, x\leq a\]
-				
-				(2) 称元素 \(b\in S\) 为 \(X\)的一个\textbf{下界 (Lower Bound)}, 若
-				\[\forall x\in S, b\leq x\]
-				
-				子集 \(X\subseteq S\) 称为是\textbf{有界(Bounded)}的, 若其同时拥有上, 下界. 
-
-				注意: 上/下界不唯一, 且上/下界不一定在该子集内. 
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {全序集/线序集}
-			    [Linearly Ordered Set]
-			    []
-				设偏序结构 \((S,\leq)\), 则若任意两个元素 \(a,b\in S\) 都满足 \(a\leq b\) 或 \(b\leq a\), 则称 \((S,\leq)\) 为\textbf{全序集 (Total Order Set)}或\textbf{线序集 (Linearly Ordered Set)}. 
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {上/下确界}
-			    [Supremum/Infimum]
-			    []
-				设全序结构 \((S,\leq)\), 子集 \(X\subseteq S\), 则: 
-				
-				(1) 集合 \(X\) 最小的上界 \(a\) 称为是 \(X\) 的一个\textbf{上确界  (Supremum)}, 记为 \(a=\sup(X)\): 
-				\[a=\sup(X)\iff\forall a'(a' \text{是} S\text{ 的上界}), a\leq a'\]
-				
-				(2) 集合 \(X\) 最大的下界 \(b\) 称为是 \(X\) 的一个\textbf{下确界  (Infimum)}, 记为 \(a=\inf(X)\): 
-				\[b=\inf(X)\iff\forall b'(b' \text{是} S\text{ 的下界}), b\geq b'\]
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {完备偏序}
-			    [Complete Partial Order]
-			    []
-				序结构 \((S,\leq)\) 被称为是\textbf{完备 (Complete)}的, 若 \(S\) 的任何有上/下界的子集有上/下确界: 
-				\[\forall X\subseteq S(X\text{ 有上界}), \exists a=\sup(X)\in S\]
-				\[\forall X\subseteq S(X\text{ 有下界}), \exists b=\inf(X)\in S\]
-			\end{dfn}
-			
-		\subsection{完备度量空间结构}
-
-			\begin{dfn}
-			    []
-			    {度量空间 / 距离空间}
-			    [Metric Space]
-			    []
-				设 \(S\) 为一个集合, \(P\) 是一个有序加法群, 函数 \(d:S^2\to P\) 称为是 \(S\) 上的一个\textbf{度量 (Metric)/距离 (Distance)}, 若 \(d\) 满足: 
-
-				(1)\[d(x,y)=0\iff x=y\]
-
-				(2)交换性: 
-				\[\forall x,y\in S, d(x,y)=d(y,x)\]
-
-				(3)三角不等式: 
-				\[\forall x,y,z\in S, d(x,y)+d(y,z)\geq d(x,z)\]
-
-				此时称结构 \((S,d)\) 为一个\textbf{度量空间/距离空间(Metric Space)}. 
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {Cauchy 列 / 收敛点列}
-			    [Cauchy Sequence / Convergent Sequence]
-			    []
-				度量空间 \((S,d)\) 中的点列称为是\textbf{收敛 (Convergent)}的, 或\textbf{Cauchy} 的, 若在充分远处任意两项的距离足够小: 
-				\[\forall\varepsilon\in P^+, \exists N\in\N, \forall n_1,n_2>N, d(x_{n_1},x_{n_2})<\varepsilon\]
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {开球 }
-			    [Open Ball]
-			    []
-				度量空间 \((S,d)\) 上一个以 \(x_0\in S\) 为中心, \(r\in P\) 为半径的开球定义为以下集合: 
-				\[\Ball{x_0}{r}:=\{x|d(x,x_0)<r\}\]
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {点列极限}
-			    [Limit of a Sequence]
-			    []
-				称度量空间 \((S,d)\) 中的点列 \(\{x_n\}\) 拥有\textbf{极限 (Limit)} \(a\), 若点列在充分远处可以被控制在以某点为中心的开球之内: 
-				\[\exists a\in P, \forall\varepsilon\in P^+, \exists N\in\N, \forall n>N, a_n\in\Ball{a}{\varepsilon}\]
-				
-				记作: 
-				\[\lim_{n\to+\infty}x_n=a\]
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {完备度量空间 (Complete Metric Space)/Banach 空间 }
-			    [Banach Space]
-			    []
-			{}
-			{Banach}
-			{}
-			{}
-				内容: 
-				\[\forall\{x_n\}:\N\to S(\{x_n\}\text{是 Cauchy 列}), \exists a\in S, \lim_{n\to+\infty}x_n=a\]
-			\end{dfn}
-			
-		\subsection{度量诱导的拓扑结构}
-
-			\begin{dfn}
-			    []
-			    {拓扑空间 }
-			    [Topological Space]
-			    []
-				见拓扑学. 
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {度量诱导的拓扑}
-			    []
-			    []
-				在度量空间 \((S,d)\) 中, \(S\) 的子集 \(X\in\PP(S)\) 被认为是开集当且仅当 \(X\) 中任何点都拥有一个包含于 \(X\) 的开球: 
-				\[\T:=\{X\in\PP(S)|\forall x\in X, \exists\delta\in P^+, \Ball{x}{\delta}\subseteq X\}\]
-
-				此时称拓扑 \(\T\) 为由度量 \(d\) 诱导的拓扑. 
-			\end{dfn}
-			
-			\begin{dfn}
-			    []
-			    {邻域 }
-			    [Neighbourhood]
-			    []
-				在拓扑空间 \((S,\T)\) 中: 
-
-				子集 \(X\subseteq S\) 称为是点 \(x\in X\) 的一个\textbf{邻域 (Neighbourhood)}, 记为 \(U(x)\), 若它有包含 \(x\) 的开子集: 
-				\[\exists O\in\T, x\in O\subseteq X\]
-
-				\(x\) 的一个\textbf{去心邻域 (Deleted Neighbourhood)}是除去 \(x\) 自身之后的子集, 记作 \(\U(x)\): 
-				\[\U(x)=U(x)-\{x\}\]
-
-				任何包含 \(x\) 的开集是 \(x\) 的一个\textbf{开邻域 (Open Neighbourhood)}. 由于 \(x\) 的任何邻域总有一个开邻域子集, 方便起见, 我们默认以后提到的邻域总是开邻域: 
-				\[X=U(x)\iff x\in X, X\in\T\]
-			\end{dfn}
-
-			
-
-		\subsection{实数公理}
-
-			\begin{axm}
-			    []
-			    {实数公理}
-			    []
-			    []
-				下述结构被认为是\textbf{实数结构 (Real Number Structure)}, 记作 \(\R\): 
-
-				(1) 序结构: \(\R\) 应具有完备全序结构: 
-
-					\(\qquad\) (1.1) 偏序性
-
-					\(\qquad\) (1.2) 全序性
-
-					\(\qquad\) (1.3) 完备性
-
-				(2) 代数结构: \(\R\) 应具有域结构: 
-
-					\(\qquad\) (2.1) 加法交换群
-
-					\(\qquad\) (2.2) 乘法交换群
-
-					\(\qquad\) (2.3) 加法与乘法的兼容性 (分配律)
-
-					\(\qquad\) (2.4) 加法与偏序关系的兼容性
-
-					\(\qquad\) (2.5) 乘法与偏序关系的兼容性
-
-				(3) 拓扑结构: \(\R\) 应具有由完备度量空间诱导的拓扑结构: 
-
-					\(\qquad\) (3.1) 基于序关系建立的度量空间
-
-					\(\qquad\) (3.2) 度量与代数运算的兼容性
-
-					\(\qquad\) (3.3) 度量完备性
-
-					\(\qquad\) (3.4) 度量诱导的拓扑空间
-			\end{axm}
 
 	\section{实数构造}
-
-		ZFC集合论下的公理体系不仅要求我们对数学概念给出定义, 还必须给出相应概念在公理规定的数学操作下的构造. 本章我们仅在有理数集构造的前提下给出实数集在不同视角下的数种构造方式. 
 
 		\subsection{序视角下的实数}
 
@@ -647,7 +423,7 @@
 			
 			\begin{dfn}
 			    []
-			    {数列极限 }
+			    {数列极限}
 			    [Limit of a Sequence]
 			    []
 				一个实数序列 \(\{a_n\}\) 称为是\textbf{收敛(Converge)}的, 若: 
@@ -665,7 +441,6 @@
 			    {收敛数列的极限唯一}
 			    []
 			    []
-                
 				\[\lim_{n\to+\infty}a_n=a, \lim_{n\to+\infty}a_n=a'\Longrightarrow a=a'\]
 			\end{ppt}
 			
@@ -752,9 +527,8 @@
 			\begin{thm}
 				单调有界数列收敛. 
 			\end{thm}
-
-			证明: 
-			
+				
+			\begin{prf}
 				We prove the special case where \(a_n\) is monotonically increasing and bounded above, and we can prove the rest of the cases in the same way. 
 
 				We prove the proposition by contradiction. 
@@ -768,6 +542,7 @@
 				This is because \(a_n<\sup\{a_n\}\), so that if any term of \(\{a_n\}\) falls inside the \(\varepsilon\)-neighbourhood of \(\sup\{a_n\}\), all subsequent terms will also fall inside that neighbourhood due to the monotonicity of \(\{a_n\}\), which contradicts with the conclusion above. 
 		
 				So that we have found another upper bound \(\sup\{a_n\}-\varepsilon\) for \(\{a_n\}\) that is smaller than \(\sup\{a_n\}\), contradition. \(\square\)
+			\end{prf}
 			
 			\begin{thm}
 			    []
@@ -777,11 +552,12 @@
 				有界数列有收敛子列. 
 			\end{thm}
 			
-			证明: 
-				
+			
+			\begin{prf}
 				设 \(\{a_n\}\) 是任意有界数列, \(m:=\inf(a_n),n:=\sup(a_n)\). 
 				
 				构造 \(a_n\) 的两个子列: \[\{a_{1,n}\},\{a_{2,n}\}: a_{1,n}\in[m,\frac{m+n}{2}],a_{2,n}\in[\frac{m+n}{2},n]\]
+			\end{prf}
 
 			\begin{thm}
 			    []
@@ -797,7 +573,7 @@
 			
 			\begin{thm}
 			    []
-			    {Borel–Lebesgue原理/Heine-Borel有限开覆盖定理}
+			    {Borel-Lebesgue原理/Heine-Borel有限开覆盖定理}
 			    []
 			    []
 				称一个集族 \(S=\{X_i|i\in I\}\) \textbf{覆盖}集合 \(Y\), 若 \(Y\subseteq\bigcup\limits_{i\in I}X_i\). 
@@ -815,7 +591,7 @@
 			    {}
 			    []
 			    []
-				对于给定的点 \(P\) 和点集 \(S\) \textbf{聚点(Accumulation Point)},若其满足：
+				对于给定的点 \(P\) 和点集 \(S\) \textbf{聚点(Accumulation Point)},若其满足: 
 				
 				\[\forall\varepsilon, \exists\{x_n\}, \forall i\in \mathbb{N^*}, x_i\in \mathbb{S}, x_i\in U_{\varepsilon}(\dot{P})\]
 
@@ -834,13 +610,9 @@
 
 			\begin{dfn}
 			    []
-			    {}
+			    {上 / 下极限}
+			    [Upper / Lower Limit]
 			    []
-			    []
-			{}
-			{下极限(Lower Limit)/上极限}
-			{Upper Limit}
-			{}
 			\end{dfn}
 
 			\begin{ppt}
@@ -961,34 +733,36 @@
 
 				\[\lim_{n\to+\infty}\frac{S_n}{T_n}=\lim_{n\to+\infty}\frac{a_n}{b_n}\]
 			\end{thm}
-
-			证明( \(\dfrac{*}{\infty}\) 型): 
 			
-				由极限定义：
-				\[\lim_{n\to+\infty}\frac{a_n}{b_n}=k\iff\forall\varepsilon\in\R^+, \exists N\in\N(\forall n>N, \frac{a_n}{b_n}\in(k-\varepsilon,k+\varepsilon))\]
-				\[\overset{n>N}{\Longrightarrow}a_n\in((k-\varepsilon)b_n,(k+\varepsilon)b_n)\]
-
-				\[\sum_{i=1}^N a_i:=A_N,\sum_{i=1}^N b_i:=B_N\]
-				\[S_n:=\sum_{i=1}^n a_i=\sum_{i=1}^N a_i+\sum_{i=N+1}^n a_i\]
-				\[\Longrightarrow S_n\in\left(A_N+(k-\varepsilon)\sum_{n=N+1}^n b_n,A_N+(k+\varepsilon)\sum_{n=N+1}^n b_n\right)\]
-				\[\iff S_n\in(A_N+(k-\varepsilon)(T_n-B_N),A_N+(k+\varepsilon)(T_n-B_N))\]
-
-				\[\overset{T_n>0}{\Longrightarrow}\frac{S_n}{T_n}\in\left(\frac{A_N-(k-\varepsilon)B_N}{T_n}+(k-\varepsilon),\frac{A_N-(k+\varepsilon)B_N}{T_n}+(k+\varepsilon)\right)\]
-				取 \(N'\) 使\(T_n>2B_N\)
-				\[\therefore\frac{S_n}{T_n}\in\left(k-2\varepsilon,k+2\varepsilon\right)\]
-
-			证明( \(\dfrac{0}{0}\) 型)：
-
-				易证, \(\frac{a_1}{b_1}\leq\frac{a_2}{b_2}\) 且 \(b_1,\ b_2>0\) 时, 不等式 \(\frac{a_1}{b_1}\leq\frac{a_1+a_2}{b_1+b_2}\leq\frac{a_2}{b_2}\) 恒成立.
+			\begin{prf}
+				证明( \(\dfrac{*}{\infty}\) 型): 
 				
-				由定义
-				\[\lim_{n\to+\infty}\frac{a_n}{b_n}=k\iff\forall\varepsilon\in\R^+, \exists N\in\N(\forall n>N, \frac{a_n}{b_n}\in(k-\varepsilon,k+\varepsilon))\]
-				归纳得, 当 \(b_i>0,i\in\Z\) 时
-				\[\frac{S_n-S_N}{T_n-T_N}\in\left(k-\varepsilon,k+\varepsilon\right), N<n\]
-				
-				由 \(\lim\limits_{n\to+\infty}T_n\lim\limits_{n\to+\infty}S_n=0\),再令N足够大
-
-				既证
+					由极限定义: 
+					\[\lim_{n\to+\infty}\frac{a_n}{b_n}=k\iff\forall\varepsilon\in\R^+, \exists N\in\N(\forall n>N, \frac{a_n}{b_n}\in(k-\varepsilon,k+\varepsilon))\]
+					\[\overset{n>N}{\Longrightarrow}a_n\in((k-\varepsilon)b_n,(k+\varepsilon)b_n)\]
+	
+					\[\sum_{i=1}^N a_i:=A_N,\sum_{i=1}^N b_i:=B_N\]
+					\[S_n:=\sum_{i=1}^n a_i=\sum_{i=1}^N a_i+\sum_{i=N+1}^n a_i\]
+					\[\Longrightarrow S_n\in\left(A_N+(k-\varepsilon)\sum_{n=N+1}^n b_n,A_N+(k+\varepsilon)\sum_{n=N+1}^n b_n\right)\]
+					\[\iff S_n\in(A_N+(k-\varepsilon)(T_n-B_N),A_N+(k+\varepsilon)(T_n-B_N))\]
+	
+					\[\overset{T_n>0}{\Longrightarrow}\frac{S_n}{T_n}\in\left(\frac{A_N-(k-\varepsilon)B_N}{T_n}+(k-\varepsilon),\frac{A_N-(k+\varepsilon)B_N}{T_n}+(k+\varepsilon)\right)\]
+					取 \(N'\) 使\(T_n>2B_N\)
+					\[\therefore\frac{S_n}{T_n}\in\left(k-2\varepsilon,k+2\varepsilon\right)\]
+	
+				证明( \(\dfrac{0}{0}\) 型): 
+	
+					易证, \(\frac{a_1}{b_1}\leq\frac{a_2}{b_2}\) 且 \(b_1,\ b_2>0\) 时, 不等式 \(\frac{a_1}{b_1}\leq\frac{a_1+a_2}{b_1+b_2}\leq\frac{a_2}{b_2}\) 恒成立.
+					
+					由定义
+					\[\lim_{n\to+\infty}\frac{a_n}{b_n}=k\iff\forall\varepsilon\in\R^+, \exists N\in\N(\forall n>N, \frac{a_n}{b_n}\in(k-\varepsilon,k+\varepsilon))\]
+					归纳得, 当 \(b_i>0,i\in\Z\) 时
+					\[\frac{S_n-S_N}{T_n-T_N}\in\left(k-\varepsilon,k+\varepsilon\right), N<n\]
+					
+					由 \(\lim\limits_{n\to+\infty}T_n\lim\limits_{n\to+\infty}S_n=0\),再令N足够大
+	
+					既证
+			\end{prf}
 
 			\iffalse
 			
@@ -1151,7 +925,7 @@
 				为该级数的 \(n\) 次\textbf{部分和 (Partial Sum)}. 
 				称级数\textbf{收敛 (Converge)}, 若其部分和数列收敛; 否则称其\textbf{发散 (Diverge)}. 
 				
-				若级数收敛, 其值定义为： 
+				若级数收敛, 其值定义为:  
 				\[\sum_{n=1}^{+\infty}a_n:=\lim_{n\to+\infty}S_n=\lim_{n\to+\infty}\sum_{i=1}^n a_i\]
 
 				级数与 \(n\) 次部分和之差称为其 \(n\) 次\textbf{余和 (Remainder)}, 记作 \(r_n:=\sum\limits_{n=1}^{+\infty}a_n-S_n\). 
@@ -1586,7 +1360,7 @@
 				
 				又 \(\lim\limits_{n\to+\infty}f(x_n)\neq a\), 与 \(\forall\{x_n\}: \lim\limits_{n\to+\infty} x_n=x_0,\lim\limits_{n\to+\infty} f(x_n)=a\) 矛盾. \(\square\)
 				\end{prf}
-                由Henie定理, 可以立得等价于数列极限性质的函数极限性质：
+                由Henie定理, 可以立得等价于数列极限性质的函数极限性质: 
     
 			\begin{ppt}
 			    []
@@ -1628,7 +1402,7 @@
 			\end{ppt}
    
 			\begin{prf}
-				证：设 \(\displaystyle\lim_{x\rightarrow x_0}f(x)=A , \displaystyle\lim_{x\rightarrow x_0}g(x)=B\) , 则对 \(\forall\varepsilon>0\) , 分别\(\exists \ \delta_1 , \delta_2 >0 \ s.t.\) \\
+				证: 设 \(\displaystyle\lim_{x\rightarrow x_0}f(x)=A , \displaystyle\lim_{x\rightarrow x_0}g(x)=B\) , 则对 \(\forall\varepsilon>0\) , 分别\(\exists \ \delta_1 , \delta_2 >0 \ s.t.\) \\
 				当 \(0<|x-x_0|<\delta_1\) 时有 \(A-\varepsilon<f(x),\)当 \(0<|x-x_0|<\delta_2\) 时有 \(g(x)<B+\varepsilon.\)\\
 				因此, 令 \(\delta=\min\{\delta^\prime,\delta_1,\delta_2\}\) , 则当 
 				\(0<|x-x_0|<\delta\) 时, 不等式 
@@ -1667,7 +1441,7 @@
 				\end{cases}\]
 			\end{ppt}
                 
-			当然, 我们也可以得到函数极限形式的Cauchy收敛定理：
+			当然, 我们也可以得到函数极限形式的Cauchy收敛定理: 
        
             \begin{thm}
 			    []
@@ -1711,9 +1485,9 @@
 			    []
 				设 \(\lim\limits_{x \to x_0} f(x) = l\), \(\lim\limits_{t \to t_0} g(t) = x_0\). 如果在 \(t_0\) 的某个邻域 \(\U(t_0)\) 内 \(g(t) \neq x_0\), 则
 
-				 $$
+				 \[
 				\lim\limits_{t \to t_0} f(g(t)) = l.
-				$$ 
+				\] 
 			\end{thm}
    
 		\subsection{函数的连续性}
@@ -1803,27 +1577,27 @@
 
 
                  \[x_0 := \sup\{x \in [a, b] \mid f(x) < y\} := \sup S,\] 
-                 $$
+                 \[
                 \lim\limits_{\delta \to 0} f(a + \delta) = f(a) < y \Rightarrow \text{If}  0 << \delta < 1, f(a + \delta) < y.
-                $$ 
+                \] 
 
                 又 \(f\) 严格递增 \(\Rightarrow x \in\cointerval{a}{a+\delta}\) 时,  \(f(x) < f(a+\delta) < y\) ,  \(\therefore x_0 \geq a + \delta\) , 
 
-                 $
+                 \(
                 \therefore x_0 > a, \text{同理 }\  x_0 < b, \therefore x_0 \in (a, b), \ \text{此时 }\  \forall x \in (a, x_0), f(x) < y,
-                $
+                \)
 
                 \(\forall x \in (x_0, b)\),  \(f(x) > y \Rightarrow \lim\limits_{x \to x_0^-} f(x) \leq y \leq \lim\limits_{x \to x_0^+} f(x)\) , 又 \(\lim\limits_{x \to x_0} f(x) = f(x_0)\), 
 
-                $$
+                \[
                 \therefore f(x_0) = y. \quad \square
-                $$ 
+                \] 
 
                 下证 \(f^{-1}(y) \in C[\alpha, \beta] \Leftrightarrow \forall y_0 \in [\alpha, \beta], \forall \varepsilon > 0, \exists \delta > 0 \text{ s.t. } 0 < |y - y_0| < \delta \text{ 时},\)
 
 
-                 $$
-                |f^{-1}(y) - f^{-1}(y_0)| < \varepsilon. $$ 
+                 \[
+                |f^{-1}(y) - f^{-1}(y_0)| < \varepsilon. \] 
 
                 \(\text{记 }\  x_0 = f^{-1}(y_0), x = f^{-1}(y), y \in (\alpha, \beta),
                 \)
@@ -1837,9 +1611,9 @@
  
                 \(\text{取 }\  \delta = \min\{\delta_1, \delta_2\}, \text{当 }\  |y - y_0| < \delta \text{ 时},\)
                 \[f(x_0 - \varepsilon) = y_0 - \delta_1 \leq y_0 - \delta < y < y_0 + \delta \leq y_0 + \delta_1 = f(x_0 + \varepsilon),\]
-                 $
+                 \(
                 \text{又 }\  x = f^{-1}(y) \text{严格递增},\  \therefore x_0 - \xi < f^{-1}(y) < x_0 + \xi, \text{即}\  |f^{-1}(y) - x_0| < \xi. \quad \square
-                $ 
+                \) 
 			\end{prf}
 
 			\begin{thm}
@@ -2214,7 +1988,7 @@
 			\end{thm}
 			
 			\begin{prf}
-				 (自然语言) 这里我们不使用归纳法证明, 而是探讨其组合意义及与二项式定理的关系：
+				 (自然语言) 这里我们不使用归纳法证明, 而是探讨其组合意义及与二项式定理的关系: 
 
 				我们知道,  \(u^{(1)} v\) 可以由 \(uv\) 求一次导得到, 而 \(u^{(2)} v\) 可以由 \(u^{(1)} v\) 再求一次导得到; 
 
@@ -2253,7 +2027,7 @@
 			\end{thm}
 
 			\begin{prf}
-				 (数学归纳法)  \(n=2\) 时由定义成立; 设 \(n=k \geq 2\) 时命题成立, 下证 \(n = k+1\) 时命题也成立：\\设 \(x_1, x_2, \cdots, x_{k+1} \in I, \lambda_1, \lambda_2, \cdots, \lambda_{k+1} > 0\) , 且
+				 (数学归纳法)  \(n=2\) 时由定义成立; 设 \(n=k \geq 2\) 时命题成立, 下证 \(n = k+1\) 时命题也成立: \\设 \(x_1, x_2, \cdots, x_{k+1} \in I, \lambda_1, \lambda_2, \cdots, \lambda_{k+1} > 0\) , 且
 				\[\lambda_1 + \lambda_2 + \cdots + \lambda_{k+1} = 1.\]令
 				\[\mu_i = \frac{\lambda_i}{1 - \lambda_{k+1}} \quad (i = 1, 2, \cdots, k).\]
 				易见 \(\mu_i > 0 \, (i = 1, 2, \cdots, k)\) 且 \(\mu_1 + \mu_2 + \cdots + \mu_k = 1\). 这时还有
@@ -2272,7 +2046,7 @@
 			    {}
 			    []
 			    []
-				切线判别法：
+				切线判别法: 
 
 				函数  \( f \)  在区间  \( I \)  上是凸函数, 当且仅当对任何  \( (x_1, x_2) \subset I \)  及任何  \( x \in (x_1, x_2) \) , 有
 				\[\frac{f(x) - f(x_1)}{x - x_1} \leq \frac{f(x_2) - f(x_1)}{x_2 - x_1} \leq \frac{f(x_2) - f(x)}{x_2 - x}. \quad\] 
@@ -2284,7 +2058,7 @@
 			    {}
 			    []
 			    []
-			导数判别法：
+			导数判别法: 
 
 			设函数  \( f \)  在  \([a, b]\)  上连续, 在  \((a, b)\)  上二阶可导, \\
 			则  \( f \)  在  \([a, b]\)  上为凸函数 \(\Longleftrightarrow\) \( f'' \geq 0 \)  在  \((a, b)\)  上成立; 
@@ -2305,7 +2079,7 @@
                 \end{cases}
                 \]
                 则\(f\) 在 \((-\infty, +\infty)\) 上严格递增.
-                特别地：
+                特别地: 
                 \[
                 \lim_{x \to +\infty} \left( \frac{a_1^x + a_2^x + \cdots + a_n^x}{n} \right)^{\frac{1}{x}} = \max\{a_1, a_2, \cdots, a_n\},
                 \]
@@ -2436,7 +2210,7 @@
 			    {Darboux中值定理}
 			    []
 			    []
-				若函数 \(f\) 在 \([a,b]\) 上可导, 则有：
+				若函数 \(f\) 在 \([a,b]\) 上可导, 则有: 
 
 				(1) \(f'\) 可取到 \(f'(a)\) 到 \(f'(b)\) 间的任意值
 
@@ -2451,14 +2225,14 @@
 
 				\[\because f'(a)=\lim\limits_{x\to a^+}\frac{f(x)-f(a)}{x-a}>0\]
 
-				由极限保号性：
+				由极限保号性: 
 				\[\therefore \exists\delta>0,x\in(a,a+\delta),\frac{f(x)-f(a)}{x-a}>0\]
 
 				即 \(f(a)\) 不为最大值, 同理,  \(f(b)\) 不为最大值
 
 				再由确界存在定理, 因 \(f\) 在 \([a,b]\) 连续,  \(f\) 必有最大最小值
 
-				由Fermat引理即证：
+				由Fermat引理即证: 
 				\[exists\xi\in(a,b),f(\xi)=0\]
 
 				取 \(g=f-\gamma,\gamma\in(\min\{f'(a),f'(b)\},\max\{f'(a),f'(b)\})\),可证\(\square\)
@@ -2587,7 +2361,7 @@
 				
 				用数学归纳法,  (1) \(n=1\) 时, \(\lim_{x\to x_0}\frac{R_{n,x_0}(x)}{(x-x_0)^n}=0\) 显然成立
 
-				(2)若 \(n=k\) 时成立, 则 \(n=k+1\) 时也成立, 证明如下：\\
+				(2)若 \(n=k\) 时成立, 则 \(n=k+1\) 时也成立, 证明如下: \\
 				由L'Hospital法则, \(T_{k+1}'(f,x_0;x)=T_k(f',x_0;x)\)得到
 				\[\lim_{x\to x_0}\frac{f(x)-T_{k+1}(f,x_0;x)}{(x-x_0)^{k+1}}=\frac{1}{k+1}\lim_{x\to x_0}\frac{f'(x)-T_k(f',x_0;x)}{(x-x_0)^k}=0\]
 
@@ -4093,7 +3867,7 @@
 				代回定义式, 
 				\[\forall\varphi\in\{1,\cos nx,\sin nx\}_{n\geq 1},\int_{-\pi}^{\pi}\mathcal{F}[f]\varphi\text{d}x=\int_{-\pi}^{\pi}f\varphi\text{d}x\]
 
-				得：
+				得: 
 				\[\begin{cases}
 					\begin{aligned}
 						a_n&=\frac{1}{\pi}\int_{-\pi}^{\pi}f\cos nx\text{d}x \\
@@ -4140,7 +3914,7 @@
 
 				对于 \(\forall n\), 对区间 \([a,b]\) 做 \(k\) 等分, 令 \(k=\sqrt{n}\) (事实上, 只需赋值的次数小于1),  \(\{x_0,x_1,\cdots,\x_k\}\) \(k\)等分点, 记\(\Delta x=\frac{b-a}{k}\)
 				
-				由正常可积, 则有：
+				由正常可积, 则有: 
 				\[\forall \varepsilon,\exists k, \sum_{i=1}^{k}w_i\delta x<\frac{\varepsilon}{2}\eqno{(2)}\]
 				其中,  \(w_i\) 为 \(f\) 在 \([x_{i-1},x_i]\) 上的振幅
 
@@ -4155,10 +3929,10 @@
 					{}&=\sum_{i=1}^{k}\int_{x_{i-1}}^{x_i}(f(x)-f(x_{i-1}))\cos nx\text{d}x-f(x_{i-1})\sum_{i=1}^{k}\int_{x_{i-1}}^{x_i}\cos nx\text{d}x\\
 					\text{由(1)式确定的}k, \text{对第一项代入}{}&\text{(1)式, 再对第二项代入(1)式(2)式得:}\\
 					{}&=\sum_{i=1}^{k}w_i\delta x-\frac{2kM}{n}\\
-					\text{再取}n>\frac{4M}{\varepsilon}\text{, 得：}\\
+					\text{再取}n>\frac{4M}{\varepsilon}\text{, 得: }\\
 					\text{原式}{}&<\varepsilon
 				\end{aligned}\]
-				综上,  \(f\) 在 \(D\) 上正常可积时：
+				综上,  \(f\) 在 \(D\) 上正常可积时: 
 				\[\lim_{n\to+\infty}\int_{a}^{b}f(x)\cos nx\text{d}x=0\]
 				\\
 				再设 \(f\) 在 \([a,b]\) 上反常绝对可积.不妨设 \(b\) 是 \(f\) 唯一的瑕点.那么对任意的 \(\varepsilon>0\),存在 \(\eta>0\),使得
@@ -4312,7 +4086,7 @@
 				\[\frac{\varphi(t)}{t}=\frac{f(x_0+t)-f(x_0+0)}{t}+\frac{f(x_0-t)-f(x_0-0)}{t}\]
 				因为 \(f\) 在 \(x_0\) 附近满足 \(\alpha\) 阶Lipschitz条件,所以
 				\[\bigg\vert\frac{\varphi(t)}{t}\bigg\vert\leqslant \frac{2L}{t^\alpha}\quad(0<t\leqslant\delta)\]
-				因此 \(\alpha=1\) 时,  \(\varphi(t)/t\) 在 \([0,\delta]\) 有界,  \(\alpha>1\) 时,  \(\varphi(t)/t\) 在 \([0,\delta]\) 上绝对可积,从而Dini判别法的条件成立, 得：
+				因此 \(\alpha=1\) 时,  \(\varphi(t)/t\) 在 \([0,\delta]\) 有界,  \(\alpha>1\) 时,  \(\varphi(t)/t\) 在 \([0,\delta]\) 上绝对可积,从而Dini判别法的条件成立, 得: 
 				\[\mathcal{F}[f](x_0)=\frac{\lim\limits_{x\to x_0+}f(x)+\lim\limits_{x\to x_0-}f(x)}{2}\]
 			\end{prf}
 
@@ -4346,7 +4120,7 @@
 				\[\frac{\varphi(t)}{t}=\frac{f(x_0+t)-f(x_0+0)}{t}+\frac{f(x_0-t)-f(x_0-0)}{t}\]
 				因为 \(f\) 在 \(x_0\) 附近满足1阶Lipschitz条件,所以
 				\[\bigg\vert\frac{\varphi(t)}{t}\bigg\vert\leqslant 2L\quad(0<t\leqslant\delta)\]
-				因此 \(\varphi(t)/t\) 在 \([0,\delta]\) 上绝对可积,从而Dini判别法的条件成立, 得：
+				因此 \(\varphi(t)/t\) 在 \([0,\delta]\) 上绝对可积,从而Dini判别法的条件成立, 得: 
 				\[\mathcal{F}[f](x_0)=\frac{\lim\limits_{x\to x_0+}f(x)+\lim\limits_{x\to x_0-}f(x)}{2}\]
 			\end{prf}
 
@@ -4364,13 +4138,13 @@
 			    []
 			    []
 
-				即对定义在\((0,\pi)\)上的函数\(f\)，利用公式\(f(x)=-f(x)\)来补充\((-\pi,0)\)上的定义。这时，\(f\)是\((-\pi,\pi)\)上的奇函数，有：
+				即对定义在\((0,\pi)\)上的函数\(f\), 利用公式\(f(x)=-f(x)\)来补充\((-\pi,0)\)上的定义. 这时, \(f\)是\((-\pi,\pi)\)上的奇函数, 有: 
 				\[\begin{aligned}
 					a_n&=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos nx\text{d}x=0\\
 					b_n&=\frac{2}{\pi}\int_{0}^{\pi}f(x)\sin nx\text{d}x
 				\end{aligned}\]
 
-				\textbf{偶性延拓}同理。
+				\textbf{偶性延拓}同理. 
 			\end{dfn}
 
 		\subsection{Cesaro 和}
@@ -4432,10 +4206,10 @@
                     [Inner Product]
                     []
 
-				对任意的\(f,g\in \mathbf{R}^2[a,b]\)，我们称积分
+				对任意的\(f,g\in \mathbf{R}^2[a,b]\), 我们称积分
 				\[\langle f,g \rangle=\int_{a}^{b}f(x)g(x)\text{d}x\]
 
-				为\(f\)与\(g\)的\textbf{内积}。内积有以下性质：
+				为\(f\)与\(g\)的\textbf{内积}. 内积有以下性质: 
 				\begin{enumerate}
 					\item \(\langle f,g \rangle=\langle g,f \rangle\)
 					\item \(\langle f,g+h \rangle=\langle f,g \rangle+\langle f,h \rangle\)
@@ -4473,7 +4247,7 @@
 			    {}
 			    []
 			    []
-				对于一个三角级数，存在一个唯一的可积且绝对可积的函数\(f\)使其 Fourier 系数\(\{c_n\}\)为该三角级数(在标准正交系下)的系数，当且仅当 \(\sum_{k=0}^{n}c_k^2<+\infty\)
+				对于一个三角级数, 存在一个唯一的可积且绝对可积的函数\(f\)使其 Fourier 系数\(\{c_n\}\)为该三角级数(在标准正交系下)的系数, 当且仅当 \(\sum_{k=0}^{n}c_k^2<+\infty\)
 			\end{crl}
 
     \section{\(\R^n\) 上的函数}

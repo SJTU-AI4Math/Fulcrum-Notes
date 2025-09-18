@@ -754,6 +754,78 @@
                 \item \(\forall x \in A \)，\( (F \circ G)(x) = F(G(x)) \)。
             \end{enumerate}
         \end{thm}
+
+    \section{序理论}
+        \subsection{完备偏序结构}
+
+			广义的序结构包含了更加普适的抽象的理论框架, 在数学分析中我们仅使用最为基本, 直观的部分: 
+			
+			\begin{dfn}
+			    []
+			    {偏序关系}
+			    [Partial Order]
+			    []
+				设 \(S\) 是一个集合, \(\leq\) 是 \(S\) 上的一个二元关系, 则称 \(\leq\) 为 \(S\) 上的一个\textbf{偏序关系 (Partial Order)}, 若它满足: 
+
+				(1) 反身性:
+				\[\forall a\in S, a\leq a\]
+
+				(2) 反对称性:
+				\[\forall a,b\in S, a\leq b\land b\leq a \implies a=b\]
+
+				(3) 传递性:
+				\[\forall a,b,c\in S, a\leq b\land b\leq c \implies a\leq c\]
+			\end{dfn}
+		
+			\begin{dfn}
+			    []
+			    {有界集}
+			    [Bounded Set]
+			    []
+				设偏序结构 \((S,\leq)\), 子集 \(X\subseteq S\), 则: 
+				
+				(1) 称元素 \(a\in S\) 为 \(X\)的一个\textbf{上界 (Upper Bound)}, 若: 
+				\[\forall x\in S, x\leq a\]
+				
+				(2) 称元素 \(b\in S\) 为 \(X\)的一个\textbf{下界 (Lower Bound)}, 若
+				\[\forall x\in S, b\leq x\]
+				
+				子集 \(X\subseteq S\) 称为是\textbf{有界(Bounded)}的, 若其同时拥有上, 下界. 
+
+				注意: 上/下界不唯一, 且上/下界不一定在该子集内. 
+			\end{dfn}
+			
+			\begin{dfn}
+			    []
+			    {全序集/线序集}
+			    [Linearly Ordered Set]
+			    []
+				设偏序结构 \((S,\leq)\), 则若任意两个元素 \(a,b\in S\) 都满足 \(a\leq b\) 或 \(b\leq a\), 则称 \((S,\leq)\) 为\textbf{全序集 (Total Order Set)}或\textbf{线序集 (Linearly Ordered Set)}. 
+			\end{dfn}
+			
+			\begin{dfn}
+			    []
+			    {上/下确界}
+			    [Supremum/Infimum]
+			    []
+				设全序结构 \((S,\leq)\), 子集 \(X\subseteq S\), 则: 
+				
+				(1) 集合 \(X\) 最小的上界 \(a\) 称为是 \(X\) 的一个\textbf{上确界  (Supremum)}, 记为 \(a=\sup(X)\): 
+				\[a=\sup(X)\iff\forall a'(a' \text{是} S\text{ 的上界}), a\leq a'\]
+				
+				(2) 集合 \(X\) 最大的下界 \(b\) 称为是 \(X\) 的一个\textbf{下确界  (Infimum)}, 记为 \(a=\inf(X)\): 
+				\[b=\inf(X)\iff\forall b'(b' \text{是} S\text{ 的下界}), b\geq b'\]
+			\end{dfn}
+			
+			\begin{dfn}
+			    []
+			    {完备偏序}
+			    [Complete Partial Order]
+			    []
+				序结构 \((S,\leq)\) 被称为是\textbf{完备 (Complete)}的, 若 \(S\) 的任何有上/下界的子集有上/下确界: 
+				\[\forall X\subseteq S(X\text{ 有上界}), \exists a=\sup(X)\in S\]
+				\[\forall X\subseteq S(X\text{ 有下界}), \exists b=\inf(X)\in S\]
+			\end{dfn}
     
 
 \end{document}
