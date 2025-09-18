@@ -16,6 +16,9 @@
 \let\oldbigcup\bigcup
 \RenewDocumentCommand{\bigcup}{soo}{\catref[#1]{dfn:BigUnion}{\IfNoValueTF{#3}{\ensuremath{\oldbigcup}}{\ensuremath{\oldbigcup_{#3}}}\oarg{#2}}[\IfNoValueTF{#3}{集合中全体元素之并}{集合中满足谓词的全体元素之并}]}
 
+\let\oldbigcap\bigcap
+\RenewDocumentCommand{\bigcap}{soo}{\catref[#1]{dfn:BigUnion}{\IfNoValueTF{#3}{\ensuremath{\oldbigcap}}{\ensuremath{\oldbigcap_{#3}}}\oarg{#2}}[\IfNoValueTF{#3}{集合中全体元素之并}{集合中满足谓词的全体元素之并}]}
+
 
 \DeclareMathOperator{\Id}{\hyperref[dfn:IdMap]{Id}}                           % Identity
 
