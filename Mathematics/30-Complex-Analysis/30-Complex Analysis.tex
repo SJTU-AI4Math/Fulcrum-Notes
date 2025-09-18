@@ -14,6 +14,7 @@
 
 \usepackage{mathtools}
 \usepackage{esint}
+\usepackage{hyperref}
 
 % 自定义超链接样式
 \newcommand{\hyperrefc}[2]{\hyperref[#1]{\textcolor{purple}{#2}}}
@@ -181,7 +182,13 @@
     {复数的三角表示}
     [Angular Form of Complex Number]
     [Dedicatia]
-    复数$z=a+b\ii$具有极坐标形式$r(\cos\theta+\ii\sin\theta)$, 其中$r>0, \theta\in\R$, 这称之为该复数的三角表示式。其中的$r$称为复数的模长且等于绝对值，$\theta$为该复数的\textbf{辐角(Argument)}，记作$\operatorname{Arg} z$. 通常取$\theta\in[0,2\pi)$中的值为\textbf{辐角的主值(Principal Argument)}，这时可以记作$\arg{z}$.
+    复数$z=a+b\ii$具有极坐标形式$r(\cos\theta+\ii\sin\theta)$, 其中$r>0, \theta\in\R$, 这称之为该复数的三角表示式。其中的$r$称为复数的模长且等于绝对值，$\theta$为该复数的\textbf{辐角(Argument)}，记作$\Arg z$. 通常取$\theta\in[0,2\pi)$中的值为\textbf{辐角的主值(Principal Argument)}，这时可以记作$\arg{z}$.
+\end{dfn}
+\begin{dfn}
+    [Argument]
+    {辐角}
+    [Argument]
+    [Dedicatia]
 \end{dfn}
 \begin{thm}
     [UUID]
@@ -368,7 +375,7 @@
     [Dedicatia]
 \end{ppt}
 \begin{thm}
-    [UUID]
+    [CREq]
     {Cauchy-Riemann方程}
     [Cauchy-Riemann's Equation]
     [Dedicatia]
@@ -1186,16 +1193,28 @@
 \end{dfn}
 其余的几个三角函数$\cot x$, $\sec x$, $\csc x$等都是次要的。都可以通过指数函数来表示。
 \begin{dfn}
-    [UUID]
+    [Multivalued]
+    {多值函数}
+    [Multi-valued Function]
+    [Dedicatia]
+    设定义在$D\subset\C$上的映射$F$将$z\in D$按特定对应关系映射到$\C$中的一个集合，可以又穷话也可以无穷，就称$F$是$D$上的一个多值函数。
+\end{dfn}
+\begin{xmp}
+    {多值函数的实例}
+    []
+    平方根函数$w=(z)^{1/2}$是多值函数：对任意$z\neq 0$, 都有两个$z$使得$z=w^2$. 如$z=i$, $w=\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}\ii$或$-\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}\ii$.
+\end{xmp}
+\begin{dfn}
+    [Logarithmic]
     {对数函数}
     [Logarithmic Function]
     [Dedicatia]
     若$w=x+\ii y$, 那么总可以将其写成三角形式，根据Euler公式可以将其写成$\exp z$的形式。这时就可以用$\ln w$来表示$z$. 也就是
     \[\ln w=\ln|w|+\ii\arg w (w\neq 0)\]
-    值得注意的是，\textbf{这是一个多值函数！}为了和一般的实对数区别，我们记作$\Log z$. 这时的每一组值称为一个\textbf{解析分支}。如果我们取其中的一个分支，规定$\arg w\in[0,2\pi)$, 就可以保证其是单值的，这时可以使用$\ln z$.
+    值得注意的是，\textbf{这是一个\hyperrefc{dfn:Multivalued}{多值函数}! }为了和一般的实对数区别，我们记作$\Log z$. 这时的每一组值称为一个\textbf{解析分支}。如果我们取其中的一个分支，规定$\arg w\in[0,2\pi)$, 就可以保证其是单值的，这时可以使用$\ln z$.
 \end{dfn}
 \begin{dfn}
-    [UUID]
+    [InverseTriangular]
     {反三角函数}
     [Inverse Trigonometric Function]
     [Dedicatia]
@@ -1205,12 +1224,12 @@
     \[\exp\ii z=w\pm\sqrt{w^2-1}\]
     因此得到反余弦函数
     \[z=\arccos w=-\ii\ln(w\pm\sqrt{w^2-1})\]
-    它同样也是多值函数。\\
-    同样可得反正弦函数
+    也有反正弦函数
     \[\arcsin z=\frac{\pi}{2}-\arccos z.\]
+    这些都是\hyperrefc{dfn:Multivalued}{多值函数}。一般用$\operatorname{Arccos}z$, $\operatorname{Arcsin}z$表示。\\
 \end{dfn}
 \begin{dfn}
-    [UUID]
+    [HyperbolicFunction]
     {双曲函数}
     [Hyperbolic Function]
     [Dedicatia]
@@ -1238,7 +1257,7 @@
     [Dedicatia]
     幂函数指所有形如$w=z^\alpha (\alpha\in\C)$的函数。定义为：
     \[z^\alpha = \exp(\alpha \ln z)\]
-    这时，除非$\alpha$是+实数整数，否则幂函数都是多值函数。
+    这时，除非$\alpha$是正的实整数，否则幂函数都是多值函数。
 \end{dfn}
 \begin{dfn}
     [UUID]
@@ -1247,7 +1266,46 @@
     [Dedicatia]
     称指数函数$\exp z$和$\ln z$通过有限次四则运算和有限次复合运算后得到的函数全体为\textbf{初等函数}. 由于这两个函数本身都是解析的，所以所有的初等函数都是\AnalyticalFunction 。
 \end{dfn}
-由此便可以发现复函数的性质：与实数情况不同，所有的初等函数都可以用$\exp z$和$\ln z$表示而无需独立定义。
+由此便可以发现复函数的性质：与实数情况不同，所有的初等函数都可以用$\exp z$和$\ln z$表示而无需独立定义。\\
+通过上面的讨论可以看出，复函数的多值性的根源是复数辐角$\Arg z$的多值性。为了表示这种概念，我们有定义：
+\begin{dfn}
+    {单值解析分支}
+    [Single-valued Analytic Branch]
+    设$F$是区域$D$上的多值函数，若存在一个\AnalyticalFunction $f$使得对任意$z\in D$, $f(z)\in F(z)$, 就称$f$是$F$的一个单值解析分支。
+\end{dfn}
+\begin{dfn}
+    [BranchPoint]
+    {支点}
+    [Branch Point]
+    [Dedicatia]
+    设\( f(z) \)是一个\hyperrefc{dfn:Multivalued}{多值函数}。点 \( z = a \) 称为 \( f(z) \) 的一个支点，如果存在一条围绕 \( a \) 的简单闭合曲线\( C \), 当变量 \( z \) 从某点 \( z_0 \) 出发沿 \( C \) 连续变动一周回到 \( z_0 \) 时，函数值 \( f(z) \) 没有回到它的起始值，而是变成了另一个不同的值。
+\end{dfn}
+\begin{dfn}
+    {代数支点}
+    [Algebraic Branch Point]
+    如果按照上面支点的定义，如果$z$围绕$a$转有限圈可以回到它的初值$z_0$, 就称该类支点为代数支点。
+\end{dfn}
+\begin{dfn}
+    {对数支点}
+    [Logarithmic Branch Point]
+    如果按照上面支点的定义，如果$z$围绕$a$永远无法回到它的初值$z_0$, 就称该类支点为对数支点。
+\end{dfn}
+\begin{ppt}
+    {代数支点的构造方法}
+    设$D$是单连通区域，$f(z)$是$D$上处处不为0的解析函数。那么$\Log f(z)$在$D$上有单值解析分支，即存在$g(z)$使得$\exp g(z)=f(z)$, 那么一个解析函数是$\Log f(z)$的单值解析分支当且仅当其具有$g(z)+2\ii k\pi$的形式，其中$k\in\Z$.
+\end{ppt}
+\begin{ppt}
+    {对数支点的构造方法}
+    设$D$是单连通区域，$f(z)$是$D$上处处不为0的解析函数。那么对任意自然数$n$, $\sqrt[n]{f(z)}$有$n$个单值解析分支。
+\end{ppt}
+\begin{dfn}
+    {支割线}
+    为了将多值函数分解为多个单值函数，我们需要阻碍绕行支点的路径。我们在复平面上从支点（到另一个支点或延伸到无穷远）人为地画一条线，并规定不允许自变量$z$穿过这条线。这条线就称为支割线。
+\end{dfn}
+\begin{dfn}
+    {Riemann面}
+    [Riemann Surface]
+\end{dfn}
 \subsection{复函数视角下的场论}
 对于一般的实函数，我们可以研究其图像。但是对于复函数，该怎么画它的图像呢？我们先从\AnalyticalFunction 说起。\\
 例如，对于函数
@@ -1273,6 +1331,7 @@
 设不可压缩流体在平面上具有速度场$\vec{v}=v_x+\ii v_y$. 那么取路径微元$\dd{s}$, 其在该处的径向和法向分别是
 \[\vec{\tau}=\dv{x}{s}+\ii\dv{y}{s},\qquad\vec{n}=-\ii\tau=\dv{y}{s}-\ii\dv{x}{s}\]
 \[v_\tau=\vec{v}\cdot\vec{\tau}=v_x\dv{x}{s}+v_y\dv{y}{s}\]
+\continued
 \section{复积分理论}
 \subsection{复函数的线积分}
 我们尽可能希望复积分能参照已有的实积分体系。因为实积分是我们较为熟悉的，其存在性已经证明完成。
@@ -2339,6 +2398,89 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
 从某种意义上讲，复分析实际上就是一对共轭调和函数上的实分析。
 \continued
 
+\section{线性代数视角下的复分析}
+\subsection{基本理论}
+\begin{thm}
+    {复数与矩阵的对应关系}
+    复数\(z=a+b\ii\in\C\)与反对称矩阵\(Z=\begin{pmatrix}
+        a&b\\-b&a
+    \end{pmatrix}\in\operatorname{skew}(\R^{2\times 2})\)之间一一对应。在这一章中我们将不再区分复数与反对称矩阵。
+\end{thm}
+在这种同构下我们可以重新定义
+\begin{dfn}
+    {复数的算术运算}
+    复数的加法就是矩阵的加法：
+    \[z_1+z_2\Longleftrightarrow Z_1+Z_2\]
+    复数的乘法就是矩阵的乘法：
+    \[(a+b\ii)(c+d\ii)=(ac-bd)+(ad+bc)\ii\]
+    \[\begin{pmatrix}
+        a&b\\-b&a
+    \end{pmatrix}\begin{pmatrix}
+        c&d\\-d&c
+    \end{pmatrix}=\begin{pmatrix}
+        ac-bd&ad+bc\\-ad-bc&ac-bd
+    \end{pmatrix}\]
+    复数的除法就是矩阵的逆：
+    \[\frac{1}{a+b\ii}=\frac{a-b\ii}{a^2+b^2}\]
+    \[\begin{pmatrix}
+        a&b\\-b&a
+    \end{pmatrix}^{-1}=\frac{1}{\det Z}\begin{pmatrix}
+        a&-b\\b&a
+    \end{pmatrix}\]
+\end{dfn}
+\begin{dfn}
+    {绝对值}
+    [Absolute Value]
+    复数的绝对值满足：
+    \[|z|^2=\det Z.\]
+\end{dfn}
+\begin{dfn}
+    {共轭复数}
+    [Conjugate]
+    复数$z$的共轭复数为$\bar{z}$, 也就是复数$Z$的共轭复数为$Z^{\mathrm{T}}$.
+    \[Z^{\mathrm{T}}Z=ZZ^{\mathrm{T}}=\operatorname{diag}(\det Z).\]
+\end{dfn}
+\subsection{张量视角下的复函数及其导数}
+有了复数，自然也可以用同样的方法定义复函数：
+\begin{xmp}
+    {以矩阵为自变量的复函数}
+    设$w=f(z)$, 那么该函数也可以用矩阵自变量表示为$W=f(Z)$. 其中$W,Z\in\operatorname{skew}(\R^{2\times 2})$. 如函数$w=z^2$
+    \[f\pqty{\mqty(x & y\\-y & x)}=\mqty(x & y\\-y & x)^2=\mqty(x^2-y^2 & 2xy \\ -2xy & x^2-y^2)\]
+\end{xmp}
+如果我们将$f$视作$u+\ii v$, 那么
+\begin{xmp}
+    {复函数的张量积定义}
+    设函数$f=u+\ii v$, 作用于自变量$x+\ii y$, 那么写为矩阵，就是
+    \[f(Z)=\mqty(u & v \\ -v & u)\otimes\mqty(x & y \\ -y & x)=\mqty(u(Z) & v(Z) \\ -v(Z) & u(Z))\]
+\end{xmp}
+在此情形下的导数可以从形式上定义为：
+\begin{dfn}
+    {复微分}
+    设复函数$f:\C\to\C:=u+\ii v$. 那么其微分$df$满足下式：
+    \[\dd{f(z)}=f'\dd{z}\]
+    \[\dd\pqty{\mqty(u & v \\ -v & u)\otimes\mqty(x & y\\-y & x)}=\mqty(\grad u & \grad v \\ -\grad v & \grad u)\otimes\mqty(\dd{x} & \dd{y} \\ -\dd{y} & \dd{x})=\mqty(\pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y} & \pdv{v}{x}\dd{x}+\pdv{v}{y}\dd{y} \\ -\pdv{u}{x}\dd{x}-\pdv{v}{y}\dd{y} & \pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y})\]
+\end{dfn}
+\begin{dfn}
+    {共形函数}
+    [Conformal Function]
+    如果上面定义的微分满足
+    \[\mqty(\pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y} & \pdv{v}{x}\dd{x}+\pdv{v}{y}\dd{y} \\ -\pdv{u}{x}\dd{x}-\pdv{v}{y}\dd{y} & \pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y})=A\mqty(\dd{x} & \dd{y} \\ -\dd{y} & \dd{x})=\mqty(a\dd x-b\dd y & a\dd y+b\dd x \\ -b\dd x-a\dd y & -b\dd y+a\dd x)\]
+    其中$A:=\mqty(a&b\\-b&a)\in\operatorname{skew}(\R^{2\times 2}) $; 就称这个函数$f=u+\ii v$是共形的。化简上式，得到
+    \[a=\pdv{u}{x}=\pdv{v}{y};\quad b=-\pdv{u}{y}=\pdv{v}{x}.\]
+    这便是\hyperref[thm:CREq]{Cauchy-Riemann方程}的形式。
+\end{dfn}
+\begin{dfn}
+    {共形函数的导数}
+    只有共形函数的导数才具备几何意义。其导数为：
+    \[f'=A=\mqty(\pdv{u}{x} & \pdv{v}{x} \\ -\pdv{v}{x} & \pdv{u}{x})\]
+\end{dfn}
+\subsection{向量视角下的复函数及其导数}
+对于复函数，我们可以用$f=u+\ii v$来表示。在形式上的微分定义为：
+\[\dd{f} = \mqty(\dd{u}\\ \dd{v})\]
+而$u,v$是$\R^2\to\R$的函数。所以
+\[\mqty(\dd{u}\\ \dd{v})=\mqty(\pdv{u}{x} & \pdv{u}{y} \\ \pdv{v}{x} & \pdv{v}{y})\mqty(\dd{u}\\ \dd{v})\]
+根据共形性，应当满足$A:=\mqty(\pdv{u}{x} & \pdv{u}{y} \\ \pdv{v}{x} & \pdv{v}{y})\in\operatorname{skew}(\R^{2\times 2})$. 所以得到了\hyperref[thm:CREq]{Cauchy-Riemann方程}
+\[\pdv{u}{x}=\pdv{v}{y},\quad -\pdv{u}{y}=\pdv{v}{x}.\]
 \section{函数的级数展开与因子分解}
 \subsection{Weierstrass定理}
 在之前的章节中我们研究幂级数，主要是为了定义复数域上的初等解析函数。其上的定理成立：
