@@ -52,6 +52,16 @@
                 定义 \((S, \mathcal{T})\) 为\textbf{拓扑空间}, 当且仅当 \(\mathcal{T}\) 是 \(S\) 上的拓扑. 
             \end{dfn}
 
+            \begin{rmk}
+                [猫猫]
+                拓扑空间是刻画集合中元素间``亲疏''关系的结构. 
+            \end{rmk}
+            
+            \begin{rmk}
+                [猫猫]
+                在不引起混淆的情况下, 常将拓扑空间 \((S,\mathcal{T})\) 简记为 \(S\). 
+            \end{rmk}
+
             \begin{dfn}
                 [Open-Closed-Set]
                 {开集与闭集}
@@ -103,6 +113,11 @@
 
                 定义 \(x\) 在 \((S,\mathcal{T})\) 上的\textbf{邻域族}为 \(\{N|\邻域[N][x]\}\), 记作 \(\Nbr{x}\). 
             \end{dfn}
+
+            \begin{rmk}
+                [猫猫]
+                邻域是一个点的``安全区'', 即该点可以在自身周围自由活动而保持在某个开集之内. 
+            \end{rmk}
                 
             \begin{dfn}
                 [Interior]
@@ -257,244 +272,11 @@
                 {极限}
                 [Limit]
                 [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, \(x:S\), \(\{x_n\}:\N\to S\), 定义 \(\{x_n\}\) 以 \(x\) 为\textbf{极限}, 若: 
-                \[\exists x:S, \forall U(x), \exists N\in\N: \forall n\geq N, x_n\in U(x)\]
+                设 \((S,\T)\) 是\拓扑空间, \(x:S\), \(\{x_\cdot\}:\N\to S\), 定义 \(\{x_\cdot\}\) 以 \(x\) 为\textbf{极限}, 当且仅当: 
+                \[\forall U, U\in\Nbr{x}\implies\exists N:\N, \forall n:\N, n\geq N\implies x_n\in U(x)\]
                 
                 记作 \(\lim\limits_{n\to+\infty}x_n=x\). 
             \end{dfn}
-
-        \subsection{Hausdorff 空间}
-
-            \begin{dfn}
-                [Hausdorff-Space]
-                {Hausdorff 空间}
-                [Hausdorff Space]
-                [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, 定义 \((S,\T)\) 是\textbf{Hausdorff 空间}, 当且仅当: 
-                \[\forall x,y:S, x\neq y\implies\exists U(x), U(y), U(x)\cap U(y)=\varnothing\]
-                
-                可以见得, Hausdorff空间存在最细基, 这表明改空间的元素间存在一定独立性
-            \end{dfn}
-
-            \begin{rmk}
-                [猫猫]
-                \Hausdorff空间 是强调任意两点间可用邻域区分的拓扑空间. 
-            \end{rmk}
-            
-            \begin{ppt}
-                []
-                {Hausdorff 空间中点列极限唯一}
-                []
-                [猫猫]
-                在 Hausdorff 空间 \((S,\T)\) 中, \(\forall(S,\T)\) 中的收敛序列\({\{x_n\}}_{n=0}^{+\infty}\), 满足上述条件的\(x\)是唯一的. 
-            \end{ppt}
-            
-            \begin{prf}
-                运用反证法. 
-
-                若\((S,\T)\)是Hausdorff的, 且假设\(\exists{\{x_n\}}_{n=0}^{+\infty}\), 对于该序列有: 
-                \[\exists x,y\in S: x\neq y, \forall U(x), U(y), \exists N\in\N: \forall n>N(N\in\N), x_n\in U(x)\cap U(y)\]
-                
-                由\((S,\T)\)的Hausdorff性质可知\(\exists U(x), U(y): U(x)\cap U(y)=\varnothing\). 
-
-                取满足上述条件的\(U(x), U(y)\), 则当\(n>N\)时, 有\(x_n\in U(x)\cap U(y)=\varnothing\), 矛盾. 
-
-                \(\therefore\)此时只能存在一个满足条件的\(x\). 
-            \end{prf}
-
-        \subsection{拓扑空间的构造}
-
-            \begin{dfn}
-                [Generated-Topology]
-                {生成拓扑}
-                [Generated Topology]
-                [猫猫]
-                设 \(S\) 是集合, \(\mathfrak{B}\) 是集合族, \(\mathfrak{B}\subseteq\PS[S]\), 
-                \begin{enumerate}
-                    \item 覆盖性: 
-                    \[\bigcup[\mathfrak{B}]=S\]
-                    \item 生成性: 设 \(B_1,B_2\) 是集合, \(B_1, B_2\in\mathfrak{B}\), \(x\in B_1\cap B_2\), 则: 
-                    \[\exists[B_3][B_3\in\mathfrak{B}\land x\in B_3\land B_3\subseteq B_1\cap B_2]*\]
-                \end{enumerate}
-                定义由 \(\mathfrak{B}\) \textbf{生成的拓扑}为: 
-                \[\left\{X\middle|\exists B\subseteq\mathfrak{B}, X=\bigcup[B]\right\}\]
-
-                定义由 \(\mathfrak{B}\) \textbf{生成的拓扑空间}为: 
-                \[(S, \生成拓扑{\mathfrak{B}})\]
-            \end{dfn}
-
-            \begin{xmp}
-                []
-                {通常拓扑}
-                []
-                []
-                在扩充实数集 \(\bar{\R}\) 上依据偏序关系 ``\(<\)'' 定义开区间: 
-                \[(a,b)=\{x|a<x<b\}(a,b\in\R\cup\{+\infty,-\infty\})\]
-                
-                并如下定义拓扑 \(\mathcal{T}\), 称为\(\R\)上的\textbf{通常拓扑}: 
-                \[O\in\mathcal{T}\Longleftrightarrow\forall x\in O, \exists(a,b): x\in(a,b)\subseteq O\]
-
-                \(\mathcal{T}\)中的非空元素必可表示为有限个或可数无限个互不相交的开区间之并: 
-                \[\forall O\in \mathcal{T}(O\neq \varnothing), \exists\bigcup\{(a_i,b_i)|i\in I, \card(I)\in\mathbb{N^+}\cup\{\aleph_0\}\wedge\forall i,j, (a_i,b_i)\cap(a_j,b_j)=\varnothing\}=O\]
-            \end{xmp}
-            
-            \begin{xmp}
-                [Order-Topology]
-                {序拓扑}
-                [Order Topology]
-                []
-                若\(S\)是一个全序集, 设\(\mathcal{B}\)为由下述所有集合构成的族:
-
-                (1)\(S\)的所有开区间\((a,b)\)
-
-                (2)所有形如\(\Ico{a_0}{b}\)的区间,其中\(a_0\)为\(S\)的最小元 (存在的话)
-
-                (3)所有形如\(\Ioc{a}{b_0}\)的区间,其中\(b_0\)为\(S\)的最大元 (存在的话)
-
-                则\(\mathcal{B}\)是\(S\)的某拓扑的一个基, 此拓扑称\textbf{序拓扑 (Order Topology)}
-            \end{xmp}
-
-            \begin{dfn}
-                [Topological-Basis]
-                {拓扑基}
-                [Topological Basis]
-                [猫猫]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, \(\mathfrak{B}\) 是集合族, \(\mathfrak{B}\subseteq\mathcal{T}\), 定义 \(\mathfrak{B}\) 是 \((S,\mathcal{T})\) 的\textbf{拓扑基}, 当且仅当: \[\mathcal{T}=\生成拓扑{\mathfrak{B}}\]
-            \end{dfn}
-
-            \begin{cxmp}
-                []
-                {拓扑空间的基不唯一}
-                []
-                []
-            \end{cxmp}
-
-            \begin{dfn}
-                [Subspace-Topology]
-                {诱导拓扑 / 子空间拓扑}
-                [Induced Topology / Subspace Topology]
-                [猫猫]
-                设 \((S,\mathcal{T})\) 为拓扑空间, \(S'\) 是集合, \(S'\subseteq S\), 定义由 \(S'\) 诱导的\textbf{子空间拓扑}为: 
-                \[\{O'|\exists O\in\mathcal{T}, O'=O\cap S'\}\]
-            \end{dfn}
-
-            \begin{rmk}
-                [猫猫]
-                由子集诱导的子空间拓扑是从原拓扑中以该子集为边界``截取''出来的. 
-            \end{rmk}
-
-            \begin{ppt}
-                []
-                {子空间拓扑是合法拓扑}
-                []
-                [猫猫]
-            \end{ppt}
-            
-            \begin{dfn}
-                [Product-Topology]
-                {积拓扑}
-                [Product Topology]
-                [猫猫]
-                设\(\{(S_i,\mathcal{T}_i)|i\in I\}\)是一族拓扑空间, 如下构造\(S,\mathcal{T}\): 
-                \[S:=\prod_{i\in I}X_i\]
-                \[\mathcal{T}:=\{X|X\in\PP(S); \forall x\in X, \exists ??? \}\]
-            \end{dfn}
-
-            \textbf{*本章之后, 在不混淆拓扑空间与其对应集合的情况下将拓扑空间\((S,\mathcal{T})\)简记为\(S\). }
-
-        \subsection{连续函数}
-
-            \begin{dfn}
-                [Continuous]
-                {连续}
-                [Continuous]
-                [猫猫]
-                设有拓扑空间 \(X,Y\), 映射 \(f:X\to Y\); 设 \(x\in X, f(x):=y\in Y\). \(f\) 称为是在 \(x\) 处\textbf{连续}的, 若: 
-                \[\forall U(y)\in \mathcal{V}(y), \exists U(x)\in \mathcal{V}(x)(f\left(U(x)\right)\subseteq U(y))\]
-
-                \(f\)称为是\(X\)的连续映射, 若\(f\)在\(X\)中的每一点连续. 
-
-                将\(X\to Y\)全体连续映射的集合记为\(\mathcal{C}(X,Y)\)
-            \end{dfn}
-            
-            \begin{thm}
-                []
-                {}
-                []
-                []
-                Hausdorff空间之间的连续映射将收敛数列映射为收敛数列. 
-
-                设拓扑空间\(X,Y\)是Hausdorff的, 映射\(f:X\to Y\)在\(x\in X\)处连续, 则: 
-                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\Longrightarrow\lim_{n\to+\infty}f(x_n)=f(x)\]
-
-                此定理的另一种表述方式是: \(\lim\limits_{n\to+\infty}\) 与 \(f\) 可交换, 若 \(f\) 连续且 \(X\) 与 \(Y\) 都是Hausdorff的. 
-            \end{thm}
-                
-            \begin{prf}
-                \[y:=f(x); f\text{在\(x\)处连续}\Longrightarrow\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
-                \[\lim_{n\to+\infty}x_n=x\Longrightarrow\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
-                \[\therefore\lim_{n\to+\infty}f(x_n)=f(x)\square\]
-            \end{prf}
-            
-            \begin{thm}
-                []
-                {}
-                []
-                []
-                设拓扑空间\(X,Y,Z\), 映射\(f:X\to Y\)在\(x\in X\)处连续, 映射\(g:Y\to Z\)在\(f(x)\in Y\)处连续, 则\(g\circ f:X\to Z\)在\(x\)处连续. 
-            \end{thm}
-                
-            \begin{prf}
-                \[y:=f(x), z:=g(y)\]
-                \[\forall U(z)\in\Nbr{z}[Z], g\text{在\(y\)处连续}\Longrightarrow\exists U(y)\in\Nbr{y}[Y]: g(U(y))\subseteq U(z)\]
-                \[f\text{在\(x\)处连续}\Longrightarrow\exists U(x)\in\Nbr{x}[X]\subseteq X: f(U(x))\subseteq U(y)\]
-                \[\therefore g\circ f(U(x))\subseteq g(U(y))\subseteq U(z)\Longrightarrow g\circ f\text{在\(x\)处连续}\square\]
-            \end{prf}
-
-            \begin{thm}
-                []
-                {}
-                []
-                []
-                设拓扑空间\((X,\T_X), (Y,\T_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
-                
-                (1)开集的原像是开集: 
-                \[\forall S(f(S)\in\T_Y)\Longrightarrow S\in\T_X\]
-                
-                (2)闭集的原像是闭集: 
-                \[\forall S((Y-f(S))\in\T_Y)\Longrightarrow(X-S)\in\T_X\]
-            \end{thm}
-            
-            \begin{prf}
-                证明: 先证明开集情况. 
-    
-                (1)\(\implies\): 
-                    \[f(S)\in\T_Y\Longrightarrow(\forall y\in f(S)\Longrightarrow f(S)\in\Nbr{y})\]
-                    \[\forall x_0\in S, y_0:=f(x_0)\]
-                    \[(f:X\to Y)\in\Con(X,Y)\Longrightarrow\exists U(x)\in\Nbr{x}(\forall x\in U(x)\Longrightarrow f(x)\in Y)\]
-            \end{prf}
-
-            \begin{dfn}
-                [Homeomorphism]
-                {同胚}
-                [Homeomorphism]
-                []
-                设拓扑空间\((X,\T_X), (Y,\T_Y)\), 称映射\(f:X\to Y\)是\(X\)到\(Y\)上的\textbf{同胚}, 若\(f\)是双射, 且\(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
-
-                若\(\exists X\)到\(Y\)的同胚, 则称\(X\)与\(Y\)是同胚的. 
-            \end{dfn}
-            
-            \begin{thm}
-                []
-                {}
-                []
-                []
-                设拓扑空间\((X,\T_X),(Y,\T_Y)\), \(f\in\Con(X,Y)\)是双射, 则\(f\)是\(X\)到\(Y\)的同胚当且仅当: 
-                \[\forall S\in\T_X\Longrightarrow f(S)\in\T_Y\]
-                \[\forall S((X-S)\in\T_X)\Longrightarrow(Y-f(S))\in\T_Y\]
-            \end{thm}
-
-    \section{连通性与紧致性}
 
         \subsection{连通性}
             
@@ -503,13 +285,15 @@
                 {连通性}
                 [Connectedness]
                 []
-                拓扑空间\((S,\T)\)称为是连通的, 若\(S\)即开又闭的子集只有\(S\)和\(\varnothing\), 即: 
+                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是\textbf{连通集}, 当且仅当: \(\开集[E]\land\闭集[E]\). 
+
+                定义连通的, 若 \(S\) 即开又闭的子集只有 \(S\) 和 \(\varnothing\), 即: 
                 \[\PP(S)\cap\{X|X\in\T,(S-X)\in\T\}=\{\varnothing,S\}\]
-
-                这意味着\(S\)无法写成两个不相交的非空开集之并, 即\(S\)的\textbf{分割}不存在. 
-
-                于此同时, \(S\)的子集\(S'\)是\textbf{连通的}
             \end{dfn}
+
+            \begin{rmk}
+                这意味着 \(S\) 无法写成两个不相交的非空开集之并, 即\(S\)的\textbf{分割}不存在. 
+            \end{rmk}
             
             \begin{ppt}
                 []
@@ -583,80 +367,349 @@
             \end{prf}
 
         \subsection{紧性}
+            
+            \begin{dfn}
+                [Open-Cover]
+                {开覆盖}
+                [Open Cover]
+                [猫猫]
+                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, \(\mathcal{O}\) 是集合族, \(E\subset S\), 定义 \(\mathcal{O}\) 是 \(E\) 的\textbf{开覆盖}当且仅当: 
+                \begin{enumerate}
+                    \item \(\mathcal{O}\) 是开集族: 
+                        \[\mathcal{O}\subseteq\mathcal{T}\]
+                    \item 覆盖性: 
+                        \[E\subseteq\bigcup[\mathcal{O}]\]
+                \end{enumerate}
+            \end{dfn}
 
             \begin{dfn}
                 [Compact]
-                {紧集}
-                [Compact Set]
-                []
-                设拓扑空间\((S,\T)\), \(S'\subset S\), 若\(S'\)的任何开覆盖均为有限子覆盖, 则\(S'\)为紧集. 
+                {紧性 / 紧致性}
+                [Compactness]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是 \((S,\mathcal{T})\) 中的\textbf{紧集}当且仅当: 
+                \[\forall\mathcal{O}, \开覆盖[\mathcal{O}][E]\implies\exists\mathcal{O}', \card\mathcal{O}'\in\N\land\开覆盖[\mathcal{O}'][E]\]
+
+                定义 \((S,\mathcal{T})\) 是\textbf{紧拓扑空间}, 当且仅当: \(S\) 是 \((S,\mathcal{T})\) 中的紧集. 
             \end{dfn}
 
-            \begin{thm}
+            \begin{rmk}
+                [猫猫]
+                紧集是指其任意开覆盖均存在有限子覆盖的集合. 
+            \end{rmk}
+
+            \begin{ppt}
                 []
-                {}
+                {紧空间的闭子集是紧的}
                 []
+                [猫猫]
+            \end{ppt}
+
+            % \begin{thm}
+            %     []
+            %     {管状引理}
+            %     [Tube Lemma]
+            %     []
+            %     考虑积空间 \(X\times Y\), 其中 \(Y\) 是紧的. 对于每一个包含 \(x_0\times Y\) 的开集 \(N\), 存在 \(x_0\) 的邻域 \(U\), 使得 \(U\times Y\) 被 \(N\)包含. 
+
+            %     注意\(Y\)是紧的, 若否, 则管状引理不一定正确. 如：取\(X=Y=\R,x_0=0,N=\{x\times y|\left|x\right|<\frac{1}{y^2+1}\}\)
+            %     % \begin{figure}[h]
+            %     %     \centering
+            %     %     \begin{tikzpicture}
+            %     %         \begin{axis}[
+            %     %             domain=-1:1, % 定义域
+            %     %             samples=1000, % 采样点数
+            %     %             xlabel=\(x\),
+            %     %             ylabel=\(y\),
+            %     %             grid=both,
+            %     %             width=10cm,
+            %     %             height=6cm,
+            %     %             restrict y to domain=-1:1,
+            %     %             ytick={-1, -0.5, 0, 0.5, 1},
+            %     %             xtick={-1, -0.5, 0, 0.5, 1}
+            %     %         ]
+            %     %         \addplot[blue, thick] gnuplot {1/(x**2+1)};
+            %     %         \addplot[blue, thick] gnuplot {-1/(x**2+1)};
+            %     %         \end{axis}
+            %     %     \end{tikzpicture}
+            %     % \end{figure}                
+            % \end{thm}
+
+        \subsection{Hausdorff 空间}
+
+            \begin{dfn}
+                [Hausdorff-Space]
+                {Hausdorff 空间}
+                [Hausdorff Space]
+                [猫猫]
+                设 \((S,\T)\) 是\拓扑空间, 定义 \((S,\T)\) 是\textbf{Hausdorff 空间}, 当且仅当: 
+                \[\forall x,y:S, x\neq y\implies\exists[U_x, U_y][U_x\in\Nbr{x}\land U_y\in\Nbr{y}\implies U_x\cap U_y=\varnothing]*\]
+            \end{dfn}
+
+            \begin{rmk}
+                [猫猫]
+                \Hausdorff空间 是强调任意两点间可用邻域区分的拓扑空间. 
+            \end{rmk}
+
+            \begin{rmk}
                 []
-                设\(T\)是\(S\)的一个子空间. 那么, \(T\)是紧的当且仅当对于\(T\)中的每一个开覆盖, 存在一个有限子集是\(T\)的开覆盖. 
-            \end{thm}
+                \Hausdorff空间 存在最细基, 这表明改空间的元素间存在一定独立性
+            \end{rmk}
+            
+            \begin{ppt}
+                []
+                {Hausdorff 空间中点列极限唯一}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\forall(S,\mathcal{T})\) 中的收敛序列\({\{x_n\}}_{n=0}^{+\infty}\), 满足上述条件的\(x\)是唯一的. 
+            \end{ppt}
             
             \begin{prf}
-                若\(T\)是紧致的, 设\(\mathcal{A}'=\{A_{a}\} '\)是\(T\)由\(T\)中开集构成的一个开覆盖. 选取合适的\(\{A_{a}\}\),有\(A_{a}'=A_{a}\cap T\)
+                运用反证法. 
+
+                若\((S,\mathcal{T})\)是Hausdorff的, 且假设\(\exists{\{x_n\}}_{n=0}^{+\infty}\), 对于该序列有: 
+                \[\exists x,y\in S: x\neq y, \forall U(x), U(y), \exists N\in\N: \forall n>N(N\in\N), x_n\in U(x)\cap U(y)\]
+                
+                由\((S,\mathcal{T})\)的Hausdorff性质可知\(\exists U(x), U(y): U(x)\cap U(y)=\varnothing\). 
+
+                取满足上述条件的\(U(x), U(y)\), 则当\(n>N\)时, 有\(x_n\in U(x)\cap U(y)=\varnothing\), 矛盾. 
+
+                \(\therefore\)此时只能存在一个满足条件的\(x\). 
             \end{prf}
 
             \begin{ppt}
                 []
-                {}
+                {Hausdorff 空间中紧集是闭的}
                 []
-                []
-                Hausdorff空间的紧子集是闭的. 
-                
-                紧空间的闭子集是紧的.
-
-                实直线上闭空间是紧致的. 
+                [猫猫]
             \end{ppt}
+
+            \begin{thm}
+                []
+                {紧集套定理}
+                []
+                [猫猫]
+            \end{thm}
+
+            \begin{crl}
+                {}
+            \end{crl}
+
+        \subsection{拓扑空间的构造}
+
+            \begin{dfn}
+                [Generated-Topology]
+                {生成拓扑}
+                [Generated Topology]
+                [猫猫]
+                设 \(S\) 是集合, \(\mathfrak{B}\) 是集合族, \(\mathfrak{B}\subseteq\PS[S]\), 
+                \begin{enumerate}
+                    \item 覆盖性: 
+                    \[\bigcup[\mathfrak{B}]=S\]
+                    \item 生成性: 设 \(B_1,B_2\) 是集合, \(B_1, B_2\in\mathfrak{B}\), \(x\in B_1\cap B_2\), 则: 
+                    \[\exists[B_3][B_3\in\mathfrak{B}\land x\in B_3\land B_3\subseteq B_1\cap B_2]*\]
+                \end{enumerate}
+                定义由 \(\mathfrak{B}\) \textbf{生成的拓扑}为: 
+                \[\left\{X\middle|\exists B\subseteq\mathfrak{B}, X=\bigcup[B]\right\}\]
+
+                定义由 \(\mathfrak{B}\) \textbf{生成的拓扑空间}为: 
+                \[(S, \生成拓扑{\mathfrak{B}})\]
+            \end{dfn}
+
+            \begin{xmp}
+                []
+                {通常拓扑}
+                []
+                []
+                在扩充实数集 \(\bar{\R}\) 上依据偏序关系 ``\(<\)'' 定义开区间: 
+                \[(a,b)=\{x|a<x<b\}(a,b\in\R\cup\{+\infty,-\infty\})\]
+                
+                并如下定义拓扑 \(\mathcal{T}\), 称为\(\R\)上的\textbf{通常拓扑}: 
+                \[O\in\mathcal{T}\Longleftrightarrow\forall x\in O, \exists(a,b): x\in(a,b)\subseteq O\]
+
+                \(\mathcal{T}\)中的非空元素必可表示为有限个或可数无限个互不相交的开区间之并: 
+                \[\forall O\in \mathcal{T}(O\neq \varnothing), \exists\bigcup\{(a_i,b_i)|i\in I, \card(I)\in\mathbb{N^+}\cup\{\aleph_0\}\wedge\forall i,j, (a_i,b_i)\cap(a_j,b_j)=\varnothing\}=O\]
+            \end{xmp}
             
+            \begin{xmp}
+                [Order-Topology]
+                {序拓扑}
+                [Order Topology]
+                []
+                若\(S\)是一个全序集, 设\(\mathcal{B}\)为由下述所有集合构成的族:
+
+                (1)\(S\)的所有开区间\((a,b)\)
+
+                (2)所有形如\(\Ico{a_0}{b}\)的区间,其中\(a_0\)为\(S\)的最小元 (存在的话)
+
+                (3)所有形如\(\Ioc{a}{b_0}\)的区间,其中\(b_0\)为\(S\)的最大元 (存在的话)
+
+                则\(\mathcal{B}\)是\(S\)的某拓扑的一个基, 此拓扑称\textbf{序拓扑 (Order Topology)}
+            \end{xmp}
+
+            \begin{dfn}
+                [Topological-Basis]
+                {拓扑基}
+                [Topological Basis]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(\mathfrak{B}\) 是集合族, \(\mathfrak{B}\subseteq\mathcal{T}\), 定义 \(\mathfrak{B}\) 是 \((S,\mathcal{T})\) 的\textbf{拓扑基}, 当且仅当: \[\mathcal{T}=\生成拓扑{\mathfrak{B}}\]
+            \end{dfn}
+
+            \begin{cxmp}
+                []
+                {拓扑空间的基不唯一}
+                []
+                []
+            \end{cxmp}
+
+            \begin{dfn}
+                [Subspace-Topology]
+                {诱导拓扑 / 子空间拓扑}
+                [Induced Topology / Subspace Topology]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 为\拓扑空间, \(S'\) 是集合, \(S'\subseteq S\), 定义由 \(S'\) 诱导的 \((S,\mathcal{T})\) 的\textbf{子空间拓扑}为: 
+                \[\{O'|\exists O\in\mathcal{T}, O'=O\cap S'\}\]
+
+                定义 \((S',\mathcal{T}')\) 为由 \(S'\) 诱导的 \((S,\mathcal{T})\) 的\textbf{拓扑子空间}, 当且仅当: \(\mathcal{T}'=\) 由 \(S'\) 诱导的 \((S,\mathcal{T})\) 的子空间拓扑. 
+            \end{dfn}
+
+            \begin{rmk}
+                [猫猫]
+                由子集诱导的子空间拓扑是从原拓扑中以该子集为边界``截取''出来的. 
+            \end{rmk}
+
+            \begin{ppt}
+                []
+                {子空间拓扑是合法拓扑}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 为\拓扑空间, \(S'\) 是集合, \(S'\subseteq S\), 则由 \(S'\) 诱导的 \((S,\mathcal{T})\) 的子空间拓扑是 \(S'\) 上的\拓扑. 
+            \end{ppt}
+
             \begin{ppt}
                 []
                 {}
                 []
                 []
-                连续映射将紧集映射为紧集. 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(T\) 是 \(S\)的一个子空间. 那么, \(T\)是紧的当且仅当对于\(T\)中的每一个开覆盖, 存在一个有限子集是\(T\)的开覆盖. 
+            \end{ppt}
+            
+            \begin{prf}
+                若\(T\)是紧致的, 设\(\mathcal{A}'=\{A_{a}\} '\)是\(T\)由\(T\)中开集构成的一个开覆盖. 选取合适的\(\{A_{a}\}\),有\(A_{a}'=A_{a}\cap T\)
+            \end{prf}
+            
+            \begin{dfn}
+                [Product-Topology]
+                {积拓扑}
+                [Product Topology]
+                [猫猫]
+                设 \((S_1, \mathcal{T}_1), (S_2, \mathcal{T}_2)\) 是\拓扑空间, 定义 \((S_1, \mathcal{T}_1)\) 与 \((S_2, \mathcal{T}_2)\) 的\textbf{积拓扑}为: 
+                \[\{O|O\subseteq S_1\times S_2\land O.1\in\mathcal{T}_1\land O.2\in\mathcal{T}_2\}\]
+
+                设 \(\mathcal{T}\) 是 \((S_1, \mathcal{T}_1)\) 与 \((S_2, \mathcal{T}_2)\) 的积拓扑, 定义 \((S_1, \mathcal{T}_1)\) 与 \((S_2, \mathcal{T}_2)\) 的\textbf{积空间}为: \((S_1\times S_2, \mathcal{T})\), 记作 \((S_1, \mathcal{T}_1)\times(S_2, \mathcal{T}_2)\).
+            \end{dfn}
+
+    \section{连续映射}
+
+        \subsection{连续映射}
+
+            \begin{dfn}
+                [Continuous]
+                {连续}
+                [Continuous]
+                [猫猫]
+                设有拓扑空间 \(X,Y\), 映射 \(f:X\to Y\); 设 \(x\in X, f(x):=y\in Y\). \(f\) 称为是在 \(x\) 处\textbf{连续}的, 若: 
+                \[\forall U(y)\in \mathcal{V}(y), \exists U(x)\in \mathcal{V}(x)(f\left(U(x)\right)\subseteq U(y))\]
+
+                \(f\)称为是\(X\)的连续映射, 若\(f\)在\(X\)中的每一点连续. 
+
+                将\(X\to Y\)全体连续映射的集合记为\(\mathcal{C}(X,Y)\)
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {连续映射将紧集映射为紧集}
+                []
+                []
             \end{ppt}
 
-            注：以下内容我本来想放到第五章, 不过为了Urysohn引理的完整性, 还是放在前面来了. 
-
+            \begin{ppt}
+                []
+                {连续映射的等价定义}
+                []
+                []
+                设拓扑空间\((X,\T_X), (Y,\T_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
+                
+                (1)开集的原像是开集: 
+                \[\forall S(f(S)\in\T_Y)\Longrightarrow S\in\T_X\]
+                
+                (2)闭集的原像是闭集: 
+                \[\forall S((Y-f(S))\in\T_Y)\Longrightarrow(X-S)\in\T_X\]
+            \end{ppt}
+            
+            \begin{prf}
+                证明: 先证明开集情况. 
+    
+                (1)\(\implies\): 
+                    \[f(S)\in\T_Y\Longrightarrow(\forall y\in f(S)\Longrightarrow f(S)\in\Nbr{y})\]
+                    \[\forall x_0\in S, y_0:=f(x_0)\]
+                    \[(f:X\to Y)\in\Con(X,Y)\Longrightarrow\exists U(x)\in\Nbr{x}(\forall x\in U(x)\Longrightarrow f(x)\in Y)\]
+            \end{prf}
+            
             \begin{thm}
                 []
-                {管状引理}
-                [Tube Lemma]
+                {}
                 []
-                考虑积空间 \(X\times Y\), 其中 \(Y\) 是紧的. 对于每一个包含 \(x_0\times Y\) 的开集 \(N\), 存在 \(x_0\) 的邻域 \(U\), 使得 \(U\times Y\) 被 \(N\)包含. 
+                []
+                Hausdorff空间之间的连续映射将收敛数列映射为收敛数列. 
 
-                注意\(Y\)是紧的, 若否, 则管状引理不一定正确. 如：取\(X=Y=\R,x_0=0,N=\{x\times y|\left|x\right|<\frac{1}{y^2+1}\}\)
-                % \begin{figure}[h]
-                %     \centering
-                %     \begin{tikzpicture}
-                %         \begin{axis}[
-                %             domain=-1:1, % 定义域
-                %             samples=1000, % 采样点数
-                %             xlabel=\(x\),
-                %             ylabel=\(y\),
-                %             grid=both,
-                %             width=10cm,
-                %             height=6cm,
-                %             restrict y to domain=-1:1,
-                %             ytick={-1, -0.5, 0, 0.5, 1},
-                %             xtick={-1, -0.5, 0, 0.5, 1}
-                %         ]
-                %         \addplot[blue, thick] gnuplot {1/(x**2+1)};
-                %         \addplot[blue, thick] gnuplot {-1/(x**2+1)};
-                %         \end{axis}
-                %     \end{tikzpicture}
-                % \end{figure}                
+                设拓扑空间\(X,Y\)是Hausdorff的, 映射\(f:X\to Y\)在\(x\in X\)处连续, 则: 
+                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\Longrightarrow\lim_{n\to+\infty}f(x_n)=f(x)\]
+
+                此定理的另一种表述方式是: \(\lim\limits_{n\to+\infty}\) 与 \(f\) 可交换, 若 \(f\) 连续且 \(X\) 与 \(Y\) 都是Hausdorff的. 
+            \end{thm}
+                
+            \begin{prf}
+                \[y:=f(x); f\text{在\(x\)处连续}\Longrightarrow\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
+                \[\lim_{n\to+\infty}x_n=x\Longrightarrow\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
+                \[\therefore\lim_{n\to+\infty}f(x_n)=f(x)\square\]
+            \end{prf}
+            
+            \begin{thm}
+                []
+                {}
+                []
+                []
+                设拓扑空间\(X,Y,Z\), 映射\(f:X\to Y\)在\(x\in X\)处连续, 映射\(g:Y\to Z\)在\(f(x)\in Y\)处连续, 则\(g\circ f:X\to Z\)在\(x\)处连续. 
+            \end{thm}
+                
+            \begin{prf}
+                \[y:=f(x), z:=g(y)\]
+                \[\forall U(z)\in\Nbr{z}[Z], g\text{在\(y\)处连续}\Longrightarrow\exists U(y)\in\Nbr{y}[Y]: g(U(y))\subseteq U(z)\]
+                \[f\text{在\(x\)处连续}\Longrightarrow\exists U(x)\in\Nbr{x}[X]\subseteq X: f(U(x))\subseteq U(y)\]
+                \[\therefore g\circ f(U(x))\subseteq g(U(y))\subseteq U(z)\Longrightarrow g\circ f\text{在\(x\)处连续}\square\]
+            \end{prf}
+
+            \begin{dfn}
+                [Homeomorphism]
+                {同胚}
+                [Homeomorphism]
+                []
+                设拓扑空间\((X,\T_X), (Y,\T_Y)\), 称映射\(f:X\to Y\)是\(X\)到\(Y\)上的\textbf{同胚}, 若\(f\)是双射, 且\(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
+
+                若\(\exists X\)到\(Y\)的同胚, 则称\(X\)与\(Y\)是同胚的. 
+            \end{dfn}
+            
+            \begin{thm}
+                []
+                {}
+                []
+                []
+                设拓扑空间\((X,\T_X),(Y,\T_Y)\), \(f\in\Con(X,Y)\)是双射, 则\(f\)是\(X\)到\(Y\)的同胚当且仅当: 
+                \[\forall S\in\T_X\Longrightarrow f(S)\in\T_Y\]
+                \[\forall S((X-S)\in\T_X)\Longrightarrow(Y-f(S))\in\T_Y\]
             \end{thm}
 
-        \subsection{实直线上的紧致空间}
                 
 
     \section{度量空间}
@@ -687,18 +740,43 @@
             \end{dfn}
 
             \begin{dfn}
-                [OpenBall]
+                [Open-Ball]
 				{开球}
                 [Open Ball]
                 [猫猫]
-                设 \((S,d)\) 为\度量空间, \(x:S\), \(\delta:\R\), 
+                设 \((S,d)\) 是\度量空间, \(x:S\), \(\delta:\R\), 定义以 \(x\) 为中心, 以 \(\delta\) 为半径的\textbf{开球}为: 
+                \[\{y:S|d(x,y)<\delta\}\]
+                
+                记作 \(\Ball{x}{\delta}\). 
+		    \end{dfn}
 
-				在度量空间中, 包含一点x的开集, 由与x的距离小于某个固定的正数r的一切点组成, 这个开集称为以x为中心, r为半径的 \textbf{开球},记作\(U_(x,r)\)或\(B_{r}(x)\)
+            \begin{dfn}
+                [Metric-Topology]
+                {度量诱导的拓扑}
+                [Metric-Induced Topology]
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, 定义由 \(d\) 诱导的 \(S\) 上的\textbf{度量拓扑}为: 
+                \[\{O|\forall[x][x\in O\implies\exists\delta:\R^+, \Ball{x}{\delta}\subseteq O]*[S]\}\]
+            \end{dfn}
 
-				特别的, 在数轴上, 我们称关于\(x\)对称的开区间\((x-\varepsilon,x+\varepsilon)\)为\(x\)的 \textbf{\(\varepsilon\)-邻域},记作\(B_{\varepsilon}(x)\)或\(U(x,\varepsilon)\)
+            \begin{rmk}
+                [猫猫]
+                度量诱导的拓扑判定全体元素都有``安全区''的集合是开集. 
+            \end{rmk}
 
-				去心邻域记作\(U(\dot{x},\varepsilon)\)
-		\end{dfn}
+            \begin{ppt}
+                []
+                {度量诱导的拓扑是合法拓扑}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {度量诱导的拓扑空间是 Hausdorff 的}
+                []
+                [猫猫]
+            \end{ppt}
 
         \subsection{分离定理}
             

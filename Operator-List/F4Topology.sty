@@ -22,6 +22,8 @@
 \NewDocumentCommand{\去心邻域}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Deleted-Neighbourhood}{\ensuremath{\text{去心邻域}}}}
 \NewDocumentCommand{\极限点}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Limit-Point}{\ensuremath{\text{极限点}}}}
 
+\NewDocumentCommand{\开覆盖}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Open-Cover}{\ensuremath{\text{开覆盖}}}}
+
 \NewDocumentCommand{\生成拓扑}{sm}{\ensuremath{\text{由}}\,\,#2\catref[#1]{dfn:Generated-Topology}{\ensuremath{\text{ 生成的拓扑}}}}
 
 \NewDocumentCommand{\Hausdorff空间}{so}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是 }}}\catref[#1]{dfn:Hausdorff-Space}{\ensuremath{\text{Hausdorff 空间}}}}
