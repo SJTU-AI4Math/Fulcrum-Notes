@@ -1557,7 +1557,7 @@
     \[z'(t)-h'(t)(z(t)-a)=0\]
     这时注意到
     \[\pqty{\frac{z(t)-a}{\exp h(t)}}'=\frac{z'(t)-h'(t)(z(t)-a)}{\exp h(t)}\]
-    所以该导数等于0，并且只在有限个点中没有定义，即$\exp h(t)=0$时。显然该函数是连续的，所以这是一个\hyperrefc{dfn:TrivialAnalyticalFunction}{常解析函数}。对其应用初值，即代入$t=\alpha$, 可得
+    所以该导数等于0，并且只在有限个点中没有定义，即$\exp h(t)=0$时。显然该函数是连续的，所以这是一个\hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}。对其应用初值，即代入$t=\alpha$, 可得
     \[\exp h(t)=\frac{z(t)-a}{z(\alpha)-a}\]
     又因为原先$\gamma$是闭曲线，满足$z(\alpha)=z(\beta)$, 所以$\exp h(\beta)=1$. 这就说明了$h(\beta)$是$2\pi\ii$的整数倍数。
 \end{prf}
@@ -1666,11 +1666,11 @@
     称为\textbf{Cauchy估值}.
 \end{dfn}
 \begin{thm}
-    [UUID]
+    [Liouville]
     {Liouville定理}
     [Liouville's Theorem]
     [Dedicatia]
-    在整个平面内都有界的\AnalyticalFunction 必定是\hyperrefc{dfn:TrivialAnalyticalFunction}{常解析函数}。
+    在整个平面内都有界的\AnalyticalFunction 必定是\hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}。
 \end{thm}
 \begin{prf}
     定理的假设是对所有的圆上都有$|f(\zeta)|\leqslant M$. 那么自然可以取圆的半径$r\to+\infty $, 在Cauchy估值中令$n=1$, 这时便得到$|f'(a)|\to 0$. 这表明$f'(a)=0$恒成立。所以就是一个常解析函数。
@@ -1684,7 +1684,7 @@
     复多项式在复数域内必有至少一个零点。
 \end{thm}
 \begin{prf}
-    使用反证：设$P(z)$是任一次数大于0的多项式，并假设其恒不等于0. 则$\dfrac{1}{P(z)}$就是全平面的解析函数。又因为$\lim\limits_{z\to\infty}\dfrac{1}{P(z)}=0$, 所以$\dfrac{1}{P(z)}$也是一个有界函数。那么根据Liouville定理，它就是常解析函数。但常函数的次数是0，矛盾。
+    使用反证：设$P(z)$是任一次数大于0的多项式，并假设其恒不等于0. 则$\dfrac{1}{P(z)}$就是全平面的解析函数。又因为$\lim\limits_{z\to\infty}\dfrac{1}{P(z)}=0$, 所以$\dfrac{1}{P(z)}$也是一个有界函数。那么根据\hyperrefc{thm:Liouville}{Liouville定理}，它就是常解析函数。但常函数的次数是0，矛盾。
 \end{prf}
 \subsection{Taylor定理与解析函数的奇点}
 \begin{dfn}
@@ -2651,9 +2651,91 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     $\varphi(z)$在$z_0$处解析且不为0. 这时根据\hyperref[thm:Laurent]{Laurent级数}的负一次幂项系数等于$\varphi(z)$的\hyperref[thm:TaylorSeries]{Taylor级数}的$m-1$次幂项系数，可得
     \[\underset{z=z_0}{\Res}f(z)=a_{-1}=\frac{\varphi^{(m-1)}}{(m-1)!}=\frac{1}{(m-1)!}\varphi^{(m-1)}(z)=\frac{1}{(m-1)!}\lim_{z\to z_0}\dv[m-1]{z}((z-z_0)^mf(z))\]
 \end{crl}
-
 \subsection{亚纯函数的部分分式展开}
+我们从\hyperrefc{thm:Laurent}{Laurent级数}中可以看到：如果$f(z)$是一个\MeromorphicFunction , 对极点$b_n$, 就会有$f(z)$的非解析部分$P_n\qty(\frac{1}{z-b_n})$. 如此减去所有的非解析部分之后就会得到解析的函数$g(z)$. 也就是说我们可以将$f(z)$分解为
+\[f(z)=\sum_{i=1}^{n}P_n\qty(\frac{1}{z-b_n})+g(z)\]
+但是这样定义，$P_n$往往是无限项，还有可能不收敛。所以我们改进：
+\begin{thm}
+    {亚纯函数的部分分解定理}
+    设$\{b_n\}$是一个复数序列，$\lim_{n\to\infty }b_n=\infty$, 设$P_n$是不含常数项的多项式，那么存在一些在全平面的\MeromorphicFunction $f(z)$, 其以$b_n$为\hyperref[dfn:PolarSingularity]{极点}, 非解析部分为所有的$P_n\qty(\frac{1}{z-b_n})$, 使得
+    \[f(z)=\sum_{i=1}^{n}\pqty{P_n\pqty{\frac{1}{z-b_n}}-p_n(z)}+g(z)\]
+    这里$p_n(z)$是有限项数的多项式，$g(z)$是全平面的\AnalyticalFunction . 
+\end{thm}
+\begin{prf}
+    我们可以假设$b_n$没有一个为0. 那么就可以在$z=0$处写出Taylor级数，取部分和$S_k$为$p_n(z)$, 那么差值$|P_n-p_n|$可以用\TaylorThm 显式估计。\\
+    \continued
+\end{prf}
+\begin{xmp}
+    {函数的部分分式展开实例}
+    以函数
+    \[\frac{\pi^2}{\sin^2\pi z}\]
+    作为例子：容易知道$z=n\in\Z$处有二阶极点，所以具有非解析部分
+    \[\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}\]
+    将它与$\sum\limits_{n=-\infty}^{+\infty}\frac{1}{n^2}$比较，总可以适当放缩使得其小于或等于$\sum\limits_{n=-\infty}^{+\infty}\frac{1}{n^2}$. 所以该级数在紧致集上一致地趋于0. 便可以展开成：
+    \[\frac{\pi^2}{\sin^2\pi z}=\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}+g(z)\]
+    接下来我们要证明$g(z)=0$. 设$z=x+\ii y$, 那么根据
+    \[|\sin^2\pi z|=\cosh^2\pi y-\cos^2\pi x\]
+    当$y\to\infty$时，可以发现$|\sin^2\pi z|\to\infty$, $\frac{\pi^2}{\sin^2\pi z}\rightrightarrows 0$. 而上面已经知道在任意紧致集上$\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}\rightrightarrows 0$, 这就说明了$|g(z)|$在全平面上有界且极限为0. 根据\hyperrefc{thm:Liouville}{Liouville定理}, $g(z)=0$. 这便得到等式：
+    \[\frac{\pi^2}{\sin^2\pi z}=\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}.\]
+    将两边同时取微分。由于\UniformConvergence , 所以逐项微分是合法的：
+    \[\frac{\pi}{\tan\pi z}=\lim_{m\to\infty}\sum_{n=-m}^{m}\frac{1}{z-n}=\frac{1}{z}+\sum_{n=1}^{\infty}\frac{2z}{z^2-n^2}\]
+\end{xmp}
+\subsection{解析函数在无穷远点的行为}
+\begin{dfn}
+    [EntireFunction]
+    {整函数}
+    [Entire Function]
+    [Dedicatia]
+    称在全平面$\hat{\C}$解析的复函数为整函数。有以下三类：
+    \begin{enumerate}
+        \item \hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}；
+        \item 多项式函数；
+        \item 非多项式解析函数。
+    \end{enumerate}
+\end{dfn}
 \subsection{无穷乘积与典范乘积}
+接下来我们来研究多个复数的乘积问题：
+\begin{dfn}
+    {无穷乘积}
+    称序列$\{z_n\}^\infty$中的复数组成的乘积
+    \[\prod_{n=1}^{\infty}z_n\]
+    为一个\textbf{无穷乘积}. 其中，前$k$项的乘积$P_k=\prod\limits_{n=1}^{k}z_n$称为\textbf{部分乘积}. 如果$P_k$的极限$P$存在且不为0, 就称该无穷乘积\textbf{收敛}。
+\end{dfn}
+\begin{ppt}
+    {无穷乘积收敛的必要条件}
+    一个无穷乘积收敛，那么$\lim\limits_{n\to\infty}z_n=1$.\\
+    因此，我们一般用
+    \[\prod_{n=1}^{\infty}(1+a_n)\]
+    来表示无穷乘积。
+\end{ppt}
+\begin{ppt}
+    {无穷乘积与无穷级数}
+    无穷乘积
+    \[\prod_{n=1}^{\infty}(1+a_n)\]
+    其中$1+a_n\neq 0$, 与无穷级数
+    \[\sum_{n=1}^\infty\ln(1+a_n)\]
+    有相同的敛散性。其中$\ln$表示对数主支的值。
+\end{ppt}
+根据一个显而易见的事实
+\[\lim_{z\to 0}\frac{\ln(1+z)}{z}=1\]
+就有下面的性质
+\begin{ppt}
+    {无穷乘积绝对收敛}
+    复的无穷乘积
+    \[\prod_{n=1}^{\infty}(1+a_n)\]
+    收敛的充要条件是
+    \[\sum_{n=1}^\infty|a_n|\]
+    收敛。
+\end{ppt}
+为了研究无穷乘积的收敛性，我们先证明
+\begin{lma}
+    {整函数的指数化引理}
+    任何\hyperref[dfn:EntireFunction]{整函数}$f(z)$都可以写成$\exp g(z)$的形式，其中$g(z)$是整函数.
+\end{lma}
+\begin{prf}
+    首先注意到$\frac{f'(z)}{f(z)}$是\hyperref[dfn:EntireFunction]{整函数}, 它是某个整函数$g(z)$的导数。这就可以推出$f(z)\exp -g(z)$的导数为0. 所以$f(z)$必定是$\exp g(z)$的常数倍数。这一常数不改变整函数的性质。
+\end{prf}
+我们考虑具有有限个零点的整函数。
 \subsection{Weierstrass因子分解定理}
 \subsection{整函数的阶}
 \subsection{$\Gamma$函数}
