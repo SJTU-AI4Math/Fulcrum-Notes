@@ -14,6 +14,7 @@
 
 \usepackage{mathtools}
 \usepackage{esint}
+\usepackage{hyperref}
 
 % 自定义超链接样式
 \newcommand{\hyperrefc}[2]{\hyperref[#1]{\textcolor{purple}{#2}}}
@@ -181,7 +182,13 @@
     {复数的三角表示}
     [Angular Form of Complex Number]
     [Dedicatia]
-    复数$z=a+b\ii$具有极坐标形式$r(\cos\theta+\ii\sin\theta)$, 其中$r>0, \theta\in\R$, 这称之为该复数的三角表示式。其中的$r$称为复数的模长且等于绝对值，$\theta$为该复数的\textbf{辐角(Argument)}，记作$\operatorname{Arg} z$. 通常取$\theta\in[0,2\pi)$中的值为\textbf{辐角的主值(Principal Argument)}，这时可以记作$\arg{z}$.
+    复数$z=a+b\ii$具有极坐标形式$r(\cos\theta+\ii\sin\theta)$, 其中$r>0, \theta\in\R$, 这称之为该复数的三角表示式。其中的$r$称为复数的模长且等于绝对值，$\theta$为该复数的\textbf{辐角(Argument)}，记作$\Arg z$. 通常取$\theta\in[0,2\pi)$中的值为\textbf{辐角的主值(Principal Argument)}，这时可以记作$\arg{z}$.
+\end{dfn}
+\begin{dfn}
+    [Argument]
+    {辐角}
+    [Argument]
+    [Dedicatia]
 \end{dfn}
 \begin{thm}
     [UUID]
@@ -368,7 +375,7 @@
     [Dedicatia]
 \end{ppt}
 \begin{thm}
-    [UUID]
+    [CREq]
     {Cauchy-Riemann方程}
     [Cauchy-Riemann's Equation]
     [Dedicatia]
@@ -1186,16 +1193,28 @@
 \end{dfn}
 其余的几个三角函数$\cot x$, $\sec x$, $\csc x$等都是次要的。都可以通过指数函数来表示。
 \begin{dfn}
-    [UUID]
+    [Multivalued]
+    {多值函数}
+    [Multi-valued Function]
+    [Dedicatia]
+    设定义在$D\subset\C$上的映射$F$将$z\in D$按特定对应关系映射到$\C$中的一个集合，可以又穷话也可以无穷，就称$F$是$D$上的一个多值函数。
+\end{dfn}
+\begin{xmp}
+    {多值函数的实例}
+    []
+    平方根函数$w=(z)^{1/2}$是多值函数：对任意$z\neq 0$, 都有两个$z$使得$z=w^2$. 如$z=i$, $w=\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}\ii$或$-\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}\ii$.
+\end{xmp}
+\begin{dfn}
+    [Logarithmic]
     {对数函数}
     [Logarithmic Function]
     [Dedicatia]
     若$w=x+\ii y$, 那么总可以将其写成三角形式，根据Euler公式可以将其写成$\exp z$的形式。这时就可以用$\ln w$来表示$z$. 也就是
     \[\ln w=\ln|w|+\ii\arg w (w\neq 0)\]
-    值得注意的是，\textbf{这是一个多值函数！}为了和一般的实对数区别，我们记作$\Log z$. 这时的每一组值称为一个\textbf{解析分支}。如果我们取其中的一个分支，规定$\arg w\in[0,2\pi)$, 就可以保证其是单值的，这时可以使用$\ln z$.
+    值得注意的是，\textbf{这是一个\hyperrefc{dfn:Multivalued}{多值函数}! }为了和一般的实对数区别，我们记作$\Log z$. 这时的每一组值称为一个\textbf{解析分支}。如果我们取其中的一个分支，规定$\arg w\in[0,2\pi)$, 就可以保证其是单值的，这时可以使用$\ln z$.
 \end{dfn}
 \begin{dfn}
-    [UUID]
+    [InverseTriangular]
     {反三角函数}
     [Inverse Trigonometric Function]
     [Dedicatia]
@@ -1205,12 +1224,12 @@
     \[\exp\ii z=w\pm\sqrt{w^2-1}\]
     因此得到反余弦函数
     \[z=\arccos w=-\ii\ln(w\pm\sqrt{w^2-1})\]
-    它同样也是多值函数。\\
-    同样可得反正弦函数
+    也有反正弦函数
     \[\arcsin z=\frac{\pi}{2}-\arccos z.\]
+    这些都是\hyperrefc{dfn:Multivalued}{多值函数}。一般用$\operatorname{Arccos}z$, $\operatorname{Arcsin}z$表示。\\
 \end{dfn}
 \begin{dfn}
-    [UUID]
+    [HyperbolicFunction]
     {双曲函数}
     [Hyperbolic Function]
     [Dedicatia]
@@ -1238,7 +1257,7 @@
     [Dedicatia]
     幂函数指所有形如$w=z^\alpha (\alpha\in\C)$的函数。定义为：
     \[z^\alpha = \exp(\alpha \ln z)\]
-    这时，除非$\alpha$是+实数整数，否则幂函数都是多值函数。
+    这时，除非$\alpha$是正的实整数，否则幂函数都是多值函数。
 \end{dfn}
 \begin{dfn}
     [UUID]
@@ -1247,7 +1266,46 @@
     [Dedicatia]
     称指数函数$\exp z$和$\ln z$通过有限次四则运算和有限次复合运算后得到的函数全体为\textbf{初等函数}. 由于这两个函数本身都是解析的，所以所有的初等函数都是\AnalyticalFunction 。
 \end{dfn}
-由此便可以发现复函数的性质：与实数情况不同，所有的初等函数都可以用$\exp z$和$\ln z$表示而无需独立定义。
+由此便可以发现复函数的性质：与实数情况不同，所有的初等函数都可以用$\exp z$和$\ln z$表示而无需独立定义。\\
+通过上面的讨论可以看出，复函数的多值性的根源是复数辐角$\Arg z$的多值性。为了表示这种概念，我们有定义：
+\begin{dfn}
+    {单值解析分支}
+    [Single-valued Analytic Branch]
+    设$F$是区域$D$上的多值函数，若存在一个\AnalyticalFunction $f$使得对任意$z\in D$, $f(z)\in F(z)$, 就称$f$是$F$的一个单值解析分支。
+\end{dfn}
+\begin{dfn}
+    [BranchPoint]
+    {支点}
+    [Branch Point]
+    [Dedicatia]
+    设\( f(z) \)是一个\hyperrefc{dfn:Multivalued}{多值函数}。点 \( z = a \) 称为 \( f(z) \) 的一个支点，如果存在一条围绕 \( a \) 的简单闭合曲线\( C \), 当变量 \( z \) 从某点 \( z_0 \) 出发沿 \( C \) 连续变动一周回到 \( z_0 \) 时，函数值 \( f(z) \) 没有回到它的起始值，而是变成了另一个不同的值。
+\end{dfn}
+\begin{dfn}
+    {代数支点}
+    [Algebraic Branch Point]
+    如果按照上面支点的定义，如果$z$围绕$a$转有限圈可以回到它的初值$z_0$, 就称该类支点为代数支点。
+\end{dfn}
+\begin{dfn}
+    {对数支点}
+    [Logarithmic Branch Point]
+    如果按照上面支点的定义，如果$z$围绕$a$永远无法回到它的初值$z_0$, 就称该类支点为对数支点。
+\end{dfn}
+\begin{ppt}
+    {代数支点的构造方法}
+    设$D$是单连通区域，$f(z)$是$D$上处处不为0的解析函数。那么$\Log f(z)$在$D$上有单值解析分支，即存在$g(z)$使得$\exp g(z)=f(z)$, 那么一个解析函数是$\Log f(z)$的单值解析分支当且仅当其具有$g(z)+2\ii k\pi$的形式，其中$k\in\Z$.
+\end{ppt}
+\begin{ppt}
+    {对数支点的构造方法}
+    设$D$是单连通区域，$f(z)$是$D$上处处不为0的解析函数。那么对任意自然数$n$, $\sqrt[n]{f(z)}$有$n$个单值解析分支。
+\end{ppt}
+\begin{dfn}
+    {支割线}
+    为了将多值函数分解为多个单值函数，我们需要阻碍绕行支点的路径。我们在复平面上从支点（到另一个支点或延伸到无穷远）人为地画一条线，并规定不允许自变量$z$穿过这条线。这条线就称为支割线。
+\end{dfn}
+\begin{dfn}
+    {Riemann面}
+    [Riemann Surface]
+\end{dfn}
 \subsection{复函数视角下的场论}
 对于一般的实函数，我们可以研究其图像。但是对于复函数，该怎么画它的图像呢？我们先从\AnalyticalFunction 说起。\\
 例如，对于函数
@@ -1273,6 +1331,7 @@
 设不可压缩流体在平面上具有速度场$\vec{v}=v_x+\ii v_y$. 那么取路径微元$\dd{s}$, 其在该处的径向和法向分别是
 \[\vec{\tau}=\dv{x}{s}+\ii\dv{y}{s},\qquad\vec{n}=-\ii\tau=\dv{y}{s}-\ii\dv{x}{s}\]
 \[v_\tau=\vec{v}\cdot\vec{\tau}=v_x\dv{x}{s}+v_y\dv{y}{s}\]
+\continued
 \section{复积分理论}
 \subsection{复函数的线积分}
 我们尽可能希望复积分能参照已有的实积分体系。因为实积分是我们较为熟悉的，其存在性已经证明完成。
@@ -1498,7 +1557,7 @@
     \[z'(t)-h'(t)(z(t)-a)=0\]
     这时注意到
     \[\pqty{\frac{z(t)-a}{\exp h(t)}}'=\frac{z'(t)-h'(t)(z(t)-a)}{\exp h(t)}\]
-    所以该导数等于0，并且只在有限个点中没有定义，即$\exp h(t)=0$时。显然该函数是连续的，所以这是一个\hyperrefc{dfn:TrivialAnalyticalFunction}{常解析函数}。对其应用初值，即代入$t=\alpha$, 可得
+    所以该导数等于0，并且只在有限个点中没有定义，即$\exp h(t)=0$时。显然该函数是连续的，所以这是一个\hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}。对其应用初值，即代入$t=\alpha$, 可得
     \[\exp h(t)=\frac{z(t)-a}{z(\alpha)-a}\]
     又因为原先$\gamma$是闭曲线，满足$z(\alpha)=z(\beta)$, 所以$\exp h(\beta)=1$. 这就说明了$h(\beta)$是$2\pi\ii$的整数倍数。
 \end{prf}
@@ -1607,11 +1666,11 @@
     称为\textbf{Cauchy估值}.
 \end{dfn}
 \begin{thm}
-    [UUID]
+    [Liouville]
     {Liouville定理}
     [Liouville's Theorem]
     [Dedicatia]
-    在整个平面内都有界的\AnalyticalFunction 必定是\hyperrefc{dfn:TrivialAnalyticalFunction}{常解析函数}。
+    在整个平面内都有界的\AnalyticalFunction 必定是\hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}。
 \end{thm}
 \begin{prf}
     定理的假设是对所有的圆上都有$|f(\zeta)|\leqslant M$. 那么自然可以取圆的半径$r\to+\infty $, 在Cauchy估值中令$n=1$, 这时便得到$|f'(a)|\to 0$. 这表明$f'(a)=0$恒成立。所以就是一个常解析函数。
@@ -1625,7 +1684,7 @@
     复多项式在复数域内必有至少一个零点。
 \end{thm}
 \begin{prf}
-    使用反证：设$P(z)$是任一次数大于0的多项式，并假设其恒不等于0. 则$\dfrac{1}{P(z)}$就是全平面的解析函数。又因为$\lim\limits_{z\to\infty}\dfrac{1}{P(z)}=0$, 所以$\dfrac{1}{P(z)}$也是一个有界函数。那么根据Liouville定理，它就是常解析函数。但常函数的次数是0，矛盾。
+    使用反证：设$P(z)$是任一次数大于0的多项式，并假设其恒不等于0. 则$\dfrac{1}{P(z)}$就是全平面的解析函数。又因为$\lim\limits_{z\to\infty}\dfrac{1}{P(z)}=0$, 所以$\dfrac{1}{P(z)}$也是一个有界函数。那么根据\hyperrefc{thm:Liouville}{Liouville定理}，它就是常解析函数。但常函数的次数是0，矛盾。
 \end{prf}
 \subsection{Taylor定理与解析函数的奇点}
 \begin{dfn}
@@ -2339,6 +2398,89 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
 从某种意义上讲，复分析实际上就是一对共轭调和函数上的实分析。
 \continued
 
+\section{线性代数视角下的复分析}
+\subsection{基本理论}
+\begin{thm}
+    {复数与矩阵的对应关系}
+    复数\(z=a+b\ii\in\C\)与反对称矩阵\(Z=\begin{pmatrix}
+        a&b\\-b&a
+    \end{pmatrix}\in\operatorname{skew}(\R^{2\times 2})\)之间一一对应。在这一章中我们将不再区分复数与反对称矩阵。
+\end{thm}
+在这种同构下我们可以重新定义
+\begin{dfn}
+    {复数的算术运算}
+    复数的加法就是矩阵的加法：
+    \[z_1+z_2\Longleftrightarrow Z_1+Z_2\]
+    复数的乘法就是矩阵的乘法：
+    \[(a+b\ii)(c+d\ii)=(ac-bd)+(ad+bc)\ii\]
+    \[\begin{pmatrix}
+        a&b\\-b&a
+    \end{pmatrix}\begin{pmatrix}
+        c&d\\-d&c
+    \end{pmatrix}=\begin{pmatrix}
+        ac-bd&ad+bc\\-ad-bc&ac-bd
+    \end{pmatrix}\]
+    复数的除法就是矩阵的逆：
+    \[\frac{1}{a+b\ii}=\frac{a-b\ii}{a^2+b^2}\]
+    \[\begin{pmatrix}
+        a&b\\-b&a
+    \end{pmatrix}^{-1}=\frac{1}{\det Z}\begin{pmatrix}
+        a&-b\\b&a
+    \end{pmatrix}\]
+\end{dfn}
+\begin{dfn}
+    {绝对值}
+    [Absolute Value]
+    复数的绝对值满足：
+    \[|z|^2=\det Z.\]
+\end{dfn}
+\begin{dfn}
+    {共轭复数}
+    [Conjugate]
+    复数$z$的共轭复数为$\bar{z}$, 也就是复数$Z$的共轭复数为$Z^{\mathrm{T}}$.
+    \[Z^{\mathrm{T}}Z=ZZ^{\mathrm{T}}=\operatorname{diag}(\det Z).\]
+\end{dfn}
+\subsection{张量视角下的复函数及其导数}
+有了复数，自然也可以用同样的方法定义复函数：
+\begin{xmp}
+    {以矩阵为自变量的复函数}
+    设$w=f(z)$, 那么该函数也可以用矩阵自变量表示为$W=f(Z)$. 其中$W,Z\in\operatorname{skew}(\R^{2\times 2})$. 如函数$w=z^2$
+    \[f\pqty{\mqty(x & y\\-y & x)}=\mqty(x & y\\-y & x)^2=\mqty(x^2-y^2 & 2xy \\ -2xy & x^2-y^2)\]
+\end{xmp}
+如果我们将$f$视作$u+\ii v$, 那么
+\begin{xmp}
+    {复函数的张量积定义}
+    设函数$f=u+\ii v$, 作用于自变量$x+\ii y$, 那么写为矩阵，就是
+    \[f(Z)=\mqty(u & v \\ -v & u)\otimes\mqty(x & y \\ -y & x)=\mqty(u(Z) & v(Z) \\ -v(Z) & u(Z))\]
+\end{xmp}
+在此情形下的导数可以从形式上定义为：
+\begin{dfn}
+    {复微分}
+    设复函数$f:\C\to\C:=u+\ii v$. 那么其微分$df$满足下式：
+    \[\dd{f(z)}=f'\dd{z}\]
+    \[\dd\pqty{\mqty(u & v \\ -v & u)\otimes\mqty(x & y\\-y & x)}=\mqty(\grad u & \grad v \\ -\grad v & \grad u)\otimes\mqty(\dd{x} & \dd{y} \\ -\dd{y} & \dd{x})=\mqty(\pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y} & \pdv{v}{x}\dd{x}+\pdv{v}{y}\dd{y} \\ -\pdv{u}{x}\dd{x}-\pdv{v}{y}\dd{y} & \pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y})\]
+\end{dfn}
+\begin{dfn}
+    {共形函数}
+    [Conformal Function]
+    如果上面定义的微分满足
+    \[\mqty(\pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y} & \pdv{v}{x}\dd{x}+\pdv{v}{y}\dd{y} \\ -\pdv{u}{x}\dd{x}-\pdv{v}{y}\dd{y} & \pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y})=A\mqty(\dd{x} & \dd{y} \\ -\dd{y} & \dd{x})=\mqty(a\dd x-b\dd y & a\dd y+b\dd x \\ -b\dd x-a\dd y & -b\dd y+a\dd x)\]
+    其中$A:=\mqty(a&b\\-b&a)\in\operatorname{skew}(\R^{2\times 2}) $; 就称这个函数$f=u+\ii v$是共形的。化简上式，得到
+    \[a=\pdv{u}{x}=\pdv{v}{y};\quad b=-\pdv{u}{y}=\pdv{v}{x}.\]
+    这便是\hyperref[thm:CREq]{Cauchy-Riemann方程}的形式。
+\end{dfn}
+\begin{dfn}
+    {共形函数的导数}
+    只有共形函数的导数才具备几何意义。其导数为：
+    \[f'=A=\mqty(\pdv{u}{x} & \pdv{v}{x} \\ -\pdv{v}{x} & \pdv{u}{x})\]
+\end{dfn}
+\subsection{向量视角下的复函数及其导数}
+对于复函数，我们可以用$f=u+\ii v$来表示。在形式上的微分定义为：
+\[\dd{f} = \mqty(\dd{u}\\ \dd{v})\]
+而$u,v$是$\R^2\to\R$的函数。所以
+\[\mqty(\dd{u}\\ \dd{v})=\mqty(\pdv{u}{x} & \pdv{u}{y} \\ \pdv{v}{x} & \pdv{v}{y})\mqty(\dd{u}\\ \dd{v})\]
+根据共形性，应当满足$A:=\mqty(\pdv{u}{x} & \pdv{u}{y} \\ \pdv{v}{x} & \pdv{v}{y})\in\operatorname{skew}(\R^{2\times 2})$. 所以得到了\hyperref[thm:CREq]{Cauchy-Riemann方程}
+\[\pdv{u}{x}=\pdv{v}{y},\quad -\pdv{u}{y}=\pdv{v}{x}.\]
 \section{函数的级数展开与因子分解}
 \subsection{Weierstrass定理}
 在之前的章节中我们研究幂级数，主要是为了定义复数域上的初等解析函数。其上的定理成立：
@@ -2509,9 +2651,91 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     $\varphi(z)$在$z_0$处解析且不为0. 这时根据\hyperref[thm:Laurent]{Laurent级数}的负一次幂项系数等于$\varphi(z)$的\hyperref[thm:TaylorSeries]{Taylor级数}的$m-1$次幂项系数，可得
     \[\underset{z=z_0}{\Res}f(z)=a_{-1}=\frac{\varphi^{(m-1)}}{(m-1)!}=\frac{1}{(m-1)!}\varphi^{(m-1)}(z)=\frac{1}{(m-1)!}\lim_{z\to z_0}\dv[m-1]{z}((z-z_0)^mf(z))\]
 \end{crl}
-
 \subsection{亚纯函数的部分分式展开}
+我们从\hyperrefc{thm:Laurent}{Laurent级数}中可以看到：如果$f(z)$是一个\MeromorphicFunction , 对极点$b_n$, 就会有$f(z)$的非解析部分$P_n\qty(\frac{1}{z-b_n})$. 如此减去所有的非解析部分之后就会得到解析的函数$g(z)$. 也就是说我们可以将$f(z)$分解为
+\[f(z)=\sum_{i=1}^{n}P_n\qty(\frac{1}{z-b_n})+g(z)\]
+但是这样定义，$P_n$往往是无限项，还有可能不收敛。所以我们改进：
+\begin{thm}
+    {亚纯函数的部分分解定理}
+    设$\{b_n\}$是一个复数序列，$\lim_{n\to\infty }b_n=\infty$, 设$P_n$是不含常数项的多项式，那么存在一些在全平面的\MeromorphicFunction $f(z)$, 其以$b_n$为\hyperref[dfn:PolarSingularity]{极点}, 非解析部分为所有的$P_n\qty(\frac{1}{z-b_n})$, 使得
+    \[f(z)=\sum_{i=1}^{n}\pqty{P_n\pqty{\frac{1}{z-b_n}}-p_n(z)}+g(z)\]
+    这里$p_n(z)$是有限项数的多项式，$g(z)$是全平面的\AnalyticalFunction . 
+\end{thm}
+\begin{prf}
+    我们可以假设$b_n$没有一个为0. 那么就可以在$z=0$处写出Taylor级数，取部分和$S_k$为$p_n(z)$, 那么差值$|P_n-p_n|$可以用\TaylorThm 显式估计。\\
+    \continued
+\end{prf}
+\begin{xmp}
+    {函数的部分分式展开实例}
+    以函数
+    \[\frac{\pi^2}{\sin^2\pi z}\]
+    作为例子：容易知道$z=n\in\Z$处有二阶极点，所以具有非解析部分
+    \[\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}\]
+    将它与$\sum\limits_{n=-\infty}^{+\infty}\frac{1}{n^2}$比较，总可以适当放缩使得其小于或等于$\sum\limits_{n=-\infty}^{+\infty}\frac{1}{n^2}$. 所以该级数在紧致集上一致地趋于0. 便可以展开成：
+    \[\frac{\pi^2}{\sin^2\pi z}=\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}+g(z)\]
+    接下来我们要证明$g(z)=0$. 设$z=x+\ii y$, 那么根据
+    \[|\sin^2\pi z|=\cosh^2\pi y-\cos^2\pi x\]
+    当$y\to\infty$时，可以发现$|\sin^2\pi z|\to\infty$, $\frac{\pi^2}{\sin^2\pi z}\rightrightarrows 0$. 而上面已经知道在任意紧致集上$\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}\rightrightarrows 0$, 这就说明了$|g(z)|$在全平面上有界且极限为0. 根据\hyperrefc{thm:Liouville}{Liouville定理}, $g(z)=0$. 这便得到等式：
+    \[\frac{\pi^2}{\sin^2\pi z}=\sum_{n=-\infty}^{+\infty}\frac{1}{(z-n)^2}.\]
+    将两边同时取微分。由于\UniformConvergence , 所以逐项微分是合法的：
+    \[\frac{\pi}{\tan\pi z}=\lim_{m\to\infty}\sum_{n=-m}^{m}\frac{1}{z-n}=\frac{1}{z}+\sum_{n=1}^{\infty}\frac{2z}{z^2-n^2}\]
+\end{xmp}
+\subsection{解析函数在无穷远点的行为}
+\begin{dfn}
+    [EntireFunction]
+    {整函数}
+    [Entire Function]
+    [Dedicatia]
+    称在全平面$\hat{\C}$解析的复函数为整函数。有以下三类：
+    \begin{enumerate}
+        \item \hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}；
+        \item 多项式函数；
+        \item 非多项式解析函数。
+    \end{enumerate}
+\end{dfn}
 \subsection{无穷乘积与典范乘积}
+接下来我们来研究多个复数的乘积问题：
+\begin{dfn}
+    {无穷乘积}
+    称序列$\{z_n\}^\infty$中的复数组成的乘积
+    \[\prod_{n=1}^{\infty}z_n\]
+    为一个\textbf{无穷乘积}. 其中，前$k$项的乘积$P_k=\prod\limits_{n=1}^{k}z_n$称为\textbf{部分乘积}. 如果$P_k$的极限$P$存在且不为0, 就称该无穷乘积\textbf{收敛}。
+\end{dfn}
+\begin{ppt}
+    {无穷乘积收敛的必要条件}
+    一个无穷乘积收敛，那么$\lim\limits_{n\to\infty}z_n=1$.\\
+    因此，我们一般用
+    \[\prod_{n=1}^{\infty}(1+a_n)\]
+    来表示无穷乘积。
+\end{ppt}
+\begin{ppt}
+    {无穷乘积与无穷级数}
+    无穷乘积
+    \[\prod_{n=1}^{\infty}(1+a_n)\]
+    其中$1+a_n\neq 0$, 与无穷级数
+    \[\sum_{n=1}^\infty\ln(1+a_n)\]
+    有相同的敛散性。其中$\ln$表示对数主支的值。
+\end{ppt}
+根据一个显而易见的事实
+\[\lim_{z\to 0}\frac{\ln(1+z)}{z}=1\]
+就有下面的性质
+\begin{ppt}
+    {无穷乘积绝对收敛}
+    复的无穷乘积
+    \[\prod_{n=1}^{\infty}(1+a_n)\]
+    收敛的充要条件是
+    \[\sum_{n=1}^\infty|a_n|\]
+    收敛。
+\end{ppt}
+为了研究无穷乘积的收敛性，我们先证明
+\begin{lma}
+    {整函数的指数化引理}
+    任何\hyperref[dfn:EntireFunction]{整函数}$f(z)$都可以写成$\exp g(z)$的形式，其中$g(z)$是整函数.
+\end{lma}
+\begin{prf}
+    首先注意到$\frac{f'(z)}{f(z)}$是\hyperref[dfn:EntireFunction]{整函数}, 它是某个整函数$g(z)$的导数。这就可以推出$f(z)\exp -g(z)$的导数为0. 所以$f(z)$必定是$\exp g(z)$的常数倍数。这一常数不改变整函数的性质。
+\end{prf}
+我们考虑具有有限个零点的整函数。
 \subsection{Weierstrass因子分解定理}
 \subsection{整函数的阶}
 \subsection{$\Gamma$函数}
