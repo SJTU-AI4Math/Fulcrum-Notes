@@ -1,21 +1,27 @@
 \documentclass[UTF8]{ctexart}
 
+\makeatletter
+\def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
+\makeatother
+
 \usepackage{FulcrumHabitCN}
+\usepackage{OperatorListCN}
+\usepackage{F4LinearAlgebra}
 
 \begin{document}
   
 \tableofcontents
 \newpage
 
-\section{向量和线性空间}
-	\subsection{数域}
+\section{向量和\线性空间}
+	\subsection{\数域}
 		\begin{dfn}
-			[]
-			{数域}
-			[]
+			[Number-Field]
+			{\数域}
+			[Number Field]
 			[]
         
-			一个数集$\K$称为是一个\textbf{数域(Number Field)}, 若在$\K$上定义了两种$\K^2\to
+			一个\数域$\K$称为是一个\textbf{\数域(Number Field)}, 若在$\K$上定义了两种$\K^2\to
             \K$的二元运算加法"$+$"和乘法"$\cdot$", 满足: 
 			
 			(1)$\K$对加法运算封闭: 
@@ -33,13 +39,13 @@
 			
 		\begin{thm}
             []
-			{最小的无限数域}
+			{最小的无限\数域}
         	[]
 			[]
 
-			全体无限数域的交集为有理数域$\mathbb{Q}$. \textit{(有理数域是“最小”的无限数域)}
+			全体无限\数域 的交集为有理\数域$\mathbb{Q}$. \textit{(有理\数域 是“最小”的无限\数域)}
 		\end{thm}
-        \begin{prf}设$\K$是一个非空无限数域. 
+        \begin{prf}设$\K$是一个非空无限\数域. 
 			
 			$$\because \K\neq \varnothing$$
 			
@@ -57,19 +63,19 @@
 			
 			$$\Longrightarrow \mathbb{Q} \subseteq \K$$
 			
-			又$\because \mathbb{Q}$是数域, 
+			又$\because \mathbb{Q}$是\数域, 
 			
-			$\Longrightarrow \mathbb{Q}$全体无限数域的交集为有理数域. $\square$
+			$\Longrightarrow \mathbb{Q}$全体无限\数域 的交集为有理\数域. $\square$
         \end{prf}
 			
-	\subsection{向量和线性空间}
+	\subsection{向量和\线性空间}
 		\begin{dfn}
-			[]
-			{线性空间}
-			[]
+			[Linear-Space]
+			{\线性空间}
+			[Linear Space]
 			[]
 
-			集合$V$称为是一个\textbf{数域$\K$上的线性空间(Linear Space on Number Field $\K$)}, 简称\textbf{线性空间(Linear Space)}, V中的元素称为\textbf{向量(vector)}, 若在$V$上定义了两种运算: 加法"+": $V\times V\to V$ 和数乘: $\K\times V \to V$, 满足:
+			集合$V$称为是一个\textbf{\数域$\K$上的\线性空间(Linear Space on Number Field $\K$)}, 简称\textbf{\线性空间(Linear Space)}, V中的元素称为\textbf{向量(vector)}, 若在$V$上定义了两种运算: 加法"+": $V\times V\to V$ 和数乘: $\K\times V \to V$, 满足:
 
 			(1)加法交换律成立: 
 			\[\forall \alpha,\beta \in V, \alpha+\beta=\beta+\alpha\]
@@ -97,7 +103,7 @@
 			(6)数乘分配律对$V$中的元素成立: 
 			\[\forall k\in \K, \forall \alpha , \beta \in V, k(\alpha +\beta)=k\alpha+k\beta\]
 
-			(7)数乘分配律对数域$\K$中的数成立: 
+			(7)数乘分配律对\数域$\K$中的数成立: 
 			\[\forall k,l\in \K, \forall \alpha \in V, (k+l)\alpha =k\alpha +l\alpha\]
 			
 			(8)数乘恒等元存在: 
@@ -110,9 +116,9 @@
 			[]
 			[]
 
-			线性空间$V$中的零向量$\mathbf{0}$唯一
+			\线性空间$V$中的零向量$\mathbf{0}$唯一
 		\end{ppt}
-        \begin{prf}设$\exists \mathbf{0}, \mathbf{0}' \in V$, 且它们都是线性空间$V$零向量, 则: 
+        \begin{prf}设$\exists \mathbf{0}, \mathbf{0}' \in V$, 且它们都是\线性空间$V$零向量, 则: 
 			\[\mathbf{0}=\mathbf{0}+\mathbf{0}'=\mathbf{0}'\]
 			
 			即零向量唯一. $\square$ 
@@ -207,14 +213,14 @@
 	
 	\subsection{向量的线性关系}
 		\begin{dfn}
-			[]
-			{线性组合}
-			[]
+			[Linear-Combination]
+			{\线性组合}
+			[Linear Combination]
 			[]
 			
-			设$V$是数域$\K$上的线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V$. 
+			设$V$是\数域$\K$上的\线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V$. 
 			
-			$\beta$称为是$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$的\textbf{线性组合(Linear Combination)}, 或称$\beta$可由$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$\textbf{线性表示(Linearly Expressed)}, 若: 
+			$\beta$称为是$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$的\textbf{\线性组合(Linear Combination)}, 或称$\beta$可由$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$\textbf{线性表示(Linearly Expressed)}, 若: 
 			
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: \beta = \sum_{i=1}^{n}k_{i}\alpha_{i}$$
 			
@@ -223,14 +229,14 @@
 		\end{dfn}
 		
 		\begin{dfn}
-			[]
-			{线性相关}
-			[]
+			[Linearly-Related]
+			{\线性相关}
+			[Linearly Related]
 			[]
 		
-			设$V$是数域$\K$上的线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\in V$. 
+			设$V$是\数域$\K$上的\线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\in V$. 
 		
-			向量组$\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$称为是\textbf{线性相关(Linearly Related)}的, 若: 
+			向量组$\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$称为是\textbf{\线性相关(Linearly Related)}的, 若: 
 		
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: k_{1}, k_{2}, \cdots, k_{n}\mbox{不都}=0: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}$$
 			
@@ -242,17 +248,17 @@
 		
 		\begin{ppt}
 			[]
-			{线性相关和线性无关的等价定义}
+			{\线性相关 和线性无关的等价定义}
 			[]
 			[]
 			
-			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关 $\Longleftrightarrow \exists \alpha_{i} \in A:\alpha_{i}$可被$A-\{\alpha_{i}\}$线性表示; 
+			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关 $\Longleftrightarrow \exists \alpha_{i} \in A:\alpha_{i}$可被$A-\{\alpha_{i}\}$线性表示; 
 			
 			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性无关 $\Longleftrightarrow \forall \alpha_{i} \in A:\alpha_{i}$不可被$A-\{\alpha_{i}\}$线性表示. 
 		
 		\end{ppt}
 		\begin{prf}
-		    (1)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关, 则： 
+		    (1)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关, 则： 
 			
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: k_{1}, k_{2}, \cdots, k_{n}\mbox{不都}=0: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}$$
 			
@@ -272,20 +278,20 @@
 			
 			$$k_{i}:=-1, \sum_{j=1}^{n}k_{j}\alpha_{j}=\mathbf{0}$$
 			
-			即$A$线性相关. 
+			即$A$\线性相关. 
 			
-			由于线性无关与线性相关为互补关系, 运用反证法可直接证明关于线性无关的等价定义也是成立的. $\square$
+			由于线性无关与\线性相关 为互补关系, 运用反证法可直接证明关于线性无关的等价定义也是成立的. $\square$
         \end{prf}
 			
 		\begin{ppt}
 			[]
-			{线性相关和线性无关的另一等价定义}
+			{\线性相关 和线性无关的另一等价定义}
 			[]
 			[]
 			
 			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性无关$\Longleftrightarrow \forall \beta: \beta$可被$A$线性表示, 这种表示唯一; 
 			
-			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关$\Longleftrightarrow \forall \beta: \beta$可被$A$线性表示, 这种表示不唯一. 
+			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关$\Longleftrightarrow \forall \beta: \beta$可被$A$线性表示, 这种表示不唯一. 
 						
 		\end{ppt}
 		\begin{prf}
@@ -302,7 +308,7 @@
 			
 			即$\beta$被$A$表示方式唯一. 
 			
-			(2)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关, 则: 
+			(2)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关, 则: 
 			
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: k_{1}, k_{2}, \cdots, k_{n}\mbox{不都}=0: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}$$
 			
@@ -316,23 +322,23 @@
 			
 			$\because k_{i}$不全为零, $\Longrightarrow \beta$的表示方式不唯一. 
 			
-			由于线性无关与线性相关为互补关系, 运用反证法可直接证明对于必要性情况的等价定义也是成立的. $\square$
+			由于线性无关与\线性相关 为互补关系, 运用反证法可直接证明对于必要性情况的等价定义也是成立的. $\square$
 		\end{prf}
   
 		\begin{ppt}
 			[]
-			{线性相关的包含性}
+			{\线性相关 的包含性}
 			[]
 			[]
 			若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性无关, 则$\forall$向量组$B\subseteq A$, 有$B$线性无关. 
-			若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关, 则$\forall$向量组$B\supseteq A$, 有$B$线性相关. 
+			若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关, 则$\forall$向量组$B\supseteq A$, 有$B$线性相关. 
 						
 		\end{ppt}
 		\begin{prf}
 		
 			(1)运用反证法. 
 			
-			设$A$线性无关而$B\subseteq A$线性相关, 则: 
+			设$A$线性无关而$B\subseteq A$\线性相关, 则: 
 			
 			$$\exists \alpha_{i}\in B: \alpha_{i}\mbox{能被}B-\alpha_{i}\mbox{线性表示}$$
 			
@@ -340,20 +346,20 @@
 			
 			$$\Longrightarrow \alpha_{i}\mbox{能被}A-\alpha_{i}\mbox{线性表示}$$
 			
-			即$A$线性相关, 矛盾. 
+			即$A$\线性相关, 矛盾. 
 			
 			$\Longrightarrow A$线性无关$\Longrightarrow B$线性无关. 
 			
 			(2)由上述证明知: $B$线性无关$\Longrightarrow \forall A \subseteq B, A$线性无关. 
 			
-			$\Longrightarrow A$线性相关$\Longrightarrow \forall B \supseteq A, B$线性相关. $\square$
+			$\Longrightarrow A$\线性相关$\Longrightarrow \forall B \supseteq A, B$线性相关. $\square$
 		\end{prf}
-	\subsection{向量组的极大线性无关组与秩}
+	\subsection{向量组的\极大线性无关组 与秩}
 		
 		\begin{dfn}
-			[]
-			{极大线性无关组}
-			[]
+			[Maximally-Linearly-Independent-Set-of-Vectors]
+			{\极大线性无关组}
+			[Maximally Linearly Independent Set of Vectors]
 			[]
 			向量组$S=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$中, 其子向量组$A=\{\alpha_{t_{1}}, \alpha_{t_{2}}, \cdots, \alpha_{t_{r}}\}$称为是$S$的一个\textbf{极大线性无关组(Maximally Linearly Independent Set of Vectors)}, 若: 
 			
@@ -365,10 +371,10 @@
 			
 		\begin{ppt}
 			[]
-			{极大线性无关组的任意存在性}
+			{\极大线性无关组 的任意存在性}
 			[]
 			[]
-			若向量组$S$含有限个元素且含至少一个非零向量, 则$S$必有极大线性无关组. 
+			若向量组$S$含有限个元素且含至少一个非零向量, 则$S$必有\极大线性无关组. 
 			
 		\end{ppt}
 		\begin{prf}
@@ -379,17 +385,17 @@
 			
 			有$\{\alpha\}$线性无关, 且$\alpha$能被$\{\alpha\}$线性表示. 
 			
-			$\Longrightarrow\{\alpha\}$为$S$的极大线性无关组. 
+			$\Longrightarrow\{\alpha\}$为$S$的\极大线性无关组. 
 			
-			(2)假设当$n=k-1$时, $S$必有极大线性无关组, 则当$n=k$时: 
+			(2)假设当$n=k-1$时, $S$必有\极大线性无关组, 则当$n=k$时: 
 			
 			$$S:=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{k}\}$$
 			
 			$$\because|S-\{\alpha_{k}\}|=k-1$$
 			
-			$\Longrightarrow S-\{\alpha_{k}\}$有极大线性无关组, 设为$A=\{\alpha_{t_{1}}, \alpha_{t_{2}}, \cdots, \alpha_{t_{r}}\}$. 
+			$\Longrightarrow S-\{\alpha_{k}\}$有\极大线性无关组, 设为$A=\{\alpha_{t_{1}}, \alpha_{t_{2}}, \cdots, \alpha_{t_{r}}\}$. 
 			
-			1'若$A\cup \{\alpha_{k}\}$线性相关: 
+			1'若$A\cup \{\alpha_{k}\}$\线性相关 : 
 			
 			$$\alpha_{k}:=\alpha_{t_{r+1}},\exists l_{1},l_{2},\cdots,l_{r},l_{r+1}: \sum_{i=1}^{r+1}l_{i}\alpha_{t_{i}}=\mathbf{0}$$
 			
@@ -403,7 +409,7 @@
 			
 			即$S$能被$A$线性表示, 又$A$线性无关, 
 			
-			$\Longrightarrow A$是$S$的极大线性无关组. 
+			$\Longrightarrow A$是$S$的\极大线性无关组. 
 			
 			2'若$A\cup \{\alpha_{k}\}$线性无关:
 			
@@ -411,18 +417,18 @@
 			
 			$\Longrightarrow S$可被$A\cup \{\alpha_{k}\}$线性表示, 又$\because A\cup \{\alpha_{k}\}$线性无关, 
 			
-			$\Longrightarrow A\cup \{\alpha_{k}\}$是$S$的极大线性无关组. 
+			$\Longrightarrow A\cup \{\alpha_{k}\}$是$S$的\极大线性无关组. 
 			
-			综上所述, $S$总有极大线性无关组. $\square$
+			综上所述, $S$总有\极大线性无关组. $\square$
 		\end{prf}
   
 		\begin{thm}
 			[]
-			{极大线性无关组的等价性}
+			{\极大线性无关组 的等价性}
 			[]
 			[]
 
-			设$A$与$B$都是向量组$S$的极大线性无关组, 则$|A|=|B|$
+			设$A$与$B$都是向量组$S$的\极大线性无关组, 则$|A|=|B|$
 		\end{thm}
 		\begin{prf}
 		
@@ -454,7 +460,7 @@
 			
 			若命题$(*)$成立, 则当$i=s$时: 
 			
-			$\exists \alpha_{j}\in (A-B_{s})\subsetneqq A_{s}$能被$B_{s}\subsetneqq A$线性表示$\Longrightarrow A$线性相关, 矛盾. 
+			$\exists \alpha_{j}\in (A-B_{s})\subsetneqq A_{s}$能被$B_{s}\subsetneqq A$线性表示$\Longrightarrow A$\线性相关, 矛盾. 
 			
 			下证命题$(*)$: 
 			
@@ -482,7 +488,7 @@
 			
 			其中$\exists1\leq i\leq s: l_{i}\neq 0$. 
 			
-			$\because l_{k+1}=l_{k+2}=\cdots=l_{s}=0\Longrightarrow \exists 1\leq i\leq k: l_{i}\neq 0 \Longrightarrow A$线性相关, 矛盾, 
+			$\because l_{k+1}=l_{k+2}=\cdots=l_{s}=0\Longrightarrow \exists 1\leq i\leq k: l_{i}\neq 0 \Longrightarrow A$\线性相关, 矛盾, 
 			
 			$\Longrightarrow\exists l_{i}\in \{l_{k+1},l_{k+2},\cdots, l_{s}\} :l_{i}\neq 0$
 			
@@ -500,7 +506,7 @@
 			
 			$\Longrightarrow$命题$(*)\forall 1\leq i\leq s$恒成立. $\square$
 			
-			若$A$和$B$都是$S$的极大线性无关组, 则: 
+			若$A$和$B$都是$S$的\极大线性无关组, 则: 
 			
 			$B$线性无关, 且$A$能线性表示$B \Longrightarrow |A|\geq |B|$
 			
@@ -510,12 +516,12 @@
         \end{prf}
 			
 		\begin{dfn}
-			[]
-			{秩}
-			[]
+			[Rank]
+			{\秩}
+			[Rank]
 			[]
 
-			向量组$S$的极大线性无关组的元素个数称为$S$的\textbf{秩(Rank)}, 记作${\rm rank}(S)$, 简写作${\rm r}(S)$. 
+			向量组$S$的极大线性无关组的元素个数称为$S$的\textbf{\秩(Rank)}, 记作${\rm rank}(S)$, 简写作${\rm r}(S)$. 
 		\end{dfn}
 	
 	\subsection{线性空间的基与维度}
@@ -526,7 +532,7 @@
 			[]
 			[]
 
-			设$V$是数域$\K$上的线性空间, 向量组$\{e_{1},e_{2},\cdots,e_{n}\}$称为是$V$的一组\textbf{基(Basis)}, 每个$e_{i}$称为是$V$的一个\textbf{基向量(Basis Vector)}, 若:
+			设$V$是\数域$\K$上的线性空间, 向量组$\{e_{1},e_{2},\cdots,e_{n}\}$称为是$V$的一组\textbf{基(Basis)}, 每个$e_{i}$称为是$V$的一个\textbf{基向量(Basis Vector)}, 若:
 			 
 			(1)$\{e_{1},e_{2},\cdots,e_{n}\}$线性无关; 
 			
@@ -633,7 +639,7 @@
 			[]
 			[]
 
-			设$V$是数域$\K$上的线性空间, $V$的非空子集$V'$称为是线性空间$V$的一个\textbf{线性子空间(Linear Subspace)}, 简称\textbf{子空间(Subspace)}, 若$V'$是一个线性空间. 
+			设$V$是\数域$\K$上的线性空间, $V$的非空子集$V'$称为是线性空间$V$的一个\textbf{线性子空间(Linear Subspace)}, 简称\textbf{子空间(Subspace)}, 若$V'$是一个线性空间. 
 		\end{dfn}
 		
 		\begin{ppt}
@@ -993,7 +999,7 @@
 			[]
 			[]
 
-			数域$\K$上关于$x$的次数不大于$n$的一元多项式全体构成一个$n+1$维线性空间, 记为$\K[x]$. 
+			\数域$\K$上关于$x$的次数不大于$n$的一元多项式全体构成一个$n+1$维线性空间, 记为$\K[x]$. 
 		\end{xmp}
 		
 		
@@ -1008,7 +1014,7 @@
 			[Linear Map]
 			[]
 
-			设$V_{1},V_{2}$是数域$\K$上的线性空间, 映射$\varphi: V_{1}\to V_{2}$称为是一个\textbf{线性映射(Linear map)}, 若$\forall \alpha, \beta\in V_{1}, k\in \K$, 
+			设$V_{1},V_{2}$是\数域$\K$上的线性空间, 映射$\varphi: V_{1}\to V_{2}$称为是一个\textbf{线性映射(Linear map)}, 若$\forall \alpha, \beta\in V_{1}, k\in \K$, 
 			\[\varphi (\alpha+\beta)=\varphi(\alpha)+\varphi(\beta)\]
 			\[\varphi(k\alpha)=k\varphi(\alpha)\]
 
@@ -2257,7 +2263,7 @@
         
         \begin{prf}
             1.若$A$可逆，则当$Ax=0$时，两侧同乘$A$的逆，则有$x$为零向量，则$Ax=0$无非零解\\
-            2.若$Ax=0$无非零解，也即不存在$A$的列向量的一个线性组合为零向量，故$A$满秩\\
+            2.若$Ax=0$无非零解，也即不存在$A$的列向量的一个线性组合 为零向量，故$A$满秩\\
             3.若$A$满秩，则$A$相抵于单位阵，显然可逆
         \end{prf}
         
@@ -2789,7 +2795,7 @@
     这是一个很强大的结论，这说明行列式运算在转置之后结果是不变的，于是所有对于行列式的行成立的结论，对于行列式的列仍然成立.
     \begin{thm}
 			[]
-			{元素与自己的余子式线性组合为0}
+			{元素与自己的余子式线性组合 为0}
 			[]
 			[]
 
