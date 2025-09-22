@@ -62,6 +62,13 @@
                 在不引起混淆的情况下, 常将拓扑空间 \((S,\mathcal{T})\) 简记为 \(S\). 
             \end{rmk}
 
+            \begin{xmp}
+                []
+                {平凡拓扑}
+                []
+                [猫猫]
+            \end{xmp}
+
             \begin{dfn}
                 [Open-Closed-Set]
                 {开集与闭集}
@@ -234,12 +241,35 @@
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{导集}为: \(\{x|\极限点[x][E]\}\), 记作 \(\DrvSet{E}\). 
             \end{dfn}
 
+            \begin{ppt}
+                []
+                {集合与导集的并等于闭包}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 则:
+                \[\cl E=E\cup\DrvSet{E}\]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {自密集}
+                []
+                [猫猫]
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {完全集}
+                []
+                [猫猫]
+            \end{dfn}
+
             \begin{dfn}
                 [Isolated-Point]
                 {孤立点}
                 [Isolated Point]
                 [猫猫]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), \(x\in E\), 定义 \(x\) 是 \(E\) 的\textbf{孤立点}, 当且仅当: \(x\in\cl E\setminus\DrvSet{E}\). 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), \(x\in E\), 定义 \(x\) 是 \(E\) 的\textbf{孤立点}, 当且仅当: \(x\notin\DrvSet{E}\). 
             \end{dfn}
 
             \begin{ppt}
@@ -248,7 +278,7 @@
                 []
                 [猫猫]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), \(x\in E\), 则: 
-                \[x\in\cl E\setminus\DrvSet{E}\iff\exists U\in\Nbr{x}, U\cap E=\varnothing\]
+                \[x\in\cl E\setminus\DrvSet{E}\iff\exists U\in\DelNbr{x}, U\cap E=\varnothing\]
             \end{ppt}
             
             \begin{dfn}
@@ -486,13 +516,16 @@
 
             \begin{thm}
                 []
-                {紧集套定理}
+                {}
                 []
                 [猫猫]
             \end{thm}
 
             \begin{crl}
-                {}
+                []
+                {紧集套定理}
+                []
+                [猫猫]
             \end{crl}
 
         \subsection{拓扑空间的构造}
@@ -777,6 +810,43 @@
                 []
                 [猫猫]
             \end{ppt}
+
+            \begin{ppt}
+                []
+                {度量空间中开球的邻域身份}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{thm}
+                []
+                {度量空间中极限点附近有无穷个点}
+                []
+                [猫猫]
+                
+            \end{thm}
+
+            \begin{crl}
+                {度量空间中有限集没有极限点}
+            \end{crl}
+
+            \begin{dfn}
+                {列紧集}
+            \end{dfn}
+
+            \begin{thm}
+                []
+                {Bolzano-Weierstrass 定理 / 聚点定理}
+                []
+                [猫猫]
+            \end{thm}
+
+            \begin{dfn}
+                []
+                {有界集}
+                []
+                [猫猫]
+            \end{dfn}
 
         \subsection{分离定理}
             

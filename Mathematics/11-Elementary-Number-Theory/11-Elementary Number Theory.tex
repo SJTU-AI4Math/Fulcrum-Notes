@@ -116,9 +116,217 @@
                     [ \(b\% a\)]
             \end{dfn}
 
-        \section{同余方程}
+        \subsection{最大公因数}
 
-        \section{原根与指标}
+            \begin{dfn}
+                [GCD]
+                {最大公因数}
+                [Greatest Common Divisor]
+                [猫猫]
+                \DEF
+                    [ \(a, b:\Z\), \(a\neq 0\), \(b\neq 0\)]
+                    { \(a\) 和 \(b\) 的最大公因数}
+                    {\(\max\{d|d\mid a \land d\mid b\}\)}
+                    [ \(\gcd(a,b)\)]
+
+                \DEF
+                    [ \(S\) 是 \(\Z\) 上的集合, \(S\neq\{0\}\)]
+                    { \(S\) 的最大公因数}
+                    {\(\max\{d|\forall n\in S, d\mid n\}\)}
+                    [ \(\gcd S\)]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {最大公因数非负}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {}
+                []
+                [猫猫]
+                \THM
+                    [ \(a, b, c, q:\Z\), \(q\neq 0\), \(a=bq+c\)]
+                    {\(\gcd(a,b)=\gcd(b,c)\)}
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {}
+                []
+                [猫猫]
+                \THM
+                    [ \(a, b, n:\Z\)]
+                    {\(\gcd(an,bn)=n\gcd(a,b)\)}
+            \end{ppt}
+
+            \begin{thm}
+                []
+                {Euclid 辗转相除法}
+                []
+                [猫猫]
+            \end{thm}
+
+            \begin{thm}
+                []
+                {Bezout 定理}
+                [Bezout's Theorem]
+                [猫猫]
+            \end{thm}
+
+            \begin{dfn}
+                {互素}
+                [Coprime]
+                [猫猫]
+                \DEF*
+                    [ \(a, b:\Z\), \(a\neq 0\lor b\neq 0\)]
+                    { \(a\) 与 \(b\) 互素}
+                    {\(\gcd(a,b)=1\)}
+
+                \DEF*
+                    [ \(S\) 是 \(\Z\) 上的集合, \(S\neq\{0\}\)]
+                    { \(S\) 互素}
+                    {\(\gcd S=1\)}
+            \end{dfn}
+
+            \begin{dfn}
+                []
+                {最小公倍数}
+                [Least Common Multiple]
+                [猫猫]
+            \end{dfn}
+
+            \begin{thm}
+                []
+                {两数之积等于其最大公因数与最小公倍数之积}
+                []
+                [猫猫]
+            \end{thm}
+        
+        \subsection{素数}
+        
+            \begin{dfn}
+                [Prime]
+                {素数与合数}
+                [Prime Number \& Composite Number]
+                [猫猫]
+                \DEF*
+                    [ \(p:\Z\), \(p>1\)]
+                    { \(p\) 是素数}
+                    {\(\forall a, b\in\Z, p=ab \Rightarrow a=1 \lor a=p\)}
+
+                \DEF*
+                    [ \(n:\Z\), \(n>1\)]
+                    { \(n\) 是合数}
+                    {\(\exists a, b\in\Z, n=ab \land a\neq 1 \land a\neq n\)}
+            \end{dfn}
+
+            \begin{ppt}
+                {}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{ppt}
+                {}
+                []
+                [猫猫]
+                \THM
+                    []
+                    {}
+            \end{ppt}
+
+            \begin{ppt}
+                {Eratosthenes 筛法}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{thm}
+                []
+                {素数无穷性}
+                [Infinitude of Primes]
+                [猫猫]
+                \THM
+                    {}
+                    {}
+            \end{thm}
+
+            \begin{thm}
+                []
+                {算术基本定理}
+                [Fundamental Theorem of Arithmetic]
+                [猫猫]
+            \end{thm}
+
+        \subsection{整数部分}
+            
+            \begin{dfn}
+                []
+                {整数部分 / Gauss 函数}
+                [Gauss Function]
+                [猫猫]
+                \DEF
+                    [ \(x:\R\)]
+                    { \(x\) 的整数部分 / Gauss 函数}
+                    {\(\max\{n|n\in\Z \land n\leq x\}\)}
+                    [ \(\lfloor x \rfloor\)]
+            \end{dfn}
+
+    \section{不定方程}
+        
+        \subsection{二元一次不定方程}
+        
+            \begin{thm}
+                []
+                {二元一次不定方程整数解系}
+                []
+                [猫猫]
+                \THM
+                    [ \(a, b, c, x_0, y_0:\Z\), \(a\neq 0\), \(b\neq 0\), \(ax_0+by_0=c\)]
+                    {\[\forall x,y:\Z, ax+by=c\implies\exists k:\Z, 
+                    \begin{cases}
+                    \begin{aligned}
+                        &x=x_0+\frac{b}{\gcd(a,b)}k\\
+                        &y=y_0-\frac{a}{\gcd(a,b)}k
+                    \end{aligned}
+                    \end{cases}\]}*
+            \end{thm}
+
+            \begin{thm}
+                []
+                {二元一次不定方程有解的充要条件}
+                []
+                [猫猫]
+                \THM
+                    [ \(a, b, c:\Z\), \(a\neq 0\), \(b\neq 0\)]
+                    {\[\exists x,y:\Z, ax+by=c \iff \gcd(a,b)\mid c\]}*
+            \end{thm}
+            
+            \begin{thm}
+                []
+                {二元一次不定方程解的形状}
+                []
+                [猫猫]
+            \end{thm}
+
+        \subsection{多元一次不定方程}
+            
+            \begin{thm}
+                []
+                {}
+                []
+                []
+            \end{thm}
+
+    
+
+    \section{同余方程}
+
+    \section{原根与指标}
         
         
 
