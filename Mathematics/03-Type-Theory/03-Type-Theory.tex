@@ -1,0 +1,197 @@
+\documentclass[UTF8]{ctexart}
+
+\makeatletter
+\def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
+\makeatother
+
+\usepackage{FulcrumCN}
+\usepackage{OperatorListCN}
+\usepackage{F4Type}
+
+% margin
+\usepackage{geometry}
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+\linespread{1.2}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \(\lambda\)-演算与类型论}
+
+    Fulcrum4Math
+\end{center}
+
+\tableofcontents
+\newpage
+
+\section{\(\lambda\)-演算}
+
+    \subsection{无类型 \(\lambda\)-演算}
+    
+        \begin{dfn}
+            [Lambda-Term]
+            {\(\lambda\)-项}
+            [\(\lambda\)-terms]
+            [猫猫]
+
+        \end{dfn}
+        
+        \begin{axm}
+            [Lambda-Apply]
+            {应用规则}
+            []
+            [猫猫]
+
+        \end{axm}
+
+    \subsection{简单类型 \(\lambda\)-演算}
+
+\section{类型论}
+
+    \subsection{类型系统}
+    
+        \begin{dfn}
+            []
+            {类型判断}
+            []
+            [猫猫]
+            \(a:A\) 是判断
+        \end{dfn}
+        
+        \begin{dfn}
+            []
+            {依定义相等判断}
+            []
+            [猫猫]
+            \(a \equiv b:A\) 是判断
+        \end{dfn}
+        
+        \begin{dfn}
+            []
+            {良上下文判断}
+            [Well-Formed Context]
+            [猫猫]
+            \(\Gamma(\mathsf{ctx})\) 是判断
+        \end{dfn}
+        
+        \begin{axm}
+            []
+            {类型宇宙}
+            []
+            [猫猫]
+            设 \(\color{red}{n:\N}\), \(\mathcal{U}_0, \mathcal{U}_1, \dots\) 称为类型宇宙. 
+
+            有: \(\mathcal{U}_n:\mathcal{U}_{n+1}\)
+
+            类型宇宙是累计的, 即若 \(A:\mathcal{U}_n\), 则 \(A:\mathcal{U}_{n+1}\). 
+        \end{axm}
+        
+        \begin{ppt}
+            []
+            {类型宇宙的元素是类型}
+            []
+            [猫猫]
+        \end{ppt}
+        
+        \begin{rmk}
+            规定类型宇宙 \(\mathcal{U}_{\infty}:\mathcal{U}_{\infty}\) 将导致矛盾, 因此使用分层设计. 
+        \end{rmk}
+        
+        \begin{axm}
+            []
+            {归纳类型构造规则}
+            []
+            [猫猫]
+            类型构造规则
+
+            构造子 / 引入规则
+
+            消去子 / 消去规则
+
+            计算规则 ($\beta$-规约)
+
+            唯一性原理 ($\eta$-展开)
+        \end{axm}
+
+    \subsection{简单类型论}
+        
+        \begin{axm}
+            []
+            {函数类型构造规则}
+            []
+            [猫猫]
+            设 \(A, B\) 是类型, 则由 \(A\) 至 \(B\) 的函数类型是类型, 记作 \(A \to B\). 
+        \end{axm}
+        
+        \begin{rmk}
+            [猫猫]
+            规定函数类型算子是右结合的, 即将 \(A \to B \to C\) 解释为 \(A \to (B \to C)\). 
+        \end{rmk}
+        
+        \begin{rmk}
+            [猫猫]
+            将多元函数 \(A\times B\to C\) 表示为一元函数的嵌套 \(A\to (B\to C)\), 这种习惯称为\textbf{函数的 Curry 化表示}. 
+        \end{rmk}
+        
+        \begin{axm}
+            []
+            {函数构造规则}
+            []
+            [猫猫]
+        \end{axm}
+        
+        \begin{axm}
+            []
+            {函数应用规则}
+            []
+            [猫猫]
+        \end{axm}
+        
+        \begin{dfn}
+            [Dependent-Type]
+            {依值类型 / 类型族}
+            [Dependent Type / Type Family]
+            [猫猫]
+        \end{dfn}
+        
+
+    \subsection{依值类型论}
+        
+        \begin{axm}
+            []
+            {依值函数类型构造规则}
+            []
+            [猫猫]
+            设 \(A\) 是类型, \(\beta\) 是 \(A\) 上的依值类型, 则由 \(A\) 至 \(\beta\) 的依值函数类型是类型, 记作 \(\prod_{(x:A)} \beta(x)\). 
+        \end{axm}
+        
+        \begin{ppt}
+            []
+            {非依值的依值函数类型等价于函数类型}
+            []
+            [猫猫]
+        \end{ppt}
+
+        \begin{axm}
+            []
+            {依值函数构造规则}
+            []
+            [猫猫]
+        \end{axm}
+
+        \begin{axm}
+            []
+            {依值函数应用规则}
+            []
+            [猫猫]
+        \end{axm}
+
+    
+
+\end{document}
