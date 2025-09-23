@@ -12,6 +12,8 @@
 \usepackage{F4Topology}
 \usepackage{F4Analysis}
 
+\DeclareMathOperator{\st}{\text{s.t. }}
+
 % margin
 \usepackage{geometry}
 \geometry{
@@ -900,7 +902,7 @@
                 [猫猫]
             \end{dfn}
 
-        \subsection{分离定理}
+        \subsection{拓扑空间的分离性}
 
             \begin{dfn}
                 [Kolmogorov-Space]
@@ -917,7 +919,66 @@
                 {Sierpinski空间}
                 [Sierpinski Space]
                 [Dedicatia]
+                \textbf{Sierpinski空间}指的是\拓扑空间 $(S,\tau)$, $S=\{x,y\}$, $\tau=\{\varnothing, \{y\}, S\}$. 这时我们可以用一个开集 $\{y\}$ 区分 $x,y$. 说明它是\textbf{T0空间}. 但是它不再满足更强的分离性。
             \end{xmp}
+
+            \begin{dfn}
+                [Frechet-Space]
+                {Frechet空间}
+                [Frechet Space]
+                [Dedicatia]
+                如果一个\拓扑空间 中的任意两个不同的点都可以用各自的开\邻域 区分，就称该空间为\textbf{Frechet空间}.
+                \[\forall\,x,y\in X, \exists\Nbr{x}\st x\in\Nbr{x}, y\notin\Nbr{x}. \]
+                又叫做\textbf{T1空间}.
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {Frechet空间的充要条件}
+                []
+                [Dedicatia]
+                一个\拓扑空间 是\textbf{T1空间}的充要条件是每个单点集都是\闭集 .
+            \end{ppt}
+
+            \begin{xmp}
+                [Cofinite-Topology]
+                {无限集上的有限补拓扑空间}
+                [Co-finite Topological Space]
+                [Dedicatia]
+                设 $X$ 是无限集合，定义\拓扑
+                \[\tau:=U \text{ 如果满足 }\begin{cases}
+                    &U=\varnothing,\\
+                    &X\backslash U \text{ 是有限集。}
+                \end{cases}\]
+                这时，所有的单点集的补集都是\开集 , 所以单点集都是\闭集 . 这是一个\textbf{T1空间}. 具体来讲这个空间有以下的性质：
+                \begin{itemize}
+                    \item 具有\紧 ;
+                    \item 具有\连通 性;
+                    \item 空间中的序列可以收敛到多个极限。
+                \end{itemize}
+            \end{xmp}
+
+            \begin{dfn}
+                [Hausdorff-Space2]
+                {Hausdorff空间}
+                [Hausdorff Space]
+                [Dedicatia]
+                如果一个\拓扑空间 中的任意两个不同的点都可以用不相交的各自的开\邻域 区分，就称该空间为\textbf{Hausdorff空间}.
+                \[\forall\,x,y\in X, \exists\Nbr{x},\Nbr{y},\st x\in\Nbr{x},y\in\Nbr{y}, \Nbr{x}\cap\Nbr{y}=\varnothing. \]
+                又叫做\textbf{T2空间}.
+            \end{dfn}
+
+            \begin{dfn}
+                [Regular-Space]
+                {正则空间}
+                [Regular Space]
+                [Dedicatia]
+                如果一个\拓扑空间 $(S,\tau)$: 对任意 $x\in S$ 和\闭集 $C$, 其中 $x\notin C$, 存在不相交的\开集 $X,Y$ 使得 $x\in X$, $C\subseteq Y$, 就称其为\textbf{正则空间}, 又叫\textbf{T3空间}.
+            \end{dfn}
+
+            \begin{dfn}
+                []
+            \end{dfn}
             
 
 \end{document}
