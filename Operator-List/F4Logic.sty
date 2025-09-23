@@ -1,23 +1,23 @@
 \let\oldforall\forall
-\RenewDocumentCommand{\forall}{sooso}{\catref[ #1]{dfn:forall}{\ensuremath{\oldforall}\oarg{#2}\IfNoValueTF{#5}{}{ : #5}\IfNoValueTF{#3}{}{, \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}[全称量词, 即``对于任意''. ]}
+\RenewDocumentCommand{\forall}{sooso}{\catref[#1]{dfn:forall}{\ensuremath{\oldforall}}[全称量词, 即``对于任意''. ]\oarg{#2}\IfNoValueTF{#5}{}{ {\color{purple}{:}} #5}\IfNoValueTF{#3}{}{{\color{purple}{,\,}} \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}
 
 \let\oldexists\exists
-\RenewDocumentCommand{\exists}{sooso}{\catref[ #1]{dfn:exists}{\ensuremath{\oldexists}\oarg{#2}\IfNoValueTF{#5}{}{ : #5}\IfNoValueTF{#3}{}{, \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}[存在量词. ]}
+\RenewDocumentCommand{\exists}{sooso}{\catref[#1]{dfn:exists}{\ensuremath{\oldexists}}[存在量词. ]\oarg{#2}\IfNoValueTF{#5}{}{ {\color{purple}{:}} #5}\IfNoValueTF{#3}{}{{\color{purple}{,\,}} \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}
 
 \let\oldneg\neg
-\RenewDocumentCommand{\neg}{so}{\catref[#1]{dfn:neg}{\oarg{#2}\ensuremath{\oldneg}}[否定算子. ]}
+\RenewDocumentCommand{\neg}{so}{\catref[#1]{dfn:neg}{\ensuremath{\oldneg}\,\oarg{#2}}[否定算子. ]}
 
 \let\oldland\land
-\RenewDocumentCommand{\land}{soo}{\catref[#1]{dfn:land}{\oarg{#2}\ensuremath{\oldland}\oarg{#3}}[合取算子, 即``且''. ]}
+\RenewDocumentCommand{\land}{soo}{\catref[#1]{dfn:land}{\oarg{#2}\,\ensuremath{\oldland}\,\oarg{#3}}[合取算子, 即``且''. ]}
 
 \let\oldlor\lor
-\RenewDocumentCommand{\lor}{soo}{\catref[#1]{dfn:lor}{\oarg{#2}\ensuremath{\oldlor}\oarg{#3}}[析取算子, 即``或''. ]}
+\RenewDocumentCommand{\lor}{soo}{\catref[#1]{dfn:lor}{\oarg{#2}\,\ensuremath{\oldlor}\,\oarg{#3}}[析取算子, 即``或''. ]}
 
 \let\oldimplies\implies
-\RenewDocumentCommand{\implies}{soo}{\catref[#1]{dfn:implies}{\oarg{#2}\ensuremath{\oldimplies}\oarg{#3}}[蕴含算子. ]}
+\RenewDocumentCommand{\implies}{soo}{\catref[#1]{dfn:implies}{\oarg{#2}\,\ensuremath{\oldimplies}\,\oarg{#3}}[蕴含算子. ]}
 
 \let\oldiff\iff
-\RenewDocumentCommand{\iff}{soo}{\catref[#1]{dfn:iff}{\oarg{#2}\ensuremath{\oldiff}\oarg{#3}}[等价算子, 即``当且仅当''. ]}
+\RenewDocumentCommand{\iff}{soo}{\catref[#1]{dfn:iff}{\oarg{#2}\,\ensuremath{\oldiff}\,\oarg{#3}}[等价算子, 即``当且仅当''. ]}
 
 
 
