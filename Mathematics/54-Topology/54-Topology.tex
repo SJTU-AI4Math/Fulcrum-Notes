@@ -573,6 +573,28 @@
                 [猫猫]
             \end{crl}
 
+        \subsection{分离定理}
+
+            \begin{dfn}
+                [Kolmogorov-Space]
+                {Kolmogorov 空间 / T0 空间}
+                [Kolmogorov Space]
+                [Dedicatia]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
+                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
+            \end{dfn}
+            
+            \begin{rmk}
+                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
+            \end{rmk}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski 空间}
+                [Sierpinski Space]
+                [Dedicatia]
+            \end{xmp}
+
         \subsection{拓扑空间的构造}
 
             \begin{dfn}
@@ -773,9 +795,9 @@
                 {同胚}
                 [Homeomorphism]
                 []
-                设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), 称映射\(f:X\to Y\)是\(X\)到\(Y\)上的\textbf{同胚}, 若\(f\)是双射, 且\(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
+                设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), \(f:X\to Y\), 定义 \(f\) 是 \(X\) 到 \(Y\) 的\textbf{同胚}, 当且仅当: \(f\)是双射, 且 \(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
 
-                若\(\exists X\)到\(Y\)的同胚, 则称\(X\)与\(Y\)是同胚的. 
+                定义 \(X\) 与 \(Y\) \textbf{同胚}, 当且仅当: \(\exists f:X\to Y, f\) 是从 \(X\) 到 \(Y\) 的同胚. 
             \end{dfn}
             
             \begin{thm}
@@ -892,25 +914,6 @@
                 []
                 [猫猫]
             \end{dfn}
-
-        \subsection{分离定理}
-
-            \begin{dfn}
-                [Kolmogorov-Space]
-                {Kolmogorov空间}
-                [Kolmogorov Space]
-                [Dedicatia]
-                如果一个\拓扑空间 中的任意两点都可以被一个\开集 区分，就称该拓扑空间为\textbf{Kolmogorov空间}.
-                \[\forall\,x,y\in X, \exists\,D, x\in D,y\notin D.\]
-                又叫做\textbf{T0空间}.
-            \end{dfn}
-
-            \begin{xmp}
-                [Sierpinski-Space]
-                {Sierpinski空间}
-                [Sierpinski Space]
-                [Dedicatia]
-            \end{xmp}
             
 
 \end{document}
