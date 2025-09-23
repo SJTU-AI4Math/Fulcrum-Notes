@@ -288,6 +288,42 @@
                 [猫猫]
                 设\((S,\T)\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
             \end{dfn}
+
+            \begin{xmp}
+                [RealNumberTopology]
+                {实数拓扑}
+                [Topology on Real Number]
+                [Dedicatia]
+                这可能是比较熟悉的例子：\\
+                实数$(\R,\tau)$是\拓扑空间 , 其中$\tau$是任意开区间、开区间的任意并和有限交.\\
+                其中，开区间, $\varnothing$, $\R$, $\R\backslash\{0\}$, $(0,+\infty)$都是\开集 ; $\varnothing$, $\R$, 闭区间, $[0,+\infty)$等是\闭集 ;\\
+                对于集合$E=[0,1)$, 其\hyperref[dfn:Interior]{内部}是$(0,1)$, \hyperref[dfn:Derived-Set]{导集}$E'=[0,1]$, \hyperref[dfn:Closure]{闭包}$\cl E=[0,1]$, \hyperref[dfn:Boundary]{边界}是$\{0,1\}$.\\
+                实数的拓扑将作为一元微积分的基石。
+            \end{xmp}
+            \begin{xmp}
+                [DiscreteTopology]
+                {离散拓扑}
+                [Discrete Topology]
+                [Dedicatia]
+                对任意集合$S$都可以赋予\textbf{离散拓扑}: $(S,\tau)$, 其中$\tau$是$S$的幂集, 也就是所有的子集组成的集合。\\
+                在离散拓扑中，任意集合都是\开集 , 任意集合都是\闭集 ;\\
+                设$S=\{a,b,c\}$, 对于集合$E=\{a\}$, 其\hyperref[dfn:Interior]{内部}是$\{a\}$, \hyperref[dfn:Derived-Set]{导集}$E'=\varnothing$, \hyperref[dfn:Closure]{闭包}$\cl E=\{a\}$, \hyperref[dfn:Boundary]{边界}是$\varnothing$.\\
+                $a$的\邻域 只有一个，就是$\{a\}$. 在$a$的\邻域 中不包含任何异于$a$的点。这表明$S$中所有的元素都不是\hyperref[dfn:Limit-Point]{极限点}.\\
+                离散拓扑的本质就是``完全分离'', 没有一个点可以粘在其他点周围。
+            \end{xmp}
+            \begin{xmp}
+                [TrivialTopology]
+                {平凡拓扑}
+                [Trivial Topology]
+                [Dedicatia]
+                对任意集合$S$都可以赋予\textbf{平凡拓扑}: $(S,\tau)$, 其中$\tau=\{\varnothing,S\}$. 也就是说取了空集和全集作为\拓扑 .\\
+                在平凡拓扑中，\开集 只有$\varnothing$和$S$. \闭集 也只有$\varnothing$和$S$. 其他集合既不开也不闭。\\
+                任何$x\in S$, 都只有一个\邻域 就是$S$. \\
+                如果$E$是$S$的非空真子集, 那么$\intr E=\varnothing$. 因为其中的元素的\邻域 $S$不是$E$的子集.\\
+                对于任何包含多于一个点的集合$E$，其\hyperref[dfn:Derived-Set]{导集}都是$S$. 这表明每个点都无限接近其他点。$E$的\hyperref[dfn:Closure]{闭包}是$S$, $E$的\hyperref[dfn:Boundary]{边界}是$S$.\\
+                这些性质清晰地表明，在平凡拓扑下，所有点都粘在一起，没有任何办法区分其中的点。
+            \end{xmp}
+
             
             \begin{dfn}
                 [Dense-Set]
@@ -395,6 +431,22 @@
 
                 故\(\cl S\)不是道路连通的.
             \end{prf}
+
+            \begin{ppt}
+                []
+                {道路连通蕴含连通}
+                [Path Connectedness Implies Connectedness]
+                [Dedicatia]
+                一个集合是\道路连通 的，那么它是\连通 的。
+            \end{ppt}
+
+            \begin{cxmp}
+                []
+                {连通但不道路连通的例子}
+                []
+                [Dedicatia]
+                我们考虑$\R^2$上的通常\拓扑空间 , 定义集合$E:=A\cup B$, 其中$A=\{(x,y):y=\sin\frac{1}{x}, x\in\Icc{-\pi}{\pi}\}$, $B=\{(x,y):x=0, y\in\Icc{-1}{1}\}$. 显然$E$本身是\连通 的. 但天然的映射$y=\sin\frac{1}{x}$在$x=0$处具有振荡间断点，它不是\道路连通 的。
+            \end{cxmp}
 
         \subsection{紧性}
             
@@ -849,6 +901,23 @@
             \end{dfn}
 
         \subsection{分离定理}
+
+            \begin{dfn}
+                [Kolmogorov-Space]
+                {Kolmogorov空间}
+                [Kolmogorov Space]
+                [Dedicatia]
+                如果一个\拓扑空间 中的任意两点都可以被一个\开集 区分，就称该拓扑空间为\textbf{Kolmogorov空间}.
+                \[\forall\,x,y\in X, \exists\,D, x\in D,y\notin D.\]
+                又叫做\textbf{T0空间}.
+            \end{dfn}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski空间}
+                [Sierpinski Space]
+                [Dedicatia]
+            \end{xmp}
             
 
 \end{document}

@@ -6,4 +6,6 @@
 *.synctex.gz
 *.toc
 *.xdv
+*.pdf
+
 ai.mkd
