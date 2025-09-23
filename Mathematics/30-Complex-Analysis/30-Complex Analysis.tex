@@ -18,7 +18,7 @@
 
 % 自定义超链接样式
 \newcommand{\hyperrefc}[2]{\hyperref[#1]{\textcolor{purple}{#2}}}
-\iffalse
+
 % 英文字体支持：复制时请忽略此内容：
 \usepackage{fontspec}
 \setmainfont[Path="C:/Windows/Fonts/",AutoFakeBold=3,AutoFakeSlant=0.25]{BASKVILL.TTF} % 设置英文字体，路径为C:/Windows/Fonts，可以根据自己的需要更改。
@@ -37,7 +37,7 @@
 \newfontfamily{\fontsh}[AutoFakeSlant=0.225,AutoFakeBold=3,Path="C:/Windows/fonts/"]{FZShouHCGTJW.TTF}
 \newfontfamily{\fontik}[AutoFakeSlant=0.225,AutoFakeBold=3,Path="C:/Windows/fonts/"]{Inkfree.ttf}
 \newCJKfontfamily{\cjksh}[AutoFakeSlant=0.225,AutoFakeBold=3,Path="C:/Windows/fonts/"]{FZShouHCGTJW.TTF}
-\fi
+
 \usepackage[margin=1.6cm]{geometry}
 
 \setlength{\parindent}{0pt}
@@ -2714,7 +2714,8 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     \[\prod_{n=1}^{\infty}(1+a_n)\]
     其中$1+a_n\neq 0$, 与无穷级数
     \[\sum_{n=1}^\infty\ln(1+a_n)\]
-    有相同的敛散性。其中$\ln$表示对数主支的值。
+    有相同的敛散性。其中$\ln$表示对数主支的值。\\
+    所以今后我们定义无穷乘积的收敛性实际上就是考虑该无穷级数的收敛性。
 \end{ppt}
 根据一个显而易见的事实
 \[\lim_{z\to 0}\frac{\ln(1+z)}{z}=1\]
@@ -2727,7 +2728,18 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     \[\sum_{n=1}^\infty|a_n|\]
     收敛。
 \end{ppt}
-为了研究无穷乘积的收敛性，我们先证明
+我们考虑非常数的的整函数$f(z)$, 设其具有零点$\{a_n\}$, 如果$n$是有限的，那么就有
+\[f(z)=\prod_{k=1}^{n}(z-a_k)\]
+根据无穷乘积的表示，将$a_k=0$单独提出来，我们一般将其写成：
+\[f(z)=z^m\prod_{k=1}^{n}\qty(1-\frac{z}{a_k})\]
+一个很自然的问题便是：无穷零点的整函数是否也有这样的表示方法？也就是说，如果$n=\infty$, 
+\[f(z)=z^m\prod_{k=1}^{\infty}\qty(1-\frac{z}{a_k})\]
+还成立吗？\\
+这时有两个问题：\begin{enumerate}
+    \item 这样定义得到的无穷乘积不一定收敛；
+    \item 即使收敛，也不一定收敛到$f(z)$, 因为$f(z)\exp g(z)$与$f(z)$有相同的零点。
+\end{enumerate}
+第二个问题比较好规避。只需要提前引进$\exp g(z)$即可：
 \begin{lma}
     {整函数的指数化引理}
     任何\hyperref[dfn:EntireFunction]{整函数}$f(z)$都可以写成$\exp g(z)$的形式，其中$g(z)$是整函数.
@@ -2735,7 +2747,59 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
 \begin{prf}
     首先注意到$\frac{f'(z)}{f(z)}$是\hyperref[dfn:EntireFunction]{整函数}, 它是某个整函数$g(z)$的导数。这就可以推出$f(z)\exp -g(z)$的导数为0. 所以$f(z)$必定是$\exp g(z)$的常数倍数。这一常数不改变整函数的性质。
 \end{prf}
-我们考虑具有有限个零点的整函数。
+\begin{dfn}
+    {整函数的无穷乘积（形式上的定义）}
+    设函数$f(z)$在原点处有$m$个零点，$m$可以为0, 其他零点记为$a_1,a_2,\cdots, a_\nu$, 重零点按重数计，于是显然有
+    \[f(z)=z^m\exp g(z)\prod_{n=1}^{\nu}\qty(1-\frac{z}{a_n})\]
+\end{dfn}
+利用上面的表示方法：设函数$f(z)$在原点处有$m$个零点，$m$可以为0, 其他零点记为$a_1,a_2,\cdots, a_\nu, \cdots$, 重零点按重数计，于是显然有
+\[f(z)=z^m\exp g(z)\prod_{n=1}^{\infty}\qty(1-\frac{z}{a_n})\]
+接下来我们考虑如何保证该无穷乘积收敛。根据定理，该无穷乘积只在$\sum\limits_{n=1}^{\infty}\frac{1}{|a_n|}$收敛时才绝对收敛。根据幂级数的比较判别法，该无穷乘积在$|z|\leqslant R$上的收敛是一致的。我们必须考虑一般的情况。
+\begin{thm}
+    {收敛化定理}
+    若复数序列$\{a_n\}^\infty$满足$\lim\limits_{n=1}^{\infty}a_n=\infty$, 其中$a_n\neq 0$, 那么就存在多项式序列$p_n(z)$使得下面的无穷乘积
+    \[\prod_{n=1}^{\infty}\qty(1-\frac{z}{a_n})\exp p_n(z)\]
+    收敛到\hyperref[dfn:EntireFunction]{整函数}.
+\end{thm}
+\begin{prf}
+    我们考虑与之同收敛的级数
+    \[r_n(z)=\sum_{n=1}^{\infty}\ln(1-\frac{z}{a_n})+p_n(z)\]
+    这里的对数取使得$\Im r_n(z)\in[-\pi,\pi)$的单值解析分支。在$|z|\leqslant R$时，在原点处作\hyperref[thm:TaylorSeries]{Taylor级数}:
+    \[\sum_{n=1}^{\infty}\ln(1-\frac{z}{a_n})=-\frac{z}{a_n}-\frac{1}{2}\qty(\frac{z}{a_n})^2-\frac{1}{3}\qty(\frac{z}{a_n})^3-\cdots\]
+    将$p_n$取为部分和：
+    \[p_n(z)=\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{\nu_n}\qty(\frac{z}{a_n})^{\nu_n}\]
+    这时
+    \[r_n=-\frac{1}{\nu_n+1}\qty(\frac{z}{a_n})^{\nu_n+1}-\frac{1}{\nu_n+2}\qty(\frac{z}{a_n})^{\nu_n+2}-\cdots\]
+    可求得以下估值：
+    \[|r_n(z)|\leqslant\frac{1}{\nu_n+1}\qty(\frac{R}{|a_n|})^{\nu_n+1}\qty(1-\frac{R}{|a_n|})^{-1} \]
+    这就将每一个零点的估值找到了，这表明$r_n(z)\to 0$. 现在我们要证明这些值加起来也收敛：
+    \[\sum_{n=1}^{\infty}\frac{1}{\nu_n+1}\qty(\frac{R}{|a_n|})^{\nu_n+1}\]
+    如果取$\nu_n=n$, 那么上式变为幂级数
+    \[\sum_{n=1}^{\infty}\frac{1}{n+1}\qty(\frac{R}{|a_n|})^{n+1}\]
+    容易证明其收敛半径是无穷大，这就证明了对任意$R$该式都在$z\leq|R|$上绝对且一致收敛。
+\end{prf}
+\begin{thm}
+    {典范乘积定理}
+    存在一个\hyperref[dfn:EntireFunction]{整函数}, 它的零点$a_n$可以任意取，只要在零点个数无穷多且$\lim\limits_{n\to\infty }a_n=\infty$, 那么除了这些零点之外无其他零点的任意整函数$f(z)$可以表示为
+    \[f(z)=z^m\exp g(z)\prod_{n=1}^{\infty}\qty(1-\frac{z}{a_n})\exp(\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{\nu_n}\qty(\frac{z}{a_n})^{\nu_n})\]
+    其中乘积是对所有$a_n\neq 0$, $\nu_n$是取定的整数，$g(n)$是整函数。通常情况下我们取所有的$\nu_n$互相相等。
+\end{thm}
+\begin{dfn}
+    [CanonicalProduct]
+    {典范乘积}
+    [Canonical Product]
+    [Dedicatia]
+    上面的证明表明，只要级数
+    \[\sum_{n=1}^{\infty}\frac{1}{h+1}\qty(\frac{R}{|a_n|})\]
+    对所有的$R$收敛，也就是说，只要$\sum\limits_{n=1}^{\infty}\frac{1}{|a_n|}<\infty$, 就可以保证无穷乘积
+    \[\prod_{n=1}^{\infty}\qty(1-\frac{z}{a_n})\exp(\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{h}\qty(\frac{z}{a_n})^{h})\tag{$\star$}\]
+    一致收敛。这时称$(\star)$为关于序列$\{a_n\}$的\textbf{典范乘积}. 有时也写成
+    \[\prod_{n=1}^{\infty}E_h(\frac{z}{a_n})\]
+    其中
+    \[E_h(u)=(1-u)\exp(u+\frac{u^2}{2}+\frac{u^3}{3}+\cdots+\frac{u^h}{h})\]
+    称$h$为该典范乘积的\textbf{亏格}.
+\end{dfn}
+
 \subsection{Weierstrass因子分解定理}
 \subsection{整函数的阶}
 \subsection{$\Gamma$函数}
