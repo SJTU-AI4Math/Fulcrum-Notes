@@ -1,0 +1,3 @@
+[submodule "Fulcrum-Template"]
+	path = Fulcrum-Template
+	url = https://github.com/SJTU-AI4Math/Fulcrum-Template.git
