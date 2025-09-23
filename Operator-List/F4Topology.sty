@@ -26,6 +26,7 @@
 \NewDocumentCommand{\道路连通}{s}{\catref[#1]{dfn:Connectedness}{道路连通}}
 \NewDocumentCommand{\开覆盖}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Open-Cover}{\ensuremath{\text{开覆盖}}}}
 \NewDocumentCommand{\紧}{s}{\catref[#1]{dfn:Compact}{紧致性}}
+\NewDocumentCommand{\完备}{s}{\catref[#1]{dfn:Compact}{完备}}
 
 \NewDocumentCommand{\生成拓扑}{sm}{\ensuremath{\text{由}}\,\,#2\catref[#1]{dfn:Generated-Topology}{\ensuremath{\text{ 生成的拓扑}}}}
 

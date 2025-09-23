@@ -339,6 +339,14 @@
                 记作 \(\lim\limits_{n\to+\infty}x_n=x\). 
             \end{dfn}
 
+            \begin{dfn}
+                [Converge]
+                {收敛}
+                [Convergence]
+                [Dedicatia]
+                定义\拓扑空间 上的序列 \(\{x_\cdot\}\) 收敛于 \(x\), 当且仅当序列以 \(x\) 为极限。这时称该序列为\textbf{收敛点列}.
+            \end{dfn}
+
         \subsection{连通性}
             
             \begin{dfn}
@@ -468,6 +476,8 @@
                 \[\forall[\mathcal{O}][\开覆盖[\mathcal{O}][E]\implies\exists\mathcal{O}', (\card\mathcal{O}'\in\N)\land(\开覆盖[\mathcal{O}'][E])]\]
 
                 定义 \((S,\mathcal{T})\) 是\textbf{紧拓扑空间}, 当且仅当: \(S\) 是 \((S,\mathcal{T})\) 中的紧集. 
+
+                紧性也被称为\textbf{Heine-Borel性质}。
             \end{dfn}
 
             \begin{rmk}
@@ -481,6 +491,19 @@
                 []
                 [猫猫]
             \end{ppt}
+
+            \begin{thm}
+                [HB]
+                {Heine-Borel定理}
+                [Heine-Borel Theorem]
+                [Dedicatia]
+                设 $E$ 是$\R^n$ 的子集，那么以下三条性质等价：
+                \begin{enumerate}
+                    \item $E$ 是有界的\闭集 ;
+                    \item $E$ 是\紧 ;
+                    \item $E$ 是序列紧的。
+                \end{enumerate}
+            \end{thm}
 
             % \begin{thm}
             %     []
@@ -574,28 +597,6 @@
                 []
                 [猫猫]
             \end{crl}
-
-        \subsection{分离定理}
-
-            \begin{dfn}
-                [Kolmogorov-Space]
-                {Kolmogorov 空间 / T0 空间}
-                [Kolmogorov Space]
-                [Dedicatia]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
-                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
-            \end{dfn}
-            
-            \begin{rmk}
-                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
-            \end{rmk}
-
-            \begin{xmp}
-                [Sierpinski-Space]
-                {Sierpinski 空间}
-                [Sierpinski Space]
-                [Dedicatia]
-            \end{xmp}
 
         \subsection{拓扑空间的构造}
 
@@ -924,7 +925,7 @@
                 {Kolmogorov空间}
                 [Kolmogorov Space]
                 [Dedicatia]
-                如果一个\拓扑空间 中的任意两点都可以被一个\开集 区分，就称该拓扑空间为\textbf{Kolmogorov空间}.
+                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Kolmogorov空间}当且仅当其中的任意两点都可以被一个\开集 区分。
                 \[\forall\,x,y\in X, \exists\,D, x\in D,y\notin D.\]
                 又叫做\textbf{T0空间}.
             \end{dfn}
@@ -942,7 +943,7 @@
                 {Frechet空间}
                 [Frechet Space]
                 [Dedicatia]
-                如果一个\拓扑空间 中的任意两个不同的点都可以用各自的开\邻域 区分，就称该空间为\textbf{Frechet空间}.
+                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Frechet空间}当且仅当其中的任意两个不同的点都可以用各自的开\邻域 区分。
                 \[\forall\,x,y\in X, \exists\Nbr{x}\st x\in\Nbr{x}, y\notin\Nbr{x}. \]
                 又叫做\textbf{T1空间}.
             \end{dfn}
@@ -965,11 +966,13 @@
                     &U=\varnothing,\\
                     &X\backslash U \text{ 是有限集。}
                 \end{cases}\]
-                这时，所有的单点集的补集都是\开集 , 所以单点集都是\闭集 . 这是一个\textbf{T1空间}. 具体来讲这个空间有以下的性质：
+                这时，所有的单点集的补集都是\开集 , 所以单点集都是\闭集 . 这是一个\textbf{T1空间}. 但它不是T2空间，因为任意两个非空的\开集 必定相交：\\
+                设 $U,V$ 是两个非空开集，那么 $X\backslash U$, $X\backslash V$ 是有限的。考虑 $U\cap V$, 那么其补集 $X\backslash(U\cap V)=(X\backslash U)\cup (X\backslash V)$ 应该也是有限的。如果 $U\cap V=\varnothing$, $(X\backslash U)\cup (X\backslash V)=X$ 就是有限集。这与 $X$ 是无限集矛盾。\\
+                具体来讲这个空间有以下的性质：
                 \begin{itemize}
                     \item 具有\紧 ;
                     \item 具有\连通 性;
-                    \item 空间中的序列可以收敛到多个极限。
+                    \item 空间中的序列可以收敛到多个极限，实际上是无穷多个极限。因为这其中的点的开邻域都是无限集。
                 \end{itemize}
             \end{xmp}
 
@@ -978,22 +981,95 @@
                 {Hausdorff空间}
                 [Hausdorff Space]
                 [Dedicatia]
-                如果一个\拓扑空间 中的任意两个不同的点都可以用不相交的各自的开\邻域 区分，就称该空间为\textbf{Hausdorff空间}.
+                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Hausdorff空间}当且仅当其中的任意两个不同的点都可以用不相交的各自的开\邻域 区分.
                 \[\forall\,x,y\in X, \exists\Nbr{x},\Nbr{y},\st x\in\Nbr{x},y\in\Nbr{y}, \Nbr{x}\cap\Nbr{y}=\varnothing. \]
                 又叫做\textbf{T2空间}.
             \end{dfn}
+
+            \begin{ppt}
+                []
+                {度量空间都是T2空间}
+                []
+                [Dedicatia]
+            \end{ppt}
 
             \begin{dfn}
                 [Regular-Space]
                 {正则空间}
                 [Regular Space]
                 [Dedicatia]
-                如果一个\拓扑空间 $(S,\tau)$: 对任意 $x\in S$ 和\闭集 $C$, 其中 $x\notin C$, 存在不相交的\开集 $X,Y$ 使得 $x\in X$, $C\subseteq Y$, 就称其为\textbf{正则空间}, 又叫\textbf{T3空间}.
+                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正则空间}, 当且仅当对任意 $x\in S$ 和\闭集 $C$, 其中 $x\notin C$, 存在不相交的\开集 $X,Y$ 使得 $x\in X$, $C\subseteq Y$. 
+                正则空间又叫\textbf{T3空间}.
             \end{dfn}
 
             \begin{dfn}
-                []
+                [Normal-Space]
+                {正规空间}
+                [Normal Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正规空间}, 当且仅当对任意两个不相交的\闭集 $C,D\in\tau$, 存在两个不相交的\开集 $X,Y$ 使得 $C\subseteq X, D\subseteq Y$.
             \end{dfn}
+
+        \subsection{完备性}
+            
+            \begin{dfn}
+                [Cauchy-Series]
+                {Cauchy列}
+                [Cauchy Series]
+                [Dedicatia]
+                定义 $\{x_n\}^\infty$ 为\度量空间 $(X,d)$ 上的\textbf{Cauchy列}, 当且仅当对任意 $\varepsilon>0$, 存在 $N\in\N$, $m,n>N$ 时均有 $d(x_m,x_n)<\varepsilon$. 
+            \end{dfn}
+
+            \begin{dfn}
+                [Complete-Metric-Space]
+                {完备度量空间}
+                [Complete Metric Space]
+                [Dedicatia]
+                定义一个\度量空间 是\textbf{完备度量空间}, 当且仅当其中的每一个Cauchy列都是\hyperref[dfn:Converge]{收敛点列}。
+            \end{dfn}
+
+            \begin{xmp}
+                []
+                {Euclid空间是完备度量空间}
+                []
+                [Dedicatia]
+                $n$ 维Euclid空间 $(\R^n,d)$ 是\完备\度量空间 . 其中
+                \[d(\bm{x},\bm{y})=\sqrt{\sum_{i=1}^n(x_i-y_i)^2}\]
+            \end{xmp}
+
+            \begin{xmp}
+                []
+                {最大值度量下的连续函数空间是完备度量空间}
+                []
+                [Dedicatia]
+                连续函数空间 $C[a,b]$ 在度量 $d(f,g)=\max\limits_{x\in\Icc{a}{b}}\{f(x),g(x)\}$ 下的\度量空间 是\完备 的. 因为这种意义下的收敛就是一致收敛。一致收敛保持连续性。
+            \end{xmp}
+
+            \begin{cxmp}
+                []
+                {积分度量下的连续函数空间不是完备度量空间}
+                []
+                [Dedicatia]
+                连续函数空间 $C[a,b]$ 在度量 $d(f,g)=\int_{a}^b|f(x)-g(x)|\dd{x}$ 下的\度量空间 不是\完备 的。反例为：构造函数列$\{f_n\}$, 其中$f_1=1$, $n\geq 2$时
+                \[f_n=\begin{cases}
+                    &0, 0\leq x\leq \frac{1}{2}-\frac{1}{n},\\
+                    &n\pqty{x-\pqty{\frac{1}{2}-\frac{1}{n}}}, \frac{1}{2}-\frac{1}{n}< x\leq \frac{1}{2};\\
+                    &1, x>\frac{1}{2}.
+                \end{cases}\]
+                也就是说，该函数在$0\leq x\leq \frac{1}{2}-\frac{1}{n}$上是0，在$\frac{1}{2}-\frac{1}{n}< x\leq \frac{1}{2}$线性地由0变到1，在$x>\frac{1}{2}$上是1.\\
+                由对称性设$m\geq n$, 通过画图可知该积分
+                \[d(f_m,f_n)=\int_0^1|f_m-f_n|\dd{x}\leq\int_0^{1/2}|f_n|\dd{x}\leq\frac{1}{2}\cdot\frac{1}{n}\cdot 1\]
+                与$\frac{1}{n}$同收敛。所以显然是Cauchy列；\\
+                但是这个序列的极限是
+                \[f(x)=\begin{cases}
+                    &0, 0\leq x\leq\frac{1}{2};\\
+                    &1, x>\frac{1}{2}.
+                \end{cases}\]
+                事实上，该函数在$x=\frac{1}{2}$时从0跃变到1, 这是不连续的。函数列的极限$f\notin C[0,1]$中，说明该度量空间不是完备的。
+            \end{cxmp}
+
+        \subsection{拓扑空间的度量化}
+
             
 
 \end{document}
