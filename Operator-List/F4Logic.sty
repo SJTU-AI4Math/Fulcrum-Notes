@@ -1,8 +1,8 @@
 \let\oldforall\forall
-\RenewDocumentCommand{\forall}{sooso}{\catref[#1]{dfn:forall}{\ensuremath{\oldforall}}[全称量词, 即``对于任意''. ]\oarg{#2}\IfNoValueTF{#5}{}{ {\color{purple}{:}} #5}\IfNoValueTF{#3}{}{{\color{purple}{,\,}} \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}
+\RenewDocumentCommand{\forall}{sooso}{\catref[#1]{dfn:forall}{\ensuremath{\oldforall}}[全称量词, 即``对于任意''. ]\oarg{#2}\IfNoValueTF{#5}{}{ {\color{purple}{\,:\,}} #5}\IfNoValueTF{#3}{}{{\color{purple}{,\,}} \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}
 
 \let\oldexists\exists
-\RenewDocumentCommand{\exists}{sooso}{\catref[#1]{dfn:exists}{\ensuremath{\oldexists}}[存在量词. ]\oarg{#2}\IfNoValueTF{#5}{}{ {\color{purple}{:}} #5}\IfNoValueTF{#3}{}{{\color{purple}{,\,}} \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}
+\RenewDocumentCommand{\exists}{sooso}{\catref[#1]{dfn:exists}{\ensuremath{\oldexists}}[存在量词. ]\oarg{#2}\IfNoValueTF{#5}{}{{\color{purple}{\,:\,}}#5}\IfNoValueTF{#3}{}{{\color{purple}{,\,}} \IfBooleanTF{#4}{\left(}{}#3\IfBooleanTF{#4}{\right)}{}}}
 
 \let\oldneg\neg
 \RenewDocumentCommand{\neg}{so}{\catref[#1]{dfn:neg}{\ensuremath{\oldneg}\,\oarg{#2}}[否定算子. ]}

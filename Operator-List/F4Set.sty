@@ -11,6 +11,8 @@
 \let\oldcap\cap
 \RenewDocumentCommand{\cap}{soo}{\catref[#1]{dfn:Intersection}{\oarg{#2}\,\ensuremath{\oldcap}\,\oarg{#3}}[交集]}
 
+\let\oldsetminus\setminus
+\RenewDocumentCommand{\setminus}{soo}{\catref[#1]{dfn:SetMinus}{\oarg{#2}\,\ensuremath{\oldsetminus}\,\oarg{#3}}[差集]}
 
 
 \let\oldbigcup\bigcup

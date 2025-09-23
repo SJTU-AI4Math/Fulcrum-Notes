@@ -64,13 +64,6 @@
                 在不引起混淆的情况下, 常将拓扑空间 \((S,\mathcal{T})\) 简记为 \(S\). 
             \end{rmk}
 
-            \begin{xmp}
-                []
-                {平凡拓扑}
-                []
-                [猫猫]
-            \end{xmp}
-
             \begin{dfn}
                 [Open-Closed-Set]
                 {开集与闭集}
@@ -288,7 +281,7 @@
                 {边界}
                 [Boundary]
                 [猫猫]
-                设\((S,\T)\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
+                设\((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
             \end{dfn}
 
             \begin{xmp}
@@ -298,8 +291,8 @@
                 [Dedicatia]
                 这可能是比较熟悉的例子：\\
                 实数$(\R,\tau)$是\拓扑空间 , 其中$\tau$是任意开区间、开区间的任意并和有限交.\\
-                其中，开区间, $\varnothing$, $\R$, $\R\backslash\{0\}$, $(0,+\infty)$都是\开集 ; $\varnothing$, $\R$, 闭区间, $[0,+\infty)$等是\闭集 ;\\
-                对于集合$E=[0,1)$, 其\hyperref[dfn:Interior]{内部}是$(0,1)$, \hyperref[dfn:Derived-Set]{导集}$E'=[0,1]$, \hyperref[dfn:Closure]{闭包}$\cl E=[0,1]$, \hyperref[dfn:Boundary]{边界}是$\{0,1\}$.\\
+                其中，开区间, $\varnothing$, $\R$, $\R\backslash\{0\}$, $(0,+\infty)$ 都是\开集 ; $\varnothing$, $\R$, 闭区间, $\Ico{0}{+\infty}$ 等是\闭集 ;\\
+                对于集合$E=\Ico{0}{1}$, 其\hyperref[dfn:Interior]{内部}是$(0,1)$, \hyperref[dfn:Derived-Set]{导集}$E'=[0,1]$, \hyperref[dfn:Closure]{闭包}$\cl E=[0,1]$, \hyperref[dfn:Boundary]{边界}是$\{0,1\}$.\\
                 实数的拓扑将作为一元微积分的基石。
             \end{xmp}
             \begin{xmp}
@@ -332,7 +325,7 @@
                 {稠密集}
                 [Dense Set]
                 []
-                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, \(E\subseteq S\), 定义 \(E\) 是\textbf{稠密集}, 当且仅当: \(\cl E=S\). 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, \(E\subseteq S\), 定义 \(E\) 是\textbf{稠密集}, 当且仅当: \(\cl E=S\). 
             \end{dfn}
 
             \begin{dfn}
@@ -340,7 +333,7 @@
                 {极限}
                 [Limit]
                 [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, \(x:S\), \(\{x_\cdot\}:\N\to S\), 定义 \(\{x_\cdot\}\) 以 \(x\) 为\textbf{极限}, 当且仅当: 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(x:S\), \(\{x_\cdot\}:\N\to S\), 定义 \(\{x_\cdot\}\) 以 \(x\) 为\textbf{极限}, 当且仅当: 
                 \[\forall U, U\in\Nbr{x}\implies\exists N:\N, \forall n:\N, n\geq N\implies x_n\in U(x)\]
                 
                 记作 \(\lim\limits_{n\to+\infty}x_n=x\). 
@@ -353,10 +346,10 @@
                 {连通性}
                 [Connectedness]
                 []
-                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是\textbf{连通集}, 当且仅当: \(\开集[E]\land\闭集[E]\). 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是\textbf{连通集}, 当且仅当: \(\开集[E]\land\闭集[E]\). 
 
                 定义连通的, 若 \(S\) 即开又闭的子集只有 \(S\) 和 \(\varnothing\), 即: 
-                \[\PP(S)\cap\{X|X\in\T,(S-X)\in\T\}=\{\varnothing,S\}\]
+                \[\PP(S)\cap\{X|X\in\mathcal{T},(S-X)\in\mathcal{T}\}=\{\varnothing,S\}\]
             \end{dfn}
 
             \begin{rmk}
@@ -379,7 +372,7 @@
                 []
                 []
                 设 \(X\) 是连通的拓扑空间, \(Y\)是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
-                \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\Longrightarrow\forall x\in X, f(x)=C\]
+                \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\implies\forall x\in X, f(x)=C\]
                 
                 即, 若定义域连通, 则所有点分别保持常值的函数, 整体保持常值. 
             \end{ppt}
@@ -396,8 +389,8 @@
                 {道路连通}
                 [Path Connected]
                 []
-                设拓扑空间\((S,\T)\), \(x,y\in S\), 称映射\(\gamma:[0,1]\to S\)是\(S\)上的\textbf{道路}, 使得\(\gamma(0)=x,\gamma(1)=y\)且\(\gamma\)连续
-                拓扑空间\((S,\T)\)称为是道路连通的, 若\(S\)的任意两点间存在道路, 即:
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(x,y\in S\), 称映射\(\gamma:[0,1]\to S\)是\(S\)上的\textbf{道路}, 使得 \(\gamma(0)=x,\gamma(1)=y\) 且 \(\gamma\) 连续
+                拓扑空间 \((S,\mathcal{T})\) 称为是道路连通的, 若 \(S\) 的任意两点间存在道路, 即:
                 \[\forall x,y\in S, \exists\gamma:[0,1]\to S,\gamma(0)=x,\gamma(1)=y,\gamma\in\Con([0,1],S)\]
             \end{dfn}
 
@@ -444,10 +437,10 @@
 
             \begin{cxmp}
                 []
-                {连通但不道路连通的例子}
+                {连通不蕴含道路连通}
                 []
                 [Dedicatia]
-                我们考虑$\R^2$上的通常\拓扑空间 , 定义集合$E:=A\cup B$, 其中$A=\{(x,y):y=\sin\frac{1}{x}, x\in\Icc{-\pi}{\pi}\}$, $B=\{(x,y):x=0, y\in\Icc{-1}{1}\}$. 显然$E$本身是\连通 的. 但天然的映射$y=\sin\frac{1}{x}$在$x=0$处具有振荡间断点，它不是\道路连通 的。
+                考虑 \(\R^2\) 上的通常拓扑, 定义集合 \(E:=A\cup B\), 其中 \(A=\{(x,y):y=\sin\frac{1}{x}, x\in\Icc{-\pi}{\pi}\}\), \(B=\{(x,y):x=0, y\in\Icc{-1}{1}\}\). \(E\) 是\连通 的. 但天然的映射 \(y=\sin\frac{1}{x}\) 在 \(x=0\) 处具有振荡间断点, 它不是\道路连通 的. 
             \end{cxmp}
 
         \subsection{紧性}
@@ -457,7 +450,7 @@
                 {开覆盖}
                 [Open Cover]
                 [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, \(\mathcal{O}\) 是集合族, \(E\subset S\), 定义 \(\mathcal{O}\) 是 \(E\) 的\textbf{开覆盖}当且仅当: 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, \(\mathcal{O}\) 是集合族, \(E\subset S\), 定义 \(\mathcal{O}\) 是 \(E\) 的\textbf{开覆盖}当且仅当: 
                 \begin{enumerate}
                     \item \(\mathcal{O}\) 是开集族: 
                         \[\mathcal{O}\subseteq\mathcal{T}\]
@@ -526,7 +519,7 @@
                 {Hausdorff 空间}
                 [Hausdorff Space]
                 [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, 定义 \((S,\T)\) 是\textbf{Hausdorff 空间}, 当且仅当: 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是\textbf{Hausdorff 空间}, 当且仅当: 
                 \[\forall x,y:S, x\neq y\implies\exists[U_x, U_y][U_x\in\Nbr{x}\land U_y\in\Nbr{y}\implies U_x\cap U_y=\varnothing]*\]
             \end{dfn}
 
@@ -582,6 +575,28 @@
                 [猫猫]
             \end{crl}
 
+        \subsection{分离定理}
+
+            \begin{dfn}
+                [Kolmogorov-Space]
+                {Kolmogorov 空间 / T0 空间}
+                [Kolmogorov Space]
+                [Dedicatia]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
+                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
+            \end{dfn}
+            
+            \begin{rmk}
+                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
+            \end{rmk}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski 空间}
+                [Sierpinski Space]
+                [Dedicatia]
+            \end{xmp}
+
         \subsection{拓扑空间的构造}
 
             \begin{dfn}
@@ -594,7 +609,7 @@
                     \item 覆盖性: 
                     \[\bigcup[\mathfrak{B}]=S\]
                     \item 生成性: 设 \(B_1,B_2\) 是集合, \(B_1, B_2\in\mathfrak{B}\), \(x\in B_1\cap B_2\), 则: 
-                    \[\exists[B_3][B_3\in\mathfrak{B}\land x\in B_3\land B_3\subseteq B_1\cap B_2]*\]
+                    \[\exists[B_3][(B_3\in\mathfrak{B})\land(x\in B_3)\land(B_3\subseteq B_1\cap B_2)]*\]
                 \end{enumerate}
                 定义由 \(\mathfrak{B}\) \textbf{生成的拓扑}为: 
                 \[\left\{X\middle|\exists B\subseteq\mathfrak{B}, X=\bigcup[B]\right\}\]
@@ -701,16 +716,16 @@
         \subsection{连续映射}
 
             \begin{dfn}
-                [Continuous]
-                {连续}
-                [Continuous]
+                [Continuous-Mapping]
+                {连续映射}
+                [Continuous-Mapping]
                 [猫猫]
                 设有拓扑空间 \(X,Y\), 映射 \(f:X\to Y\); 设 \(x\in X, f(x):=y\in Y\). \(f\) 称为是在 \(x\) 处\textbf{连续}的, 若: 
-                \[\forall U(y)\in \mathcal{V}(y), \exists U(x)\in \mathcal{V}(x)(f\left(U(x)\right)\subseteq U(y))\]
+                \[\forall U_y\in \mathcal{V}(y), \exists U_x\in \mathcal{V}(x)(f\left(U_x\right)\subseteq U_y)\]
 
-                \(f\)称为是\(X\)的连续映射, 若\(f\)在\(X\)中的每一点连续. 
+                \(f\) 称为是 \(X\) 的连续映射, 若 \(f\) 在 \(X\) 中的每一点连续. 
 
-                将\(X\to Y\)全体连续映射的集合记为\(\mathcal{C}(X,Y)\)
+                将 \(X\to Y\) 全体连续映射的集合记为 \(\Con(X,Y)\)
             \end{dfn}
             
             \begin{ppt}
@@ -725,22 +740,22 @@
                 {连续映射的等价定义}
                 []
                 []
-                设拓扑空间\((X,\T_X), (Y,\T_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
+                设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
                 
                 (1)开集的原像是开集: 
-                \[\forall S(f(S)\in\T_Y)\Longrightarrow S\in\T_X\]
+                \[\forall S(f(S)\in\mathcal{T}_Y)\implies S\in\mathcal{T}_X\]
                 
                 (2)闭集的原像是闭集: 
-                \[\forall S((Y-f(S))\in\T_Y)\Longrightarrow(X-S)\in\T_X\]
+                \[\forall S((Y-f(S))\in\mathcal{T}_Y)\implies(X-S)\in\mathcal{T}_X\]
             \end{ppt}
             
             \begin{prf}
                 证明: 先证明开集情况. 
     
                 (1)\(\implies\): 
-                    \[f(S)\in\T_Y\Longrightarrow(\forall y\in f(S)\Longrightarrow f(S)\in\Nbr{y})\]
+                    \[f(S)\in\mathcal{T}_Y\implies(\forall y\in f(S)\implies f(S)\in\Nbr{y})\]
                     \[\forall x_0\in S, y_0:=f(x_0)\]
-                    \[(f:X\to Y)\in\Con(X,Y)\Longrightarrow\exists U(x)\in\Nbr{x}(\forall x\in U(x)\Longrightarrow f(x)\in Y)\]
+                    \[(f:X\to Y)\in\Con(X,Y)\implies\exists U(x)\in\Nbr{x}(\forall x\in U(x)\implies f(x)\in Y)\]
             \end{prf}
             
             \begin{thm}
@@ -751,20 +766,20 @@
                 Hausdorff空间之间的连续映射将收敛数列映射为收敛数列. 
 
                 设拓扑空间\(X,Y\)是Hausdorff的, 映射\(f:X\to Y\)在\(x\in X\)处连续, 则: 
-                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\Longrightarrow\lim_{n\to+\infty}f(x_n)=f(x)\]
+                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\implies\lim_{n\to+\infty}f(x_n)=f(x)\]
 
                 此定理的另一种表述方式是: \(\lim\limits_{n\to+\infty}\) 与 \(f\) 可交换, 若 \(f\) 连续且 \(X\) 与 \(Y\) 都是Hausdorff的. 
             \end{thm}
                 
             \begin{prf}
-                \[y:=f(x); f\text{在\(x\)处连续}\Longrightarrow\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
-                \[\lim_{n\to+\infty}x_n=x\Longrightarrow\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
+                \[y:=f(x); f\text{在\(x\)处连续}\implies\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
+                \[\lim_{n\to+\infty}x_n=x\implies\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
                 \[\therefore\lim_{n\to+\infty}f(x_n)=f(x)\square\]
             \end{prf}
             
             \begin{thm}
                 []
-                {}
+                {连续的复合传递性}
                 []
                 []
                 设拓扑空间\(X,Y,Z\), 映射\(f:X\to Y\)在\(x\in X\)处连续, 映射\(g:Y\to Z\)在\(f(x)\in Y\)处连续, 则\(g\circ f:X\to Z\)在\(x\)处连续. 
@@ -772,9 +787,9 @@
                 
             \begin{prf}
                 \[y:=f(x), z:=g(y)\]
-                \[\forall U(z)\in\Nbr{z}[Z], g\text{在\(y\)处连续}\Longrightarrow\exists U(y)\in\Nbr{y}[Y]: g(U(y))\subseteq U(z)\]
-                \[f\text{在\(x\)处连续}\Longrightarrow\exists U(x)\in\Nbr{x}[X]\subseteq X: f(U(x))\subseteq U(y)\]
-                \[\therefore g\circ f(U(x))\subseteq g(U(y))\subseteq U(z)\Longrightarrow g\circ f\text{在\(x\)处连续}\square\]
+                \[\forall U(z)\in\Nbr{z}[Z], g\text{在\(y\)处连续}\implies\exists U(y)\in\Nbr{y}[Y]: g(U(y))\subseteq U(z)\]
+                \[f\text{在\(x\)处连续}\implies\exists U(x)\in\Nbr{x}[X]\subseteq X: f(U(x))\subseteq U(y)\]
+                \[\therefore g\circ f(U(x))\subseteq g(U(y))\subseteq U(z)\implies g\circ f\text{在\(x\)处连续}\square\]
             \end{prf}
 
             \begin{dfn}
@@ -782,9 +797,9 @@
                 {同胚}
                 [Homeomorphism]
                 []
-                设拓扑空间\((X,\T_X), (Y,\T_Y)\), 称映射\(f:X\to Y\)是\(X\)到\(Y\)上的\textbf{同胚}, 若\(f\)是双射, 且\(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
+                设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), \(f:X\to Y\), 定义 \(f\) 是 \(X\) 到 \(Y\) 的\textbf{同胚}, 当且仅当: \(f\)是双射, 且 \(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
 
-                若\(\exists X\)到\(Y\)的同胚, 则称\(X\)与\(Y\)是同胚的. 
+                定义 \(X\) 与 \(Y\) \textbf{同胚}, 当且仅当: \(\exists f:X\to Y, f\) 是从 \(X\) 到 \(Y\) 的同胚. 
             \end{dfn}
             
             \begin{thm}
@@ -792,9 +807,9 @@
                 {}
                 []
                 []
-                设拓扑空间\((X,\T_X),(Y,\T_Y)\), \(f\in\Con(X,Y)\)是双射, 则\(f\)是\(X\)到\(Y\)的同胚当且仅当: 
-                \[\forall S\in\T_X\Longrightarrow f(S)\in\T_Y\]
-                \[\forall S((X-S)\in\T_X)\Longrightarrow(Y-f(S))\in\T_Y\]
+                设拓扑空间\((X,\mathcal{T}_X),(Y,\mathcal{T}_Y)\), \(f\in\Con(X,Y)\)是双射, 则\(f\)是\(X\)到\(Y\)的同胚当且仅当: 
+                \[\forall S\in\mathcal{T}_X\implies f(S)\in\mathcal{T}_Y\]
+                \[\forall S((X-S)\in\mathcal{T}_X)\implies(Y-f(S))\in\mathcal{T}_Y\]
             \end{thm}
 
                 
