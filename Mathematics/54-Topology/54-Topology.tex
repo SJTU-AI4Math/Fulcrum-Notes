@@ -263,10 +263,11 @@
             \end{dfn}
 
             \begin{dfn}
-                []
-                {完全集}
-                []
+                [Perfectness]
+                {完全性}
+                [Perfectness]
                 [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, 定义 \(E\) 是\textbf{完全集}, 当且仅当: \(\DrvSet{E}=E\). 
             \end{dfn}
 
             \begin{dfn}
@@ -291,33 +292,46 @@
                 {实数拓扑}
                 [Topology on Real Number]
                 [Dedicatia]
-                这可能是比较熟悉的例子: \\
-                实数$(\R,\tau)$是\拓扑空间 , 其中$\tau$是任意开区间、开区间的任意并和有限交.\\
-                其中, 开区间, $\varnothing$, $\R$, $\R\setminus\{0\}$, $(0,+\infty)$ 都是\开集 ; $\varnothing$, $\R$, 闭区间, $\Ico{0}{+\infty}$ 等是\闭集 ;\\
-                对于集合$E=\Ico{0}{1}$, 其\hyperref[dfn:Interior]{内部}是$(0,1)$, \hyperref[dfn:Derived-Set]{导集}$E'=[0,1]$, \hyperref[dfn:Closure]{闭包}$\cl E=[0,1]$, \hyperref[dfn:Boundary]{边界}是$\{0,1\}$.\\
+                实数$(\R,\tau)$是\拓扑空间, 其中$\tau$是任意开区间, 开区间的任意并和有限交. 
+
+                其中, 开区间, $\varnothing$, $\R$, $\R\setminus\{0\}$, $(0,+\infty)$ 都是\开集; $\varnothing$, $\R$, 闭区间, $\Ico{0}{+\infty}$ 等是\闭集;
+
+                对于集合 $E=\Ico{0}{1}$, $\intr E=(0,1)$, $\DrvSet{E}=[0,1]$, $\cl E=[0,1]$, $\bd E=\{0,1\}$.
+
                 实数的拓扑将作为一元微积分的基石. 
             \end{xmp}
+
             \begin{xmp}
                 [DiscreteTopology]
                 {离散拓扑}
                 [Discrete Topology]
                 [Dedicatia]
-                对任意集合$S$都可以赋予\textbf{离散拓扑}: $(S,\tau)$, 其中$\tau$是$S$的幂集, 也就是所有的子集组成的集合. \\
-                在离散拓扑中, 任意集合都是\开集 , 任意集合都是\闭集 ;\\
-                设$S=\{a,b,c\}$, 对于集合$E=\{a\}$, 其\hyperref[dfn:Interior]{内部}是$\{a\}$, \hyperref[dfn:Derived-Set]{导集}$E'=\varnothing$, \hyperref[dfn:Closure]{闭包}$\cl E=\{a\}$, \hyperref[dfn:Boundary]{边界}是$\varnothing$.\\
-                $a$的\邻域 只有一个, 就是$\{a\}$. 在$a$的\邻域 中不包含任何异于$a$的点. 这表明$S$中所有的元素都不是\hyperref[dfn:Limit-Point]{极限点}.\\
+                对任意集合 $S$ 都可以赋予\textbf{离散拓扑}: $(S,\tau)$, 其中$\tau$ 是 $S$ 的幂集, 也就是所有的子集组成的集合. 
+
+                在离散拓扑中, 任意集合都是\开集, 任意集合都是\闭集;
+
+                设$S=\{a,b,c\}$, 对于集合$E=\{a\}$, $\intr E=\{a\}$, $\DrvSet{E}=\varnothing$, $\cl E=\{a\}$, $\bd E=\varnothing$.
+
+                $a$的\邻域 只有一个, 就是$\{a\}$. 在$a$的\邻域 中不包含任何异于$a$的点. 这表明$S$中所有的元素都不是\hyperref[dfn:Limit-Point]{极限点}.
+
                 离散拓扑的本质就是``完全分离'', 没有一个点可以粘在其他点周围. 
             \end{xmp}
+
             \begin{xmp}
                 [TrivialTopology]
                 {平凡拓扑}
                 [Trivial Topology]
                 [Dedicatia]
-                对任意集合$S$都可以赋予\textbf{平凡拓扑}: $(S,\tau)$, 其中$\tau=\{\varnothing,S\}$. 也就是说取了空集和全集作为\拓扑 .\\
-                在平凡拓扑中, \开集 只有$\varnothing$和$S$. \闭集 也只有$\varnothing$和$S$. 其他集合既不开也不闭. \\
-                任何$x\in S$, 都只有一个\邻域 就是$S$. \\
-                如果$E$是$S$的非空真子集, 那么$\intr E=\varnothing$. 因为其中的元素的\邻域 $S$不是$E$的子集.\\
-                对于任何包含多于一个点的集合$E$, 其\hyperref[dfn:Derived-Set]{导集}都是$S$. 这表明每个点都无限接近其他点. $E$的\hyperref[dfn:Closure]{闭包}是$S$, $E$的\hyperref[dfn:Boundary]{边界}是$S$.\\
+                对任意集合$S$都可以赋予\textbf{平凡拓扑}: $(S,\tau)$, 其中$\tau=\{\varnothing,S\}$. 也就是说取了空集和全集作为\拓扑.
+                
+                在平凡拓扑中, \开集 只有$\varnothing$和$S$. \闭集 也只有$\varnothing$和$S$. 其他集合既不开也不闭. 
+                
+                任何$x\in S$, 都只有一个\邻域 就是$S$. 
+                
+                如果$E$是$S$的非空真子集, 那么$\intr E=\varnothing$. 因为其中的元素的\邻域 $S$不是$E$的子集.
+                
+                对于任何包含多于一个点的集合$E$, 其 $\DrvSet{E}=S$. 这表明每个点都无限接近其他点. $\cl E=S$, $\bd E=S$. 
+                
                 这些性质清晰地表明, 在平凡拓扑下, 所有点都粘在一起, 没有任何办法区分其中的点. 
             \end{xmp}
 
@@ -376,6 +390,8 @@
                 [猫猫]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) \textbf{连通}, 当且仅当: 
                 \[\neg\exists[A,B][\开集[A,B]\land A\cap B=\varnothing\land E=A\cup B]*\]
+
+                定义 \((S,\mathcal{T})\) 为\textbf{连通拓扑空间}, 当且仅当: \(S\) 连通. 
             \end{dfn}
 
             \begin{rmk}
@@ -420,7 +436,7 @@
             \end{dfn}
 
             % \begin{example}
-            %     设\(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\), 显然S是连通集\((0,1]\)的一个连续像, 故S的闭包\(\cl S\)是连通的, 但它不是道路连通的. 
+            %     设\(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\), 显然S是连通集\(\Ioc{0}{1}\)的一个连续像, 故S的闭包\(\cl S\)是连通的, 但它不是道路连通的. 
 
             %     \begin{tikzpicture}
             %         \begin{axis}[
@@ -523,8 +539,8 @@
                 [Dedicatia]
                 设 $E$ 是$\R^n$ 的子集, 那么以下三条性质等价: 
                 \begin{enumerate}
-                    \item $E$ 是有界的\闭集 ;
-                    \item $E$ 是紧集 ;
+                    \item $E$ 是有界的\闭集;
+                    \item $E$ 是紧集;
                     \item $E$ 是序列紧的. 
                 \end{enumerate}
             \end{thm}
@@ -849,7 +865,7 @@
                 {Frechet空间的充要条件}
                 []
                 [Dedicatia]
-                一个\拓扑空间 是\textbf{T1空间}的充要条件是每个单点集都是\闭集 .
+                一个\拓扑空间 是\textbf{T1空间}的充要条件是每个单点集都是\闭集.
             \end{ppt}
 
             \begin{xmp}
@@ -866,7 +882,7 @@
                 设 $U,V$ 是两个非空开集, 那么 $X\setminus U$, $X\setminus V$ 是有限的. 考虑 $U\cap V$, 那么其补集 $X\setminus(U\cap V)=(X\setminus U)\cup (X\setminus V)$ 应该也是有限的. 如果 $U\cap V=\varnothing$, $(X\setminus U)\cup (X\setminus V)=X$ 就是有限集. 这与 $X$ 是无限集矛盾. \\
                 具体来讲这个空间有以下的性质: 
                 \begin{itemize}
-                    \item 紧性 ;
+                    \item 紧性;
                     \item 具有\连通 性;
                     \item 空间中的序列可以收敛到多个极限, 实际上是无穷多个极限. 因为这其中的点的开邻域都是无限集. 
                 \end{itemize}
@@ -955,8 +971,6 @@
                 [Dedicatia]
                 定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正规空间}, 当且仅当对任意两个不相交的\闭集 $C,D\in\tau$, 存在两个不相交的\开集 $X,Y$ 使得 $C\subseteq X, D\subseteq Y$.
             \end{dfn}
-
-                
 
     \section{度量空间}
         
@@ -1079,26 +1093,6 @@
                 []
                 [猫猫]
             \end{dfn}
-
-        \subsection{完备性}
-            
-            \begin{dfn}
-                [Cauchy-Sequence]
-                {Cauchy 列 / 基本列}
-                [Cauchy Sequence]
-                [猫猫]
-            \end{dfn}
-            
-            \begin{ppt}
-                {}
-            \end{ppt}
-            
-            \begin{dfn}
-                []
-                {完备性}
-                [Completeness]
-                [猫猫]
-            \end{dfn}
             
             \begin{dfn}
                 []
@@ -1111,18 +1105,25 @@
             
             \begin{dfn}
                 [Cauchy-Series]
-                {Cauchy列}
+                {Cauchy 列 / 基本列}
                 [Cauchy Series]
                 [Dedicatia]
-                定义 $\{x_n\}^\infty$ 为\度量空间 $(X,d)$ 上的\textbf{Cauchy列}, 当且仅当对任意 $\varepsilon>0$, 存在 $N\in\N$, $m,n>N$ 时均有 $d(x_m,x_n)<\varepsilon$. 
+                定义 ${\{x_n\}}^\infty$ 为\度量空间 $(X,d)$ 上的\textbf{Cauchy列}, 当且仅当对任意 $\varepsilon>0$, 存在 $N\in\N$, $m,n>N$ 时均有 $d(x_m,x_n)<\varepsilon$. 
             \end{dfn}
+            
+            \begin{ppt}
+                []
+                {Cauchy 列收敛}
+                []
+                []
+            \end{ppt}
 
             \begin{dfn}
                 [Complete-Metric-Space]
                 {完备度量空间}
                 [Complete Metric Space]
                 [Dedicatia]
-                定义一个\度量空间 是\textbf{完备度量空间}, 当且仅当其中的每一个Cauchy列都是\hyperref[dfn:Converge]{收敛点列}. 
+                定义一个\度量空间 是\textbf{完备度量空间}, 当且仅当其中的每一个 Cauchy 列都是\hyperref[dfn:Converge]{收敛点列}. 
             \end{dfn}
 
             \begin{xmp}
@@ -1130,7 +1131,7 @@
                 {Euclid空间是完备度量空间}
                 []
                 [Dedicatia]
-                $n$ 维Euclid空间 $(\R^n,d)$ 是\完备\度量空间 . 其中
+                $n$ 维 Euclid 空间 $(\R^n,d)$ 是\完备\度量空间. 其中
                 \[d(\bm{x},\bm{y})=\sqrt{\sum_{i=1}^n(x_i-y_i)^2}\]
             \end{xmp}
 
@@ -1153,10 +1154,13 @@
                     &n\pqty{x-\pqty{\frac{1}{2}-\frac{1}{n}}}, \frac{1}{2}-\frac{1}{n}< x\leq \frac{1}{2};\\
                     &1, x>\frac{1}{2}.
                 \end{cases}\]
-                也就是说, 该函数在$0\leq x\leq \frac{1}{2}-\frac{1}{n}$上是0, 在$\frac{1}{2}-\frac{1}{n}< x\leq \frac{1}{2}$线性地由0变到1, 在$x>\frac{1}{2}$上是1.\\
+                
+                也就是说, 该函数在$0\leq x\leq \frac{1}{2}-\frac{1}{n}$上是0, 在$\frac{1}{2}-\frac{1}{n}< x\leq \frac{1}{2}$线性地由0变到1, 在$x>\frac{1}{2}$上是1.
+                
                 由对称性设$m\geq n$, 通过画图可知该积分
                 \[d(f_m,f_n)=\int_0^1|f_m-f_n|\dd{x}\leq\int_0^{1/2}|f_n|\dd{x}\leq\frac{1}{2}\cdot\frac{1}{n}\cdot 1\]
-                与$\frac{1}{n}$同收敛. 所以显然是Cauchy列; \\
+                与$\frac{1}{n}$同收敛. 所以显然是Cauchy列; 
+                
                 但是这个序列的极限是
                 \[f(x)=\begin{cases}
                     &0, 0\leq x\leq\frac{1}{2};\\
@@ -1166,7 +1170,6 @@
             \end{cxmp}
 
         \subsection{拓扑空间的度量化}
-
             
             \begin{thm}
                 {}
