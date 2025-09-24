@@ -33,6 +33,7 @@
 \NewDocumentCommand{\开覆盖}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Open-Cover}{\ensuremath{\text{开覆盖}}}}
 
 \NewDocumentCommand{\收敛}{so}{\IfNoValueTF{#2}{}{#2\,}\catref[#1]{dfn:Sequence-Limit}{\ensuremath{\text{收敛}}}[在\拓扑空间 中有极限]}
+\NewDocumentCommand{\完备}{s}{\catref[#1]{dfn:Completeness}{完备}}
 
 \NewDocumentCommand{\生成拓扑}{sm}{\ensuremath{\text{由}}\,\,#2\catref[#1]{dfn:Generated-Topology}{\ensuremath{\text{ 生成的拓扑}}}}
 
