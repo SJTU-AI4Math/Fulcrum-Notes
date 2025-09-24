@@ -9,22 +9,30 @@
 \NewDocumentCommand{\U}{s}{\catref[#1]{dfn:Deleted-Neighborhood}{\ensuremath{\overset{\circ}{\mathit{U}}}}[去心邻域]}
 \NewDocumentCommand{\DrvSet}{sm}{#2\catref[#1]{dfn:Derived-Set}{\ensuremath{'}}[导集]}
 
+\NewDocumentCommand{\Seqlim}{smmm}{\catref[#1]{dfn:Sequence-Limit}{\ensuremath{\lim\limits_{#2\to+\infty}}}[序列极限]\,#3=#4}
+
 \NewDocumentCommand{\Con}{s}{\catref[#1]{dfn:Continuous-Mapping}{\ensuremath{\operatorname{Con}}}[连续映射]}
+\NewDocumentCommand{\Homeo}{smm}{#2\catref[#1]{dfn:Homeomorphism}{\ensuremath{\cong}}[同胚]#3}
+
 
 % Textual concepts
 \NewDocumentCommand{\拓扑}{s}{\catref[#1]{dfn:Topological-Space}{拓扑}}
 \NewDocumentCommand{\拓扑空间}{s}{\catref[#1]{dfn:Topological-Space}{拓扑空间}}
 
-\NewDocumentCommand{\开集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 中的}}}\catref[#1]{dfn:Open-Closed-Set}{\ensuremath{\text{开集}}}}
-\NewDocumentCommand{\闭集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 中的}}}\catref[#1]{dfn:Open-Closed-Set}{\ensuremath{\text{闭集}}}}
+\NewDocumentCommand{\开集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 中的}}}\catref[#1]{dfn:Open-Closed-Set}{\ensuremath{\text{开集}}}}
+\NewDocumentCommand{\闭集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 中的}}}\catref[#1]{dfn:Open-Closed-Set}{\ensuremath{\text{闭集}}}}
+\NewDocumentCommand{\紧集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 中的}}}\catref[#1]{dfn:Compactness}{\ensuremath{\text{紧集}}}}
+\NewDocumentCommand{\列紧集}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 中的}}}\catref[#1]{dfn:Compactness}{\ensuremath{\text{列紧集}}}}
 
-\NewDocumentCommand{\邻域}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Neighbourhood}{\ensuremath{\text{邻域}}}}
-\NewDocumentCommand{\去心邻域}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Deleted-Neighbourhood}{\ensuremath{\text{去心邻域}}}}
-\NewDocumentCommand{\极限点}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Limit-Point}{\ensuremath{\text{极限点}}}}
+\NewDocumentCommand{\邻域}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Neighbourhood}{\ensuremath{\text{邻域}}}}
+\NewDocumentCommand{\去心邻域}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Deleted-Neighbourhood}{\ensuremath{\text{去心邻域}}}}
+\NewDocumentCommand{\极限点}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Limit-Point}{\ensuremath{\text{极限点}}}}
 
-\NewDocumentCommand{\连通}{s}{\catref[#1]{dfn:Connectedness}{连通}}
-\NewDocumentCommand{\道路连通}{s}{\catref[#1]{dfn:Connectedness}{道路连通}}
-\NewDocumentCommand{\开覆盖}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Open-Cover}{\ensuremath{\text{开覆盖}}}}
+\NewDocumentCommand{\连通}{so}{\IfNoValueTF{#2}{}{#2\,}\catref[#1]{dfn:Connectedness}{\ensuremath{\text{连通}}}}
+\NewDocumentCommand{\道路连通}{so}{\oarg{#2}\catref[#1]{dfn:Connectedness}{\ensuremath{\text{道路连通}}}}
+\NewDocumentCommand{\开覆盖}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Open-Cover}{\ensuremath{\text{开覆盖}}}}
+
+\NewDocumentCommand{\收敛}{so}{\IfNoValueTF{#2}{}{#2\,}\catref[#1]{dfn:Sequence-Limit}{\ensuremath{\text{收敛}}}[在\拓扑空间 中有极限]}
 
 \NewDocumentCommand{\生成拓扑}{sm}{\ensuremath{\text{由}}\,\,#2\catref[#1]{dfn:Generated-Topology}{\ensuremath{\text{ 生成的拓扑}}}}
 

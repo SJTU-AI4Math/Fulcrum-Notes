@@ -327,15 +327,33 @@
             \end{dfn}
 
             \begin{dfn}
-                [Limit]
-                {极限}
-                [Limit]
+                [Sequence-Limit]
+                {点列极限}
+                [Limit of Sequences]
                 [猫猫]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, \(x:S\), \(\{x_\cdot\}:\N\to S\), 定义 \(\{x_\cdot\}\) 以 \(x\) 为\textbf{极限}, 当且仅当: 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(x:S\), \(\{x_n\}:\N\to S\), 定义 \(\{x_n\}\) 以 \(x\) 为\textbf{极限}, 当且仅当: 
                 \[\forall U, U\in\Nbr{x}\implies\exists N:\N, \forall n:\N, n\geq N\implies x_n\in U(x)\]
                 
-                记作 \(\lim\limits_{n\to+\infty}x_n=x\). 
+                记作 \(\Seqlim{n}{x_n}{x}\). 
+
+                定义 \(\{x_n\}\) \textbf{收敛}, 当且仅当: \(\exists x:S, \Seqlim{n}{x_n}{x}\). 
             \end{dfn}
+            
+            \begin{dfn}
+                [Sequential-Compactness]
+                {列紧性}
+                [Sequential Compactness]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是\textbf{列紧集}, 当且仅当: 
+                \[\forall[X][X\subseteq E\implies\exists\{x_n\}:\N\to X, \收敛[\{x_n\}]]*\]
+            \end{dfn}
+            
+            \begin{cxmp}
+                []
+                {一般拓扑空间中列紧性与紧性无关}
+                []
+                [猫猫]
+            \end{cxmp}
 
         \subsection{连通性}
             
@@ -343,16 +361,24 @@
                 [Connectedness]
                 {连通性}
                 [Connectedness]
-                []
-                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是\textbf{连通集}, 当且仅当: \(\开集[E]\land\闭集[E]\). 
-
-                定义连通的, 若 \(S\) 即开又闭的子集只有 \(S\) 和 \(\varnothing\), 即: 
-                \[\PP(S)\cap\{X|X\in\mathcal{T},(S-X)\in\mathcal{T}\}=\{\varnothing,S\}\]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) \textbf{连通}, 当且仅当: 
+                \[\neg\exists[A,B][\开集[A,B]\land A\cap B=\varnothing\land E=A\cup B]*\]
             \end{dfn}
 
             \begin{rmk}
+                [猫猫]
                 这意味着 \(S\) 无法写成两个不相交的非空开集之并, 即\(S\)的\textbf{分割}不存在. 
             \end{rmk}
+            
+            \begin{ppt}
+                []
+                {连通性的等价定义}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 则: 
+                \[\连通[E]\iff\PP(E)\cap\{X|\开集[X]\land\闭集[X]\}=\{\varnothing,S\}\]
+            \end{ppt}
             
             \begin{ppt}
                 []
@@ -362,17 +388,6 @@
                 设\拓扑空间 \(S\) 的子集 \(X\) 是连通的, 则 \(Y(X\subseteq Y\subseteq\cl X)\) 是连通的. 
                 
                 特别地, \(\cl X\) 是连通的. 
-            \end{ppt}
-            
-            \begin{ppt}
-                []
-                {}
-                []
-                []
-                设 \(X\) 是连通的拓扑空间, \(Y\)是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
-                \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\implies\forall x\in X, f(x)=C\]
-                
-                即, 若定义域连通, 则所有点分别保持常值的函数, 整体保持常值. 
             \end{ppt}
 
             \begin{dfn}
@@ -458,7 +473,7 @@
             \end{dfn}
 
             \begin{dfn}
-                [Compact]
+                [Compactness]
                 {紧性 / 紧致性}
                 [Compactness]
                 [猫猫]
@@ -476,6 +491,13 @@
             \begin{ppt}
                 []
                 {紧空间的闭子集是紧的}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {有限集是紧的}
                 []
                 [猫猫]
             \end{ppt}
@@ -510,7 +532,31 @@
             %     % \end{figure}                
             % \end{thm}
 
-        \subsection{Hausdorff 空间}
+    \section{可分离性}
+
+        \subsection{T0 空间}
+
+            \begin{dfn}
+                [Kolmogorov-Space]
+                {Kolmogorov 空间 / T0 空间}
+                [Kolmogorov Space]
+                [Dedicatia]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
+                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
+            \end{dfn}
+            
+            \begin{rmk}
+                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
+            \end{rmk}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski 空间}
+                [Sierpinski Space]
+                [Dedicatia]
+            \end{xmp}
+
+        \subsection{T2 空间}
 
             \begin{dfn}
                 [Hausdorff-Space]
@@ -561,9 +607,10 @@
 
             \begin{thm}
                 []
-                {}
+                {Hausdorff 空间中紧集族, 有限交非空蕴含交非空}
                 []
                 [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\mathcal{K}\) 是集合族, \(\forall K\in\mathcal{K},\紧集[K]\), \(\forall\mathcal{K}'\subseteq\mathcal{K}, \card\mathcal{K}'\in\N\implies\bigcap[\mathcal{K}']\neq\varnothing\), 则: \(\bigcap[\mathcal{K}]\neq\varnothing\). 
             \end{thm}
 
             \begin{crl}
@@ -571,29 +618,8 @@
                 {紧集套定理}
                 []
                 [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\{K_n\}: \N\to\PS[S]\), \(\forall n:\N, K_n\supseteq K_{n+1}\land\紧集[K_n]\), 则: \(\bigcap\{K_n\}\neq\varnothing\). 
             \end{crl}
-
-        \subsection{分离定理}
-
-            \begin{dfn}
-                [Kolmogorov-Space]
-                {Kolmogorov 空间 / T0 空间}
-                [Kolmogorov Space]
-                [Dedicatia]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
-                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
-            \end{dfn}
-            
-            \begin{rmk}
-                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
-            \end{rmk}
-
-            \begin{xmp}
-                [Sierpinski-Space]
-                {Sierpinski 空间}
-                [Sierpinski Space]
-                [Dedicatia]
-            \end{xmp}
 
         \subsection{拓扑空间的构造}
 
@@ -756,6 +782,17 @@
                     \[(f:X\to Y)\in\Con(X,Y)\implies\exists U(x)\in\Nbr{x}(\forall x\in U(x)\implies f(x)\in Y)\]
             \end{prf}
             
+            \begin{ppt}
+                []
+                {}
+                []
+                []
+                设 \(X\) 是连通的拓扑空间, \(Y\)是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
+                \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\implies\forall x\in X, f(x)=C\]
+                
+                即, 若定义域连通, 则所有点分别保持常值的函数, 整体保持常值. 
+            \end{ppt}
+            
             \begin{thm}
                 []
                 {}
@@ -795,9 +832,14 @@
                 {同胚}
                 [Homeomorphism]
                 []
-                设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), \(f:X\to Y\), 定义 \(f\) 是 \(X\) 到 \(Y\) 的\textbf{同胚}, 当且仅当: \(f\)是双射, 且 \(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), 定义 \(f\) 是 \(X\) 到 \(Y\) 的\textbf{同胚}, 当且仅当: 
+                \begin{enumerate}
+                    \item \(\双射[f]\); 
+                    \item \(f\in\Con(X,Y)\); 
+                    \item \(f^{-1}\in\Con(Y,X)\). 
+                \end{enumerate}
 
-                定义 \(X\) 与 \(Y\) \textbf{同胚}, 当且仅当: \(\exists f:X\to Y, f\) 是从 \(X\) 到 \(Y\) 的同胚. 
+                定义 \(X\) 与 \(Y\) \textbf{同胚}, 当且仅当: \(\exists f:X\to Y, f\) 是从 \(X\) 到 \(Y\) 的同胚, 记作 \(\Homeo{X}{Y}\). 
             \end{dfn}
             
             \begin{thm}
@@ -873,17 +915,29 @@
 
             \begin{ppt}
                 []
-                {度量诱导的拓扑空间是 Hausdorff 的}
+                {拓扑度量空间总是 Hausdorff 空间}
                 []
                 [猫猫]
             \end{ppt}
 
             \begin{ppt}
                 []
-                {度量空间中开球的邻域身份}
+                {拓扑度量空间中开球的邻域身份}
                 []
                 [猫猫]
             \end{ppt}
+            
+            \begin{ppt}
+                []
+                {拓扑度量空间中紧性与列紧性等价}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{rmk}
+                [猫猫]
+                在不致混淆的情况下, 用\度量空间 指代拓扑度量空间. 
+            \end{rmk}
 
             \begin{thm}
                 []
@@ -897,23 +951,60 @@
                 {度量空间中有限集没有极限点}
             \end{crl}
 
-            \begin{dfn}
-                {列紧集}
-            \end{dfn}
-
             \begin{thm}
                 []
                 {Bolzano-Weierstrass 定理 / 聚点定理}
                 []
                 [猫猫]
+                设 \((S,d)\) 是\度量空间, \(E\subseteq S\), 则: 
+                \[\列紧集[E]\iff\]
             \end{thm}
 
             \begin{dfn}
+                [Metric-Boundedness]
+                {有界性}
+                [Boundedness]
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(E\) 是\集合, 定义 \(E\) \textbf{有界}, 当且仅当: 
+                \[\exists M:\R^+, \forall x,y\in E, d(x,y)\leq M\]
+            \end{dfn}
+            
+            \begin{dfn}
                 []
-                {有界集}
+                {直径}
+                []
+                [猫猫]
+            \end{dfn}
+
+        \subsection{完备性}
+            
+            \begin{dfn}
+                [Cauchy-Sequence]
+                {Cauchy 列 / 基本列}
+                [Cauchy Sequence]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                {}
+            \end{ppt}
+            
+            \begin{dfn}
+                []
+                {完备性}
+                [Completeness]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {完全有界性}
                 []
                 [猫猫]
             \end{dfn}
             
+            \begin{thm}
+                {}
+            \end{thm}
 
 \end{document}
