@@ -30,7 +30,7 @@
 \tableofcontents
 \newpage         
 
-    \section{拓扑空间与连续函数}
+    \section{拓扑空间}
 
         \subsection{基本概念}
 
@@ -207,6 +207,16 @@
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 则: 
                 \[\闭集[E]\iff E = \cl E\]
             \end{ppt}
+            
+            \begin{dfn}
+                [Boundary]
+                {边界}
+                [Boundary]
+                [猫猫]
+                设\((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
+            \end{dfn}
+
+        \subsection{邻域与极限}
 
             \begin{dfn}
                 [Deleted-Neighbourhood]
@@ -275,14 +285,6 @@
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), \(x\in E\), 则: 
                 \[x\in\cl E\setminus\DrvSet{E}\iff\exists U\in\DelNbr{x}, U\cap E=\varnothing\]
             \end{ppt}
-            
-            \begin{dfn}
-                [Boundary]
-                {边界}
-                [Boundary]
-                [猫猫]
-                设\((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
-            \end{dfn}
 
             \begin{xmp}
                 [RealNumberTopology]
@@ -522,7 +524,7 @@
                 设 $E$ 是$\R^n$ 的子集，那么以下三条性质等价：
                 \begin{enumerate}
                     \item $E$ 是有界的\闭集 ;
-                    \item $E$ 是\紧 ;
+                    \item $E$ 是紧集 ;
                     \item $E$ 是序列紧的。
                 \end{enumerate}
             \end{thm}
@@ -556,95 +558,6 @@
             %     %     \end{tikzpicture}
             %     % \end{figure}                
             % \end{thm}
-
-    \section{可分离性}
-
-        \subsection{T0 空间}
-
-            \begin{dfn}
-                [Kolmogorov-Space]
-                {Kolmogorov 空间 / T0 空间}
-                [Kolmogorov Space]
-                [Dedicatia]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
-                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
-            \end{dfn}
-            
-            \begin{rmk}
-                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
-            \end{rmk}
-
-            \begin{xmp}
-                [Sierpinski-Space]
-                {Sierpinski 空间}
-                [Sierpinski Space]
-                [Dedicatia]
-            \end{xmp}
-
-        \subsection{T2 空间}
-
-            \begin{dfn}
-                [Hausdorff-Space]
-                {Hausdorff 空间}
-                [Hausdorff Space]
-                [猫猫]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是\textbf{Hausdorff 空间}, 当且仅当: 
-                \[\forall x,y:S, x\neq y\implies\exists[U_x, U_y][U_x\in\Nbr{x}\land U_y\in\Nbr{y}\implies U_x\cap U_y=\varnothing]*\]
-            \end{dfn}
-
-            \begin{rmk}
-                [猫猫]
-                \Hausdorff空间 是强调任意两点间可用邻域区分的拓扑空间. 
-            \end{rmk}
-
-            \begin{rmk}
-                []
-                \Hausdorff空间 存在最细基, 这表明改空间的元素间存在一定独立性
-            \end{rmk}
-            
-            \begin{ppt}
-                []
-                {Hausdorff 空间中点列极限唯一}
-                []
-                [猫猫]
-                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\forall(S,\mathcal{T})\) 中的收敛序列\({\{x_n\}}_{n=0}^{+\infty}\), 满足上述条件的\(x\)是唯一的. 
-            \end{ppt}
-            
-            \begin{prf}
-                运用反证法. 
-
-                若\((S,\mathcal{T})\)是Hausdorff的, 且假设\(\exists{\{x_n\}}_{n=0}^{+\infty}\), 对于该序列有: 
-                \[\exists x,y\in S: x\neq y, \forall U(x), U(y), \exists N\in\N: \forall n>N(N\in\N), x_n\in U(x)\cap U(y)\]
-                
-                由\((S,\mathcal{T})\)的Hausdorff性质可知\(\exists U(x), U(y): U(x)\cap U(y)=\varnothing\). 
-
-                取满足上述条件的\(U(x), U(y)\), 则当\(n>N\)时, 有\(x_n\in U(x)\cap U(y)=\varnothing\), 矛盾. 
-
-                \(\therefore\)此时只能存在一个满足条件的\(x\). 
-            \end{prf}
-
-            \begin{ppt}
-                []
-                {Hausdorff 空间中紧集是闭的}
-                []
-                [猫猫]
-            \end{ppt}
-
-            \begin{thm}
-                []
-                {Hausdorff 空间中紧集族, 有限交非空蕴含交非空}
-                []
-                [猫猫]
-                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\mathcal{K}\) 是集合族, \(\forall K\in\mathcal{K},\紧集[K]\), \(\forall\mathcal{K}'\subseteq\mathcal{K}, \card\mathcal{K}'\in\N\implies\bigcap[\mathcal{K}']\neq\varnothing\), 则: \(\bigcap[\mathcal{K}]\neq\varnothing\). 
-            \end{thm}
-
-            \begin{crl}
-                []
-                {紧集套定理}
-                []
-                [猫猫]
-                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\{K_n\}: \N\to\PS[S]\), \(\forall n:\N, K_n\supseteq K_{n+1}\land\紧集[K_n]\), 则: \(\bigcap\{K_n\}\neq\varnothing\). 
-            \end{crl}
 
         \subsection{拓扑空间的构造}
 
@@ -877,6 +790,172 @@
                 \[\forall S((X-S)\in\mathcal{T}_X)\implies(Y-f(S))\in\mathcal{T}_Y\]
             \end{thm}
 
+    \section{可分离性}
+
+        \subsection{T0 空间}
+
+            \begin{dfn}
+                [Kolmogorov-Space]
+                {Kolmogorov 空间 / T0 空间}
+                [Kolmogorov Space]
+                [Dedicatia]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
+                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
+            \end{dfn}
+            
+            \begin{rmk}
+                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
+            \end{rmk}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski 空间}
+                [Sierpinski Space]
+                [Dedicatia]
+            \end{xmp}
+
+            \begin{dfn}
+                [Kolmogorov-Space]
+                {Kolmogorov空间}
+                [Kolmogorov Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Kolmogorov空间}当且仅当其中的任意两点都可以被一个\开集 区分。
+                \[\forall\,x,y\in X, \exists\,D, x\in D,y\notin D.\]
+                又叫做\textbf{T0空间}.
+            \end{dfn}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski空间}
+                [Sierpinski Space]
+                [Dedicatia]
+                \textbf{Sierpinski空间}指的是\拓扑空间 $(S,\tau)$, $S=\{x,y\}$, $\tau=\{\varnothing, \{y\}, S\}$. 这时我们可以用一个开集 $\{y\}$ 区分 $x,y$. 说明它是\textbf{T0空间}. 但是它不再满足更强的分离性。
+            \end{xmp}
+
+        \subsection{T1 空间}
+
+            \begin{dfn}
+                [Frechet-Space]
+                {Frechet空间}
+                [Frechet Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Frechet空间}当且仅当其中的任意两个不同的点都可以用各自的开\邻域 区分。
+                \[\forall\,x,y\in X, \exists\Nbr{x}\st x\in\Nbr{x}, y\notin\Nbr{x}. \]
+                又叫做\textbf{T1空间}.
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {Frechet空间的充要条件}
+                []
+                [Dedicatia]
+                一个\拓扑空间 是\textbf{T1空间}的充要条件是每个单点集都是\闭集 .
+            \end{ppt}
+
+            \begin{xmp}
+                [Cofinite-Topology]
+                {无限集上的有限补拓扑空间}
+                [Co-finite Topological Space]
+                [Dedicatia]
+                设 $X$ 是无限集合，定义\拓扑
+                \[\tau:=U \text{ 如果满足 }\begin{cases}
+                    &U=\varnothing,\\
+                    &X\backslash U \text{ 是有限集。}
+                \end{cases}\]
+                这时，所有的单点集的补集都是\开集 , 所以单点集都是\闭集 . 这是一个\textbf{T1空间}. 但它不是T2空间，因为任意两个非空的\开集 必定相交：\\
+                设 $U,V$ 是两个非空开集，那么 $X\backslash U$, $X\backslash V$ 是有限的。考虑 $U\cap V$, 那么其补集 $X\backslash(U\cap V)=(X\backslash U)\cup (X\backslash V)$ 应该也是有限的。如果 $U\cap V=\varnothing$, $(X\backslash U)\cup (X\backslash V)=X$ 就是有限集。这与 $X$ 是无限集矛盾。\\
+                具体来讲这个空间有以下的性质：
+                \begin{itemize}
+                    \item 紧性 ;
+                    \item 具有\连通 性;
+                    \item 空间中的序列可以收敛到多个极限，实际上是无穷多个极限。因为这其中的点的开邻域都是无限集。
+                \end{itemize}
+            \end{xmp}
+
+        \subsection{T2 空间}
+
+            \begin{dfn}
+                [Hausdorff-Space]
+                {Hausdorff 空间}
+                [Hausdorff Space]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是\textbf{Hausdorff 空间}, 当且仅当: 
+                \[\forall x,y:S, x\neq y\implies\exists[U_x, U_y][U_x\in\Nbr{x}\land U_y\in\Nbr{y}\implies U_x\cap U_y=\varnothing]*\]
+            \end{dfn}
+
+            \begin{rmk}
+                [猫猫]
+                \Hausdorff空间 是强调任意两点间可用邻域区分的拓扑空间. 
+            \end{rmk}
+
+            \begin{rmk}
+                []
+                \Hausdorff空间 存在最细基, 这表明改空间的元素间存在一定独立性
+            \end{rmk}
+            
+            \begin{ppt}
+                []
+                {Hausdorff 空间中点列极限唯一}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\forall(S,\mathcal{T})\) 中的收敛序列\({\{x_n\}}_{n=0}^{+\infty}\), 满足上述条件的\(x\)是唯一的. 
+            \end{ppt}
+            
+            \begin{prf}
+                运用反证法. 
+
+                若\((S,\mathcal{T})\)是Hausdorff的, 且假设\(\exists{\{x_n\}}_{n=0}^{+\infty}\), 对于该序列有: 
+                \[\exists x,y\in S: x\neq y, \forall U(x), U(y), \exists N\in\N: \forall n>N(N\in\N), x_n\in U(x)\cap U(y)\]
+                
+                由\((S,\mathcal{T})\)的Hausdorff性质可知\(\exists U(x), U(y): U(x)\cap U(y)=\varnothing\). 
+
+                取满足上述条件的\(U(x), U(y)\), 则当\(n>N\)时, 有\(x_n\in U(x)\cap U(y)=\varnothing\), 矛盾. 
+
+                \(\therefore\)此时只能存在一个满足条件的\(x\). 
+            \end{prf}
+
+            \begin{ppt}
+                []
+                {Hausdorff 空间中紧集是闭的}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{thm}
+                []
+                {Hausdorff 空间中紧集族, 有限交非空蕴含交非空}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\mathcal{K}\) 是集合族, \(\forall K\in\mathcal{K},\紧集[K]\), \(\forall\mathcal{K}'\subseteq\mathcal{K}, \card\mathcal{K}'\in\N\implies\bigcap[\mathcal{K}']\neq\varnothing\), 则: \(\bigcap[\mathcal{K}]\neq\varnothing\). 
+            \end{thm}
+
+            \begin{crl}
+                []
+                {紧集套定理}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\{K_n\}: \N\to\PS[S]\), \(\forall n:\N, K_n\supseteq K_{n+1}\land\紧集[K_n]\), 则: \(\bigcap\{K_n\}\neq\varnothing\). 
+            \end{crl}
+
+        \subsection{T3 空间}
+
+            \begin{dfn}
+                [Regular-Space]
+                {正则空间}
+                [Regular Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正则空间}, 当且仅当对任意 $x\in S$ 和\闭集 $C$, 其中 $x\notin C$, 存在不相交的\开集 $X,Y$ 使得 $x\in X$, $C\subseteq Y$. 
+                正则空间又叫\textbf{T3空间}.
+            \end{dfn}
+
+            \begin{dfn}
+                [Normal-Space]
+                {正规空间}
+                [Normal Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正规空间}, 当且仅当对任意两个不相交的\闭集 $C,D\in\tau$, 存在两个不相交的\开集 $X,Y$ 使得 $C\subseteq X, D\subseteq Y$.
+            \end{dfn}
+
                 
 
     \section{度量空间}
@@ -1026,98 +1105,6 @@
                 {完全有界性}
                 []
                 [猫猫]
-            \end{dfn}
-
-        \subsection{拓扑空间的分离性}
-
-            \begin{dfn}
-                [Kolmogorov-Space]
-                {Kolmogorov空间}
-                [Kolmogorov Space]
-                [Dedicatia]
-                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Kolmogorov空间}当且仅当其中的任意两点都可以被一个\开集 区分。
-                \[\forall\,x,y\in X, \exists\,D, x\in D,y\notin D.\]
-                又叫做\textbf{T0空间}.
-            \end{dfn}
-
-            \begin{xmp}
-                [Sierpinski-Space]
-                {Sierpinski空间}
-                [Sierpinski Space]
-                [Dedicatia]
-                \textbf{Sierpinski空间}指的是\拓扑空间 $(S,\tau)$, $S=\{x,y\}$, $\tau=\{\varnothing, \{y\}, S\}$. 这时我们可以用一个开集 $\{y\}$ 区分 $x,y$. 说明它是\textbf{T0空间}. 但是它不再满足更强的分离性。
-            \end{xmp}
-
-            \begin{dfn}
-                [Frechet-Space]
-                {Frechet空间}
-                [Frechet Space]
-                [Dedicatia]
-                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Frechet空间}当且仅当其中的任意两个不同的点都可以用各自的开\邻域 区分。
-                \[\forall\,x,y\in X, \exists\Nbr{x}\st x\in\Nbr{x}, y\notin\Nbr{x}. \]
-                又叫做\textbf{T1空间}.
-            \end{dfn}
-
-            \begin{ppt}
-                []
-                {Frechet空间的充要条件}
-                []
-                [Dedicatia]
-                一个\拓扑空间 是\textbf{T1空间}的充要条件是每个单点集都是\闭集 .
-            \end{ppt}
-
-            \begin{xmp}
-                [Cofinite-Topology]
-                {无限集上的有限补拓扑空间}
-                [Co-finite Topological Space]
-                [Dedicatia]
-                设 $X$ 是无限集合，定义\拓扑
-                \[\tau:=U \text{ 如果满足 }\begin{cases}
-                    &U=\varnothing,\\
-                    &X\backslash U \text{ 是有限集。}
-                \end{cases}\]
-                这时，所有的单点集的补集都是\开集 , 所以单点集都是\闭集 . 这是一个\textbf{T1空间}. 但它不是T2空间，因为任意两个非空的\开集 必定相交：\\
-                设 $U,V$ 是两个非空开集，那么 $X\backslash U$, $X\backslash V$ 是有限的。考虑 $U\cap V$, 那么其补集 $X\backslash(U\cap V)=(X\backslash U)\cup (X\backslash V)$ 应该也是有限的。如果 $U\cap V=\varnothing$, $(X\backslash U)\cup (X\backslash V)=X$ 就是有限集。这与 $X$ 是无限集矛盾。\\
-                具体来讲这个空间有以下的性质：
-                \begin{itemize}
-                    \item 具有\紧 ;
-                    \item 具有\连通 性;
-                    \item 空间中的序列可以收敛到多个极限，实际上是无穷多个极限。因为这其中的点的开邻域都是无限集。
-                \end{itemize}
-            \end{xmp}
-
-            \begin{dfn}
-                [Hausdorff-Space2]
-                {Hausdorff空间}
-                [Hausdorff Space]
-                [Dedicatia]
-                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Hausdorff空间}当且仅当其中的任意两个不同的点都可以用不相交的各自的开\邻域 区分.
-                \[\forall\,x,y\in X, \exists\Nbr{x},\Nbr{y},\st x\in\Nbr{x},y\in\Nbr{y}, \Nbr{x}\cap\Nbr{y}=\varnothing. \]
-                又叫做\textbf{T2空间}.
-            \end{dfn}
-
-            \begin{ppt}
-                []
-                {度量空间都是T2空间}
-                []
-                [Dedicatia]
-            \end{ppt}
-
-            \begin{dfn}
-                [Regular-Space]
-                {正则空间}
-                [Regular Space]
-                [Dedicatia]
-                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正则空间}, 当且仅当对任意 $x\in S$ 和\闭集 $C$, 其中 $x\notin C$, 存在不相交的\开集 $X,Y$ 使得 $x\in X$, $C\subseteq Y$. 
-                正则空间又叫\textbf{T3空间}.
-            \end{dfn}
-
-            \begin{dfn}
-                [Normal-Space]
-                {正规空间}
-                [Normal Space]
-                [Dedicatia]
-                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正规空间}, 当且仅当对任意两个不相交的\闭集 $C,D\in\tau$, 存在两个不相交的\开集 $X,Y$ 使得 $C\subseteq X, D\subseteq Y$.
             \end{dfn}
 
         \subsection{完备性}
