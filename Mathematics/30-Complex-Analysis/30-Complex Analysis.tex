@@ -2541,7 +2541,8 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     [Weierstrass' Theorem]
     [Dedicatia]
     将上述的定理写成函数项级数的形式，即得到Weierstrass定理：\\
-    设级数$\sum_{n = 1}^{\infty} u_n(z)$的每一项都是\AnalyticalFunction , 且在$D$的任意紧致子集上\UniformConvergence , 那么级数的和函数$f(z)$在$D$上是解析函数，且可以逐项微分。
+    设级数$\sum_{n = 1}^{\infty} u_n(z)$的每一项都是\AnalyticalFunction , 且在$D$的任意紧致子集$D'$上\UniformConvergence , 那么级数的和函数$S(z)$在$D$上是解析函数，且可以逐项微分。
+    \[\{u_n(z)\}\in\mathcal{H}(D),\sum_{n = 1}^{\infty} u_n(z)\rightrightarrows S(z)\implies S(z)\in\mathcal{H}(D); \sum_{n = 1}^{\infty} u_n^{(k)}(z)\rightrightarrows S^{(k)}(z).\]
 \end{thm}
 \begin{thm}
     [UUID]
@@ -2779,7 +2780,7 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     容易证明其收敛半径是无穷大，这就证明了对任意$R$该式都在$z\leq|R|$上绝对且一致收敛。
 \end{prf}
 \begin{thm}
-    {典范乘积定理}
+    {Weierstrass因子分解定理}
     存在一个\hyperref[dfn:EntireFunction]{整函数}, 它的零点$a_n$可以任意取，只要在零点个数无穷多且$\lim\limits_{n\to\infty }a_n=\infty$, 那么除了这些零点之外无其他零点的任意整函数$f(z)$可以表示为
     \[f(z)=z^m\exp g(z)\prod_{n=1}^{\infty}\qty(1-\frac{z}{a_n})\exp(\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{\nu_n}\qty(\frac{z}{a_n})^{\nu_n})\]
     其中乘积是对所有$a_n\neq 0$, $\nu_n$是取定的整数，$g(n)$是整函数。通常情况下我们取所有的$\nu_n$互相相等。
@@ -2800,7 +2801,6 @@ $$I = \int_{-\infty}^{\infty} R(x) \cos(ax) \dd x, \quad I = \int_{-\infty}^{\in
     称$h$为该典范乘积的\textbf{亏格}.
 \end{dfn}
 
-\subsection{Weierstrass因子分解定理}
 \subsection{整函数的阶}
 \subsection{$\Gamma$函数}
 \subsection{Stirling公式}
