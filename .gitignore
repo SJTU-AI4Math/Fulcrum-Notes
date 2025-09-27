@@ -1,5 +1,3 @@
-Fulcrum-Template
-
 *.fdb_latexmk
 *.aux
 *.fls
@@ -8,4 +6,6 @@ Fulcrum-Template
 *.synctex.gz
 *.toc
 *.xdv
+*.pdf
+
 ai.mkd

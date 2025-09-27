@@ -12,6 +12,8 @@
 \usepackage{F4Topology}
 \usepackage{F4Analysis}
 
+\DeclareMathOperator{\st}{\text{s.t. }}
+
 % margin
 \usepackage{geometry}
 \geometry{
@@ -28,7 +30,7 @@
 \tableofcontents
 \newpage         
 
-    \section{拓扑空间与连续函数}
+    \section{拓扑空间}
 
         \subsection{基本概念}
 
@@ -65,7 +67,7 @@
             \begin{dfn}
                 [Open-Closed-Set]
                 {开集与闭集}
-                [Open and Closed Sets]
+                [Open \& Closed Sets]
                 [猫猫]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(X\) 是集合, \(X\subseteq S\), 
                 
@@ -205,6 +207,16 @@
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 则: 
                 \[\闭集[E]\iff E = \cl E\]
             \end{ppt}
+            
+            \begin{dfn}
+                [Boundary]
+                {边界}
+                [Boundary]
+                [猫猫]
+                设\((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
+            \end{dfn}
+
+        \subsection{邻域与极限}
 
             \begin{dfn}
                 [Deleted-Neighbourhood]
@@ -234,12 +246,36 @@
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{导集}为: \(\{x|\极限点[x][E]\}\), 记作 \(\DrvSet{E}\). 
             \end{dfn}
 
+            \begin{ppt}
+                []
+                {集合与导集的并等于闭包}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 则:
+                \[\cl E=E\cup\DrvSet{E}\]
+            \end{ppt}
+
+            \begin{dfn}
+                []
+                {自密集}
+                []
+                [猫猫]
+            \end{dfn}
+
+            \begin{dfn}
+                [Perfectness]
+                {完全性}
+                [Perfectness]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, 定义 \(E\) 是\textbf{完全集}, 当且仅当: \(\DrvSet{E}=E\). 
+            \end{dfn}
+
             \begin{dfn}
                 [Isolated-Point]
                 {孤立点}
                 [Isolated Point]
                 [猫猫]
-                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), \(x\in E\), 定义 \(x\) 是 \(E\) 的\textbf{孤立点}, 当且仅当: \(x\in\cl E\setminus\DrvSet{E}\). 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), \(x\in E\), 定义 \(x\) 是 \(E\) 的\textbf{孤立点}, 当且仅当: \(x\notin\DrvSet{E}\). 
             \end{dfn}
 
             \begin{ppt}
@@ -248,34 +284,101 @@
                 []
                 [猫猫]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), \(x\in E\), 则: 
-                \[x\in\cl E\setminus\DrvSet{E}\iff\exists U\in\Nbr{x}, U\cap E=\varnothing\]
+                \[x\in\cl E\setminus\DrvSet{E}\iff\exists U\in\DelNbr{x}, U\cap E=\varnothing\]
             \end{ppt}
-            
-            \begin{dfn}
-                [Boundary]
-                {边界}
-                [Boundary]
-                [猫猫]
-                设\((S,\T)\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
-            \end{dfn}
+
+            \begin{xmp}
+                [RealNumberTopology]
+                {实数拓扑}
+                [Topology on Real Number]
+                [Dedicatia]
+                实数$(\R,\tau)$是\拓扑空间, 其中$\tau$是任意开区间, 开区间的任意并和有限交. 
+
+                其中, 开区间, $\varnothing$, $\R$, $\R\setminus\{0\}$, $(0,+\infty)$ 都是\开集; $\varnothing$, $\R$, 闭区间, $\Ico{0}{+\infty}$ 等是\闭集;
+
+                对于集合 $E=\Ico{0}{1}$, $\intr E=(0,1)$, $\DrvSet{E}=[0,1]$, $\cl E=[0,1]$, $\bd E=\{0,1\}$.
+
+                实数的拓扑将作为一元微积分的基石. 
+            \end{xmp}
+
+            \begin{xmp}
+                [DiscreteTopology]
+                {离散拓扑}
+                [Discrete Topology]
+                [Dedicatia]
+                对任意集合 $S$ 都可以赋予\textbf{离散拓扑}: $(S,\tau)$, 其中$\tau$ 是 $S$ 的幂集, 也就是所有的子集组成的集合. 
+
+                在离散拓扑中, 任意集合都是\开集, 任意集合都是\闭集;
+
+                设$S=\{a,b,c\}$, 对于集合$E=\{a\}$, $\intr E=\{a\}$, $\DrvSet{E}=\varnothing$, $\cl E=\{a\}$, $\bd E=\varnothing$.
+
+                $a$的\邻域 只有一个, 就是$\{a\}$. 在$a$的\邻域 中不包含任何异于$a$的点. 这表明$S$中所有的元素都不是\hyperref[dfn:Limit-Point]{极限点}.
+
+                离散拓扑的本质就是``完全分离'', 没有一个点可以粘在其他点周围. 
+            \end{xmp}
+
+            \begin{xmp}
+                [TrivialTopology]
+                {平凡拓扑}
+                [Trivial Topology]
+                [Dedicatia]
+                对任意集合$S$都可以赋予\textbf{平凡拓扑}: $(S,\tau)$, 其中$\tau=\{\varnothing,S\}$. 也就是说取了空集和全集作为\拓扑.
+                
+                在平凡拓扑中, \开集 只有$\varnothing$和$S$. \闭集 也只有$\varnothing$和$S$. 其他集合既不开也不闭. 
+                
+                任何$x\in S$, 都只有一个\邻域 就是$S$. 
+                
+                如果$E$是$S$的非空真子集, 那么$\intr E=\varnothing$. 因为其中的元素的\邻域 $S$不是$E$的子集.
+                
+                对于任何包含多于一个点的集合$E$, 其 $\DrvSet{E}=S$. 这表明每个点都无限接近其他点. $\cl E=S$, $\bd E=S$. 
+                
+                这些性质清晰地表明, 在平凡拓扑下, 所有点都粘在一起, 没有任何办法区分其中的点. 
+            \end{xmp}
+
             
             \begin{dfn}
                 [Dense-Set]
                 {稠密集}
                 [Dense Set]
                 []
-                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, \(E\subseteq S\), 定义 \(E\) 是\textbf{稠密集}, 当且仅当: \(\cl E=S\). 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, \(E\subseteq S\), 定义 \(E\) 是\textbf{稠密集}, 当且仅当: \(\cl E=S\). 
             \end{dfn}
 
             \begin{dfn}
-                [Limit]
-                {极限}
-                [Limit]
+                [Sequence-Limit]
+                {点列极限}
+                [Limit of Sequences]
                 [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, \(x:S\), \(\{x_\cdot\}:\N\to S\), 定义 \(\{x_\cdot\}\) 以 \(x\) 为\textbf{极限}, 当且仅当: 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(x:S\), \(\{x_n\}:\N\to S\), 定义 \(\{x_n\}\) 以 \(x\) 为\textbf{极限}, 当且仅当: 
                 \[\forall U, U\in\Nbr{x}\implies\exists N:\N, \forall n:\N, n\geq N\implies x_n\in U(x)\]
                 
-                记作 \(\lim\limits_{n\to+\infty}x_n=x\). 
+                记作 \(\Seqlim{n}{x_n}{x}\). 
+
+                定义 \(\{x_n\}\) \textbf{收敛}, 当且仅当: \(\exists x:S, \Seqlim{n}{x_n}{x}\). 
+            \end{dfn}
+            
+            \begin{dfn}
+                [Sequential-Compactness]
+                {列紧性}
+                [Sequential Compactness]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是\textbf{列紧集}, 当且仅当: 
+                \[\forall[X][X\subseteq E\implies\exists\{x_n\}:\N\to X, \收敛[\{x_n\}]]*\]
+            \end{dfn}
+            
+            \begin{cxmp}
+                []
+                {一般拓扑空间中列紧性与紧性无关}
+                []
+                [猫猫]
+            \end{cxmp}
+
+            \begin{dfn}
+                [Converge]
+                {收敛}
+                [Convergence]
+                [Dedicatia]
+                定义\拓扑空间 上的序列 \(\{x_\cdot\}\) 收敛于 \(x\), 当且仅当序列以 \(x\) 为极限. 这时称该序列为\textbf{收敛点列}.
             \end{dfn}
 
         \subsection{连通性}
@@ -284,25 +387,25 @@
                 [Connectedness]
                 {连通性}
                 [Connectedness]
-                []
-                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是\textbf{连通集}, 当且仅当: \(\开集[E]\land\闭集[E]\). 
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) \textbf{连通}, 当且仅当: 
+                \[\neg\exists[A,B][\开集[A,B]\land A\cap B=\varnothing\land E=A\cup B]*\]
 
-                定义连通的, 若 \(S\) 即开又闭的子集只有 \(S\) 和 \(\varnothing\), 即: 
-                \[\PP(S)\cap\{X|X\in\T,(S-X)\in\T\}=\{\varnothing,S\}\]
+                定义 \((S,\mathcal{T})\) 为\textbf{连通拓扑空间}, 当且仅当: \(S\) 连通. 
             \end{dfn}
 
             \begin{rmk}
+                [猫猫]
                 这意味着 \(S\) 无法写成两个不相交的非空开集之并, 即\(S\)的\textbf{分割}不存在. 
             \end{rmk}
             
             \begin{ppt}
                 []
-                {}
+                {连通性的等价定义}
                 []
-                []
-                设拓扑空间\(S\)的子集\(X\)是连通的, 则\(Y(X\subseteq Y\subseteq\cl X)\)是连通的. 
-                
-                特别地, \(\cl X\)是连通的. 
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 则: 
+                \[\连通[E]\iff\PP(E)\cap\{X|\开集[X]\land\闭集[X]\}=\{\varnothing,S\}\]
             \end{ppt}
             
             \begin{ppt}
@@ -310,10 +413,9 @@
                 {}
                 []
                 []
-                设\(X\)是连通的拓扑空间, \(Y\)是拓扑空间, 则局部常值函数\(f:X\to Y\)是常值函数: 
-                \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\Longrightarrow\forall x\in X, f(x)=C\]
+                设\拓扑空间 \(S\) 的子集 \(X\) 是连通的, 则 \(Y(X\subseteq Y\subseteq\cl X)\) 是连通的. 
                 
-                即, 若定义域连通, 则所有点分别保持常值的函数, 整体保持常值. 
+                特别地, \(\cl X\) 是连通的. 
             \end{ppt}
 
             \begin{dfn}
@@ -328,13 +430,13 @@
                 {道路连通}
                 [Path Connected]
                 []
-                设拓扑空间\((S,\T)\), \(x,y\in S\), 称映射\(\gamma:[0,1]\to S\)是\(S\)上的\textbf{道路}, 使得\(\gamma(0)=x,\gamma(1)=y\)且\(\gamma\)连续
-                拓扑空间\((S,\T)\)称为是道路连通的, 若\(S\)的任意两点间存在道路, 即:
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(x,y\in S\), 称映射\(\gamma:[0,1]\to S\)是\(S\)上的\textbf{道路}, 使得 \(\gamma(0)=x,\gamma(1)=y\) 且 \(\gamma\) 连续
+                拓扑空间 \((S,\mathcal{T})\) 称为是道路连通的, 若 \(S\) 的任意两点间存在道路, 即:
                 \[\forall x,y\in S, \exists\gamma:[0,1]\to S,\gamma(0)=x,\gamma(1)=y,\gamma\in\Con([0,1],S)\]
             \end{dfn}
 
             % \begin{example}
-            %     设\(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\), 显然S是连通集\((0,1]\)的一个连续像, 故S的闭包\(\cl S\)是连通的, 但它不是道路连通的. 
+            %     设\(S=\{x\times\sin(\frac{1}{x})|0<x\leq1\}\), 显然S是连通集\(\Ioc{0}{1}\)的一个连续像, 故S的闭包\(\cl S\)是连通的, 但它不是道路连通的. 
 
             %     \begin{tikzpicture}
             %         \begin{axis}[
@@ -366,6 +468,22 @@
                 故\(\cl S\)不是道路连通的.
             \end{prf}
 
+            \begin{ppt}
+                []
+                {道路连通蕴含连通}
+                [Path Connectedness Implies Connectedness]
+                [Dedicatia]
+                一个集合是\道路连通 的, 那么它是\连通 的. 
+            \end{ppt}
+
+            \begin{cxmp}
+                []
+                {连通不蕴含道路连通}
+                []
+                [Dedicatia]
+                考虑 \(\R^2\) 上的通常拓扑, 定义集合 \(E:=A\cup B\), 其中 \(A=\{(x,y):y=\sin\frac{1}{x}, x\in\Icc{-\pi}{\pi}\}\), \(B=\{(x,y):x=0, y\in\Icc{-1}{1}\}\). \(E\) 是\连通 的. 但天然的映射 \(y=\sin\frac{1}{x}\) 在 \(x=0\) 处具有振荡间断点, 它不是\道路连通 的. 
+            \end{cxmp}
+
         \subsection{紧性}
             
             \begin{dfn}
@@ -373,7 +491,7 @@
                 {开覆盖}
                 [Open Cover]
                 [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, \(E\) 是集合, \(\mathcal{O}\) 是集合族, \(E\subset S\), 定义 \(\mathcal{O}\) 是 \(E\) 的\textbf{开覆盖}当且仅当: 
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, \(\mathcal{O}\) 是集合族, \(E\subset S\), 定义 \(\mathcal{O}\) 是 \(E\) 的\textbf{开覆盖}当且仅当: 
                 \begin{enumerate}
                     \item \(\mathcal{O}\) 是开集族: 
                         \[\mathcal{O}\subseteq\mathcal{T}\]
@@ -383,14 +501,16 @@
             \end{dfn}
 
             \begin{dfn}
-                [Compact]
+                [Compactness]
                 {紧性 / 紧致性}
                 [Compactness]
                 [猫猫]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是集合, 定义 \(E\) 是 \((S,\mathcal{T})\) 中的\textbf{紧集}当且仅当: 
-                \[\forall\mathcal{O}, \开覆盖[\mathcal{O}][E]\implies\exists\mathcal{O}', \card\mathcal{O}'\in\N\land\开覆盖[\mathcal{O}'][E]\]
+                \[\forall[\mathcal{O}][\开覆盖[\mathcal{O}][E]\implies\exists\mathcal{O}', (\card\mathcal{O}'\in\N)\land(\开覆盖[\mathcal{O}'][E])]\]
 
                 定义 \((S,\mathcal{T})\) 是\textbf{紧拓扑空间}, 当且仅当: \(S\) 是 \((S,\mathcal{T})\) 中的紧集. 
+
+                紧性也被称为\textbf{Heine-Borel性质}. 
             \end{dfn}
 
             \begin{rmk}
@@ -404,6 +524,36 @@
                 []
                 [猫猫]
             \end{ppt}
+            
+            \begin{ppt}
+                []
+                {有限集是紧的}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{thm}
+                [HB]
+                {Heine-Borel定理}
+                [Heine-Borel Theorem]
+                [Dedicatia]
+                设 $E$ 是$\R^n$ 的子集, 那么以下三条性质等价: 
+                \begin{enumerate}
+                    \item $E$ 是有界的\闭集;
+                    \item $E$ 是紧集;
+                    \item $E$ 是序列紧的. 
+                \end{enumerate}
+            \end{thm}
+
+            \begin{cxmp}
+                {有界闭集与紧集不等价}
+                考虑在连续函数空间 $C[-\pi,\pi]$ 上定义度量
+                \[d(f,g)=\sqrt(\int_{-\pi}^{\pi}|f(t)-g(t)|^2\dd{t})^{\frac{1}{2}}\]
+                考虑集合
+                \[E:=\{\sin nt\}^\infty=\{\sin t,\sin 2t,\cdots,\sin nt,\cdots\}\]
+                对任意 $n\in\N^*$:
+                \[d(\sin nt,0)=\]
+            \end{cxmp}
 
             % \begin{thm}
             %     []
@@ -412,7 +562,7 @@
             %     []
             %     考虑积空间 \(X\times Y\), 其中 \(Y\) 是紧的. 对于每一个包含 \(x_0\times Y\) 的开集 \(N\), 存在 \(x_0\) 的邻域 \(U\), 使得 \(U\times Y\) 被 \(N\)包含. 
 
-            %     注意\(Y\)是紧的, 若否, 则管状引理不一定正确. 如：取\(X=Y=\R,x_0=0,N=\{x\times y|\left|x\right|<\frac{1}{y^2+1}\}\)
+            %     注意\(Y\)是紧的, 若否, 则管状引理不一定正确. 如: 取\(X=Y=\R,x_0=0,N=\{x\times y|\left|x\right|<\frac{1}{y^2+1}\}\)
             %     % \begin{figure}[h]
             %     %     \centering
             %     %     \begin{tikzpicture}
@@ -435,66 +585,6 @@
             %     % \end{figure}                
             % \end{thm}
 
-        \subsection{Hausdorff 空间}
-
-            \begin{dfn}
-                [Hausdorff-Space]
-                {Hausdorff 空间}
-                [Hausdorff Space]
-                [猫猫]
-                设 \((S,\T)\) 是\拓扑空间, 定义 \((S,\T)\) 是\textbf{Hausdorff 空间}, 当且仅当: 
-                \[\forall x,y:S, x\neq y\implies\exists[U_x, U_y][U_x\in\Nbr{x}\land U_y\in\Nbr{y}\implies U_x\cap U_y=\varnothing]*\]
-            \end{dfn}
-
-            \begin{rmk}
-                [猫猫]
-                \Hausdorff空间 是强调任意两点间可用邻域区分的拓扑空间. 
-            \end{rmk}
-
-            \begin{rmk}
-                []
-                \Hausdorff空间 存在最细基, 这表明改空间的元素间存在一定独立性
-            \end{rmk}
-            
-            \begin{ppt}
-                []
-                {Hausdorff 空间中点列极限唯一}
-                []
-                [猫猫]
-                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\forall(S,\mathcal{T})\) 中的收敛序列\({\{x_n\}}_{n=0}^{+\infty}\), 满足上述条件的\(x\)是唯一的. 
-            \end{ppt}
-            
-            \begin{prf}
-                运用反证法. 
-
-                若\((S,\mathcal{T})\)是Hausdorff的, 且假设\(\exists{\{x_n\}}_{n=0}^{+\infty}\), 对于该序列有: 
-                \[\exists x,y\in S: x\neq y, \forall U(x), U(y), \exists N\in\N: \forall n>N(N\in\N), x_n\in U(x)\cap U(y)\]
-                
-                由\((S,\mathcal{T})\)的Hausdorff性质可知\(\exists U(x), U(y): U(x)\cap U(y)=\varnothing\). 
-
-                取满足上述条件的\(U(x), U(y)\), 则当\(n>N\)时, 有\(x_n\in U(x)\cap U(y)=\varnothing\), 矛盾. 
-
-                \(\therefore\)此时只能存在一个满足条件的\(x\). 
-            \end{prf}
-
-            \begin{ppt}
-                []
-                {Hausdorff 空间中紧集是闭的}
-                []
-                [猫猫]
-            \end{ppt}
-
-            \begin{thm}
-                []
-                {紧集套定理}
-                []
-                [猫猫]
-            \end{thm}
-
-            \begin{crl}
-                {}
-            \end{crl}
-
         \subsection{拓扑空间的构造}
 
             \begin{dfn}
@@ -507,7 +597,7 @@
                     \item 覆盖性: 
                     \[\bigcup[\mathfrak{B}]=S\]
                     \item 生成性: 设 \(B_1,B_2\) 是集合, \(B_1, B_2\in\mathfrak{B}\), \(x\in B_1\cap B_2\), 则: 
-                    \[\exists[B_3][B_3\in\mathfrak{B}\land x\in B_3\land B_3\subseteq B_1\cap B_2]*\]
+                    \[\exists[B_3][(B_3\in\mathfrak{B})\land(x\in B_3)\land(B_3\subseteq B_1\cap B_2)]*\]
                 \end{enumerate}
                 定义由 \(\mathfrak{B}\) \textbf{生成的拓扑}为: 
                 \[\left\{X\middle|\exists B\subseteq\mathfrak{B}, X=\bigcup[B]\right\}\]
@@ -614,16 +704,16 @@
         \subsection{连续映射}
 
             \begin{dfn}
-                [Continuous]
-                {连续}
-                [Continuous]
+                [Continuous-Mapping]
+                {连续映射}
+                [Continuous-Mapping]
                 [猫猫]
                 设有拓扑空间 \(X,Y\), 映射 \(f:X\to Y\); 设 \(x\in X, f(x):=y\in Y\). \(f\) 称为是在 \(x\) 处\textbf{连续}的, 若: 
-                \[\forall U(y)\in \mathcal{V}(y), \exists U(x)\in \mathcal{V}(x)(f\left(U(x)\right)\subseteq U(y))\]
+                \[\forall U_y\in \mathcal{V}(y), \exists U_x\in \mathcal{V}(x)(f\left(U_x\right)\subseteq U_y)\]
 
-                \(f\)称为是\(X\)的连续映射, 若\(f\)在\(X\)中的每一点连续. 
+                \(f\) 称为是 \(X\) 的连续映射, 若 \(f\) 在 \(X\) 中的每一点连续. 
 
-                将\(X\to Y\)全体连续映射的集合记为\(\mathcal{C}(X,Y)\)
+                将 \(X\to Y\) 全体连续映射的集合记为 \(\Con(X,Y)\)
             \end{dfn}
             
             \begin{ppt}
@@ -638,23 +728,34 @@
                 {连续映射的等价定义}
                 []
                 []
-                设拓扑空间\((X,\T_X), (Y,\T_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
+                设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
                 
                 (1)开集的原像是开集: 
-                \[\forall S(f(S)\in\T_Y)\Longrightarrow S\in\T_X\]
+                \[\forall S(f(S)\in\mathcal{T}_Y)\implies S\in\mathcal{T}_X\]
                 
                 (2)闭集的原像是闭集: 
-                \[\forall S((Y-f(S))\in\T_Y)\Longrightarrow(X-S)\in\T_X\]
+                \[\forall S((Y-f(S))\in\mathcal{T}_Y)\implies(X-S)\in\mathcal{T}_X\]
             \end{ppt}
             
             \begin{prf}
                 证明: 先证明开集情况. 
     
                 (1)\(\implies\): 
-                    \[f(S)\in\T_Y\Longrightarrow(\forall y\in f(S)\Longrightarrow f(S)\in\Nbr{y})\]
+                    \[f(S)\in\mathcal{T}_Y\implies(\forall y\in f(S)\implies f(S)\in\Nbr{y})\]
                     \[\forall x_0\in S, y_0:=f(x_0)\]
-                    \[(f:X\to Y)\in\Con(X,Y)\Longrightarrow\exists U(x)\in\Nbr{x}(\forall x\in U(x)\Longrightarrow f(x)\in Y)\]
+                    \[(f:X\to Y)\in\Con(X,Y)\implies\exists U(x)\in\Nbr{x}(\forall x\in U(x)\implies f(x)\in Y)\]
             \end{prf}
+            
+            \begin{ppt}
+                []
+                {}
+                []
+                []
+                设 \(X\) 是连通的拓扑空间, \(Y\)是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
+                \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\implies\forall x\in X, f(x)=C\]
+                
+                即, 若定义域连通, 则所有点分别保持常值的函数, 整体保持常值. 
+            \end{ppt}
             
             \begin{thm}
                 []
@@ -664,20 +765,20 @@
                 Hausdorff空间之间的连续映射将收敛数列映射为收敛数列. 
 
                 设拓扑空间\(X,Y\)是Hausdorff的, 映射\(f:X\to Y\)在\(x\in X\)处连续, 则: 
-                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\Longrightarrow\lim_{n\to+\infty}f(x_n)=f(x)\]
+                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\implies\lim_{n\to+\infty}f(x_n)=f(x)\]
 
                 此定理的另一种表述方式是: \(\lim\limits_{n\to+\infty}\) 与 \(f\) 可交换, 若 \(f\) 连续且 \(X\) 与 \(Y\) 都是Hausdorff的. 
             \end{thm}
                 
             \begin{prf}
-                \[y:=f(x); f\text{在\(x\)处连续}\Longrightarrow\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
-                \[\lim_{n\to+\infty}x_n=x\Longrightarrow\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
+                \[y:=f(x); f\text{在\(x\)处连续}\implies\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
+                \[\lim_{n\to+\infty}x_n=x\implies\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
                 \[\therefore\lim_{n\to+\infty}f(x_n)=f(x)\square\]
             \end{prf}
             
             \begin{thm}
                 []
-                {}
+                {连续的复合传递性}
                 []
                 []
                 设拓扑空间\(X,Y,Z\), 映射\(f:X\to Y\)在\(x\in X\)处连续, 映射\(g:Y\to Z\)在\(f(x)\in Y\)处连续, 则\(g\circ f:X\to Z\)在\(x\)处连续. 
@@ -685,9 +786,9 @@
                 
             \begin{prf}
                 \[y:=f(x), z:=g(y)\]
-                \[\forall U(z)\in\Nbr{z}[Z], g\text{在\(y\)处连续}\Longrightarrow\exists U(y)\in\Nbr{y}[Y]: g(U(y))\subseteq U(z)\]
-                \[f\text{在\(x\)处连续}\Longrightarrow\exists U(x)\in\Nbr{x}[X]\subseteq X: f(U(x))\subseteq U(y)\]
-                \[\therefore g\circ f(U(x))\subseteq g(U(y))\subseteq U(z)\Longrightarrow g\circ f\text{在\(x\)处连续}\square\]
+                \[\forall U(z)\in\Nbr{z}[Z], g\text{在\(y\)处连续}\implies\exists U(y)\in\Nbr{y}[Y]: g(U(y))\subseteq U(z)\]
+                \[f\text{在\(x\)处连续}\implies\exists U(x)\in\Nbr{x}[X]\subseteq X: f(U(x))\subseteq U(y)\]
+                \[\therefore g\circ f(U(x))\subseteq g(U(y))\subseteq U(z)\implies g\circ f\text{在\(x\)处连续}\square\]
             \end{prf}
 
             \begin{dfn}
@@ -695,9 +796,14 @@
                 {同胚}
                 [Homeomorphism]
                 []
-                设拓扑空间\((X,\T_X), (Y,\T_Y)\), 称映射\(f:X\to Y\)是\(X\)到\(Y\)上的\textbf{同胚}, 若\(f\)是双射, 且\(f\in\Con(X,Y), f^{-1}\in\Con(Y,X)\). 
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), 定义 \(f\) 是 \(X\) 到 \(Y\) 的\textbf{同胚}, 当且仅当: 
+                \begin{enumerate}
+                    \item \(\双射[f]\); 
+                    \item \(f\in\Con(X,Y)\); 
+                    \item \(f^{-1}\in\Con(Y,X)\). 
+                \end{enumerate}
 
-                若\(\exists X\)到\(Y\)的同胚, 则称\(X\)与\(Y\)是同胚的. 
+                定义 \(X\) 与 \(Y\) \textbf{同胚}, 当且仅当: \(\exists f:X\to Y, f\) 是从 \(X\) 到 \(Y\) 的同胚, 记作 \(\Homeo{X}{Y}\). 
             \end{dfn}
             
             \begin{thm}
@@ -705,12 +811,166 @@
                 {}
                 []
                 []
-                设拓扑空间\((X,\T_X),(Y,\T_Y)\), \(f\in\Con(X,Y)\)是双射, 则\(f\)是\(X\)到\(Y\)的同胚当且仅当: 
-                \[\forall S\in\T_X\Longrightarrow f(S)\in\T_Y\]
-                \[\forall S((X-S)\in\T_X)\Longrightarrow(Y-f(S))\in\T_Y\]
+                设拓扑空间\((X,\mathcal{T}_X),(Y,\mathcal{T}_Y)\), \(f\in\Con(X,Y)\)是双射, 则\(f\)是\(X\)到\(Y\)的同胚当且仅当: 
+                \[\forall S\in\mathcal{T}_X\implies f(S)\in\mathcal{T}_Y\]
+                \[\forall S((X-S)\in\mathcal{T}_X)\implies(Y-f(S))\in\mathcal{T}_Y\]
             \end{thm}
 
+    \section{可分离性}
+
+        \subsection{T0 空间}
+
+            \begin{dfn}
+                [Kolmogorov-Space]
+                {Kolmogorov 空间 / T0 空间}
+                [Kolmogorov Space]
+                [Dedicatia]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
+                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
+            \end{dfn}
+            
+            \begin{rmk}
+                在Kolmogorov空间中, 任意两点都可以被一个开集区分.
+            \end{rmk}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski 空间}
+                [Sierpinski Space]
+                [Dedicatia]
+            \end{xmp}
+
+            \begin{xmp}
+                [Sierpinski-Space]
+                {Sierpinski空间}
+                [Sierpinski Space]
+                [Dedicatia]
+                \textbf{Sierpinski空间}指的是\拓扑空间 $(S,\tau)$, $S=\{x,y\}$, $\tau=\{\varnothing, \{y\}, S\}$. 这时我们可以用一个开集 $\{y\}$ 区分 $x,y$. 说明它是\textbf{T0空间}. 但是它不再满足更强的分离性. 
+            \end{xmp}
+
+        \subsection{T1 空间}
+
+            \begin{dfn}
+                [Frechet-Space]
+                {Frechet空间}
+                [Frechet Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Frechet空间}当且仅当其中的任意两个不同的点都可以用各自的开\邻域 区分. 
+                \[\forall\,x,y\in X, \exists[U_x], U_x\in\Nbr{x}\land , y\notin\Nbr{x}. \]
+                又叫做\textbf{T1空间}.
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {Frechet空间的充要条件}
+                []
+                [Dedicatia]
+                一个\拓扑空间 是\textbf{T1空间}的充要条件是每个单点集都是\闭集.
+            \end{ppt}
+
+            \begin{xmp}
+                [Cofinite-Topology]
+                {无限集上的有限补拓扑空间}
+                [Co-finite Topological Space]
+                [Dedicatia]
+                设 $X$ 是无限集合, 定义\拓扑
+                \[\tau:=U \text{ 如果满足 }\begin{cases}
+                    &U=\varnothing,\\
+                    &X\setminus U \text{ 是有限集. }
+                \end{cases}\]
+                这时, 所有的单点集的补集都是\开集, 所以单点集都是\闭集. 这是一个\textbf{T1空间}. 但它不是T2空间, 因为任意两个非空的\开集 必定相交: \\
+                设 $U,V$ 是两个非空开集, 那么 $X\setminus U$, $X\setminus V$ 是有限的. 考虑 $U\cap V$, 那么其补集 $X\setminus(U\cap V)=(X\setminus U)\cup (X\setminus V)$ 应该也是有限的. 如果 $U\cap V=\varnothing$, $(X\setminus U)\cup (X\setminus V)=X$ 就是有限集. 这与 $X$ 是无限集矛盾. \\
+                具体来讲这个空间有以下的性质: 
+                \begin{itemize}
+                    \item 紧性;
+                    \item 具有\连通 性;
+                    \item 空间中的序列可以收敛到多个极限, 实际上是无穷多个极限. 因为这其中的点的开邻域都是无限集. 
+                \end{itemize}
+            \end{xmp}
+
+        \subsection{T2 空间}
+
+            \begin{dfn}
+                [Hausdorff-Space]
+                {Hausdorff 空间}
+                [Hausdorff Space]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是\textbf{Hausdorff 空间}, 当且仅当: 
+                \[\forall x,y:S, x\neq y\implies\exists[U_x, U_y][U_x\in\Nbr{x}\land U_y\in\Nbr{y}\implies U_x\cap U_y=\varnothing]*\]
+            \end{dfn}
+
+            \begin{rmk}
+                [猫猫]
+                \Hausdorff空间 是强调任意两点间可用邻域区分的拓扑空间. 
+            \end{rmk}
+
+            \begin{rmk}
+                []
+                \Hausdorff空间 存在最细基, 这表明改空间的元素间存在一定独立性
+            \end{rmk}
+            
+            \begin{ppt}
+                []
+                {Hausdorff 空间中点列极限唯一}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\forall(S,\mathcal{T})\) 中的收敛序列\({\{x_n\}}_{n=0}^{+\infty}\), 满足上述条件的\(x\)是唯一的. 
+            \end{ppt}
+            
+            \begin{prf}
+                运用反证法. 
+
+                若\((S,\mathcal{T})\)是Hausdorff的, 且假设\(\exists{\{x_n\}}_{n=0}^{+\infty}\), 对于该序列有: 
+                \[\exists x,y\in S: x\neq y, \forall U(x), U(y), \exists N\in\N: \forall n>N(N\in\N), x_n\in U(x)\cap U(y)\]
                 
+                由\((S,\mathcal{T})\)的Hausdorff性质可知\(\exists U(x), U(y): U(x)\cap U(y)=\varnothing\). 
+
+                取满足上述条件的\(U(x), U(y)\), 则当\(n>N\)时, 有\(x_n\in U(x)\cap U(y)=\varnothing\), 矛盾. 
+
+                \(\therefore\)此时只能存在一个满足条件的\(x\). 
+            \end{prf}
+
+            \begin{ppt}
+                []
+                {Hausdorff 空间中紧集是闭的}
+                []
+                [猫猫]
+            \end{ppt}
+
+            \begin{thm}
+                []
+                {Hausdorff 空间中紧集族, 有限交非空蕴含交非空}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\mathcal{K}\) 是集合族, \(\forall K\in\mathcal{K},\紧集[K]\), \(\forall\mathcal{K}'\subseteq\mathcal{K}, \card\mathcal{K}'\in\N\implies\bigcap[\mathcal{K}']\neq\varnothing\), 则: \(\bigcap[\mathcal{K}]\neq\varnothing\). 
+            \end{thm}
+
+            \begin{crl}
+                []
+                {紧集套定理}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\{K_n\}: \N\to\PS[S]\), \(\forall n:\N, K_n\supseteq K_{n+1}\land\紧集[K_n]\), 则: \(\bigcap\{K_n\}\neq\varnothing\). 
+            \end{crl}
+
+        \subsection{T3 空间}
+
+            \begin{dfn}
+                [Regular-Space]
+                {正则空间}
+                [Regular Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正则空间}, 当且仅当对任意 $x\in S$ 和\闭集 $C$, 其中 $x\notin C$, 存在不相交的\开集 $X,Y$ 使得 $x\in X$, $C\subseteq Y$. 
+                正则空间又叫\textbf{T3空间}.
+            \end{dfn}
+
+            \begin{dfn}
+                [Normal-Space]
+                {正规空间}
+                [Normal Space]
+                [Dedicatia]
+                定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正规空间}, 当且仅当对任意两个不相交的\闭集 $C,D\in\tau$, 存在两个不相交的\开集 $X,Y$ 使得 $C\subseteq X, D\subseteq Y$.
+            \end{dfn}
 
     \section{度量空间}
         
@@ -773,12 +1033,146 @@
 
             \begin{ppt}
                 []
-                {度量诱导的拓扑空间是 Hausdorff 的}
+                {拓扑度量空间总是 Hausdorff 空间}
                 []
                 [猫猫]
             \end{ppt}
 
-        \subsection{分离定理}
+            \begin{ppt}
+                []
+                {拓扑度量空间中开球的邻域身份}
+                []
+                [猫猫]
+            \end{ppt}
             
+            \begin{ppt}
+                []
+                {拓扑度量空间中紧性与列紧性等价}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{rmk}
+                [猫猫]
+                在不致混淆的情况下, 用\度量空间 指代拓扑度量空间. 
+            \end{rmk}
+
+            \begin{thm}
+                []
+                {度量空间中极限点附近有无穷个点}
+                []
+                [猫猫]
+                
+            \end{thm}
+
+            \begin{crl}
+                {度量空间中有限集没有极限点}
+            \end{crl}
+
+            \begin{thm}
+                []
+                {Bolzano-Weierstrass 定理 / 聚点定理}
+                []
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(E\subseteq S\), 则: 
+                \[\列紧集[E]\iff\]
+            \end{thm}
+
+            \begin{dfn}
+                [Metric-Boundedness]
+                {有界性}
+                [Boundedness]
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(E\) 是\集合, 定义 \(E\) \textbf{有界}, 当且仅当: 
+                \[\exists M:\R^+, \forall x,y\in E, d(x,y)\leq M\]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {直径}
+                []
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                []
+                {完全有界性}
+                []
+                [猫猫]
+            \end{dfn}
+
+        \subsection{完备性}
+            
+            \begin{dfn}
+                [Cauchy-Series]
+                {Cauchy 列 / 基本列}
+                [Cauchy Series]
+                [Dedicatia]
+                定义 ${\{x_n\}}^\infty$ 为\度量空间 $(X,d)$ 上的\textbf{Cauchy列}, 当且仅当对任意 $\varepsilon>0$, 存在 $N\in\N$, $m,n>N$ 时均有 $d(x_m,x_n)<\varepsilon$. 
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {Cauchy 列收敛}
+                []
+                []
+            \end{ppt}
+
+            \begin{dfn}
+                [Complete-Metric-Space]
+                {完备度量空间}
+                [Complete Metric Space]
+                [Dedicatia]
+                定义一个\度量空间 是\textbf{完备度量空间}, 当且仅当其中的每一个 Cauchy 列都是\hyperref[dfn:Converge]{收敛点列}. 
+            \end{dfn}
+
+            \begin{xmp}
+                []
+                {Euclid空间是完备度量空间}
+                []
+                [Dedicatia]
+                $n$ 维 Euclid 空间 $(\R^n,d)$ 是\完备\度量空间. 其中
+                \[d(\bm{x},\bm{y})=\sqrt{\sum_{i=1}^n(x_i-y_i)^2}\]
+            \end{xmp}
+
+            \begin{xmp}
+                []
+                {最大值度量下的连续函数空间是完备度量空间}
+                []
+                [Dedicatia]
+                连续函数空间 $C[a,b]$ 在度量 $d(f,g)=\max\limits_{x\in\Icc{a}{b}}\{f(x),g(x)\}$ 下的\度量空间 是\完备 的. 因为这种意义下的收敛就是一致收敛. 一致收敛保持连续性. 
+            \end{xmp}
+
+            \begin{cxmp}
+                []
+                {积分度量下的连续函数空间不是完备度量空间}
+                []
+                [Dedicatia]
+                连续函数空间 $C[a,b]$ 在度量 $d(f,g)=\int_{a}^b|f(x)-g(x)|\dd{x}$ 下的\度量空间 不是\完备 的. 反例为: 构造函数列$\{f_n\}$, 其中$f_1=1$, $n\geq 2$时
+                \[f_n=\begin{cases}
+                    &0, 0\leq x\leq \frac{1}{2}-\frac{1}{n},\\
+                    &n\pqty{x-\pqty{\frac{1}{2}-\frac{1}{n}}}, \frac{1}{2}-\frac{1}{n}< x\leq \frac{1}{2};\\
+                    &1, x>\frac{1}{2}.
+                \end{cases}\]
+
+                也就是说, 该函数在$0\leq x\leq \frac{1}{2}-\frac{1}{n}$上是0, 在$\frac{1}{2}-\frac{1}{n}< x\leq \frac{1}{2}$线性地由0变到1, 在$x>\frac{1}{2}$上是1.
+                
+                由对称性设$m\geq n$, 通过画图可知该积分
+                \[d(f_m,f_n)=\int_0^1|f_m-f_n|\dd{x}\leq\int_0^{1/2}|f_n|\dd{x}\leq\frac{1}{2}\cdot\frac{1}{n}\cdot 1\]
+                与$\frac{1}{n}$同收敛. 所以显然是Cauchy列; 
+                
+                但是这个序列的极限是
+                \[f(x)=\begin{cases}
+                    &0, 0\leq x\leq\frac{1}{2};\\
+                    &1, x>\frac{1}{2}.
+                \end{cases}\]
+                事实上, 该函数在$x=\frac{1}{2}$时从0跃变到1, 这是不连续的. 函数列的极限$f\notin C[0,1]$中, 说明该度量空间不是完备的. 
+            \end{cxmp}
+
+        \subsection{拓扑空间的度量化}
+            
+            \begin{thm}
+                {}
+            \end{thm}
 
 \end{document}

@@ -1,0 +1,6 @@
+\NewDocumentCommand{\样本空间}{s}{\catref[#1]{dfn:Sample-Space}{样本空间}[样本空间]}
+\NewDocumentCommand{\事件}{so}{\IfNoValueTF{#2}{}{#2 中的}\catref[#1]{dfn:Event}{事件}[事件]}
+\NewDocumentCommand{\ProbClsc}{som}{\catref[#1]{dfn:Classic-Probability}{P}[概率]\IfNoValueTF{#2}{}{_{#2}}\left(#3\right)}
+
+\NewDocumentCommand{\Perm}{smm}{\catref[#1]{dfn:Permutation}{\ensuremath{\mathrm{P}}}[排列数]_{#2}^{#3}}
+\NewDocumentCommand{\Comb}{smm}{\catref[#1]{dfn:Combination}{\ensuremath{\mathrm{C}}}[组合数]_{#2}^{#3}}

@@ -1,23 +1,25 @@
 % Set Theory
 \let\oldin\in
-\RenewDocumentCommand{\in}{soo}{\catref[#1]{dfn:SetMem}{\oarg{#2}\ensuremath{\oldin}\oarg{#3}}[属于]}
+\RenewDocumentCommand{\in}{soo}{\catref[#1]{dfn:SetMem}{\oarg{#2}\,\ensuremath{\oldin}\,\oarg{#3}}[属于]}
 
 \let\oldsubseteq\subseteq
-\RenewDocumentCommand{\subseteq}{soo}{\catref[#1]{dfn:Subset}{\oarg{#2}\ensuremath{\oldsubseteq}\oarg{#3}}[包含于]}
+\RenewDocumentCommand{\subseteq}{soo}{\catref[#1]{dfn:Subset}{\oarg{#2}\,\ensuremath{\oldsubseteq}\,\oarg{#3}}[包含于]}
 
 \let\oldcup\cup
-\RenewDocumentCommand{\cup}{soo}{\catref[#1]{dfn:Union}{\oarg{#2}\ensuremath{\oldcup}\oarg{#3}}[并集]}
+\RenewDocumentCommand{\cup}{soo}{\catref[#1]{dfn:Union}{\oarg{#2}\,\ensuremath{\oldcup}\,\oarg{#3}}[并集]}
 
 \let\oldcap\cap
-\RenewDocumentCommand{\cap}{soo}{\catref[#1]{dfn:Intersection}{\oarg{#2}\ensuremath{\oldcap}\oarg{#3}}[交集]}
+\RenewDocumentCommand{\cap}{soo}{\catref[#1]{dfn:Intersection}{\oarg{#2}\,\ensuremath{\oldcap}\,\oarg{#3}}[交集]}
 
+\let\oldsetminus\setminus
+\RenewDocumentCommand{\setminus}{soo}{\catref[#1]{dfn:SetMinus}{\oarg{#2}\,\ensuremath{\oldsetminus}\,\oarg{#3}}[差集]}
 
 
 \let\oldbigcup\bigcup
-\RenewDocumentCommand{\bigcup}{soo}{\catref[#1]{dfn:BigUnion}{\IfNoValueTF{#3}{\ensuremath{\oldbigcup}}{\ensuremath{\oldbigcup_{#3}}}\oarg{#2}}[\IfNoValueTF{#3}{集合中全体元素之并}{集合中满足谓词的全体元素之并}]}
+\RenewDocumentCommand{\bigcup}{soo}{\catref[#1]{dfn:BigUnion}{\IfNoValueTF{#3}{\ensuremath{\oldbigcup}}{\ensuremath{\oldbigcup}}}[\IfNoValueTF{#3}{集合中全体元素之并}{集合中满足谓词的全体元素之并}]\IfNoValueTF{#3}{}{_{#3}}\,\oarg{#2}}
 
 \let\oldbigcap\bigcap
-\RenewDocumentCommand{\bigcap}{soo}{\catref[#1]{dfn:BigUnion}{\IfNoValueTF{#3}{\ensuremath{\oldbigcap}}{\ensuremath{\oldbigcap_{#3}}}\oarg{#2}}[\IfNoValueTF{#3}{集合中全体元素之并}{集合中满足谓词的全体元素之并}]}
+\RenewDocumentCommand{\bigcap}{soo}{\catref[#1]{dfn:BigInter}{\IfNoValueTF{#3}{\ensuremath{\oldbigcap}}{\ensuremath{\oldbigcap}}}[\IfNoValueTF{#3}{集合中全体元素之交}{集合中满足谓词的全体元素之交}]\IfNoValueTF{#3}{}{_{#3}}\,\oarg{#2}}
 
 
 \DeclareMathOperator{\Id}{\hyperref[dfn:IdMap]{Id}}                           % Identity
@@ -33,4 +35,8 @@
 
 % Legacy
 \DeclareMathOperator{\PP}{\mathcal{P}}                  % Power Sets
-\DeclareMathOperator{\card}{\operatorname{card}}                       % Cardinality
+\NewDocumentCommand{\card}{so}{\catref[#1]{dfn:Cardinality}{\ensuremath{\operatorname{card}}}[基数]\IfNoValueTF{#2}{\,\,}{\left(#2\right)}}
+
+\NewDocumentCommand{\单射}{so}{\IfNoValueTF{#2}{}{#2 \ensuremath{\text{是}}}\catref[#1]{dfn:Injection}{\ensuremath{\text{单射}}}[单射]}
+\NewDocumentCommand{\满射}{so}{\IfNoValueTF{#2}{}{#2 \ensuremath{\text{是}}}\catref[#1]{dfn:Surjection}{\ensuremath{\text{满射}}}[满射]}
+\NewDocumentCommand{\双射}{so}{\IfNoValueTF{#2}{}{#2 \ensuremath{\text{是}}}\catref[#1]{dfn:Bijection}{\ensuremath{\text{双射}}}[双射]}
