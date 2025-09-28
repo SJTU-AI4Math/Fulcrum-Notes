@@ -1,21 +1,27 @@
 \documentclass[UTF8]{ctexart}
 
+\makeatletter
+\def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
+\makeatother
+
 \usepackage{FulcrumHabitCN}
+\usepackage{OperatorListCN}
+\usepackage{F4LinearAlgebra}
 
 \begin{document}
   
 \tableofcontents
 \newpage
 
-\section{向量和线性空间}
-	\subsection{数域}
+\section{向量和\线性空间}
+	\subsection{\数域}
 		\begin{dfn}
-			[]
-			{数域}
-			[]
+			[Number-Field]
+			{\数域}
+			[Number Field]
 			[]
         
-			一个数集$\K$称为是一个\textbf{数域(Number Field)}, 若在$\K$上定义了两种$\K^2\to
+			一个\数域$\K$称为是一个\textbf{\数域(Number Field)}, 若在$\K$上定义了两种$\K^2\to
             \K$的二元运算加法"$+$"和乘法"$\cdot$", 满足: 
 			
 			(1)$\K$对加法运算封闭: 
@@ -33,13 +39,13 @@
 			
 		\begin{thm}
             []
-			{最小的无限数域}
+			{最小的无限\数域}
         	[]
 			[]
 
-			全体无限数域的交集为有理数域$\mathbb{Q}$. \textit{(有理数域是“最小”的无限数域)}
+			全体无限\数域 的交集为有理\数域$\mathbb{Q}$. \textit{(有理\数域 是“最小”的无限\数域)}
 		\end{thm}
-        \begin{prf}设$\K$是一个非空无限数域. 
+        \begin{prf}设$\K$是一个非空无限\数域. 
 			
 			$$\because \K\neq \varnothing$$
 			
@@ -57,19 +63,19 @@
 			
 			$$\Longrightarrow \mathbb{Q} \subseteq \K$$
 			
-			又$\because \mathbb{Q}$是数域, 
+			又$\because \mathbb{Q}$是\数域, 
 			
-			$\Longrightarrow \mathbb{Q}$全体无限数域的交集为有理数域. $\square$
+			$\Longrightarrow \mathbb{Q}$全体无限\数域 的交集为有理\数域. $\square$
         \end{prf}
 			
-	\subsection{向量和线性空间}
+	\subsection{向量和\线性空间}
 		\begin{dfn}
-			[]
-			{线性空间}
-			[]
+			[Linear-Space]
+			{\线性空间}
+			[Linear Space]
 			[]
 
-			集合$V$称为是一个\textbf{数域$\K$上的线性空间(Linear Space on Number Field $\K$)}, 简称\textbf{线性空间(Linear Space)}, V中的元素称为\textbf{向量(vector)}, 若在$V$上定义了两种运算: 加法"+": $V\times V\to V$ 和数乘: $\K\times V \to V$, 满足:
+			集合$V$称为是一个\textbf{\数域$\K$上的\线性空间(Linear Space on Number Field $\K$)}, 简称\textbf{\线性空间(Linear Space)}, V中的元素称为\textbf{向量(vector)}, 若在$V$上定义了两种运算: 加法"+": $V\times V\to V$ 和数乘: $\K\times V \to V$, 满足:
 
 			(1)加法交换律成立: 
 			\[\forall \alpha,\beta \in V, \alpha+\beta=\beta+\alpha\]
@@ -97,7 +103,7 @@
 			(6)数乘分配律对$V$中的元素成立: 
 			\[\forall k\in \K, \forall \alpha , \beta \in V, k(\alpha +\beta)=k\alpha+k\beta\]
 
-			(7)数乘分配律对数域$\K$中的数成立: 
+			(7)数乘分配律对\数域$\K$中的数成立: 
 			\[\forall k,l\in \K, \forall \alpha \in V, (k+l)\alpha =k\alpha +l\alpha\]
 			
 			(8)数乘恒等元存在: 
@@ -110,9 +116,9 @@
 			[]
 			[]
 
-			线性空间$V$中的零向量$\mathbf{0}$唯一
+			\线性空间$V$中的零向量$\mathbf{0}$唯一
 		\end{ppt}
-        \begin{prf}设$\exists \mathbf{0}, \mathbf{0}' \in V$, 且它们都是线性空间$V$零向量, 则: 
+        \begin{prf}设$\exists \mathbf{0}, \mathbf{0}' \in V$, 且它们都是\线性空间$V$零向量, 则: 
 			\[\mathbf{0}=\mathbf{0}+\mathbf{0}'=\mathbf{0}'\]
 			
 			即零向量唯一. $\square$ 
@@ -207,14 +213,14 @@
 	
 	\subsection{向量的线性关系}
 		\begin{dfn}
-			[]
-			{线性组合}
-			[]
+			[Linear-Combination]
+			{\线性组合}
+			[Linear Combination]
 			[]
 			
-			设$V$是数域$\K$上的线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V$. 
+			设$V$是\数域$\K$上的\线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V$. 
 			
-			$\beta$称为是$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$的\textbf{线性组合(Linear Combination)}, 或称$\beta$可由$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$\textbf{线性表示(Linearly Expressed)}, 若: 
+			$\beta$称为是$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$的\textbf{\线性组合(Linear Combination)}, 或称$\beta$可由$\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}$\textbf{线性表示(Linearly Expressed)}, 若: 
 			
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: \beta = \sum_{i=1}^{n}k_{i}\alpha_{i}$$
 			
@@ -223,14 +229,14 @@
 		\end{dfn}
 		
 		\begin{dfn}
-			[]
-			{线性相关}
-			[]
+			[Linearly-Related]
+			{\线性相关}
+			[Linearly Related]
 			[]
 		
-			设$V$是数域$\K$上的线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\in V$. 
+			设$V$是\数域$\K$上的\线性空间, $\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\in V$. 
 		
-			向量组$\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$称为是\textbf{线性相关(Linearly Related)}的, 若: 
+			向量组$\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$称为是\textbf{\线性相关(Linearly Related)}的, 若: 
 		
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: k_{1}, k_{2}, \cdots, k_{n}\mbox{不都}=0: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}$$
 			
@@ -242,17 +248,17 @@
 		
 		\begin{ppt}
 			[]
-			{线性相关和线性无关的等价定义}
+			{\线性相关 和线性无关的等价定义}
 			[]
 			[]
 			
-			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关 $\Longleftrightarrow \exists \alpha_{i} \in A:\alpha_{i}$可被$A-\{\alpha_{i}\}$线性表示; 
+			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关 $\Longleftrightarrow \exists \alpha_{i} \in A:\alpha_{i}$可被$A-\{\alpha_{i}\}$线性表示; 
 			
 			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性无关 $\Longleftrightarrow \forall \alpha_{i} \in A:\alpha_{i}$不可被$A-\{\alpha_{i}\}$线性表示. 
 		
 		\end{ppt}
 		\begin{prf}
-		    (1)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关, 则： 
+		    (1)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关, 则： 
 			
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: k_{1}, k_{2}, \cdots, k_{n}\mbox{不都}=0: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}$$
 			
@@ -272,20 +278,20 @@
 			
 			$$k_{i}:=-1, \sum_{j=1}^{n}k_{j}\alpha_{j}=\mathbf{0}$$
 			
-			即$A$线性相关. 
+			即$A$\线性相关. 
 			
-			由于线性无关与线性相关为互补关系, 运用反证法可直接证明关于线性无关的等价定义也是成立的. $\square$
+			由于线性无关与\线性相关 为互补关系, 运用反证法可直接证明关于线性无关的等价定义也是成立的. $\square$
         \end{prf}
 			
 		\begin{ppt}
 			[]
-			{线性相关和线性无关的另一等价定义}
+			{\线性相关 和线性无关的另一等价定义}
 			[]
 			[]
 			
 			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性无关$\Longleftrightarrow \forall \beta: \beta$可被$A$线性表示, 这种表示唯一; 
 			
-			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关$\Longleftrightarrow \forall \beta: \beta$可被$A$线性表示, 这种表示不唯一. 
+			向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关$\Longleftrightarrow \forall \beta: \beta$可被$A$线性表示, 这种表示不唯一. 
 						
 		\end{ppt}
 		\begin{prf}
@@ -302,7 +308,7 @@
 			
 			即$\beta$被$A$表示方式唯一. 
 			
-			(2)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关, 则: 
+			(2)若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关, 则: 
 			
 			$$\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: k_{1}, k_{2}, \cdots, k_{n}\mbox{不都}=0: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}$$
 			
@@ -316,23 +322,23 @@
 			
 			$\because k_{i}$不全为零, $\Longrightarrow \beta$的表示方式不唯一. 
 			
-			由于线性无关与线性相关为互补关系, 运用反证法可直接证明对于必要性情况的等价定义也是成立的. $\square$
+			由于线性无关与\线性相关 为互补关系, 运用反证法可直接证明对于必要性情况的等价定义也是成立的. $\square$
 		\end{prf}
   
 		\begin{ppt}
 			[]
-			{线性相关的包含性}
+			{\线性相关 的包含性}
 			[]
 			[]
 			若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性无关, 则$\forall$向量组$B\subseteq A$, 有$B$线性无关. 
-			若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$线性相关, 则$\forall$向量组$B\supseteq A$, 有$B$线性相关. 
+			若向量组$A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$\线性相关, 则$\forall$向量组$B\supseteq A$, 有$B$线性相关. 
 						
 		\end{ppt}
 		\begin{prf}
 		
 			(1)运用反证法. 
 			
-			设$A$线性无关而$B\subseteq A$线性相关, 则: 
+			设$A$线性无关而$B\subseteq A$\线性相关, 则: 
 			
 			$$\exists \alpha_{i}\in B: \alpha_{i}\mbox{能被}B-\alpha_{i}\mbox{线性表示}$$
 			
@@ -340,22 +346,22 @@
 			
 			$$\Longrightarrow \alpha_{i}\mbox{能被}A-\alpha_{i}\mbox{线性表示}$$
 			
-			即$A$线性相关, 矛盾. 
+			即$A$\线性相关, 矛盾. 
 			
 			$\Longrightarrow A$线性无关$\Longrightarrow B$线性无关. 
 			
 			(2)由上述证明知: $B$线性无关$\Longrightarrow \forall A \subseteq B, A$线性无关. 
 			
-			$\Longrightarrow A$线性相关$\Longrightarrow \forall B \supseteq A, B$线性相关. $\square$
+			$\Longrightarrow A$\线性相关$\Longrightarrow \forall B \supseteq A, B$线性相关. $\square$
 		\end{prf}
-	\subsection{向量组的极大线性无关组与秩}
+	\subsection{向量组的\极大线性无关组 与\秩}
 		
 		\begin{dfn}
+			[Maximally-Linearly-Independent-Set-of-Vectors]
+			{\极大线性无关组}
+			[Maximally Linearly Independent Set of Vectors]
 			[]
-			{极大线性无关组}
-			[]
-			[]
-			向量组$S=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$中, 其子向量组$A=\{\alpha_{t_{1}}, \alpha_{t_{2}}, \cdots, \alpha_{t_{r}}\}$称为是$S$的一个\textbf{极大线性无关组(Maximally Linearly Independent Set of Vectors)}, 若: 
+			向量组$S=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$中, 其子向量组$A=\{\alpha_{t_{1}}, \alpha_{t_{2}}, \cdots, \alpha_{t_{r}}\}$称为是$S$的一个\textbf{\极大线性无关组(Maximally Linearly Independent Set of Vectors)}, 若: 
 			
 			(1)$A$线性无关; 
 			
@@ -365,10 +371,10 @@
 			
 		\begin{ppt}
 			[]
-			{极大线性无关组的任意存在性}
+			{\极大线性无关组 的任意存在性}
 			[]
 			[]
-			若向量组$S$含有限个元素且含至少一个非零向量, 则$S$必有极大线性无关组. 
+			若向量组$S$含有限个元素且含至少一个非零向量, 则$S$必有\极大线性无关组. 
 			
 		\end{ppt}
 		\begin{prf}
@@ -379,17 +385,17 @@
 			
 			有$\{\alpha\}$线性无关, 且$\alpha$能被$\{\alpha\}$线性表示. 
 			
-			$\Longrightarrow\{\alpha\}$为$S$的极大线性无关组. 
+			$\Longrightarrow\{\alpha\}$为$S$的\极大线性无关组. 
 			
-			(2)假设当$n=k-1$时, $S$必有极大线性无关组, 则当$n=k$时: 
+			(2)假设当$n=k-1$时, $S$必有\极大线性无关组, 则当$n=k$时: 
 			
 			$$S:=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{k}\}$$
 			
 			$$\because|S-\{\alpha_{k}\}|=k-1$$
 			
-			$\Longrightarrow S-\{\alpha_{k}\}$有极大线性无关组, 设为$A=\{\alpha_{t_{1}}, \alpha_{t_{2}}, \cdots, \alpha_{t_{r}}\}$. 
+			$\Longrightarrow S-\{\alpha_{k}\}$有\极大线性无关组, 设为$A=\{\alpha_{t_{1}}, \alpha_{t_{2}}, \cdots, \alpha_{t_{r}}\}$. 
 			
-			1'若$A\cup \{\alpha_{k}\}$线性相关: 
+			1'若$A\cup \{\alpha_{k}\}$\线性相关 : 
 			
 			$$\alpha_{k}:=\alpha_{t_{r+1}},\exists l_{1},l_{2},\cdots,l_{r},l_{r+1}: \sum_{i=1}^{r+1}l_{i}\alpha_{t_{i}}=\mathbf{0}$$
 			
@@ -403,7 +409,7 @@
 			
 			即$S$能被$A$线性表示, 又$A$线性无关, 
 			
-			$\Longrightarrow A$是$S$的极大线性无关组. 
+			$\Longrightarrow A$是$S$的\极大线性无关组. 
 			
 			2'若$A\cup \{\alpha_{k}\}$线性无关:
 			
@@ -411,18 +417,18 @@
 			
 			$\Longrightarrow S$可被$A\cup \{\alpha_{k}\}$线性表示, 又$\because A\cup \{\alpha_{k}\}$线性无关, 
 			
-			$\Longrightarrow A\cup \{\alpha_{k}\}$是$S$的极大线性无关组. 
+			$\Longrightarrow A\cup \{\alpha_{k}\}$是$S$的\极大线性无关组. 
 			
-			综上所述, $S$总有极大线性无关组. $\square$
+			综上所述, $S$总有\极大线性无关组. $\square$
 		\end{prf}
   
 		\begin{thm}
 			[]
-			{极大线性无关组的等价性}
+			{\极大线性无关组 的等价性}
 			[]
 			[]
 
-			设$A$与$B$都是向量组$S$的极大线性无关组, 则$|A|=|B|$
+			设$A$与$B$都是向量组$S$的\极大线性无关组, 则$|A|=|B|$
 		\end{thm}
 		\begin{prf}
 		
@@ -454,7 +460,7 @@
 			
 			若命题$(*)$成立, 则当$i=s$时: 
 			
-			$\exists \alpha_{j}\in (A-B_{s})\subsetneqq A_{s}$能被$B_{s}\subsetneqq A$线性表示$\Longrightarrow A$线性相关, 矛盾. 
+			$\exists \alpha_{j}\in (A-B_{s})\subsetneqq A_{s}$能被$B_{s}\subsetneqq A$线性表示$\Longrightarrow A$\线性相关, 矛盾. 
 			
 			下证命题$(*)$: 
 			
@@ -482,7 +488,7 @@
 			
 			其中$\exists1\leq i\leq s: l_{i}\neq 0$. 
 			
-			$\because l_{k+1}=l_{k+2}=\cdots=l_{s}=0\Longrightarrow \exists 1\leq i\leq k: l_{i}\neq 0 \Longrightarrow A$线性相关, 矛盾, 
+			$\because l_{k+1}=l_{k+2}=\cdots=l_{s}=0\Longrightarrow \exists 1\leq i\leq k: l_{i}\neq 0 \Longrightarrow A$\线性相关, 矛盾, 
 			
 			$\Longrightarrow\exists l_{i}\in \{l_{k+1},l_{k+2},\cdots, l_{s}\} :l_{i}\neq 0$
 			
@@ -500,7 +506,7 @@
 			
 			$\Longrightarrow$命题$(*)\forall 1\leq i\leq s$恒成立. $\square$
 			
-			若$A$和$B$都是$S$的极大线性无关组, 则: 
+			若$A$和$B$都是$S$的\极大线性无关组, 则: 
 			
 			$B$线性无关, 且$A$能线性表示$B \Longrightarrow |A|\geq |B|$
 			
@@ -510,48 +516,48 @@
         \end{prf}
 			
 		\begin{dfn}
-			[]
-			{秩}
-			[]
+			[Rank]
+			{\秩}
+			[Rank]
 			[]
 
-			向量组$S$的极大线性无关组的元素个数称为$S$的\textbf{秩(Rank)}, 记作${\rm rank}(S)$, 简写作${\rm r}(S)$. 
+			向量组$S$的\极大线性无关组 的元素个数称为$S$的\textbf{\秩(Rank)}, 记作${\rm rank}(S)$, 简写作${\rm r}(S)$. 
 		\end{dfn}
 	
-	\subsection{线性空间的基与维度}
+	\subsection{\线性空间 的基与维度}
 		
 		\begin{dfn}
 			[]
-			{线性空间的基}
+			{\线性空间 的基}
 			[]
 			[]
 
-			设$V$是数域$\K$上的线性空间, 向量组$\{e_{1},e_{2},\cdots,e_{n}\}$称为是$V$的一组\textbf{基(Basis)}, 每个$e_{i}$称为是$V$的一个\textbf{基向量(Basis Vector)}, 若:
+			设$V$是\数域$\K$上的\线性空间, 向量组$\{e_{1},e_{2},\cdots,e_{n}\}$称为是$V$的一组\textbf{基(Basis)}, 每个$e_{i}$称为是$V$的一个\textbf{基向量(Basis Vector)}, 若:
 			 
 			(1)$\{e_{1},e_{2},\cdots,e_{n}\}$线性无关; 
 			
 			(2)$\forall \alpha\in V,\alpha$能被$\{e_{1},e_{2},\cdots,e_{n}\}$线性表示. 
 			
-			当n为有限正整数时, 称线性空间$V$的\textbf{维度(Dimension)}为$n$, 记作$\dim_{\K}V=n$, 简记作$\dim V=n$; 
+			当n为有限正整数时, 称\线性空间$V$的\textbf{维度(Dimension)}为$n$, 记作$\dim_{\K}V=n$, 简记作$\dim V=n$; 
 			
-			当不存在满足条件的有限向量组$\{e_{1},e_{2},\cdots,e_{n}\}$时, 称线性空间$V$为\textbf{无限维线性空间(Infinite Dimensional Linear Space)}. 
+			当不存在满足条件的有限向量组$\{e_{1},e_{2},\cdots,e_{n}\}$时, 称\线性空间$V$为\textbf{无限维\线性空间(Infinite Dimensional Linear Space)}. 
 
 		\end{dfn}
 		
 		\begin{ppt}
 			[]
-			{高维向量组必定线性相关}
+			{高维向量组必定\线性相关}
 			[]
 			[]
 
-			$\dim V:=n, A\subseteq V, |A|>n\Longrightarrow A$线性相关. 
+			$\dim V:=n, A\subseteq V, |A|>n\Longrightarrow A$\线性相关. 
 		\end{ppt}
   
 		\begin{prf}
 			
 			运用反证法. 
 			
-			假设$A\subseteq V$线性相关,$|A|>n$ 
+			假设$A\subseteq V$\线性相关,$|A|>n$ 
 			
 			设V的一组基为$E=\{e_{1},e_{2},\cdots,e_{n}\}$, 则$A$可被$E$线性表示. 
 			
@@ -574,13 +580,13 @@
 			
 			$$\forall v\in V, |\{e_{1},e_{2},\cdots,e_{n}, v\}|=n+1>n$$
 			
-			$\Longrightarrow \{e_{1},e_{2},\cdots,e_{n}, v\}$线性相关. 
+			$\Longrightarrow \{e_{1},e_{2},\cdots,e_{n}, v\}$\线性相关. 
 			
 			$$\Longrightarrow \exists k_{1},k_{2},\cdots,k_{n},k\in\K: kv+\sum_{i=1}^{n}k_{i}e_{i}=\mathbf{0}$$
 			
 			其中$k_{1},k_{2},\cdots,k_{n},k$不全为零. 
 			
-			$k=0\Longrightarrow\{e_{1},e_{2},\cdots,e_{n}, v\}$线性相关, $\Longrightarrow k\neq 0$. 
+			$k=0\Longrightarrow\{e_{1},e_{2},\cdots,e_{n}, v\}$\线性相关, $\Longrightarrow k\neq 0$. 
 			
 			$$\Longrightarrow v=\sum_{i=1}^{n}-\frac{k_{i}}{k}e_{i}$$
 			
@@ -588,7 +594,7 @@
 			
 			(2)必要性: 
 			
-			不妨设$E'=\{e_{1},e_{2},\cdots,e_{r}\}$是$E$的极大线性无关组, 则$E$能被$E'$线性表示. 
+			不妨设$E'=\{e_{1},e_{2},\cdots,e_{r}\}$是$E$的\极大线性无关组, 则$E$能被$E'$线性表示. 
 			
 			又$\because V$能被$E$线性表示, $\Longrightarrow V$能被$E'$线性表示. 
 			
@@ -628,12 +634,12 @@
 	\subsection{子空间及其运算}
 		
 		\begin{dfn}
-			[]
-			{线性子空间}
-			[]
+			[Linear-Subspace]
+			{\线性子空间}
+			[Linear Subspace]
 			[]
 
-			设$V$是数域$\K$上的线性空间, $V$的非空子集$V'$称为是线性空间$V$的一个\textbf{线性子空间(Linear Subspace)}, 简称\textbf{子空间(Subspace)}, 若$V'$是一个线性空间. 
+			设$V$是\数域$\K$上的\线性空间, $V$的非空子集$V'$称为是\线性空间$V$的一个\textbf{\线性子空间(Linear Subspace)}, 简称\textbf{子空间(Subspace)}, 若$V'$是一个\线性空间. 
 		\end{dfn}
 		
 		\begin{ppt}
@@ -642,7 +648,7 @@
 			[]
 			[]
 
-			$\forall$线性空间$V$, $V$和$\{\mathbf{0}\}$是$V$的子空间, 称为\textbf{平凡子空间(Trivial Subspace)}. 
+			$\forall$\线性空间$V$, $V$和$\{\mathbf{0}\}$是$V$的子空间, 称为\textbf{平凡子空间(Trivial Subspace)}. 
 		\end{ppt}
 		
 		\begin{ppt}
@@ -679,7 +685,7 @@
 			[]
 			[]
 
-			设$V_{1},V_{2}$是线性空间$V$的子空间. 
+			设$V_{1},V_{2}$是\线性空间$V$的子空间. 
 			
 			$$V_{1}\cap V_{2}:=\{v|v\in V_{1},v\in V_{2}\}$$
 			
@@ -709,23 +715,23 @@
 			
 			\[\forall \alpha \in V_{1}, \beta\in V_{2}, \alpha+\beta\in V_{1}+V_{2}\]
 			
-			又加法和数乘运算规则不变, $\Longrightarrow V_{1}\cap V_{2}, V_{1}+V_{2}$都是$\K$上的线性空间. 
+			又加法和数乘运算规则不变, $\Longrightarrow V_{1}\cap V_{2}, V_{1}+V_{2}$都是$\K$上的\线性空间. 
 			
 			$\Longrightarrow V_{1}\cap V_{2}, V_{1}+V_{2}$都是$V$的子空间. $\square$
 		\end{prf}
   
 		\begin{dfn}
-			[]
-			{张成}
+			[Span]
+			{\张成}
 			[Span]
 			[]
 
-			设$V$是$\K$上的线性空间, $S \subseteq V$, 则$\{v|v$能被$S$线性表示$\}$称为由$S$\textbf{张成的线性空间(Linear Span)}, 记作${\rm span}(S)$. 
+			设$V$是$\K$上的\线性空间, $S \subseteq V$, 则$\{v|v$能被$S$线性表示$\}$称为由$S$\textbf{\张成 的\线性空间(Linear Span)}, 记作${\rm span}(S)$. 
 		\end{dfn}
 		
 		\begin{ppt}
 			[]
-			{张成的线性空间也是子空间}
+			{\张成 的\线性空间 也是子空间}
 			[]
 			[]
 
@@ -742,14 +748,14 @@
 			
 			$\Longrightarrow \alpha+\beta, k\alpha\in {\rm span}(S)$. 
 			
-			又${\rm span}(S)$中加法和数乘运算规则不变, $\Longrightarrow {\rm span}(S)$是$\K$上的线性空间. 
+			又${\rm span}(S)$中加法和数乘运算规则不变, $\Longrightarrow {\rm span}(S)$是$\K$上的\线性空间. 
 			
 			即${\rm span}(S)$是$V$的子空间. $\square$
         \end{prf}
 		
 		\begin{ppt}
 			[]
-			{子空间的张成仍为子空间}
+			{子空间的\张成 仍为子空间}
 			[]
 			[]
 
@@ -758,7 +764,7 @@
   
 		\begin{prf}
 			
-			$\because S\subseteq V'$, 又$V'$是一个线性空间, 
+			$\because S\subseteq V'$, 又$V'$是一个\线性空间, 
 			
 			$\Longrightarrow \forall v: v$能被$S$线性表示, $v\in V'$. 
 			
@@ -771,7 +777,7 @@
 			[]
 			[]
 
-			设$T$是$S$的一个极大线性无关组$\Longrightarrow T$是${\rm span}(S)$的一组基$\Longrightarrow\dim {\rm span}(S)=|T|$. 
+			设$T$是$S$的一个\极大线性无关组$\Longrightarrow T$是${\rm span}(S)$的一组基$\Longrightarrow\dim {\rm span}(S)=|T|$. 
 		\end{ppt}
   
         \begin{prf}
@@ -787,7 +793,7 @@
 		
 		\begin{thm}
 			[]
-			{线性空间维度公式}
+			{\线性空间 维度公式}
 			[]
 			[]
 
@@ -842,12 +848,12 @@
 		\end{prf}
   
 		\begin{dfn}
-			[]
-			{直和}
-			[]
+			[Direct-Sum]
+			{\直和}
+			[Direct Sum]
 			[]
 
-			设$V_1,V_2,\cdots,V_n$是线性空间$V$的子空间. 其和运算$V_1+V_2+\cdots+V_n$称之为\textbf{直接和(Direct Sum)}, 简称\textbf{直和}, 若: 
+			设$V_1,V_2,\cdots,V_n$是\线性空间$V$的子空间. 其和运算$V_1+V_2+\cdots+V_n$称之为\textbf{直接和(Direct Sum)}, 简称\textbf{\直和}, 若: 
 			
 			$$\forall i\in\{1,2,\cdots,n\}, V_i\cap(V_1+\cdots+V_{i-1}+V_{i+1}+\cdots+V_n)=\varnothing$$
 			
@@ -856,15 +862,15 @@
 		
 		\begin{thm}
 			[]
-			{直和定理}
+			{\直和 定理}
 			[]
 			[]
 
 			设$V=V_1+V_2+\cdots+V_n$
 		
-			直和的等价判定: $$V=V_1\oplus V_2\oplus\cdots\oplus V_n\Longleftrightarrow(1)\Longleftrightarrow(2)\Longleftrightarrow(3)\Longleftrightarrow(4)\Longleftrightarrow(5)$$
+			\直和 的等价判定: $$V=V_1\oplus V_2\oplus\cdots\oplus V_n\Longleftrightarrow(1)\Longleftrightarrow(2)\Longleftrightarrow(3)\Longleftrightarrow(4)\Longleftrightarrow(5)$$
 			
-			(1)直和定义: $$\forall i\in\{1,2,\cdots,n\}, V_i\cap(V_1+\cdots+V_{i-1}+V_{i+1}+\cdots+V_n)=\varnothing$$
+			(1)\直和 定义: $$\forall i\in\{1,2,\cdots,n\}, V_i\cap(V_1+\cdots+V_{i-1}+V_{i+1}+\cdots+V_n)=\varnothing$$
 			
 			(2)减弱定义: $$\forall i\in\{2,3,\cdots,n\}, V_i\cap(V_1+V_2+\cdots+V_{i-1})=\varnothing$$
 			
@@ -879,40 +885,40 @@
 			(5)$\forall v\in V, v$能够唯一地表示为$V_1,V_2,\cdots,V_n$中向量之和. 
 		\end{thm}
 
-	\subsection{商空间}
+	\subsection{\商空间}
 
 		\begin{dfn}
-			[]
-			{转译}
+			[Translate]
+			{\转译}
 			[Translate]
 			[]
 
-			设$U$,$W$为线性空间$V$的子空间，且$W$为$U$的子空间，称集合\[A=\{\alpha+W|\alpha\in U\}\]中的元素为$W$的\textbf{转译}.
+			设$U$,$W$为\线性空间$V$的子空间，且$W$为$U$的子空间，称集合\[A=\{\alpha+W|\alpha\in U\}\]中的元素为$W$的\textbf{\转译}.
 		\end{dfn}
 
 		\begin{dfn}
-			[]
-			{陪集}
-			[]
+			[Coset]
+			{\陪集}
+			[Coset]
 			[]
 
-			称如上的集合$A$为$W$的一个\textbf{陪集}. 陪集是所有转译构成的集合。
+			称如上的集合$A$为$W$的一个\textbf{\陪集}. \陪集 是所有\转译 构成的集合。
 		\end{dfn}
 
         \begin{dfn}
-			[]
-			{商空间}
+			[Quotient-Space]
+			{\商空间}
 			[Quotient Space]
 			[]
 
 			上述的$A$中的每一个元素都可以写为“一个代表元$\alpha$加$W$”的形式，记$\bar{\alpha}=\alpha+W$, 称为\textbf{$\alpha$模$W$的剩余系}, 定义剩余系的运算$\bar{\alpha}+\bar{\beta}=\alpha+\beta+W=\bar{\alpha+\beta}$, 
             $$c\bar{\alpha}=c\alpha+W=\bar{c\alpha}$$
-            容易验证剩余类关于这两个运算成线性空间，于是集合$A$关于剩余类的加法与数乘成线性空间, 称为\textbf{$U$模$W$的商空间}, 记作$U/W$.
+            容易验证剩余类关于这两个运算成\线性空间，于是集合$A$关于剩余类的加法与数乘成\线性空间, 称为\textbf{$U$模$W$的\商空间}, 记作$U/W$.
 		\end{dfn}
   
         \begin{ppt}
 			[]
-			{商空间的维度}
+			{\商空间 的维度}
 			[Dimension of a Quotient Space]
 			[]
 
@@ -925,7 +931,7 @@
         \end{prf}
 			
 	
-	\subsection{常见的线性空间}
+	\subsection{常见的\线性空间}
 	
 		\begin{xmp}
 			[]
@@ -939,7 +945,7 @@
 			
 			$$k(x_1,x_2,\cdots,x_n):=(kx_1,kx_2,\cdots,kx_n)$$
 			
-			在如上加法与数乘定义下, 全体$n$维行向量构成一个线性空间, 称为$n$维\textbf{行向量空间}, 记为$\K^n$. $\dim\K^n=n$. 
+			在如上加法与数乘定义下, 全体$n$维行向量构成一个\线性空间, 称为$n$维\textbf{行向量空间}, 记为$\K^n$. $\dim\K^n=n$. 
 			
 			$\K^n$的一组基可取为
 			
@@ -973,7 +979,7 @@
 			:=
 			\begin{bmatrix}kx_1\\kx_2\\\vdots\\kx_n\end{bmatrix}(\forall k\in\K)\]
 			
-			在如上加法与数乘定义下, 全体$n$维列向量构成一个线性空间, 称为$n$维\textbf{列向量空间}, 记为$\K_n$. $\dim \K_n=n$. 
+			在如上加法与数乘定义下, 全体$n$维列向量构成一个\线性空间, 称为$n$维\textbf{列向量空间}, 记为$\K_n$. $\dim \K_n=n$. 
 			
 			$\K_n$的一组基可取为
 			
@@ -989,43 +995,43 @@
 		
 		\begin{xmp}
 			[]
-			{多项式的线性空间}
+			{多项式的\线性空间}
 			[]
 			[]
 
-			数域$\K$上关于$x$的次数不大于$n$的一元多项式全体构成一个$n+1$维线性空间, 记为$\K[x]$. 
+			\数域$\K$上关于$x$的次数不大于$n$的一元多项式全体构成一个$n+1$维\线性空间, 记为$\K[x]$. 
 		\end{xmp}
 		
 		
 		
-\section{线性映射}
+\section{\线性映射}
 
-	\subsection{线性映射}
+	\subsection{\线性映射}
 		
 		\begin{dfn}
-			[]
-			{线性映射}
+			[Linear-Map]
+			{\线性映射}
 			[Linear Map]
 			[]
 
-			设$V_{1},V_{2}$是数域$\K$上的线性空间, 映射$\varphi: V_{1}\to V_{2}$称为是一个\textbf{线性映射(Linear map)}, 若$\forall \alpha, \beta\in V_{1}, k\in \K$, 
+			设$V_{1},V_{2}$是\数域$\K$上的\线性空间, 映射$\varphi: V_{1}\to V_{2}$称为是一个\textbf{\线性映射(Linear map)}, 若$\forall \alpha, \beta\in V_{1}, k\in \K$, 
 			\[\varphi (\alpha+\beta)=\varphi(\alpha)+\varphi(\beta)\]
 			\[\varphi(k\alpha)=k\varphi(\alpha)\]
 
-			称上述线性映射的全体为$V_1\to V_2$的\textbf{线性同态(Linear Homomorphism)}, 简称为\textbf{同态(Homomorphism)}.
+			称上述\线性映射 的全体为$V_1\to V_2$的\textbf{线性同态(Linear Homomorphism)}, 简称为\textbf{同态(Homomorphism)}.
 			
-			称$\varphi$为线性空间$V$上的\textbf{线性变换(Linear Transformation)}, 若$V_{1}=V_{2}=V$. 
+			称$\varphi$为\线性空间$V$上的\textbf{线性变换(Linear Transformation)}, 若$V_{1}=V_{2}=V$. 
 			
 			称$\varphi$为\textbf{线性同构(Linear Isomorphism)}, 简称\textbf{同构(Isomorphism)}, 若$\varphi$是双射. 
 			
-			称线性空间$V_1$与$V_2$\textbf{同构(Isomorphic)}, 若$\exists$同构$\varphi:V_1\to V_2$, 记作$V_1\cong V_2$. 
+			称\线性空间$V_1$与$V_2$\textbf{同构(Isomorphic)}, 若$\exists$同构$\varphi:V_1\to V_2$, 记作$V_1\cong V_2$. 
 			
-			称$\varphi$为线性空间$V$上的\textbf{线性自同态(Linear Endomorphism)}, 简称\textbf{自同态(Endomorphism)}, 若$\varphi$是线性变换且是同构. 
+			称$\varphi$为\线性空间$V$上的\textbf{线性自同态(Linear Endomorphism)}, 简称\textbf{自同态(Endomorphism)}, 若$\varphi$是线性变换且是同构. 
 
 			更进一步，假如$\varphi$是从自身到自身的线性双射，也就是说，$\varphi$既是同构也是自同态，就称$\varphi$是\textbf{线性自同构(Linear Automorphism)}, 简称\textbf{自同态(Automorphism)}.
 		\end{dfn}
 
-		习惯上，记一个线性映射时需要同时指明线性空间：例如
+		习惯上，记一个\线性映射 时需要同时指明\线性空间：例如
 		\[\varphi:\begin{bmatrix}
 			V_1&\to&V_2\\
 			\alpha&\mapsto&\varphi(\alpha)
@@ -1033,7 +1039,7 @@
 		
 		\begin{ppt}
 			[]
-			{线性映射不改变零向量}
+			{\线性映射 不改变零向量}
 			[]
 			[]
 
@@ -1047,7 +1053,7 @@
   
 		\begin{ppt}
 			[]
-			{线性映射保持线性性}
+			{\线性映射 保持线性性}
 			[]
 			[]
 
@@ -1060,11 +1066,11 @@
 
 		\begin{ppt}
 			[]
-			{线性空间的同构的充要条件}
+			{\线性空间 的同构的充要条件}
 			[]
 			[]
 
-			有限维线性空间的同构的充要条件是它们有相同的维度。
+			有限维\线性空间 的同构的充要条件是它们有相同的维度。
 		\end{ppt}
 
 		这条性质可以参看2.4节。
@@ -1091,7 +1097,7 @@
 			
 			$$\varphi^{-1}(kv)=\varphi^{-1}(k\varphi(\alpha))=\varphi^{-1}\circ\varphi(k\alpha)=k\alpha=k\varphi^{-1}(v)$$
 			
-			即有$\varphi^{-1}$是线性映射. 
+			即有$\varphi^{-1}$是\线性映射. 
 			
 			(3)又$\because\varphi$是双射$\Longrightarrow\varphi^{-1}$是双射, 
 			
@@ -1131,44 +1137,44 @@
 			[]
 			[]
 
-            设$\varphi:V_1\xrightarrow{\cong}V_2$是线性空间的同构映射,
+            设$\varphi:V_1\xrightarrow{\cong}V_2$是\线性空间 的同构映射,
             $\alpha_1,\cdots,\alpha_s$是$V_1$中任意向量,
            则$\varphi\alpha_1,\cdots,\varphi\alpha_s$线性相关当且仅当$\alpha_1,\cdots,\alpha_s$线性相关.
         \end{ppt}
   
 	\subsection{对偶映射}
         \begin{dfn}
-			[]
-			{线性泛函}
+			[Linear-Functional]
+			{\线性泛函}
 			[Linear Functional]
 			[]
 
-			设$V$,$W$是域$\F$上的线性空间, $\varphi_1$,$\varphi_2$为两个从$V$到$W$的线性映射, 则定义:
+			设$V$,$W$是域$\F$上的\线性空间, $\varphi_1$,$\varphi_2$为两个从$V$到$W$的\线性映射, 则定义:
 			\[\varphi_1+\varphi_2:(\varphi_1+\varphi_2)\circ\alpha=\varphi_1\circ\alpha+\varphi_2\circ\alpha(\forall\alpha\in V)\]
 			\[k\varphi_1:(k\varphi_1)\circ\alpha=k\varphi_1\circ\alpha(k\in \F,\forall\alpha\in V)\]
-			容易发现，全体从$V$到$W$的线性映射也关于上述加法和数乘成线性空间, 故用$\Hom_{\F}(V,W)$表示从域$\F$上线性空间$V$到$W$的线性映射全体关于上述两个运算所成的线性空间.\\
-			特别的，取$W$为$\F$时, 此时的线性映射也称为$V$上的\textbf{线性泛函}, 
+			容易发现，全体从$V$到$W$的\线性映射 也关于上述加法和数乘成\线性空间, 故用$\Hom_{\F}(V,W)$表示从域$\F$上\线性空间$V$到$W$的\线性映射 全体关于上述两个运算所成的\线性空间.\\
+			特别的，取$W$为$\F$时, 此时的\线性映射 也称为$V$上的\textbf{\线性泛函}, 
 		\end{dfn}
 
         
 		\begin{dfn}
-			[]
-			{对偶空间}
+			[Dual-Space]
+			{\对偶空间}
 			[Dual Space]
 			[]
 
-			$V$上的线性泛函所生成的子空间称为$V$的\textbf{对偶空间}, 记作$V^{*}$.
+			$V$上的\线性泛函 所生成的子空间称为$V$的\textbf{\对偶空间}, 记作$V^{*}$.
 		\end{dfn}
 		
-        对于有限维线性空间的一组基, 我们可以自然地在其对偶空间上找到一组与这组基“对偶”的基。
+        对于有限维\线性空间 的一组基, 我们可以自然地在其\对偶空间 上找到一组与这组基“对偶”的基。
         其线性无关性容易验证。
 		\begin{dfn}
-			[]
-			{对偶基}
+			[Dual-Basis]
+			{\对偶基}
 			[Dual Basis]
 			[]
 
-			设$\{v_1,\cdots,v_n\}$是有限维线性空间$V$上的一组基，定义$\{\phi_1,\cdots,\phi_n\}$是其对偶空间上的一组基，称为\textbf{对偶基}，满足：
+			设$\{v_1,\cdots,v_n\}$是有限维\线性空间$V$上的一组基，定义$\{\phi_1,\cdots,\phi_n\}$是其\对偶空间 上的一组基，称为\textbf{\对偶基}，满足：
 			\[\phi_i(v_j)=\begin{cases}
 				1 & i=j;\\
 				0 & i\neq j.
@@ -1178,17 +1184,17 @@
 
 		\begin{ppt}
 			[]
-			{对偶基与原基的关系}
+			{\对偶基 与原基的关系}
 			[]
 			[]
 
-			设$\{v_1,\cdots,v_n\}$是有限维线性空间$V$上的一组基，$\{\phi_1,\cdots,\phi_n\}$是其对偶基，则对于$v\in V$:
+			设$\{v_1,\cdots,v_n\}$是有限维\线性空间$V$上的一组基，$\{\phi_1,\cdots,\phi_n\}$是其\对偶基，则对于$v\in V$:
 			\[v=\phi_1(v)v_1+\cdots+\phi_{\dim V}(v)v_{\dim V}.\]
 		\end{ppt}
         
         \begin{ppt}
 			[]
-			{对偶空间的维度}
+			{\对偶空间 的维度}
 			[Dimension of Dual Space]
 			[]
                 当$V$为有限维时, 有
@@ -1196,7 +1202,7 @@
 		\end{ppt}
         
         \begin{prf}
-                由对偶基即知
+                由\对偶基 即知
         \end{prf}
         在有限维时, 我们知道维数相同的空间是同构的, 故$V\cong V^*$, 但是在无限维的空间上, 这个同构却不一定成立, 比如
         \begin{cxmp}
@@ -1204,17 +1210,17 @@
             {无限维空间上对偶同构的反例}
             []
             []
-            $\F[x]$为域$\F$上的多项式空间, 在任一组基下, 其元素的坐标只有有限个不是零, 但是其对偶空间却没有有限个非零的限制, 也就是说, 在某一组无穷对偶基下, 其坐标可以有无限个非零。即其对偶空间同构于形式级数环$\F[[x]]$, 这两者并不同构.
+            $\F[x]$为域$\F$上的多项式空间, 在任一组基下, 其元素的坐标只有有限个不是零, 但是其\对偶空间 却没有有限个非零的限制, 也就是说, 在某一组无穷\对偶基 下, 其坐标可以有无限个非零。即其\对偶空间 同构于形式级数环$\F[[x]]$, 这两者并不同构.
         \end{cxmp}
 
-        换个角度, 给定一个线性泛函$\phi$, 每个向量也将该线性泛函映作数, 于是向量可以视作对于线性泛函的线性泛函, 也即是下面的定理
+        换个角度, 给定一个\线性泛函$\phi$, 每个向量也将该\线性泛函 映作数, 于是向量可以视作对于\线性泛函 的\线性泛函, 也即是下面的定理
 
         \begin{thm}
             []
             {Riesz表示定理}
             [Riesz representation theorem]
             []
-            设$V$是有限维线性空间, 则有线性空间的自然同构
+            设$V$是有限维\线性空间, 则有\线性空间 的自然同构
             \[\tau:V\mapsto V^{**}\]
             \[\alpha\mapsto \varphi_{\alpha}\]
             其中$\varphi_{\alpha}\circ \phi=\phi(\alpha)$
@@ -1222,11 +1228,11 @@
 
         于是, 在有限维的时候, 我们可以将$V$与$V^{**}$视作等同. 
         \begin{dfn}
+            [Adjoint-Mapping]
+            {\伴随映射}
+            [Adjoint Mapping]
             []
-            {伴随映射}
-            [adjoint mapping]
-            []
-            设$\varphi$ 为$V_1\mapsto V_2$ 的线性映射, 则定义其伴随映射$\varphi^*$为:
+            设$\varphi$ 为$V_1\mapsto V_2$ 的\线性映射, 则定义其\伴随映射$\varphi^*$为:
             \[\varphi^*:V_2^*\mapsto V_1^*\]
             \[f\mapsto f\circ\varphi\]
         \end{dfn}
@@ -1263,21 +1269,21 @@
         \end{center}
         
         
-            下面这个性质是关于有限维线性映射的表示矩阵的, 将其整理在这.
+            下面这个性质是关于有限维\线性映射 的表示矩阵的, 将其整理在这.
             \begin{ppt}
                 []
-                {伴随映射的矩阵表示为其转置}
+                {\伴随映射 的矩阵表示为其转置}
                 []
                 []
-                $V_1$, $V_2$均为有限维线性空间. 设$A$为$\varphi$ 在某组基下的矩阵表示, 则$\varphi^*$在对应的对偶基下的矩阵表示为$A^T$.
+                $V_1$, $V_2$均为有限维\线性空间. 设$A$为$\varphi$ 在某组基下的矩阵表示, 则$\varphi^*$在对应的\对偶基 下的矩阵表示为$A^T$.
             \end{ppt}
 
             \begin{prf}
-                设$v_1,v_2,\cdots,v_n$为$V_1$的基, $v_1^*, v_2^*,\cdots,v_n^*$ 为对偶基. 
-                $w_1,w_2,\cdots,w_m$为$V_2$的基, $w_1^*, w_2^*,\cdots, w_m^*$为对偶基. 
+                设$v_1,v_2,\cdots,v_n$为$V_1$的基, $v_1^*, v_2^*,\cdots,v_n^*$ 为\对偶基. 
+                $w_1,w_2,\cdots,w_m$为$V_2$的基, $w_1^*, w_2^*,\cdots, w_m^*$为\对偶基. 
                 
                 设$(\varphi\circ v_1,\varphi\circ v_2,\cdots,\varphi\circ v_n)=(w_1,w_2\cdots,w_m)A$, 
-                要描述一个线性映射, 我们只需描述其在一组基上的像:
+                要描述一个\线性映射, 我们只需描述其在一组基上的像:
                 \[(\varphi^*\circ w_1^*,\varphi^*\circ w_2^*\cdots,\varphi^*\circ w_m^*)^T\circ(v_1,v_2,\cdots,v_n)\]
                 \[=(w_1^*\circ\varphi,w_2^*\circ\varphi,\cdots,w_m^*\circ\varphi)^T\circ(v_1,v_2,\cdots,v_n)\]
                 \[=(w_1^*,w_2^*,\cdots,w_m^*)^T\circ(\varphi\circ v_1,\varphi\circ v_2,\cdots,\varphi\circ v_n)\]
@@ -1292,7 +1298,7 @@
         
 		
 	
-	\subsection{线性映射基本定理}
+	\subsection{\线性映射 基本定理}
 	下面的内容与抽象代数中的一些定理有很强的关联性，所以我们先引入一些新的概念.
 		\begin{dfn}
 			[]
@@ -1300,7 +1306,7 @@
 			[Kernel (Space)]
 			[]
 
-			设$\varphi:V_1\to V_2$是线性映射, 线性空间$V_1$的子集$$S=\{v|v\in V_1,\varphi(v)=\mathbf{0}\}$$称为线性映射$\varphi$的\textbf{核(Kernel)}, 记为$\ker\varphi$. 
+			设$\varphi:V_1\to V_2$是\线性映射, \线性空间$V_1$的子集$$S=\{v|v\in V_1,\varphi(v)=\mathbf{0}\}$$称为\线性映射$\varphi$的\textbf{核(Kernel)}, 记为$\ker\varphi$. 
 		\end{dfn}
   
         \begin{dfn}
@@ -1309,9 +1315,9 @@
 			[Image (Space)]
 			[]
 
-            同样设$\varphi:V_1\to V_2$是线性映射, 则线性空间$V_2$的子集
+            同样设$\varphi:V_1\to V_2$是\线性映射, 则\线性空间$V_2$的子集
             \[T=\{\varphi (w)|w\in V_1\}\]
-            称为线性映射$\varphi$的\textbf{像(空间)}, 记为$\Im\varphi$
+            称为\线性映射$\varphi$的\textbf{像(空间)}, 记为$\Im\varphi$
         \end{dfn}
         \begin{ppt}
 			[]
@@ -1319,7 +1325,7 @@
 			[]
 			[]
 
-            上述两个"集合"都关于其对应的加法，数乘成线性空间.
+            上述两个"集合"都关于其对应的加法，数乘成\线性空间.
         \end{ppt}
         \begin{prf}
             若$v,w\in \ker\varphi$, 则
@@ -1328,16 +1334,16 @@
             \[\varphi(v)+\varphi(w)=\varphi(v+w)\Longrightarrow\varphi(v+w)\in\Im\varphi\]
             \[k\varphi(v)=\varphi(kv)\Longrightarrow k\varphi(v)\in\Im\varphi\]
         \end{prf}
-        于是以后我们提到"线性映射的核"或"线性映射的像"是指该线性空间而不仅仅是向量的集合.\\
-        回忆商空间的概念, 下面这个定理揭示了上述两个子空间的关系.
+        于是以后我们提到"\线性映射 的核"或"\线性映射 的像"是指该\线性空间 而不仅仅是向量的集合.\\
+        回忆\商空间 的概念, 下面这个定理揭示了上述两个子空间的关系.
         
         \begin{thm}
 			[]
-			{线性映射基本定理 / 第一同构定理 / 商空间同构定理}
+			{\线性映射 基本定理 / 第一同构定理 / \商空间 同构定理}
 			[Fundamental Thoerem of Linear Maps / Isomorphism Theroem A / Quotient Space Isomorphism Thoerem]
 			[]
 
-			设$\varphi:V_1\to V_2$为一个线性映射, 则有以下同构映射$\bar{\varphi}$诱导的同构:
+			设$\varphi:V_1\to V_2$为一个\线性映射, 则有以下同构映射$\bar{\varphi}$诱导的同构:
 			\[\overline{\varphi}:V_1/\ker\varphi\cong\Im\varphi\]
 			\[\overline{\alpha}\to\varphi(\alpha)\]
 			\end{thm}
@@ -1352,7 +1358,7 @@
 			[Quotient Map]
 			[]
 
-			对于线性空间$V$及其子空间$U$，称如下的映射$\pi$
+			对于\线性空间$V$及其子空间$U$，称如下的映射$\pi$
 			\[\begin{bmatrix}
 				V&\to&V/U\\
 				v&\mapsto&v+U 
@@ -1362,7 +1368,7 @@
 
 		\begin{dfn}
 			[]
-			{线性映射的陪映射}
+			{\线性映射 的陪映射}
 			[]
 			[]
 
@@ -1392,7 +1398,7 @@
 			[Isomorphism Theorem B]
 			[]
 
-			对任意的线性子空间 $U$ 和 $V$:
+			对任意的\线性子空间 $U$ 和 $V$:
 			\[
 			\frac{U + V}{U} \simeq \frac{V}{U \cap V}. 
 			\]
@@ -1403,7 +1409,7 @@
 			[Isomorphism Theorem C]
 			[]
 
-			如果线性空间之间满足 $U \subset V \subset W$, 那么存在一个同构映射:
+			如果\线性空间 之间满足 $U \subset V \subset W$, 那么存在一个同构映射:
 			\[
 			\frac{W}{V} \simeq \frac{W / U}{V / U}.
 			\]
@@ -1415,7 +1421,7 @@
 			[]
 			[]
 
-			设 $U_i \subset V_i$ 是线性子空间，则
+			设 $U_i \subset V_i$ 是\线性子空间，则
 			\[
 			\frac{V_1 \times V_2}{U_1 \times U_2} \simeq (U_1/V_1) \times (U_2/V_2).
 			\]
@@ -1430,7 +1436,7 @@
 			[]
 			[]
 
-			设$V$是数域$\K$上的线性空间, 则$\dim V=n\Longrightarrow V\cong\K_n$
+			设$V$是\数域$\K$上的\线性空间, 则$\dim V=n\Longrightarrow V\cong\K_n$
 		\end{thm}
   
 		\begin{prf}
@@ -1442,7 +1448,7 @@
 			
 			$$\forall k_1,k_2,\cdots,k_n, \eta^{-1}(\begin{bmatrix}k_1\\k_2\\\vdots\\k_n\end{bmatrix})=\sum_{i=1}^nk_ie_i$$
 			
-			有$\eta$是双射, 又显然$\eta$为线性映射, 即有$V\cong K_n$. $\square$
+			有$\eta$是双射, 又显然$\eta$为\线性映射, 即有$V\cong K_n$. $\square$
 		\end{prf}
   
 		\begin{thm}
@@ -1451,7 +1457,7 @@
 			[]
 			[]
 
-			设线性映射$\varphi:V_1\to V_2, \dim V_1=m, \dim V_2=n$, 可绘制如下交换图: 
+			设\线性映射$\varphi:V_1\to V_2, \dim V_1=m, \dim V_2=n$, 可绘制如下交换图: 
 			$$\begin{matrix}
 			\xymatrix{
 			V_1\ar[r]^\varphi\ar[d]^{\eta_1} & V_2\ar[d]^{\eta_2}\\
@@ -1485,14 +1491,14 @@
 	
 \section{矩阵}
 	
-	\subsection{线性映射与矩阵}
+	\subsection{\线性映射 与矩阵}
 		\begin{thm}
 			[]
-			{两个线性映射的关系的表示}
+			{两个\线性映射 的关系的表示}
 			[]
 			[]
 
-			设线性映射$\varphi:\K_m\to \K_n$, 则: 
+			设\线性映射$\varphi:\K_m\to \K_n$, 则: 
 			
 			$$\exists a_{1,1},a_{1,2},\cdots a_{m,n}\in\K: $$
 			
@@ -1537,9 +1543,9 @@
 			[]
 			[]
 
-			矩阵$A$各行向量组张成的线性空间称为矩阵$A$的\textbf{行空间(Row Space)}, 记作$\RRow A$, 也记作$\Im A^T$, 行空间是矩阵对应线性映射的定义域; 
+			矩阵$A$各行向量组\张成 的\线性空间 称为矩阵$A$的\textbf{行空间(Row Space)}, 记作$\RRow A$, 也记作$\Im A^T$, 行空间是矩阵对应线性映射的定义域; 
 			
-			矩阵$A$各列向量组张成的线性空间称为矩阵$A$的\textbf{列空间(Column Space)}, 记作$\CCol A$, 也记作$\Im A$, 列空间是矩阵对应线性映射的值域; 
+			矩阵$A$各列向量组\张成 的\线性空间 称为矩阵$A$的\textbf{列空间(Column Space)}, 记作$\CCol A$, 也记作$\Im A$, 列空间是矩阵对应线性映射的值域; 
 
 			满足$Av=\mathbf{0}$的全体向量$v$组成矩阵$A$的\textbf{零空间}, 记作$\Null A$, 零空间是矩阵对应线性映射的核; 
 
@@ -1772,7 +1778,7 @@
 			[]
 			[]
 
-			数域$\K$上的$n$阶可逆阵全体在矩阵乘法运算下构成一个群, 称为数域$\K$上的$n$阶\textbf{一般线性群(General Linear Group)}, 记为$GL_n(\K)$
+			\数域$\K$上的$n$阶可逆阵全体在矩阵乘法运算下构成一个群, 称为\数域$\K$上的$n$阶\textbf{一般线性群(General Linear Group)}, 记为$GL_n(\K)$
 		\end{ppt}
   
 		\begin{prf}
@@ -1809,7 +1815,7 @@
 			[]
 			[]
 
-			设$\{e_1,e_2,\cdots,e_n\}$是数域$\K$上$n$维线性空间$V$的一组基, 则以下三类线性变换称为\textbf{初等线性变换(Elementary Linear Transformation)}, 简称为\textbf{初等变换(Elementary Transformation)}: 
+			设$\{e_1,e_2,\cdots,e_n\}$是\数域$\K$上$n$维线性空间$V$的一组基, 则以下三类线性变换称为\textbf{初等线性变换(Elementary Linear Transformation)}, 简称为\textbf{初等变换(Elementary Transformation)}: 
 			
 			第一类初等变换: $$\varphi(e_i)=e_j, \varphi(e_j)=e_i, \varphi(e_p)=e_p(\forall p\neq i,j)$$
 			
@@ -2121,7 +2127,7 @@
 			根据矩阵乘法定义验证即可. $\square$
 	    \end{prf}
  
-	\subsection{矩阵的相抵关系与矩阵的秩}
+	\subsection{矩阵的相抵关系与矩阵的\秩}
 	
 		\begin{dfn}
 			[]
@@ -2161,20 +2167,20 @@
   
 		\begin{dfn}
 			[]
-			{行秩与列秩}
+			{行\秩 与列\秩}
 			[]
 			[]
 
-			矩阵的行向量组的秩称为\textbf{行秩}, 列向量组的秩称为\textbf{列秩}. 
+			矩阵的行向量组的\秩 称为\textbf{行秩}, 列向量组的\秩 称为\textbf{列\秩}. 
 		\end{dfn}
 		
 		\begin{ppt}
 			[]
-			{维度与秩的关系}
+			{维度与\秩 的关系}
 			[]
 			[]
 
-			矩阵行空间维数等于行秩, 列空间维数等于列秩. 
+			矩阵行空间维数等于行\秩, 列空间维数等于列\秩. 
 		\end{ppt}
   
 		\begin{prf}
@@ -2183,18 +2189,18 @@
 			{}
 			{}
 
-			取矩阵行向量组的极大线性无关组, 它是行空间的一组基. 
+			取矩阵行向量组的\极大线性无关组, 它是行空间的一组基. 
 			
 			对矩阵的列同理. $\square$
 		\end{prf}
   
 		\begin{ppt}
 			[]
-			{初等变换不改变行秩与列秩}
+			{初等变换不改变行\秩 与列\秩}
 			[]
 			[]
 
-			矩阵的行秩与列秩在初等变换下不变. 
+			矩阵的行\秩 与列\秩 在初等变换下不变. 
 		\end{ppt}
 		
 		\begin{dfn}
@@ -2228,54 +2234,54 @@
 			
 			1'若$a_{1,1}=0$, $[0]$已经是相抵标准型形式. 
 			
-			且由于$[a_{1,1}]$的行秩为0, 它不相抵于$I_1$. 
+			且由于$[a_{1,1}]$的行\秩 为0, 它不相抵于$I_1$. 
 			
 			2'若$a_{1,1}\neq 0$,对$[a_{1,1}]$作第二类初等变换, 即有$[a_{1,1}]|\frac{1}{a_{1,1}}\longrightarrow[1]=I_1. $
 			
-			且由于$[a_{1,1}]$的行秩为1, 它不相抵于$[0]$. 
+			且由于$[a_{1,1}]$的行\秩 为1, 它不相抵于$[0]$. 
 			
 			(2)假设一切$k$阶矩阵均相抵于唯一相抵标准型$B$, 则利用分块矩阵的方法(打洞)将其化为分块对角阵可以很快证明
 		\end{prf}
   
 		\begin{thm}
 			[]
-			{秩的等价性}
+			{\秩 的等价性}
 			[]
 			[]
 
-			矩阵的行秩等于列秩等于矩阵的秩. 
+			矩阵的行\秩 等于列\秩 等于矩阵的\秩. 
 		\end{thm}
   
         \begin{thm}
 			[]
-			{满秩}
+			{满\秩}
 			[]
 			[]
 
-            方阵$A$可逆当且仅当满秩（即秩等于阶数）当且仅当方程$Ax=0$没有非零解
+            方阵$A$可逆当且仅当满\秩（即\秩 等于阶数）当且仅当方程$Ax=0$没有非零解
         \end{thm}
         
         \begin{prf}
             1.若$A$可逆，则当$Ax=0$时，两侧同乘$A$的逆，则有$x$为零向量，则$Ax=0$无非零解\\
-            2.若$Ax=0$无非零解，也即不存在$A$的列向量的一个线性组合为零向量，故$A$满秩\\
-            3.若$A$满秩，则$A$相抵于单位阵，显然可逆
+            2.若$Ax=0$无非零解，也即不存在$A$的列向量的一个\线性组合 为零向量，故$A$满\秩\\
+            3.若$A$满\秩，则$A$相抵于单位阵，显然可逆
         \end{prf}
         
 	    \begin{ppt}
 			[]
-			{可逆矩阵不改变秩}
+			{可逆矩阵不改变\秩}
 			[]
 			[]
 
-            对矩阵进行"乘一个可逆矩阵"的操作不改变矩阵的秩
+            对矩阵进行"乘一个可逆矩阵"的操作不改变矩阵的\秩
         \end{ppt}
         \begin{prf}
             这是显然的，考虑其相抵标准型即得出该结论
         \end{prf}
-        通过构造分块矩阵和上述结论，我们可以通过一些操作来证明下面这些秩不等式
+        通过构造分块矩阵和上述结论，我们可以通过一些操作来证明下面这些\秩 不等式
         \begin{thm}
 			[]
-			{矩阵乘积的秩}
+			{矩阵乘积的\秩}
 			[]
 			[]
 
@@ -2283,7 +2289,7 @@
         \end{thm}
         \begin{thm}
 			[]
-			{矩阵和的秩}
+			{矩阵和的\秩}
 			[]
 			[]
 
@@ -2407,12 +2413,12 @@
 
 		\begin{xmp}
 			[]
-			{矩阵与线性泛函的对应关系}
+			{矩阵与\线性泛函 的对应关系}
 			[]
 			[]
 
 			\begin{itemize}
-				\item 任意的$m\times n$阶矩阵对应属于$\Hom_{\F}(U,V)$, 其中$\F$是数域，$U,V$分别是$\F$上的$m,n$维线性空间.
+				\item 任意的$m\times n$阶矩阵对应属于$\Hom_{\F}(U,V)$, 其中$\F$是\数域，$U,V$分别是$\F$上的$m,n$维线性空间.
 				\item 任意的$n$阶方阵对应属于$\End_{\F}(V)$, $V$是$\F$上的$n$维线性空间.
 				\item 任意的$n$阶可逆方阵对应属于$\Aut_{\F}(V)$, $V$是$\F$上的$n$维线性空间.
 			\end{itemize}
@@ -2789,7 +2795,7 @@
     这是一个很强大的结论，这说明行列式运算在转置之后结果是不变的，于是所有对于行列式的行成立的结论，对于行列式的列仍然成立.
     \begin{thm}
 			[]
-			{元素与自己的余子式线性组合为0}
+			{元素与自己的余子式\线性组合 为0}
 			[]
 			[]
 
@@ -3079,7 +3085,7 @@
 			[]
 			[]
 
-			设$V$是数域$\K$上的线性空间, 运算$``\<x,y\>":V\times V\to\K$称为是一种\textbf{内积(Inner Product)}运算, 若它满足: 
+			设$V$是\数域$\K$上的线性空间, 运算$``\<x,y\>":V\times V\to\K$称为是一种\textbf{内积(Inner Product)}运算, 若它满足: 
 			
 			(1)乘法交换律成立: 
 			\[\forall\alpha,\beta\in V, \<\alpha,\beta\>=\<\beta,\alpha\>\]
@@ -3127,7 +3133,7 @@
 			[]
 			[]
 
-			设$V$是数域$\K$上的线性空间, 映射$``||\cdot||":V\to\K$称为是一个\textbf{范数(Norm)}, 若它满足: 
+			设$V$是\数域$\K$上的线性空间, 映射$``||\cdot||":V\to\K$称为是一个\textbf{范数(Norm)}, 若它满足: 
 			
 			(1)数乘结合律: 
 			\[\forall k\in\K, \forall v\in V, ||kv||=k||v||\]
@@ -3214,7 +3220,7 @@
 
         \begin{ppt}
             []
-            {有限维线性空间和其正交补可直和张成全空间}
+            {有限维线性空间和其正交补可\直和\张成 全空间}
             []
             []
             
@@ -3234,7 +3240,7 @@
         这个性质对于$U$是无限维时不成立, 例如
         \begin{cxmp}
             []
-            {无限维空间不能和其正交补张成全空间的反例}
+            {无限维空间不能和其正交补\张成 全空间的反例}
             []
             []
             设$C_{\R}([-1,1])$是区间$[-1,1]$上全体连续实值函数的线性空间, 
@@ -3435,7 +3441,7 @@
 				
 				取$\bm{x}=\bm{p}_0$, 其中$\bm{p}_0$满足$\forall\bm{x}, (\bm{p}_0-\bm{\beta})\cdot\bm{A}\bm{x}=0$
 				
-				*一般情况下, 这样的$\bm{x}$的存在性需要在正交补空间内寻找, 而后者的存在性由线性代数基本定理或是线性空间的直和条件给出, 这超出了我们讨论的范围. 但从直觉上讲, 根据我们对立体几何的了解, 我们相信可以作出相应的垂直向量. 
+				*一般情况下, 这样的$\bm{x}$的存在性需要在正交补空间内寻找, 而后者的存在性由线性代数基本定理或是线性空间的\直和 条件给出, 这超出了我们讨论的范围. 但从直觉上讲, 根据我们对立体几何的了解, 我们相信可以作出相应的垂直向量. 
 				
 				根据必要性, 显然有$||\bm{p}_0-\bm{\beta}||^2>||\bm{p}-\bm{\beta}||^2$, 矛盾. $\square$
 
@@ -3443,7 +3449,7 @@
 		
 				这个算式还不能给出直接的$\bm{p}$乃至$\bm{x}_0$的计算方法. 于是现在我们回顾$\bm{A}\bm{x}$最初的矩阵-向量表示法. 
 				
-				这个式子不但可以理解为$\bm{A}$对$\bm{x}$做了线性变换, 还可以理解为$\bm{A}$的各列按照$\bm{x}$各个元素的权重进行了线性组合; 而$\bm{x}$是可以任意取值的, 因而$\{\bm{A}\bm{x}||\forall\bm{x}\}$是变换$\bm{A}$的值域, 它是矩阵$\bm{A}$各个列所有可能的线性组合得到的向量的全体. 而由于内积运算可以与加法和数乘运算交换顺序进行(也就是满足结合律和分配律)因此只要$(\bm{p}-\bm{\beta})$与矩阵$\bm{A}$的每一列对应的向量都垂直, 它就必然与全体$\bm{A}\bm{x}$都垂直. 
+				这个式子不但可以理解为$\bm{A}$对$\bm{x}$做了线性变换, 还可以理解为$\bm{A}$的各列按照$\bm{x}$各个元素的权重进行了\线性组合; 而$\bm{x}$是可以任意取值的, 因而$\{\bm{A}\bm{x}||\forall\bm{x}\}$是变换$\bm{A}$的值域, 它是矩阵$\bm{A}$各个列所有可能的\线性组合 得到的向量的全体. 而由于内积运算可以与加法和数乘运算交换顺序进行(也就是满足结合律和分配律)因此只要$(\bm{p}-\bm{\beta})$与矩阵$\bm{A}$的每一列对应的向量都垂直, 它就必然与全体$\bm{A}\bm{x}$都垂直. 
 				
 				也就是说, $\bm{p}$只需满足以下条件: 
 				
@@ -4275,9 +4281,9 @@
 			\[P:=[\alpha_1,\alpha_2,\cdots,\alpha_{k+1}], B:=P^{-1}A_{k+1}P\]
 			\[\Longrightarrow A_{k+1}P=[A_{k+1}\alpha_1,A_{k+1}\alpha_2,\cdots,A_{k+1}\alpha_{k+1}]=PB=[\alpha_1,\alpha_2,\cdots,\alpha_{k+1}]B\]
 			
-			$B$的第$i$列描述了向量组$\{\alpha_1,\alpha_2,\cdots,\alpha_{k+1}\}$线性组合得到$A_{k+1}\alpha_i$的方式. 
+			$B$的第$i$列描述了向量组$\{\alpha_1,\alpha_2,\cdots,\alpha_{k+1}\}$\线性组合 得到$A_{k+1}\alpha_i$的方式. 
 
-			希望以归纳的方式证明$B$相似于上三角阵, 故希望选取的$\alpha_1$由$\{\alpha_1,\alpha_2,\cdots,\alpha_{k+1}\}$线性组合的表达方式尽可能简单, 而当$\alpha_1$选取为特征向量时这一组合是简单的. 
+			希望以归纳的方式证明$B$相似于上三角阵, 故希望选取的$\alpha_1$由$\{\alpha_1,\alpha_2,\cdots,\alpha_{k+1}\}$\线性组合 的表达方式尽可能简单, 而当$\alpha_1$选取为特征向量时这一组合是简单的. 
 
 			选取$\alpha_1$为$A$关于一个特征值$\lambda$的一个特征向量, 由基扩张定理知, 可选取$k$个向量$\{\alpha_2,\cdots,\alpha_n\}$配成$\C_n$的一组基, 即使$P$是可逆的. 
 			
@@ -4383,7 +4389,7 @@
 		
 		\begin{thm}
 			[]
-			{子空间的和为直和}
+			{子空间的和为\直和}
 			[]
 			[]
 
@@ -4936,7 +4942,7 @@
 
 		\begin{prf} 
 		
-			由上一条性质得知, 向量组$\{u_0,u_1,\cdots,u_{d-1}\}$的任何非平凡线性组合非零, 故其线性无关. $\square$
+			由上一条性质得知, 向量组$\{u_0,u_1,\cdots,u_{d-1}\}$的任何非平凡\线性组合 非零, 故其线性无关. $\square$
 		\end{prf}
 		\begin{dfn}
 			[]
@@ -5095,7 +5101,7 @@
 			
 			设$E$中全体幂指数为$k+1$的向量有$s$个, 为$\{\beta_1,\beta_2,\cdots,\beta_s\}$, 全体幂指数为$k$的向量有$t$个, 为$\{\alpha_1,\alpha_2,\cdots,\alpha_t\}$. 
 
-			我们首先证明$s\leq t$: 运用反证法, 若$s>t$, 则有$\{A\beta_1,A\beta_2,\cdots, A\beta_s\}$是线性相关的. 这是因为若它线性无关, 则我们可以通过基扩张定理将其扩张成$\K_n$的一组基, 这与我们之前所说$\K_n$任何一组基中特定幂指数的向量数固定矛盾. 
+			我们首先证明$s\leq t$: 运用反证法, 若$s>t$, 则有$\{A\beta_1,A\beta_2,\cdots, A\beta_s\}$是线性相关的. 这是因为若它线性无关, 则我们可以通过基扩张定理将其扩\张成$\K_n$的一组基, 这与我们之前所说$\K_n$任何一组基中特定幂指数的向量数固定矛盾. 
 			
 			于是$\exists 1\leq i\leq s(A\beta_i =\sum\limits_{j\neq i}k_j A\beta_j)$, 即有$A(\beta_i-\sum\limits_{j\neq i}k_j \beta_j)=\mathbf{0}$, 于是$\beta_i$可以被其他$\beta_j$和$A$的特征向量线性表示, 这与基向量线性无关矛盾. 
 
