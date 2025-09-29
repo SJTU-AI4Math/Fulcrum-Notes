@@ -4453,32 +4453,6 @@
 				(4) \[\forall\bm{x}\in I, f'(x)=-\frac{\dfrac{\partial F}{\partial\bm{x}}(\bm{x},f(\bm{x}))}{\dfrac{\partial F}{\partial y}(\bm{x},f(\bm{x}))}\]
 			\end{thm}
 
-		\subsection{微分 \(1\)-形式}
-
-			\begin{dfn}
-			    []
-			    {余切空间}
-			    [Cotangent Space]
-			    [猫猫]
-				设 \(D\subseteq\R^n\), \(f:\R^n\to\R\), \(\bm{x}_0\in D\), \(\bm{x}_0\) 是 \(D\) 的一个紧致点, \(f\) 在 \(\bm{x}_0\) 处可微, 定义 \(f\) 在 \(\bm{x}_0\) 处的\textbf{余切空间}为 \(T_{\bm{x}_0}\R^n\) 的对偶空间, 记作 \(T^*_{\bm{x}_0}\R^n\). 
-			\end{dfn}
-
-			\begin{dfn}
-			    []
-			    {对偶基}
-			    []
-			    [猫猫]
-				将 \(f\) 在 \(\bm{x}_0\) 处的余切空间在切空间的标准基 \({\{\bm{e}_i\}}_{i=1}^n\) 下的对偶基 \({\{\bm{e}_i\mapsto\delta_i^j\}}_{j=1}^n\) 记作 \({\{\dd(\bm{x}.j)\}}_{j=1}^n\). 
-			\end{dfn}
-
-			\begin{ppt}
-				[]
-				{余切空间元素是微分 \(1\)-形式}
-				[]
-				[猫猫]
-				余切空间中的每个泛函是一个微分 \(1\)-形式. 
-			\end{ppt}
-
 		\subsection{高阶偏导数}
 			
 			\begin{cxmp}
@@ -4577,71 +4551,6 @@
 				设开集 \(D\subseteq\R^m\times\R^n\), \(f:D\to\R\), \(\Phi_i(\bm{x},\bm{y})=0(1\leq i\leq m)\), \(f\) 在 \((\bm{x}_0, \bm{y}_0)\) 处取极值, 则: 
 				\[\exists\bm{\lambda}\in\R^m, F(\bm{x},\bm{y}):=f(\bm{x},\bm{y})+\sum_{i=1}^{m}\bm{\lambda}.i\Phi_i(\bm{x},\bm{y}), \frac{\partial F}{\partial *}(\bm{x}_0,\bm{y}_0)=0\]
 			\end{thm}
-		
-		\subsection{微分 \(k\)-形式}
-
-			\begin{dfn}
-			    []
-			    {外积 / 楔积}
-			    [Wedge Product]
-			    [猫猫]
-				外积是定义在余切空间上的反对称双线性映射, 记作 \(\cdot\wedge\cdot\), 若它满足以下泛性质: 
-
-				(1) 反对称性: 
-				\[\forall \bm{u},\bm{v}\in T^*_{\bm{x}_0}\R^n, \bm{u}\wedge\bm{v}=-\bm{v}\wedge\bm{u}\]
-
-				(2) 双线性性: 
-				\[\forall \bm{u},\bm{v},\bm{w}\in T^*_{\bm{x}_0}\R^n, \forall \alpha,\beta\in\R, \bm{u}\wedge(\alpha\bm{v}+\beta\bm{w})=\alpha(\bm{u}\wedge\bm{v})+\beta(\bm{u}\wedge\bm{w})\]
-
-				(3) 结合性: 
-				\[\forall \bm{u},\bm{v},\bm{w}\in T^*_{\bm{x}_0}\R^n, \bm{u}\wedge(\bm{v}\wedge\bm{w})=(\bm{u}\wedge\bm{v})\wedge\bm{w}\]
-
-				由结合性可归纳地定义多重外积. 
-			\end{dfn}
-
-			\begin{ppt}
-			    []
-			    {外积由泛性质在同构意义下唯一确定}
-			    []
-			    [猫猫]
-				若有两种外积运算 \(\cdot\wedge\cdot\) 和 \(\cdot\wedge'\cdot\), 满足上述泛性质, 则它们在同构意义下相等. 
-			\end{ppt}
-			
-			\begin{ppt}
-				[]
-				{\(1\)-形式与自身的外积为零}
-				[]
-				[猫猫]
-				设 \(\dd(\bm{x}.i)\) 是一个 \(1\)-形式, 则 \(\dd(\bm{x}.i)\wedge\dd(\bm{x}.i)=0\). 
-			\end{ppt}
-
-			\begin{ppt}
-			    []
-			    {多重外积的行列式表示}
-			    []
-			    [猫猫]
-			\end{ppt}
-
-			\begin{dfn}
-			    []
-			    {微分 \(k\)-形式}
-			    [Differential Form]
-			    [猫猫]
-				设 \(k\in\N\), \(f\) 在 \(\bm{x}_0\) 处的一个微分 \(k\) 形式定义为一个对偶基的 \(k\) 重外积的线性组合: 
-				\[\omega=\sum_{i_1<i_2<\cdots<i_k}\omega_{i_1,i_2,\dots,i_k}\dd(\bm{x}.i_1)\wedge\dd(\bm{x}.i_2)\wedge\cdots\wedge\dd(\bm{x}.i_k)\]
-			\end{dfn}
-
-			\begin{dfn}
-			    []
-			    {外微分}
-			    [Exterior Derivative]
-			    [猫猫]
-				设 \(\omega\) 是一个微分 \(k\)-形式, 线性表示为: 
-				\[\omega=\sum_{i_1<i_2<\cdots<i_k}\omega_{i_1,i_2,\dots,i_k}\dd(\bm{x}.i_1)\wedge\dd(\bm{x}.i_2)\wedge\cdots\wedge\dd(\bm{x}.i_k)\]
-
-				定义 \(\omega\) 的\textbf{外微分}为如下一个微分 \((k+1)\)-形式: 
-				\[\dd\omega=\sum_{i_1<i_2<\cdots<i_k}\left(\sum_{j=1}^n\frac{\partial \omega_{i_1,i_2,\dots,i_k}}{\partial \bm{x}.j}\dd(\bm{x}.j)\right)\wedge\dd(\bm{x}.i_1)\wedge\dd(\bm{x}.i_2)\wedge\cdots\wedge\dd(\bm{x}.i_k)\]
-			\end{dfn}
 
 		\subsection{空间曲线描述}
 			
