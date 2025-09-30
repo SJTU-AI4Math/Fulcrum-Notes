@@ -8,7 +8,6 @@
 
 \usepackage{OperatorListCN}
 \usepackage{F4Logic}
-\usepackage{F4Set}
 \usepackage{F4Type}
 \usepackage{F4NumberTheory}
 
@@ -138,13 +137,6 @@
 
             \begin{ppt}
                 []
-                {最大公因数非负}
-                []
-                [猫猫]
-            \end{ppt}
-
-            \begin{ppt}
-                []
                 {}
                 []
                 [猫猫]
@@ -164,17 +156,28 @@
             \end{ppt}
 
             \begin{thm}
-                []
+                [EuclideanAlgorithm]
                 {Euclid 辗转相除法}
-                []
-                [猫猫]
+                [Euclidean algorithm]
+                [白菜]
+                设\(a,b:\mathbb{Z}\), \(a>0,b\geq 0\), 则通过以下递归关系可以计算$\gcd(a,b)$:
+                \[
+                    r_0=a, r_1=b
+                \]
+                对$i=1,2,3,\ldots$ 计算商 $q_{i+1}$和余数$r_{i+1}$ 使得
+                \[
+                    r_{i-1}=r_i\cdot q_{i+1}+r_{i+1}, 0\leq r_{i+1}<r_i
+                \]
+                直到$r_n=0$, 则$\gcd(a,b)=r_{n-1}$.
             \end{thm}
 
             \begin{thm}
-                []
+                [BezoutThm]
                 {Bezout 定理}
                 [Bezout's Theorem]
                 [猫猫]
+                设$a,b:\mathbb{Z}$, 则存在正整数$u,v:\mathbb{Z}$, 使得
+                \[ua+vb=\gcd(a,b)\]
             \end{thm}
 
             \begin{dfn}
@@ -193,20 +196,26 @@
             \end{dfn}
 
             \begin{dfn}
-                []
+                [LCM]
                 {最小公倍数}
                 [Least Common Multiple]
-                [猫猫]
+                [白菜]
+                设$a,b:\mathbb{Z}$, $a\neq 0, b\neq 0$, 定义 $a$ 和 $b$ 的最小公倍数为:
+                $\min\{a\mid d \land b\mid d\}$, 记作 $\lcm(a,b)$.
+                设 $S$ 是 $\mathbb{Z}$ 上的集合, $S\neq \{0\}$, 定义$S$的最小公倍数为:
+                $\min\{d|\forall n\in S, n>0 \land n \mid d \}$, 记作$\lcm S$
             \end{dfn}
 
             \begin{thm}
-                []
+                [MulEqualsGCDLCM]
                 {两数之积等于其最大公因数与最小公倍数之积}
                 []
-                [猫猫]
+                [白菜]
+                设\(a,b:\mathbb{Z}\), 则
+                \[a\cdot b=\gcd(a,b)\cdot \lcm(a,b)\]
             \end{thm}
         
-        \subsection{素数}
+        \subsection{素数与算术基本定理}
         
             \begin{dfn}
                 [Prime]
@@ -224,48 +233,84 @@
                     {\(\exists a, b\in\Z, n=ab \land a\neq 1 \land a\neq n\)}
             \end{dfn}
 
-            \begin{ppt}
-                {}
-                []
-                [猫猫]
-            \end{ppt}
-
-            \begin{ppt}
-                {}
-                []
-                [猫猫]
-                \THM
-                    []
-                    {}
-            \end{ppt}
-
-            \begin{ppt}
-                {Eratosthenes 筛法}
-                []
-                [猫猫]
-            \end{ppt}
-
             \begin{thm}
-                []
+                [PrimeInfinitude]
                 {素数无穷性}
                 [Infinitude of Primes]
                 [猫猫]
-                \THM
-                    {}
-                    {}
+                素数有无穷多个
             \end{thm}
+
+            \begin{ppt}
+                [PrimalityOfMinFactor]
+                {最小正因数的素性}
+                [Primality Of Minimum Factor]
+                [白菜]
+                设\(a:\Z\), \(a>1\), 则 \(a\) 的最小正因数是素数.
+            \end{ppt}
+
+            \begin{ppt}
+                [PrimeFactorLessSqrt]
+                {合数素因子不大于其平方根}
+                []
+                [白菜]
+                设\(a:\Z\), \(a>1\), 若 \(a\) 是合数, 则 \(a\) 的最小素因子不大于 \(\sqrt{a}\).
+            \end{ppt}
+
+            \begin{ppt}
+                [PrimeDividesOrCoprime]
+                {素数必整除一个数, 或与其互素}
+                []
+                [白菜]
+                设\(p, a:\Z\), \(p\) 是素数, 则 \(p\mid a\) 或 \(p\) 与 \(a\) 互素.
+            \end{ppt}
 
             \begin{thm}
                 []
                 {算术基本定理}
                 [Fundamental Theorem of Arithmetic]
                 [猫猫]
+                设\(n:\Z\), \(n>1\), 则 \(n\) 可以唯一分解为素数的乘积, 即
+                \[
+                    n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}
+                \]
+                其中 \(p_1<p_2<\cdots<p_k\) 是素数, \(\alpha_1,\alpha_2,\ldots,\alpha_k\) 是正整数.
             \end{thm}
+
+            \begin{dfn}
+                [pAdicValuationFunction]
+                {p-进赋值函数}
+                []
+                [白菜]
+                \DEF
+                    [ \(p:\Z\), \(p\) 是素数, \(a:\Z\), \(a>0\)]
+                    { \(a\) 的 \(p\)-进赋值}
+                    {\(\max\{k|p^k\mid a \land k\geq 0\}\)}
+                    [ \(v_p(a)\)]
+            \end{dfn}
+
+            \begin{ppt}
+                [GCDLCMUnderPrimeFactor]
+                {素数分解下的最大公因数与最小公倍数}
+                []
+                [白菜]
+                设\(a, b:\Z\), \(a>1, b>1\), 且
+                \[
+                    a=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}
+                \]
+                \[
+                    b=p_1^{\beta_1}p_2^{\beta_2}\cdots p_k^{\beta_k}
+                \]  
+                其中 \(p_1<p_2<\cdots<p_k\) 是素数, \(\alpha_1,\alpha_2,\ldots,\alpha_k\) 和 \(\beta_1,\beta_2,\ldots,\beta_k\) 是非负整数. 则
+                \[\gcd(a,b)=p_1^{\min(\alpha_1,\beta_1)}p_2^{\min(\alpha_2,\beta_2)}\cdots p_k^{\min(\alpha_k,\beta_k)}\]
+                \[\lcm(a,b)=p_1^{\max(\alpha_1,\beta_1)}p_2^{\max(\alpha_2,\beta_2)}\cdots p_k^{\max(\alpha_k,\beta_k)}\]   
+
+            \end{ppt}
 
         \subsection{整数部分}
             
             \begin{dfn}
-                []
+                [GaussFunction]
                 {整数部分 / Gauss 函数}
                 [Gauss Function]
                 [猫猫]
@@ -276,6 +321,55 @@
                     [ \(\lfloor x \rfloor\)]
             \end{dfn}
 
+            \begin{dfn}
+                [FractionalPart]
+                {小数部分}
+                []
+                [猫猫]
+                \DEF
+                    [ \(x:\R\)]
+                    { \(x\) 的小数部分}
+                    {\(x - \lfloor x \rfloor\)}
+                    [ \(\{ x \}\)]
+            \end{dfn}
+            
+            \begin{ppt}
+                [DivisionWithRemainderUnderGaussFunction]
+                {Gauss函数意义下的带余除法}
+                []
+                [白菜]
+                设\(a, b:\Z\), \(b>0\), 则
+                \[a=b\lfloor \frac{a}{b} \rfloor + b\{\frac{a}{b}\}\]
+            \end{ppt}
+
+            \begin{thm}
+                [LegendreFormula]
+                {勒让德公式}
+                [Legendre's Formula]
+                [白菜]
+                设\(n, p:\Z\), \(n\geq 0\), \(p\) 是素数, 则
+                \[v_p(n!)=\sum_{i=1}^{\infty}\lfloor\frac{n}{p^i}\rfloor\]
+            \end{thm}
+
+            \begin{crl}
+                [SimplifiedLegendreFormula]
+                {勒让德公式的化简表示}
+                []
+                [白菜]
+                设\(n, p:\Z\), \(n\geq 0\), \(p\) 是素数, 则
+                \[v_p(n!)=\frac{n-s_p(n)}{p-1}\]
+                其中 \(s_p(n)\) 是 \(n\) 的 \(p\) 进制表示下各位数字之和.
+            \end{crl}
+
+            \begin{crl}
+                [CombinationIsInteger]
+                {组合数为整数}
+                []
+                [白菜]
+                设\(n, k:\Z\), \(n\geq 0\), \(0\leq k\leq n\), 则组合数
+                \[\binom{n}{k}=\frac{n!}{k!(n-k)!}\]
+                是整数.
+            \end{crl}
     \section{不定方程}
         
         \subsection{二元一次不定方程}

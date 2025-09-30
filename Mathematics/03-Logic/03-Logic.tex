@@ -4,7 +4,9 @@
 \def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
 \makeatother
 
-\usepackage{FulcrumHabitCN}
+\usepackage{FulcrumCN}
+\usepackage{OperatorListCN}
+\usepackage{F4Logic}
 
 % margin
 \usepackage{geometry}
@@ -33,15 +35,14 @@
         \subsection{命题逻辑}
 
             \begin{dfn}
-                []
+                [Proposition]
                 {命题}
                 [Proposition]
-                [猫猫]
-                元对象, 称为\textbf{命题}. 
+                [猫猫]*
             \end{dfn}
 
             \begin{dfn}
-                []
+                [Truth-Value]
                 {真值}
                 [Truth Value]
                 [猫猫]
@@ -53,7 +54,7 @@
             \end{dfn}
 
             \begin{dfn}
-                []
+                [Truth-Assignment]
                 {真值指派}
                 [Truth Assignment]
                 [猫猫]
@@ -69,7 +70,7 @@
             \end{dfn}
 
             \begin{dfn}
-                []
+                [Logical-Equivalence]
                 {逻辑等价}
                 [Logically Equivalent]
                 [猫猫]
@@ -91,13 +92,16 @@
                 设 \(\Phi\) 是命题集合, \(\varphi\) 是命题, 称 \(\varphi\) 是 \(\phi\) 的\textbf{语义后承}, 记作 \(\Phi\models\varphi\), 当且仅当: 对任意真值指派 \(\mathcal{J}\), 若 \(\Phi\) 中的每个命题在 \(\mathcal{J}\) 指派下均为真, 则 \(\assign{\varphi}{\mathcal{J}}=\LT\).  
             \end{dfn}
 
-            \begin{dfn}
-                []
+            \begin{rul}
+                [Conjunction]
                 {合取}
                 [Conjunction]
-                [猫猫]
-                设 \(p\), \(q\) 是命题, 则 \(p \land q\) 是命题, 称为命题 \(p\) 与 \(q\) 的\textbf{合取}. 
+                [猫猫]*
+                \[\frac{p\quad q}{p\land q}(\land I)\]
+            \end{rul}
 
+            \begin{rmk}
+                [猫猫]
                 命题 \(p\land q\) 在 \(\{p,q\}\) 上的真值指派 \(\mathcal{J}\) 由以下真值表定义: 
                 \begin{center}
                 \begin{tabular}{|c|c|c|}
@@ -111,11 +115,10 @@
                     \hline
                 \end{tabular}
                 \end{center}
-
-            \end{dfn}
+            \end{rmk}
 
             \begin{dfn}
-                []
+                [Disjunction]
                 {析取}
                 [Disjunction]
                 [猫猫]
@@ -137,7 +140,7 @@
             \end{dfn}
 
             \begin{dfn}
-                []
+                [Negation]
                 {否定}
                 [Negation]
                 [猫猫]
