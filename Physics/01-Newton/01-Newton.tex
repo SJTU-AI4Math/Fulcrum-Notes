@@ -1,257 +1,15 @@
 \documentclass[UTF8]{ctexart}
 
 \makeatletter
-\def\input@path{{Fulcrum-Template/}{Fulcrum-Template/OperatorList/}}
+\def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
 \makeatother
 
-% ams package
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsmath}
+\usepackage{FulcrumCN}
+\usepackage{OperatorListCN}
+\usepackage{F4Physics}
 
 % margin
 \usepackage{geometry}
-
-% \dd
-\usepackage{physics}
-
-% Boldface
-\usepackage{bm}
-
-% Tikz
-\usepackage{tikz}
-\usetikzlibrary{calc}
-
-% Gaussian Elimination
-\usepackage{gauss}
-
-% Commutative Graph
-\usepackage[all]{xy}
-
-% Comment
-\usepackage{comment}
-
-\title{Title}
-\author{Fulcrum4Math}
-\date{\today}
-
-% General
-\DeclareMathOperator{\N}{\mathbb{N}}                    % Set of Natural Numbers
-\DeclareMathOperator{\Z}{\mathbb{Z}}                    % Set of Integers
-\DeclareMathOperator{\Q}{\mathbb{Q}}                    % Set of Rational Numbers
-\DeclareMathOperator{\R}{\mathbb{R}}                    % Set of Real Numbers
-\DeclareMathOperator{\C}{\mathbb{C}}                    % Set of Complex Numbers
-
-\DeclareMathOperator{\Id}{Id}                           % Identity
-
-\DeclareMathOperator{\Ker}{Ker}                         % Kernel of a Homomorphism
-\DeclareMathOperator{\Image}{Im}                        % Image of a mapping
-
-% Set Theory
-\DeclareMathOperator{\PP}{\mathcal{P}}                  % Power Sets
-\DeclareMathOperator{\card}{card}                       % Cardinality
-
-% Category Theory
-\DeclareMathOperator{\Cat}{\mathcal{C}}                 % Category
-
-\DeclareMathOperator{\Hom}{Hom}                         % Set of Homomorphisms
-\DeclareMathOperator{\End}{End}                         % Set of Endomorphisms
-\DeclareMathOperator{\Aut}{Aut}                         % Set of Automorphisms
-\DeclareMathOperator{\Isom}{Isom}                       % Set of Isomorphisms
-
-% Topology
-\DeclareMathOperator{\T}{\mathcal{T}}                   % Topology
-
-\DeclareMathOperator{\intr}{int}                        % Interior
-\DeclareMathOperator{\cl}{cl}                           % Closure
-
-\DeclareMathOperator{\U}{\overset{\circ}{\mathit{U}}}   % Deleted Neighbourhood
-
-% Linear Algebra
-\DeclareMathOperator{\K}{\mathbb{K}}                    % Number Field
-\DeclareMathOperator{\F}{\mathbb{F}}                    % Number Field (F)
-
-\DeclareMathOperator{\al}{\bm\alpha}                    % Boldfaced vector alpha
-\DeclareMathOperator{\bt}{\bm\beta}                     % Boldfaced vector beta
-\DeclareMathOperator{\x}{\bm{x}}                        % Boldfaced vector x
-
-% \DeclareMathOperator{\A}{\bm{A}}                    % Boldfaced matrix A
-% \DeclareMathOperator{\B}{\bm{B}}                    % Boldfaced matrix B
-% \DeclareMathOperator{\Cc}{\bm{C}}                   % Boldfaced matrix C
-
-\DeclareMathOperator{\CCol}{Col}                        % Column Space
-\DeclareMathOperator{\RRow}{Row}                        % Row Space
-\DeclareMathOperator{\Null}{Null}                       % Null Space
-
-\renewcommand{\span}{\mathrm{span}\text{ }}             % Span
-
-\DeclareMathOperator{\diag}{diag}                       % Diagonal Matrix
-
-\newcommand{\<}{\langle}                                
-\renewcommand{\>}{\rangle}                              % These two for ordinary Hilbert Inner Products <x,y>
-\newcommand{\inprod}[2]{\<#1,#2\>}
-\newcommand{\ocinterval}[2]{(#1,#2]}
-\newcommand{\cointerval}[2]{[#1,#2)}
-\newcommand{\ccinterval}[2]{[#1,#2]}
-\newcommand{\oointerval}[2]{(#1,#2)}
-
-% Mathematical Analysis
-
-\DeclareMathOperator*{\ulim}{\overline{\lim}}
-\DeclareMathOperator*{\llim}{\underline{\lim}}
-\newcommand{\diff}[3]{\left. #1 \right|_{#2}^{#3}}
-
-\newcommand{\Ball}[2]{\mathcal{B}\left(#1,#2\right)}	% Open Ball
-
-% Theorem template below copied from https://zhuanlan.zhihu.com/p/763738880
-
-% ————————————————————————————————————自定义颜色————————————————————————————————————
-\definecolor{dfn_green1}{RGB}{0, 156, 39} % 深绿
-\definecolor{dfn_green2}{RGB}{214, 254, 224} % 浅绿
-
-\definecolor{thm_blue1}{RGB}{0, 91, 156} % 深蓝
-\definecolor{thm_blue2}{RGB}{218, 240, 255} % 浅蓝
-
-\definecolor{ppt_pink1}{RGB}{172, 0, 175} % 深粉
-\definecolor{ppt_pink2}{RGB}{255, 237, 255} % 浅粉
-
-\definecolor{crl_orange1}{RGB}{225, 124, 0} % 深橙
-\definecolor{crl_orange2}{RGB}{255, 235, 210} % 浅橙
-
-\definecolor{xmp_purple1}{RGB}{119, 0, 229} % 深紫
-\definecolor{xmp_purple2}{RGB}{239, 223, 255} % 浅紫
-
-\definecolor{cxmp_red1}{RGB}{211, 0, 35} % 深红
-\definecolor{cxmp_red2}{RGB}{255, 214, 220} % 浅红
-
-\definecolor{prf_grey1}{RGB}{120, 120, 120} % 深灰
-\definecolor{prf_grey2}{RGB}{233, 233, 233} % 浅灰
-
-\definecolor{axm_yellow1}{RGB}{192, 192, 0} % 深黄
-\definecolor{axm_yellow2}{RGB}{255, 255, 172} % 浅黄
-
-% 将RGB换为rgb，颜色数值取值范围改为0到1
-% ————————————————————————————————————自定义颜色————————————————————————————————————
-
-% ————————————————————————————————————盒子设置————————————————————————————————————
-
-\usepackage{tcolorbox} % 盒子效果
-\tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
-
-% tolorbox提供了tcolorbox环境，其格式如下：
-% 第一种格式：\begin{tcolorbox}[colback=⟨背景色⟩, colframe=⟨框线色⟩, arc=⟨转角弧度半径⟩, boxrule=⟨框线粗⟩]   \end{tcolorbox}
-% 其中设置arc=0mm可得到直角；boxrule可换为toprule/bottomrule/leftrule/rightrule可分别设置对应边宽度，但是设置为0mm时仍有细边，若要绘制单边框线推荐使用第二种格式
-% 方括号内加上title=⟨标题⟩, titlerule=⟨标题背景线粗⟩, colbacktitle=⟨标题背景线色⟩可为盒子加上标题及其背景线
-% 第二种格式：\begin{tcolorbox}[enhanced, colback=⟨背景色⟩, boxrule=0pt, frame hidden, borderline={⟨框线粗⟩}{⟨偏移量⟩}{⟨框线色⟩}]   {\end{tcolorbox}}
-% 将borderline换为borderline east/borderline west/borderline north/borderline south可分别为四边添加框线，同一边可以添加多条
-% 加入breakable属性可以支持盒子拆分到两页中。
-% 偏移量为正值时，框线向盒子内部移动相应距离，负值反之
-
-\newenvironment{dfn_box}{
-    \begin{tcolorbox}[enhanced, colback=dfn_green2, boxrule=0pt, frame hidden,
-        borderline west={0.7mm}{0.1mm}{dfn_green1},breakable]
-    }
-    {\end{tcolorbox}}
-    
-\newenvironment{axm_box}{
-    \begin{tcolorbox}[enhanced, colback=axm_yellow2, boxrule=0pt, frame hidden,
-        borderline west={0.7mm}{0.1mm}{axm_yellow1},breakable]
-    }
-    {\end{tcolorbox}}
-    
-\newenvironment{thm_box}{
-    \begin{tcolorbox}[enhanced, colback=thm_blue2, boxrule=0pt, frame hidden,
-        borderline west={0.7mm}{0.1mm}{thm_blue1},breakable]
-    }
-    {\end{tcolorbox}}
-    
-\newenvironment{ppt_box}{
-    \begin{tcolorbox}[enhanced, colback=ppt_pink2, boxrule=0pt, frame hidden,
-        borderline west={0.7mm}{0.1mm}{ppt_pink1},breakable]
-    }
-    {\end{tcolorbox}}
-    
-\newenvironment{xmp_box}{
-    \begin{tcolorbox}[enhanced, colback=xmp_purple2, boxrule=0pt, frame hidden,
-        borderline west={0.7mm}{0.1mm}{xmp_purple1},breakable]
-    }
-    {\end{tcolorbox}}
-    
-\newenvironment{prf_box}{
-    \begin{tcolorbox}[enhanced, colback=prf_grey2, boxrule=0pt, frame hidden,
-        borderline west={0.7mm}{0.1mm}{prf_grey1},breakable]
-    }
-    {\end{tcolorbox}}
-
-% tcolorbox宏包还提供了\tcbox指令，用于生成行内盒子，可制作高光效果
-
-        % \newcommand{\hl}[1]{
-        %     \tcbox[on line, arc=0pt, colback=hlan!5!white, colframe=hlan!5!white, boxsep=1pt, left=1pt, right=1pt, top=1.5pt, bottom=1.5pt, boxrule=0pt]
-        % {\bfseries \color{hlan}#1}}
-        
-% 其中on line将盒子放置在本行（缺失会跳到下一行），boxsep用于控制文本内容和边框的距离，left、right、top、bottom则分别在boxsep的参数的基础上分别控制四边距离
-% ————————————————————————————————————盒子设置————————————————————————————————————
-
-% ————————————————————————————————————定理类环境设置————————————————————————————————————
-\newtheoremstyle{MyStyle}{0pt}{}{}{\parindent}{\bfseries}{}{1em}{} % 定义新定理风格。格式如下：
-%\newtheoremstyle{⟨风格名⟩}
-%                {⟨上方间距⟩} % 若留空，则使用默认值
-%                {⟨下方间距⟩} % 若留空，则使用默认值
-%                {⟨主体字体⟩} % 如 \itshape
-%                {⟨缩进长度⟩} % 若留空，则无缩进；可以使用 \parindent 进行正常段落缩进
-%                {⟨定理头字体⟩} % 如 \bfseries
-%                {⟨定理头后的标点符号⟩} % 如点号、冒号
-%                {⟨定理头后的间距⟩} % 不可留空，若设置为 { }，则表示正常词间间距；若设置为 {\newline}，则环境内容开启新行
-%                {⟨定理头格式指定⟩} % 一般留空
-% 定理风格决定着由 \newtheorem 定义的环境的具体格式，有三种定理风格是预定义的，它们分别是：
-% plain: 环境内容使用意大利斜体，环境上下方添加额外间距
-% definition: 环境内容使用罗马正体，环境上下方添加额外间距
-% remark: 环境内容使用罗马正体，环境上下方不添加额外间距
-\theoremstyle{MyStyle} % 设置定理风格 
-
-% 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
-
-\newtheorem{definition}{概念}[subsection]
-\newenvironment{cpt}{\begin{dfn_box}\begin{definition}}{\end{definition}\end{dfn_box}}
-
-\newtheorem{axm}[definition]{定律}
-\newenvironment{thr}{\begin{axm_box}\begin{axm}}{\end{axm}\end{axm_box}}
-
-\newtheorem{theorem}[definition]{定理}
-\newenvironment{thm}{\begin{thm_box}\begin{theorem}}{\end{theorem}\end{thm_box}}
-
-\newtheorem{property}{性质}[definition]
-\newenvironment{ppt}{\begin{ppt_box}\begin{property}}{\end{property}\end{ppt_box}}
-
-\newtheorem{example}{例}[definition]
-\newenvironment{xmp}{\begin{xmp_box}\begin{example}}{\end{example}\end{xmp_box}}
-
-\newtheorem*{myproof}{推导: \newline}
-\newenvironment{prf}{\begin{prf_box}\begin{myproof}}{\end{myproof}\end{prf_box}}
-
-% ————————————————————————————————————定理类环境设置————————————————————————————————————
-    % \newtheorem{xmp}{例}[subsection]
-    % \newtheorem{thm}{定理}[subsection]
-    % \newtheorem{crl}{推论}[thm]
-    % \newtheorem{dfn}[thm]{定义}
-    % \newtheorem{ppt}{性质}[thm]
-    % \newtheorem{lma}[thm]{引理}
-    % \newtheorem{axm}{公理}
-    % \newtheorem{pbm}{题}
-    % \newtheorem*{prf}{证明}
-    % \newtheorem*{ans}{解答}
-
-    % \newtheorem{dfn}{Definition}
-    % \newtheorem{thm}{Theorem}
-    % \newtheorem{lma}{Lemma}
-    % \newtheorem{axm}{Axiom}
-    % \newtheorem{pbm}{Problem}
-    % \newtheorem*{prf}{Proof}
-    % \newtheorem*{ans}{Answer}
-    % English Version
-% ------------------******-------------------
-
 \geometry{
     paper =a4paper,
     top =3cm,
@@ -259,22 +17,12 @@
     left=2cm,
     right =2cm
 }
-
 \linespread{1.2}
-
-\DeclareMathOperator{\kg}{\mathrm{kg}}
-\DeclareMathOperator{\m}{\mathrm{m}}
-\DeclareMathOperator{\s}{\mathrm{s}}
 \DeclareMathOperator{\J}{\mathrm{J}}
 \DeclareMathOperator{\New}{\mathrm{N}}
-\DeclareMathOperator{\mol}{\mathrm{mol}}
 \DeclareMathOperator{\Pa}{\mathrm{Pa}}
 \DeclareMathOperator{\Ltr}{\mathrm{L}}
 \DeclareMathOperator{\Kv}{\mathrm{K}}
-
-\DeclareMathOperator{\ihat}{\bm{\hat{\imath}}}
-\DeclareMathOperator{\jhat}{\bm{\hat{\jmath}}}
-\DeclareMathOperator{\khat}{\bm{\hat{\mathit{k}}}}
 
 \begin{document}
 
@@ -283,13 +31,35 @@
     {\LARGE 经典力学笔记}
 \end{center}
 
+\section{物理量}
+
+    \subsection{物理量}
+
+        \begin{dfn}
+            []
+            {量纲}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{str}
+            []
+            {物理量}
+            []
+            [猫猫]
+        \end{str}
+
+    \subsection{世界模型}
+
 \section{质点运动学}
 
     \subsection{质点运动的描述}
         
-        \begin{cpt}
-            \textbf{参考系 (Reference Frame)}
-
+        \begin{dfn}
+            []
+            {参考系}
+            [Reference Frame]
+            [猫猫]
             用来描述物体运动而选作为"静止"的参考标准. 
         
             惯性系
@@ -321,116 +91,154 @@
                     其中 $(\rho,\theta)$ 构成二维平面上的极坐标系. 
         
                 自然坐标系
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{位矢 (Position Vector)}
-
+        \begin{dfn}
+            []
+            {位矢}
+            [Position Vector]
+            [猫猫]
             某一参考系的元素, 记为 \(\bm{r}\). 
 
             一段连续的时间间隔 \(T\) 内位矢变化量称为\textbf{位移 (Displacement)}, 记为 \(\Delta\bm{r}_T\). 
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{质量 (Mass)}
-
+        \begin{dfn}
+            []
+            {质量}
+            [Mass]
+            [猫猫]
             记为 \(m\). 
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{质点 (Mass Point)}
-
+        \begin{dfn}
+            []
+            {质点}
+            [Mass Point]
+            [猫猫]
             质点是在时间参量下由质量和位矢构造而成的物理对象. 
             \[P=t\mapsto(m,\bm{r})\]
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{平均速度 (Average Velocity)}
-
+        \begin{dfn}
+            []
+            {平均速度}
+            [Average Velocity]
+            [猫猫]
             质点在一段连续的时间间隔 \(T\) 内的\textbf{平均速度}定义为位移与时间间隔长度之比, 记为 \(\bar{\bm{v}}_T\): 
             \[\bar{\bm{v}}_T:=\frac{\Delta\bm{r}}{T}\]
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{瞬时速度 (Instantaneous Velocity)}
+        \begin{dfn}
+            []
+            {瞬时速度}
+            [Instantaneous Velocity]
+            [猫猫]
             \[\bm{v}=\lim_{\Delta t\to 0+}\frac{\Delta\bm{r}}{\Delta t}=\frac{\dd}{\dd t}\bm{r}\]
 
             * \textit{常简称\textbf{速度}, 一般情况下不特别指明``平均''即为瞬时速度. }
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{加速度 (Acceleration)}
+        \begin{dfn}
+            {加速度}
+            [Acceleration]
+            [猫猫]
             \[\bm{a}=\lim_{\Delta t\to 0+}\frac{\Delta\bm{v}}{\Delta t}=\frac{\dd}{\dd t}\bm{v}\]
             \[\Delta\bm{v}=\int_T \bm{v}\dd t\]
 
             * \textit{常简称\textbf{加速度}, 一般情况下不特别指明``平均''即为瞬时加速度. }
-        \end{cpt}
+        \end{dfn}
 
     \subsection{牛顿运动定律}
         
-        \begin{cpt}
-            \textbf{力 (Force)}
-
+        \begin{dfn}
+            []
+            {力}
+            [Force]
+            [猫猫]
             质点对另一质点施加作用, 使其改变运动状态的物理量称为\textbf{力}, 记为 \(\bm{F}\). 
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{惯性系 (Inertial Frame) 与 Newton 第一定律 (Newton's First Law)}
-
+        \begin{dfn}
+            []
+            {惯性系}
+            [Inertial Frame]
+            [猫猫]
             质点在不受任何外力作用时, 其运动状态保持不变的参考系称为\textbf{惯性系}. 
 
             上述性质也称为\textbf{Newton 第一定律}. 
-        \end{cpt}
+        \end{dfn}
         
-        \begin{thr}
-            \textbf{Newton 第二定律 (Newton's Second Law)}
+        \begin{axm}
+            []
+            {Newton 第二定律}
+            [Newton's Second Law]
+            [猫猫]
             \[\bm{F}=m\bm{a}\]
-        \end{thr}
+        \end{axm}
         
-        \begin{thr}
-            \textbf{Newton 第三定律 (Newton's Third Law)}
+        \begin{axm}
+            []
+            {Newton 第三定律}
+            [Newton's Third Law]
+            [猫猫]
             \[\bm{F}_{12}=-\bm{F}_{21}\]
-        \end{thr}
+        \end{axm}
         
-        \begin{thr}
-            \textbf{Galileo 变换 (Galilean Transformation) 与力学相对性原理}
-
+        \begin{axm}
+            []
+            {Galileo 变换}
+            [Galilean Transformation]
+            [猫猫]
             将一惯性系映射到另一惯性系的变换称为\textbf{Galileo 变换}. 
 
             一切惯性系在力学上等价. 
-        \end{thr}
+        \end{axm}
 
     \subsection{常见力}
         
-        \begin{thr}
-            \textbf{万有引力 (Gravitational Force)}
+        \begin{axm}
+            []
+            {万有引力}
+            [Gravitational Force]
+            [猫猫]
             \[\bm{F}=-\frac{GMm}{r^3}\cdot\bm{r}\]
             \[\|\bm{F}\|=\frac{GMm}{r^2}\]
-        \end{thr}
+        \end{axm}
         
-        \begin{thr}
-            \textbf{弹力 (Elastic Force)}
+        \begin{axm}
+            []
+            {弹力}
+            [Elastic Force]
+            [猫猫]
             \[\bm{F}-k\bm{x}\]
-        \end{thr}
+        \end{axm}
         
-        \begin{thr}
-            \textbf{摩擦力 (Frictional Force)}
+        \begin{axm}
+            []
+            {摩擦力}
+            [Frictional Force]
+            [猫猫]
             \[\|\bm{f}\|=\mu N\]
-        \end{thr}
+        \end{axm}
 
     \subsection{非惯性系}
 
     \subsection{质点系运动学}
         
-        \begin{cpt}
-            \textbf{质点系 (Mass System)}
-
+        \begin{dfn}
+            []
+            {质点系}
+            [Mass System]
+            [猫猫]
             同一参考系下质点的集合称为\textbf{质点系}. 
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{质心 (Center of Mass)}
-
+        \begin{dfn}
+            []
+            {质心}
+            [Center of Mass]
+            [猫猫]
             离散质点系\(X\)的\textbf{质心}定义为如下质点: 
             \[m_C=\sum_{x\in X}m_X\]
             \[\bm{r}_C=\frac{\sum\limits_{x\in X}m_x\bm{r}_x}{m_C}\]
@@ -438,11 +246,13 @@
             连续质点系\(X\)的\textbf{质心}定义为如下质点:
             \[m_C=\int_X\dd m\]
             \[\bm{r}_C=\frac{\int_X\bm{r}\dd m}{m_C}\]
-        \end{cpt}
+        \end{dfn}
         
         \begin{thm}
-            \textbf{质心运动定理}
-
+            []
+            {质心运动定理}
+            []
+            [猫猫]
             质心运动状态只与外力有关, 且符合牛顿第二定律: 
             \[\bm{F}=m_C\bm{a}_C\]
         \end{thm}
@@ -451,38 +261,50 @@
 
     \subsection{功与动能定理}
         
-        \begin{cpt}
-            \textbf{功 (Work)}
-
+        \begin{dfn}
+            []
+            {功}
+            [Work]
+            [猫猫]
             力对质点在一段路程 \(L\) 上做的\textbf{功}定义为: 
             \[W=\int_L\bm{F}\cdot\dd\bm{r}\]
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{功率 (Power)}
-
+        \begin{dfn}
+            []
+            {功率}
+            [Power]
+            [猫猫]
             \[P=\frac{\dd W}{\dd t}=\bm{F}\cdot\bm{v}\]
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{动能 (Kinetic Energy)}
-
+        \begin{dfn}
+            []
+            {动能}
+            [Kinetic Energy]
+            [猫猫]
             质点的\textbf{动能}定义为: 
             \[E_k=\frac{1}{2}m\bm{v}^2\]
 
             动能与参考系有关. 
-        \end{cpt}
+        \end{dfn}
         
         \begin{thm}
-            \textbf{动能定理 (Work-Energy Theorem)}
-
+            []
+            {动能定理}
+            [Work-Energy Theorem]
+            [猫猫]
             力对质点在一段路程 \(L\) 上做功等于其动能变化量: 
             \[\Delta E_k|_{x\in L}=W_L\]
         \end{thm}
         
-        \begin{cpt}
-            保守力
-        \end{cpt}
+        \begin{dfn}
+            []
+            {保守力}
+            [Conservative Force]
+            [猫猫]
+            保守力是指力的做功只与物体的初末位置有关, 与路径无关的力. 
+        \end{dfn}
     
     \subsection{内力做功}
         
@@ -491,48 +313,66 @@
 
     \subsection{动量与冲量}
         
-        \begin{cpt}
-            \textbf{动量 (Momentum)}
+        \begin{dfn}
+            []
+            {动量}
+            [Momentum]
+            [猫猫]
             \[\bm{p}=m\bm{v}\]
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{冲量 (Impulse)}
+        \begin{dfn}
+            []
+            {冲量}
+            [Impulse]
+            [猫猫]
             \[\bm{I}=\int_T\bm{F}\dd t\]
-        \end{cpt}
+        \end{dfn}
         
         \begin{thm}
-            \textbf{动量守恒定理 (Conservation of Momentum)}
+            []
+            {动量守恒定理}
+            [Conservation of Momentum]
+            [猫猫]
         \end{thm}
     
     \subsection{碰撞问题}
         
-        \begin{cpt}
-            \textbf{恢复系数 (Coefficient of Restitution)}
+        \begin{dfn}
+            []
+            {恢复系数}
+            [Coefficient of Restitution]
+            [猫猫]
             \[e=\frac{\bm{v}_2'-\bm{v}_1'}{\bm{v}_1-\bm{v}_2}\]
 
             \(e=0\) 时称为\textbf{完全非弹性碰撞}, \(e=1\) 时称为\textbf{完全弹性碰撞}, \(0<e<1\) 时称为\textbf{非弹性碰撞}. 
-        \end{cpt}
+        \end{dfn}
 
     \subsection{力矩, 冲量矩与角动量}
         
-        \begin{cpt}
-            \textbf{力矩 (Torque)}
-
+        \begin{dfn}
+            []
+            {力矩}
+            [Torque]
+            [猫猫]
             力对质点关于位矢 \(\bm{r}_0\) 的\textbf{力矩}定义为: 
             \[\bm{M}=(\bm{r}-\bm{r}_0)\times\bm{F}\]
-        \end{cpt}
+        \end{dfn}
         
-        \begin{cpt}
-            \textbf{角动量 (Angular Momentum)}
-
+        \begin{dfn}
+            []
+            {角动量}
+            [Angular Momentum]
+            [猫猫]
             质点关于位矢 \(\bm{r}_0\) 的\textbf{角动量}定义为: 
             \[\bm{L}=(\bm{r}-\bm{r}_0)\times\bm{p}\]
-        \end{cpt}
+        \end{dfn}
         
         \begin{thm}
-            \textbf{角动量守恒定理 (Conservation of Angular Momentum)}
-
+            []
+            {角动量守恒定理}
+            [Conservation of Angular Momentum]
+            [猫猫]
             在无外力矩作用下, 质点的角动量守恒: 
             \[\bm{L}_1=\bm{L}_2\]
         \end{thm}
@@ -541,9 +381,11 @@
     
         \subsection{刚体的定义与性质}
             
-            \begin{cpt}
-                \textbf{刚体 (Rigid Body)}
-    
+            \begin{dfn}
+                []
+                {刚体}
+                [Rigid Body]
+                [猫猫]
                 各质点间的相对位置不发生变化的质点系称为\textbf{刚体}: 
                 \[\text{Rigid}:X\mapsto\forall t_1, t_2\in T, 
                 \begin{cases}
@@ -551,56 +393,63 @@
                     \forall x_1,x_2,x_3,x_4\in X, \det(D)(t_1)\cdot\det(D)(t_2)\geq 0
                 \end{cases}\]
                 \[(D:=[x_4.\bm{r}-x_1.\bm{r}, x_3.\bm{r}-x_1.\bm{r}, x_2.\bm{r}-x_1.\bm{r}])\] 
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{角速度 (Angular Velocity)}
-
+            \begin{dfn}
+                []
+                {角速度}
+                [Angular Velocity]
+                [猫猫]
                 \[\bm{\omega}=\frac{\dd\varphi}{\dd t}\cdot\ihat\]
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{角加速度 (Angular Acceleration)}
+            \begin{dfn}
+                []
+                {角加速度}
+                [Angular Acceleration]
+                [猫猫]
                 \[\bm{\beta}=\frac{\dd\bm{\omega}}{\dd t}\]
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{转动惯量}
+            \begin{dfn}
+                []
+                {转动惯量}
+                [Moment of Inertia]
+                [猫猫]
                 \[J=\sum_{x\in X}\Delta m_x r_x^=2=\int_{x\in X}r_x^2\dd m_x\]
-            \end{cpt}
+            \end{dfn}
             
             \begin{xmp}
-                \textbf{均质球体关于直径的转动惯量}
+                {均质球体关于直径的转动惯量}
                 \[J=\frac{2}{5}mR^2\]
             \end{xmp}
             
             \begin{xmp}
-                \textbf{均质滑轮关于轴线的转动惯量}
+                {均质滑轮关于轴线的转动惯量}
                 \[J=\frac{1}{2}mR^2\]
             \end{xmp}
             
             \begin{xmp}
-                \textbf{均质圆环关于轴线的转动惯量}
+                {均质圆环关于轴线的转动惯量}
                 \[J=\frac{1}{2}mR^2\]
             \end{xmp}
             
             \begin{xmp}
-                \textbf{均质杆关于端点的转动惯量}
+                {均质杆关于端点的转动惯量}
                 \[J=\frac{1}{3}mL^2\]
             \end{xmp}
             
-            \begin{cpt}
-                \textbf{转动动能 (Rotational Kinetic Energy)}
-            \end{cpt}
+            \begin{dfn}
+                {转动动能 (Rotational Kinetic Energy)}
+            \end{dfn}
             
             \begin{thm}
-                \textbf{转动动能计算公式}
+                {转动动能计算公式}
                 \[E_{k,\text{rot}}=\frac{1}{2}J\bm{\omega}^2\]
             \end{thm}
             
             \begin{thm}
-                \textbf{刚体定轴转动动能定理}
-
+                {刚体定轴转动动能定理}
                 刚体合外力矩做功等于转动动能变化量
             \end{thm}
 
@@ -608,115 +457,106 @@
 
         \subsection{简谐振动}
             
-            \begin{cpt}
-                \textbf{简谐振动 (Simple Harmonic Motion)}
-
+            \begin{dfn}
+                []
+                {简谐振动}
+                [Simple Harmonic Motion]
+                [猫猫]
                 称质点作\textbf{简谐运动}, 若在\textbf{回复力系数} \(k\) 下, 其受力情况关于某一位矢 \(\bm{r}_0\) 满足: 
                 \[\bm{F}=-k(\bm{r}-\bm{r}_0)\]
-            \end{cpt}
+            \end{dfn}
             
             \begin{thm}
-                \textbf{简谐振动的位移函数是正弦函数}
-
+                {简谐振动的位移函数是正弦函数}
                 若质点作简谐振动, 则可用正弦函数表达: 
                 \[x=A\sin(\omega t+\varphi)\]
             \end{thm}
             
-            \begin{cpt}
-                \textbf{角频率 / 圆频率}
-
+            \begin{dfn}
+                {角频率 / 圆频率}
                 简谐振动的\textbf{角频率}定义为上式中的 \(\omega\). 
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{固有圆频率}
-
+            \begin{dfn}
+                {固有圆频率}
                 简谐振动的\textbf{固有圆频率}定义为: 
                 \[\omega_0:=\sqrt{\frac{k}{m}}\]
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{周期}
-
+            \begin{dfn}
+                {周期}
                 简谐振动的\textbf{周期}定义为位移函数的一个完整周期, 记为 \(T\). 
                 \[T:=\frac{2\pi}{\omega}\]
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{频率}
-
+            \begin{dfn}
+                {频率}
                 简谐振动的\textbf{频率}定义为周期的倒数, 记为 \(f\). 
                 \[f:=\frac{1}{T}=\frac{\omega}{2\pi}\]
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{振幅}
-
+            \begin{dfn}
+                {振幅}
                 简谐振动的\textbf{振幅}定义为位移函数的最大值, 记为 \(A\). 
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{相位}
-
+            \begin{dfn}
+                {相位}
                 简谐振动的\textbf{相位}函数, 记为 \(\Phi\), 定义为: 
                 \[\Phi(t):=\omega t+\varphi\]
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{初相位}
-
+            \begin{dfn}
+                {初相位}
                 简谐振动的\textbf{初相位}定义为 \(\Phi(0)\), 记作 \(\varphi\). 
-            \end{cpt}
+            \end{dfn}
             
             \begin{ppt}
-                \textbf{初相位由初始运动状态决定}
+                {初相位由初始运动状态决定}
                 \[\tan\varphi=-\frac{v_0}{\omega x_0}\]
             \end{ppt}
 
         \subsection{阻尼振动}
             
-            \begin{cpt}
-                \textbf{线性阻尼}
-
+            \begin{dfn}
+                {线性阻尼}
                 设取值为正的物理量 \(\gamma\), 在机械振动中, 满足以下条件的力称为阻尼: 
                 \[\bm{f}:=-\gamma\bm{v}\]
-            \end{cpt}
+            \end{dfn}
             
-            \begin{cpt}
-                \textbf{阻尼系数}
-
+            \begin{dfn}
+                {阻尼系数}
                 线性阻尼的\textbf{阻尼系数}定义为 \(\gamma\) 与质量之比的一半, 记作 \(\beta\): 
                 \[\beta:=\frac{\gamma}{2m}\]
-            \end{cpt}
+            \end{dfn}
             
             \begin{thm}
-                \textbf{阻尼振动}
-
+                {阻尼振动}
                 称物体作阻尼振动, 若满足: 
                 \[\bm{a}+2\beta\bm{v}+\omega_0^2\bm{x}=\bm{0}\]
             \end{thm}
             
             \begin{thm}
-                \textbf{速率衰减公式}
+                {速率衰减公式}
                 \[v=v_0 e^{-2\beta t}\]
             \end{thm}
             
-            \begin{cpt}
-                \textbf{临界阻尼条件}
+            \begin{dfn}
+                {临界阻尼条件}
                 当 \(\beta=\omega_0\) 时, 称为\textbf{临界阻尼条件}. 
 
                 若 \(\beta<\omega_0\), 则称为\textbf{弱阻尼条件}. 
 
                 若 \(\beta>\omega_0\), 则称为\textbf{过阻尼条件}. 
-            \end{cpt}
+            \end{dfn}
             
             \begin{thm}
-                \textbf{弱阻尼条件下阻尼振动的运动学方程}
+                {弱阻尼条件下阻尼振动的运动学方程}
                 \[x=A_0e^{-\beta t}\cos(\sqrt{\omega_0^2-\beta^2}t+\varphi_0)\]
             \end{thm}
             
             \begin{thm}
-                \textbf{动能衰减公式}
+                {动能衰减公式}
                 \[E_k=\frac{1}{2}mv_0^2 e^{-4\beta t}\]
             \end{thm}
 

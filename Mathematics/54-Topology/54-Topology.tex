@@ -30,9 +30,9 @@
 \tableofcontents
 \newpage         
 
-    \section{拓扑空间}
+    \section{拓扑空间} % uuid:"Topological-Space"
 
-        \subsection{基本概念}
+        \subsection{基本概念} % uuid:"Topological-Space-Basic"
 
             \begin{dfn}
                 [Topological-Space]
@@ -85,7 +85,7 @@
             \end{rmk}
 
             \begin{ppt}
-                []
+                [Closed-Set-Operations]
                 {开集与闭集的运算对称性}
                 []
                 [猫猫]
@@ -139,7 +139,7 @@
             \end{rmk}
 
             \begin{ppt}
-                []
+                [Interior-Open]
                 {集合的内部是开集}
                 []
                 [猫猫]
@@ -147,7 +147,7 @@
             \end{ppt}
 
             \begin{ppt}
-                []
+                [Interior-Point-Def2]
                 {内点的等价定义}
                 []
                 [猫猫]
@@ -156,7 +156,7 @@
             \end{ppt}
 
             \begin{ppt}
-                []
+                [Open-Def2]
                 {集合是开集当且仅当其内部为自身}
                 []
                 [猫猫]
@@ -183,7 +183,7 @@
             \end{rmk}
 
             \begin{ppt}
-                []
+                [Closure-Closed]
                 {集合的闭包是闭集}
                 []
                 [猫猫]
@@ -191,7 +191,7 @@
             \end{ppt}
 
             \begin{ppt}
-                []
+                [Closure-Point-Def2]
                 {闭包点的等价定义}
                 []
                 [猫猫]
@@ -200,7 +200,7 @@
             \end{ppt}
 
             \begin{ppt}
-                []
+                [Closed-Closure-Def]
                 {集合是闭集当且仅当其闭包为自身}
                 []
                 [猫猫]
@@ -216,7 +216,7 @@
                 设\((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
             \end{dfn}
 
-        \subsection{邻域与极限}
+        \subsection{邻域与极限} % uuid:"Neighbourhood-and-Limit"
 
             \begin{dfn}
                 [Deleted-Neighbourhood]
@@ -247,7 +247,7 @@
             \end{dfn}
 
             \begin{ppt}
-                []
+                [Set-Union-Derived-Closure]
                 {集合与导集的并等于闭包}
                 []
                 [猫猫]
@@ -256,7 +256,7 @@
             \end{ppt}
 
             \begin{dfn}
-                []
+                [Self-Dense]
                 {自密集}
                 []
                 [猫猫]
@@ -279,7 +279,7 @@
             \end{dfn}
 
             \begin{ppt}
-                []
+                [Isolated-Def2]
                 {孤立点的等价定义}
                 []
                 [猫猫]
@@ -288,7 +288,7 @@
             \end{ppt}
 
             \begin{xmp}
-                [RealNumberTopology]
+                [Real-Number-Topology]
                 {实数拓扑}
                 [Topology on Real Number]
                 [Dedicatia]
@@ -302,7 +302,7 @@
             \end{xmp}
 
             \begin{xmp}
-                [DiscreteTopology]
+                [Discrete-Topology]
                 {离散拓扑}
                 [Discrete Topology]
                 [Dedicatia]
@@ -318,7 +318,7 @@
             \end{xmp}
 
             \begin{xmp}
-                [TrivialTopology]
+                [Trivial-Topology]
                 {平凡拓扑}
                 [Trivial Topology]
                 [Dedicatia]
@@ -367,7 +367,7 @@
             \end{dfn}
             
             \begin{cxmp}
-                []
+                [Seq-Compact-Not-Compact]
                 {一般拓扑空间中列紧性与紧性无关}
                 []
                 [猫猫]
@@ -381,7 +381,7 @@
                 定义\拓扑空间 上的序列 \(\{x_\cdot\}\) 收敛于 \(x\), 当且仅当序列以 \(x\) 为极限. 这时称该序列为\textbf{收敛点列}.
             \end{dfn}
 
-        \subsection{连通性}
+        \subsection{连通性} % uuid:"Connectedness"
             
             \begin{dfn}
                 [Connectedness]
@@ -400,7 +400,7 @@
             \end{rmk}
             
             \begin{ppt}
-                []
+                [Connected-Def2]
                 {连通性的等价定义}
                 []
                 [猫猫]
@@ -409,8 +409,8 @@
             \end{ppt}
             
             \begin{ppt}
-                []
-                {}
+                [Set-Closure-Between-Connected]
+                {集合与闭包之间的集合总是连通}
                 []
                 []
                 设\拓扑空间 \(S\) 的子集 \(X\) 是连通的, 则 \(Y(X\subseteq Y\subseteq\cl X)\) 是连通的. 
@@ -469,7 +469,7 @@
             \end{prf}
 
             \begin{ppt}
-                []
+                [Path-Connected-Connectedness]
                 {道路连通蕴含连通}
                 [Path Connectedness Implies Connectedness]
                 [Dedicatia]
@@ -477,14 +477,14 @@
             \end{ppt}
 
             \begin{cxmp}
-                []
+                [Connected-Not-Path-Connected]
                 {连通不蕴含道路连通}
                 []
                 [Dedicatia]
                 考虑 \(\R^2\) 上的通常拓扑, 定义集合 \(E:=A\cup B\), 其中 \(A=\{(x,y):y=\sin\frac{1}{x}, x\in\Icc{-\pi}{\pi}\}\), \(B=\{(x,y):x=0, y\in\Icc{-1}{1}\}\). \(E\) 是\连通 的. 但天然的映射 \(y=\sin\frac{1}{x}\) 在 \(x=0\) 处具有振荡间断点, 它不是\道路连通 的. 
             \end{cxmp}
 
-        \subsection{紧性}
+        \subsection{紧性}   % uuid:"Compactness"
             
             \begin{dfn}
                 [Open-Cover]
@@ -519,21 +519,21 @@
             \end{rmk}
 
             \begin{ppt}
-                []
+                [Compact-Space-Closed-Compact]
                 {紧空间的闭子集是紧的}
                 []
-                [猫猫]
+                [猫猫]*
             \end{ppt}
             
             \begin{ppt}
-                []
+                [Finite-Compact]
                 {有限集是紧的}
                 []
-                [猫猫]
+                [猫猫]*
             \end{ppt}
 
             \begin{thm}
-                [HB]
+                [Heine-Borel-Theorem]
                 {Heine-Borel定理}
                 [Heine-Borel Theorem]
                 [Dedicatia]
@@ -546,7 +546,10 @@
             \end{thm}
 
             \begin{cxmp}
+                [Bounded-Closed-Not-Compact]
                 {有界闭集与紧集不等价}
+                []
+                [Dedicatia]
                 考虑在连续函数空间 $C[-\pi,\pi]$ 上定义度量
                 \[d(f,g)=\sqrt(\int_{-\pi}^{\pi}|f(t)-g(t)|^2\dd{t})^{\frac{1}{2}}\]
                 考虑集合
@@ -585,7 +588,7 @@
             %     % \end{figure}                
             % \end{thm}
 
-        \subsection{拓扑空间的构造}
+        \subsection{拓扑空间的构造} % uuid:"Construction-of-Topological-Spaces"
 
             \begin{dfn}
                 [Generated-Topology]
@@ -607,10 +610,10 @@
             \end{dfn}
 
             \begin{xmp}
-                []
+                [Regular-Topology]
                 {通常拓扑}
                 []
-                []
+                [猫猫]
                 在扩充实数集 \(\bar{\R}\) 上依据偏序关系 ``\(<\)'' 定义开区间: 
                 \[(a,b)=\{x|a<x<b\}(a,b\in\R\cup\{+\infty,-\infty\})\]
                 
@@ -625,7 +628,7 @@
                 [Order-Topology]
                 {序拓扑}
                 [Order Topology]
-                []
+                [Dedicatia]
                 若\(S\)是一个全序集, 设\(\mathcal{B}\)为由下述所有集合构成的族:
 
                 (1)\(S\)的所有开区间\((a,b)\)
@@ -646,10 +649,10 @@
             \end{dfn}
 
             \begin{cxmp}
-                []
+                [Topology-Basis-Not-Unique]
                 {拓扑空间的基不唯一}
                 []
-                []
+                [猫猫]*
             \end{cxmp}
 
             \begin{dfn}
@@ -669,7 +672,7 @@
             \end{rmk}
 
             \begin{ppt}
-                []
+                [Subspace-Topology-Valid]
                 {子空间拓扑是合法拓扑}
                 []
                 [猫猫]
@@ -677,11 +680,11 @@
             \end{ppt}
 
             \begin{ppt}
+                [Compact-Absolute]
+                {紧性的绝对性}
                 []
-                {}
-                []
-                []
-                设 \((S,\mathcal{T})\) 是\拓扑空间, \(T\) 是 \(S\)的一个子空间. 那么, \(T\)是紧的当且仅当对于\(T\)中的每一个开覆盖, 存在一个有限子集是\(T\)的开覆盖. 
+                [猫猫]
+                设 \(S,T\) 是\拓扑空间, \(T\) 是 \(S\) 的子空间, \(K\) 是 \(T\) 中的集合, 则: \(K\) 在 \(T\) 中是紧的当且仅当 \(K\) 在 \(S\) 中是紧的. 
             \end{ppt}
             
             \begin{prf}
@@ -699,9 +702,9 @@
                 设 \(\mathcal{T}\) 是 \((S_1, \mathcal{T}_1)\) 与 \((S_2, \mathcal{T}_2)\) 的积拓扑, 定义 \((S_1, \mathcal{T}_1)\) 与 \((S_2, \mathcal{T}_2)\) 的\textbf{积空间}为: \((S_1\times S_2, \mathcal{T})\), 记作 \((S_1, \mathcal{T}_1)\times(S_2, \mathcal{T}_2)\).
             \end{dfn}
 
-    \section{连续映射}
+    \section{连续映射}  % uuid:"Continuous-Mapping"
 
-        \subsection{连续映射}
+        \subsection{基本概念}   % uuid:"Continuous-Mapping-Basic"
 
             \begin{dfn}
                 [Continuous-Mapping]
@@ -717,17 +720,17 @@
             \end{dfn}
             
             \begin{ppt}
-                []
+                [Continuous-Map-Compact]
                 {连续映射将紧集映射为紧集}
                 []
                 []
             \end{ppt}
 
             \begin{ppt}
-                []
+                [Continuous-Map-Def2]
                 {连续映射的等价定义}
                 []
-                []
+                [猫猫]
                 设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
                 
                 (1)开集的原像是开集: 
@@ -747,41 +750,22 @@
             \end{prf}
             
             \begin{ppt}
+                [Connected-Local-Const-Global-Const]
+                {连通集上局部常值蕴含全局常值}
                 []
-                {}
-                []
-                []
-                设 \(X\) 是连通的拓扑空间, \(Y\)是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
+                [猫猫]
+                设 \(X\) 是连通的拓扑空间, \(Y\) 是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
                 \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\implies\forall x\in X, f(x)=C\]
                 
                 即, 若定义域连通, 则所有点分别保持常值的函数, 整体保持常值. 
             \end{ppt}
             
             \begin{thm}
-                []
-                {}
-                []
-                []
-                Hausdorff空间之间的连续映射将收敛数列映射为收敛数列. 
-
-                设拓扑空间\(X,Y\)是Hausdorff的, 映射\(f:X\to Y\)在\(x\in X\)处连续, 则: 
-                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\implies\lim_{n\to+\infty}f(x_n)=f(x)\]
-
-                此定理的另一种表述方式是: \(\lim\limits_{n\to+\infty}\) 与 \(f\) 可交换, 若 \(f\) 连续且 \(X\) 与 \(Y\) 都是Hausdorff的. 
-            \end{thm}
-                
-            \begin{prf}
-                \[y:=f(x); f\text{在\(x\)处连续}\implies\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
-                \[\lim_{n\to+\infty}x_n=x\implies\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
-                \[\therefore\lim_{n\to+\infty}f(x_n)=f(x)\square\]
-            \end{prf}
-            
-            \begin{thm}
-                []
+                [Continuous-Composition-Transitivity]
                 {连续的复合传递性}
                 []
-                []
-                设拓扑空间\(X,Y,Z\), 映射\(f:X\to Y\)在\(x\in X\)处连续, 映射\(g:Y\to Z\)在\(f(x)\in Y\)处连续, 则\(g\circ f:X\to Z\)在\(x\)处连续. 
+                [猫猫]
+                设拓扑空间 \(X,Y,Z\), 映射 \(f:X\to Y\) 在 \(x\in X\) 处连续, 映射 \(g:Y\to Z\) 在 \(f(x)\in Y\) 处连续, 则 \(g\circ f:X\to Z\) 在 \(x\) 处连续. 
             \end{thm}
                 
             \begin{prf}
@@ -807,8 +791,8 @@
             \end{dfn}
             
             \begin{thm}
-                []
-                {}
+                [Homeomorphism-Def2]
+                {同胚的等价判定}
                 []
                 []
                 设拓扑空间\((X,\mathcal{T}_X),(Y,\mathcal{T}_Y)\), \(f\in\Con(X,Y)\)是双射, 则\(f\)是\(X\)到\(Y\)的同胚当且仅当: 
@@ -816,9 +800,9 @@
                 \[\forall S((X-S)\in\mathcal{T}_X)\implies(Y-f(S))\in\mathcal{T}_Y\]
             \end{thm}
 
-    \section{可分离性}
+    \section{可分离性}  % uuid:"Separation-Axioms"
 
-        \subsection{T0 空间}
+        \subsection{T0 空间}  % uuid:"T0-Space"
 
             \begin{dfn}
                 [Kolmogorov-Space]
@@ -826,10 +810,11 @@
                 [Kolmogorov Space]
                 [Dedicatia]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是 \textbf{Kolmogorov 空间}当且仅当: 
-                \[\forall[x,y][\exists[D][D\in\Nbr{x}\land y\notin D]*]*[S]\]
+                \[\forall[x,y][\exists[U_x][U_x\in\Nbr{x}\land y\notin U_x]*]*[S]\]
             \end{dfn}
             
             \begin{rmk}
+                [猫猫]
                 在Kolmogorov空间中, 任意两点都可以被一个开集区分.
             \end{rmk}
 
@@ -838,31 +823,24 @@
                 {Sierpinski 空间}
                 [Sierpinski Space]
                 [Dedicatia]
-            \end{xmp}
-
-            \begin{xmp}
-                [Sierpinski-Space]
-                {Sierpinski空间}
-                [Sierpinski Space]
-                [Dedicatia]
                 \textbf{Sierpinski空间}指的是\拓扑空间 $(S,\tau)$, $S=\{x,y\}$, $\tau=\{\varnothing, \{y\}, S\}$. 这时我们可以用一个开集 $\{y\}$ 区分 $x,y$. 说明它是\textbf{T0空间}. 但是它不再满足更强的分离性. 
             \end{xmp}
 
-        \subsection{T1 空间}
+        \subsection{T1 空间}    % uuid:"T1-Space"
 
             \begin{dfn}
                 [Frechet-Space]
-                {Frechet空间}
+                {Frechet 空间 / T1 空间}
                 [Frechet Space]
                 [Dedicatia]
                 定义一个\拓扑空间 $(X,\tau)$ 为\textbf{Frechet空间}当且仅当其中的任意两个不同的点都可以用各自的开\邻域 区分. 
-                \[\forall\,x,y\in X, \exists[U_x], U_x\in\Nbr{x}\land , y\notin\Nbr{x}. \]
+                \[\forall\,x,y\in X, \exists[U_x, U_y], (U_x\in\Nbr{x}\land U_y\in\Nbr{y}\land x\notin U_y\land y\notin U_x)\]
                 又叫做\textbf{T1空间}.
             \end{dfn}
 
             \begin{ppt}
-                []
-                {Frechet空间的充要条件}
+                [Frechet-Def2]
+                {Frechet空间的等价定义}
                 []
                 [Dedicatia]
                 一个\拓扑空间 是\textbf{T1空间}的充要条件是每个单点集都是\闭集.
@@ -888,11 +866,11 @@
                 \end{itemize}
             \end{xmp}
 
-        \subsection{T2 空间}
+        \subsection{T2 空间}    % uuid:"T2-Space"
 
             \begin{dfn}
                 [Hausdorff-Space]
-                {Hausdorff 空间}
+                {Hausdorff 空间 / T2 空间}
                 [Hausdorff Space]
                 [猫猫]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, 定义 \((S,\mathcal{T})\) 是\textbf{Hausdorff 空间}, 当且仅当: 
@@ -910,7 +888,7 @@
             \end{rmk}
             
             \begin{ppt}
-                []
+                [Hausdorff-Limit-Unique]
                 {Hausdorff 空间中点列极限唯一}
                 []
                 [猫猫]
@@ -931,14 +909,21 @@
             \end{prf}
 
             \begin{ppt}
-                []
+                [Hausdorff-Compact-Closed]
                 {Hausdorff 空间中紧集是闭的}
                 []
-                [猫猫]
+                [猫猫]*
+            \end{ppt}
+            
+            \begin{ppt}
+                [Compact-Hausdorff-Closed-Compact]
+                {紧 Hausdorff 空间的闭子集是紧的}
+                []
+                [猫猫]*
             \end{ppt}
 
             \begin{thm}
-                []
+                [Compact-Intersection-Theorem]
                 {Hausdorff 空间中紧集族, 有限交非空蕴含交非空}
                 []
                 [猫猫]
@@ -946,14 +931,14 @@
             \end{thm}
 
             \begin{crl}
-                []
+                [Nested-Compact-Theorem]
                 {紧集套定理}
                 []
                 [猫猫]
                 设 \((S,\mathcal{T})\) 是 \Hausdorff空间, \(\{K_n\}: \N\to\PS[S]\), \(\forall n:\N, K_n\supseteq K_{n+1}\land\紧集[K_n]\), 则: \(\bigcap\{K_n\}\neq\varnothing\). 
             \end{crl}
 
-        \subsection{T3 空间}
+        \subsection{T3 空间}    % uuid:"T3-Space"
 
             \begin{dfn}
                 [Regular-Space]
@@ -971,10 +956,29 @@
                 [Dedicatia]
                 定义一个\拓扑空间 $(S,\tau)$ 为\textbf{正规空间}, 当且仅当对任意两个不相交的\闭集 $C,D\in\tau$, 存在两个不相交的\开集 $X,Y$ 使得 $C\subseteq X, D\subseteq Y$.
             \end{dfn}
+            
+            \begin{thm}
+                [Hausdorff-Continuous-Maintains-Convergence]
+                {Hausdorff 空间中连续映射保持收敛性}
+                []
+                [猫猫]
+                Hausdorff空间之间的连续映射将收敛数列映射为收敛数列. 
 
-    \section{度量空间}
+                设拓扑空间\(X,Y\)是Hausdorff的, 映射\(f:X\to Y\)在\(x\in X\)处连续, 则: 
+                \[\forall{\{x_n\}}_{n=0}^{+\infty}(x_n\in X(\forall n\in\N)\wedge\lim_{n\to+\infty}x_n=x)\implies\lim_{n\to+\infty}f(x_n)=f(x)\]
+
+                此定理的另一种表述方式是: \(\lim\limits_{n\to+\infty}\) 与 \(f\) 可交换, 若 \(f\) 连续且 \(X\) 与 \(Y\) 都是Hausdorff的. 
+            \end{thm}
+                
+            \begin{prf}
+                \[y:=f(x); f\text{在\(x\)处连续}\implies\forall U(y)\in\Nbr{y}, \exists U(x)\in\Nbr{x}: f(U(x))\subseteq U(y)\]
+                \[\lim_{n\to+\infty}x_n=x\implies\exists N\in\N: \forall n>N, x_n\in U(x)\Rightarrow f(x_n)\in f(U(x))\subseteq U(y)\]
+                \[\therefore\lim_{n\to+\infty}f(x_n)=f(x)\square\]
+            \end{prf}
+
+    \section{度量空间} % uuid:"Metric-Space"
         
-        \subsection{基本概念}
+        \subsection{基本概念} % uuid:"Metric-Space-Basic"
             
             \begin{dfn}
                 [Metric-Space]
@@ -1025,31 +1029,31 @@
             \end{rmk}
 
             \begin{ppt}
-                []
+                [Metric-Topology-Valid]
                 {度量诱导的拓扑是合法拓扑}
                 []
-                [猫猫]
+                [猫猫]*
             \end{ppt}
 
             \begin{ppt}
-                []
+                [Metric-Space-Hausdorff]
                 {拓扑度量空间总是 Hausdorff 空间}
                 []
-                [猫猫]
+                [猫猫]*
             \end{ppt}
 
             \begin{ppt}
-                []
+                [Open-Ball-Neighbourhood]
                 {拓扑度量空间中开球的邻域身份}
                 []
-                [猫猫]
+                [猫猫]*
             \end{ppt}
             
             \begin{ppt}
-                []
+                [Metric-Compact-Sequentially-Compact]
                 {拓扑度量空间中紧性与列紧性等价}
                 []
-                [猫猫]
+                [猫猫]*
             \end{ppt}
             
             \begin{rmk}
@@ -1058,19 +1062,21 @@
             \end{rmk}
 
             \begin{thm}
-                []
+                [Hausdorff-Limit-Point-Infinite]
                 {度量空间中极限点附近有无穷个点}
                 []
-                [猫猫]
-                
+                [猫猫]*
             \end{thm}
 
             \begin{crl}
+                [Metric-Finite-No-Limit-Point]
                 {度量空间中有限集没有极限点}
+                []
+                [猫猫]*
             \end{crl}
 
             \begin{thm}
-                []
+                [Bolzano-Weierstrass-Theorem]
                 {Bolzano-Weierstrass 定理 / 聚点定理}
                 []
                 [猫猫]
@@ -1088,34 +1094,34 @@
             \end{dfn}
             
             \begin{dfn}
-                []
+                [Metric-Diameter]
                 {直径}
-                []
+                [Diameter]
                 [猫猫]
             \end{dfn}
             
             \begin{dfn}
-                []
+                [Totally-Boundedness]
                 {完全有界性}
-                []
+                [Totally-Boundedness]
                 [猫猫]
             \end{dfn}
 
-        \subsection{完备性}
+        \subsection{完备性} % uuid:"Metric-Completeness"
             
             \begin{dfn}
-                [Cauchy-Series]
+                [Cauchy-Sequence]
                 {Cauchy 列 / 基本列}
-                [Cauchy Series]
+                [Cauchy Sequence]
                 [Dedicatia]
                 定义 ${\{x_n\}}^\infty$ 为\度量空间 $(X,d)$ 上的\textbf{Cauchy列}, 当且仅当对任意 $\varepsilon>0$, 存在 $N\in\N$, $m,n>N$ 时均有 $d(x_m,x_n)<\varepsilon$. 
             \end{dfn}
             
             \begin{ppt}
-                []
+                [Cauchy-Convergence]
                 {Cauchy 列收敛}
                 []
-                []
+                [猫猫]
             \end{ppt}
 
             \begin{dfn}
@@ -1127,7 +1133,7 @@
             \end{dfn}
 
             \begin{xmp}
-                []
+                [Euclidean-Complete]
                 {Euclid空间是完备度量空间}
                 []
                 [Dedicatia]
@@ -1136,7 +1142,7 @@
             \end{xmp}
 
             \begin{xmp}
-                []
+                [Max-Norm-Complete]
                 {最大值度量下的连续函数空间是完备度量空间}
                 []
                 [Dedicatia]
@@ -1144,7 +1150,7 @@
             \end{xmp}
 
             \begin{cxmp}
-                []
+                [Integral-Metric-Not-Complete]
                 {积分度量下的连续函数空间不是完备度量空间}
                 []
                 [Dedicatia]
@@ -1168,6 +1174,13 @@
                 \end{cases}\]
                 事实上, 该函数在$x=\frac{1}{2}$时从0跃变到1, 这是不连续的. 函数列的极限$f\notin C[0,1]$中, 说明该度量空间不是完备的. 
             \end{cxmp}
+            
+            \begin{dfn}
+                [Metric-Completion]
+                {完备化空间}
+                []
+                [猫猫]*
+            \end{dfn}
 
         \subsection{拓扑空间的度量化}
             
