@@ -1,2 +1,8 @@
 \NewDocumentCommand{\拓扑流形}{so}{\IfNoValueTF{#2}{}{#2 维}\catref[#1]{dfn:Topological-Manifold}{拓扑流形}[拓扑流形]}
 \NewDocumentCommand{\局部坐标卡}{so}{\IfNoValueTF{#2}{}{#2 上的}\catref[#1]{dfn:Local-Coordinate-Chart}{局部坐标卡}[局部坐标卡]}
+\NewDocumentCommand{\光滑兼容}{s}{\catref[#1]{dfn:Smoothly-Compatible}{\ensuremath{\text{光滑兼容}}}[光滑兼容]}
+\NewDocumentCommand{\光滑图册}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Atlas}{\ensuremath{\text{光滑图册}}}[图册]}
+
+\NewDocumentCommand{\光滑流形}{so}{\IfNoValueTF{#2}{}{#2 维}\catref[#1]{dfn:Smooth-Manifold}{光滑流形}[光滑流形]}
+\NewDocumentCommand{\光滑}{soo}{\oarg{#2}\IfNoValueTF{#2\,}{}{\ensuremath{\text{在}\,#3\,\text{处}}}\catref[#1]{dfn:Manifold-Smooth-Function}{\ensuremath{\text{光滑}}}[光滑]}
+\NewDocumentCommand{\光滑函数}{s}{\catref[#1]{dfn:Manifold-Smooth-Function}{\ensuremath{\text{光滑函数}}}[光滑函数]}

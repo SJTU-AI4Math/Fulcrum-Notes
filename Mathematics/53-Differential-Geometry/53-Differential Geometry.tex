@@ -84,41 +84,56 @@
             [Transition-Function]
             {转移函数}
             [Transition Function]
-            [刘蕴齐]
-            设 \(n:\N\), \(M\) 是\拓扑流形[\(n\)], \((U,\phi), (V,\psi)\) 是 \局部坐标卡[\(M\)], \(U \cap V \neq \varnothing\), 定义 \(U\) 到 \(V\) 的\textbf{坐标转移函数}为: 
-            \[ \psi \circ \phi^{-1}:\phi(U \cap V) \to \psi(U \cap V)\]
-            \[ \phi \circ \psi^{-1}:\psi(U \cap V) \to \phi(U \cap V)\]
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \拓扑流形[\(n\)], \((U,\phi), (V,\psi)\) 是 \局部坐标卡[\(M\)], \(U \cap V \neq \varnothing\), 定义 \(U\) 到 \(V\) 的\textbf{坐标转移函数}为: 
+            \[
+            \begin{cases}
+                \psi \circ \phi^{-1}:\phi(U \cap V) \to \psi(U \cap V) \\
+                \phi \circ \psi^{-1}:\psi(U \cap V) \to \phi(U \cap V)
+            \end{cases}
+            \]
         \end{dfn}
 
+        \begin{rmk}
+            [猫猫]
+            转移函数在两个存在重叠的坐标卡之间定义, 是两个坐标卡之间的坐标转换. 本质上是 $\R^n\to\R^n$ 的函数限制在了某个开集上. 
+            \[
+            \xymatrix{
+                \text{流形} & U & U\cap V\ar[dl]_\phi\ar[dr]^\psi & V \\
+                \R^n & \phi(U\cap V)\ar@{<->}[rr]^{\text{转移函数}} & & \psi(U\cap V) \\
+            }
+            \]
+        \end{rmk}
+
         \begin{dfn}
-            []
+            [Smoothly-Compatible]
             {光滑兼容}
             [Compatible]
-            [刘蕴齐]
-            设 \(M\) 为一个拓扑流形,
-            设两个局部坐标卡 \( U_1 \cap U_2 \neq \emptyset \),
-            如果这两个坐标卡之间的转移函数
-             \( \phi_1 \circ \phi_2^{-1} \) 和
-             \( \phi_2 \circ \phi_1^{-1} \) 
-            均为光滑 (\(C^k\), 解析) 函数
-            则称这两个局部坐标卡 \( (U_1, \phi_1), (U_2, \phi_2) \)  是 \(C^{\infty}\)  (\(C^k\), 解析) 兼容的. 
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \拓扑流形[\(n\)], 设 \((U,\phi), (V,\psi)\) 是 \局部坐标卡[\(M\)], 定义 \((U_1, \phi_1), (U_2, \phi_2)\) \textbf{光滑兼容}, 当且仅当: 
+            \[(\psi\circ\phi^{-1}\in C^{\infty})\land(\phi\circ\psi^{-1}\in C^{\infty})\]
         \end{dfn}
+
+        \begin{rmk}
+            [猫猫]
+            光滑兼容对两个局部坐标卡讨论, 意味着其间转移函数都是光滑的. 
+        \end{rmk}
 
         \begin{dfn}
             [Atlas]
             {图册}
             [Atlas]
-            [刘蕴齐]
-            设  \(X\)  是一个  \(n\)  维流形.  
-            A collection of local charts 
-             \(\mathbb{A} = \{(U_{\alpha},\phi_{\alpha})\}\),
-            被称为一个图册 或 光滑图册, 
-            如果它满足:
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \拓扑流形[\(n\)], \(\mathbb{A}\) 是 \局部坐标卡[\(M\)]的集合. 
+            定义 \(\mathbb{A}\) 是 \(M\) 的\textbf{光滑图册}, 简称\textbf{图册}, 当且仅当: 
             \begin{enumerate}
-                \item  \(\bigcup U_{\alpha} \supset M\). 
-                \item  \(\mathbb{A}\) 中任意两个坐标卡都是光滑兼容的. 
+                \item 覆盖性: 
+                \[M\subseteq\bigcup \{U|\exists\varphi:U\to\R^n, (U,\varphi)\in\mathbb{A}\}\]
+                \item 坐标卡两两\光滑兼容 : 
+                \[\forall U,V\in\mathbb{A}, U,V\光滑兼容\]
             \end{enumerate}
-            进一步, 如果图册中包含了所有和图册中坐标卡光滑兼容的坐标卡, 就称这个图册为极大图册. 
+            
+            定义 \(\mathbb{A}\) 为 \(M\) 的\textbf{极大图册}, 当且仅当图册中包含了所有和图册中坐标卡光滑兼容的坐标卡. 
         \end{dfn}
 
         \begin{xmp}
@@ -154,15 +169,15 @@
         \end{ppt}
         
         \begin{dfn}
-            []
+            [Smooth-Manifold]
             {光滑流形}
-            [smooth manifold]
-            [刘蕴齐]
-            一个配备了极大光滑图册的拓扑流形称为一个光滑流形
+            [Smooth Manifold]
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是\拓扑流形[\(n\)], 定义 \(M\) 是\textbf{光滑流形}, 当且仅当: \(\exists\mathbb{A}, \光滑图册[\mathbb{A}][M]\). 
         \end{dfn}
         
         \begin{rmk}
-            []
+            [刘蕴齐]
             除非特别说明, 在本篇笔记中其他地方提到的流形均为光滑流形. 我们说的光滑流形上的一个图册或者一个坐标卡均指的是包含在这个光滑流形装备的某个微分结构里面的一个图册或者一个坐标卡. 一般来讲, 我们记号的习惯是 \(M\) 表示光滑的 \(m\) 维流形,  \(N\) 表示光滑的 \(n\) 维流形 (维数我一般不会省略,一旦省略就是这个意思). 
         \end{rmk}
         
@@ -475,15 +490,14 @@
     \subsection{光滑映射}
     
         \begin{dfn}
-            []
+            [Manifold-Smooth-Function]
             {光滑函数}
             [smooth function]
-            [刘蕴齐]
-            设 \(M\) 是一个 \(n\) 维光滑流形,  \(f: M \to R \)  为一函数, \(p\) 是流形 \(M\) 上一点. 
-            如果对任意包含 \(p\) 点的坐标卡 \((U,\phi)\),
-             \(f \circ \phi^{-1}\) 在 \(\phi(p)\) 处光滑, 
-            则称 \(f\) 在 \(p\) 点光滑,
-            处处光滑的函数称为流形 \(M\) 上的光滑函数. 
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \(n\) \光滑流形[\(n\)], \(\mathbb{A}\) 是 \(M\) 上的\光滑图册, \(f: M \to\R\), \(p:M\), 定义 \(f\) 在 \(p\) 处\textbf{光滑}, 当且仅当: 
+            \[\forall (U,\phi)\in\mathbb{A}, p\in U\implies f\circ\phi^{-1}\in C^{\infty}(\phi(p))\]
+
+            定义 \(f\) 为 \(M\) 上的\textbf{光滑函数}, 当且仅当: \(\forall p:M, \光滑[f][p]\). 
         \end{dfn}
 
         \begin{rmk}
@@ -576,31 +590,41 @@
     \subsection{切空间}
 
         \begin{dfn}
-            []
+            [Germ]
             {芽}
-            [germ]
-            [刘蕴齐]
-            我们定义在流形 \(M\) 中点 \(p\) 处的一个 \(C^{\infty}\) 函数的芽 (germ) 为在 \(p\) 的某邻域上定义的 \(C^{\infty}\) 函数的等价类. 两个函数若在 \(p\) 点的某个邻域上 (这个邻域也许比它们各自的定义域要小) 相等, 则视为等价. 点 \(p\) 处的 \(C^{\infty}\) 实值函数的芽集记作 \(C^{\infty}_p(M)\). 
+            [Germ]
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), 定义 \(f\) 与 \(g\) \textbf{芽等价}当且仅当: 
+            
+            定义 \(M\) 在 \(p\) 处的一个 \(C^{\infty}\) 函数的\textbf{芽}为: 
+            \[/\sim\]
+
+            在 \(p\) 的某邻域上定义的 \(C^{\infty}\) 函数的等价类. 两个函数若在 \(p\) 点的某个邻域上 (这个邻域也许比它们各自的定义域要小) 相等, 则视为等价. 点 \(p\) 处的 \(C^{\infty}\) 实值函数的芽集记作 \(C^{\infty}_p(M)\). 
         \end{dfn}
 
         \begin{rmk}
-            []
+            [刘蕴齐]
             在实际应用中的时候, 感觉并不强调这个等价类, 我们一般就用代表元表示了. 就像我们定义 \(L^1\) 空间中的元素其实也是函数的等价类 (几乎处处相等的函数等价). 
         \end{rmk}
-        
-        在流形上定义切向量并不像在欧式空间定义曲面的切向量那么“自然”. 因为我们并不知道一个流形的“外围空间”. 我们通过将切向量看作是作用在函数上的一个算子来定义流形上的切向量. 
+
         \begin{dfn}
-            []
+            [Tangent-Vector]
             {切向量}
-            [tangent vector]
-            [刘蕴齐]
-            设 \(M\) 为一光滑流形,  \(p \in M\) 为给定一点. 映射 \( v: C_p^{\infty} (M) \to R \) 如果满足:
+            [Tangent Vector]
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), \(v:C_p^{\infty}(M)\to\R\), 定义 \(v\) 为流形 \(M\) 在 \(p\) 处的\textbf{切向量}当且仅当: 
             \begin{enumerate}
-                \item (线性性)  \(v (f + g) =v( f ) + v( g ), v(a f) = av( f ), \forall f,g \in C_p^{\infty} (M), a \in \mathbb{R}\); 
-                \item (Leibniz 法则)  \( v(f g) = f(p)v(g)+v(f)g(p), \forall f,g \in C_p^{\infty} (M)\).
+                \item 线性性: 
+                \[v (f + g) =v( f ) + v( g ), v(a f) = av( f ), \forall f,g \in C_p^{\infty} (M), a \in \mathbb{R}\]
+                \item Leibniz 法则: 
+                \[v(fg) = f(p)v(g)+v(f)g(p), \forall f,g \in C_p^{\infty} (M)\]
             \end{enumerate}
-            则称 \(v\) 为流形 \(M\) 在 \(p\) 点处的一个切向量. 
         \end{dfn}
+
+        \begin{rmk}
+            [刘蕴齐]
+            在流形上定义切向量并不像在欧式空间定义曲面的切向量那么 ``自然''. 因为我们并不知道一个流形的 ``外围空间''. 我们通过将切向量看作是作用在函数上的一个算子来定义流形上的切向量. 
+        \end{rmk}
 
         \begin{dfn}
             []
