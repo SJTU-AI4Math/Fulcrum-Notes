@@ -609,15 +609,21 @@
 
         \begin{dfn}
             [Tangent-Vector]
-            {切向量}
-            [Tangent Vector]
+            {切向量 / 导子}
+            [Tangent Vector / Derivation]
             [刘蕴齐, 猫猫]
             设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), \(v:C_p^{\infty}(M)\to\R\), 定义 \(v\) 为流形 \(M\) 在 \(p\) 处的\textbf{切向量}当且仅当: 
             \begin{enumerate}
                 \item 线性性: 
-                \[v (f + g) =v( f ) + v( g ), v(a f) = av( f ), \forall f,g \in C_p^{\infty} (M), a \in \mathbb{R}\]
+                \[
+                \forall f,g:C_p^{\infty} (M), \forall a:\mathbb{R}, 
+                \begin{cases}
+                    v (f + g) =v( f ) + v( g )\\
+                    v(a f) = av( f )\\
+                \end{cases}
+                \]
                 \item Leibniz 法则: 
-                \[v(fg) = f(p)v(g)+v(f)g(p), \forall f,g \in C_p^{\infty} (M)\]
+                \[\forall f,g:C_p^{\infty} (M), v(fg) = f(p)v(g)+v(f)g(p)\]
             \end{enumerate}
         \end{dfn}
 
@@ -626,25 +632,20 @@
             在流形上定义切向量并不像在欧式空间定义曲面的切向量那么 ``自然''. 因为我们并不知道一个流形的 ``外围空间''. 我们通过将切向量看作是作用在函数上的一个算子来定义流形上的切向量. 
         \end{rmk}
 
-        \begin{dfn}
-            []
-            {局部坐标}
-            [local coordinate]
-            [刘蕴齐]
-            设 \((U, \varphi, x_1, \dots, x_n)\) 是流形M在 \(p\) 点的局部坐标卡. 设 \(r_1, \dots, r_n \) 是 \(\mathbb{R}^n\) 上的标准坐标投射, 也就是说, 对 \(\mathbb{R}^n\) 任意一点  \(x = (x_1, \dots, x_n), r_i(x) = x_i, \forall i= 1,2,3, \dots, n\).
-            映射 \(x^i:= r^i \circ \varphi: U \to \mathbb{R}\) 被称为流形 \(M\) 上的局部坐标. 
-        \end{dfn}
+        \begin{rmk}
+            [猫猫]
+            导子是对\光滑流形 上的点定义的, 反映了流形在该点
+        \end{rmk}
 
         \begin{dfn}
-            []
+            [Partial Derivative]
             {偏导数}
             [partial derivative]
-            [刘蕴齐]
-            设 \(f\) 是定义在 \(p\) 的某个邻域上的光滑函数.  
-            那么,我们定义流行上关于局部坐标的偏导数算子 \(\frac{\partial}{\partial x^i} |_p: C_p^{\infty} (M) \to R\) 如下:
-                \[
-                \frac{\partial}{\partial x^i} |_p f:= \frac{\partial}{\partial x_i}|_{\varphi(p)} (f \circ \varphi^{-1} ) \in \mathbb{R}.
-                \]
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), \((U, \varphi)\) 是\局部坐标卡[\(M\)], \(p\in U\), \(f\in C_p^{\infty}(M)\), \(i:\N\), \(x^i:\R^n\to\R:=\bm{x}\mapsto\bm{x}.i\), 定义 \(f\) 在 \(p\) 处关于 \(x^i\) 的\textbf{偏导数}为: 
+            \[\frac{\partial(f \circ \varphi^{-1})}{\partial x^i}(\varphi(p))\]
+
+            记作 \(\frac{\partial}{\partial x^i}|_p\). 
         \end{dfn}
 
         \begin{rmk}
@@ -679,6 +680,13 @@
             \delta^i_{j}.
             \]
         \end{prf}
+
+        \begin{ppt}
+            []
+            {偏导算子是切向量}
+            []
+            [刘蕴齐, 猫猫]*
+        \end{ppt}
         
         \begin{thm}
             []
