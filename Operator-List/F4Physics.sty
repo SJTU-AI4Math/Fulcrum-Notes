@@ -5,13 +5,21 @@
 \NewDocumentCommand{\khat}{s}{\catref[#1]{dfn:Unit-Vector}{\ensuremath{\hat{\bm{k}}}}[单位向量 \(\hat{k}\)]}
 
 % Dimensions
-\NewDocumentCommand{\m}{s}{\catref[#1]{dfn:Length}{\ensuremath{\mathrm{m}}}[米]}
-\NewDocumentCommand{\s}{s}{\catref[#1]{dfn:Time}{\ensuremath{\mathrm{s}}}[秒]}
-\NewDocumentCommand{\kg}{s}{\catref[#1]{dfn:Mass}{\ensuremath{\mathrm{kg}}}[千克]}
-\NewDocumentCommand{\A}{s}{\catref[#1]{dfn:Electric-Current}{\ensuremath{\mathrm{A}}}[安培]}
-\NewDocumentCommand{\Klv}{s}{\catref[#1]{dfn:Temperature}{\ensuremath{\mathrm{K}}}[开尔文]}
-\NewDocumentCommand{\mol}{s}{\catref[#1]{dfn:Amount-of-Substance}{\ensuremath{\mathrm{mol}}}[摩尔]}
-\NewDocumentCommand{\cd}{s}{\catref[#1]{dfn:Luminous-Intensity}{\ensuremath{\mathrm{cd}}}[坎德拉]}
+\NewDocumentCommand{\Length}{s}{\catref[#1]{dfn:Dimension}{\mathsf{L}}[长度]}
+\NewDocumentCommand{\Time}{s}{\catref[#1]{dfn:Dimension}{\mathsf{T}}[时间]}
+\NewDocumentCommand{\Mass}{s}{\catref[#1]{dfn:Dimension}{\mathsf{M}}[质量]}
+\NewDocumentCommand{\ElectricCurrent}{s}{\catref[#1]{dfn:Dimension}{\mathsf{I}}[电流]}
+\NewDocumentCommand{\Temperature}{s}{\catref[#1]{dfn:Dimension}{\Theta}[温度]}
+\NewDocumentCommand{\AmountOfSubstance}{s}{\catref[#1]{dfn:Dimension}{\mathsf{N}}[物质的量]}
+\NewDocumentCommand{\LuminousIntensity}{s}{\catref[#1]{dfn:Dimension}{\mathsf{J}}[光强]}
+
+\NewDocumentCommand{\m}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{m}}}[米]}
+\NewDocumentCommand{\s}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{s}}}[秒]}
+\NewDocumentCommand{\kg}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{kg}}}[千克]}
+\NewDocumentCommand{\A}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{A}}}[安培]}
+\NewDocumentCommand{\Klv}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{K}}}[开尔文]}
+\NewDocumentCommand{\mol}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{mol}}}[摩尔]}
+\NewDocumentCommand{\cd}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{cd}}}[坎德拉]}
 
 \NewDocumentCommand{\Nt}{s}{\catref[#1]{dfn:Force}{\ensuremath{\mathrm{N}}}[牛顿]}
 \NewDocumentCommand{\Clm}{s}{\catref[#1]{dfn:Electric-Charge}{\ensuremath{\mathrm{C}}}[库仑]}

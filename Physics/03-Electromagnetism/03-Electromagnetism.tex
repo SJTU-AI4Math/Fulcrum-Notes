@@ -38,16 +38,17 @@
             {电荷}
             [Electric Charge]
             [猫猫]
-            定义\textbf{电荷}为实物理量, 量纲为 \(\A\cdot\s\). 
+            定义\textbf{电荷}为实物理量, 量纲为 \(\ElectricCurrent\cdot\Time\). 
 
             定义\电荷 的量纲 \textbf{Column} 为 \(\A\cdot\s\), 记作 \(\Clm\). 
         \end{dfn}
         
         \begin{str}
-            []
+            [Charged-Object]
             {带电体}
-            []
+            [Charged Object]
             [猫猫]
+            定义
         \end{str}
         
         \begin{xmp}
@@ -98,10 +99,36 @@
         \end{dfn}
         
         \begin{dfn}
+            []
             {电场线}
+            []
+            [猫猫]
         \end{dfn}
+        
+        \begin{dfn}
+            []
+            {电通量}
+            [Electric Flux]
+            [猫猫]
+            设 \(E\) 是电场, \(S\) 是 \(\Length^3\) 上的 \(2\) 维流形, 定义 \(E\) 通过 \(S\) 的\textbf{电通量}为: 
+            \[\int_S \bm{E}(\bm{r})\cdot\bm{S}(\bm{r})\dd{\bm{r}}\]
+            记作 \(\varPhi_E(S)\).
+        \end{dfn}
+        
+        \begin{thm}
+            []
+            {Gauss 定理}
+            [Gauss's Theorem]
+            [猫猫]
+            设 \(E\) 是电场, \(V\) 是 \(\Length^3\) 上的 \(3\) 维流形, 则: 
+            \[\varPhi_E(\partial V) = \frac{1}{\epsz}\int_V \rho(\bm{r})\dd\bm{r}\]
+        \end{thm}
+        
+        \begin{prf}
+            是 Stokes 定理的特例. 
+        \end{prf}
 
-    \subsection{点电荷的静电场}
+    \subsection{点电荷}
         
         \begin{dfn}
             [Vacuum-Permittivity]
@@ -128,7 +155,7 @@
             \[\ke \approx 8.9875\times{10}^9(\Nt\cdot\m^2\cdot\Clm^{-2})\]
         \end{ppt}
         
-        \begin{dfn}
+        \begin{str}
             [Point-Charge]
             {点电荷}
             [Electric Point Charge]
@@ -138,7 +165,7 @@
                 \item \电荷 (\(q\))
                 \item 位置 (\(\bm{r}\))
             \end{enumerate}
-        \end{dfn}
+        \end{str}
         
         \begin{ppt}
             []
@@ -157,7 +184,7 @@
             \[\bm{f}=\ke\cdot\frac{q_1 q_2}{r^2}\bm{e}_r\]
         \end{axm}
 
-    \subsection{电荷集的静电场}
+    \subsection{电荷集}
         
         \begin{thm}
             []
@@ -167,30 +194,76 @@
             设 \(Q\) 是\点电荷 集, \(\card Q\in\N\), 则 \(Q\) 激发的电场为: 
             \[\sum_{q\in Q}E_q\]
         \end{thm}
+
+    \subsection{电偶极子}
         
-        \begin{xmp}
-            {偶极电场}
-        \end{xmp}
-        
-        \begin{dfn}
-            []
-            {连续线带电体}
-            []
+        \begin{str}
+            [Electric-Dipole]
+            {电偶极子}
+            [Electric Dipole]
             [猫猫]
-            连续线带电体类型承载以下信息: 
+            定义\textbf{电偶极子}类型承载以下信息: 
             \begin{enumerate}
-                \item 一维流形 \(L\); 
-                \item 线电荷密度函数 \(\lambda:L\to (\R, \Clm\cdot\m^{-1})\). 
+                \item \textbf{电偶极矩} \(\bm{p}:\Length^3\cdot\ElectricCurrent\cdot\Time\), 简称\textbf{电矩}: 
+                \item \textbf{位置} \(\bm{r}:\Length^3\)
             \end{enumerate}
-        \end{dfn}
+        \end{str}
         
         \begin{ppt}
             []
-            {连续线带电体的总电荷量}
+            {电偶极子受合电场力为零}
             []
             [猫猫]
-            设 \(Q:=(L, \lambda)\) 是连续线带电体, 则 \(Q\) 的总电荷量为: 
-            \[\int_L \lambda(\bm{r})\dd\bm{r}\]
+        \end{ppt}
+        
+        \begin{ppt}
+            []
+            {电偶极子受电场力力矩}
+            []
+            [猫猫]
+            设 \(D=(\bm{p}, \bm{r})\) 是电偶极子, \(E\) 是电场, \(\bm{E}\) 是 \(E\) 的电场强度函数, 则 \(D\) 在电场 \(E\) 受力矩为: 
+            \[\bm{M}_D = \bm{p}\times\bm{E}(\bm{r})\]
+        \end{ppt}
+        
+        \begin{ppt}
+            []
+            {电偶极子在电场中的电势能}
+            []
+            [猫猫]
+            设 \(D=(\bm{p}, \bm{r})\) 是电偶极子, \(E\) 是电场, \(\bm{E}\) 是 \(E\) 的电场强度函数, 则 \(D\) 在电场 \(E\) 中的电势能为: 
+            \[E=\nabla(\bm{p}\cdot\bm{E})\]
+
+            设 \(E\) 是匀强电场, 则 \(D\) 在电场 \(E\) 中的电势能为: 
+            \[E=-\bm{p}\cdot\bm{E}\]
+        \end{ppt}
+
+    \subsection{连续带电体}
+        
+        \begin{dfn}
+            []
+            {连续带电体}
+            []
+            [猫猫]
+            定义\textbf{连续带电体}包含以下信息: 
+            \begin{enumerate}
+                \item 维数 \(n\in\{1,2,3\}\); 
+                \item \(n\) 维光滑流形 \(M\); 
+                \item 电荷密度函数 \(\rho:M\to\Length^{-n}\cdot\ElectricCurrent\cdot\Time\). 
+            \end{enumerate}
+        \end{dfn}
+        
+        \begin{rmk}
+            [猫猫]
+            习惯上, 记线密度函数为 \(\lambda\), 面密度函数为 \(\sigma\), 体密度函数为 \(\rho\). 
+        \end{rmk}
+        
+        \begin{ppt}
+            []
+            {连续带电体的总电荷量}
+            []
+            [猫猫]
+            设 \(Q:=(M, \rho)\) 是连续带电体, 则 \(Q\) 的总电荷量为: 
+            \[\int_M \rho(\bm{r})\dd\bm{r}\]
         \end{ppt}
         
         \begin{ppt}
@@ -198,16 +271,17 @@
             {连续线带电体激发电场的电场强度分布}
             []
             [猫猫]
-            设 \(Q:=(L, \lambda)\) 是连续线带电体, 则 \(Q\) 激发电场在 \(\bm{x}\) 处的电场强度为: 
-            \[\bm{E}_Q(\bm{x})=\int_L \ke\cdot\frac{\lambda(\bm{r})}{\|\bm{x}-\bm{r}\|^2}\bm{e}_{\bm{x}-\bm{r}}\dd \bm{r}\]
+            设 \(Q:=(M, \rho)\) 是连续线带电体, 则 \(Q\) 激发电场在 \(\bm{x}\) 处的电场强度为: 
+            \[\bm{E}_Q(\bm{x})= \ke\int_M\frac{\rho(\bm{r})(\bm{x}-\bm{r})}{\|\bm{x}-\bm{r}\|^3}\dd\bm{r}\]
         \end{ppt}
         
         \begin{ppt}
             []
-            {连续线带电体的电势分布}
+            {连续带电体的电势分布}
             []
             [猫猫]
-            
+            设 \(Q:=(M, \rho)\) 是连续带电体, 则 \(Q\) 激发电场在 \(\bm{x}\) 处的电势为: 
+            \[\Phi_Q(\bm{x})= \ke\int_M\frac{\rho(\bm{r})}{\|\bm{x}-\bm{r}\|}\dd\bm{r}\]
         \end{ppt}
         
         \begin{xmp}
@@ -215,8 +289,21 @@
             {无限长带电直线的电场}
             []
             [猫猫]
-            \[\frac{2\ke\lambda}{d}\]
+            设 \(L:=(\{(x,0,0)|x:\Length\}, \cdot\mapsto\lambda)\) 是连续带电体, 则: 
+            \[\bm{E}_L(d\cos\theta,d\sin\theta,\cdot)=\frac{2\ke\lambda}{d}(\cos\theta,\sin\theta,0)\]
+            \[\Phi_L(d\cos\theta,d\sin\theta,\cdot)=2\ke\lambda\ln d+C\]
         \end{xmp}
+        
+        \begin{prf}
+            \[
+            \begin{aligned}
+                \|\bm{E}_L(d\cos\theta,d\sin\theta,z)\|
+                & = \|\bm{E}_L(d,0,0)\| \\
+                & = \ke\lambda\left\|\int_{-\infty}^{+\infty}\frac{(d,0,-z)}{(\sqrt{d^2+z^2})^3}\dd z\right\| \\
+                & = \ke\lambda d\int_{-\infty}^{\infty}\frac{1}{(\sqrt{d^2+z^2})^3}\dd z\\
+                & = \frac{2\ke\lambda}{d}\\
+            \end{aligned}\]
+        \end{prf}
         
         \begin{xmp}
             []
@@ -225,79 +312,103 @@
             [猫猫]
         \end{xmp}
         
-        \begin{dfn}
-            []
-            {连续面带电体}
-            []
-            [猫猫]
-            连续面带电体类型承载以下信息: 
-            \begin{enumerate}
-                \item 二维流形; 
-                \item 面电荷密度函数 \(\sigma\). 
-            \end{enumerate}
-        \end{dfn}
-        
-        \begin{ppt}
-            []
-            {连续面带电体的电场}
-            []
-            [猫猫]
-            \[
-            \bm{E}_Q(\bm{x})=\iint
-            \]
-        \end{ppt}
-        
         \begin{xmp}
             []
-            {无限大带电平面的电场}
+            {无限大均匀带电平面的电场是匀强电场}
             []
             [猫猫]
-            \[\dfrac{\sigma}{2\epsz}\]
+            设 \(P:=(\{(x,y,0)|x,y:\Length\}, \cdot\mapsto\sigma)\) 是连续带电体, 则 \(P\) 激发的电场在 \(\bm{r}:\Length^3\) 处的电场强度为: 
+            \[\bm{E}_P(\bm{r})=\dfrac{\sigma}{2\epsz}\]
         \end{xmp}
         
         \begin{xmp}
             []
-            {均匀球壳的电场}
+            {均匀带电球壳的电场}
             []
             [猫猫]
-            设 \(R:(\R,\m)\), \(B:=\left(\left\{\bm{r}:{(\R,\m)}^3\middle|\|\bm{r}\|=R\right\}, \cdot\mapsto\varphi\right)\) 是连续面带电体
+            设 \(R:\Length\), \(B:=(\{\bm{r}:\Length^3|\|\bm{r}\|=R\}, \cdot\mapsto\sigma)\) 是连续带电体, 
         \end{xmp}
         
-        \begin{dfn}
-            []
-            {连续体带电体}
-            []
-            [猫猫]
-            连续体带电体类型承载以下信息: 
-            \begin{enumerate}
-                \item 三维流形; 
-                \item 体电荷密度函数 \(\rho\). 
-            \end{enumerate}
-        \end{dfn}
-        
-        \begin{ppt}
-            []
-            {连续体带电体的电场}
-            []
-            [猫猫]
-        \end{ppt}
+        \begin{xmp}
+            {无限长均匀带电柱壳的电场}
+            设 \(R:\Length\), \(C:=(\{(R\cos\theta, R\sin\theta, z)|z:\Length\}, \cdot\mapsto\sigma)\) 是连续带电体, 则: 
+            \[\bm{E}_C(\bm{r})=\begin{cases}
+                0, & \|\bm{r}\|<R\\
+                \dfrac{\sigma R}{\epsz\|\bm{r}\|}\hat{\bm{r}}, & \|\bm{r}\|\ge R
+            \end{cases}\]
+        \end{xmp}
         
         \begin{xmp}
             {均匀带电球体的电场}
         \end{xmp}
 
-    \subsection{电通量}
-        
+    \subsection{电场力做功}
+
+\section{静电感应}
+
+    \subsection{导体的静电感应}
+    
         \begin{dfn}
-            {电通量}
+            [Conductor]
+            {导体}
+            [Conductor]
+            [猫猫]
+            定义\textbf{导体}是带电体类型的子类型. 
+        \end{dfn}
+
+        \begin{dfn}
+            [Static-Electric-Equilibrium]
+            {静电平衡}
+            [Static Electric Equilibrium]
+            [猫猫]
+            设 \(E\) 是电场, \(C\) 是连续带电导体, 定义 \(C\) 在 \(E\) 中达到\textbf{静电平衡}当且仅当: 
+            \begin{enumerate}
+                \item 导体内部总场强为零: 
+                \[\forall \bm{r} \in\intr C, \bm{E}(\bm{r}) + \bm{E}_C(\bm{r})=0\]
+                
+                \item 导体边界总场强与边界流形正交: 
+                \[\forall \bm{r}\in\bd C, (\bm{E}(\bm{r}) + \bm{E}_C(\bm{r}))\perp T_{\bm{r}}\bd C\]
+            \end{enumerate}
         \end{dfn}
         
         \begin{ppt}
-            {匀强电场的电通量}
+            []
+            {导体静电平衡时内部无电荷}
+            []
+            [猫猫]
+            设 \(E\) 是电场, \(C\) 是连续带电导体, \(C\) 在 \(E\) 中达到静电平衡, 则: 
+            \[\forall \bm{r}\in\intr C, \rho_C(\bm{r})=0\]
+        \end{ppt}
+        
+        \begin{ppt}
+            []
+            {导体表面电场强度}
+            []
+            [猫猫]
+            设 \(E\) 是电场, \(C\) 是连续带电导体, \(C\) 在 \(E\) 中达到静电平衡, 则: 
+            \[\forall \bm{r}\in\bd C, \bm{E}(\bm{r})=\frac{\sigma}{\epsz}\bm{e}_{\bm{r}}\]
         \end{ppt}
 
-    \subsection{电场力做功}
-
+    \subsection{电介质}
+        
+        \begin{dfn}
+            [Dielectric]
+            {电介质模型}
+            [Dielectric]
+            [猫猫]
+            定义\textbf{电介质}是带电体类型的子类型, 包含以下信息: 
+            \begin{enumerate}
+                \item 流形 \(M\); 
+                \item 极化强度函数 \(\bm{P}:M\to\Length^3\cdot\ElectricCurrent\cdot\Time\);
+            \end{enumerate}
+        \end{dfn}
+        
+        \begin{dfn}
+            [Polarization-Intensity]
+            {极化强度}
+            [Polarization Intensity]
+            [猫猫]
+        \end{dfn}
 
 
 \end{document}

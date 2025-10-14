@@ -232,7 +232,7 @@
             \[\binom{n}{n_1,n_2,\cdots,n_r}=\frac{n!}{n_1!n_2!\cdots n_r!}.\]
         \end{xmp}
     
-    \subsection{几何概型与概率空间}
+    \subsection{几何概型}
         
         \begin{dfn}
             []
@@ -306,30 +306,34 @@
 
         至此, 我们可以对概率进行严谨的定义. 
 
-        \begin{dfn}
-            []
-            {概率}
-            []
-            [马驰原]
-            设 \(\mathcal{F}\) 上的函数 \(P\) 是 \(\Omega\) 上的一个\textbf{测度}, 若它满足: 
+    \subsection{概率空间}
 
+        \begin{str}
+            [Probability-Space]
+            {概率空间}
+            [Probability-Space]
+            [马驰原, 猫猫]
+            设 \(\Omega\) 是类型, 定义 \(\Omega\) 上的\textbf{概率空间}包含以下信息: 
             \begin{enumerate}
-                \item 非负性: 对于任意 \(A\in\mathcal{F}\) , 有 \(P(A)\geq 0\) ；
-                \item 规范性: 对于必然事件 \(\Omega\) , 有 \(P(\Omega)=1\) ；
-                \item 空间的可加性: 若 \(A_1,A_2,\cdots\in\mathcal{F}\) 两两互不相容, 则有\[P\left(\bigcup_{i=1}^{\infty}A_i\right)=\sum_{i=1}^{\infty}P(A_i).\]
+                \item \textbf{事件域}: \(\mathscr{F}\); 
+                    
+                    \SigmaAlgebra[\(\mathscr{F}\)][\(\Omega\)]; 
+
+                \item \textbf{概率测度}: \(P:\mathscr{F}\to\Icc{0}{1}\); 
+                    \begin{enumerate}
+                        \item 非负性: 
+                            \[\forall A\in\mathscr{F}, P(A)\geq 0\]
+                        \item 规范性: 
+                            \[P(\Omega)=1\]
+                        \item 可数可加性: 
+                            \[\forall\{A_n\}:\N\to\mathscr{F}, (\forall i,j:\N, i\neq j\implies A_i\cap A_j=\varnothing)\implies P\left(\bigcup_{i=1}^{+\infty}A_i\right)=\sum_{i=1}^{\infty}P(A_i)\]
+                    \end{enumerate}
             \end{enumerate}
-            就称 \(P\) 是 \(\Omega\) 上的一个\textbf{概率测度}, 简称\textbf{概率}, 称 \((\Omega,\mathcal{F},P)\) 为\textbf{概率空间}. 
-        \end{dfn}
+        \end{str}
 
-        \begin{dfn}
-            []
-            {几乎必然}
-            []
-            [马驰原]
-            若事件 \(A\) 的概率 \(P(A)=1\) , 则称事件 \(A\) 是\textbf{几乎必然}的, 也称事件 \(A\) 是\textbf{概率1发生}或\textbf{几乎处处发生}的. 
-
-            值得注意的是, 几乎必然发生的事件在任意一次试验中也可能不会发生. 
-        \end{dfn}
+        \begin{ppt}
+            {概率测度}
+        \end{ppt}
 
         \begin{thm}
             []
@@ -341,13 +345,7 @@
         \end{thm}
 
         \begin{prf}
-            
-            
-            
-            
             我们使用数学归纳法证明. 
-
-
         \end{prf}
 
         \begin{ppt}
@@ -395,28 +393,20 @@
     \subsection{条件概率}
 
         \begin{dfn}
-            []
+            [Condition-Probability]
             {条件概率}
-            []
+            [Condition-Probability]
             [马驰原]
-            设概率空间中的事件 \(A,B\) , 且 \(P(B)>0\) , 则称\[P(A|B)=\frac{P(AB)}{P(B)}\]为在事件 \(B\) 发生的条件下事件 \(A\) 发生的\textbf{条件概率}. 
+            设 \((\Omega,\mathscr{F},P)\) 是概率空间, \(A, B\in\mathscr{F}\), \(P(B)>0\), 定义在条件 \(B\) 下 \(A\) 的\textbf{条件概率}为 \(\dfrac{P(AB)}{P(B)}\), 记作 \(P(A|B)\). 
         \end{dfn}
-
-        \begin{ppt}
-            []
-            {概率的乘法原理}
-            []
-            [马驰原]
-            设 \(A,B\) 是概率空间中的事件, 则有\[P(AB)=P(A|B)P(B)=P(B|A)P(A).\]
-        \end{ppt}
 
         \begin{thm}
             []
             {全概率公式}
             []
             [马驰原]
-            设事件  \(B_1,B_2,\cdots,B_k\)  是一组互不相容的事件, 且  \(\bigcup_{i=1}^{k}B_i=\Omega\) , 则对于任意事件  \(A\) , 有
-            \[P(A)=\sum_{i=1}^{k}P(A|B_i)P(B_i).\]
+            设 \((\Omega,\mathscr{F},P)\) 是概率空间, \(\{B_n\}:\N\mapsto\mathscr{F}\), \(\forall i,j:\N, i\neq j\implies B_i\cap B_j=\varnothing\), \(\bigcup_{i=1}^{+\infty}B_i=\Omega\), 则: 
+            \[\forall A\in\mathscr{F}, P(A)=\sum_{i=1}^{+\infty}P(A|B_i)P(B_i)\]
         \end{thm}
 
         \begin{prf}
@@ -477,15 +467,9 @@
             []
             {随机变量}
             []
-            [马驰原]
-            设 \((\Omega,\mathcal{F},P)\) 是一个概率空间, 若对于每一个事件 \(A\in\mathcal{F}\) , 都有一个实数 \(X(A)\) 与之对应, 且满足: 
-
-            \begin{enumerate}
-                \item 对于任意的实数 \(x\) , 有 \(\left\{\omega|X(\omega)\leq x\right\}\in\mathcal{F}\) ；
-                \item 对于任意的实数 \(x\) , 有 \(P\left(X\leq x\right)=P\left(\left\{\omega|X(\omega)\leq x\right\}\right)\) . 
-            \end{enumerate}
-
-            则称 \(X\) 是 \((\Omega,\mathcal{F},P)\) 上的一个\textbf{随机变量}. 
+            [马驰原, 猫猫]
+            设 \((\Omega,\mathscr{F},P)\) 是概率空间, \(X:\mathscr{F}\to\R\), 定义 \(X\) 是 \((\Omega,\mathscr{F},P)\) 上的\textbf{随机变量}, 当且仅当: 
+            \[\forall x:\R, \left\{\omega:\Omega|X(\omega)\leq x\right\}\in\mathscr{F}\]
         \end{dfn}
 
         \begin{dfn}
@@ -493,7 +477,8 @@
             {离散型随机变量}
             []
             [马驰原]
-            若随机变量 \(X\) 的取值只能是有限个或可列个, 则称 \(X\) 是\textbf{离散型随机变量}. 
+            设 \((\Omega,\mathscr{F},P)\) 是概率空间, \(X\) 是 \((\Omega,\mathscr{F},P)\) 上的随机变量, 定义 \(X\) 是\textbf{离散型随机变量}, 当且仅当: 
+            \[\card(X(\R))\leq\aleph_0\]
         \end{dfn}
 
         \begin{dfn}
