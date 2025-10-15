@@ -1,0 +1,303 @@
+\documentclass[UTF8, 10pt]{ctexart}
+\usepackage{temporalTemplateName}
+
+% Info
+\title{Title}
+\author{Fulcrum4Math}
+\date{\today}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE\textbf{数学分析笔记整理}}
+
+    Zhenxuan Luo
+\end{center}
+
+\setcounter{section}{-1}
+\section{引言}
+    这是罗振轩的数分笔记   
+    \subsection{引入}
+        这里是Tao的引入内容
+        \begin{thm}
+            {UUID}
+            {三角不等式}
+            {Triangular Inequality}
+            {l3}
+            $a , b , \in \mathbb{R} \Rightarrow{} \left| \left| a \right| - \left| b \right| \right| \le \left| a + b \right| \le \left| a \right| + \left| b \right|$
+            $a , b , \in \mathbb{R} \Rightarrow{} \left| \left| \vec{a}  \right| - \left| \vec{b} \right| \right| \le \left| \vec{a} + \vec{b} \right| \le \left| \vec{a} \right| + \left| \vec{b} \right|$            
+        \end{thm}
+        
+        \begin{prf}
+            sorry
+        \end{prf}
+
+        \begin{thm}
+            {UUID}
+            {平均值不等式}
+            {Inequality of Means}
+            {l3}
+            $ 0 < x_1 , x_2 , \ldots x_n \in \mathbb{R} \Rightarrow \frac{x_1 + x_2 + \ldots + x_n}{n} \ge \sqrt[n]{x_1 x_2\ldots x_n} \ge \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \ldots + \frac{1}{x_n}}$
+        \end{thm}
+
+        \begin{prf}
+            sorry
+        \end{prf}
+
+\section{数列极限与实数基本定理}
+    \subsection{数列极限}
+        \begin{dfn}
+            {UUID}
+            {数列}
+            {Sequence}
+            {l3}
+            所谓数列，是指按照某一种法则排列的一串有次序的数$x_1 , x_2 , \ldots x_n \ldots$ 通常记为$\{ x_n \}$
+        \end{dfn}
+
+        \begin{dfn}
+            {UUID}
+            {数列极限}
+            {Limitation}
+            {l3}
+            若$\forall \varepsilon > 0 , \exists N \in \mathbb{N}^* : \forall n > N |a_n - a| < \varepsilon$，则称数列$\{ a_n \}$的极限是$a$,记作$\lim\limits_{n \to +\infty } a_n = a$
+        \end{dfn}
+
+        \begin{xmp}
+            {UUID}
+            {例子}
+            {example}
+            {l3}
+            $\lim\limits_{ n \to + \infty }\frac{3 \sqrt{n} + 2}{2 \sqrt{n} + 1} = \frac{3}{2}$
+        \end{xmp}
+
+        \begin{prf}
+            sorry
+        \end{prf}
+
+        \begin{ppt}
+            {UUID}
+            {唯一性}
+            {Singularity}
+            {l3}
+            若数列收敛，则其极限唯一
+        \end{ppt}
+
+        \begin{prf}
+            设$\{ x_n \}$收敛于极限$a$与$b$,根据极限的定义$\forall \varepsilon > 0$,
+            $$\exists N_1 , \forall n > N_1 : |x_n - a| < \frac{\varepsilon}{2} $$
+            $$\exists N_2 , \forall n > N_2 : |x_n - b| < \frac{\varepsilon}{2} $$
+            取$N = max \{ N_1 , N_2 \}$,利用三角不等式，则$\forall n > N$，有
+            $$|a-b| = |a- x_n + x_n - b| \le |x_n - a| + |x_n - b| < \varepsilon$$
+            由$\varepsilon$的任意性，可知$a=b$
+        \end{prf}
+
+        \begin{ppt}
+            {UUID}
+            {有界性}
+            {Boundedness}
+            {l3}
+            若数列收敛，则其必有界
+        \end{ppt}
+
+        \begin{prf}
+            设$\lim\limits_{n \to + \infty} x_n = a$，由极限定义，对于$\varepsilon = 1，\exists N,\forall n> N : |x_n - a| < 1$.从而得到
+            $$|x_n| < 1 + |a| , n>N$$
+            取$M = max \{1+|a|,|x_1|,|x_2|,\ldots ,|x_N|\} > 0$,则有
+            $$|x_n| \le  M , n = 1,2,\ldots $$
+            则$\{ x_n \}$为有界数列
+        \end{prf}
+
+        \begin{ppt}
+            {UUID}
+            {保号性}
+            {Preservation of identity}
+            {l3}
+            1.保号性：设$\lim\limits_{n \to + \infty} a_n = a , \alpha < a <\beta \Rightarrow \exists N , \forall n > N , \alpha < a < \beta$
+            \\
+            2.逐项比较性：设$\lim\limits_{n \to + \infty} a_n = a , \lim\limits_{n \to + \infty} b_n = b , a < b \Rightarrow \exists N, \forall n > N , a_n < b_n $
+            \\
+            3.保不等式性：设$\lim\limits_{n \to + \infty} a_n = a , \lim\limits_{n \to + \infty} b_n = b,$,若$\exists N, \forall n > N, a_n<=b_n , a \le b$
+        \end{ppt}
+
+        \begin{prf}
+            1.令$\varepsilon = min\{a - \alpha , \beta - a \} , \exists N_0 , \forall n > N:|a_n - a| < \varepsilon \Rightarrow \alpha < a < \beta$
+            \\
+            2.$a < \frac{a+b}{2} < b, \stackrel{1.1.2.3.1}{\Rightarrow} \exists N_0 , \forall n > N, a_n < \frac{a+b}{2} < b_n \Rightarrow a_n < b_n$
+            \\
+            3.反证法，设$a>b \stackrel{1.1.2.3.2}{\Rightarrow} \exists N_0 , \forall n > N,a_n > b_n $矛盾，得证.
+        \end{prf}
+
+        \begin{ppt}
+            {UUID}
+            {夹逼性}
+            {Squeeze theorem}
+            {l3}
+            若三个数列$\{a_n\} , \{ b_n\} ,\{c_n\},\exists N_0 , \forall n>N_0 , a_n \le b_n \le c_n$且$\lim\limits_{n \to + \infty}a_n = \lim\limits_{n \to + \infty} c_n = a$,$\lim\limits_{n \to + \infty}b_n = a$
+        \end{ppt}
+
+        \begin{prf}
+            由$\lim\limits_{n \to + \infty}a_n =\lim\limits_{n \to + \infty} c_n = a$,$\forall \varepsilon > 0 ,\exists N_1,N_2,\forall n>N_1 , |a_n - a| < \varepsilon ; \forall n > N_2 , |c_n - a| < \varepsilon$
+            \\
+            令$N = max\{N_0 , N_1 , N_2\}:\forall \varepsilon > 0 ,\exists N, a-\varepsilon < a_n \le b_n \le c_n < a + \varepsilon \Rightarrow |b_n - a| < \varepsilon$,即$\lim\limits_{n \to + \infty}b_n = a$.
+        \end{prf}
+        \begin{dfn}
+            {UUID}
+            {邻域}
+            {Neighbourhood}
+            {l3}
+            以$a$为中心$\varepsilon$为半径的开区间$(a-\varepsilon , a+\varepsilon )$通常被称为$a$的$\varepsilon$邻域，记为$O(a,\varepsilon )$，换句话说，$\{ x_n \}$以$a$为极限的几何意义就是对任意给定的$\varepsilon > 0$，邻域$O(a,\varepsilon )$外至多包含数列的有限项
+        \end{dfn}
+
+        \begin{thm}
+            {UUID}
+            {数列极限的四则运算}
+            {Four arithmetic operations of sequence limit}
+            {l3}
+            设$\lim\limits_{n \to + \infty} x_n =a , \lim\limits_{n \to + \infty} y_n =b$,则：
+            \\
+            1.$\lim\limits_{n \to + \infty} (x_n + y_n) = \lim\limits_{n \to + \infty} x_n + \lim\limits_{n \to + \infty} y_n = a + b$
+            \\
+            2.$\lim\limits_{n \to + \infty} (x_n \cdot y_n) = \lim\limits_{n \to + \infty} x_n \cdot \lim\limits_{n \to + \infty} y_n = ab$
+            \\
+            3.$\lim\limits_{n \to + \infty} (\frac{x_n}{y_n}) = \frac{\lim\limits_{n \to + \infty} x_n}{\lim\limits_{n \to + \infty} y_n} = \frac{a}{b} (b \neq 0)$
+        \end{thm}
+
+        \begin{dfn}
+            {UUID}
+            {无穷小量}
+            {Infinitesimal quantity}
+            {l3}
+            如果数列$\{ x_n \}$的极限为0，则称$\{ x_n \}$为无穷小量
+        \end{dfn}
+        \begin{ppt}
+            {UUID}
+            {无穷小量的性质}
+            {The property of infinitesimal quantity}
+            {l3}
+            1.有限个无穷小量的代数和是无穷小量
+            \\
+            2.常数乘无穷小量仍是无穷小量
+            \\
+            3.有限个无穷小量的乘积是无穷小量
+            \\
+            4.无穷小量乘有界量仍是无穷小量
+            \\
+            5.数列$\{ x_n\}$以$a$为极限，则存在无穷小量$\{ \alpha_n \}$,使得$\forall n \in N^* , x_n = a + \alpha_n$
+        \end{ppt}
+
+        \begin{dfn}
+            {UUID}
+            {无穷大量}
+            {Infinite Quantity}
+            {l3}
+            若$\forall G>0 , \exists N,\forall n > N,|x_n| > G$，则称$\{ x_n \}$为无穷大量
+        \end{dfn}
+
+        \begin{ppt}
+            {UUID}
+            {无穷大量的性质}
+            {The property of infinit quantity}
+            {l3}
+            1.若$\{ x_n \}$是无穷大量，$\{ y_n \}$为有界量，则$\{ x_n \pm y_n \}$是无穷大量
+            \\
+            2.若$\{ x_n \}$是无穷大量，$\lim\limits_{n \to + \infty} y_n = b \neq 0$，则$\{ x_ny_n \}$和$\{ \frac{x_n}{y_n} \}$是无穷大量
+            \\
+            3.设$x_n \neq 0$,则$\{ x_n \}$是无穷小量的充要条件是$\{ \frac{1}{x_n} \}$是无穷大量
+        \end{ppt}
+
+        \begin{dfn}
+            {UUID}
+            {子列}
+            {subsequence}
+            {l3}
+            对于数列$\{x_n\}$与一个严格单调增的正整数数列$\{n_k\}$,那么数列$\{x_{n_k}\}$称为$\{x_n\}$的一个子列
+        \end{dfn}
+
+        \begin{thm}
+            {UUID}
+            {}
+            {}
+            {l3}
+            $\lim\limits_{n \to + \infty} x_n =a$的充分必要条件是$\{x_n\}$的任何子列都以$a$为极限
+        \end{thm}
+
+        \begin{thm}
+            {UUID}
+            {}
+            {}
+            {l3}
+             $\lim\limits_{n \to + \infty} x_n =a$的充分必要条件是$\{x_{2k}\}$和$\{x_{2k+1}\}$都以$a$为极限
+        \end{thm}
+
+        \begin{thm}
+            {UUID}
+            {斯托尔茨定理}
+            {Stolz's Theorem}
+            {l3}
+            设$\{a_n\}$是一列严格单调增加且极限为正无穷大的数列，$\{b_n\}$为任意数列，如果 $\lim\limits_{n \to + \infty} \frac{b_n - b_{n-1}}{a_n - a_{n-1}} =a$，则有$\lim\limits_{n \to + \infty} \frac{b_n}{a_n} =a$，这里$a$可以是正无穷、负无穷或实数
+        \end{thm}
+    \subsection{实数完备性六大定理}
+        \begin{dfn}
+            {UUID}
+            {界}
+            {Bound}
+            {l3}
+            设$S$是一个非空数集，若$\exists M$,使得$\forall x \in S,x\le M$($x\ge M$)，则称$M$是数集$S$的一个上界（下界），既有上界又有下界的数集称为有界数集
+        \end{dfn}
+
+        \begin{dfn}
+            {UUID}
+            {上确界}
+            {Supremum}
+            若$\beta$是数集$S$的一个上界，且满足$\forall \varepsilon > 0 ,\exists x_0 \in S,s.t.x_0>\beta - \varepsilon$，则称$\beta$是数集$S$的上确界，记为$$\beta = \sup S$$
+        \end{dfn}
+
+        \begin{dfn}
+            {UUID}
+            {下确界}
+            {Infimum}
+            若$\alpha$是数集$S$的一个下界，且满足$\forall \varepsilon > 0 ,\exists y_0 \in S,s.t.y_0<\alpha + \varepsilon$，则称$\alpha$是数集$S$的上确界，记为$$\alpha = \inf S$$
+        \end{dfn}
+        \begin{thm}
+            {UUID}
+            {确界原理}
+            {Supremum and Infimum Principle}
+            {l3}
+            非空有上界的数集必有上确界，非空有下界的数集必有下确界
+        \end{thm}
+
+        \begin{thm}
+            {UUID}
+            {单调有界原理}
+            {Monotonic Boundedness Principle}
+            {l3}
+            单调有界数列必定收敛
+        \end{thm}
+
+        \begin{thm}
+            {UUID}
+            {闭区间套定理}
+            {Nested Intervals Theorem}
+            设闭区间列$\{[a_n , b_n] \}$满足：\\
+            (1)对于任意正整数$n \in \mathbb{N}^*$,$[a_{n+1} , b_{n+1}] \subset [a_n , b_n]$\\
+            (2)$\lim\limits_{n \to +\infty} (b_n - a_n) = 0$\\
+            则在闭区间列中存在唯一的公共点$\xi \in \bigcap\limits_{n=1}^{\infty}[a_n,b_n]$，使得$\lim\limits_{n \to \infty} b_n = \lim\limits_{n \to \infty} a_n = \xi$
+        \end{thm}
+
+        \begin{thm}
+            {UUID}
+            {凝聚定理}
+            {Bolzano-Weierstrass Theorem}
+            {l3}
+            $\mathbb{R}$中的有界数列必有收敛子列
+        \end{thm}
+
+        \begin{thm}
+            {UUID}
+            {有限覆盖原理}
+            {Finite Covering Principle}
+            {l3}
+            sorry
+        \end{thm}
+\section{}
+\end{document}
