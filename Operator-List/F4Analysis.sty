@@ -1,25 +1,24 @@
 
-
-\newcommand{\Ioc}[2]{\left(#1,#2\right]}                % Open-Closed Interval
-\newcommand{\Ico}[2]{\left[#1,#2\right)}                % Closed-Open Interval
-\newcommand{\Icc}[2]{\left[#1,#2\right]}                % Closed Interval
-\newcommand{\Ioo}[2]{\left(#1,#2\right)}                % Open Interval
+\NewDocumentCommand{\Ioc}{smm}{\left(#2,#3\right]}                % Open-Closed Interval
+\NewDocumentCommand{\Ico}{smm}{\left[#2,#3\right)}                % Closed-Open Interval
+\NewDocumentCommand{\Icc}{smm}{\left[#2,#3\right]}                % Closed Interval
+\NewDocumentCommand{\Ioo}{smm}{\left(#2,#3\right)}                % Open Interval
 
 % Mathematical Analysis
 
 \NewDocumentCommand{\ulim}{s}{\catref[#1]{dfn:Upper-Limit}{\ensuremath{\overline{\operatorname{lim}}}}[上极限]}
 \NewDocumentCommand{\llim}{s}{\catref[#1]{dfn:Lower-Limit}{\ensuremath{\underline{\operatorname{lim}}}}[下极限]}
 
-\newcommand{\diff}[3]{\left. #1 \right|_{#2}^{#3}}      % This command can be replaced by $\eval{#1}_{#2}^{#3}$ in package physics.
+\NewDocumentCommand{\diff}{smmm}{\left. #1 \right|_{#2}^{#3}}      % This command can be replaced by $\eval{#1}_{#2}^{#3}$ in package physics.
 
 \NewDocumentCommand{\Ball}{smm}{\catref[#1]{dfn:Open-Ball}{\mathcal{B}}[开球]\left(#2,#3\right)}	% Open Ball
 
 
 
 % Measure Theory
-\NewDocumentCommand{\SigmaAlgebra}{soo}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的\,}\catref[#1]{dfn:SigmaAlgebra}{\(\sigma\)-代数}[\(\sigma\)-代数, 即包含全集且对补集与可数并封闭的集合族.]}
+\NewDocumentCommand{\Sigma代数}{soo}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的\,}\catref[#1]{dfn:Sigma-Algebra}{\(\sigma\)-代数}[\(\sigma\)-代数, 即包含全集且对补集与可数并封闭的集合族.]}
 
-\NewDocumentCommand{\Measure}{soo}{\catref[#1]{dfn:Measure}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的}测度}[测度空间.]}
+\NewDocumentCommand{\测度}{soo}{\catref[#1]{dfn:Measure}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的}测度}[测度空间.]}
 
 % Complex Analysis
 \NewDocumentCommand{\ii}{s}{\catref[#1]{dfn:ImaginaryUnit}{\ensuremath{\mathrm{i}}}[虚数单位. ]}

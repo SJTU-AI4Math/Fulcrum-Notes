@@ -4,39 +4,13 @@
 \def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
 \makeatother
 
-\usepackage{FulcrumHabitCN}
-% ams package
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsmath}
+\usepackage{FulcrumCN}
+\usepackage{OperatorListCN}
+\usepackage{F4Analysis}
+\usepackage{F4Logic}
+\usepackage{F4Set}
 
-% margin
 \usepackage{geometry}
-
-% \dd
-\usepackage{physics}
-
-% Boldface
-\usepackage{bm}
-
-% Tikz
-\usepackage{tikz}
-\usetikzlibrary{calc}
-
-% Gaussian Elimination
-\usepackage{gauss}
-
-% Commutative Graph
-\usepackage[all]{xy}
-
-% Comment
-\usepackage{comment}
-
-\title{Title}
-\author{Fulcrum4Math}
-\date{\today}
-
 \geometry{
     paper =a4paper,
     top =3cm,
@@ -62,25 +36,26 @@
 
         \subsection{\(\sigma\)-代数与测度空间} % uuid:"Subsection-Sigma-Algebra-Measure-Space"
 
-            \begin{dfn}
+            \begin{str}
                 [Sigma-Algebra]
                 {\(\sigma\)-代数}
                 [\(\sigma\)-Algebra]
                 [猫猫]
-                \(\Sigma_S\subseteq\PP(S)\), 定义在集合 \(S\) 上的结构 \((S,\Sigma_S)\) 称为是 \(S\) 上的一个 \textbf{\(\sigma\)-代数}当且仅当: 
-
-                (1) \(S\) 在 \(\Sigma_S\) 内; 
-                \[S\in\Sigma_S\]
-
-                (2) \(\Sigma_S\) 对可数并封闭: 
-                \[\forall\{X_i|i\in\N\}\subseteq\Sigma_S, \bigcup_{i\in\N}X_i\in\Sigma_S\]
-
-                (3) \(\Sigma_S\) 对补集封闭: 
-                \[\forall X\in\Sigma_S, S-X\in\Sigma_S\]
-            \end{dfn}
+                设 \(S\) 是类型, \(\Sigma_S\subseteq\PS[S]\), 定义 \((S,\Sigma_S)\) 是 \(S\) 上的\textbf{\(\sigma\)-代数} 当且仅当: 
+                \begin{enumerate}
+                    \item \(S\) 在 \(\Sigma_S\) 内; 
+                    \[S\in\Sigma_S\]
+    
+                    \item 对可数并封闭: 
+                    \[\forall\{X_i|i\in\N\}\subseteq\Sigma_S, \bigcup_{i\in\N}X_i\in\Sigma_S\]
+    
+                    \item 对补集封闭: 
+                    \[\forall X\in\Sigma_S, S-X\in\Sigma_S\]
+                \end{enumerate}
+            \end{str}
 
             \begin{ppt}
-                [SigmaAlgebraEquivDef]
+                [Sigma-Algebra-Equiv-Def]
                 {\(\sigma\)-代数的等价定义}
                 []
                 [猫猫]
@@ -103,13 +78,13 @@
                 [Measure and Measure Space]
                 [猫猫]
                 设 \((S,\Sigma_S)\) 是 \(\sigma\)-代数, 集函数 \(\mu:\Sigma_S\to\bar{\R}\) 称为是定义在 \(\Sigma_S\) 上的\textbf{测度}, 若: 
-
-                (1) 测度非负: 
-                \[\forall X\in\Sigma_S, \mu(X)\geq 0\]
-
-                (2) 可数可加性: 
-                \[\forall\{X_i|i\in\N\}\subseteq\Sigma_S(i\neq j\Longrightarrow X_i\cap X_j=\varnothing), \]
-                \[\mu\left(\bigcup_{i\in\N}X_i\right)=\sum_{i\in\N}\mu(X_i)\]
+                \begin{enumerate}
+                    \item 非负性: 
+                    \[\forall X\in\Sigma_S, \mu(X)\geq 0\]
+    
+                    \item 可数可加性: 
+                    \[\forall\{X_n\}:\N\to\Sigma_S, (\forall i,j:\N, i\neq j\implies X_i\cap X_j=\varnothing)\implies\mu\left(\bigcup_{i\in\N}X_i\right)=\sum_{i\in\N}\mu(X_i)\]
+                \end{enumerate}
 
                 此时结构 \((S,\Sigma_S,\mu)\) 称为\textbf{测度空间}. 
             \end{dfn}
@@ -144,10 +119,8 @@
                 {Borel 集族}
                 [Borel Sets]
                 [猫猫]
-                \textbf{Borel 集族 (Borel Sets)}
-
-                设拓扑空间 \((S,\T_S)\), \(S\) 上的 \textbf{Borel 集族} \(\mathcal{B}(S)\)是由拓扑 \(\T_S\) 生成的最小 \(\sigma\)-代数: 
-                \[\mathcal{B}(S)=\bigcap_{\T_S\subseteq\Sigma_S}\Sigma_S\]
+                设拓扑空间 \((S,\mathcal{T}_S)\), \(S\) 上的 \textbf{Borel 集族} \(\mathcal{B}(S)\)是由拓扑 \(\mathcal{T}_S\) 生成的最小 \(\sigma\)-代数: 
+                \[\mathcal{B}(S)=\bigcap_{\mathcal{T}_S\subseteq\Sigma_S}\Sigma_S\]
             \end{dfn}
             
             \begin{dfn}
@@ -155,8 +128,8 @@
                 {\(\R\) 上在通常拓扑意义下的 Borel 测度}
                 []
                 [猫猫]
-                在对 \(\R\) 赋予通常拓扑得到的拓扑空间 \((\R,\T)\) 上, 定义在 Borel 集上的满足区间的长度为端点之差得到的测度称为 \textbf{Borel 测度}: 
-                \[\forall a,b(a<b)\in\bar\R, \mu\oointerval{a}{b}=b-a\]
+                在对 \(\R\) 赋予通常拓扑得到的拓扑空间 \((\R,\mathcal{T})\) 上, 定义在 Borel 集上的满足区间的长度为端点之差得到的测度称为 \textbf{Borel 测度}: 
+                \[\forall a,b(a<b)\in\bar\R, \mu\Ioo{a}{b}=b-a\]
             \end{dfn}
             
             \begin{ppt}
@@ -169,7 +142,7 @@
             
             \begin{prf}
                 考虑以点为中心的开球，并令半径任意小即可: 
-                \[\forall x\in\R, \forall\varepsilon\in\R^+, \{x\}\subseteq\oointerval{x-\frac{\varepsilon}{2}}{x+\frac{\varepsilon}{2}}\]
+                \[\forall x\in\R, \forall\varepsilon\in\R^+, \{x\}\subseteq\Ioo{x-\frac{\varepsilon}{2}}{x+\frac{\varepsilon}{2}}\]
                 \[\Longrightarrow\forall\varepsilon\in\R^+, \mu\{x\}\leq\varepsilon\Longrightarrow\mu\{x\}=0\square\]
             \end{prf}
             
@@ -179,10 +152,10 @@
                 []
                 [猫猫]
                 \[\forall a,b\in\bar\R, 
-                \mu\oointerval{a}{b}=
-                \mu\ocinterval{a}{b}=
-                \mu\cointerval{a}{b}=
-                \mu\ccinterval{a}{b}=b-a\]
+                \mu\Ioo{a}{b}=
+                \mu\Ioc{a}{b}=
+                \mu\Ico{a}{b}=
+                \mu\Icc{a}{b}=b-a\]
             \end{ppt}
             
             \begin{ppt}
@@ -233,8 +206,8 @@
 
                 ？？？
 
-                对于拓扑空间 \((S,\T)\), 用开集外逼近得到的集函数 \(\mu^*:\PP(S)\to\R\) 称为是 \(\PP(S)\) 上的外测度: 
-                \[\mu^*(X)=\inf_{O\in\T}\sum_{X\subseteq O}\mu(O)\]
+                对于拓扑空间 \((S,\mathcal{T})\), 用开集外逼近得到的集函数 \(\mu^*:\PP(S)\to\R\) 称为是 \(\PP(S)\) 上的外测度: 
+                \[\mu^*(X)=\inf_{O\in\mathcal{T}}\sum_{X\subseteq O}\mu(O)\]
 
                 用紧集内逼近得到的集函数 \(\mu_*:\PP(S)\to\R\) 称为是 \(\PP(S)\) 上的内测度: 
                 \[\mu_*(X)=\sup_{C\text{是紧集}}\sum_{C\subseteq X}\mu(C)\]

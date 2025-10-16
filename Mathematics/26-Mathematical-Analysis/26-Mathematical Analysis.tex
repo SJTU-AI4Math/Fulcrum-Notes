@@ -4254,9 +4254,24 @@
 
 		\subsection{Euclid 空间}
 			
-			\begin{dfn}
-				{\(n\) 维 Euclid 空间}
-			\end{dfn}
+			\begin{str}
+				[Euclidean-Space]
+				{Euclid 空间}
+				[Euclidean Space]
+				[猫猫]
+				设 \(n:\N^*\), 定义 \(n\) 维 \textbf{Euclid 空间}包含以下信息: 
+				\begin{enumerate}
+					\item 点集 \(\R^n\); 
+					\item \((\R^n, +, \cdot, \|\cdot\|)\) 是赋范线性空间; 
+					\item \(\inprod{\cdot}{\cdot}\) 是内积;
+					\item \((\R^n, d, \mathcal{T})\) 是拓扑度量空间; 
+				\end{enumerate}
+			\end{str}
+			
+			\begin{rmk}
+				[猫猫]
+				一般拓扑度量空间性质请参考拓扑部分, 这里仅列出 Euclid 空间的特殊性质. 
+			\end{rmk}
 
 			\begin{thm}
 				[]
@@ -4265,85 +4280,168 @@
 				[猫猫]
 				设 \(A\subseteq\R^n\), 则 \(A\) 紧 \(\iff A\) 有界且闭. 
 			\end{thm}
-
-		\subsection{\(\R^n\) 上函数的极限}
 			
-			\begin{dfn}
-			    []
-			    {极限}
-			    [Limit]
-			    []
-				设 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in\cl(D)\), 称 \(f\) 在 \(\bm{x}_0\) 处有\textbf{极限} \(\bm{y}\), 若 \(\|f(\bm{x})-\bm{y}\|\) 能够通过 \(\|\bm{x}-\bm{x}_0\|\) 控制: 
-				\[\forall\varepsilon\in\R^+, \exists\delta\in\R^+, \forall\bm{x}\in(\Ball{\bm{x}_0}{\delta}-\{\bm{x}_0\}), f(\bm{x})\in\Ball{\bm{y}}{\varepsilon}\]
-				
-				记作: 
-				\[\lim_{\bm{x}\to\bm{x}_0}f(\bm{x})=\bm{y}\]
-			\end{dfn}
-
-			\begin{ppt}
-			    []
-			    {多元函数极限的点列等价判定}
-			    []
-			    []
-				设 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in D\), 则 \(f\) 在 \(\bm{x}_0\) 处有极限 \(\bm{y}\) 当且仅当任何收敛于 \(\bm{x_0}\) 的点列的像收敛于 \(\bm{y}\): 
-				\[\lim_{\bm{x}\to\bm{x}_0}=\bm{y}
-				\iff
-				\left(\forall{\{\bm{x}_i\}}_{i\in{\N}^*}, \lim_{n\to+\infty}\bm{x}_n=\bm{x}_0\implies\lim_{n\to+\infty}f(\bm{x}_n)=\bm{y}\right)\]
-			\end{ppt}
-
-			\begin{ppt}
-			    []
-			    {多元函数极限保持代数结构}
-			    []
-			    []
-			\end{ppt}
-
-			\begin{ppt}
-			    []
-			    {多元函数极限复合稳定}
-			    []
-			    []
-			\end{ppt}
-
 			\begin{thm}
-			    []
-			    {Cauchy 收敛原理}
-			    []
-			    []
+				[]
+				{开集结构定理}
+				[]
+				[猫猫]
 			\end{thm}
+			
+			\begin{crl}
+				[]
+				{闭集结构定理}
+				[]
+				[猫猫]
+			\end{crl}
+
+		% \subsection{\(\R^n\) 上函数的极限}
+			
+		% 	\begin{dfn}
+		% 	    []
+		% 	    {极限}
+		% 	    [Limit]
+		% 	    []
+		% 		设 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in\cl(D)\), 称 \(f\) 在 \(\bm{x}_0\) 处有\textbf{极限} \(\bm{y}\), 若 \(\|f(\bm{x})-\bm{y}\|\) 能够通过 \(\|\bm{x}-\bm{x}_0\|\) 控制: 
+		% 		\[\forall\varepsilon\in\R^+, \exists\delta\in\R^+, \forall\bm{x}\in(\Ball{\bm{x}_0}{\delta}-\{\bm{x}_0\}), f(\bm{x})\in\Ball{\bm{y}}{\varepsilon}\]
+				
+		% 		记作: 
+		% 		\[\lim_{\bm{x}\to\bm{x}_0}f(\bm{x})=\bm{y}\]
+		% 	\end{dfn}
+
+		% 	\begin{ppt}
+		% 	    []
+		% 	    {多元函数极限的点列等价判定}
+		% 	    []
+		% 	    []
+		% 		设 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in D\), 则 \(f\) 在 \(\bm{x}_0\) 处有极限 \(\bm{y}\) 当且仅当任何收敛于 \(\bm{x_0}\) 的点列的像收敛于 \(\bm{y}\): 
+		% 		\[\lim_{\bm{x}\to\bm{x}_0}=\bm{y}
+		% 		\iff
+		% 		\left(\forall{\{\bm{x}_i\}}_{i\in{\N}^*}, \lim_{n\to+\infty}\bm{x}_n=\bm{x}_0\implies\lim_{n\to+\infty}f(\bm{x}_n)=\bm{y}\right)\]
+		% 	\end{ppt}
+
+		% 	\begin{ppt}
+		% 	    []
+		% 	    {多元函数极限保持代数结构}
+		% 	    []
+		% 	    []
+		% 	\end{ppt}
+
+		% 	\begin{ppt}
+		% 	    []
+		% 	    {多元函数极限复合稳定}
+		% 	    []
+		% 	    []
+		% 	\end{ppt}
+
+		% 	\begin{thm}
+		% 	    []
+		% 	    {Cauchy 收敛原理}
+		% 	    []
+		% 	    []
+		% 	\end{thm}
 		
-		\subsection{多元函数连续性}
+		% \subsection{多元函数连续性}
 
-			\begin{dfn}
-				[]
-				{}
-				[]
-				[]
-				设 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in D\), 
-			\end{dfn}
+		% 	\begin{dfn}
+		% 		[]
+		% 		{}
+		% 		[]
+		% 		[]
+		% 		设 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in D\), 
+		% 	\end{dfn}
 	
-	\section{多元微分}
+	\section{\(\R^n\to\R\) 函数的微分}
 
-		\subsection{多元微分}
-
+		\subsection{偏导数}
+			
 			\begin{dfn}
-			    []
-			    {切空间}
-			    [Tangent Space]
-			    [猫猫]
-				设开集 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in D\), 定义 \(f\) 在 \(\bm{x}_0\) 处的\textbf{切空间}为在陪集 \(\R^n+\bm{x}_0\) 上赋予 \(\R^n\) 的线性运算得到的线性空间, 记作 \(T_{\bm{x}_0}\R^n\): 
-				\[T_{\bm{x}_0}\R^n:=(\R^n+\bm{x}_0, +_{\bm{x}_0}, \cdot_{\bm{x}_0})\]
+				[]
+				{坐标泛函}
+				[Coordinate Functional]
+				[猫猫]
+				设 \(n:\N\), \(i:\N\), \(1\leq i\leq n\), 定义 \(\R^n\) 上的第 \(i\) \textbf{坐标泛函}为: \((x_1,x_2,\dots,x_n)\mapsto x_i\), 记作 \(\bm{x}^i\). 
 			\end{dfn}
 			
 			\begin{dfn}
+			    [Partial-Derivative]
+			    {偏导数}
+			    [Partial Derivative]
+			    [猫猫]
+				设 \(D\subseteq\R^n\), \(f:D\to\R\), \(\bm{x}_0:\R^n\), \(\bm{x}_0\in\intr D\), 定义 \(f\) 在 \(\bm{x}_0\) 处对 \(\bm{x}^i\) 的\textbf{偏导数}为: 
+				\[\lim_{\delta\to 0}\frac{f(\bm{x}_0+\delta\bm{e}_i)-f(\bm{x}_0)}{\delta}\]
+
+				记作: 
+				\[\frac{\partial f}{\partial \bm{x}^i}(\bm{x}_0)\]
+			\end{dfn}
+			
+			\begin{dfn}
+				[]
+				{偏导函数}
+				[]
+				[猫猫]
+			\end{dfn}
+			
+			\begin{dfn}
+				[]
+				{偏导算子}
+				[]
+				[猫猫]
+				设 \(D\subseteq\R^n\), 定义 \(D\) 上的第 \(i\) \textbf{偏导算子}为: \(\bm{x}\mapsto\dfrac{\partial\cdot}{\partial\bm{x}^i}\). 
+			\end{dfn}
+			
+			\begin{ppt}
+				[]
+				{偏导算子线性性}
+				[]
+				[猫猫]
+				设 \(D\subseteq\R^n\), \(f,g:D\to\R\), \(\alpha,\beta\in\R\), 则: 
+				\[\dfrac{\partial}{\partial\bm{x}^i}(\alpha f+\beta g)=\alpha\dfrac{\partial f}{\partial\bm{x}^i}+\beta\dfrac{\partial g}{\partial\bm{x}^i}\]
+			\end{ppt}
+
+		\subsection{方向导数}
+
+			% \begin{dfn}
+			%     [Rn-Tangent-Space]
+			%     {切空间}
+			%     [Tangent Space]
+			%     [猫猫]
+			% 	设 \(D\subseteq\R^n\), \(D\) 是开集, \(\bm{x}_0\in D\), 定义 \(\R^n\) 上 \(\bm{x}_0\) 处的\textbf{切空间}为: 
+				
+			% 	在陪集 \(\R^n+\bm{x}_0\) 上赋予 \(\R^n\) 的线性运算得到的线性空间, 记作 \(T_{\bm{x}_0}\R^n\): 
+			% 	\[T_{\bm{x}_0}\R^n:=(\R^n+\bm{x}_0, +_{\bm{x}_0}, \cdot_{\bm{x}_0})\]
+			% \end{dfn}
+
+			\begin{dfn}
 			    []
-			    {可微性}
+			    {方向导数}
+			    [Directional Derivative]
+			    [猫猫]
+				设 \(D\subseteq\R^n\), \(D\) 是开集, \(f:D\to\R\), \(\bm{x}_0:\R^n\), \(\bm{x}_0\in\intr D\), \(\bm{u}:\R^n\), \(\|\bm{u}\|=1\), 定义 \(f\) 在 \(\bm{x}_0\) 处沿 \(\bm{u}\) 的\textbf{方向导数}为: 
+				\[\lim_{\delta\to 0}\frac{f(\bm{x}_0+\delta\bm{u})-f(\bm{x}_0)}{\delta}\]
+
+				记作: 
+				\[\frac{\partial f}{\partial \bm{u}}(\bm{x}_0)\]
+			\end{dfn}
+			
+			\begin{ppt}
+				[]
+				{方向导数算子空间同构于切空间}
+				[]
+				[猫猫]
+			\end{ppt}
+
+		\subsection{可微性}
+			
+			\begin{dfn}
+			    [RnR-Differentiable]
+			    {可微}
 			    [Differentiable]
 			    [猫猫]
-				设开集 \(D\subseteq\R^n\), \(f:D\to\R^m\), \(\bm{x}_0\in D\), \(\bm{x}_0\in D\), 称 \(f\) 在 \(\bm{x}_0\) 处\textbf{可微}, 若存在切空间上的线性映射 \(\mathcal{T}:T_{\bm{x}_0}\R^n\to\R^m\), 使得在 \(\bm{x}_0\) 附近 \(\mathcal{T}+f(\bm{x}_0)\) 与 \(f\) 足够接近: 
-				\[\|\mathcal{T}(\bm{x})+f(\bm{x}_0)-f(\bm{x})\|=o(\|\bm{x}\|)\]
+				设 \(D\subseteq\R^n\), \(D\) 是开集, \(f:D\to\R\), \(\bm{x}_0:\R^n\), \(\bm{x}_0\in\intr D\), 定义 \(f\) 在 \(\bm{x}_0\) 处\textbf{可微}, 当且仅当: 
+				\[\exists\varphi_f:\R^n\to\R, \varphi_f\in\mathcal{L}(\R^n,\R), f(\bm{x}_0+\Delta\bm{x})=f(\bm{x}_0)+\varphi_f(\Delta\bm{x})+o(\|\Delta\bm{x}\|)\]
 
-				称 \(\mathcal{T}\) 在 \(\R^n\) 标准基下的矩阵表示为 \(f\) 在 \(\bm{x}_0\) 处的 \textbf{Jacobi 矩阵}, 记作 \(\bm{J}f(\bm{x}_0)\). 
+				定义 \(f\) 在 \(\bm{x}_0\) 处的 \textbf{Jacobi 矩阵}为: \(\varphi_f\) 在 \(\R^n\) 标准基下的表示矩阵, 记作 \(\bm{J}_f(\bm{x}_0)\). 
 			\end{dfn}
 			
 			\begin{ppt}
@@ -4351,22 +4449,8 @@
 				{可微性蕴含连续性}
 				[]
 				[猫猫]
-				若 \(f\) 在 \(\bm{x}_0\) 处可微, 则 \(f\) 在 \(\bm{x}_0\) 处连续. 
+				设 \(f\) 在 \(\bm{x}_0\) 处可微, 则 \(f\) 在 \(\bm{x}_0\) 处连续. 
 			\end{ppt}
-			
-			\begin{dfn}
-			    []
-			    {偏导数}
-			    [Partial Derivative]
-			    [猫猫]
-				定义 \(f\) 在 \(\bm{x}_0\) 处对 \(\bm{x}.i\) 的\textbf{偏导数}为: 
-				\[\lim_{\delta\to 0}\frac{f(\bm{x}+\delta\bm{e}_i)-f(\bm{x})}{\delta}\]
-
-				记作: 
-				\[\frac{\partial f}{\partial \bm{x}.i}(\bm{x}_0)\]
-
-				将 \(f\mapsto (\bm{x}\mapsto\frac{\partial f}{\partial\bm{x}})\) 称为\textbf{偏导算子}. 
-			\end{dfn}
 			
 			\begin{ppt}
 				[]
@@ -4408,25 +4492,6 @@
 					0 & (x,y)=(0,0)
 				\end{cases}\]
 			\end{cxmp}
-
-			\begin{dfn}
-			    []
-			    {方向导数}
-			    [Directional Derivative]
-			    [猫猫]
-				设 \(D\subseteq\R^n\), \(f:\R^n\to\R\), \(\bm{x}_0\in D\), \(\bm{x}_0\) 是 \(D\) 的一个紧致点, \(\bm{u}\in\R^n\), \(\|\bm{u}\|=1\), 定义 \(f\) 在 \(\bm{x}_0\) 处沿 \(\bm{u}\) 的方向导数为: 
-				\[\lim_{\delta\to 0}\frac{f(\bm{x}_0+\delta\bm{u})-f(\bm{x}_0)}{\delta}\]
-
-				记作: 
-				\[\frac{\partial f}{\partial \bm{u}}(\bm{x}_0)\]
-			\end{dfn}
-
-			\begin{ppt}
-			    []
-			    {切空间同构于方向导数算子空间}
-			    []
-			    [猫猫]
-			\end{ppt}
 			
 			\begin{thm}
 				[]
@@ -4955,22 +5020,29 @@
 	\section{场论}
 
 		\subsection{向量场表征}
-
-			\begin{dfn}
-				[]
-				{梯度}
-				[Gradient]
-				[]
-				当 \(m=1\) 时, \(\bm{J}f(\bm{x}_0)\) 亦称为 \(f\) 在 \(\bm{x}_0\) 处的\textbf{梯度}, 记作 \(\nabla f(\bm{x}_0)\). 
-			\end{dfn}
 			
 			\begin{dfn}
 				[]
 				{Nabla 算子}
 				[Nabla Operator]
 				[猫猫]
-				对全体在 \(\bm{x}_0\) 处可微的 \(D\to\R\) 的函数, 将映射 \(f\mapsto(\bm{x}_0\mapsto\bm{J}f(\bm{x}_0))\) 称为 \textbf{Nabla 算子}, 记作 \(\nabla\). 
+				设 \(n, m:\N\), 定义 \(\R^n\to\R^m\) 上的 \textbf{Nabla 算子} 为 \(f\mapsto(\bm{x}_0\mapsto\bm{J}f(\bm{x}_0))\), 记作 \(\nabla\). 
 			\end{dfn}
+
+			\begin{dfn}
+				[]
+				{梯度}
+				[Gradient]
+				[]
+				设 \(f:\R^n\to\R\) 在 \(\bm{x}_0\) 处可微, 定义 \(f\) 在 \(\bm{x}_0\) 处的\textbf{梯度} 为 \(\nabla f(\bm{x}_0)\). 
+			\end{dfn}
+			
+			\begin{ppt}
+				[]
+				{梯度同构于 Jacobi 矩阵}
+				[]
+				[猫猫]
+			\end{ppt}
 			
 			\begin{ppt}
 				[]
@@ -4980,26 +5052,31 @@
 				对全体在 \(\bm{x}_0\) 处可微的 \(D\to\R\) 的函数, Nabla 算子可用偏导算子表示: 
 				\[\nabla=
 				\begin{bmatrix}
-					\dfrac{\partial}{\partial \bm{x}.1} &
-					\dfrac{\partial}{\partial \bm{x}.2} &
+					\dfrac{\partial}{\partial \bm{x}^1} &
+					\dfrac{\partial}{\partial \bm{x}^2} &
 					\cdots &
-					\dfrac{\partial}{\partial \bm{x}.n}
-				\end{bmatrix}\]
+					\dfrac{\partial}{\partial \bm{x}^n}
+				\end{bmatrix}
+				\]
 			\end{ppt}
 			
 			\begin{dfn}
-				[]
+				[Divergence]
 				{散度}
 				[Divergence]
 				[猫猫]
+				设 \([f_1,f_2,\dots,f_n]:\R^n\to\R^n\) 在 \(\bm{x}_0\) 处可微, 定义 \(f\) 在 \(\bm{x}_0\) 处的\textbf{散度}为: 
+				\[
+				\begin{bmatrix}
+					\dfrac{\partial f_1}{\partial \bm{x}^1} &
+					\dfrac{\partial f_2}{\partial \bm{x}^2} &
+					\cdots &
+					\dfrac{\partial f_n}{\partial \bm{x}^n}
+				\end{bmatrix}
+				\]
+
+				记作 \(\nabla\cdot f(\bm{x}_0)\).
 			\end{dfn}
-			
-			\begin{ppt}
-				[]
-				{散度的 Nabla 算子表示}
-				[]
-				[猫猫]
-			\end{ppt}
 			
 			\begin{thm}
 				[]
@@ -5008,18 +5085,25 @@
 				[猫猫]
 			\end{thm}
 			
+			\begin{prf}
+				由 Stokes 定理可得. 
+			\end{prf}
+			
 			\begin{dfn}
 				[]
 				{旋度}
 				[Curl]
 				[猫猫]
+				设 \(\bm{x}_0:\R^3\), \([f_1,f_2,f_3]:\R^3\to\R^3\) 在 \(\bm{x}_0\) 处可微, 定义 \(f\) 在 \(\bm{x}_0\) 处的\textbf{旋度}为: 
+				\[
+				\begin{bmatrix}
+					\dfrac{\partial f_3}{\partial \bm{x}^2}-\dfrac{\partial f_2}{\partial \bm{x}^3} & 
+					\dfrac{\partial f_1}{\partial \bm{x}^3}-\dfrac{\partial f_3}{\partial \bm{x}^1} &
+					\dfrac{\partial f_2}{\partial \bm{x}^1}-\dfrac{\partial f_1}{\partial \bm{x}^2}
+				\end{bmatrix}
+				\]
+
+				记作 \(\nabla\times f(\bm{x}_0)\). 
 			\end{dfn}
-			
-			\begin{ppt}
-				[]
-				{旋度的 Nabla 算子表示}
-				[]
-				[猫猫]
-			\end{ppt}
 
 \end{document}

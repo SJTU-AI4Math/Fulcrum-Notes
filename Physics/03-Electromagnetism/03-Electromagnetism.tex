@@ -38,9 +38,9 @@
             {电荷}
             [Electric Charge]
             [猫猫]
-            定义\textbf{电荷}为实物理量, 量纲为 \(\ElectricCurrent\cdot\Time\). 
+            定义\textbf{电荷}为 \(\ElectricCurrent\cdot\Time\), 记作 \(\ElectricCharge\). 
 
-            定义\电荷 的量纲 \textbf{Column} 为 \(\A\cdot\s\), 记作 \(\Clm\). 
+            定义\电荷 的单位 \textbf{Column} 为 \(\A\cdot\s\), 记作 \(\Clm\). 
         \end{dfn}
         
         \begin{str}
@@ -48,7 +48,13 @@
             {带电体}
             [Charged Object]
             [猫猫]
-            定义
+            定义\textbf{带电体}类型承载以下信息: 
+            \begin{enumerate}
+                \item 物体 \(O\); 
+                \item 维度 \(n\in\{0,1,2,3\}\)
+                \item \(n\) 维光滑流形 \(M\); 
+                \item 电荷分布 \(\rho:M\to\ElectricCharge\cdot\Length_{-n}\); 
+            \end{enumerate}
         \end{str}
         
         \begin{xmp}
@@ -59,11 +65,22 @@
             \textbf{电子电量}约为 \(-1.602 \times 10^{-19} \Clm\), 记作 \(e\). 
         \end{xmp}
         
-        \begin{dfn}
+        \begin{axm}
             [Coulomb-Force]
             {静电力 / Coulomb 力}
             [Coulomb Force]
             [猫猫]
+            设 \(Q\) 是带电体, 则: 
+        \end{axm}
+        
+        \begin{dfn}
+            [Electric-Potential]
+            {电势}
+            [Electric Potential]
+            [猫猫]
+            定义\textbf{电势}为 \(\Energy\cdot\ElectricCharge^{-1}\), 记作 \(\ElectricPotential\). 
+
+            定义\textbf{电势}的单位 \textbf{Volt} 为 \(\Nt\cdot\m\cdot\Clm^{-1}\), 记作 \(\Vlt\). 
         \end{dfn}
         
         \begin{str}
@@ -71,21 +88,18 @@
             {电场}
             [Electric Field]
             [猫猫]
-            一种场. 
+            定义\textbf{电场}类型承载以下信息: 
+            \begin{enumerate}
+                \item 场 \(E\); 
+                \item \textbf{电势函数} \(\Phi_E:\Length_3\to\ElectricPotential\): 
+            \end{enumerate}
         \end{str}
         
         \begin{dfn}
-            [Electric-Potential]
-            {电势}
             []
-            []
-            设 \(E\) 是电场, \(x_0\) 是 \(E\) 中一点, \(x\) 是 \(E\) 中一点, 定义 \(E\) 在 \(x\) 处以 \(x_0\) 为零电势点的\textbf{电势}为实物理量, 量纲为 \(\V\), 记作 \(\varphi_E(x)\). 
-
-            定义从空间到电势的映射 \(x\mapsto\varphi_E(x)\) 为\textbf{电势函数}, 记作 \(\Phi_E\). 
-        \end{dfn}
-        
-        \begin{dfn}
             {等势线}
+            []
+            [猫猫]
         \end{dfn}
         
         \begin{dfn}
@@ -93,9 +107,9 @@
             {电场强度}
             [Electric Field Intensity]
             [猫猫]
-            设 \(E\) 是电场, \(\bm{x}\) 是 \(E\) 中一点, 定义 \(E\) 在 \(\bm{x}\) 处的\textbf{电场强度}为: \(\nabla\Phi_E(\bm{x})\). 
+            设 \(E\) 是电场, \(\bm{x}:\Length_3\), 定义 \(E\) 在 \(\bm{x}\) 处的\textbf{电场强度}为: \(-\nabla\Phi_E(\bm{x})\), 记作 \(\bm{E}(\bm{x})\). 
 
-            定义从空间到电场强度的映射 \(\bm{x}\mapsto\nabla\Phi_E(\bm{x})\) 为\textbf{电场强度函数}, 记作 \(\bm{E}\). 
+            定义 \(E\) 的\textbf{电场强度函数} 为 \(\bm{x}\mapsto\bm{E}(\bm{x})\), 记作 \(\bm{E}\). 
         \end{dfn}
         
         \begin{dfn}
@@ -110,7 +124,7 @@
             {电通量}
             [Electric Flux]
             [猫猫]
-            设 \(E\) 是电场, \(S\) 是 \(\Length^3\) 上的 \(2\) 维流形, 定义 \(E\) 通过 \(S\) 的\textbf{电通量}为: 
+            设 \(E\) 是电场, \(S\) 是 \(\Length_3\) 上的 \(2\) 维流形, 定义 \(E\) 通过 \(S\) 的\textbf{电通量}为: 
             \[\int_S \bm{E}(\bm{r})\cdot\bm{S}(\bm{r})\dd{\bm{r}}\]
             记作 \(\varPhi_E(S)\).
         \end{dfn}
@@ -120,7 +134,7 @@
             {Gauss 定理}
             [Gauss's Theorem]
             [猫猫]
-            设 \(E\) 是电场, \(V\) 是 \(\Length^3\) 上的 \(3\) 维流形, 则: 
+            设 \(E\) 是电场, \(V\) 是 \(\Length_3\) 上的 \(3\) 维流形, 则: 
             \[\varPhi_E(\partial V) = \frac{1}{\epsz}\int_V \rho(\bm{r})\dd\bm{r}\]
         \end{thm}
         
@@ -151,7 +165,7 @@
             {静电力常数估值}
             []
             [猫猫]
-            \(\ke\) 的估值为: 
+            定义 \(\ke:\Force\cdot\Length^2\cdot\ElectricCharge^{-2}\). 
             \[\ke \approx 8.9875\times{10}^9(\Nt\cdot\m^2\cdot\Clm^{-2})\]
         \end{ppt}
         
@@ -162,8 +176,8 @@
             [猫猫]
             定义\textbf{点电荷}类型承载以下信息: 
             \begin{enumerate}
-                \item \电荷 (\(q\))
-                \item 位置 (\(\bm{r}\))
+                \item 带电量 \(q:\ElectricCharge\)
+                \item 位置 \(\bm{r}:\Length_3\)
             \end{enumerate}
         \end{str}
         
@@ -172,7 +186,8 @@
             {点电荷的电势分布}
             []
             [猫猫]
-            \[\frac{\ke q}{r}\bm{e}\]
+            设 \((q, \bm{r})\) 是\点电荷, \(\bm{x}:\Length_3\), 则 \((q, \bm{r})\) 激发电场在 \(\bm{x}\) 处的电势为: 
+            \[\frac{\ke q}{\|\bm{x}-\bm{r}\|}\widehat{(\bm{x}-\bm{r})}\]
         \end{ppt}
         
         \begin{axm}

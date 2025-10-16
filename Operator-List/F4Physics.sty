@@ -13,6 +13,11 @@
 \NewDocumentCommand{\AmountOfSubstance}{s}{\catref[#1]{dfn:Dimension}{\mathsf{N}}[物质的量]}
 \NewDocumentCommand{\LuminousIntensity}{s}{\catref[#1]{dfn:Dimension}{\mathsf{J}}[光强]}
 
+\NewDocumentCommand{\Force}{s}{\catref[#1]{dfn:Force}{\mathsf{F}}[力]}
+\NewDocumentCommand{\Energy}{s}{\catref[#1]{dfn:Energy}{\mathsf{E}}[能量]}
+\NewDocumentCommand{\ElectricCharge}{s}{\catref[#1]{dfn:Electric-Charge}{\mathsf{Q}}[电荷]}
+\NewDocumentCommand{\ElectricPotential}{s}{\catref[#1]{dfn:Electric-Potential}{\mathsf{V}}[电势]}
+
 \NewDocumentCommand{\m}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{m}}}[米]}
 \NewDocumentCommand{\s}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{s}}}[秒]}
 \NewDocumentCommand{\kg}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{kg}}}[千克]}
@@ -23,7 +28,7 @@
 
 \NewDocumentCommand{\Nt}{s}{\catref[#1]{dfn:Force}{\ensuremath{\mathrm{N}}}[牛顿]}
 \NewDocumentCommand{\Clm}{s}{\catref[#1]{dfn:Electric-Charge}{\ensuremath{\mathrm{C}}}[库仑]}
-\NewDocumentCommand{\V}{s}{\catref[#1]{dfn:Electric-Potential}{\ensuremath{\mathrm{V}}}[伏特]}
+\NewDocumentCommand{\Vlt}{s}{\catref[#1]{dfn:Electric-Potential}{\ensuremath{\mathrm{V}}}[伏特]}
 
 % Electromagnetics
 \NewDocumentCommand{\电荷}{s}{\catref[#1]{dfn:Electric-Charge}{电荷}[电荷]}

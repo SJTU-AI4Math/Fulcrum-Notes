@@ -15,11 +15,11 @@
 \RenewDocumentCommand{\setminus}{soo}{\catref[#1]{dfn:SetMinus}{\oarg{#2}\,\ensuremath{\oldsetminus}\,\oarg{#3}}[差集]}
 
 
-\let\oldbigcup\bigcup
-\RenewDocumentCommand{\bigcup}{soo}{\catref[#1]{dfn:BigUnion}{\IfNoValueTF{#3}{\ensuremath{\oldbigcup}}{\ensuremath{\oldbigcup}}}[\IfNoValueTF{#3}{集合中全体元素之并}{集合中满足谓词的全体元素之并}]\IfNoValueTF{#3}{}{_{#3}}\,\oarg{#2}}
+% \let\oldbigcup\bigcup
+% \RenewDocumentCommand{\bigcup}{s e{_^}}{\catref[#1]{dfn:BigUnion}{\mathop{\oldbigcup}}[\IfNoValueTF{#2}{集合中全体元素之并}{集合中满足谓词的全体元素之并}]\IfValueT{#2}{_{#2}}\,\IfValueT{#3}{^{#3}}}
 
-\let\oldbigcap\bigcap
-\RenewDocumentCommand{\bigcap}{soo}{\catref[#1]{dfn:BigInter}{\IfNoValueTF{#3}{\ensuremath{\oldbigcap}}{\ensuremath{\oldbigcap}}}[\IfNoValueTF{#3}{集合中全体元素之交}{集合中满足谓词的全体元素之交}]\IfNoValueTF{#3}{}{_{#3}}\,\oarg{#2}}
+% \let\oldbigcap\bigcap
+% \RenewDocumentCommand{\bigcap}{soo}{\catref[#1]{dfn:BigInter}{\IfNoValueTF{#3}{\ensuremath{\oldbigcap}}{\ensuremath{\oldbigcap}}}[\IfNoValueTF{#3}{集合中全体元素之交}{集合中满足谓词的全体元素之交}]\IfValueT{#3}{_{#3}}\,\oarg{#2}}
 
 
 \DeclareMathOperator{\Id}{\hyperref[dfn:IdMap]{Id}}                           % Identity
