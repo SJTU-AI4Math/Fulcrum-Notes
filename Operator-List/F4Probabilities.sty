@@ -5,6 +5,8 @@
 \NewDocumentCommand{\Perm}{smm}{\catref[#1]{dfn:Permutation}{\ensuremath{\mathrm{P}}}[排列数]_{#2}^{#3}}
 \NewDocumentCommand{\Comb}{smm}{\catref[#1]{dfn:Combination}{\ensuremath{\mathrm{C}}}[组合数]_{#2}^{#3}}
 
+\NewDocumentCommand{\Expct}{som}{\catref[#1]{dfn:Expectation}{\ensuremath{\mathbb{E}}}[期望值]\IfNoValueTF{#2}{}{_{#2}}\left[#3\right]}
+
 \NewDocumentCommand{\概率空间}{s}{\catref[#1]{str:Probability-Space}{概率空间}[概率空间]}
 \NewDocumentCommand{\随机变量}{s}{\catref[#1]{dfn:Random-Variable}{随机变量}[随机变量]}
 \NewDocumentCommand{\离散型随机变量}{s}{\catref[#1]{dfn:Discrete-Random-Variable}{离散型随机变量}[离散型随机变量]}
