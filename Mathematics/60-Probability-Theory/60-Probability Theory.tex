@@ -10,6 +10,7 @@
 \usepackage{F4Set}
 \usepackage{F4Analysis}
 \usepackage{F4Probabilities}
+\usepackage{F4Algebra}
 
 % margin
 \usepackage{geometry}
@@ -301,24 +302,36 @@
         % \end{dfn}
 
     \subsection{概率空间}
+        
+        \begin{dfn}
+            [Probability-Measure]
+            {概率测度}
+            [Probability Measure]
+            [猫猫]
+            设 \(\Omega\) 是类型, \(\mathscr{F}\) 是 \(\Omega\) 上的 \Sigma代数, \(\mathbb{P}:\mathscr{F}\to\Icc{0}{1}\), 定义 \(\mathbb{P}\) 为 \(\mathscr{F}\) 上的\textbf{概率测度} 当且仅当: 
+            \begin{enumerate}
+                \item \(\mathbb{P}\) 是 \(\mathscr{F}\) 上的\测度; 
+                \item \textbf{规范性}: 
+                    \[\mathbb{P}(\Omega)=1\]
+            \end{enumerate}
+        \end{dfn}
 
         \begin{str}
             [Probability-Space]
             {概率空间}
             [Probability-Space]
             [Dedicatia, 猫猫]
-            设 \(\Omega\) 是类型, 定义 \(\Omega\) 上的\textbf{概率空间}包含以下信息: 
+            定义上的\textbf{概率空间}包含以下信息: 
             \begin{enumerate}
+                \item \textbf{样本空间}: \(\Omega\); 
+                
                 \item \textbf{事件域}: \(\mathscr{F}\); 
                     
                     \Sigma代数[\(\mathscr{F}\)][\(\Omega\)]; 
 
                 \item \textbf{概率测度}: \(\mathbb{P}: \mathscr{F}\to\Icc{0}{1}\); 
-                    \begin{enumerate}
-                        \item \(\mathbb{P}\) 是 \(\mathscr{F}\) 上的\测度; 
-                        \item 规范性: 
-                            \[\mathbb{P}(\Omega)=1\]
-                    \end{enumerate}
+                
+                    \(\mathbb{P}\) 是 \(\mathscr{F}\) 上的\概率测度;
             \end{enumerate}
         \end{str}
 
@@ -460,9 +473,9 @@
         \end{ppt}
 
         \begin{dfn}
-            []
+            [Distribution-Function]
             {分布函数}
-            []
+            [Distribution Function]
             [Dedicatia, 猫猫]
             设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, 定义 \(X\) 在 \((\Omega,\mathscr{F},\mathbb{P})\) 中的\textbf{分布函数}为: 
             \[x:\R\mapsto\mathbb{P}(X\leq x)\]
@@ -490,11 +503,11 @@
 
         \begin{dfn}
             [Expectation]
-            {平均值 / 数学期望}
+            {平均值 / 数学期望 / Riemann-Stieltjes 积分}
             [Mean / Expectation]
             [猫猫]
-            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\离散型随机变量, 定义 \(X\) 在 \((\Omega,\mathscr{F},\mathbb{P})\) 中的\textbf{数学期望}为: 
-            \[\sum_{x_i\in X(\Omega)}x_i\mathbb{P}(X=x_i)\]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(F\) 是 \(X\) 的分布函数, 定义 \(X\) 在 \((\Omega,\mathscr{F},\mathbb{P})\) 中的\textbf{数学期望}为: 
+            \[\int_{-\infty}^{+\infty}x\dd F(x)\]
 
             记作 \(\Expct{X}\). 
         \end{dfn}
@@ -508,6 +521,24 @@
             \[\forall\alpha,\beta:\R, \mathbb{E}(\alpha X+\beta Y)=\alpha\mathbb{E}(X)+\beta\mathbb{E}(Y)\]
         \end{ppt}
 
+        \begin{dfn}
+            [Variance]
+            {方差与标准差}
+            [Variance \& Standard Deviation]
+            [猫猫]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, 定义 \(X\) 在 \((\Omega,\mathscr{F},\mathbb{P})\) 中的\textbf{方差}为: 
+            \[\Expct{(X-\Expct{X})^2}\]
+
+            记作 \(\Var{X}\).
+
+            定义 \(X\) 在 \((\Omega,\mathscr{F},\mathbb{P})\) 中的\textbf{标准差}为: \(\sqrt{\Var{X}}\). 
+        \end{dfn}
+
+        \begin{rmk}
+            [猫猫]
+            方差衡量随机变量 \(X\) 偏离其数学期望 \(\Expct{X}\) 的程度. 
+        \end{rmk}
+
     \subsection{离散型随机变量}
 
         \begin{dfn}
@@ -518,6 +549,15 @@
             设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, 定义 \(X\) 是\textbf{离散型随机变量}, 当且仅当: 
             \[\card(X(\R))\leq\aleph_0\]
         \end{dfn}
+
+        \begin{ppt}
+            []
+            {离散型随机变量的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, 则: 
+            \[\Expct{X}=\sum_{x_i\in X(\Omega)}x_i\mathbb{P}(X=x_i)\]
+        \end{ppt}
 
         \begin{dfn}
             [Discrete-Distribution]
@@ -552,7 +592,7 @@
             {Bernoulli 分布 / 两点分布}
             [Bernoulli Distribution]
             [猫猫]
-            设 \((\Omega, \mathscr{F}, \mathbb{P})\) 是\概率空间, \(X\) 是\离散型随机变量, \(p:\R\), \(p\in\Ioo{0}{1}\), 定义 \(X\) 服从成功率为 \(p\) 的\textbf{Bernoulli分布}, 当且仅当: 
+            设 \(X\) 是\离散型随机变量, \(p:\R\), \(p\in\Ioo{0}{1}\), 定义 \(X\) 服从成功率为 \(p\) 的\textbf{Bernoulli分布}, 当且仅当: 
             \begin{enumerate}
                 \item \(X\) 为二元取值: 
                     \[X(\mathscr{F})=\{0,1\}\]
@@ -568,7 +608,7 @@
             {Bernoulli 分布的分布列}
             []
             [猫猫]
-            设 \((\Omega, \mathscr{F}, \mathbb{P})\) 是\概率空间, \(X\) 是\离散型随机变量, \(p:\R\), \(p\in\Ioo{0}{1}\), \(X\sim B(1,p)\) 则 \(X\) 的\分布列 为: 
+            设 \(X\) 是\离散型随机变量, \(p:\R\), \(p\in\Ioo{0}{1}\), \(X\sim B(1,p)\) 则 \(X\) 的\分布列 为: 
             \begin{center}
             \begin{tabular}{c|c|c}
                 \(X\) & \(0\) & \(1\) \\ \hline
@@ -577,12 +617,21 @@
             \end{center}
         \end{ppt}
 
+        \begin{ppt}
+            []
+            {Bernoulli 分布的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(p:\R\), \(p\in\Ioo{0}{1}\), \(X\sim B(1,p)\) 则: 
+            \[\Expct{X}=p\]
+        \end{ppt}
+
         \begin{xmp}
             []
             {\(n\) 重 Bernoulli 分布 / 二项分布}
             [Binary Distribution]
             [Dedicatia, 猫猫]
-            设 \(n:\N\), \((\Omega, \mathscr{F}, \mathbb{P})\) 是\概率空间, \(p:\R\), \(p\in\Ioo{0}{1}\), 定义 \(X\) 服从成功率为 \(p\) 的 \(n\) 重\textbf{二项分布}, 当且仅当: 
+            设 \(n:\N\), \(p:\R\), \(p\in\Ioo{0}{1}\), 定义 \(X\) 服从成功率为 \(p\) 的 \(n\) 重\textbf{二项分布}, 当且仅当: 
             
             ？？？
             
@@ -596,6 +645,15 @@
             [Dedicatia, 猫猫]
             设 \(X\) 是\离散型随机变量, \(X\sim B(n,p)\), 则: 
             \[\forall k:\N, k\leq n\implies\mathbb{P}(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {二项分布的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(X\sim B(n,p)\), 则: 
+            \[\Expct{X}=np\]
         \end{ppt}
 
         \begin{xmp}
@@ -612,6 +670,15 @@
             [猫猫]
             设 \(X\) 是\离散型随机变量, \(X\) 服从超几何分布, 则:
             \[\forall m:\N, m\leq M\land m\leq n\implies\mathbb{P}(X=m)=\frac{\binom{M}{m}\binom{N-M}{n-m}}{\binom{N}{n}}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {超几何分布的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(X\) 服从超几何分布, 则: 
+            \[\Expct{X}=\frac{nM}{N}\]
         \end{ppt}
 
         \begin{xmp}
@@ -631,6 +698,15 @@
             [猫猫]
             设 \(X\) 是\离散型随机变量, \(X\sim Ps(\lambda)\), 则: 
             \[\forall k:\N, \mathbb{P}(X=k)=\frac{\lambda^k}{k!}\exp (-\lambda)\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {Poisson 分布的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(X\sim Ps(\lambda)\), 则: 
+            \[\Expct{X}=\lambda\]
         \end{ppt}
 
         \begin{thm}
@@ -661,15 +737,68 @@
              \(n\) 重Bernoulli试验中, 只会出现“成功”和“失败”两种结果. 
         \end{xmp}
 
+        \begin{ppt}
+            []
+            {几何分布的分布列}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(X\) 服从几何分布, 则: 
+            \[\forall k:\N^*, \mathbb{P}(X=k)=(1-p)^{k-1}p\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {几何分布的无记忆性}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(X\) 服从几何分布, 则: 
+            \[\forall m,n:\N, \mathbb{P}(X=m+n|X>m)=\mathbb{P}(X>n)\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {几何分布的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(X\) 服从几何分布, 则: 
+            \[\Expct{X}=\frac{1}{p}\]
+        \end{ppt}
+
+        \begin{xmp}
+            []
+            {幂律分布}
+            [Power-Law Distribution]
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(\alpha:\R\), \(c:=\left(\sum\limits_{k=1}^{+\infty}\dfrac{1}{k^\alpha}\right)^{-1}\), 定义 \(X\) 服从\textbf{幂律分布}, 当且仅当: 
+            \[\forall k:\N^*, \mathbb{P}(X=k)=\frac{c}{k^\alpha}\]
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {幂律分布的无尺度性}
+            []
+            [猫猫]
+            \[\forall a:\N, \mathbb{P}(X=ak)=\frac{1}{a^\alpha}\mathbb{P}(X=k)\]
+        \end{ppt}
+
+        \begin{xmp}
+            []
+            {Pascal 分布 / 负二项分布}
+            [Pascal Distribution / Negative Binomial Distribution]
+            [猫猫]
+        \end{xmp}
+
     \subsection{连续型随机变量分布}
 
         \begin{dfn}
-            []
+            [Continuous-Random-Variable]
             {连续型随机变量}
             []
             [Dedicatia, 猫猫]
-            设 \((\Omega, \mathscr{F}, \mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(F\) 是 \(X\) 的分布函数, 定义 \(X\) 是\textbf{连续型随机变量}, 当且仅当: 
-            \[\exists f:\R\to\R_{\geq 0}, \forall x:\R, F(x)=\int_{-\infty}^{x}f(t)\dd t\]
+            设 \((\Omega, \mathscr{F}, \mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(F\) 是 \(X\) 的分布函数, \(f:\R\to\R\), \(f\) 在 \(\R\) 上 Lebesgue 可积, 定义 \(f\) 为 \(X\) 的\textbf{概率密度函数}, 当且仅当: 
+            \[\forall x:\R, F(x)=\int_{-\infty}^{x}f(t)\dd t\]
+            
+            定义 \(X\) 是\textbf{连续型随机变量}, 当且仅当: \(X\) 存在概率密度函数. 
         \end{dfn}
 
         \begin{ppt}
@@ -677,21 +806,16 @@
             {连续型随机变量分布函数连续}
             []
             [猫猫]
+            设 \(X\) 是\连续型随机变量, \(F\) 是 \(X\) 的分布函数, 则: \(F\) 在 \(\R\) 上连续. 
         \end{ppt}
-
-        \begin{dfn}
-            [Density-Function]
-            {概率密度函数}
-            [Density Function]
-            [猫猫]
-            设 \(X\) 是连续型随机变量, 定义 \(X\) 的\textbf{概率密度函数}为 \(f\). 
-        \end{dfn}
 
         \begin{ppt}
             []
             {概率密度函数积分为 \(1\)}
             []
             [猫猫]
+            设 \(X\) 是\连续型随机变量, \(f\) 是 \(X\) 的概率密度函数, 则: 
+            \[\int_{-\infty}^{+\infty}f(x)\dd x=1\]
         \end{ppt}
 
         \begin{ppt}
@@ -699,6 +823,7 @@
             {连续密度函数是分布函数的导数}
             []
             [猫猫]
+            设 \(X\) 是\连续型随机变量, \(F\) 是 \(X\) 的分布函数, \(f\) 是 \(X\) 的概率密度函数, 则: \(F\) 在 \(\R\) 上可微, 且 \(F'(x)=f(x)\). 
         \end{ppt}
 
         \begin{ppt}
@@ -706,15 +831,56 @@
             {概率密度函数的积分刻画事件概率}
             []
             [猫猫]
-            设 \((\Omega, \mathscr{F}, \mathbb{P})\) 是\概率空间, \(X\) 是连续型随机变量, \(f\) 是 \(X\) 的概率密度函数, \(\), 则: 
+            设 \((\Omega, \mathscr{F}, \mathbb{P})\) 是\概率空间, \(X\) 是\连续型随机变量, \(f\) 是 \(X\) 的概率密度函数, \(B\in\mathscr{B}(\R)\), 则: 
+            \[\mathbb{P}(X\in B)=\int_{B}f(x)\dd x\]
+        \end{ppt}
+
+        \begin{thm}
+            {}
+        \end{thm}
+
+        \begin{xmp}
+            []
+            {均匀分布}
+            [Uniform Distribution]
+            [猫猫]
+            设 \(X\) 是\连续型随机变量, \(f:\R\to\R\), \(a,b:\R\), \(a<b\), 定义 \(X\) 服从 \(\Icc{a}{b}\) 上的\textbf{均匀分布}, 当且仅当: 
+            \[f(x)=\begin{cases}
+                \dfrac{1}{b-a}, & x\in\Icc{a}{b}\\
+                0, & x\notin\Icc{a}{b}
+            \end{cases}\]
+
+            记作 \(X\sim U(a,b)\). 
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {均匀分布的分布函数}
+            []
+            [猫猫]
+            设 \(X\) 是\连续型随机变量, \(F\) 是 \(X\) 的分布函数, \(X\sim U(a,b)\), 则: 
+            \[F(x)=\begin{cases}
+                0, & x<a\\
+                \dfrac{x-a}{b-a}, & x\in\Icc{a}{b}\\
+                1, & x>b
+            \end{cases}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {均匀分布的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\连续型随机变量, \(X\sim U(a,b)\), 则: 
+            \[\Expct{X}=\dfrac{a+b}{2}\]
         \end{ppt}
 
         \begin{xmp}
-            {均匀分布}
-        \end{xmp}
-
-        \begin{xmp}
+            []
             {幂律分布}
+            [Power-Law Distribution]
+            [猫猫]
+            设 \(X\) 是\连续型随机变量, \(\alpha:\R\), 
         \end{xmp}
 
         \begin{xmp}
@@ -733,20 +899,383 @@
         \end{xmp}
 
         \begin{xmp}
+            [Normal-Distribution]
             {正态分布}
             [Normal Distribution]
+            [猫猫]
+            设 \(X\) 是\连续型随机变量, \(\mu:\R\), \(\sigma:\R^+\), 定义 \(X\) 服从参数为 \(\mu\) 和 \(\sigma^2\) 的\textbf{正态分布}, 当且仅当: 
+            \[f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\]
+
+            记作 \(X\sim N(\mu,\sigma^2)\). 
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {正态分布的数学期望}
+            []
+            [猫猫]
+            设 \(X\) 是\连续型随机变量, \(X\sim N(\mu,\sigma^2)\), 则: 
+            \[\Expct{X}=\mu\]
+        \end{ppt}
+
+\section{多维随机变量}
+
+    \subsection{多维随机变量}
+        
+        \begin{dfn}
+            [Product-Probability-Measure]
+            {积概率测度}
+            [Product Probability Measure]
+            [猫猫]
+            设 \(\mathscr{F}_1, \mathscr{F}_2\) 是事件域, \(\mathbb{P}_1:\mathscr{F}_1\to\R\), \(\mathbb{P}_2:\mathscr{F}_2\to\R\), \(\mathbb{P}_1\) 是 \(\mathscr{F}_1\) 上的概率测度, \(\mathbb{P}_2\) 是 \(\mathscr{F}_2\) 上的概率测度, \(\mathbb{P}:\mathscr{F}_1\otimes\mathscr{F}_2\to\R\), 定义 \(\mathbb{P}\) 为 \(\mathscr{F}_1\) 与 \(\mathscr{F}_2\) 的\textbf{积概率测度}, 当且仅当: 
+            \begin{enumerate}
+                \item \(\mathbb{P}\) 是 \(\mathscr{F}_1\otimes\mathscr{F}_2\) 上的\概率测度; 
+                
+                \item \textbf{独立性}: 
+                \[\forall A_1\in\mathscr{F}_1, \forall A_2\in\mathscr{F}_2, \mathbb{P}(A_1\times A_2)=\mathbb{P}_1(A_1)\mathbb{P}_2(A_2)\]
+            \end{enumerate}
+
+            记作 \(\mathbb{P}=\mathbb{P}_1\otimes\mathbb{P}_2\). 
+        \end{dfn}
+        
+        \begin{ppt}
+            []
+            {积概率测度唯一性}
+            []
+            [猫猫]
+            设 \(\mathbb{P}_1,\mathbb{P}_2\) 是\概率测度, 则: 
+            \[\exists!\mathbb{P}:\mathscr{F}_1\otimes\mathscr{F}_2\to\R, \mathbb{P}=\mathbb{P}_1\otimes\mathbb{P}_2\]
+        \end{ppt}
+        
+        \begin{dfn}
+            [Product-Probability-Space]
+            {积概率空间}
+            [Product Probability Space]
+            [猫猫]
+            设 \(n:\N\), \(\{(\Omega_i,\mathscr{F}_i,\mathbb{P}_i)\}_{i=1}^n\) 是长度为 \(n\) 的\概率空间 序列, 定义 \(\{(\Omega_i,\mathscr{F}_i,\mathbb{P}_i)\}_{i=1}^n\) 的\textbf{积概率空间}为: 
+            \[\left(\prod_{i=1}^n\Omega_i, \bigotimes_{i=1}^n\mathscr{F}_i, \bigotimes_{i=1}^n\mathbb{P}_i\right)\]
+
+            记作: 
+            \[\bigotimes_{i=1}^n(\Omega_i,\mathscr{F}_i,\mathbb{P}_i)\]
+        \end{dfn}
+    
+        \begin{dfn}
+            [Multi-Random-Variable]
+            {多维随机向量}
+            [Multi Random Variable]
+            [猫猫]
+            设 \(n:\N\), \(\bigotimes\limits_{i=1}^n(\Omega_i,\mathscr{F}_i,\mathbb{P}_i)\) 是\概率空间, 定义 \(X\) 是 \(n\) 维\textbf{随机向量}, 
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {联合分布函数}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {边缘分布函数}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {分布独立}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {条件分布}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {期望}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {Cauchy-Schwarz 不等式}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, 则: 
+            \[|\Expct{XY}| \leq \sqrt{\Expct{X^2}}\sqrt{\Expct{Y^2}}\]
+        \end{ppt}
+
+    \subsection{协方差与相关系数}
+
+        \begin{dfn}
+            [Covariance]
+            {协方差}
+            [Covariance]
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, 定义 \(X\) 与 \(Y\) 的\textbf{协方差}为: 
+            \[\Expct{(X-\Expct{X})(Y-\Expct{Y})}\]
+
+            记作 \(\Cov{X}{Y}\). 
+        \end{dfn}
+
+        \begin{rmk}
+            [猫猫]
+            协方差刻画了两个随机变量的共同变化趋势. 当协方差为正时, 两个随机变量同向变化; 当协方差为负时, 两个随机变量反向变化. 
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {协方差计算公式}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, 则: 
+            \[\Cov{X}{Y}=\Expct{XY}-\Expct{X}\Expct{Y}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {协方差的对称性}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, 则: 
+            \[\Cov{X}{Y}=\Cov{Y}{X}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {协方差与方差的关系}
+            []
+            [猫猫]
+            设 \(X\) 是\随机变量, 则: 
+            \[\Cov{X}{X}=\Var{X}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {独立随机变量的协方差为零}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, \(X,Y\) 独立, 则: 
+            \[\Cov{X}{Y}=0\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {协方差的双线性性}
+            []
+            [猫猫]
+            设 \(X_1,X_2\) 是\随机变量, \(Y\) 是\随机变量, 则: 
+            \[\forall \alpha,\beta:\R, \Cov{\alpha X_1+\beta X_2}{Y}=\alpha\Cov{X_1}{Y}+\beta\Cov{X_2}{Y}\]
+        \end{ppt}
+
+        \begin{dfn}
+            [Correlation-Coefficient]
+            {相关系数}
+            [Correlation Coefficient]
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, 定义 \(X\) 与 \(Y\) 的\textbf{相关系数}为: 
+            \[\frac{\Cov{X}{Y}}{\sqrt{\Var{X}}\sqrt{\Var{Y}}}\]
+
+            记作 \(\rho_{X,Y}\). 
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {相关系数的规模不变性}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, 则: 
+            \[\forall \alpha,\beta:\R^+, \rho_{X,Y}=\rho_{\alpha X,\beta Y}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {相关系数的规范性}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, 则: 
+            \[-1\leq\rho_{X,Y}\leq 1\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {独立随机变量的相关系数为零}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, \(X,Y\) 独立, 则: 
+            \[\rho_{X,Y}=0\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {完全相关时相关系数为 \(\pm 1\)}
+            []
+            [猫猫]
+            设 \((X,Y)\) 是 \随机向量{\(2\)}, \(k:=\dfrac{\sqrt{\Var{Y}}}{\sqrt{\Var{X}}}\), 则: 
+            \[
+            \begin{cases}
+                \rho(X,Y)=1 & \iff Y=k(X+\Expct{X})-\Expct{Y}\\
+                \rho(X,Y)=-1 & \iff Y=-k(X+\Expct{X})+\Expct{Y}
+            \end{cases}
+            \]
+        \end{ppt}
+
+        \begin{dfn}
+            []
+            {协方差矩阵}
+            []
+            [猫猫]
+            设 \(\bm{X}:=(X_1,X_2,\dots,X_n)\) 是 \随机向量{\(n\)}, 定义 \(\bm{X}\) 的\textbf{协方差矩阵}为: 
+            \[
+            \begin{bmatrix}
+                \Var{X_1} & \Cov{X_1}{X_2} & \cdots & \Cov{X_1}{X_n} \\
+                \Cov{X_2}{X_1} & \Var{X_2} & \cdots & \Cov{X_2}{X_n} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                \Cov{X_n}{X_1} & \Cov{X_n}{X_2} & \cdots & \Var{X_n}
+            \end{bmatrix}
+            \]
+
+            记作 \(\Sigma_{\bm{X}}\) 或 \(\Cov(\bm{X})\). 
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {协方差矩阵的对称性}
+            []
+            [猫猫]
+            设 \(\bm{X}\) 是 \随机向量{\(n\)}, 则: \[\Sigma_{\bm{X}}=\Trans{\Sigma_{\bm{X}}}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {协方差矩阵的半正定性}
+            []
+            [猫猫]
+            设 \(\bm{X}\) 是 \随机向量{\(n\)}, 则: \(\Sigma_{\bm{X}} \succeq 0\). 
+        \end{ppt}
+
+        \begin{ppt}
+            {}
+        \end{ppt}
+
+    \subsection{多维离散型随机变量}
+
+        \begin{dfn}
+            []
+            {多维离散型随机变量}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {联合分布列}
+            []
+            [猫猫]
+        \end{dfn}
+
+    \subsection{多维连续型随机变量}
+
+        \begin{dfn}
+            []
+            {多维连续型随机变量}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {联合概率密度函数}
+            []
+            [猫猫]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {边缘概率密度函数}
+            []
+            [猫猫]
+        \end{dfn}
+
+    \subsection{常见多维分布}
+
+        \begin{xmp}
+            []
+            {多维均匀分布}
+            [Multi-Uniform Distribution]
+            []
+        \end{xmp}
+
+        \begin{xmp}
+            []
+            {多维正态分布}
+            [Multi-Normal Distribution]
+            []
         \end{xmp}
 
 \section{大数定理}
 
     \subsection{大数定理}
         
+        \begin{dfn}
+            [Probability-Limit]
+            {依概率收敛}
+            []
+            [猫猫]
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, \(X\) 是\随机变量, 定义 \(\{X_n\}\) \textbf{依概率收敛}于 \(X\), 当且仅当: 
+            \[\forall\varepsilon:\R^+, \lim_{n\to+\infty}\mathbb{P}(|X_n-X|<\varepsilon)=1\]
+
+            记作 \(X_n\plim X\). 
+        \end{dfn}
+        
+        \begin{thm}
+            []
+            {弱大数定理}
+            [Weak Law of Large Numbers]
+            [猫猫]
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 
+            \begin{enumerate}
+                \item 协方差非正: 
+                    \[\forall i,j:\N, i\neq j\implies \Cov{X_i}{X_j}\leq 0\]
+                \item 方差受限: 
+                    \[\frac{1}{n^2}\sum_{i=1}^n\Var{X_i}\plim 0\]
+            \end{enumerate}
+            
+            则: 
+            \[\frac{1}{n}\sum_{i=1}^n(X_k-\Expct{X_k})\plim 0\]
+        \end{thm}
+
+        \begin{crl}
+            []
+            {}
+            []
+            []
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 
+            \begin{enumerate}
+                \item \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立; 
+
+                \item \(\exists F:\R\to[0,1], \forall n:\N, X_n\) 的\分布函数 为 \(F\); 
+
+                \item 方差有限: 
+                    \[\exists M:\R, \forall n:\N, \Var{X_n}\leq M\]
+            \end{enumerate}
+
+            则: 
+            \[\frac{1}{n}\sum_{i=1}^n X_i\plim\mu\]
+        \end{crl}
+        
         \begin{thm}
             []
             {大数定理}
             [Law of Large Numbers]
             []
-            设 \(X_1,X_2,\dots,X_n\) 是\随机变量, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu\), 方差为 \(\sigma^2\), 则:
+            设 \(X_1,X_2,\dots,X_n\) 是\随机变量, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu\), 方差为 \(\sigma^2\), 则: 
         \end{thm}
 
 \end{document}

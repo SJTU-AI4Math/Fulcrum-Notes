@@ -6,6 +6,7 @@
 
 \usepackage{FulcrumCN}
 \usepackage{OperatorListCN}
+\usepackage{F4Topology}
 \usepackage{F4Analysis}
 \usepackage{F4Logic}
 \usepackage{F4Set}
@@ -34,7 +35,7 @@
 
     \section{Lebesgue 测度} % uuid:"Section-Lebesgue-Measure"
 
-        \subsection{\(\sigma\)-代数与测度空间} % uuid:"Subsection-Sigma-Algebra-Measure-Space"
+        \subsection{\(\sigma\)-代数与 Borel 集族} % uuid:"Subsection-Sigma-Algebra-Measure-Space"
 
             \begin{str}
                 [Sigma-Algebra]
@@ -43,7 +44,7 @@
                 [猫猫]
                 设 \(S\) 是类型, \(\Sigma_S\subseteq\PS[S]\), 定义 \((S,\Sigma_S)\) 是 \(S\) 上的\textbf{\(\sigma\)-代数} 当且仅当: 
                 \begin{enumerate}
-                    \item \(S\) 在 \(\Sigma_S\) 内; 
+                    \item 包含全集; 
                     \[S\in\Sigma_S\]
     
                     \item 对可数并封闭: 
@@ -67,17 +68,112 @@
             \end{ppt}
             
             \begin{prf}
-                (1) 由 \(\sigma\)-代数对取补运算封闭性即证. 
+                (1) 由 \Sigma代数 对取补运算封闭性即证. 
 
                 (2) 由 De Morgan 公式即证. 
             \end{prf}
+
+            \begin{rmk}
+                [猫猫]
+                语境中若无歧义, 常省略类型 \(S\) 而直接称 \(\Sigma_S\) 为 \Sigma代数.
+            \end{rmk}
+            
+            \begin{dfn}
+                [Borel-Set]
+                {Borel 集族}
+                [Borel Sets]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, 定义由 \((S,\mathcal{T})\) 生成的 \textbf{Borel 集族} 为: 
+                \[\bigcap_{\mathcal{T}\subseteq\Sigma_S}\Sigma_S\]
+
+                记作 \(\Borel{S}\)
+            \end{dfn}
+
+            \begin{ppt}
+                [Open-Closed-Borel]
+                {开集与闭集是 Borel 集}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(X\subseteq S\) 则:
+                \[
+                \begin{cases}
+                    \开集[X]\implies X\in\Borel{S}\\
+                    \闭集[X]\implies S-X\in\Borel{S}
+                \end{cases}
+                \]
+            \end{ppt}
+
+            \begin{xmp}
+                [Real-Borel-Set]
+                {\(\R\) 上的 Borel 集族}
+                []
+                [猫猫]
+                由 \(\R\) 上的通常拓扑生成的 Borel 集族记作 \(\Borel{\R}\). 
+                \begin{enumerate}
+                    \item 奠基步: 定义 \(\Sigma_1^0\) 为: \(\{X\subseteq\R|\开集[X]\}\)
+                        
+                        定义 \(\Pi_1^0\) 为: \(\{X\subseteq\R|\闭集[X]\}\)
+
+                    \item 定义 \(\Sigma_2^0\), 又称 \(F_\sigma\) 集, 为: 
+                        \[\left\{\bigcup_{n=0}^{+\infty}X_i\middle|X_i\in\Pi_1^0\right\}\]
+
+                        定义 \(\Pi_2^0\), 又称 \(G_\delta\) 集, 为: 
+                        \[\left\{\bigcap_{n=0}^{+\infty}X_i\middle|X_i\in\Sigma_1^0\right\}\]
+
+                    \item 后继步: 设 \(n\in\omega_1\), 
+
+                        定义 \(\Sigma_{n+1}^0\) 为: 
+                        \[\left\{\bigcup_{i=0}^{+\infty}X_i\middle|X_i\in\Pi_{n}^0\right\}\]
+
+                        定义 \(\Pi_{n+1}^0\) 为: 
+                        \[\left\{\bigcap_{i=0}^{+\infty}X_i\middle|X_i\in\Sigma_{n}^0\right\}\]
+
+                    \item 极限步: 设 \(\lambda\in\omega_1\), 
+                    
+                        定义 \(\Sigma_\lambda^0\) 为: 
+                        \[\left\{\bigcup_{i=0}^{+\infty}X_i\middle|X_i\in\bigcup_{n<\lambda}\Pi_{n}^0\right\}\]
+                        
+                        定义 \(\Pi_\lambda^0\) 为: 
+                        \[\left\{\bigcap_{i=0}^{+\infty}X_i\middle|X_i\in\bigcup_{n<\lambda}\Sigma_{n}^0\right\}\]
+
+                    \item 设 \(n\in\omega_1\), 定义 \(\Delta_\omega^0\) 为: \(\Sigma_\omega^0\cap\Pi_\omega^0\). 
+                \end{enumerate}
+            \end{xmp}
+
+            \begin{ppt}
+                [Real-Borel-Set-Hierarchy]
+                {\(\Borel{\R}\) 的分层结构}
+                []
+                [猫猫]*
+                \begin{enumerate}
+                    \item 高层次集包含低层次集: 
+                        \[\forall m,n\in\omega_1, m<n\implies
+                        \begin{cases}
+                            \Sigma_{m}^0\subsetneqq\Sigma_{n}^0\\
+                            \Pi_{m}^0\subsetneqq\Pi_{n}^0\\
+                        \end{cases}\]
+                    
+                    \item \(\Borel{\R}\) 可被全部层次集生成: 
+                        \[\Borel{\R}=\bigcup_{n\in\omega_1}\Sigma_n^0\cup\Pi_n^0\]
+                \end{enumerate}
+            \end{ppt}
+
+            \begin{ppt}
+                [Real-Borel-Set-Uncountable]
+                {\(\Borel{\R}\) 不可数}
+                []
+                [猫猫]*
+                \[\card(\Borel{\R})=2^{\aleph_0}\]
+            \end{ppt}
+
+        \subsection{测度与测度空间} % uuid:"Subsection-Measure-Measure-Space"
 
             \begin{dfn}
                 [Measure]
                 {测度与测度空间}
                 [Measure and Measure Space]
                 [猫猫]
-                设 \((S,\Sigma_S)\) 是 \(\sigma\)-代数, 集函数 \(\mu:\Sigma_S\to\bar{\R}\) 称为是定义在 \(\Sigma_S\) 上的\textbf{测度}, 若: 
+                设 \(\Sigma_S\) 是 \Sigma代数, \(\mu:\Sigma_S\to\bar{\R}\), 定义 \(\mu\) 是 \(\Sigma_S\) 上的\textbf{测度}, 当且仅当: 
                 \begin{enumerate}
                     \item 非负性: 
                     \[\forall X\in\Sigma_S, \mu(X)\geq 0\]
@@ -90,53 +186,104 @@
             \end{dfn}
             
             \begin{ppt}
-                [EmptySetZeroMeasure]
+                [Empty-Set-Zero-Measure]
                 {空集零测}
                 []
                 [猫猫]
+                设 \((S,\Sigma_S,\mu)\) 是\测度空间, 则: 
                 \[\mu(\varnothing)=0\]
             \end{ppt}
             
             \begin{prf}
                 \[\mu(\varnothing)+\mu(\varnothing)=\mu(\varnothing\cup\varnothing)=\mu(\varnothing)\Longrightarrow\mu(\varnothing)=0\]
+                \qed
             \end{prf}
             
             \begin{ppt}
-                [SubsetMeasure]
+                [Subset-Measure-Leq]
                 {子集测度小于等于全集测度}
                 []
                 [猫猫]
-                \[A\subseteq B\Longrightarrow\mu(A)\leq\mu(B)\]
+                设 \((S,\Sigma_S,\mu)\) 是\测度空间, \(A,B\in\Sigma_S, A\subseteq B\), 则: \(\mu(A)\leq\mu(B)\). 
             \end{ppt}
             
             \begin{prf}
                 用子集及其补表示全集即证: 
-                \[B=A\cup(B-A)\Longrightarrow\mu(B)=\mu(A)+\mu(B-A)\geq\mu(A)+0=\mu(A)\square\]
+                \[B=A\cup(B-A)\Longrightarrow\mu(B)=\mu(A)+\mu(B-A)\geq\mu(A)+0=\mu(A)\]
+                \qed
             \end{prf}
-            
-            \begin{dfn}
-                [BorelSets]
-                {Borel 集族}
-                [Borel Sets]
+
+            \begin{xmp}
+                [Trivial-Measure]
+                {平凡测度}
+                [Trivial Measure]
                 [猫猫]
-                设拓扑空间 \((S,\mathcal{T}_S)\), \(S\) 上的 \textbf{Borel 集族} \(\mathcal{B}(S)\)是由拓扑 \(\mathcal{T}_S\) 生成的最小 \(\sigma\)-代数: 
-                \[\mathcal{B}(S)=\bigcap_{\mathcal{T}_S\subseteq\Sigma_S}\Sigma_S\]
+                设 \(\Sigma_S\) 是 \Sigma代数, 则: 
+                \begin{enumerate}
+                    \item \(\cdot\mapsto 0\) 是 \(\Sigma_S\) 上的\测度.
+
+                    \item \(\cdot\mapsto +\infty\) 是 \(\Sigma_S\) 上的\测度.
+                \end{enumerate}
+            \end{xmp}
+
+            \begin{xmp}
+                [Cardinal-Measure]
+                {基数测度}
+                [Cardinal Measure]
+                [猫猫]
+                设 \(\Sigma_S\) 是 \Sigma代数, 则: \(X\mapsto\card(X)\) 是 \(\Sigma_S\) 上的\测度. 
+            \end{xmp}
+
+            \begin{dfn}
+                [Measure-Regularity]
+                {正则性}
+                [Regularity]
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \((S,\Sigma_S,\mu)\) 是\测度空间, 
+                
+                定义 \(\mu\) \textbf{外正则}, 当且仅当: 
+                \[\forall X\in\Sigma_S, \mu(X)=\inf\{\mu(O)|X\subseteq O\land\开集[O]\}\]
+
+                定义 \(\mu\) \textbf{内正则}, 当且仅当: 
+                \[\forall X\in\Sigma_S, \mu(X)=\sup\{\mu(K)|K\subseteq X\land\紧集[K]\}\]
+
+                定义 \(\mu\) \textbf{正则}, 当且仅当: \(\mu\) 外正则且内正则. 
             \end{dfn}
+
+            \begin{rmk}
+                [猫猫]
+                外正则性希望集合的测度可以用开集从外部良好逼近, 内正则性希望集合的测度可以用紧集从内部良好逼近. 
+                
+                在满足外正则性的前提下, 只要定义了开集的测度, 就能通过下确界生成所有集合的测度, 这样定义的测度称为外测度. 同理, 在满足内正则性的前提下, 只要定义了紧集的测度, 就能通过上确界生成所有集合的测度, 这样定义的测度称为内测度. 
+
+                正则性要求两者皆成立, 也就是说任何集合的测度既可以用开集从外部逼近, 也可以用紧集从内部逼近, 且两者的值相等. 
+            \end{rmk}
+
+        \subsection{Borel 测度}
             
             \begin{dfn}
-                [BorelMeasureOnR]
+                [Borel-Measure-Real]
                 {\(\R\) 上在通常拓扑意义下的 Borel 测度}
                 []
                 [猫猫]
-                在对 \(\R\) 赋予通常拓扑得到的拓扑空间 \((\R,\mathcal{T})\) 上, 定义在 Borel 集上的满足区间的长度为端点之差得到的测度称为 \textbf{Borel 测度}: 
+                设 \(\mu:\Borel{\R}\to\bar{\R}\), \(\mu\) 是 \(\Borel{\R}\) 上的\测度, 定义 \(\mu\) 是 \textbf{Borel 测度} 当且仅当: 
                 \[\forall a,b(a<b)\in\bar\R, \mu\Ioo{a}{b}=b-a\]
             \end{dfn}
             
             \begin{ppt}
-                [SinglePointZeroMeasure]
+                [Borel-Measure-Unique]
+                {存在唯一的 Borel 测度}
+                []
+                [猫猫]
+                    \(\exists!\mu:\Borel{\R}\to\bar{\R}\), \(\mu\) 是 \Borel测度. 
+            \end{ppt}
+            
+            \begin{ppt}
+                [Single-Point-Zero-Measure]
                 {单点集零测}
                 []
                 [猫猫]
+                设 \(\mu\) 是 \Borel测度, 则: 
                 \[\forall x\in\R, \mu\{x\}=0\]
             \end{ppt}
             
@@ -147,67 +294,81 @@
             \end{prf}
             
             \begin{ppt}
-                [IntervalBorelMeasure]
+                [Interval-Borel-Measure]
                 {区间上的 Borel 测度等于区间长度}
                 []
                 [猫猫]
-                \[\forall a,b\in\bar\R, 
+                设 \(\mu\) 是 \Borel测度, 则: 
+                \[\forall a,b\in\bar\R, a<b\implies
                 \mu\Ioo{a}{b}=
                 \mu\Ioc{a}{b}=
                 \mu\Ico{a}{b}=
                 \mu\Icc{a}{b}=b-a\]
             \end{ppt}
-            
+
             \begin{ppt}
-                [CountableZeroMeasure]
-                {可数集零测}
-                []
-                [猫猫]
-                \[\forall S\subseteq\R(\card S=\aleph_0), \mu(S)=0\]
+                {Borel 测度平移不变}
             \end{ppt}
             
             \begin{prf}
                 由单点集零测性质, 用单点集的可数并表示可数集即证. \(\square\)
             \end{prf}
             
+            \begin{ppt}
+                [Countable-Zero-Measure]
+                {可数集零测}
+                []
+                [猫猫]
+                设 \(\mu\) 是 \Borel测度, 则: 
+                \[\forall S\subseteq\R, \card S=\aleph_0\implies\mu(S)=0\]
+            \end{ppt}
+            
             \begin{cxmp}
-                [CantorSet]
+                [Cantor-Set]
                 {Cantor 集}
                 [Cantor Set]
                 [猫猫]
                 Cantor 集是零测的, 但不可数. 
             \end{cxmp}
             
-            \begin{thm}
-                [BorelMeasureUnique]
-                {Borel 测度唯一}
-                []
-                [猫猫]
-                \[\forall X\in\Sigma_S, \mu_1(X)=\mu_2(X)\]
-            \end{thm}
-            
-        \subsection{\(\R\) 上的 Lebesgue 测度} % uuid:"LebesgueMeasureOnR"
+        \subsection{\(\R\) 上的 Lebesgue 测度} % uuid:"Lebesgue-Measure-On-R"
         
             \begin{dfn}
-                [CompleteMeasureSpace]
+                [Complete-Measure-Space]
                 {完备测度空间}
                 [Complete Measure Space]
                 [猫猫]
-                测度空间 \((S,\Sigma_S,\mu)\) 称为是一个\textbf{完备测度空间}, 若每个零测集的全体子集都可测: 
-                \[\forall N(\mu(N)=0)\in\Sigma_S, \PP(N)\subseteq\Sigma_S\]
+                设 \((S,\Sigma_S,\mu)\) 是\测度空间, 定义 \((S,\Sigma_S,\mu)\) 是\textbf{完备测度空间}, 当且仅当: 
+                \[\forall N\in\Sigma_S, \mu(N)=0\implies\PS(N)\subseteq\Sigma_S\]
             \end{dfn}
             
             \begin{dfn}
-                [InnerOuterLebesgueMeasure]
-                {Lebesgue 内/外测度}
-                [Lebesgue Inner/Outer Measure]
+                [Outer-Lebesgue-Measure]
+                {Lebesgue 外测度}
+                [Outer Lebesgue Measure]
                 [猫猫]
-                首先定义开集与紧集上的 Lebesgue 测度值: 
+                定义 \textbf{Lebesgue 外测度}, 记作 \(\mu^*\), 为: 
+                \begin{enumerate}
+                    \item 设 \(a,b:\bar{\R}\), \(a<b\), 则: 
+                        \[\mu^*\Ioo{a}{b}=b-a\]
+                    
+                    \item 设 \(\开集[X]\), \(X=\bigcup\limits_{i=0}^{+\infty}\Ioo{a_i}{b_i}\) 则: 
+                        \[\mu^*(X)=\sum_{i=0}^{+\infty}\mu^*\Ioo{a_i}{b_i}=\sum_{i=0}^{+\infty}(b_i-a_i)\]
 
-                ？？？
+                    \item 设 \(X\subseteq\R\), 则: 
+                        \[\mu^*(X)=\inf\{\mu^*(O)|X\subseteq O\land\开集[O]\}\]
+                \end{enumerate}
+            \end{dfn}
 
-                对于拓扑空间 \((S,\mathcal{T})\), 用开集外逼近得到的集函数 \(\mu^*:\PP(S)\to\R\) 称为是 \(\PP(S)\) 上的外测度: 
-                \[\mu^*(X)=\inf_{O\in\mathcal{T}}\sum_{X\subseteq O}\mu(O)\]
+            \begin{ppt}
+                {外测度总是外正则的}
+            \end{ppt}
+
+            \begin{dfn}
+                [Inner-Lebesgue-Measure]
+                {Lebesgue 内测度}
+                []
+                [猫猫]
 
                 用紧集内逼近得到的集函数 \(\mu_*:\PP(S)\to\R\) 称为是 \(\PP(S)\) 上的内测度: 
                 \[\mu_*(X)=\sup_{C\text{是紧集}}\sum_{C\subseteq X}\mu(C)\]
@@ -218,7 +379,7 @@
                 {Lebesgue 可测集}
                 [Lebesgue Measurable Set]
                 [猫猫]
-                集合 $X$ 被称为是 \textbf{Lebesgue 可测}的, 若其内测度与外测度相等: 
+                设 \(X\subseteq\R\), 定义 \(X\) \textbf{Lebesgue 可测}当且仅当: 
                 \[\mu^*(X)=\mu_*(X)\]
             \end{dfn}
             
@@ -257,10 +418,10 @@
             
             \begin{thm}
                 [LebesgueMeasurableSetSigmaAlgebra]
-                {Lebesgue 可测集族构成 \(\sigma\)-代数}
+                {Lebesgue 可测集族构成 \Sigma代数}
                 []
                 [猫猫]
-                Lebesgue 可测集族构成 \(\R\) 上的一个 \(\sigma\)-代数. 
+                Lebesgue 可测集族构成 \(\R\) 上的一个 \Sigma代数. 
             \end{thm}
             
             \begin{crl}
@@ -268,7 +429,7 @@
                 {Lebesgue 可测集族由 Borel 集与零测集生成}
                 []
                 [猫猫]
-                Lebesgue 可测集族是由 \(\mathcal{B}(S)\) 与全体零测集生成的 \(\sigma\)-代数. 
+                Lebesgue 可测集族是由 \(\mathcal{B}(S)\) 与全体零测集生成的 \Sigma代数. 
             \end{crl}
             
             \begin{dfn}

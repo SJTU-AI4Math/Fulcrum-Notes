@@ -40,3 +40,5 @@
 \NewDocumentCommand{\单射}{so}{\IfNoValueTF{#2}{}{#2 \ensuremath{\text{是}}}\catref[#1]{dfn:Injection}{\ensuremath{\text{单射}}}[单射]}
 \NewDocumentCommand{\满射}{so}{\IfNoValueTF{#2}{}{#2 \ensuremath{\text{是}}}\catref[#1]{dfn:Surjection}{\ensuremath{\text{满射}}}[满射]}
 \NewDocumentCommand{\双射}{so}{\IfNoValueTF{#2}{}{#2 \ensuremath{\text{是}}}\catref[#1]{dfn:Bijection}{\ensuremath{\text{双射}}}[双射]}
+
+\NewDocumentCommand{\Fin}{m}{\catref{dfn:Finite-Set}{\ensuremath{\mathbf{[#1]}}}[#1 元有限集 \(\{1,\cdots,#1\}\)]}

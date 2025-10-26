@@ -422,17 +422,17 @@
             \subsection{数列极限}
 			
 			\begin{dfn}
-			    []
+			    [Real-Sequence-Limit]
 			    {数列极限}
-			    [Limit of a Sequence]
-			    []
-				一个实数序列 \(\{a_n\}\) 称为是\textbf{收敛(Converge)}的, 若: 
+			    [Limit]
+			    [猫猫]
+				设 \(\{a_n\}:\N\to\R\), 定义 \(\{a_n\}\) \textbf{收敛}当且仅当: 
 				\[\exists a\in \R, \forall \varepsilon\in\R^+, \exists N\in\mathbb{Z}^+, \forall n>N, a_n\in\mathcal{B}(a,\varepsilon)\]
 				
 				其中常数 \(a\) 称为数列 \(\{a_n\}\) 在 \(n\to+\infty\) 处的\textbf{极限(limit)}, 记作: 
 				\[\lim_{n\to+\infty}a_n=a\]
 				
-				实数序列 \(\{a_n\}\) 称为是\textbf{发散(Diverge)}的, 若: 
+				定义 \(\{a_n\}\) 称为是\textbf{发散(Diverge)}的, 若: 
 				\[\nexists\lim_{n\to+\infty}a_n\]
 			\end{dfn}
 			
@@ -1732,10 +1732,10 @@
 		
 			\begin{dfn}
 			    []
-			    {}
+			    {可微}
+			    [Differentiable]
 			    []
-			    []
-				设函数 \(f:D\to\R(D\subseteq\R)\) 在 \(x_0\in D\) 处连续, 且在 \(x_0\) 的一个邻域 \(\U(x_0,\delta)\) 内有定义. 记 \(y=f(x)\), 称函数 \(f\) 在 \(x_0\) 处\textbf{可微(Differentiable)}或\textbf{可导}, 若: 
+				设 \(D\subseteq\R\), \(f:D\to\R\), \(x_0:\R\), \(x_0\in D\), \(f\) 在 \(x_0\) 处连续, 在 \(x_0\) 的一个邻域 \(\U(x_0,\delta)\) 内有定义. 记 \(y=f(x)\), 称函数 \(f\) 在 \(x_0\) 处\textbf{可微(Differentiable)}或\textbf{可导}, 若: 
 				\[\exists k\in\R(\exists\delta_0\in\R^+(x\in\U(x_0,\delta_0)\Longrightarrow y-y_0=k(x-x_0)+o(x-x_0)))\]
 				
 				记 \(\Delta y=y-y_0,\Delta x=x-x_0\), 上式写作: 

@@ -5,9 +5,19 @@
 \NewDocumentCommand{\Perm}{smm}{\catref[#1]{dfn:Permutation}{\ensuremath{\mathrm{P}}}[排列数]_{#2}^{#3}}
 \NewDocumentCommand{\Comb}{smm}{\catref[#1]{dfn:Combination}{\ensuremath{\mathrm{C}}}[组合数]_{#2}^{#3}}
 
+\NewDocumentCommand{\Var}{sm}{\catref[#1]{dfn:Variance}{\ensuremath{\mathrm{Var}}}[方差]\left(#2\right)}
+\NewDocumentCommand{\Cov}{smm}{\catref[#1]{dfn:Covariance}{\ensuremath{\mathrm{Cov}}}[协方差]\left(#2, #3\right)}
+
 \NewDocumentCommand{\Expct}{som}{\catref[#1]{dfn:Expectation}{\ensuremath{\mathbb{E}}}[期望值]\IfNoValueTF{#2}{}{_{#2}}\left[#3\right]}
 
+\NewDocumentCommand{\概率测度}{s}{\catref[#1]{dfn:Probability-Measure}{概率测度}[概率测度]}
 \NewDocumentCommand{\概率空间}{s}{\catref[#1]{str:Probability-Space}{概率空间}[概率空间]}
 \NewDocumentCommand{\随机变量}{s}{\catref[#1]{dfn:Random-Variable}{随机变量}[随机变量]}
 \NewDocumentCommand{\离散型随机变量}{s}{\catref[#1]{dfn:Discrete-Random-Variable}{离散型随机变量}[离散型随机变量]}
+\NewDocumentCommand{\连续型随机变量}{s}{\catref[#1]{dfn:Continuous-Random-Variable}{连续型随机变量}[连续型随机变量]}
 \NewDocumentCommand{\分布列}{s}{\catref[#1]{dfn:Discrete-Distribution}{分布列}[分布列]}
+\NewDocumentCommand{\分布函数}{s}{\catref[#1]{dfn:Distribution-Function}{分布函数}[分布函数]}
+
+\NewDocumentCommand{\随机向量}{sm}{#2\,\catref[#1]{dfn:Multi-Random-Variable}{维随机向量}[多维随机向量]}
+
+\NewDocumentCommand{\plim}{s}{\catref[#1]{dfn:Probability-Limit}{\xrightarrow{P}}[概率极限]}

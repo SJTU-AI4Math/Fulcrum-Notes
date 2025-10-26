@@ -28,7 +28,7 @@
 \begin{document}
 
 \tableofcontents
-\newpage         
+\newpage
 
     \section{拓扑空间} % uuid:"Topological-Space"
 
@@ -109,7 +109,7 @@
                 [Neighbourhood]
                 {邻域}
                 [Neighbourhood]
-                []
+                [猫猫]
                 设 \((S,\mathcal{T})\) 是\拓扑空间, \(x:S\), \(N\) 是\集合, \(N\subseteq S\), 定义 \(N\) 是 \(x\) 的\textbf{邻域}, 当且仅当: 
                 \[\exists O, \开集[O][(S,\mathcal{T})]\land x\in O\land O\subseteq N\]
 
@@ -216,7 +216,7 @@
                 设\((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 的\textbf{边界}为: \(\cl E\cap\cl(S-E)\), 记作\(\bd A\). 
             \end{dfn}
 
-        \subsection{邻域与极限} % uuid:"Neighbourhood-and-Limit"
+        \subsection{极限} % uuid:"Limit"
 
             \begin{dfn}
                 [Deleted-Neighbourhood]
@@ -257,9 +257,10 @@
 
             \begin{dfn}
                 [Self-Dense]
-                {自密集}
-                []
+                {自密性}
+                [Self Dense Set]
                 [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\) 是\集合, \(E\subseteq S\), 定义 \(E\) 是\textbf{自密集}, 当且仅当: \(E\subseteq\DrvSet{E}\). 
             \end{dfn}
 
             \begin{dfn}
@@ -357,6 +358,20 @@
                 定义 \(\{x_n\}\) \textbf{收敛}, 当且仅当: \(\exists x:S, \Seqlim{n}{x_n}{x}\). 
             \end{dfn}
             
+            \begin{ppt}
+                []
+                {收敛点列在极限邻域外项数有限}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {极限点附近可构造收敛点列}
+                []
+                [猫猫]
+            \end{ppt}
+            
             \begin{dfn}
                 [Sequential-Compactness]
                 {列紧性}
@@ -372,14 +387,6 @@
                 []
                 [猫猫]
             \end{cxmp}
-
-            \begin{dfn}
-                [Converge]
-                {收敛}
-                [Convergence]
-                [Dedicatia]
-                定义\拓扑空间 上的序列 \(\{x_\cdot\}\) 收敛于 \(x\), 当且仅当序列以 \(x\) 为极限. 这时称该序列为\textbf{收敛点列}.
-            \end{dfn}
 
         \subsection{连通性} % uuid:"Connectedness"
             
@@ -531,6 +538,15 @@
                 []
                 [猫猫]*
             \end{ppt}
+            
+            \begin{ppt}
+                []
+                {紧集是列紧的}
+                []
+                [猫猫]
+                设 \((S,\mathcal{T})\) 是\拓扑空间, \(E\subseteq S\), 则: 
+                \[\紧集[E]\implies\列紧集[E]\]
+            \end{ppt}
 
             \begin{thm}
                 [Heine-Borel-Theorem]
@@ -598,47 +614,16 @@
                 设 \(S\) 是集合, \(\mathfrak{B}\) 是集合族, \(\mathfrak{B}\subseteq\PS[S]\), 
                 \begin{enumerate}
                     \item 覆盖性: 
-                    \[\bigcup[\mathfrak{B}]=S\]
+                    \[\bigcup\mathfrak{B}=S\]
                     \item 生成性: 设 \(B_1,B_2\) 是集合, \(B_1, B_2\in\mathfrak{B}\), \(x\in B_1\cap B_2\), 则: 
                     \[\exists[B_3][(B_3\in\mathfrak{B})\land(x\in B_3)\land(B_3\subseteq B_1\cap B_2)]*\]
                 \end{enumerate}
                 定义由 \(\mathfrak{B}\) \textbf{生成的拓扑}为: 
-                \[\left\{X\middle|\exists B\subseteq\mathfrak{B}, X=\bigcup[B]\right\}\]
+                \[\left\{X\middle|\exists B\subseteq\mathfrak{B}, X=\bigcup B\right\}\]
 
                 定义由 \(\mathfrak{B}\) \textbf{生成的拓扑空间}为: 
                 \[(S, \生成拓扑{\mathfrak{B}})\]
             \end{dfn}
-
-            \begin{xmp}
-                [Regular-Topology]
-                {通常拓扑}
-                []
-                [猫猫]
-                在扩充实数集 \(\bar{\R}\) 上依据偏序关系 ``\(<\)'' 定义开区间: 
-                \[(a,b)=\{x|a<x<b\}(a,b\in\R\cup\{+\infty,-\infty\})\]
-                
-                并如下定义拓扑 \(\mathcal{T}\), 称为\(\R\)上的\textbf{通常拓扑}: 
-                \[O\in\mathcal{T}\Longleftrightarrow\forall x\in O, \exists(a,b): x\in(a,b)\subseteq O\]
-
-                \(\mathcal{T}\)中的非空元素必可表示为有限个或可数无限个互不相交的开区间之并: 
-                \[\forall O\in \mathcal{T}(O\neq \varnothing), \exists\bigcup\{(a_i,b_i)|i\in I, \card(I)\in\mathbb{N^+}\cup\{\aleph_0\}\wedge\forall i,j, (a_i,b_i)\cap(a_j,b_j)=\varnothing\}=O\]
-            \end{xmp}
-            
-            \begin{xmp}
-                [Order-Topology]
-                {序拓扑}
-                [Order Topology]
-                [Dedicatia]
-                若\(S\)是一个全序集, 设\(\mathcal{B}\)为由下述所有集合构成的族:
-
-                (1)\(S\)的所有开区间\((a,b)\)
-
-                (2)所有形如\(\Ico{a_0}{b}\)的区间,其中\(a_0\)为\(S\)的最小元 (存在的话)
-
-                (3)所有形如\(\Ioc{a}{b_0}\)的区间,其中\(b_0\)为\(S\)的最大元 (存在的话)
-
-                则\(\mathcal{B}\)是\(S\)的某拓扑的一个基, 此拓扑称\textbf{序拓扑 (Order Topology)}
-            \end{xmp}
 
             \begin{dfn}
                 [Topological-Basis]
@@ -702,21 +687,67 @@
                 设 \(\mathcal{T}\) 是 \((S_1, \mathcal{T}_1)\) 与 \((S_2, \mathcal{T}_2)\) 的积拓扑, 定义 \((S_1, \mathcal{T}_1)\) 与 \((S_2, \mathcal{T}_2)\) 的\textbf{积空间}为: \((S_1\times S_2, \mathcal{T})\), 记作 \((S_1, \mathcal{T}_1)\times(S_2, \mathcal{T}_2)\).
             \end{dfn}
 
-    \section{连续映射}  % uuid:"Continuous-Mapping"
+        \subsection{常见拓扑空间}
 
-        \subsection{基本概念}   % uuid:"Continuous-Mapping-Basic"
+            \begin{xmp}
+                [Regular-Topology]
+                {通常拓扑}
+                []
+                [猫猫]
+                在扩充实数集 \(\bar{\R}\) 上依据偏序关系 ``\(<\)'' 定义开区间: 
+                \[(a,b)=\{x|a<x<b\}(a,b\in\R\cup\{+\infty,-\infty\})\]
+                
+                并如下定义拓扑 \(\mathcal{T}\), 称为\(\R\)上的\textbf{通常拓扑}: 
+                \[O\in\mathcal{T}\Longleftrightarrow\forall x\in O, \exists(a,b): x\in(a,b)\subseteq O\]
+
+                \(\mathcal{T}\)中的非空元素必可表示为有限个或可数无限个互不相交的开区间之并: 
+                \[\forall O\in \mathcal{T}(O\neq \varnothing), \exists\bigcup\{(a_i,b_i)|i\in I, \card(I)\in\mathbb{N^+}\cup\{\aleph_0\}\wedge\forall i,j, (a_i,b_i)\cap(a_j,b_j)=\varnothing\}=O\]
+            \end{xmp}
+            
+            \begin{xmp}
+                [Order-Topology]
+                {序拓扑}
+                [Order Topology]
+                [Dedicatia]
+                若\(S\)是一个全序集, 设\(\mathcal{B}\)为由下述所有集合构成的族:
+
+                (1)\(S\)的所有开区间\((a,b)\)
+
+                (2)所有形如\(\Ico{a_0}{b}\)的区间,其中\(a_0\)为\(S\)的最小元 (存在的话)
+
+                (3)所有形如\(\Ioc{a}{b_0}\)的区间,其中\(b_0\)为\(S\)的最大元 (存在的话)
+
+                则\(\mathcal{B}\)是\(S\)的某拓扑的一个基, 此拓扑称\textbf{序拓扑 (Order Topology)}
+            \end{xmp}
+
+    \section{连续映射}  % uuid:"Continuous-Mapping"
+        
+        \subsection{映射极限}
+            
+            \begin{dfn}
+                [Topology-Mapping-Limit]
+                {映射极限}
+                [Limit of Mapping]
+                [猫猫]
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), \(x:X\), \(y:Y\), 定义 \(f\) 在 \(x\) 处的\textbf{极限}为 \(y\), 当且仅当: 
+                \[\forall U_y\in \mathcal{V}(y), \exists U_x\in\DelNbr{x}, \forall x'\in U_x, f(x')\in U_y\]
+
+                记作 \(\lim_{x'\to x}f(x')=y\). 
+            \end{dfn}
+
+        \subsection{连续映射}   % uuid:"Continuous-Mapping-Basic"
 
             \begin{dfn}
                 [Continuous-Mapping]
                 {连续映射}
                 [Continuous-Mapping]
                 [猫猫]
-                设有拓扑空间 \(X,Y\), 映射 \(f:X\to Y\); 设 \(x\in X, f(x):=y\in Y\). \(f\) 称为是在 \(x\) 处\textbf{连续}的, 若: 
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), \(x:X\), \(y:Y:=f(x)\), 定义 \(f\) 在 \(x\) 处\textbf{连续}, 当且仅当: 
                 \[\forall U_y\in \mathcal{V}(y), \exists U_x\in \mathcal{V}(x)(f\left(U_x\right)\subseteq U_y)\]
 
-                \(f\) 称为是 \(X\) 的连续映射, 若 \(f\) 在 \(X\) 中的每一点连续. 
+                定义 \(f\) 在 \(X\) 上\textbf{连续}, 当且仅当: \(\forall x:X,\) \(f\) 在 \(x\) 处连续. 
 
-                将 \(X\to Y\) 全体连续映射的集合记为 \(\Con(X,Y)\)
+                将 \(X\to Y\) 全体连续映射的集合记作 \(\Con(X,Y)\). 
             \end{dfn}
             
             \begin{ppt}
@@ -987,16 +1018,16 @@
                 [猫猫]
                 设 \(S\) 是类型, \(d:S^2\to\R\), 定义 \(d\) 是 \(S\) 上的\textbf{度量}, 当且仅当: 
                 \begin{enumerate}
-                    \item 正定性: 
+                    \item \textbf{正定性}: 
                     \[\forall x,y:S, d(x,y)\geq 0\]
 
-                    \item 同一性: 
+                    \item \textbf{同一性}: 
                     \[\forall x,y:S, d(x,y)=0\iff x=y\]
     
-                    \item 对称性: 
+                    \item \textbf{对称性}: 
                     \[\forall x,y:S, d(x,y)=d(y,x)\]
     
-                    \item 三角不等式: 
+                    \item \textbf{三角不等式}: 
                     \[\forall x,y,z:S, d(x,y)+d(y,z)\geq d(x,z)\]
                 \end{enumerate}
 
@@ -1026,6 +1057,8 @@
             \begin{rmk}
                 [猫猫]
                 度量诱导的拓扑判定全体元素都有``安全区''的集合是开集. 
+
+                在不致混淆的情况下, 用\度量空间 指代拓扑度量空间. 
             \end{rmk}
 
             \begin{ppt}
@@ -1046,20 +1079,37 @@
                 [Open-Ball-Neighbourhood]
                 {拓扑度量空间中开球的邻域身份}
                 []
-                [猫猫]*
-            \end{ppt}
-            
-            \begin{ppt}
-                [Metric-Compact-Sequentially-Compact]
-                {拓扑度量空间中紧性与列紧性等价}
-                []
-                [猫猫]*
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(x:S\), 则: 
+                \begin{enumerate}
+                    \item 开球是邻域: 
+                        \[\forall\delta:\R^+, \Ball{x}{\delta}\in\Nbr{x}\]
+                    
+                    \item 邻域包含开球: 
+                        \[\forall U_x\in\Nbr{x}, \exists\delta:\R^+, \Ball{x}{\delta}\subseteq U_x\]
+                \end{enumerate}
+
+                设 \((S,d)\) 是\度量空间, \(P\) 是 \(S\) 上的谓词, \(x:S\), 则: 
+                \begin{enumerate}
+                    \item 存在量词命题可互换: 
+                    \[\exists U_x\in\Nbr{x}, \forall y\in U_x, P(y)\iff\exists \delta:\R^+, \forall y\in\Ball{x}{\delta}, P(y)\]
+
+                    \item 全称量词命题可互换: 
+                    \[\forall U_x\in\Nbr{x}, \forall y\in U_x, P(y)\iff\forall \delta:\R^+, \forall y\in\Ball{x}{\delta}, P(y)\]
+                \end{enumerate}
             \end{ppt}
             
             \begin{rmk}
                 [猫猫]
-                在不致混淆的情况下, 用\度量空间 指代拓扑度量空间. 
+                这告诉我们, 我们可以将拓扑空间中依赖邻域的概念直接替换为开球描述. 
             \end{rmk}
+            
+            \begin{thm}
+                [Metric-Compact-Sequentially-Compact]
+                {拓扑度量空间中紧性与列紧性等价}
+                []
+                [猫猫]*
+            \end{thm}
 
             \begin{thm}
                 [Hausdorff-Limit-Point-Infinite]
@@ -1075,15 +1125,6 @@
                 [猫猫]*
             \end{crl}
 
-            \begin{thm}
-                [Bolzano-Weierstrass-Theorem]
-                {Bolzano-Weierstrass 定理 / 聚点定理}
-                []
-                [猫猫]
-                设 \((S,d)\) 是\度量空间, \(E\subseteq S\), 则: 
-                \[\列紧集[E]\iff\]
-            \end{thm}
-
             \begin{dfn}
                 [Metric-Boundedness]
                 {有界性}
@@ -1093,17 +1134,98 @@
                 \[\exists M:\R^+, \forall x,y\in E, d(x,y)\leq M\]
             \end{dfn}
             
+            \begin{ppt}
+                []
+                {度量空间中收敛数列有界}
+                []
+                [猫猫]
+            \end{ppt}
+            
             \begin{dfn}
                 [Metric-Diameter]
                 {直径}
                 [Diameter]
                 [猫猫]
+                设 \((S,d)\) 是\度量空间, \(E\subseteq S\), 定义 \(E\) 的\textbf{直径}为: 
+                \[\sup\{d(x,y)|x,y\in E\}\]
+
+                记作 \(\diam(E)\). 
             \end{dfn}
+            
+            \begin{ppt}
+                []
+                {闭包过程不改变直径}
+                []
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(E\subseteq S\), 则: 
+                \[\diam(\cl{E})=\diam(E)\]
+            \end{ppt}
             
             \begin{dfn}
                 [Totally-Boundedness]
                 {完全有界性}
                 [Totally-Boundedness]
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(E\subseteq S\), 定义 \(E\) \textbf{完全有界}, 当且仅当: 
+                \[\forall\varepsilon:\R^+, \exists X\subseteq E, \card(X)\in\N\land E\subseteq\bigcup_{x\in X}\Ball{x}{\varepsilon}\]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {列紧集完全有界}
+                []
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(K\subseteq S\), 则: 
+            \[\列紧集[K]\implies\完全有界[K]\]
+            \end{ppt}
+            
+            \begin{prf}
+                运用反证法. 
+
+                假设 \(\neg\完全有界[K]\), 则 \(
+                \exists\varepsilon_0:\R^+\), \(K\) 没有有限的 \(\varepsilon_0\)-网. 
+
+                重复取不能被覆盖的元素构造发散数列即可. \qed
+            \end{prf}
+            
+            \begin{thm}
+                []
+                {度量空间中列紧集与紧集等价}
+                []
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(K\subseteq s\), 则: 
+                \[\紧集[K]\iff\列紧集[K]\]
+            \end{thm}
+            
+            \begin{prf}
+            \begin{enumerate}
+                \item \(\紧集[K]\implies\列紧集[K]\): 
+                
+                    这是一般拓扑空间中的性质. 
+
+                \item \(\列紧集[K]\implies\紧集[K]\): 
+                
+                    \(K\) \完全有界. 
+
+                    运用反证法. 
+
+                    假设 \(K\) 不是紧集, 则存在 \(K\) 的开覆盖 \(\mathcal{O}\), 使得任意有限子覆盖都不能覆盖 \(K\). 
+            \end{enumerate}
+            \end{prf}
+
+        \subsection{等距性}
+            
+            \begin{dfn}
+                [Isometry]
+                {等距性}
+                [Isometry]
+                [猫猫]
+            \end{dfn}
+            
+            \begin{dfn}
+                [Metric-Subspace]
+                {度量子空间}
+                [Metric Subspace]
                 [猫猫]
             \end{dfn}
 
@@ -1113,24 +1235,77 @@
                 [Cauchy-Sequence]
                 {Cauchy 列 / 基本列}
                 [Cauchy Sequence]
-                [Dedicatia]
-                定义 ${\{x_n\}}^\infty$ 为\度量空间 $(X,d)$ 上的\textbf{Cauchy列}, 当且仅当对任意 $\varepsilon>0$, 存在 $N\in\N$, $m,n>N$ 时均有 $d(x_m,x_n)<\varepsilon$. 
+                [Dedicatia, 猫猫]
+                设 \((S,d)\) 是\度量空间, \(\{x_n\}_{n=0}^{\infty}:\N\to S\), 定义 \(\{x_n\}_{n=0}^{\infty}\) 是 \((S,d)\) 上的 \textbf{Cauchy列}, 当且仅当: 
+                \[\forall\varepsilon:\R^+, \exists N:\N, \forall m,n:\N, m,n>N\implies d(x_m,x_n)<\varepsilon\]
             \end{dfn}
             
             \begin{ppt}
-                [Cauchy-Convergence]
-                {Cauchy 列收敛}
+                [Convergence-Cauchy]
+                {收敛列是 Cauchy 列}
                 []
                 [猫猫]
+                设 \((S,d)\) 是\度量空间, \(\{x_n\}_{n=0}^{\infty}:\N\to S\), \(\{x_n\}_{n=0}^{\infty}\) \收敛, 则: \(\{x_n\}_{n=0}^{\infty}\) 是 \Cauchy列. 
             \end{ppt}
 
             \begin{dfn}
                 [Complete-Metric-Space]
                 {完备度量空间}
                 [Complete Metric Space]
-                [Dedicatia]
-                定义一个\度量空间 是\textbf{完备度量空间}, 当且仅当其中的每一个 Cauchy 列都是\hyperref[dfn:Converge]{收敛点列}. 
+                [Dedicatia, 猫猫]
+                设 \((S,d)\) 是\度量空间, 定义 \((S,d)\) 是\textbf{完备度量空间}, 当且仅当: 
+                \[\forall \{x_n\}_{n=0}^{\infty}:\N\to S, (\Cauchy列[\{x_n\}_{n=0}^{\infty}]\implies\收敛[\{x_n\}_{n=0}^{\infty}])\]
             \end{dfn}
+            
+            \begin{dfn}
+                [Metric-Completion]
+                {完备化空间}
+                []
+                [猫猫]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {完备化空间存在且在等距意义下唯一}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {紧度量空间完备}
+                []
+                [猫猫]
+            \end{ppt}
+            
+            \begin{thm}
+                []
+                {闭集套定理}
+                []
+                [猫猫]
+            \end{thm}
+
+        \subsection{压缩映射与不动点}
+            
+            \begin{dfn}
+                [Contraction-Mapping]
+                {压缩映射}
+                [Contraction Mapping]
+                [猫猫]
+                设 \((S,d)\) 是\度量空间, \(f:S\to S\), 定义 \(f\) 是\textbf{压缩映射}, 当且仅当: 
+                \[\exists k:\R, 0\leq k<1\land\forall x,y:S, d(f(x),f(y))\leq kd(x,y)\]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {Banach 不动点定理}
+                []
+                []
+                设 \((S,d)\) 是\完备度量空间, \(f:S\to S\), \(f\) 是\压缩映射, 则: 
+                \[\exists! x:S, f(x)=x\]
+            \end{ppt}
+
+        \subsection{常见度量空间}
 
             \begin{xmp}
                 [Euclidean-Complete]
@@ -1174,18 +1349,14 @@
                 \end{cases}\]
                 事实上, 该函数在$x=\frac{1}{2}$时从0跃变到1, 这是不连续的. 函数列的极限$f\notin C[0,1]$中, 说明该度量空间不是完备的. 
             \end{cxmp}
-            
-            \begin{dfn}
-                [Metric-Completion]
-                {完备化空间}
-                []
-                [猫猫]*
-            \end{dfn}
 
         \subsection{拓扑空间的度量化}
             
             \begin{thm}
-                {}
+                []
+                {可度量性充要条件}
+                []
+                []
             \end{thm}
 
 \end{document}

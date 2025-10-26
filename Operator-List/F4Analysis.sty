@@ -19,9 +19,13 @@
 
 
 % Measure Theory
-\NewDocumentCommand{\Sigma代数}{soo}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的\,}\catref[#1]{dfn:Sigma-Algebra}{\(\sigma\)-代数}[\(\sigma\)-代数, 即包含全集且对补集与可数并封闭的集合族.]}
+\NewDocumentCommand{\Sigma代数}{soo}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的\,}\catref[#1]{str:Sigma-Algebra}{\(\sigma\)-代数}[\(\sigma\)-代数, 即包含全集且对补集与可数并封闭的集合族.]}
+\NewDocumentCommand{\Borel}{sm}{\catref[#1]{dfn:Borel-Set}{\mathscr{B}}[Borel 集族]\left(#2\right)}
 
 \NewDocumentCommand{\测度}{soo}{\catref[#1]{dfn:Measure}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的}测度}[测度空间.]}
+\NewDocumentCommand{\测度空间}{soo}{\catref[#1]{dfn:Measure}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的}测度空间}[测度空间.]}
+
+\NewDocumentCommand{\Borel测度}{so}{\catref[#1]{dfn:Borel-Measure-Real}{\IfNoValueTF{#2}{}{#2是} Borel 测度}[Borel 测度.]}
 
 % Complex Analysis
 \NewDocumentCommand{\ii}{s}{\catref[#1]{str:Complex-Number}{\ensuremath{\mathrm{i}}}[虚数单位. ]}
@@ -33,9 +37,9 @@
 \NewDocumentCommand{\解析}{s}{\catref[#1]{dfn:Analyticality}{\ensuremath{\text{解析}}}[解析函数.]}
 \newcommand{\AngularForm}{\hyperref[dfn:AngularForm]{三角表示}}
 \newcommand{\PowerSeries}{\hyperref[dfn:PowerSeries]{幂级数}}
-\newcommand{\UniformConvergence}{\hyperref[dfn:UniformConvergence]{一致收敛}}
+\NewDocumentCommand{\一致收敛}{s}{\catref[#1]{dfn:UniformConvergence}{一致收敛}[一致收敛]}
 \newcommand{\ConformalMapping}{\hyperref[dfn:ConformalMapping]{共形映照}}
 \newcommand{\MeromorphicFunction}{\hyperref[dfn:MeromorphicFunction]{亚纯函数}}
-\newcommand{\EssentialSingularity}{\hyperref[dfn:   EssentialSingularity]{本性奇点}}
-\newcommand{\TaylorThm}{\hyperref[thm:Taylor]{Taylor定理}}
+\newcommand{\EssentialSingularity}{\hyperref[dfn:EssentialSingularity]{本性奇点}}
+\NewDocumentCommand{\Taylor定理}{s}{\catref[#1]{thm:Taylor}{Taylor 定理}[Taylor 定理]}
 \newcommand{\CauchyThm}{\hyperref[thm:Cauchy]{Cauchy积分定理}}
