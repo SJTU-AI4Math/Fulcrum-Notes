@@ -695,11 +695,11 @@
         \end{dfn}
 
         \begin{thm}
-            [UUID]
+            [Hadamard]
             {Hadamard定理}
             [Hadamard's Theorem]
             [Dedicatia]
-            对于每个\PowerSeries  \((\star)\), 其存在一个非负值 \(R\), 称为它的收敛半径, 满足: 
+            对于每个\PowerSeries  \((\star)\), 其存在一个非负值 \(R\), 称为它的\textbf{收敛半径}, 满足: 
             \begin{enumerate}
                 \item 每一个复数 \(|z|<R\) 都可以使\PowerSeries 绝对收敛. 设 \(0\leqslant\rho <R\), 当 \(|z|\in[0,\rho]\) 时, 级数\一致收敛; 
                 \item 当 \(|z|>R\) 时\PowerSeries 发散; 
@@ -710,6 +710,18 @@
             确定. \\
             但是, 在 \(|z|=R\) 时, 级数的敛散性是不明的, 需要额外判断. 
         \end{thm}
+
+        \begin{prf}
+            Compare the given power series with $\sum\limits_{n=0}^{\infty}a_n(z-z_0)^n=\frac{1}{1-z}$:\\
+            if $|z-z_0|\leq r<R$, then we set $r<r_1<R$, $r_1<\liminf\limits_{n\to\infty}|a_n|^{-\frac{1}{n}}$. There is an $n_0<\infty$ so that $r_1<|a_n|^{-\frac{1}{n}}\forall n>n_0$. Then
+            \[|a_n(z-z_0)^n|\leq\qty(\frac{r}{r_1})^n\]
+            With the fact
+            \[\sum_{n=0}^{\infty}\qty(\frac{r}{r_1})^n=\frac{1}{1-\frac{r}{r_1}}<\infty\]
+            By Weierstrass Test, it converges uniformally when $r<R$ and converges absolutely when $|z-z_0|<R$.\\
+            If $|z-z_0|>R$, fix $z$ and choose $r$ so that $R<r<|z-z_0|$, $|a_n|^{-\frac{1}{n}}<r$ for Infinite many $n$. Thus
+            \[|a_n(z-z_0)^n|>\qty(\frac{|z-z_0|}{r})^n.\]
+            This shows the divergence.
+        \end{prf}
 
         \begin{thm}
             [UUID]
@@ -740,13 +752,78 @@
             设 \(D\subseteq\C\), \(D\) 是开集, \(f:D\to\C\), \(z_0:\C\), \(z_0\in\intr D\), 定义 \(f\) 在 \(z_0\) 处\textbf{解析}当且仅当: 
             \[\exists U_0\in\Nbr{z_0}, \exists \{a_n\}:\N\to\C, \forall z\in U_0, f(z)=\sum_{n=0}^{+\infty}a_n(z-z_0)^n\]
         \end{dfn}
+
+        \begin{ppt}
+            []
+            {解析函数必定可导}
+            []
+            [Dedicatia]
+            If $f=\sum\limits_{n=0}^{\infty}a_n(z-z_0)^n$ is \解析 in $B_r:\{z:|z-z_0|<r\}$, then $f'(z)$ exists over $B_r$ and $f'(z_0)=a_1$.
+        \end{ppt}
+
+        \begin{prf}
+            Pick $h:|h|<r$ then
+            \[\frac{f(z_0+h)-f(z_0)}{h}-a_1=\frac{\sum\limits_{n=0}^{\infty}a_nh^n-a_0}{h}-a_1=\sum_{n=1}^{\infty}a_{n+1}h^n.\]
+            By \hyperref[thm:Hadamard]{Hadamard theorem}, the region of convergence of $\sum\limits_{n=1}^{\infty}a_{n+1}h^n$ is an open disk. Then the series converges uniformally at $\{h:|h|\leq r_1\}$ where $r_1<r$.\\
+            Then
+            \[\lim_{h\to 0}\sum_{n=1}^{\infty}a_{n+1}h^n=0 \]
+            This means $f'(z_0)=a_1$;\\
+            Consider: by the convergence of analyticity, $f$ has the power series expansion concerning each $z_1$:
+            \[\sum_{k=0}^{\infty}\qty(\sum_{n=k}^{\infty}a_n\binom{n}{k}(z_1-z_0)^{(n-k)})(z-z_1)^k\]
+            Then $f'(z_1)$ exists. To find it we let $k=1$:
+            \[f'(z_1)=\sum_{n=1}^{\infty}a_nn(z_1-z_0)^{n-1}.\]
+            By \hyperref[thm:Hadamard]{Hadamard theorem} and the fact $n^{\frac{1}{n}}\to 1$, the series of $f'$ has the same \hyperref[dfn:Hadamard]{radius of convergence} as that of $f$.
+        \end{prf}
         
         \begin{ppt}
             []
             {解析函数总是光滑}
             []
-            [猫猫]
+            [猫猫, Dedicatia]
+            An \解析 function $f$ has \hyperref[dfn:Complex-Derivative]{derivative}s of all orders.
         \end{ppt}
+
+        \begin{thm}
+            [Taylor]
+            {Taylor定理}
+            [Taylor]
+            [Dedicatia]
+            If $f$ is \解析 and equal to a convergent power series on $B_r:\{z:|z-z_0|<r\}$, then the power series is given by:
+            \[f(z)=\sum_{n=0}^{\infty}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n\]
+        \end{thm}
+
+        \begin{prf}
+            Suppose $f(z)=\sum\limits_{n=0}^{\infty}a_n(z-z_0)^n$. By \hyperref[thm:Differentiability if Analyticity]{the theorem differentiability if analyticity}, $a_1=f'(z_0)$, 
+            \[f'(z)=\sum_{n=1}^{\infty}na_n(z-z_0)^{n-1}\]
+            Continue, $2a_2=f''(z_0)$. By induction, $n!a_n=f^{(n)}(z_0)$. Thus we find the power series.
+        \end{prf}
+
+        \begin{dfn}
+            [Taylor]
+            {Taylor级数}
+            [Taylor Series]
+            [Dedicatia]
+            Given an \解析 function $f$ and a neighbourhood $B_r:\{z:|z-z_0|<r\}$, we refer to 
+            \[\sum_{n=0}^{\infty}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n\]
+            as the \textbf{Taylor Series} of $f$ at $z_0$.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {全纯函数必定解析}
+            []
+            [Dedicatia]
+            A Complex-valued function is \Holo on a region $D$ if and only if $f$ is \解析 on $D$.
+        \end{thm}
+
+        \begin{prf}
+            According to the theorem differentiability if analyticity, if $f$ is \解析, then $f$ is \Holo;\\
+            As for the converse, suppose $f$ is \Holo on $B_r:\{z:|z-z_0|<r\}$; then, in $B_r$ concerning $C:|z-z_0|=r_1<r$ and
+            \[\frac{1}{z-a}=\frac{1}{-(a-z_0)(1-\frac{z-z_0}{a-z_0})}\sum_{n=0}^{\infty}\frac{-1}{(a-z_0)^{n+1}}(z-z_0)^n\]
+            we have
+            \[f(z)=\frac{1}{2\pi\ii}\int_{C}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}=\frac{1}{2\pi\ii}\int_{C}\qty(\sum_{n=1}^{\infty}\frac{1}{(\zeta-z_0)^{n+1}}(z-z_0)^n)f(\zeta)\dd{\zeta}=\sum_{n=0}^{\infty}\qty(\frac{1}{2\pi\ii}\int_{C}\frac{f(\zeta)}{(\zeta-z_0)^{n+1}}\dd{\zeta})(z-z_0)^n\]
+            Interchanging the order of summation and integration is justified by uniform convergence in $\zeta\in C$ of the series for $z$ fixed. Thus $f$ has a power series expansion convergent in $B_r$. Hence, $f$ is \解析 in $D$.
+        \end{prf}
 
 \section{作为映照的解析函数}
 
@@ -1207,11 +1284,11 @@
             \[\exists C:\C, \forall z\in\Omega, f(z)=C\]
         \end{ppt}
 
-        接下来我们把\解析  \(f(z)\) 看作映照（也就是映射）: 它将按某种规律将曲线 \(\gamma\) 映射到曲线 \(\gamma'\). 
+        接下来我们把\解析  \(f(z)\) 看作映射: 它将按某种规律将曲线 \(\gamma\) 映射到曲线 \(\gamma'\). 
 
         \begin{thm}
             [UUID]
-            {复合求导}
+            {参数化}
             []
             [Dedicatia]
             设包含在 \(\Omega\) 内的曲线 \(\gamma:z(t)=x(t)+\ii y(t), t\in[\alpha,\beta]\), 并设 \(f(z)\) 在 \(\Omega\) 上有定义且连续. 那么曲线 \(w=w(t)=f(z(t))\) 将 \(\gamma\) 映照到 \(\gamma'\), 如果 \(z'(t)\) 存在, 那么 \(w'(t)\) 存在, 由下式确定: 
@@ -1234,17 +1311,20 @@
             在\ConformalMapping  \(f(z): f'(z)\neq 0\) 下, 无穷小线段 \(\dd{z}\) 旋转了 \(\arg f'(z)\) 角度, 并拉伸为原来的 \(|f'(z)|\) 倍. 这一点起源于复数的\AngularForm, 这也是共形性的名称由来. 
         \end{crl}
 
-        我们看到, 在\ConformalMapping 下, 区域的长度和面积都会发生变化. 现在将这置于严格的微积分基础上: 首先, 具有方程曲线 \(\gamma:z(t)=x(t)+\ii y(t), t\in[\alpha,\beta]\) 的可微曲线的长度求法为
-        \[s(\gamma)=\int_\alpha^\beta\sqrt{x'(t)^2+y'(t)^2}\dd{t}=\int_{\alpha}^{\beta}|z'(t)|\dd{t}=\int_{\alpha}^\beta|\dd{z}|. \]
-        像曲线的长度求法为: 
-        \[s(\gamma')=\int_{\alpha}^{\beta}|f'(z(t))||z'(t)|\dd{t}\]
-        平面区域的面积可以表示成Riemann二重积分: 
-        \[S(D)=\iintop_D\dd{x}\dd{y}\]
-        若 \(f(z)=u(x,y)+\ii v(x,y)\) 是可微的, 那么根据二重积分的换元法, 可得到在 \(f(z)\) 的映照下, 像的面积
-        \[S(D')=\iintop_{D} J_{f(x,y)}\dd{x}\dd{y}=\iintop_{D}|u_xv_y-v_xu_y|\dd{x}\dd{y}\]
-        根据Cauchy-Riemann方程, 上式可写作
-        \[S(D')=\iintop_{D}|f'(z)|^2\dd{x}\dd{y}.\]
-    
+        \begin{rmk}
+            [Dedicatia]
+            我们看到, 在\ConformalMapping 下, 区域的长度和面积都会发生变化. 现在将这置于严格的微积分基础上: 首先, 具有方程曲线 \(\gamma:z(t)=x(t)+\ii y(t), t\in[\alpha,\beta]\) 的可微曲线的长度求法为
+            \[s(\gamma)=\int_\alpha^\beta\sqrt{x'(t)^2+y'(t)^2}\dd{t}=\int_{\alpha}^{\beta}|z'(t)|\dd{t}=\int_{\alpha}^\beta|\dd{z}|. \]
+            像曲线的长度求法为: 
+            \[s(\gamma')=\int_{\alpha}^{\beta}|f'(z(t))||z'(t)|\dd{t}\]
+            平面区域的面积可以表示成Riemann二重积分: 
+            \[S(D)=\iintop_D\dd{x}\dd{y}\]
+            若 \(f(z)=u(x,y)+\ii v(x,y)\) 是可微的, 那么根据二重积分的换元法, 可得到在 \(f(z)\) 的映照下, 像的面积
+            \[S(D')=\iintop_{D} J_{f(x,y)}\dd{x}\dd{y}=\iintop_{D}|u_xv_y-v_xu_y|\dd{x}\dd{y}\]
+            根据Cauchy-Riemann方程, 上式可写作
+            \[S(D')=\iintop_{D}|f'(z)|^2\dd{x}\dd{y}.\]
+        \end{rmk}
+
     \subsection{复平面射影几何}
 
         \begin{dfn}
