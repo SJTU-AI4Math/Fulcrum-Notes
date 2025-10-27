@@ -4,7 +4,20 @@
 \def\input@path{{../../Fulcrum-Template/}{../../Operator-List/}}
 \makeatother
 
-\usepackage{FulcrumHabitCN}
+\usepackage{FulcrumCN}
+\usepackage{OperatorListCN}
+\usepackage{F4Math}
+
+% margin
+\usepackage{geometry}
+\geometry{
+    paper =a4paper,
+    top =3cm,
+    bottom =3cm,
+    left=2cm,
+    right =2cm
+}
+\linespread{1.2}
 
 \begin{document}
 
@@ -1101,7 +1114,7 @@
 			    {极限形式: }
 			    {}
 			    {}
-				设正项级数 \(\sum\limits_{n=1}^{+\infty}a_n\), \(\ulim\limits_{n\to+\infty}\sqrt[n]{a_n}=q\), 则: 
+				设正项级数 \(\sum\limits_{n=1}^{+\infty}a_n\), \(\ulim_{n\to+\infty}\sqrt[n]{a_n}=q\), 则: 
 
 				(1) \[q<1\Longrightarrow\sum\limits_{n=1}^{+\infty}a_n\text{ 收敛}\]
 
@@ -1299,11 +1312,12 @@
 		\subsection{函数极限和Heine定理}
 		
 			\begin{dfn}
-			    []
+			    [Real-Function-Limit]
 			    {函数极限}
-			    []
-			    []
-				称函数 \(f\) 在 \(x_0\) 的\textbf{左极限}为 \(a\), 若 \(f\) 在 \(x_0\) 的一个左邻域内有定义,且: 
+			    [Function Limit]
+			    [猫猫]
+				设 \(D\subseteq\R\), \(f:D\to\R\), \(x_0\in\DrvSet{D}\), 
+				定义 \(f\) 在 \(x_0\) 的\textbf{左极限}为 \(a\), 若 \(f\) 在 \(x_0\) 的一个左邻域内有定义,且: 
 				\[\forall\varepsilon\in\R^+, \exists\delta\in\R^+(\forall x\in U^-(x_0,\delta), f(x)\in U(a,\varepsilon))\]
 				
 				记作
@@ -1367,7 +1381,7 @@
 			    {函数极限的唯一性}
 			    []
 			    []
-				若 \(\lim\limits_{x\to\x_0}f(x)\) 存在, 则它是唯一的.
+				若 \(\lim\limits_{x\to\bm{x}_0}f(x)\) 存在, 则它是唯一的.
 			\end{ppt}
 
 			\begin{ppt}
@@ -1389,7 +1403,7 @@
 			    []
 				设函数 \(f,g\) 与 \(h\) 在 \(x_0\) 的一个邻域内满足
 				\[f(x)\leq h(x)\leq g(x).\]
-				则\[\lim\limits_{x\to\x_0}f(x)=\lim\limits_{x\to\x_0}g(x)=l\Longrightarrow\lim\limits_{x\to\x_0}h(x)=l.\]
+				则\[\lim\limits_{x\to\bm{x}_0}f(x)=\lim\limits_{x\to\bm{x}_0}g(x)=l\Longrightarrow\lim\limits_{x\to\bm{x}_0}h(x)=l.\]
 			\end{ppt}
 
 			\begin{ppt}
@@ -1398,7 +1412,7 @@
 			    []
 			    []
 				函数 \(f,g\) 在 \(x_0\) 的一个去心邻域内满足 \(f(x)\leq g(x)\), \(x_0\) 处极限存在, 则
-					\[\lim\limits_{x\to\x_0}f(x)\leq\lim\limits_{x\to\x_0}g(x).\]
+					\[\lim\limits_{x\to\bm{x}_0}f(x)\leq\lim\limits_{x\to\bm{x}_0}g(x).\]
 			\end{ppt}
    
 			\begin{prf}
@@ -1433,11 +1447,11 @@
 			    []
 			    []
 				有限常数极限关于四则运算不变: 
-				\[\lim_{x\to\x_0}f(x)=A, \lim_{x\to\x_0}g(x)=B\Longrightarrow
+				\[\lim_{x\to\bm{x}_0}f(x)=A, \lim_{x\to\bm{x}_0}g(x)=B\Longrightarrow
 				\begin{cases}
-					\lim\limits_{x\to\x_0}\left(f(x)\pm g(x)\right) & =A\pm B\\
-					\lim\limits_{x\to\x_0}(f(x)\cdot g(x)) & =A\cdot B\\
-					\lim\limits_{x\to\x_0}\left(\dfrac{f(x)}{g(x)}\right) & =\dfrac{A}{B} \ (B\neq 0)\\
+					\lim\limits_{x\to\bm{x}_0}\left(f(x)\pm g(x)\right) & =A\pm B\\
+					\lim\limits_{x\to\bm{x}_0}(f(x)\cdot g(x)) & =A\cdot B\\
+					\lim\limits_{x\to\bm{x}_0}\left(\dfrac{f(x)}{g(x)}\right) & =\dfrac{A}{B} \ (B\neq 0)\\
 				\end{cases}\]
 			\end{ppt}
                 
@@ -1496,8 +1510,8 @@
 			    []
 			    {连续}
 			    [Continuous]
-			    []
-				称 \(f\) 在 \(x_0\) 点是\textbf{连续(Continuous)}的, 若 \(f\) 在 \(x_0\) 的一个邻域内有定义, 且: 
+			    [猫猫]
+				称 \(f\) 在 \(x_0\) 点是\textbf{连续}的, 若 \(f\) 在 \(x_0\) 的一个邻域内有定义, 且: 
 				\[\lim_{x\to x_0-}f(x)=\lim_{x\to x_0+}f(x)=f(x_0)\]
 				
 				称 \(f\) 在 \(x_0\) 点\textbf{左连续}, 若 \(f\) 在 \(x_0\) 的一个左邻域内有定义, 且: 
@@ -1511,7 +1525,7 @@
 			    []
 			    {连续函数的局部有界性}
 			    []
-			    []
+			    [猫猫]
 				\(f:D\to\R\)在 \(x_0\in D\) 处连续 \(\Longrightarrow\exists U(x_0)\subseteq D: f\) 在 \(U(x_0)\) 上有界. 
 			\end{ppt}
 
@@ -1519,7 +1533,7 @@
 			    []
 			    {函数的四则运算保持连续性}
 			    []
-			    []
+			    [猫猫]
 				\(f_1:D_1\to\R,f_2:D_2\to\R\)在 \(x_0\in D_1\cap D_2\) 处连续 \(\Longrightarrow\) 在 \(x_0\) 处有: 
 				\(f_1+f_2,f_1\cdot f_2,\dfrac{f_1}{f_2}(f_2(x_0)\neq 0)\)均在 \(x_0\) 处连续. 
 			\end{ppt}
@@ -1528,29 +1542,9 @@
 			    []
 			    {函数的复合保持连续性}
 			    []
-			    []
+			    [猫猫]
 				\(f:X\to Y,g:Y\to\R(X,Y\subseteq\R)\), 设 \(f(a)=b\), \(f\)在 \(a\) 处连续, \(g\)在 \(b\) 处连续, 则 \(g\circ f\) 在 \(a\) 处连续. 
 			\end{ppt}
-			
-			\begin{dfn}
-			    []
-			    {不连续点}
-			    [Discontinuity]
-			    []
-				称 \(x_0\) 是 \(f\) 的一个\textbf{第一类间断点/不连续点}, 若: 
-				\[\exists\lim_{x\to x_0-}f(x), \lim_{x\to x_0+}f(x)\]
-				
-				称 \(x_0\) 是 \(f\) 的一个\textbf{第二类间断点/不连续点}, 若
-				\[\nexists\lim_{x\to x_0-}f(x)\vee\nexists\lim_{x\to x_0+}f(x)\]
-				
-				其中称 \(x_0\) 是 \(f\) 的一个\textbf{可去间断点/不连续点(Removable Discontinuity)}, 若: 
-				\[\lim_{x\to x_0-}f(x)=\lim_{x\to x_0+}f(x)=a\]
-				
-				但 \(f(x_0)\) 无定义或 \(f(x_0)\neq a\). 
-				
-				称 \(x_0\) 是 \(f\) 的一个\textbf{跳跃间断点/不连续点(Jump Discontinuity)}, 若
-				\[\lim_{x\to x_0-}f(x)\neq\lim_{x\to x_0+}f(x)\]
-			\end{dfn}
 			
 			\begin{dfn}
 			    []
@@ -1567,7 +1561,7 @@
 			    {反函数的连续性}
 			    []
 			    []
-				If \(y, f(x) \in C[a, b]\) and \(f(x)\) 严格递增, \(f(a) = \alpha\), \(f(b) = \beta\).
+				设 \(y, f(x) \in C[a, b]\), \(f(x)\) 严格递增, \(f(a) = \alpha\), \(f(b) = \beta\).
 
                 则 \(x = f^{-1}(y)\ \exists\) 且 \(f^{-1}(y) \in C\left[\alpha, \beta\right]\).
 			\end{ppt}
@@ -1581,7 +1575,7 @@
                 \lim\limits_{\delta \to 0} f(a + \delta) = f(a) < y \Rightarrow \text{If}  0 << \delta < 1, f(a + \delta) < y.
                 \] 
 
-                又 \(f\) 严格递增 \(\Rightarrow x \in\cointerval{a}{a+\delta}\) 时,  \(f(x) < f(a+\delta) < y\) ,  \(\therefore x_0 \geq a + \delta\) , 
+                又 \(f\) 严格递增 \(\Rightarrow x \in\Ico{a}{a+\delta}\) 时,  \(f(x) < f(a+\delta) < y\) ,  \(\therefore x_0 \geq a + \delta\) , 
 
                  \(
                 \therefore x_0 > a, \text{同理 }\  x_0 < b, \therefore x_0 \in (a, b), \ \text{此时 }\  \forall x \in (a, x_0), f(x) < y,
@@ -1693,7 +1687,7 @@
 				\[\Longrightarrow f([a,b])=[\inf f([a,b]),\sup f([a,b])]\square\]
                 \end{prf}
 			
-		\subsection{函数的一致连续性}
+		\subsection{一致连续}
 			
 			\begin{dfn}
 			    []
@@ -1722,8 +1716,96 @@
 				与(1)矛盾. \(\square\)
 			\end{prf}
 				
+		\subsection{不连续点}
 
+			\begin{dfn}
+			    [Discontinuity]
+			    {间断点 / 不连续点}
+			    [Discontinuity]
+			    [猫猫]
+				设 \(D\subseteq\R\), \(f:D\to\R\), \(x_0:\R\), 定义 \(x_0\) 是 \(f\) 的\textbf{间断点}, 当且仅当: \(f\) 在 \(x_0\) 处不连续. 
 
+				设 \(x_0\) 是 \(f\) 的间断点, 
+				\begin{enumerate}
+					\item 定义 \(x_0\) 是 \(f\) 的\textbf{第一类间断点 / 简单间断点}, 当且仅当: 
+					\[\exists y_l,y_r:\R, \leftlim{x}{x_0}{f(x)}=y_l\land\rightlim{x}{x_0}{f(x)}=y_r\]
+					\begin{enumerate}
+						\item 定义 \(x_0\) 是 \(f\) 的一个\textbf{可去间断点}, 当且仅当: 
+						\[\leftlim{x}{x_0}{f(x)}=\rightlim{x}{x_0}{f(x)}\]
+						
+						\item 定义 \(x_0\) 是 \(f\) 的一个\textbf{跳跃间断点}, 当且仅当: 
+						\[\leftlim{x}{x_0}{f(x)}\neq\rightlim{x}{x_0}{f(x)}\]
+					\end{enumerate}
+					
+					\item 定义 \(x_0\) 是 \(f\) 的\textbf{第二类间断点 / 振荡间断点}, 当且仅当: 
+					\[\nexists y_l:\R, \leftlim{x}{x_0}{f(x)}=y_l\lor\nexists y_r:\R, \rightlim{x}{x_0}{f(x)}=y_r\]
+				\end{enumerate}
+
+				\(f\) 在 \(D\) 上的所有间断点组成的集合记作 \(\mathcal{D}(f)\). 
+			\end{dfn}
+			
+			\begin{ppt}
+				[]
+				{单调函数只有跳跃间断点}
+				[]
+				[猫猫]
+			\end{ppt}
+			
+			\begin{ppt}
+				[]
+				{单调函数至多有可数个不连续点}
+				[]
+				[猫猫]
+			\end{ppt}
+            
+            \begin{dfn}
+                []
+				{振幅}
+				[]
+                函数 \(f\) 在 \(D\) 上的\textbf{振幅}定义为: 
+                \[\omega_f(D):=\sup f(D)-\inf f(D)\]
+            \end{dfn}
+
+            \begin{ppt}
+			    []
+			    {振幅的等价定义}
+			    []
+			    []
+                \[\omega_f(D)=\sup\{f(x_1)-f(x_2)|x_1,x_2\in D\}\]
+            \end{ppt}
+            
+            \begin{dfn}
+			    []
+			    {单点振幅}
+			    []
+			    []
+                设 \(f:D\to\R\), \(\xi\in\cl D\), 定义 \(f\) 在 \(\xi\) 处的\textbf{振幅}为: 
+                \[\omega_f(\xi)=\lim_{\delta\to 0+}\omega_f(\mathcal{B}(\xi,\delta))\]
+            \end{dfn}
+            
+            \begin{thm}
+				[]
+				{连续等价于振幅为 \(0\)}
+				[]
+				[]
+                \[f\in\mathcal{C}(\xi)\iff\omega_f(\xi)=0\]
+            \end{thm}
+
+            \begin{dfn}
+			    []
+			    {依振幅不连续点}
+			    []
+			    []
+                \[\mathcal{D}_{\delta}(f)=\{x|\omega_f(x)\geq\delta\}\]
+            \end{dfn}
+            
+            \begin{ppt}
+				[]
+				{不连续点可依振幅分层}
+				[]
+				[]
+                \[\mathcal{D}(f)=\bigcup_{n=1}^{+\infty}D_{\frac{1}{n}}(f)\]
+            \end{ppt}
 		
 	
 	\section{一元微分和导数}
@@ -3011,58 +3093,6 @@
 
         \subsection{Lebesgue 定理}
             
-            \begin{dfn}
-                {函数的振幅}
-
-                函数 \(f\) 在 \(D\) 上的\textbf{振幅}定义为: 
-                \[\omega_f(D):=\sup f(D)-\inf f(D)\]
-            \end{dfn}
-
-            \begin{ppt}
-			    []
-			    {振幅的等价定义}
-			    []
-			    []
-                内容: 
-                \[\omega_f(D)=\sup\{f(x_1)-f(x_2)|x_1,x_2\in D\}\]
-            \end{ppt}
-            
-            \begin{dfn}
-			    []
-			    {单点振幅}
-			    []
-			    []
-                函数 \(f\) 在 \(\xi\) 处的\textbf{振幅}定义为: 
-                \[\omega_f(\xi)=\lim_{\delta\to 0+}\omega_f(\mathcal{B}(\xi,\delta))\]
-            \end{dfn}
-            
-            \begin{thm}
-				[]
-				{}
-				[]
-				[]
-                \(f\) 在 \(\xi\) 处连续当且仅当其在 \(\xi\) 处振幅为零: 
-                \[f\in\mathcal{C}(\xi)\iff\omega_f(\xi)=0\]
-            \end{thm}
-
-            \begin{dfn}
-			    []
-			    {依振幅不连续点}
-			    []
-			    []
-                内容: 
-                \[\mathcal{D}_{\delta}(f)=\{x|\omega_f(x)\geq\delta\}\]
-            \end{dfn}
-            
-            \begin{thm}
-				[]
-				{}
-				[]
-				[]
-                内容: 
-                \[\mathcal{D}(f)=\bigcup_{n=1}^{+\infty}D_{\frac{1}{n}}(f)\]
-            \end{thm}
-            
             \begin{thm}
 			    []
 			    {Lebesgue 定理}
@@ -3106,7 +3136,7 @@
 			    {反常积分}
 			    []
 			    []
-                若 \(f\) 在 \(\cointerval{a}{+\infty}\) 上有定义且以下右式极限收敛, 则可定义\textbf{第一类反常积分}: 
+                若 \(f\) 在 \(\Ico{a}{+\infty}\) 上有定义且以下右式极限收敛, 则可定义\textbf{第一类反常积分}: 
                 \[\int_a^{+\infty}f(x)\dd x:=\lim_{b\to+\infty}\int_a^b f(x)\dd x\]
 
                 类似地可定义其他反常积分: 
@@ -3120,10 +3150,10 @@
 
 				若对 \(f:D\to\R\), 设 \(x_0\notin D\) 是 \(D\) 的一个聚点, 且 \(f\) 在 \(x_0\) 的任何邻域内无界, 则称 \(x_0\) 为 \(f\) 的一个\textbf{瑕点}. 
 
-				设 \(f:\ocinterval{a}{b}\to\R\), \(a\) 是 \(f\) 的一个瑕点, 若以下右式收敛, 则可定义\textbf{第二类反常积分}, 或称\textbf{瑕积分}: 
+				设 \(f:\Ioc{a}{b}\to\R\), \(a\) 是 \(f\) 的一个瑕点, 若以下右式收敛, 则可定义\textbf{第二类反常积分}, 或称\textbf{瑕积分}: 
 				\[\int_a^b:=\lim_{\varepsilon\to 0+}\int_{a+\varepsilon}^b f(x)\dd x\]
 
-				同理可对 \(\cointerval{a}{b}\to\R\) 的函数定义其反常积分的值. 
+				同理可对 \(\Ico{a}{b}\to\R\) 的函数定义其反常积分的值. 
             \end{dfn}
 			
 			\begin{dfn}
@@ -3219,9 +3249,9 @@
 			    []
 				若 \(f,g\) 满足: 
 
-				(1)	\(g\) 在 \(\cointerval{a}{+\infty}\) 上单调, 且 \(\lim\limits_{x\to+\infty}g(x)=0\); 
+				(1)	\(g\) 在 \(\Ico{a}{+\infty}\) 上单调, 且 \(\lim\limits_{x\to+\infty}g(x)=0\); 
 
-				(2) \(\int_a^x f(\xi)\dd\xi\) 在 \(\oointerval{a}{+\infty}\) 上有界. 
+				(2) \(\int_a^x f(\xi)\dd\xi\) 在 \(\Ioo{a}{+\infty}\) 上有界. 
 
 				则反常积分 \(\int_a^{+\infty}f(x)g(x)\dd x\) 收敛. 
 			\end{thm}
@@ -3233,7 +3263,7 @@
 			    []
 				若 \(f,g\) 满足: 
 
-				(1) \(g\) 在 \(\cointerval{a}{+\infty}\) 上单调有界; 
+				(1) \(g\) 在 \(\Ico{a}{+\infty}\) 上单调有界; 
 
 				(2) \(\int_a^{+\infty}f(x)\dd x\) 收敛. 
 
@@ -3419,12 +3449,12 @@
 			    {一致收敛与 Riemann 积分算子交换性}
 			    []
 			    []
-				设 \(\ccinterval{a}{b}\) 上的 Riemann 可积函数序列 \(\{f_n\}\) 在 \(\ccinterval{a}{b}	\) 上一致收敛于 \(f\), 则 \(f\) 也在 \(\ccinterval{a}{b}\) 上 Riemann 可积, 且: 
+				设 \(\Icc{a}{b}\) 上的 Riemann 可积函数序列 \(\{f_n\}\) 在 \(\Icc{a}{b}	\) 上一致收敛于 \(f\), 则 \(f\) 也在 \(\Icc{a}{b}\) 上 Riemann 可积, 且: 
 				\[\lim_{n\to+\infty}\int_a^b f_n(x)\dd x=\int_a^b f(x)\dd x\]
 			\end{ppt}
 
 			\begin{prf}
-				由 Lebesgue 定理, \(f_i\) 在 \(\ccinterval{a}{b}\) 上 Riemann 可积 \(\Longrightarrow f_i\) 在 \(\ccinterval{a}{b}\) 上的不连续点集 \(D_i\) 零测. 
+				由 Lebesgue 定理, \(f_i\) 在 \(\Icc{a}{b}\) 上 Riemann 可积 \(\Longrightarrow f_i\) 在 \(\Icc{a}{b}\) 上的不连续点集 \(D_i\) 零测. 
 
 				由一致收敛保持连续性, 若 \(\forall i\in\N^*, f_i\) 在 \(x\) 处连续, 则 \(f\) 也在 \(x\) 处连续. 
 				
@@ -3434,7 +3464,7 @@
 				由 Lebesgue 测度的可数可加性, \(D\) 也是零测的: 
 				\[\mu(D)\leq\sum_{i=1}^{+\infty}\mu(D_i)=0\Longrightarrow\mu(D)=0\]
 
-				即 \(f\) 在 \(\ccinterval{a}{b}\) 上 Riemann 可积. \(\square\)
+				即 \(f\) 在 \(\Icc{a}{b}\) 上 Riemann 可积. \(\square\)
 			\end{prf}
 
 			\begin{ppt}
@@ -3444,13 +3474,13 @@
 			    []
 				若函数列 \(f_n\) 满足: 
 
-				(1) \(\forall n\in\N, f_n\) 在 \(\ccinterval{a}{b}\) 上有连续的导函数; 
+				(1) \(\forall n\in\N, f_n\) 在 \(\Icc{a}{b}\) 上有连续的导函数; 
 
-				(2) 函数列 \(\{f_n'\}\) 在 \(\ccinterval{a}{b}\) 上一致收敛于函数 \(g\); 
+				(2) 函数列 \(\{f_n'\}\) 在 \(\Icc{a}{b}\) 上一致收敛于函数 \(g\); 
 
-				(3) \(\exists x_0\in\ccinterval{a}{b}, \{f_n(x)\}\) 收敛, 
+				(3) \(\exists x_0\in\Icc{a}{b}, \{f_n(x)\}\) 收敛, 
 
-				则 \(\exists\) 连续可微函数 \(f\), 函数列 \(\{f_n\}\) 在 \(\ccinterval{a}{b}\) 上一致收敛于 \(f\), 且 \(\forall x\in\ccinterval{a}{b}, f'(x)=g(x)\)
+				则 \(\exists\) 连续可微函数 \(f\), 函数列 \(\{f_n\}\) 在 \(\Icc{a}{b}\) 上一致收敛于 \(f\), 且 \(\forall x\in\Icc{a}{b}, f'(x)=g(x)\)
 			\end{ppt}
 
 			\begin{prf}
@@ -3462,15 +3492,15 @@
 			    {Dini 定理 }
 			    [Dini's Theorem]
 			    []
-				设 \(\ccinterval{a}{b}\) 上的连续函数列 \(\{f_n\}\), 若 \(\forall x\in\ccinterval{a}{b}\), 数列 \(\{f_n(x)\}\) 单调收敛于 \(f(x)\), 则 \(\{f_n\}\) 在 \(\ccinterval{a}{b}\) 上一致收敛于 \(f\). 
+				设 \(\Icc{a}{b}\) 上的连续函数列 \(\{f_n\}\), 若 \(\forall x\in\Icc{a}{b}\), 数列 \(\{f_n(x)\}\) 单调收敛于 \(f(x)\), 则 \(\{f_n\}\) 在 \(\Icc{a}{b}\) 上一致收敛于 \(f\). 
 			\end{thm}
 
 			\begin{prf}
 				运用反证法. 
 
-				假设 \(\exists\varepsilon\in\R^+, \forall N\in\N, \exists n>N, \sup\limits_{x\in\ccinterval{a}{b}}|f_n(x)-f(x)|\geq\varepsilon\), 
+				假设 \(\exists\varepsilon\in\R^+, \forall N\in\N, \exists n>N, \sup\limits_{x\in\Icc{a}{b}}|f_n(x)-f(x)|\geq\varepsilon\), 
 				
-				构造数列 \(x_N, f_N(x_N)=\sup\limits_{x\in\ccinterval{a}{b}}f_N(x)\). 
+				构造数列 \(x_N, f_N(x_N)=\sup\limits_{x\in\Icc{a}{b}}f_N(x)\). 
 				
 				\(f_N(x_N)\) 是单调减少的, 而 \(x_N\) 有收敛子列 \(x_{i_n}\), 设其极限为 \(x_0\), 有: 
 				\[f_{i_n}(x_{i_n})\geq\varepsilon\]
@@ -3498,7 +3528,7 @@
 			    []
 			    []
 				内容: 
-				\[\sum_{n=1}^{+\infty}\frac{\sin nx}{n}=\frac{\pi-x}{2}(\x\in\oointerval{0}{2\pi})\]
+				\[\sum_{n=1}^{+\infty}\frac{\sin nx}{n}=\frac{\pi-x}{2}(\bm{x}\in\Ioo{0}{2\pi})\]
 			\end{cxmp}
 
 			\begin{dfn}
@@ -3553,7 +3583,7 @@
 			    {一致收敛级数与积分算子交换性}
 			    []
 			    []
-				若函数项级数 \(\sum\limits_{n=1}^{+\infty}f_n\) 在 \(\ccinterval{a}{b}\) 上一致收敛于 \(S(x)\), 且 \(\forall n\in\N, f_n\) 在 \(\ccinterval{a}{b}\) 上 Riemann 可积, 则 \(S(x)\) 在 \(\ccinterval{a}{b}\) 上 Riemann 可积, 且有: 
+				若函数项级数 \(\sum\limits_{n=1}^{+\infty}f_n\) 在 \(\Icc{a}{b}\) 上一致收敛于 \(S(x)\), 且 \(\forall n\in\N, f_n\) 在 \(\Icc{a}{b}\) 上 Riemann 可积, 则 \(S(x)\) 在 \(\Icc{a}{b}\) 上 Riemann 可积, 且有: 
 				\[\int_a^b\left(\sum_{n=1}^{+\infty}f_n(x)\right)\dd x=\sum_{n=1}^{+\infty}\int_a^b f_n(x)\dd x\]
 			\end{ppt}
 
@@ -3644,9 +3674,9 @@
 			    {幂级数收敛域是关于原点对称的区间}
 			    []
 			    []
-				若幂级数在 \(x=x_0\neq 0\) 处收敛, 则其在 \(\oointerval{-|x_0|}{|x_0|}\) 上绝对收敛; 
+				若幂级数在 \(x=x_0\neq 0\) 处收敛, 则其在 \(\Ioo{-|x_0|}{|x_0|}\) 上绝对收敛; 
 				
-				若幂级数在 \(x=x_0\) 处发散, 则其在 \(\oointerval{-\infty}{-|x_0|}\cup\oointerval{|x_0|}{+\infty}\) 上发散. 
+				若幂级数在 \(x=x_0\) 处发散, 则其在 \(\Ioo{-\infty}{-|x_0|}\cup\Ioo{|x_0|}{+\infty}\) 上发散. 
 
 				于是幂级数的收敛域是关于原点对称的区间 (开闭不确定). 
 			\end{ppt}
@@ -3655,7 +3685,7 @@
 				(1) 若幂级数 \(\sum\limits_{n=0}^{+\infty}a_n x^n\) 在 \(x=a\) 处收敛, 则 \(\exists M\in\R+, \forall n\in\N^*, |a_n x_0^n|\leq M\). 
 				\[\forall x, |x|<|x_0|\Longrightarrow\sum_{n=0}^{+\infty}|a_n x^n|{\left|\frac{x}{x_0}\right|}^n\leq M\sum_{n=0}^{+\infty}{\left|\frac{x}{x_0}\right|}^n\]
 
-				于是原幂级数在 \(\oointerval{-|x_0|}{|x_0|}\) 上绝对收敛. 
+				于是原幂级数在 \(\Ioo{-|x_0|}{|x_0|}\) 上绝对收敛. 
 
 				(2) 运用反证法, 套用前面结论即证. 
 				\(\square\)
@@ -3677,7 +3707,7 @@
 				幂级数的收敛半径可通过以下公式计算: 
 
 				设幂级数 \(f(x):=\sum\limits_{n=0}^{+\infty}a_n x^n\), 记: 
-				\[R:=\frac{1}{\ulim\limits_{n\to+\infty}\sqrt[n]{|a_n|}}\]
+				\[R:=\frac{1}{\ulim_{n\to+\infty}\sqrt[n]{|a_n|}}\]
 
 				则: 
 
@@ -3685,7 +3715,7 @@
 
 				(2) \(R=+\infty\Longrightarrow f\) 在 \(\R\) 上绝对收敛; 
 
-				(3) \(R\in\R^+\Longrightarrow f\) 在 \(\oointerval{-R}{R}\) 上绝对收敛, 在 \(\oointerval{-\infty}{-R}\cup\oointerval{R}{+\infty}\) 上发散. 
+				(3) \(R\in\R^+\Longrightarrow f\) 在 \(\Ioo{-R}{R}\) 上绝对收敛, 在 \(\Ioo{-\infty}{-R}\cup\Ioo{R}{+\infty}\) 上发散. 
 			\end{thm}
 
 			\begin{prf}
@@ -3720,15 +3750,15 @@
 			    {幂级数在收敛区间的内闭一致收敛性}
 			    []
 			    []
-				设幂级数的收敛半径为 \(R\in\R^+\), 则 \(\forall r\in\oointerval{0}{R}\), 幂级数在 \(\ccinterval{-r}{r}\) 上一致收敛. 
+				设幂级数的收敛半径为 \(R\in\R^+\), 则 \(\forall r\in\Ioo{0}{R}\), 幂级数在 \(\Icc{-r}{r}\) 上一致收敛. 
 			\end{thm}
 
 			\begin{prf}
 				设幂级数为 \(\sum\limits_{n=0}^{+\infty}a_n x^n\), 其收敛半径为 \(R\). 
 
-				\[\forall r\in\oointerval{0}{R}, \forall x\in\ccinterval{-r}{r}, |a_n x^n|\leq |a_n|r^n\]
+				\[\forall r\in\Ioo{0}{R}, \forall x\in\Icc{-r}{r}, |a_n x^n|\leq |a_n|r^n\]
 
-				右式构成收敛优级数, 由 Weiestrass 判别法知幂级数在 \(\ccinterval{-r}{r}\) 上一致收敛. 
+				右式构成收敛优级数, 由 Weiestrass 判别法知幂级数在 \(\Icc{-r}{r}\) 上一致收敛. 
 				\(\square\)
 			\end{prf}
 
@@ -3777,7 +3807,7 @@
 			    []
 			    []
 				设级数 \(\sum\limits_{n=0}^{+\infty}a_n x^n\) 与 \(\sum\limits_{n=0}^{+\infty}b_n x^n\) 收敛半径为 \(R\), 则: 
-				\[\forall x\in\oointerval{-R}{R}, \left(\sum_{n=0}^{+\infty}a_n x^n\right)\left(\sum_{n=0}^{+\infty}b_n x^n\right)=\sum_{n=0}^{+\infty}c_n x^n\left(\forall n\in\N, c_n=\sum_{i=0}^{n}a_i b_{n-i}\right)\]
+				\[\forall x\in\Ioo{-R}{R}, \left(\sum_{n=0}^{+\infty}a_n x^n\right)\left(\sum_{n=0}^{+\infty}b_n x^n\right)=\sum_{n=0}^{+\infty}c_n x^n\left(\forall n\in\N, c_n=\sum_{i=0}^{n}a_i b_{n-i}\right)\]
 			\end{thm}
 
 			\begin{prf}
@@ -3789,7 +3819,7 @@
 
 		\subsection{周期函数的 Fourier 级数}
 
-			约定本节讨论的函数均为周期为 \(2\pi\) 且在 \(\ccinterval{-\pi}{\pi}\) 上 Riemann 可积且反常积分绝对收敛的实值函数. 其全体记为 \(\mathbf{R}\ccinterval{-\pi}{\pi}\). 
+			约定本节讨论的函数均为周期为 \(2\pi\) 且在 \(\Icc{-\pi}{\pi}\) 上 Riemann 可积且反常积分绝对收敛的实值函数. 其全体记为 \(\mathbf{R}\Icc{-\pi}{\pi}\). 
 			
 			\begin{dfn}
 			    []
@@ -3814,7 +3844,7 @@
 			    {三角函数系的正交性}
 			    []
 			    []
-				三角函数系中任意两个不同的函数在 \(\ccinterval{-\pi}{\pi}\) 上正交, 相同的函数在 \(\ccinterval{-\pi}{\pi}\) 上内积为 \(2\pi\): 
+				三角函数系中任意两个不同的函数在 \(\Icc{-\pi}{\pi}\) 上正交, 相同的函数在 \(\Icc{-\pi}{\pi}\) 上内积为 \(2\pi\): 
 				\[\forall f,g\in{\{1,\cos(nx),\sin(nx)\}}_{n\geq 1}, 
 				\begin{cases}
 					\begin{aligned}
@@ -3835,7 +3865,7 @@
 			{}
 				内容: 
 				\[\mathcal{F}[f]:=\frac{a_0}{2}+\sum_{n=1}^{+\infty}(a_n\cos nx+b_n\sin nx)\]
-				若 \(\mathcal{F}[f]\) 与三角函数系中任何函数在 \(\ccinterval{-\pi}{\pi}\) 的内积和 \(f\) 与之的内积相等: 
+				若 \(\mathcal{F}[f]\) 与三角函数系中任何函数在 \(\Icc{-\pi}{\pi}\) 的内积和 \(f\) 与之的内积相等: 
 				\[\forall\varphi\in{\{1,\cos(nx),\sin(nx)\}}_{n\geq 1}, \int_{-\pi}^{\pi}\mathcal{F}[f]\varphi\dd x=\int_{-\pi}^{\pi}f\varphi\dd x\]
 
 			    {}
@@ -3912,7 +3942,7 @@
             \begin{prf}
 				我们分两类讨论, 先考虑 \(f\) 在 \(D\) 上正常可积, 此时 \(f\) 有界, 记\[\vert f(x)\vert\leq M\eqno{(1)}\]
 
-				对于 \(\forall n\), 对区间 \([a,b]\) 做 \(k\) 等分, 令 \(k=\sqrt{n}\) (事实上, 只需赋值的次数小于1),  \(\{x_0,x_1,\cdots,\x_k\}\) \(k\)等分点, 记\(\Delta x=\frac{b-a}{k}\)
+				对于 \(\forall n\), 对区间 \([a,b]\) 做 \(k\) 等分, 令 \(k=\sqrt{n}\) (事实上, 只需赋值的次数小于1),  \(\{x_0,x_1,\cdots,\bm{x}_k\}\) \(k\)等分点, 记\(\Delta x=\frac{b-a}{k}\)
 				
 				由正常可积, 则有: 
 				\[\forall \varepsilon,\exists k, \sum_{i=1}^{k}w_i\delta x<\frac{\varepsilon}{2}\eqno{(2)}\]
@@ -3977,13 +4007,13 @@
 			    []
 			    []
 				存在 Fourier 级数不逐点收敛于自身的函数: 
-				\[\exists f\in\mathbf{R}\ccinterval{-\pi}{\pi}, \exists x\in\ccinterval{-\pi}{\pi}, f(x)\neq\mathcal{F}[f](x)\]
+				\[\exists f\in\mathbf{R}\Icc{-\pi}{\pi}, \exists x\in\Icc{-\pi}{\pi}, f(x)\neq\mathcal{F}[f](x)\]
 			\end{cxmp}
 
 			\begin{prf}
 				运用反证法. 
 
-				假设结论成立, 任取 \(f\in\mathbf{R}\ccinterval{-\pi}{\pi}\), 任取 \(x_0\in\ccinterval{-\pi}{\pi}\), 构造 \(g\): 
+				假设结论成立, 任取 \(f\in\mathbf{R}\Icc{-\pi}{\pi}\), 任取 \(x_0\in\Icc{-\pi}{\pi}\), 构造 \(g\): 
 				\[g:=
 				\begin{cases}
 					f(x) & x\neq x_0\\
@@ -4025,13 +4055,13 @@
 					& = \frac{1}{\pi}\int_{0}^{\pi}\left(f(x_0-x)\cdot\frac{\sin(n+\dfrac{1}{2})x}{2\sin\dfrac{x}{2}}\right)\dd x
 					+\frac{1}{\pi}\int_{0}^{\pi}\left(f(x_0+x)\cdot\frac{\sin(n+\dfrac{1}{2})x}{2\sin\dfrac{x}{2}}\right)\dd x\\
 					& = \frac{1}{\pi}\int_{0}^{\pi}\left((f(x_0+x)+f(x_0-x))\cdot\frac{\sin(n+\dfrac{1}{2})x}{2\sin\dfrac{x}{2}}\right)\dd x\\
-					\forall\delta\in\oointerval{0}{\pi}
+					\forall\delta\in\Ioo{0}{\pi}
 					& = \frac{1}{\pi}\int_{0}^{\delta}(*)\dd x
 					+\frac{1}{\pi}\int_{\delta}^{\pi}(*)\dd x\\
 				\end{aligned}\]
-				\[\frac{f(x_0+x)+f(x_0-x)}{2\sin\frac{x}{2}}\in\mathbf{R}\ccinterval{\delta}{\pi}\Longrightarrow\lim_{n\to+\infty}\int_{\delta}^{\pi}(*)\dd x=0\]
+				\[\frac{f(x_0+x)+f(x_0-x)}{2\sin\frac{x}{2}}\in\mathbf{R}\Icc{\delta}{\pi}\Longrightarrow\lim_{n\to+\infty}\int_{\delta}^{\pi}(*)\dd x=0\]
 
-				从而 \(S_n(x_0)\) 敛散性仅与 \(\oointerval{x_0-\delta}{x_0+\delta}\) 内的性质有关. 
+				从而 \(S_n(x_0)\) 敛散性仅与 \(\Ioo{x_0-\delta}{x_0+\delta}\) 内的性质有关. 
 				\(\square\)
 			\end{prf}
 
@@ -4062,7 +4092,7 @@
 			{}
 			{}
 				内容: 
-				\[\exists\delta,L\in\R^+, \exists\alpha\in\ocinterval{0}{1}, \forall t\in\ocinterval{0}{\delta}, 
+				\[\exists\delta,L\in\R^+, \exists\alpha\in\Ioc{0}{1}, \forall t\in\Ioc{0}{\delta}, 
 				\begin{cases}
 					\begin{aligned}
 						&\left|f(x_0+t)-\lim_{x\to x_0+}f\right|\leq Lt^{\alpha}\\
@@ -4076,7 +4106,7 @@
 			    {Fourier 级数收敛性的 Lipschitz 条件判定}
 			    []
 			    []
-				若 \(f\) 在 \(\ccinterval{-\pi}{\pi}\) 上可积且绝对可积, 则: 
+				若 \(f\) 在 \(\Icc{-\pi}{\pi}\) 上可积且绝对可积, 则: 
 
 				\(f\) 在 \(x_0\) 附近满足 \(\alpha\) 阶 Lipschitz 条件 \(\Longrightarrow\mathcal{F}[f](x_0)=\dfrac{\lim\limits_{x\to x_0+}f(x)+\lim\limits_{x\to x_0-}f(x)}{2}\) 
 			\end{thm}
@@ -4097,7 +4127,7 @@
 			    []
 				内容: 
 				\[\forall s\in\R, \varphi_s(t):=f(x_0+t)+f(x_0-t)-2s\]
-				若 \(\exists\delta\in\R^+, \dfrac{\varphi_s(t)}{t}\) 在 \(\ccinterval{0}{\delta}\) 上可积且绝对可积, 则 \(f\) 的 Fourier 级数在 \(x_0\) 处收敛于 \(s\). 
+				若 \(\exists\delta\in\R^+, \dfrac{\varphi_s(t)}{t}\) 在 \(\Icc{0}{\delta}\) 上可积且绝对可积, 则 \(f\) 的 Fourier 级数在 \(x_0\) 处收敛于 \(s\). 
 			\end{crl}
 
 			\begin{thm}
@@ -4106,7 +4136,7 @@
 			    []
 			    []
 				内容: 
-				\[\forall f\in\mathbf{F}\ccinterval{-\pi}{\pi}, \]
+				\[\forall f\in\mathbf{F}\Icc{-\pi}{\pi}, \]
 				(1) \(f\) 在 \(x_0\) 处广义左右导数存在且有限, \(\Longrightarrow\mathcal{F}[f](x_0)=\dfrac{\lim\limits_{x\to x_0+}f(x)+\lim\limits_{x\to x_0-}f(x)}{2}\)
 
 				(2) \(f\) 在 \(x_0\) 处左右导数存在且有限, \(\Longrightarrow\mathcal{F}[f](x_0)=f(x_0)\). 
@@ -4129,7 +4159,7 @@
 			    {}
 			    []
 			    []
-				\(f\) 在 \(\ccinterval{-\pi}{\pi}\) 上可微 \(\Longrightarrow\mathcal{F}[f]=f\). 
+				\(f\) 在 \(\Icc{-\pi}{\pi}\) 上可微 \(\Longrightarrow\mathcal{F}[f]=f\). 
 			\end{crl}
             
 			\begin{dfn}
@@ -4180,7 +4210,7 @@
 			    {Fejer 定理}
 			    []
 			    []
-				设 \(f\in\mathbf{R}\ccinterval{-\pi}{\pi}\), 则
+				设 \(f\in\mathbf{R}\Icc{-\pi}{\pi}\), 则
 			\end{thm}
 
 			\begin{thm}
@@ -4624,11 +4654,11 @@
 				{\(\R^3\) 中的光滑曲线}
 				[Smooth Curve in \(\R^3\)]
 				[猫猫]
-				函数 \(\varGamma:\ccinterval{a}{b}\to\R^3\) 称为是一条光滑曲线, 若: 
+				函数 \(\varGamma:\Icc{a}{b}\to\R^3\) 称为是一条光滑曲线, 若: 
 
-				(1) \(\varGamma\) 在 \(\ccinterval{a}{b}\) 上可微; 
+				(1) \(\varGamma\) 在 \(\Icc{a}{b}\) 上可微; 
 
-				(2) \[\forall t\in\ccinterval{a}{b}, \frac{\dd\varGamma(t)}{\dd t}\neq\bm{0}\]
+				(2) \[\forall t\in\Icc{a}{b}, \frac{\dd\varGamma(t)}{\dd t}\neq\bm{0}\]
 			\end{dfn}
 			
 			\begin{dfn}
@@ -4636,7 +4666,7 @@
 				{弧长}
 				[Arc Length]
 				[猫猫]
-				设 \(\varGamma:\ccinterval{a}{b}\to\R^3\) 是一条光滑曲线, 定义 \(\varGamma\) 在 \(\ccinterval{a}{b}\) 上的\textbf{弧长}为: 
+				设 \(\varGamma:\Icc{a}{b}\to\R^3\) 是一条光滑曲线, 定义 \(\varGamma\) 在 \(\Icc{a}{b}\) 上的\textbf{弧长}为: 
 				\[\int_a^b\left\|\frac{\dd\varGamma}{\dd t}\right\|\dd t\]
 			\end{dfn}
 			
@@ -4645,7 +4675,7 @@
 				{弧长是关于参量严格递增的函数}
 				[]
 				[猫猫]
-				设 \(\varGamma:\ccinterval{a}{b}\to\R^3\) 是一条光滑曲线, \(\varGamma\) 在 \(\ccinterval{a}{t}\) 上的弧长关于 \(t\) 严格递增. 
+				设 \(\varGamma:\Icc{a}{b}\to\R^3\) 是一条光滑曲线, \(\varGamma\) 在 \(\Icc{a}{t}\) 上的弧长关于 \(t\) 严格递增. 
 			\end{ppt}
 			
 			\begin{dfn}
@@ -4653,7 +4683,7 @@
 				{曲率}
 				[Curvature]
 				[猫猫]
-				设 \(\varGamma:\ccinterval{a}{b}\to\R^3\) 是一条光滑曲线, \(t_0\in\ccinterval{a}{b}\), 定义 \(\varGamma\) 在 \(t_0\) 处的\textbf{曲率}为: 
+				设 \(\varGamma:\Icc{a}{b}\to\R^3\) 是一条光滑曲线, \(t_0\in\Icc{a}{b}\), 定义 \(\varGamma\) 在 \(t_0\) 处的\textbf{曲率}为: 
 
 				记作 \(\kappa(t_0)\). 
 			\end{dfn}
@@ -4672,7 +4702,7 @@
 				{曲率的弧长参数表示}
 				[]
 				[猫猫]
-				设 \(\varGamma:\ccinterval{a}{b}\to\R^3\) 是一条以弧长为参数的光滑曲线, 则: 
+				设 \(\varGamma:\Icc{a}{b}\to\R^3\) 是一条以弧长为参数的光滑曲线, 则: 
 				\[\kappa(t_0)=\|\varGamma''(t_0)\|\]
 			\end{ppt}
 			
@@ -4751,13 +4781,13 @@
 			    {分割}
 			    []
 			    [猫猫]
-				设 \(D=\ccinterval{a}{b}\times\ccinterval{c}{d}\), \(a=x_0<x_1<\cdots<x_n=b\), \(c=y_0<y_1<\cdots<y_m=d\), 则称 \(D\) 的子集族 \(I:=\{\ccinterval{x_{i-1}}{x_i}\times\ccinterval{y_{j-1}}{y_j}|1\leq i\leq n, 1\leq j\leq m\}\) 为 \(D\) 上的一个\textbf{分割}. 
+				设 \(D=\Icc{a}{b}\times\Icc{c}{d}\), \(a=x_0<x_1<\cdots<x_n=b\), \(c=y_0<y_1<\cdots<y_m=d\), 则称 \(D\) 的子集族 \(I:=\{\Icc{x_{i-1}}{x_i}\times\Icc{y_{j-1}}{y_j}|1\leq i\leq n, 1\leq j\leq m\}\) 为 \(D\) 上的一个\textbf{分割}. 
 
 				分割的\textbf{宽度}定义为各个分块长宽的最大值: 
 				\[\|I\|:=\max\{x_i,y_j\}\]
 
 				分块面积定义为: 
-				\[\sigma(\ccinterval{x_{i-1}}{x_i}\times\ccinterval{y_{j-1}}{y_j}):=(y_j-y_{j-1})(x_i-x_{i-1})\]
+				\[\sigma(\Icc{x_{i-1}}{x_i}\times\Icc{y_{j-1}}{y_j}):=(y_j-y_{j-1})(x_i-x_{i-1})\]
 			\end{dfn}
 
 			\begin{dfn}
@@ -4765,7 +4795,7 @@
 			    {Riemann 和}
 			    []
 			    [猫猫]
-				设 \(D=\ccinterval{a}{b}\times\ccinterval{c}{d}\), \(I\) 是 \(D\) 上的一个分割, \(\Xi\) 是一个取值集, 其各个元素满足 \(\xi_i\in I_i\). 则称下式为 \(f\) 在 \(D\) 上关于分割 \(D\) 和取值 \(\Xi\) 的\textbf{Riemann 和}: 
+				设 \(D=\Icc{a}{b}\times\Icc{c}{d}\), \(I\) 是 \(D\) 上的一个分割, \(\Xi\) 是一个取值集, 其各个元素满足 \(\xi_i\in I_i\). 则称下式为 \(f\) 在 \(D\) 上关于分割 \(D\) 和取值 \(\Xi\) 的\textbf{Riemann 和}: 
 				\[\sum_{I_i\in I}f(\xi_i)\sigma(I_i)\]
 			\end{dfn}
 
@@ -4774,7 +4804,7 @@
 			    {二重积分}
 			    []
 			    [猫猫]
-				称函数 \(f\) 在矩形区域 \(D=\ccinterval{a}{b}\times\ccinterval{c}{d}\) 上 Riemann 可积, 若 Riemann 和在分割宽度趋于零时收敛于某一极限:
+				称函数 \(f\) 在矩形区域 \(D=\Icc{a}{b}\times\Icc{c}{d}\) 上 Riemann 可积, 若 Riemann 和在分割宽度趋于零时收敛于某一极限:
 				\[\exists A\in\R, \lim_{\|I\|\to 0}\sum_{I_i\in I}f(\xi_i)\sigma(I_i)=A\]
 
 				若 \(D\) 不是矩形区域, 则称 \(f\) 在 \(D\) 上 Riemann 可积, 若在 \(D\) 的任何矩形子集上 Riemann 可积, 此时可将 \(D\) 扩充为矩形区域, 并将扩充部分函数值赋值为 \(0\), 定义积分值为扩充后的积分值. 
@@ -4816,7 +4846,7 @@
 			    {Lebesgue 定理}
 			    []
 			    [猫猫]
-				设 \(f\) 在 \(D=\ccinterval{a}{b}\times\ccinterval{c}{d}\) 上有界, 则 \(f\) 在 \(D\) 上 Riemann 可积当且仅当 \(f\) 在 \(D\) 上的不连续点集零测. 
+				设 \(f\) 在 \(D=\Icc{a}{b}\times\Icc{c}{d}\) 上有界, 则 \(f\) 在 \(D\) 上 Riemann 可积当且仅当 \(f\) 在 \(D\) 上的不连续点集零测. 
 
 				若 \(D\) 不是矩形区域, 则若 \(f\) 在 \(D\) 上的不连续点集与 \(\partial D\) 均零测, 则 \(f\) 在 \(D\) 上 Riemann 可积. 
 			\end{thm}
@@ -4826,7 +4856,7 @@
 			    {二重积分计算}
 			    []
 			    [猫猫]
-				设 \(f\) 在 \(D=\ccinterval{a}{b}\times\ccinterval{c}{d}\) 上可积, 若 \(\forall x\in\ccinterval{a}{b}\), \(f\) 在 \(\ccinterval{c}{d}\) 上可积, 则: 
+				设 \(f\) 在 \(D=\Icc{a}{b}\times\Icc{c}{d}\) 上可积, 若 \(\forall x\in\Icc{a}{b}\), \(f\) 在 \(\Icc{c}{d}\) 上可积, 则: 
 				\[\iint_{D}f(x,y)\dd x\dd y=\int_{a}^{b}\left(\int_{c}^{d}f(x,y)\dd y\right)\dd x\]
 			\end{thm}
 
@@ -4835,7 +4865,7 @@
 			    {累次积分可交换的充分条件}
 			    []
 			    [猫猫]
-				设 \(f\) 在 \(D=\ccinterval{a}{b}\times\ccinterval{c}{d}\) 上可积, \(\forall x\in\ccinterval{a}{b}\), \(f\) 在 \(\ccinterval{c}{d}\) 上可积, \(\forall y\in\ccinterval{c}{d}\), \(f\) 在 \(\ccinterval{a}{b}\) 上可积, 则: 
+				设 \(f\) 在 \(D=\Icc{a}{b}\times\Icc{c}{d}\) 上可积, \(\forall x\in\Icc{a}{b}\), \(f\) 在 \(\Icc{c}{d}\) 上可积, \(\forall y\in\Icc{c}{d}\), \(f\) 在 \(\Icc{a}{b}\) 上可积, 则: 
 				\[\iint_{D}f(x,y)\dd x\dd y=\int_{a}^{b}\left(\int_{c}^{d}f(x,y)\dd y\right)\dd x=\int_{c}^{d}\left(\int_{a}^{b}f(x,y)\dd x\right)\dd y\]
 			\end{crl}
 
@@ -4858,7 +4888,7 @@
 			    {Minkowski 不等式}
 			    []
 			    [猫猫]
-				设非负连续函数 \(f\) 在 \(D=\ccinterval{a}{b}\times\ccinterval{c}{d}\) 上 Riemann 可积, \(p\geq 1\), 则: 
+				设非负连续函数 \(f\) 在 \(D=\Icc{a}{b}\times\Icc{c}{d}\) 上 Riemann 可积, \(p\geq 1\), 则: 
 				\[{\left(\int_a^b{\left(\int_c^d f(x,y)\dd y\right)}^p\right)}^{\frac{1}{p}}
 				\leq
 				\int_c^d{\left(\int_a^b f^p(x,y)\dd x\right)}^{\frac{1}{p}}\dd y\]
@@ -4922,7 +4952,7 @@
 				{}
 				[]
 				[猫猫]
-				设 \(\varGamma\) 是 \(\R^3\) 上的连续曲线, \(\bm{r}:\ccinterval{\alpha}{\beta}\to\varGamma\) 是描述 \(\varGamma\) 的参数方程, \(f:\varGamma\to\R\) 连续, 则: 
+				设 \(\varGamma\) 是 \(\R^3\) 上的连续曲线, \(\bm{r}:\Icc{\alpha}{\beta}\to\varGamma\) 是描述 \(\varGamma\) 的参数方程, \(f:\varGamma\to\R\) 连续, 则: 
 				\[\int_\varGamma f\dd s=\int_\alpha^\beta f\circ\bm{r}(t)\|\bm{r}'(t)\|\dd t\]
 			\end{thm}
 
@@ -4931,7 +4961,7 @@
 				{}
 				[]
 				[猫猫]
-				设 \(\varGamma\) 是 \(\R^2\) 上的连续曲线, \(y:\ccinterval{\alpha}{\beta}\to\R\) 是描述 \(\varGamma\) 的方程, \(f:\varGamma\to\R\) 连续, 则: 
+				设 \(\varGamma\) 是 \(\R^2\) 上的连续曲线, \(y:\Icc{\alpha}{\beta}\to\R\) 是描述 \(\varGamma\) 的方程, \(f:\varGamma\to\R\) 连续, 则: 
 				\[\int_\varGamma f\dd s=\int_\alpha^\beta f(x,y(x))\sqrt{1+{(\varphi'(x))}^2}\dd x\]
 			\end{crl}
 

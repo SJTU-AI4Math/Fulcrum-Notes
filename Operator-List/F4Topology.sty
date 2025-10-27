@@ -12,6 +12,7 @@
 \NewDocumentCommand{\DrvSet}{sm}{#2\catref[#1]{dfn:Derived-Set}{\ensuremath{'}}[导集]}
 
 \NewDocumentCommand{\Seqlim}{smmm}{\catref[#1]{dfn:Sequence-Limit}{\ensuremath{\lim\limits_{#2\to+\infty}}}[序列极限]\,#3=#4}
+\NewDocumentCommand{\Maplim}{smmmm}{\catref[#1]{dfn:Topology-Mapping-Limit}{\ensuremath{\lim\limits_{#2\to #3}}}[映射极限]\,#4=#5}
 
 \NewDocumentCommand{\Con}{s}{\catref[#1]{dfn:Continuous-Mapping}{\ensuremath{\operatorname{Con}}}[连续映射]}
 \NewDocumentCommand{\Homeo}{smm}{#2\catref[#1]{dfn:Homeomorphism}{\ensuremath{\cong}}[同胚]#3}

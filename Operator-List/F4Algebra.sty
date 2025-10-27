@@ -13,7 +13,7 @@
 \NewDocumentCommand{\stab}{s}{\catref[#1]{dfn:Stabilizer}{\ensuremath{\operatorname{stab}}}[稳定子. ]}
 
 \NewDocumentCommand{\Trans}{sm}{#2^{\catref[#1]{dfn:Transverse}{\mathrm{T}}[转置]}}
-
+\NewDocumentCommand{\inprod}{smm}{\left\langle #2,#3 \right\rangle}          % Inner Product
 
 % Non-concept 
 \DeclareMathOperator{\Cat}{\mathcal{C}}                 % Category

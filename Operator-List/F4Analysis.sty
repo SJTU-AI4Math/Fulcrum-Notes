@@ -9,6 +9,9 @@
 
 \NewDocumentCommand{\ulim}{s}{\catref[#1]{dfn:Upper-Limit}{\ensuremath{\overline{\operatorname{lim}}}}[上极限]}
 \NewDocumentCommand{\llim}{s}{\catref[#1]{dfn:Lower-Limit}{\ensuremath{\underline{\operatorname{lim}}}}[下极限]}
+\NewDocumentCommand{\leftlim}{smmmo}{\catref[#1]{dfn:Real-Function-Limit}{\ensuremath{\lim\limits_{#2\to#3-}}}[左极限]\oarg{#4}\IfValueT{#5}{=#5}}
+\NewDocumentCommand{\rightlim}{smmmo}{\catref[#1]{dfn:Real-Function-Limit}{\ensuremath{\lim\limits_{#2\to#3+}}}[右极限]\oarg{#4}\IfValueT{#5}{=#5}}
+
 
 \NewDocumentCommand{\diff}{smmm}{\left. #1 \right|_{#2}^{#3}}      % This command can be replaced by $\eval{#1}_{#2}^{#3}$ in package physics.
 

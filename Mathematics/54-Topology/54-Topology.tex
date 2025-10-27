@@ -730,10 +730,19 @@
                 [Limit of Mapping]
                 [猫猫]
                 设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), \(x:X\), \(y:Y\), 定义 \(f\) 在 \(x\) 处的\textbf{极限}为 \(y\), 当且仅当: 
-                \[\forall U_y\in \mathcal{V}(y), \exists U_x\in\DelNbr{x}, \forall x'\in U_x, f(x')\in U_y\]
+                \[\forall U_y\in \mathcal{V}(y), \exists U_x\in\DelNbr{x}, f(U_x)\subseteq U_y\]
 
-                记作 \(\lim_{x'\to x}f(x')=y\). 
+                记作 \(\Maplim{t}{x}{f(t)}{y}\). 
             \end{dfn}
+            
+            \begin{ppt}
+                []
+                {Heine 定理}
+                []
+                [猫猫]
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), \(x:X\), \(y:Y\), 则: 
+                \[\Maplim{t}{x}{f(t)}{y}\iff\left(\forall\{x_n\}:\N\to X, \Seqlim{n}{x_n}{x}\implies\Seqlim{n}{f(x_n)}{y}\right)\]
+            \end{ppt}
 
         \subsection{连续映射}   % uuid:"Continuous-Mapping-Basic"
 
@@ -749,26 +758,21 @@
 
                 将 \(X\to Y\) 全体连续映射的集合记作 \(\Con(X,Y)\). 
             \end{dfn}
-            
-            \begin{ppt}
-                [Continuous-Map-Compact]
-                {连续映射将紧集映射为紧集}
-                []
-                []
-            \end{ppt}
+
 
             \begin{ppt}
                 [Continuous-Map-Def2]
                 {连续映射的等价定义}
                 []
                 [猫猫]
-                设拓扑空间\((X,\mathcal{T}_X), (Y,\mathcal{T}_Y)\), \((f:X\to Y)\in\Con(X,Y)\)有两种等价描述: 
-                
-                (1)开集的原像是开集: 
-                \[\forall S(f(S)\in\mathcal{T}_Y)\implies S\in\mathcal{T}_X\]
-                
-                (2)闭集的原像是闭集: 
-                \[\forall S((Y-f(S))\in\mathcal{T}_Y)\implies(X-S)\in\mathcal{T}_X\]
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), 则: 
+                \begin{enumerate}
+                    \item 连续当且仅当开集的原像是开集: 
+                        \[f\in\Con(X,Y)\iff(\forall S, \开集[f(S)][Y]\implies \开集[S][X])\]
+
+                    \item 连续当且仅当闭集的原像是闭集: 
+                        \[f\in\Con(X,Y)\iff(\forall S, \闭集[f(S)][Y]\implies \闭集[S][X])\]
+                \end{enumerate}
             \end{ppt}
             
             \begin{prf}
@@ -781,23 +785,12 @@
             \end{prf}
             
             \begin{ppt}
-                [Connected-Local-Const-Global-Const]
-                {连通集上局部常值蕴含全局常值}
+                []
+                {连续映射的复合连续}
                 []
                 [猫猫]
-                设 \(X\) 是连通的拓扑空间, \(Y\) 是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
-                \[f:X\to Y(\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C))\implies\forall x\in X, f(x)=C\]
-                
-                即, 若定义域连通, 则所有点分别保持常值的函数, 整体保持常值. 
+                设 \(X,Y,Z\) 是\拓扑空间, \(f:X\to Y\), \(f\in\Con(X,Y)\), \(g:Y\to Z\), \(g\in\Con(Y,Z)\), 则: \(g\circ f\in\Con(X,Z)\). 
             \end{ppt}
-            
-            \begin{thm}
-                [Continuous-Composition-Transitivity]
-                {连续的复合传递性}
-                []
-                [猫猫]
-                设拓扑空间 \(X,Y,Z\), 映射 \(f:X\to Y\) 在 \(x\in X\) 处连续, 映射 \(g:Y\to Z\) 在 \(f(x)\in Y\) 处连续, 则 \(g\circ f:X\to Z\) 在 \(x\) 处连续. 
-            \end{thm}
                 
             \begin{prf}
                 \[y:=f(x), z:=g(y)\]
@@ -805,6 +798,39 @@
                 \[f\text{在\(x\)处连续}\implies\exists U(x)\in\Nbr{x}[X]\subseteq X: f(U(x))\subseteq U(y)\]
                 \[\therefore g\circ f(U(x))\subseteq g(U(y))\subseteq U(z)\implies g\circ f\text{在\(x\)处连续}\square\]
             \end{prf}
+            
+            \begin{ppt}
+                [Continuous-Map-Compact]
+                {连续映射保持紧性}
+                []
+                [猫猫]
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), \(f\in\Con(X,Y)\), \(K\subseteq X\), \(\紧集[K][X]\), 则: \(\紧集[f(K)][Y]\). 
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {紧空间上连续映射的逆映射连续}
+                []
+                [猫猫]
+                设 \(X,Y\) 是\拓扑空间, \(X\) 是紧的, \(f:X\to Y\), \(\双射[f]\), \(f\in\Con(X,Y)\), 则: \(f^{-1}\in\Con(Y,X)\). 
+            \end{ppt}
+            
+            \begin{ppt}
+                []
+                {连续映射保持连通性}
+                []
+                [猫猫]
+                设 \(X,Y\) 是\拓扑空间, \(f:X\to Y\), \(f\in\Con(X,Y)\), \(C\subseteq X\), \(\连通[C][X]\), 则: \(\连通[f(C)][Y]\). 
+            \end{ppt}
+            
+            \begin{ppt}
+                [Connected-Local-Const-Global-Const]
+                {连通集上连续映射局部常值蕴含全局常值}
+                []
+                [猫猫]
+                设 \(X,Y\) 是\拓扑空间, \(X\) \连通, \(Y\) 是拓扑空间, 则局部常值函数 \(f:X\to Y\) 是常值函数: 
+                \[\forall x_0\in X, \exists U(x_0)(\forall x\in U(x_0), f(x)=C)\implies\forall x\in X, f(x)=C\]
+            \end{ppt}
 
             \begin{dfn}
                 [Homeomorphism]
@@ -1284,6 +1310,20 @@
                 []
                 [猫猫]
             \end{thm}
+
+        \subsection{一致连续}
+
+            \begin{dfn}
+                设 \((X,Y)\) 是\度量空间, \(f:X\to Y\), 定义 \(f\) \textbf{一致连续}, 当且仅当: 
+                \[\forall\varepsilon:\R^+, \exists\delta:\R^+, \forall x_1,x_2:X, d_X(x_1,x_2)<\delta\implies d_Y(f(x_1),f(x_2))<\varepsilon\]
+            \end{dfn}
+            
+            \begin{ppt}
+                []
+                {紧集上连续蕴含一致连续}
+                []
+                [猫猫]
+            \end{ppt}
 
         \subsection{压缩映射与不动点}
             
