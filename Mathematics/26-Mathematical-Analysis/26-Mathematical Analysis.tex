@@ -1762,6 +1762,7 @@
                 []
 				{振幅}
 				[]
+				[猫猫]
                 函数 \(f\) 在 \(D\) 上的\textbf{振幅}定义为: 
                 \[\omega_f(D):=\sup f(D)-\inf f(D)\]
             \end{dfn}
@@ -1770,7 +1771,7 @@
 			    []
 			    {振幅的等价定义}
 			    []
-			    []
+			    [猫猫]
                 \[\omega_f(D)=\sup\{f(x_1)-f(x_2)|x_1,x_2\in D\}\]
             \end{ppt}
             
@@ -1778,7 +1779,7 @@
 			    []
 			    {单点振幅}
 			    []
-			    []
+			    [猫猫]
                 设 \(f:D\to\R\), \(\xi\in\cl D\), 定义 \(f\) 在 \(\xi\) 处的\textbf{振幅}为: 
                 \[\omega_f(\xi)=\lim_{\delta\to 0+}\omega_f(\mathcal{B}(\xi,\delta))\]
             \end{dfn}
@@ -1787,7 +1788,7 @@
 				[]
 				{连续等价于振幅为 \(0\)}
 				[]
-				[]
+				[猫猫]
                 \[f\in\mathcal{C}(\xi)\iff\omega_f(\xi)=0\]
             \end{thm}
 
@@ -1795,7 +1796,7 @@
 			    []
 			    {依振幅不连续点}
 			    []
-			    []
+			    [猫猫]
                 \[\mathcal{D}_{\delta}(f)=\{x|\omega_f(x)\geq\delta\}\]
             \end{dfn}
             
@@ -1816,7 +1817,7 @@
 			    []
 			    {可微}
 			    [Differentiable]
-			    []
+			    [猫猫]
 				设 \(D\subseteq\R\), \(f:D\to\R\), \(x_0:\R\), \(x_0\in D\), \(f\) 在 \(x_0\) 处连续, 在 \(x_0\) 的一个邻域 \(\U(x_0,\delta)\) 内有定义. 记 \(y=f(x)\), 称函数 \(f\) 在 \(x_0\) 处\textbf{可微(Differentiable)}或\textbf{可导}, 若: 
 				\[\exists k\in\R(\exists\delta_0\in\R^+(x\in\U(x_0,\delta_0)\Longrightarrow y-y_0=k(x-x_0)+o(x-x_0)))\]
 				
@@ -1828,23 +1829,24 @@
 				
 				其中常数 \(k\) 称为 \(f\) 在 \(x_0\) 处的\textbf{导数(Derivative)}或\textbf{微商}, 记为
 				\[f'(x_0)=k=\frac{\dd y}{\dd x}\]
+
+				\(f':D'\to\R\)是一个以 \(x_0\) 为自变量的函数, 称为 \(f\) 在 \(D'\) 上的\textbf{导函数(Derivative Function)}. 
 			\end{dfn}
 			
 			\begin{ppt}
 			    []
-			    {}
+			    {导数的等价定义}
 			    []
-			    []
-				内容: 
+			    [猫猫]
 				\[\mbox{函数 \(f\) 在 \(x_0\) 处可微}\iff\exists\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\]
 				\[f'(x_0)=\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\]
 			\end{ppt}
 			
 			\begin{ppt}
 			    []
-			    {}
+			    {可微性蕴含连续性}
 			    []
-			    []
+			    [猫猫]
 				函数 \(f:D\to\R\) 在 \(x_0\in\R\) 处可微 \(\Longrightarrow f\) 在 \(x_0\) 处连续. 
 			\end{ppt}
 
@@ -1858,60 +1860,40 @@
 
 				只需确保 \(|\Delta x|<\dfrac{\varepsilon_2}{|k|+\varepsilon_1}\), 即令\(\delta_2:=\min\left\{\delta_1,\dfrac{\varepsilon_2}{|k|+\varepsilon_1}\right\}\Longrightarrow|\Delta y|<\varepsilon_2\square\)
             \end{prf}
-			
-			\begin{dfn}
-			    []
-			    {}
-			    []
-			    []
-				称函数 \(f:D\to\R(D\subseteq\R)\) 在 \(D'\subseteq D\) 上\textbf{可微(Differentiable)}或\textbf{可导}, 若 \(\forall x_0\in D'\), \(f\)在 \(x_0\) 处可微. 
-				
-				\(f':D'\to\R\)是一个以 \(x_0\) 为自变量的函数, 称为 \(f\) 在 \(D'\) 上的\textbf{导函数(Derivative Function)}. 
-			\end{dfn}
 				
 			\begin{ppt}
 			    []
-			    {}
+			    {导函数的线性运算}
 			    []
-			    []
+			    [猫猫]
 				设 \(f,g\) 在 \(D\) 上可导, 则: 
 				\[(f+g)'(x)=f'(x)+g'(x)\]
-			\end{ppt}
-			
-			\begin{ppt}
-			    []
-			    {}
-			    []
-			    []
-				设 \(f\) 在 \(D\) 上可导, 则: 
 				\[\forall k\in\R, (kf)'(x)=kf'(x)\]
 			\end{ppt}
 			
 			\begin{ppt}
 			    []
-			    {}
-			    []
-			    []
+			    {乘积链式求导法则}
+			    [Chain Rule]
+			    [猫猫]
 				设 \(f,g\) 在 \(D\) 上可导, 则: 
 				\[(f\cdot g)'(x)=f'(x)g(x)+f(x)g'(x)\]
 			\end{ppt}
 			
 			\begin{ppt}
 			    []
-			    {}
+			    {商求导公式}
 			    []
-			    []
+			    [猫猫]
 				设 \(f,g\) 在 \(D\) 上可导, 则: 
 				\[(\frac{f(x)}{g(x)})'=\frac{f'(x)g(x)-f(x)g'(x)}{g^2(x)}\]
 			\end{ppt}
 			
 			\begin{ppt}
 			    []
-			    {}
+			    {一阶微分的形式不变性}
 			    []
-			    []
-				一阶微分的形式不变性: 
-				
+			    [猫猫]
 				设 \(y\) 是关于 \(u\) 的函数, \(u\)是关于 \(x\) 的函数, \(u=u_0|_{x=x_0}\); 
 				
 				设 \(y\) 在 \(u_0\) 处可微且 \(\dd y=k\dd u|_{u=u_0}\), \(u\)在 \(x_0\) 处可微且 \(\dd u=l\dd x|_{x=x_0}\), 则: 
@@ -1941,53 +1923,44 @@
     
 			\begin{ppt}
 			    []
-			    {}
+			    {反函数求导法则}
 			    []
-			    []
-				反函数求导法则: 
-
+			    [猫猫]
                 设  \( y = f(x) \)  在包含  \( x_0 \)  的区间  \( I \)  上连续且严格单调, 若它在  \( x_0 \)  处可导, 且  \( f'(x_0) \neq 0 \) , 那么它的反函数  \( x = f^{-1}(y) \)  在  \( y_0 = f(x_0) \)  处可导, 且
                 \[\left( f^{-1} \right)'(y_0) = \frac{1}{f'(x_0)}\]
 			\end{ppt}
 			
 			\begin{ppt}
 			    []
-			    {}
+			    {导数使奇偶性互变}
 			    []
-			    []
+			    [猫猫]
 				奇函数的导函数是偶函数, 偶函数的导函数是奇函数. 
 			\end{ppt}
-				
-				
 			
-		\subsection{七类基本初等函数的导数}
-			
-			在基本初等函数的定义域内, 有: 
+		\subsection{基本初等函数的导函数}
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {常数函数导数}
 			    []
-			    []
-				常数函数导数: 
-				\[C'=0\]
+			    [猫猫]
+				\[C' = 0\]
 			\end{xmp}
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {幂函数导数}
 			    []
-			    []
-				幂函数导数: 
+			    [猫猫]
 				\[(x^a)'=ax^{a-1}(a\neq 0)\]
 			\end{xmp}
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {指数函数导数}
 			    []
-			    []
-				指数函数导数: 
+			    [猫猫]
 				\[(a^x)'=(\ln a)x^a(a\in\R^+-\{1\})\]
 				
 				特别地, \[(e^x)'=e^x\]
@@ -1995,10 +1968,9 @@
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {对数函数导数}
 			    []
-			    []
-				对数函数导数: 
+			    [猫猫]
 				\[(\log_ax)'=\frac{1}{(\ln a)x}\]
 				
 				特别地, 
@@ -2007,10 +1979,9 @@
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {三角函数导数}
 			    []
-			    []
-				三角函数导数: 
+			    [猫猫]
 				\[\begin{array}{ccc}
 				\sin'x=\cos x & \cos'x=-\sin x & \tan'x=\sec^2x\\
 				\csc'x=-\csc x\cot x & \sec'x=\tan x\sec x & \cot'x=-\csc^2x
@@ -2019,10 +1990,10 @@
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {反三角函数导数}
 			    []
-			    []
-				反三角函数导数: \[\begin{array}{ccc}
+			    [猫猫]
+				\[\begin{array}{ccc}
 				\arcsin'x=\dfrac{1}{\sqrt{1-x^2}} & \arccos'x=-\dfrac{1}{\sqrt{1-x^2}} & \arctan'x=\dfrac{1}{1+x^2}\\
 				\arccsc'x=-\dfrac{1}{|x|\sqrt{x^2-1}} & \arcsec'x=-\dfrac{1}{|x|\sqrt{x^2-1}} & \arccot'x=-\dfrac{1}{1+x^2}
 				\end{array}\]
@@ -2030,12 +2001,12 @@
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {双曲函数导数}
 			    []
-			    []
-			 	双曲函数导数: 
+			    [猫猫]
 				\[\begin{array}{ccc}
-			 	\sinh 'x=\cosh x & \cosh'x=\sinh x & \tanh'x=
+			 	\sinh 'x=\cosh x & \cosh'x=\sinh x & \tanh'x=\sec^2x\\
+			 	\csch'x=-\csch x\coth x & \sech'x=-\sech x\tanh x & \coth'x=-\csch^2x
 			 	\end{array}\]
 			\end{xmp}
 		
@@ -2045,7 +2016,7 @@
 			    []
 			    {高阶微分/导数}
 			    []
-			    []
+			    [猫猫]
 				设函数 \(y=f(x)\) 在 \(x_0\) 可微, 将 \(\dd y=k_1\dd x|_{x=x_0}\) 视为 \(y\) 的一阶微分; 
 				
 				设 \(\dd^{n-1}y=k_{n-1}\dd x^{n-1}|_{x=x_0}\) 是 \(y\) 在 \(x_0\) 处的 \(n-1\) 阶微分 \((n\in\mathbb{Z}^+-\{1\})\), 
@@ -2064,7 +2035,7 @@
 			    []
 			    {Leibniz公式}
 			    []
-			    []
+			    [猫猫]
 				函数 \(u\) 、 \(v\) 、 \(uv\) 在区间 \(I\) 上 \(n\) 阶可导, 则
 				\[(uv)^{(n)} = \sum_{k=0}^{n} C_{n}^{k} u^{(n-k)} v^{(k)}.\]
 			\end{thm}
@@ -2083,12 +2054,12 @@
 			\end{prf}
 
 			
-		\subsection{函数凸性与Jenson不等式}
+		\subsection{凸性}
 			\begin{dfn}
 			    []
-			    {}
+			    {凸性}
 			    []
-			    []
+			    [猫猫]
 				设函数 \(f\) 在区间 \(I\) 上有定义,如果 \(\forall \ x_1, x_2 \in I, x_1 \neq x_2\) , 以及 \( \forall \ \lambda_1, \lambda_2 > 0\) , 且 \(\lambda_1 + \lambda_2 = 1\), 都有
 				\[
 				f(\lambda_1 x_1 + \lambda_2 x_2) \leq \lambda_1 f(x_1) + \lambda_2 f(x_2),
@@ -2098,9 +2069,9 @@
 			
 			\begin{thm}
 			    []
-			    {Jenson不等式}
+			    {Jenson 不等式}
 			    []
-			    []
+			    [猫猫]
 				设 \(f\) 在区间 \(I\) 上是凸函数, 则对任何 \(x_1, x_2, \cdots, x_n \in I\), 以及 \(\lambda_1, \lambda_2, \cdots, \lambda_n > 0\), 且 \(\lambda_1 + \lambda_2 + \cdots + \lambda_n = 1\), 都有
 				\[f\left(\sum_{i=1}^n \lambda_i x_i\right) \leq \sum_{i=1}^n \lambda_i f(x_i). \]
 
@@ -2125,11 +2096,9 @@
 
 			\begin{thm}
 			    []
-			    {}
+			    {切线判别法}
 			    []
 			    []
-				切线判别法: 
-
 				函数  \( f \)  在区间  \( I \)  上是凸函数, 当且仅当对任何  \( (x_1, x_2) \subset I \)  及任何  \( x \in (x_1, x_2) \) , 有
 				\[\frac{f(x) - f(x_1)}{x - x_1} \leq \frac{f(x_2) - f(x_1)}{x_2 - x_1} \leq \frac{f(x_2) - f(x)}{x_2 - x}. \quad\] 
 				\( f \)  是  \( I \)  上的严格凸函数, 当且仅当式中出现的都是严格的不等号. 
@@ -2137,15 +2106,13 @@
 
 			\begin{thm}
 			    []
-			    {}
+			    {导数判别法}
 			    []
 			    []
-			导数判别法: 
+				设函数  \( f \)  在  \([a, b]\)  上连续, 在  \((a, b)\)  上二阶可导, \\
+				则  \( f \)  在  \([a, b]\)  上为凸函数 \(\Longleftrightarrow\) \( f'' \geq 0 \)  在  \((a, b)\)  上成立; 
 
-			设函数  \( f \)  在  \([a, b]\)  上连续, 在  \((a, b)\)  上二阶可导, \\
-			则  \( f \)  在  \([a, b]\)  上为凸函数 \(\Longleftrightarrow\) \( f'' \geq 0 \)  在  \((a, b)\)  上成立; 
-
-			严格当且仅当  \( f'' \) 在  \((a, b)\)  的任何开的子区间内不恒等于 0. 
+				严格当且仅当  \( f'' \) 在  \((a, b)\)  的任何开的子区间内不恒等于 0. 
 			\end{thm}
 
 			\begin{xmp}
@@ -2153,7 +2120,7 @@
 			    {幂平均不等式}
 			    []
 			    []
-				 设 \(a_1, a_2, \cdots, a_n\) 是 n 个不全相等的正数, 定义
+				设 \(a_1, a_2, \cdots, a_n\) 是 n 个不全相等的正数, 定义
                 \[f(x) = 
                 \begin{cases}
                 \left( \frac{a_1^x + a_2^x + \cdots + a_n^x}{n} \right)^{\frac{1}{x}}, & x \neq 0, \\
@@ -2171,7 +2138,6 @@
 
 			\end{xmp}
 		
-		
 	\section{微分中值定理}
 		
 		\subsection{微分中值定理}
@@ -2181,7 +2147,7 @@
 			    {极值点}
 			    [Extremum]
 			    []
-				设 \(f:D\to\R\), \(D\)是 \(x_0\) 的一个邻域, 点 \(x_0\) 称为是 \(f:D\to\R\) 的一个\textbf{极大值点(Local Maximum)}, \(f(x_0)\)称为是 \(f\) 的一个\textbf{极大值(Local Maximum Value)}, 若: 
+				设 \(f:D\to\R\), \(D\)是 \(x_0\) 的一个邻域, 点 \(x_0\) 称为是 \(f:D\to\R\) 的一个\textbf{极大值点}, \(f(x_0)\)称为是 \(f\) 的一个\textbf{极大值}, 若: 
 				\[\exists U(x_0)\subseteq D(\forall x\in U(x_0), f(x)\leq f(x_0))\]
 				
 				类似地可定义\textbf{(严格)极大/小值(点)}的概念, 统称为\textbf{(严格)极值(点)}. 
@@ -2189,14 +2155,13 @@
 			
 			\begin{thm}
 			    []
-			    {Rolle中值定理}
+			    {Rolle 中值定理}
 			    []
-			    []
+			    [猫猫]
 				设函数 \(f(x)\) 在 \([a,b](a<b)\) 上连续, 在 \((a,b)\) 上可微, \(f(a)=f(b)\), 则 \(\exists x_0\in (a,b)(f'(x_0)=0)\). 
 			\end{thm}
-			
-			证明: 
-			
+				
+			\begin{prf}
 				\(f\)在 \([a,b]\) 上连续 \(\Longrightarrow f\) 在 \([a,b]\) 上有界. 
 				\[\Longrightarrow\exists x_1,x_2: f(x_1)=\sup_{x\in[a,b]}f(x), f(x_2)=\inf_{x\in[a,b]}f(x)\]
 				
@@ -2210,46 +2175,49 @@
 				
 				不妨设 \(f(x_1)>f(a)=f(b)\), 则 \(x_1\neq a,b\). 
 				\[\Longrightarrow x_1\in (a,b)\Longrightarrow \exists f'(x_1)\]
+			\end{prf}
 				
 			\begin{lma}
 			    []
-			    {}
+			    {Fermat 引理}
 			    []
-			    []
-					Fermat引理: 设函数 \(f(x)\) 在 \(x_0\) 连续可微, 且 \(x_0\) 是 \(f\) 的一个极值点, 则 \(f'(x_0)=0\). 
+			    [猫猫]
+				设函数 \(f(x)\) 在 \(x_0\) 连续可微, 且 \(x_0\) 是 \(f\) 的一个极值点, 则 \(f'(x_0)=0\). 
 			\end{lma}
 				
-				证明:
-					
-					不妨设 \(x_0\) 是 \(f\) 的一个极大值点. 
-					
-					\(f\)在 \(x_0\) 可微 \(\Longrightarrow f'(x_0)\) 存在. 
-					
-					运用反证法. 假设 \(f'(x_0)=k\neq 0\), 不妨设 \(k>0\), 则: 
-					\[\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=k>0\]
-					\[\Longrightarrow\forall\varepsilon>0,\exists\delta\in\R^+\left(\forall\Delta x<\delta\Longrightarrow\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\in U(k,\varepsilon)\right)\]
-					\[\varepsilon:=\frac{k}{2}, \exists \delta\in\R^+: \Delta x:=\frac{\delta}{2}, \frac{f(x_0+\frac{\delta}{2})-f(x_0)}{\frac{\delta}{2}}>\frac{k}{2}>0\]
-					\[f(x_0+\frac{\delta}{2})>f(x_0)+\frac{k\delta}{4}>f(x_0)\]
-					
-					与 \(x_0\) 是 \(f(x)\) 的一个极大值点矛盾. 
-					
-					对于 \(k<0\) 或 \(x_0\) 是极小值点的情况同理可证. \(\square\)
+			\begin{prf}
+				不妨设 \(x_0\) 是 \(f\) 的一个极大值点. 
+				
+				\(f\)在 \(x_0\) 可微 \(\Longrightarrow f'(x_0)\) 存在. 
+				
+				运用反证法. 假设 \(f'(x_0)=k\neq 0\), 不妨设 \(k>0\), 则: 
+				\[\lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=k>0\]
+				\[\Longrightarrow\forall\varepsilon>0,\exists\delta\in\R^+\left(\forall\Delta x<\delta\Longrightarrow\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\in U(k,\varepsilon)\right)\]
+				\[\varepsilon:=\frac{k}{2}, \exists \delta\in\R^+: \Delta x:=\frac{\delta}{2}, \frac{f(x_0+\frac{\delta}{2})-f(x_0)}{\frac{\delta}{2}}>\frac{k}{2}>0\]
+				\[f(x_0+\frac{\delta}{2})>f(x_0)+\frac{k\delta}{4}>f(x_0)\]
+				
+				与 \(x_0\) 是 \(f(x)\) 的一个极大值点矛盾. 
+				
+				对于 \(k<0\) 或 \(x_0\) 是极小值点的情况同理可证. 
+				\qed
 				
 				\(\because x_1\)是 \(f\) 在 \([a,b]\) 上的一个最值点, 它必是极值点. 
 				\[\Longrightarrow f'(x_1)=0\]
 				
-				对于 \(f(x_2)<f(a)=f(b)\) 时的情况同理. \(\square\)
+				对于 \(f(x_2)<f(a)=f(b)\) 时的情况同理. 
+				\qed
+			\end{prf}
 				
 			\begin{thm}
 			    []
-			    {}
+			    {Lagrange中值定理}
 			    []
-			    []
-				Lagrange中值定理: 设函数 \(f(x)\) 在 \([a,b](a<b)\) 上连续, 在 \((a,b)\) 上可微, 则: 
+			    [猫猫]
+				设函数 \(f(x)\) 在 \([a,b](a<b)\) 上连续, 在 \((a,b)\) 上可微, 则: 
 				\[\exists x_0\in [a,b], f'(x_0)=\frac{f(a)-f(b)}{a-b}\]
 			\end{thm}
-			
-			证明: 
+				
+			\begin{prf}
 				\[k:=\frac{f(a)-f(b)}{a-b}\]
 				\[\varphi(x):=f(x)-kx(x\in[a,b])\]
 				
@@ -2259,20 +2227,21 @@
 				根据Rolle中值定理, \(\exists x_0\in (a,b), \varphi'(x_0)=0\)
 				
 				\[\therefore f'(x)=\varphi'(x)+k, \Longrightarrow f'(x_0)=k\square\]
+			\end{prf}
 			
 			\begin{crl}
-				    []
-				    {}
-				    []
-				    []
-				设函数 \(f:D\to\R\) 在开区间 \((a,b)\) 上连续可微, 且 \(\forall x\in(a,b)\Longrightarrow f'(x)>(\geq,<,\leq)0\), 则 \(f\) 在 \((a,b)\) 上(严格)增(减). 
+				[]
+				{导数符号决定单调性}
+				[]
+				[猫猫]
+				设函数 \(f:D\to\R\) 在开区间 \((a,b)\) 上连续可微, 且 \(\forall x\in(a,b)\Longrightarrow f'(x)>(\geq,<,\leq)0\), 则 \(f\) 在 \((a,b)\) 上 (严格) 增 (减). 
 			\end{crl}
 
 			\begin{thm}
 			    []
 			    {Cauchy中值定理}
 			    []
-			    []
+			    [猫猫]
 				设函数 \(f,g:[a,b]\to\R\) 在 \([a,b]\) 上连续, 在 \((a,b)\) 上可导, 且 \(g'(x)\neq 0\), 则: 
 				\[\exists\xi\in(a,b), \frac{f(a)-f(b)}{g(a)-g(b)}=\frac{f'(\xi)}{g'(\xi)}\]
 			\end{thm}
@@ -2289,7 +2258,7 @@
 
             \begin{thm}
 			    []
-			    {Darboux中值定理}
+			    {Darboux 中值定理}
 			    []
 			    []
 				若函数 \(f\) 在 \([a,b]\) 上可导, 则有: 
@@ -2337,7 +2306,7 @@
 			    []
 			    {L'Hospital法则}
 			    []
-			    []
+			    [猫猫]
 				设 \(f,g\) 在 \(x_0\) 的一个邻域 \(D\) 内有定义, 且在 \(x_0\) 处可微, 则: 
 				\[\lim_{x\to x_0}\frac{f(x)}{g(x)}=\lim_{x\to x_0}\frac{f'(x)}{g'(x)}\]
 
@@ -2347,71 +2316,61 @@
 
 				(2) \(\dfrac{0}{0}\) 型: 
 				\(\lim\limits_{x\to+\infty}f(x)=0,\lim\limits_{x\to+\infty}g(x)=0\)且\(\lim_{x\to x_0}\frac{f'(x)}{g'(x)}\exists\)
-				
 			\end{thm}
 
 			\begin{prf}
-				
 				设 \(x+\Delta x\in D\), 由Cauchy中值定理, 有: 
 
 				\[\exists\xi\in(x,x+\Delta x)(\text{或}(x+\Delta x,x)),\frac{f'(\xi)}{g'(\xi)}=\frac{f(x+\Delta x)-f(x)}{g(x+\Delta x)-g(x)}\]
 
-				补充定义\(f(x_0)=g(x_0)=0\)
+				补充定义 \(f(x_0)=g(x_0)=0\)
 				\[\lim_{x\to x_0}\frac{f(x)}{g(x)}=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim_{x\to x_0}\frac{f'(\xi)}{g'(\xi)}=\lim_{x\to x_0}\frac{f'(x)}{g'(x)}\]
-
 			\end{prf}
 
 		\subsection{常用等价无穷大/小量}
 		
 			\begin{xmp}
 			    []
-			    {}
+			    {二项式}
 			    []
 			    []
-				内容: 
 				\[(1+x)^a-1\sim ax|_{x\to 0}\]
 			\end{xmp}
 
 			\begin{xmp}
 			    []
-			    {}
+			    {正弦函数}
 			    []
 			    []
-				内容: 
 				\[\sin x\sim x|_{x\to 0}\]
 			\end{xmp}
 
 			\begin{prf}
-				
-				根据L'Hospital法则得: 
+				根据 L'Hospital 法则得: 
 				\[\lim_{n\to+\infty}\frac{\sin x}{x}=\lim_{n\to+\infty}\frac{}{}\]
-
 			\end{prf}
 
 			\begin{xmp}
 			    []
-			    {}
+			    {正切函数}
 			    []
 			    []
-				内容: 
 				\[\tan x\sim \left(x+\frac{1}{6}x^3\right)|_{x\to 0}\]
 			\end{xmp}
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {指数函数}
 			    []
 			    []
-				内容: 
 				\[e^x\sim 1+x|_{x\to 0}\]
 			\end{xmp}
 			
 			\begin{xmp}
 			    []
-			    {}
+			    {对数函数}
 			    []
 			    []
-				内容: 
 				\[\ln x\sim x-1|_{x\to 1}\]
 			\end{xmp}
 				
@@ -2421,7 +2380,7 @@
 			    []
 			    {Taylor多项式}
 			    []
-			    []
+			    [猫猫]
 				设函数 \(f:\R\to\R\) 在 \(x_0\) 的一个邻域 \(U(x_0)\) 内连续且 \(n\) 次可微, 则称以下多项式为 \(f\) 在 \(x_0\) 处的 \(n\) 阶Taylor多项式, 记作 \(P_{n,x_0}(x)\) : 
 				\[P_{n,x_0}(x):=\sum_{i=0}^n\left(\frac{1}{i!}\cdot\frac{\dd^i f}{{\dd x}^i}(x-x_0)^i\right)\qquad(0!:=1, x\in U(x_0))\]
 
@@ -2432,23 +2391,19 @@
 			    []
 			    {Peano余项}
 			    [Peano remainder]
-			    []
-				内容: 
+			    [猫猫]
 				\[\lim_{x\to x_0}\frac{R_{n,x_0}(x)}{(x-x_0)^n}=0\]
 
-				其中 \(R_{n,x_0}(x)=f(x)-T_n(f,x_0;x)\),只有定性判断, 称为\textbf{Peano余项}
+				其中 \(R_{n,x_0}(x)=f(x)-T_n(f,x_0;x)\), 只有定性判断, 称为\textbf{Peano余项}
 			\end{thm}
 				
 			\begin{prf}
-				
 				用数学归纳法,  (1) \(n=1\) 时, \(\lim_{x\to x_0}\frac{R_{n,x_0}(x)}{(x-x_0)^n}=0\) 显然成立
 
 				(2)若 \(n=k\) 时成立, 则 \(n=k+1\) 时也成立, 证明如下: \\
 				由L'Hospital法则, \(T_{k+1}'(f,x_0;x)=T_k(f',x_0;x)\)得到
 				\[\lim_{x\to x_0}\frac{f(x)-T_{k+1}(f,x_0;x)}{(x-x_0)^{k+1}}=\frac{1}{k+1}\lim_{x\to x_0}\frac{f'(x)-T_k(f',x_0;x)}{(x-x_0)^k}=0\]
-
-				\[Q.E.D.\]
-
+				\qed
 			\end{prf}
 
 			\begin{thm}
@@ -2456,7 +2411,6 @@
 			    {Lagrange余项(Lagrange remainder)与Cauchy余项}
 			    [Cauchy remainder]
 			    []
-				内容: 
 				\[R_{n,x_0}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}\]
 				\[R_{n,x_0}(x)=\frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n(x-x_0)\]
 
@@ -2464,14 +2418,12 @@
 			\end{thm}
 
 			\begin{prf}
-
 				\[T_n(f,x_0;x)=\sum_{k=0}^n\left(\frac{1}{k!}\cdot\frac{\dd^k f}{\dd x^k}(x-x_0)^k\right)\]
 
 				令 \(F(t)=T_n(f,t;x)\),对 \(t\) 求导
 				\[F'(t)=\frac{f^{(n+1)}(t)}{n!}(x-t)^n\]
 
-				考虑到 \(F(x)=f(x)\) , 得积分余项 \(R_{n,x_0}(x)=\frac{1}{n!}\int_{x_0}^{x}(x-t)^nf^{(n+1)}(t)dt\).分别将 \(f^{(n+1)}(t)\), \((x-t)^n\) 利用积分中值定理提出, 即有Lagrange余项与Cauchy余项
-
+				考虑到 \(F(x)=f(x)\) , 得积分余项 \(R_{n,x_0}(x)=\frac{1}{n!}\int_{x_0}^{x}(x-t)^nf^{(n+1)}(t)dt\).分别将 \(f^{(n+1)}(t)\), \((x-t)^n\) 利用积分中值定理提出, 即有 Lagrange 余项与 Cauchy 余项
 			\end{prf}
 
 			\begin{dfn}
@@ -2479,12 +2431,10 @@
 			    {Taylor级数}
 			    [Taylor Series]
 			    []
-				内容: 
 				\[f(x)=\sum_{n=0}^{\infty}\left(\frac{1}{n!}\cdot\frac{\dd^n f}{\dd x^n}(x-x_0)^n\right)\qquad(0!:=1, x\in U(x_0))\]
 				
 				上式称为\textbf{Taylor级数}, 在有限范围内, 该级数与原函数相等
 			\end{dfn}
-				
 		
 	\section{不定积分}
 		
@@ -2492,7 +2442,7 @@
 			
 			\begin{dfn}
 			    []
-			    {原函数/反导函数}
+			    {原函数 / 反导函数}
 			    [Antiderivative]
 			    []
 				区间 \(D\subseteq\R\) 上的函数 \(F\) 称为函数 \(f\) 的一个\textbf{原函数}, 若 \(F'(x)=f(x)|_{x\in D}\). 
