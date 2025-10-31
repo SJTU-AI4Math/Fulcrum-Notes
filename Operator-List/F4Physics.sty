@@ -14,9 +14,6 @@
 
 \NewDocumentCommand{\Force}{s}{\catref[#1]{dfn:Force}{\mathsf{F}}[力]}
 \NewDocumentCommand{\Energy}{s}{\catref[#1]{dfn:Energy}{\mathsf{E}}[能量]}
-\NewDocumentCommand{\ElectricCharge}{s}{\catref[#1]{dfn:Electric-Charge}{\mathsf{Q}}[电荷]}
-\NewDocumentCommand{\ElectricPotential}{s}{\catref[#1]{dfn:Electric-Potential}{\mathsf{V}}[电势]}
-\NewDocumentCommand{\MagneticInductionIntensity}{s}{\catref[#1]{dfn:Magnetic-Induction-Intensity}{\mathsf{B}}[磁感应强度]}
 
 \NewDocumentCommand{\m}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{m}}}[米]}
 \NewDocumentCommand{\s}{s}{\catref[#1]{dfn:Dimension}{\ensuremath{\mathrm{s}}}[秒]}
@@ -45,24 +42,28 @@
 \NewDocumentCommand{\场}{s}{\catref[#1]{str:Field}{\ensuremath{\text{场}}}[物体]}
 
 % Electromagnetics
-\NewDocumentCommand{\电荷}{s}{\catref[#1]{dfn:Electric-Charge}{电荷}[电荷]}
-\NewDocumentCommand{\单带电体}{s}{\catref[#1]{str:Single-Charged-Object}{\ensuremath{\text{单带电体}}}[单带电体]}
-\NewDocumentCommand{\带电体}{s}{\catref[#1]{dfn:Charged-Object}{\ensuremath{\text{带电体}}}[带电体]}
 
+\NewDocumentCommand{\ElectricCharge}{s}{\catref[#1]{dfn:Electric-Charge}{\mathsf{Q}}[电荷]}
+\NewDocumentCommand{\ElectricPotential}{s}{\catref[#1]{dfn:Electric-Potential}{\mathsf{V}}[电势]}
 \NewDocumentCommand{\电场}{s}{\catref[#1]{str:Electric-Field}{电场}[电场]}
 \NewDocumentCommand{\EPot}{so}{\catref[#1]{str:Electric-Field}{V}[电势函数]\IfValueT{#2}{\!_{#2}}}
 \NewDocumentCommand{\Vltg}{smm}{\catref[#1]{dfn:Voltage}{V}[电势差]\!_{#2#3}}
 \NewDocumentCommand{\EInts}{so}{\catref[#1]{dfn:Electric-Field-Intensity}{\bm{E}}[电场强度]\IfValueT{#2}{_{#2}}}
 \NewDocumentCommand{\EFlx}{so}{\catref[#1]{dfn:Electric-Flux}{\varPhi}[电通量]\IfValueT{#2}{_{#2}}}
 
+\NewDocumentCommand{\MIInts}{s}{\catref[#1]{dfn:Magnetic-Induction-Intensity}{\mathsf{B}}[磁感应强度]}
+
+\NewDocumentCommand{\epsz}{s}{\catref[#1]{dfn:Vacuum-Permittivity}{\ensuremath{\varepsilon_0}}[真空介电常数, 约为 \(8.8541\times10^{-12}(\Nt\cdot\m^2\cdot\Clm^{-2})\)]}
+\NewDocumentCommand{\ke}{s}{\catref[#1]{dfn:Coulomb-Constant}{\ensuremath{k_e}}[静电力常数, 约为 \(8.9875\times10^9(\Nt\cdot\m^2\cdot\Clm^{-2})\)]}
+
+\NewDocumentCommand{\带电体}{s}{\catref[#1]{dfn:Charged-Object}{\ensuremath{\text{带电体}}}[带电体]}
 \NewDocumentCommand{\点电荷}{s}{\catref[#1]{str:Point-Charge}{点电荷}[点电荷]}
-
-
 \NewDocumentCommand{\线带电体}{s}{\catref[#1]{str:Line-Charged-Object}{线带电体}[线带电体]}
 \NewDocumentCommand{\面带电体}{s}{\catref[#1]{str:Surface-Charged-Object}{面带电体}[面带电体]}
 \NewDocumentCommand{\体带电体}{s}{\catref[#1]{str:Volume-Charged-Object}{体带电体}[体带电体]}
 
 \NewDocumentCommand{\带电平面}{s}{\catref[#1]{xmp:Charged-Plane}{带电平面}[带电平面]}
+
 \NewDocumentCommand{\导体}{s}{\catref[#1]{str:Conductor}{导体}[导体]}
 
 \NewDocumentCommand{\电介质}{s}{\catref[#1]{str:Dielectric}{电介质}[电介质]}
@@ -71,6 +72,12 @@
 
 \NewDocumentCommand{\电容器}{s}{\catref[#1]{str:Capacitor}{电容器}[电容器]}
 
-\NewDocumentCommand{\epsz}{s}{\catref[#1]{dfn:Vacuum-Permittivity}{\ensuremath{\varepsilon_0}}[真空介电常数, 约为 \(8.8541\times10^{-12}(\Nt\cdot\m^2\cdot\Clm^{-2})\)]}
 
-\NewDocumentCommand{\ke}{s}{\catref[#1]{dfn:Coulomb-Constant}{\ensuremath{k_e}}[静电力常数, 约为 \(8.9875\times10^9(\Nt\cdot\m^2\cdot\Clm^{-2})\)]}
+\NewDocumentCommand{\km}{s}{\catref[#1]{dfn:Magnetic-Constant}{\ensuremath{k_m}}[磁力常数, 约为 \(1\times10^{-7}(\Nt^{-1}\cdot\A^2)\)]}
+\NewDocumentCommand{\muz}{s}{\catref[#1]{dfn:Vacuum-Magnetic-Permeability}{\ensuremath{\mu_0}}[真空磁导率, 约为 \(4\pi\times10^{-7}(\Nt\cdot\A^{-2})\)]}
+\NewDocumentCommand{\Ielec}{so}{\catref[#1]{dfn:Electric-Current-Intensity}{I}[电流强度]\IfValueT{#2}{\!_{#2}}}
+\NewDocumentCommand{\Jelec}{so}{\catref[#1]{dfn:Electric-Current-Density}{\bm{J}}[电荷密度]\IfValueT{#2}{\!_{#2}}}
+
+% Magnetics
+
+\NewDocumentCommand{\磁场}{s}{\catref[#1]{str:Magnetic-Field}{磁场}[磁场]}

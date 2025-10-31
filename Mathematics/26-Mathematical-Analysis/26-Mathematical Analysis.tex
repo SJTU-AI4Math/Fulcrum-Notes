@@ -2012,23 +2012,55 @@
 		
         \subsection{高阶微分/导数}
 			
+				% 设函数 \(y=f(x)\) 在 \(x_0\) 可微, 将 \(\dd y=k_1\dd x|_{x=x_0}\) 视为 \(y\) 的一阶微分; 
+				
+				% 设 \(\dd^{n-1}y=k_{n-1}\dd x^{n-1}|_{x=x_0}\) 是 \(y\) 在 \(x_0\) 处的 \(n-1\) 阶微分 \((n\in\mathbb{Z}^+-\{1\})\), 
+				
+				% 若
+				% \[\exists k_n\in\R(\dd^ny:=\dd(\dd^{n-1} y)=\dd(k_{n-1}\dd x^{n-1})=k_n\dd x^n|_{x=x_0})\]
+				
+				% 称 \(y\) 在 \(x_0\) 处 \(n\) 阶可微/可导, 并称上式为 \(y\) 在 \(x_0\) 处的\textbf{ \(n\) 阶微分}; 
+
+
 			\begin{dfn}
-			    []
-			    {高阶微分/导数}
-			    []
+			    [Real-Higher-Order-Derivative]
+			    {高阶导数}
+			    [Higher-Order Derivative]
 			    [猫猫]
-				设函数 \(y=f(x)\) 在 \(x_0\) 可微, 将 \(\dd y=k_1\dd x|_{x=x_0}\) 视为 \(y\) 的一阶微分; 
-				
-				设 \(\dd^{n-1}y=k_{n-1}\dd x^{n-1}|_{x=x_0}\) 是 \(y\) 在 \(x_0\) 处的 \(n-1\) 阶微分 \((n\in\mathbb{Z}^+-\{1\})\), 
-				
-				若
-				\[\exists k_n\in\R(\dd^ny:=\dd(\dd^{n-1} y)=\dd(k_{n-1}\dd x^{n-1})=k_n\dd x^n|_{x=x_0})\]
-				
-				称 \(y\) 在 \(x_0\) 处 \(n\) 阶可微/可导, 并称上式为 \(y\) 在 \(x_0\) 处的\textbf{ \(n\) 阶微分}; 
-				
-				称 \(k_n=\dfrac{\dd^ny}{\dd x^n}(x_0)\) 为 \(y\) 在 \(x_0\) 处的\textbf{ \(n\) 阶导数}. 
-				
-				\(k_n\)是一个关于 \(x_0\) 的函数, 称为 \(y\) 的\textbf{ \(n\) 阶导函数}, 可归纳地记为\(f^{(n)}:=(f^{(n-1)})'\)
+				设 \(D\subseteq\R\), \(f:D\to\R\), \(x_0\in D\), \(n:\N^*\), 
+				\begin{enumerate}
+					\item 定义 \(f\) 在 \(x_0\) 处 \(1\) 阶\textbf{可微}, 当且仅当: \(f\) 在 \(x_0\) 处可微, 记作 \(f\in\Smooth{1}(x_0)\). 
+					
+					定义 \(f\) 在 \(D\) 上 \(1\) 阶可微, 当且仅当: 
+					\[\forall x_0\in D, f\in\Smooth{1}(x_0)\]
+
+					记作 \(f\in\Smooth{1}(D)\). 
+					
+					定义 \(f\) 在 \(x_0\) 处的 \(1\) 阶\textbf{导数}为: 
+					\[\frac{\dd f}{\dd x}(x_0)\]
+
+					\item 设 \(f\) 在 \(x_0\) 处 \(n\) 阶可微, 定义 \(f\) 在 \(x_0\) 处 \(n+1\) 阶\textbf{可微}, 当且仅当: \(\dfrac{\dd^n f}{\dd x^n}\) 在 \(x_0\) 处可微, 记作 \(f\in\Smooth{n+1}(x_0)\). 
+					
+					定义 \(f\) 在 \(D\) 上 \(n+1\) 阶可微, 当且仅当: 
+					\[\forall x_0\in D, f\in\Smooth{n+1}(x_0)\]
+
+					记作 \(f\in\Smooth{n+1}(D)\). 
+					
+					定义 \(f\) 在 \(x_0\) 处的 \(n+1\) 阶\textbf{导数}为: 
+					\[\frac{\dd}{\dd x}\left(\frac{\dd^n f}{\dd x^n}\right)(x_0)\]
+
+					记作 \(\dfrac{\dd^{n+1}f}{\dd x^{n+1}}(x_0)\). 
+
+					\item 定义 \(f\) 在 \(x_0\) 处\textbf{光滑}, 当且仅当: 
+					\[\forall n:\N^*, f\in\Smooth{n}(x_0)\]
+
+					记作 \(f\in\Smooth{\infty}(x_0)\). 
+
+					定义 \(f\) 在 \(D\) 上\textbf{光滑}, 当且仅当: 
+					\[\forall x\in D, f\in\Smooth{\infty}(x)\]
+
+					记作 \(f\in\Smooth{\infty}(D)\). 
+				\end{enumerate}
 			\end{dfn}
 
             \begin{thm}
@@ -2036,8 +2068,8 @@
 			    {Leibniz公式}
 			    []
 			    [猫猫]
-				函数 \(u\) 、 \(v\) 、 \(uv\) 在区间 \(I\) 上 \(n\) 阶可导, 则
-				\[(uv)^{(n)} = \sum_{k=0}^{n} C_{n}^{k} u^{(n-k)} v^{(k)}.\]
+				设 \(D\subseteq\R\), \(f,g:D\to\R\)函数 \(f\) 、 \(g\) 、 \(fg\) 在区间 \(I\) 上 \(n\) 阶可导, 则
+				\[(fg)^{(n)} = \sum_{k=0}^{n} C_{n}^{k} f^{(n-k)} g^{(k)}.\]
 			\end{thm}
 			
 			\begin{prf}
@@ -2052,7 +2084,6 @@
 				不难发现, 这样得到的过程序列中 \(u\) 、 \(v\) 的顺序可以任意交换, 所有不同顺序的过程存在且唯一, 
 				因此, 由组合数的定义知,  \(u^{(n-k)} v^{(k)}\) 的系数为 \(C_{n}^{k}\).\(\square\)
 			\end{prf}
-
 			
 		\subsection{凸性}
 			\begin{dfn}
@@ -3294,34 +3325,34 @@
 				\[S=2\pi\int_a^b f(x)\sqrt{1+\left(\frac{\dd f}{\dd x}(x)\right)^2}\dd x\]
 			\end{thm}
 
-	\section{函数列与函数项级数}
+	\section{函数度量空间}
 
 		\subsection{函数列}
 
 			\begin{dfn}
 			    []
-			    {逐点收敛 }
+			    {逐点收敛}
 			    [Pointwise Convergence]
-			    []
-				设 \(\{f_n\}\) 是 \(D\) 上的一个函数列, 对 \(x_0\in D\), 若数列 \(\{f_n(x_0)\}\) 收敛, 则称函数列 \(f_n\) 在点 \(x_0\) 处\textbf{收敛}. 
+			    [猫猫]
+				设 \(D\subseteq\R\), \(\{f_n\}:\N\to D\to\R\), \(x_0\in D\), 若数列 \(\{f_n(x_0)\}\) 收敛, 则称函数列 \(f_n\) 在点 \(x_0\) 处\textbf{收敛}. 
 				
 				若 \(\{f_n\}\) 在 \(D\) 内的每一点都收敛, 则称 \(\{f_n\}\) 在 \(D\) 上\textbf{逐点收敛}. 
 			\end{dfn}
 
 			\begin{dfn}
 			    []
-			    {函数的一致距离 }
+			    {一致距离}
 			    [Uniform Distance]
-			    []
-				设函数 \(f_1,f_2:D\to\R\), 定义它们之间的\textbf{一致距离} \(d(f_1,f_2)\) 为: 
-				\[d(f_1,f_2):=\sup_{x\in D}|f_1(x)-f_2(x)|\]
+			    [猫猫]
+				设 \(D\subseteq\R\), 定义\textbf{一致距离}为: 
+				\[(f_1,f_2):(D\to\R)^2\mapsto\sup_{x\in D}|f_1(x)-f_2(x)|\]
 			\end{dfn}
 
 			\begin{ppt}
 			    []
-			    {一致距离是合法的距离函数}
+			    {函数在一致距离下是度量空间}
 			    []
-			    []
+			    [猫猫]
 			\end{ppt}
 
 			\begin{prf}
@@ -3334,12 +3365,14 @@
 			\end{prf}
 
 			\begin{dfn}
-			    []
-			    {一致收敛 }
+			    [Sequence-Uniform-Convergence]
+			    {一致收敛}
 			    [Uniform Convergence]
-			    []
-				称定义在 \(D\) 上的函数列 \(\{f_n\}\) 在 \(D\) 上\textbf{一致收敛} 于函数 \(f\), 记为 \(f_n\underset{D}{\rightrightarrows} f\), 若在一致距离定义下函数点列收敛: 
+			    [猫猫]
+				设 \(D\subseteq\R\), \(\{f_n\}:\N\to(D\to\R)\), 定义 \(\{f_n\}\) 在 \(D\) 上\textbf{一致收敛}于 \(f\), 当且仅当: 
 				\[\lim_{n\to+\infty}d(f_n,f)=0\]
+				
+				记作: \(f_n\unilim[D] f\)
 			\end{dfn}
 
 			\begin{ppt}
@@ -3347,8 +3380,8 @@
 			    {一致收敛的 \(\varepsilon\)-\(\delta\) 语言等价定义}
 			    []
 			    []
-				内容: 
-				\[\forall\varepsilon\in\R^+, \exists N\in\N, \forall n>N, \forall x\in D, |f_n(x)-f(x)|<\varepsilon\]
+				设 \(D\subseteq\R\), \(\{f_n\}:\N\to D\to\R\), \(f:D\to\R\), 则: 
+				\[f_n\unilim[D] f\iff\forall\varepsilon\in\R^+, \exists N\in\N, \forall n>N, \forall x\in D, |f_n(x)-f(x)|<\varepsilon\]
 			\end{ppt}
 
 			\begin{ppt}
@@ -3764,6 +3797,8 @@
 				由 Cauchy 乘积即证. 
 				\(\square\)
 			\end{prf}
+
+		\subsection{二元函数}
 
 	\section{实 Fourier 分析}
 
@@ -4600,36 +4635,69 @@
 		\subsection{空间曲线描述}
 			
 			\begin{dfn}
-				[]
-				{\(\R^3\) 中的光滑曲线}
-				[Smooth Curve in \(\R^3\)]
+				[Smooth-Curve]
+				{光滑曲线}
+				[Smooth Curve]
 				[猫猫]
-				函数 \(\varGamma:\Icc{a}{b}\to\R^3\) 称为是一条光滑曲线, 若: 
-
-				(1) \(\varGamma\) 在 \(\Icc{a}{b}\) 上可微; 
-
-				(2) \[\forall t\in\Icc{a}{b}, \frac{\dd\varGamma(t)}{\dd t}\neq\bm{0}\]
+				定义\textbf{光滑曲线}类型为 \(\R^3\) 中的 \光滑流形[\(1\)]. 
 			\end{dfn}
+			
+			\begin{dfn}
+				[]
+				{参数化}
+				[]
+				[猫猫]
+				设 \(\varGamma\) 是\光滑曲线, \(a,b:\R\), \(\gamma:\Icc{a}{b}\to\varGamma\), 定义 \(\gamma\) 为 \(\varGamma\) 的\textbf{参数化}, 当且仅当: 
+				\begin{enumerate}
+					\item \textbf{光滑性}: 
+						\[\gamma\in\Smooth{1}\Icc{a}{b}\]
+
+					\item \textbf{正则性}: 
+						\[\forall t_0\in\Icc{a}{b}, \frac{\dd\gamma}{\dd t}(t_0)\neq\bm{0}\]
+				\end{enumerate}
+			\end{dfn}
+			
+			\begin{ppt}
+				[]
+				{光滑曲线必存在参数化}
+				[]
+				[猫猫]
+				设 \(\varGamma\) 是\光滑曲线, 则: \(\exists a,b:\R, \exists \gamma:\Icc{a}{b}\to\varGamma\), \(\gamma\) 是 \(\varGamma\) 的参数化. 
+			\end{ppt}
+			
+			\begin{rmk}
+				[猫猫]
+				在语境中不引起混淆的情况下, 不区分\光滑曲线 及其参数方程. 
+			\end{rmk}
 			
 			\begin{dfn}
 				[]
 				{弧长}
 				[Arc Length]
 				[猫猫]
-				设 \(\varGamma:\Icc{a}{b}\to\R^3\) 是一条光滑曲线, 定义 \(\varGamma\) 在 \(\Icc{a}{b}\) 上的\textbf{弧长}为: 
-				\[\int_a^b\left\|\frac{\dd\varGamma}{\dd t}\right\|\dd t\]
+				设 \(a,b:\R\), \(\gamma:\Icc{a}{b}\to\R^3\) 是\光滑曲线, 定义 \(\gamma\) 在 \(\Icc{a}{b}\) 上的\textbf{弧长}为: 
+				\[\int_a^b\left\|\frac{\dd\gamma}{\dd t}(t_0)\right\|\dd t_0\]
+
+				记作 \(L_\gamma\Icc{a}{b}\)
 			\end{dfn}
 			
 			\begin{ppt}
 				[]
-				{弧长是关于参量严格递增的函数}
+				{弧长关于参量严格增}
 				[]
 				[猫猫]
-				设 \(\varGamma:\Icc{a}{b}\to\R^3\) 是一条光滑曲线, \(\varGamma\) 在 \(\Icc{a}{t}\) 上的弧长关于 \(t\) 严格递增. 
+				设 \(a,b:\R\), \(\varGamma:\Icc{a}{b}\to\R^3\) 是\光滑曲线, 则: \(\varGamma\) 在 \(\Icc{a}{t}\) 上的弧长关于 \(t\) 严格递增. 
 			\end{ppt}
 			
 			\begin{dfn}
 				[]
+				{弧长参数化}
+				[]
+				[猫猫]
+			\end{dfn}
+			
+			\begin{dfn}
+				[Curvature]
 				{曲率}
 				[Curvature]
 				[猫猫]
@@ -4887,15 +4955,34 @@
 	\section{曲线积分}
 			
 		\subsection{第一类曲线积分}
+			
+			\begin{dfn}
+				[]
+				{分段光滑曲线}
+				[]
+				[猫猫]
+				设 \(\varGamma\) 是 \(\R^3\) 上的连续曲线, 定义 \(\varGamma\) 是\textbf{分段光滑曲线}, 当且仅当: \(\varGamma\) 可表示为有限光滑曲线族的并. 
+			\end{dfn}
 
 			\begin{dfn}
 			    []
 			    {第一类曲线积分}
 			    []
 			    [猫猫]
-				记作: 
-				\[\int_\varGamma f(x,y,z)\dd s\]
+				设 \(\varGamma\) 是 \(\R^3\) 上的\光滑曲线, \(f:\varGamma\to\R\), \(\gamma:[a,b]\to\varGamma:=\varGamma\) 的弧长参数化, 定义 \(f\) \textbf{Riemann 可积}, 当且仅当: \(f\circ\gamma\) 在 \([a,b]\) 上 Riemann 可积. 
+
+				设 \(f\) 在 \(\varGamma\) 上 Riemann 可积, 定义 \(f\) 在 \(\varGamma\) 上的\textbf{第一类曲线积分} 为: 
+				\[\int_a^b f\circ\gamma(t)\dd t\]
+
+				记作: \[\int_\varGamma f(\bm{x})\dd\bm{x}\]
 			\end{dfn}
+			
+			\begin{ppt}
+				[]
+				{非弧长参数化的第一类曲线积分计算}
+				[]
+				[猫猫]
+			\end{ppt}
 
 			\begin{thm}
 				[]

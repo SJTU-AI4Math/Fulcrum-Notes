@@ -4,5 +4,7 @@
 \NewDocumentCommand{\光滑图册}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Atlas}{\ensuremath{\text{光滑图册}}}[图册]}
 
 \NewDocumentCommand{\光滑流形}{so}{\IfNoValueTF{#2}{}{#2 维}\catref[#1]{dfn:Smooth-Manifold}{光滑流形}[光滑流形]}
-\NewDocumentCommand{\光滑}{soo}{\oarg{#2}\IfNoValueTF{#2\,}{}{\ensuremath{\text{在}\,#3\,\text{处}}}\catref[#1]{dfn:Manifold-Smooth-Function}{\ensuremath{\text{光滑}}}[光滑]}
+\NewDocumentCommand{\光滑}{soo}{\oarg{#2}\IfNoValueTF{#2}{}{\ensuremath{\text{在}\,#3\,\text{处}}}\catref[#1]{dfn:Manifold-Smooth-Function}{\ensuremath{\text{光滑}}}[光滑]}
 \NewDocumentCommand{\光滑函数}{s}{\catref[#1]{dfn:Manifold-Smooth-Function}{\ensuremath{\text{光滑函数}}}[光滑函数]}
+
+\NewDocumentCommand{\TanSpace}{smm}{\catref[#1]{str:Tangent-Space}{T}[切空间]\!_{#2}#3}

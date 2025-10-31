@@ -35,11 +35,6 @@
 \end{center}
 
 \tableofcontents
-
-\newpage
-    
-\section{欧式空间曲线曲面理论}
-
 \newpage
     
 \section{拓扑流形与光滑流形}
@@ -494,42 +489,53 @@
             {光滑函数}
             [smooth function]
             [刘蕴齐, 猫猫]
-            设 \(n:\N\), \(M\) 是 \(n\) \光滑流形[\(n\)], \(\mathbb{A}\) 是 \(M\) 上的\光滑图册, \(f: M \to\R\), \(p:M\), 定义 \(f\) 在 \(p\) 处\textbf{光滑}, 当且仅当: 
-            \[\forall (U,\phi)\in\mathbb{A}, p\in U\implies f\circ\phi^{-1}\in C^{\infty}(\phi(p))\]
+            设 \(M\) 是 \光滑流形, \(\mathbb{A}\) 是 \(M\) 上的\光滑图册, \(f: M \to\R\), \(p:M\), 定义 \(f\) 在 \(p\) 处\textbf{光滑}, 当且仅当: 
+            \[\forall (U,\phi)\in\mathbb{A}, p\in U\implies f\circ\phi^{-1}\in \Smooth{\infty}(\phi(p))\]
 
             定义 \(f\) 为 \(M\) 上的\textbf{光滑函数}, 当且仅当: \(\forall p:M, \光滑[f][p]\). 
         \end{dfn}
 
-        \begin{rmk}
+        \begin{ppt}
             []
-            其实我们是逐点选择坐标卡定义的光滑, 那么我们当然要说明定义与坐标卡的选择没有关系. 对流形 \(M\) 上的 \(p\) 点, 在坐标卡 \((U,\phi)\) 的解读下是光滑的 (\(f \circ \phi^{-1}\) 光滑), 那么对包含 \(p\) 的另一个坐标卡 \((V,\psi)\), 我们希望自然地有 \(f \circ \psi^{-1}\) 光滑. 事实上, 结合转移函数的光滑性,  \(f \circ \psi^{-1} = (f \circ \phi^{-1}) \circ (\phi \circ \psi^{-1})\) 当然也是光滑的. 故well-defined. 
+            {函数光滑性不依赖坐标卡选择}
+            []
+            [猫猫]
+            设 \(M\) 是 \光滑流形, \(\mathbb{A}\) 是 \(M\) 上的\光滑图册, \(f: M\to\R\), \(p:M\), \((U_0,\phi_0)\in\mathbb{A}\), \(p\in U_0\), \(f\circ\phi^{-1}\in\Smooth{\infty}(\phi(p))\) 则: \(\光滑[f][p]\). 
+        \end{ppt}
+
+        \begin{prf}
+            结合转移函数的光滑性, \(f \circ \psi^{-1} = (f \circ \phi^{-1}) \circ (\phi \circ \psi^{-1})\) 光滑
+        \end{prf}
+
+        \begin{rmk}
+            [猫猫]
+            只要找到一个坐标卡使得函数在该坐标卡下光滑, 由于光滑图册要求坐标卡之间光滑兼容, 那么函数在任何坐标卡下光滑. 
         \end{rmk}
 
         \begin{dfn}
             []
             {光滑函数的拉回}
-            [pull back]
+            [Pull Back]
             [刘蕴齐]
-            设 \(F:N \to M\) 是流形之间的映射并且 \(h\) 是 \(M\) 上的光滑函数. (\(F\) 意义下) \(h\) 的拉回 (记为 \(F^{*}h\)) 定义为 \(h \circ F\). 
+            设 \(M,N\) 是\光滑流形, \(F:N\to M\), \(h:M\to\R\), \(f\) \光滑, 定义 \(F\) 意义下 \(h\) 的\textbf{拉回}为 \(h\circ F\). 
+
+            记为 \(F^{*}h\)
         \end{dfn}
 
         \begin{rmk}
             []
             拉回这个概念在微分形式的部分我们还会详细说明. 这里函数的拉回其实就是规定的0-形式的拉回该怎样定义. 
         \end{rmk}
-
-        \vspace{10pt}
         
         \begin{dfn}
             []
             {光滑映射}
-            [smooth map]
+            [Smooth Mapping]
             [刘蕴齐]
-            设 \(f:M \to N \) 为两个光滑流形之间的连续映射,
-             \(p\) 是流形 \(M\) 上一点. 记  \(q = f(p)\). 
-            如果对包含 \(p,q\) 的任意两个局部坐标
-            卡 \((U,\phi),(V,\psi)\),
-            有映射 \( \psi \circ f \circ \phi^{-1}: \phi(f^{-1}(V) \cap U) \to \psi(V) \subset \mathbb{R}^n \)  在 \(\phi(p)\) 处光滑, 则称  \(f\)  在 \(p\) 处光滑. 
+            设 \(M,N\) 是\光滑流形, \(f:M\to N\), \(p:M\), \(q:=f(p)\), 定义 \(f\) 在 \(p\) 处\textbf{光滑}, 当且仅当: 
+            \(\exists (U,\phi)\in\mathbb{A}_M,\exists (V,\psi)\in\mathbb{A}_N\), \(p\in U, q\in V\), 
+            \(\psi\circ f\circ\phi^{-1}: \phi(f^{-1}(V)\cap U)\to\psi(V)\subseteq\R^n\) 在 \(\phi(p)\) 处光滑. 
+              
             处处光滑的映射称为流形间的光滑映射. 
         \end{dfn}
 
@@ -589,23 +595,23 @@
 
     \subsection{切空间}
 
-        \begin{dfn}
-            [Germ]
-            {芽}
-            [Germ]
-            [刘蕴齐, 猫猫]
-            设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), 定义 \(f\) 与 \(g\) \textbf{芽等价}当且仅当: 
+        % \begin{dfn}
+        %     [Germ]
+        %     {芽}
+        %     [Germ]
+        %     [刘蕴齐, 猫猫]
+        %     设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), 定义 \(f\) 与 \(g\) \textbf{芽等价}当且仅当: 
             
-            定义 \(M\) 在 \(p\) 处的一个 \(C^{\infty}\) 函数的\textbf{芽}为: 
-            \[/\sim\]
+        %     定义 \(M\) 在 \(p\) 处的一个 \(C^{\infty}\) 函数的\textbf{芽}为: 
+        %     \[/\sim\]
 
-            在 \(p\) 的某邻域上定义的 \(C^{\infty}\) 函数的等价类. 两个函数若在 \(p\) 点的某个邻域上 (这个邻域也许比它们各自的定义域要小) 相等, 则视为等价. 点 \(p\) 处的 \(C^{\infty}\) 实值函数的芽集记作 \(C^{\infty}_p(M)\). 
-        \end{dfn}
+        %     在 \(p\) 的某邻域上定义的 \(C^{\infty}\) 函数的等价类. 两个函数若在 \(p\) 点的某个邻域上 (这个邻域也许比它们各自的定义域要小) 相等, 则视为等价. 点 \(p\) 处的 \(C^{\infty}\) 实值函数的芽集记作 \(C^{\infty}_p(M)\). 
+        % \end{dfn}
 
-        \begin{rmk}
-            [刘蕴齐]
-            在实际应用中的时候, 感觉并不强调这个等价类, 我们一般就用代表元表示了. 就像我们定义 \(L^1\) 空间中的元素其实也是函数的等价类 (几乎处处相等的函数等价). 
-        \end{rmk}
+        % \begin{rmk}
+        %     [刘蕴齐]
+        %     在实际应用中的时候, 感觉并不强调这个等价类, 我们一般就用代表元表示了. 就像我们定义 \(L^1\) 空间中的元素其实也是函数的等价类 (几乎处处相等的函数等价). 
+        % \end{rmk}
 
         \begin{dfn}
             [Tangent-Vector]
@@ -637,64 +643,32 @@
             导子是对\光滑流形 上的点定义的, 反映了流形在该点
         \end{rmk}
 
-        \begin{dfn}
-            [Partial Derivative]
-            {偏导数}
-            [partial derivative]
+        \begin{str}
+            [Tangent-Space]
+            {切空间}
+            [Tangent Space]
+            [猫猫]
+            设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), 定义 \(M\) 在 \(p\) 处的\textbf{切空间}为: 
+            \begin{enumerate}
+                \item \textbf{向量集} \(V\): \(M\) 在 \(p\) 处切向量的全体; 
+                
+                \item \(``+"\)\(:V^2\to V\): 
+                    \[u,v\mapsto (f\mapsto u(f)+v(f))\]
+
+                \item \(``\cdot":\R\times V\to V\): 
+                    \[k,v\mapsto (f\mapsto kv(f))\]
+            \end{enumerate}
+
+            记作 \(\TanSpace{p}{M}\). 
+        \end{str}
+        
+        \begin{ppt}
+            []
+            {切空间维数等于流形维数}
+            []
             [刘蕴齐, 猫猫]
-            设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), \((U, \varphi)\) 是\局部坐标卡[\(M\)], \(p\in U\), \(f\in C_p^{\infty}(M)\), \(i:\N\), \(x^i:\R^n\to\R:=\bm{x}\mapsto\bm{x}.i\), 定义 \(f\) 在 \(p\) 处关于 \(x^i\) 的\textbf{偏导数}为: 
-            \[\frac{\partial(f \circ \varphi^{-1})}{\partial x^i}(\varphi(p))\]
-
-            记作 \(\frac{\partial}{\partial x^i}|_p\). 
-        \end{dfn}
-
-        \begin{rmk}
-            []
-            作为切向量的一个例子, 根据定义, 容易验证,  \(\frac{\partial}{\partial x^i} |_p\) 就是 \(p\) 点的一个切向量. 
-        \end{rmk}
-
-        接下来关于局部坐标的偏导数做一个简单但是重要的计算. 
-        
-        \begin{ppt}
-            []
-            {}
-            []
-            [刘蕴齐]
-            设 \((U, \phi, x_1, \dots, x_n)\) 是流形M在 \(p\) 点的局部坐标卡. 那么, 
-            \[
-                \frac{\partial}{\partial x^i} |_p (x^j) = \delta^i_{j}.
-            \]
+            设 \(M\) 是 \光滑流形[\(n\)], 则 \(\dim\TanSpace{p}{M}=n\). 
         \end{ppt}
-
-        \begin{prf}
-            根据定义计算即可. 
-            \[
-            \frac{\partial}{\partial x^i} |_p (x^j)
-            =
-            \frac{\partial}{\partial x_i}|_{\phi(p)} (x^j \circ \phi^{-1} )
-            =
-            \frac{\partial}{\partial x_i}|_{\phi(p)} r^j
-            =
-            \frac{\partial r^j}{\partial x_i}(\phi(p))
-            =
-            \delta^i_{j}.
-            \]
-        \end{prf}
-
-        \begin{ppt}
-            []
-            {偏导算子是切向量}
-            []
-            [刘蕴齐, 猫猫]*
-        \end{ppt}
-        
-        \begin{thm}
-            []
-            {}
-            []
-            [刘蕴齐]
-            若 \(M\) 为一 \(n\) 维光滑流形, 则 \(T_p M\) 是一个 \(n\) 维线性空间. 
-        \end{thm}
         
         \begin{prf}
             我们选定一个包含 \(p\) 的坐标卡 \((U, \varphi, x_1, \dots, x_n)\).
@@ -733,6 +707,55 @@
             \diff{\sum_{i=1}^{n} a_{i} \frac{\partial}{\partial x^{i}}}{p}{}(f).
             \]
         \end{prf}
+
+        \begin{dfn}
+            [Partial Derivative]
+            {偏导数}
+            [partial derivative]
+            [刘蕴齐, 猫猫]
+            设 \(n:\N\), \(M\) 是 \光滑流形[\(n\)], \(p:M\), \((U, \varphi)\) 是\局部坐标卡[\(M\)], \(p\in U\), \(f\in C_p^{\infty}(M)\), \(i:\N\), \(x^i:\R^n\to\R:=\bm{x}\mapsto\bm{x}.i\), 定义 \(f\) 在 \(p\) 处关于 \(x^i\) 的\textbf{偏导数}为: 
+            \[\frac{\partial(f \circ \varphi^{-1})}{\partial x^i}(\varphi(p))\]
+
+            记作 \(\frac{\partial}{\partial x^i}|_p\). 
+        \end{dfn}
+
+        \begin{rmk}
+            []
+            作为切向量的一个例子, 根据定义, 容易验证,  \(\frac{\partial}{\partial x^i} |_p\) 就是 \(p\) 点的一个切向量. 
+        \end{rmk}
+
+        接下来关于局部坐标的偏导数做一个简单但是重要的计算. 
+        
+        \begin{ppt}
+            []
+            {}
+            []
+            [刘蕴齐]
+            设 \((U, \phi, x_1, \dots, x_n)\) 是流形M在 \(p\) 点的局部坐标卡. 那么, 
+            \[\frac{\partial}{\partial x^i} |_p (x^j) = \delta^i_{j}\]
+        \end{ppt}
+
+        \begin{prf}
+            根据定义计算即可. 
+            \[
+            \frac{\partial}{\partial x^i} |_p (x^j)
+            =
+            \frac{\partial}{\partial x_i}|_{\phi(p)} (x^j \circ \phi^{-1} )
+            =
+            \frac{\partial}{\partial x_i}|_{\phi(p)} r^j
+            =
+            \frac{\partial r^j}{\partial x_i}(\phi(p))
+            =
+            \delta^i_{j}.
+            \]
+        \end{prf}
+
+        \begin{ppt}
+            []
+            {偏导算子是切向量}
+            []
+            [刘蕴齐, 猫猫]*
+        \end{ppt}
         
         \begin{dfn}
             []
@@ -747,18 +770,18 @@
             {光滑映射的微分}
             []
             [刘蕴齐]
-            设 \( F: N \to M \) 是两个流形之间的 \( C^{\infty} \) 映射. 在流形 \( N \) 中的每一点 \( p \), 映射 \( F \) 诱导了一个切空间之间的线性映射, 称为其在点 \( p \) 处的微分, 记作 \( df \) 或 \( F_* \):
-            
-            \[
-                F_*: T_p N \to T_{F(p)} M
-            \]
-            具体地, 若 \( X_p \in T_p N \), 则 \( F_{*}(X_p) \) 是 \( T_{F(p)} M \) 中的一个切向量, 其定义为：
+            设 \(M,N\) 是\光滑流形, \(F:N\to M\), \(F\) \光滑, \(p:N\), 定义 \(F\) 在 \(p\) 处的\textbf{微分}为: 
+            \[:\TanSpace{p}{N}\to \TanSpace{F(p)}{M}\]
+
+            具体地, 若 \(X_p\in\TanSpace{p}{N}\), 则 \(F_{*}(X_p)\) 是 \( T_{F(p)} M \) 中的一个切向量, 其定义为：
             
             \[
                 (F_*(X_p)) f = X_p(f \circ F) \in \mathbb{R}, \, \forall f \in C^{\infty}_{F(p)}(M)
             \]
             
             这里的 \( f \) 是在点 \( F(p) \) 处的一个芽, 用一个在 \( F(p) \) 邻域内定义的 \( C^{\infty} \) 函数表示. 
+
+            记作 \(\dd f\) 或 \(F_*\). 
         \end{dfn}
 
         \begin{rmk}
@@ -769,7 +792,7 @@
         \begin{ppt}
             []
             {链式法则}
-            [the Chain Rule]
+            [Chain Rule]
             [刘蕴齐]
             设 \( F: N \to M \) 和 \( G: M \to P \) 都是流形之间的光滑映射且 \(p\) 是流形 \(N\) 上一点. 那么,
             \[
@@ -861,14 +884,14 @@
     
         \begin{dfn}
             []
-            {}
-            []
-            [刘蕴齐]
+            {嵌入, 浸入与淹没}
+            [Embedding \& Immersion \& Submersion]
+            [刘蕴齐, 猫猫]
             设 \(f: M \to N\) 为两个光滑流形间的光滑映射, 
             \begin{itemize}
-                \item 如果 \( {(df)}_p\)  是单射,\,  \(\forall p\),则称 \(f\)  为一 浸入 (Immersion);
-                \item 如果 \( {(df)}_p\)  是满射,\,  \(\forall p\),则称 \(f\)  为一 淹没 (Submersion);
-                \item 如果 \(f\) 是一浸入且 \(f(M) \subset N\)  (\(f(M)\) 带子空间拓扑) 和 \(M\) 是拓扑同胚的, 则称f为一嵌入. 
+                \item 定义 \(f\) 是\textbf{浸入}, 当且仅当: \(\forall p:M, {(df)}_p\) 是单射; 
+                \item 定义 \(f\) 是\textbf{淹没}, 当且仅当: \(\forall p:N, {(df)}_p\) 是满射; 
+                \item 设 \(f\) 是浸入, 定义 \(f\) 为\textbf{嵌入}, 当且仅当: \(f(M)\subset N\)  (\(f(M)\) 在子空间拓扑下) 和 \(M\) 是拓扑同胚的. 
             \end{itemize}
         \end{dfn}
 
@@ -883,8 +906,13 @@
             []
             {Whitney}
             []
-            [刘蕴齐]
-            任一 \(n\) 维流形 \(M\) 都可以浸入到 \(\mathbb{R}^{2n-1}\) 中. 
+            [刘蕴齐, 猫猫]
+            设 \(M\) 是 \拓扑流形[\(n\)], 则: 
+            \begin{enumerate}
+                \item \(M\) 可以浸入到 \(\mathbb{R}^{2n-1}\); 
+    
+                \item \(M\) 可以嵌入到 \(\mathbb{R}^{2n}\). 
+            \end{enumerate}
         \end{thm}
 
         \begin{thm}
@@ -892,7 +920,6 @@
             {Whitney}
             []
             [刘蕴齐]
-            任一 \(n\) 维流形 \(M\) 都可以嵌入到 \(\mathbb{R}^{2n}\) 中. 
         \end{thm}
 
         \begin{xmp}
@@ -959,19 +986,18 @@
         接下来赋予 \(TM\) 以拓扑结构. 
 
         \begin{dfn}
-            [tangentbundle]
-            {}
-            []
-            [刘蕴齐]
-            设 \((U, \phi, x^1, \dots, x^n)\) 是流形 \(M\) 上面的一个局部坐标卡. 类似上面的记号, 我们令
-            \[
-                T U = \bigcup_{p \in U} T_p U = \bigcup_{p \in U} T_p M
-            \]
-            (remark:  \(T_p U = T_p M\)) 我们熟知切空间 \(T_p M\) 的一组基是 \( {\{ \frac{\partial}{\partial x^i} |_p \}}_{i=1}^n \). 所以对于任意的 \(v\) 属于 \(T_p M\),  \(v\) 可以写成如下的线性组合:
-            \[
-                v = \sum_{i=1}^n c_i \frac{\partial}{\partial x^i}|_p.
-            \]
+            [Tangent-Bundle]
+            {切丛}
+            [tangent bundle]
+            [刘蕴齐, 猫猫]
+            设 \(M\) 是流形, \((U, \phi)\) 是 \(M\) 上的\局部坐标卡, 
+            \[TU := \bigcup_{p \in U} T_p M\]
+            
+            \(T_p M\) 的一组基是 \( {\left\{\left.\frac{\partial}{\partial x^i}\right|_p\right\}}_{i=1}^n \). 
+            \[\forall v\in\TanSpace{p}{M}, v = \sum_{i=1}^n c_i \frac{\partial}{\partial x^i}|_p\]
+
             注意到系数 \(c^i\) 依赖于线性空间中的向量 \(v\), 因此我们可以把 \(c^i\) 视为 \(T U\) 上面的函数 (\(p,v\) 给定就可以按上面的方法得到一个数 \(c^i\)). 
+
             切丛上面有一个自然的投影映射 \(\pi: T M \to M: \pi(v) = p, \text{if } v \in T_p M\). 将其与流形上的局部坐标复合就得到了 \(T U\) 上的函数 \(\bar{x}^i:= x^i \circ \pi\). 
 
             考虑映射 \(\tilde{\phi}: T U \to \phi(U) \times \R^n\):
@@ -1258,7 +1284,7 @@
     \subsection{微分 \(1\)-形式}
 
         \begin{dfn}
-            []
+            [Cotangent Space]
             {余切空间}
             [Cotangent Space]
             [猫猫]
@@ -1288,26 +1314,27 @@
             {外积 / 楔积}
             [Wedge Product]
             [猫猫]
-            外积是定义在余切空间上的反对称双线性映射, 记作 \(\cdot\wedge\cdot\), 若它满足以下泛性质: 
+            定义\textbf{外积}, 记作 \(\cdot\wedge\cdot\), 当且仅当: 
+            \begin{enumerate}
+                \item 双线性性: 
+                \[\forall \bm{u},\bm{v},\bm{w}\in T^*_{\bm{x}_0}\R^n, \forall \alpha,\beta\in\R, \bm{u}\wedge(\alpha\bm{v}+\beta\bm{w})=\alpha(\bm{u}\wedge\bm{v})+\beta(\bm{u}\wedge\bm{w})\]
 
-            (1) 反对称性: 
-            \[\forall \bm{u},\bm{v}\in T^*_{\bm{x}_0}\R^n, \bm{u}\wedge\bm{v}=-\bm{v}\wedge\bm{u}\]
-
-            (2) 双线性性: 
-            \[\forall \bm{u},\bm{v},\bm{w}\in T^*_{\bm{x}_0}\R^n, \forall \alpha,\beta\in\R, \bm{u}\wedge(\alpha\bm{v}+\beta\bm{w})=\alpha(\bm{u}\wedge\bm{v})+\beta(\bm{u}\wedge\bm{w})\]
-
-            (3) 结合性: 
-            \[\forall \bm{u},\bm{v},\bm{w}\in T^*_{\bm{x}_0}\R^n, \bm{u}\wedge(\bm{v}\wedge\bm{w})=(\bm{u}\wedge\bm{v})\wedge\bm{w}\]
+                \item 反对称性: 
+                \[\forall \bm{u},\bm{v}\in T^*_{\bm{x}_0}\R^n, \bm{u}\wedge\bm{v}=-\bm{v}\wedge\bm{u}\]
+    
+                \item 结合性: 
+                \[\forall \bm{u},\bm{v},\bm{w}\in T^*_{\bm{x}_0}\R^n, \bm{u}\wedge(\bm{v}\wedge\bm{w})=(\bm{u}\wedge\bm{v})\wedge\bm{w}\]
+            \end{enumerate}
 
             由结合性可归纳地定义多重外积. 
         \end{dfn}
 
         \begin{ppt}
             []
-            {外积由泛性质在同构意义下唯一确定}
+            {外积在同构意义下唯一}
             []
             [猫猫]
-            若有两种外积运算 \(\cdot\wedge\cdot\) 和 \(\cdot\wedge'\cdot\), 满足上述泛性质, 则它们在同构意义下相等. 
+            设 \(\cdot\wedge\cdot\) 和 \(\cdot\wedge'\cdot\) 是外积, 则它们在同构意义下相等. 
         \end{ppt}
         
         \begin{ppt}

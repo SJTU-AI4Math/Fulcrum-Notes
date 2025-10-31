@@ -1328,116 +1328,118 @@
     \subsection{复平面射影几何}
 
         \begin{dfn}
-            [UUID]
-            {Mobius 变换 / 线性分式变换}
-            []
+            [Mobius-Transformation]
+            {M\"obius / 线性分式变换}
+            [M\"obius / Linear Fractional Transformation]
             [Dedicatia, 猫猫]
-            设 \(f:\hat{\C}\to\hat{\C}\), 定义 \(f\) 是\textbf{线性分式变换}, 当且仅当: 
-            \[\exists a,b,c,d:\C, ad-bc\neq 0\land f=
-            \begin{cases}
-            \begin{aligned}
-                z & \mapsto\frac{az+b}{cz+d} & z\in\C\\
-                \infty & \mapsto\frac{a}{c}\\
-                -\frac{d}{c} & \mapsto\infty
-            \end{aligned}
-            \end{cases}\]
+            定义 \(\hat{\C}\to\hat{\C}\) 上\textbf{线性分式变换}为 \(\hat{\C}\to\hat{\C}\) 的子类型: 
+            \[\left\{z\mapsto\frac{az+b}{cz+d}:\hat{\C}\to\hat{\C}\middle|a,b,c,d:\C, ad-bc\neq 0\right\}\]
 
-            设 \(f\) 是线性分式, 定义 \(f\) \textbf{规范}, 当且仅当: \(|ad-bc|=1\). 
+            记作 \(\Mobius\). 
+
+            设 \(f:\Mobius\), 定义 \(f\) \textbf{规范}, 当且仅当: \(|ad-bc|=1\). 
         \end{dfn}
-
-        \begin{ppt}
-            [UUID]
-            {线性分式的矩阵表示}
-            []
-            [Dedicatia]
-            如果采用一组齐次坐标来表示分式, 即将( \(\star\) )写作
-            \[\frac{w_1}{w_2}=\frac{az_1+bz_2}{cz_1+dz_2}\]
-            那么可以用矩阵表示线性变换
-            \[
-            \begin{bmatrix}
-                w_1 \\ w_2
-            \end{bmatrix}
-            =
-            \begin{bmatrix}
-                a & b \\ c & d
-            \end{bmatrix}
-            \begin{bmatrix}
-                z_1 \\ z_2
-            \end{bmatrix}
-            \]
-        \end{ppt}
-        
-        \begin{ppt}
-            {线性分式变换总是双射}
-        \end{ppt}
         
         \begin{ppt}
             []
-            {线性分式变换群}
+            {M\"obius 变换总是双射}
             []
-            [Dedicatia, 猫猫]
-            设 \(f, g:\bar{\C}\to\bar{\C}\) 是线性分式变换, 则: 
-            \begin{enumerate}
-                \item \(f\circ g\) 是线性分式; 
-                \item \(f^{-1}\) 是线性分式. 
-            \end{enumerate}
+            [猫猫]
+            设 \(f:\Mobius\), 则: \(f\) 是双射. 
         \end{ppt}
-
-        \begin{ppt}
-            [UUID]
-            {线性分式的矩阵分解}
-            []
-            [Dedicatia]
-        \end{ppt}
+        
+        \begin{rmk}
+            [猫猫]
+            事实上, M\"obius 变换已然占据了全部 \(\hat{\C}\) 上的全纯双射, 即: 
+            \[\Mobius\cong\Aut(\hat{\C})\]
+        \end{rmk}
 
         \begin{ppt}
             [UUID]
             {线性分式全纯}
             []
-            [Dedicatia]
+            [Dedicatia, 猫猫]
+            设 \(f:\Mobius\), 则: \(f\in\Holo[\C]\). 
+        \end{ppt}
+        
+        \begin{ppt}
+            []
+            {M\"obius 变换群}
+            []
+            [Dedicatia, 猫猫]
+            设 \(f, g:\Mobius\), 则: \((\Mobius,\circ)\) 是群. 
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {M\"obius 变换群的矩阵表示}
+            []
+            [Dedicatia, 猫猫]*
+            \[\Mobius\cong\operatorname{PSL}(2,\C)\cong\operatorname{PGL}(2,\C)\]
         \end{ppt}
         
         \begin{dfn}
-            [UUID]
-            {交比}
-            [Cross Ratio]
-            [Dedicatia]
-            在扩充平面上, 任取不相等的 \(z_2,z_3,z_4\) 三点, 存在唯一的线性分式变换可以将这三点映射到 \(1,0,\infty\) 上. \\
-            如果 \(z_2,z_3,z_4<\infty\), 那么该分式为
-            \[f(z)=\frac{\frac{z-z_3}{z-z_4}}{\frac{z_2-z_3}{z_2-z_4}}\]
-            如果 \(z_2=\infty\), 那么
-            \[f(z)=\frac{z-z_3}{z-z_4}\]
-            如果 \(z_3=\infty\), 那么
-            \[f(z)=\frac{z_2-z_4}{z-z_4}\]
-            如果 \(z_4=\infty\), 那么
-            \[f(z)=\frac{z-z_3}{z_2-z_3}\]
-            在该线性分式映照下, 点 \(z_1\) 的像称为 \(z_1,z_2,z_3,z_4\) 的交比, 记作 \((z_1,z_2,z_3,z_4)\).
+            [Basic-Mobius-Transformation]
+            {基本 M\"obius 变换}
+            [Basic M\"obius Transformations]
+            [猫猫]
+            定义\textbf{基本 M\"obius 变换}为以下之一: 
+            \begin{enumerate}
+                \item 平移 \(\CTranslation\): \(\{z\mapsto z+b|b:\C\}\); 
+                \item 伸缩 \(\CScaling\): \(\{z\mapsto az|a:\R, a\neq 0\}\); 
+                \item 旋转 \(\CRotation\): \(\{z\mapsto \exp(\ii\theta)z|\theta:\R\}\); 
+                \item 反演 \(\CInversion\): \(\{z\mapsto 1/z\}\).
+            \end{enumerate}
         \end{dfn}
 
         \begin{ppt}
-            [UUID]
-            {交比的线性不变性}
-            [Linear Transformation Preserves Cross Ratio]
-            [Dedicatia]
-            交比在线性分式变换下保持不变. 也就是说, 对任意线性分式变换 \(f\) 都有
-            \[(f(z_1),f(z_2),f(z_3),f(z_4))=(z_1,z_2,z_3,z_4).\]
-        \end{ppt}
-
-        \begin{ppt}
-            [UUID]
-            {实交比}
-            [Real Cross Ratio]
-            [Dedicatia]
-            四点的交比为实数的充要条件是四点共圆或共线. \\
-            这表明在研究线性分式变换的时候我们无需区分圆与直线. 事实上, 二者在Riemann球面上都对应一个圆. 
-        \end{ppt}
-
-        \begin{ppt}
-            [UUID]
-            {直接推论: 线性分式变换保持圆形}
             []
-            [Dedicatia]
-            线性分式变换将圆变为圆. 
+            {M\"obius 变换的基本分解}
+            []
+            [Dedicatia, 猫猫]*
+            \[\Mobius=\langle\CTranslation\cup\CScaling\cup\CRotation\cup\CInversion\rangle\]
+        \end{ppt}
+        
+        \begin{rmk}
+            [猫猫]
+            全体 M\"obius 变换可以由平移, 旋转, 伸缩和反演四类基本变换生成, 即可以分解为这四类基本变换的有限复合. 因此证明关于 M\"obius 变换的定理时, 往往只需分别对这四类基本变换进行验证即可. 
+        \end{rmk}
+        
+        \begin{dfn}
+            [Cross-Ratio]
+            {交比}
+            [Cross Ratio]
+            [Dedicatia, 猫猫]
+            设 \(z_1,z_2,z_3,z_4:\hat{\C}\), 定义 \(z_1,z_2,z_3,z_4\) 的\textbf{交比}为: 
+            \[\frac{(z_1-z_3)(z_2-z_4)}{(z_1-z_4)(z_2-z_3)}\]
+
+            记作 \(\XRatio{z_1}{z_2}{z_3}{z_4}\). 
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {交比是 M\"obius 变换不变量}
+            []
+            [Dedicatia, 猫猫]
+            设 \(f:\Mobius\), \(z_1,z_2,z_3,z_4:\hat{\C}\), 则: 
+            \[\XRatio{f(z_1)}{f(z_2)}{f(z_3)}{f(z_4)}=\XRatio{z_1}{z_2}{z_3}{z_4}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {实交比等价于共圆或共线}
+            []
+            [Dedicatia, 猫猫]
+            设 \(z_1,z_2,z_3,z_4:\hat{\C}\), 则: 
+            \[\XRatio{z_1}{z_2}{z_3}{z_4}\in\R\iff z_1,z_2,z_3,z_4\text{ 共圆或共线}\]
+        \end{ppt}
+
+        \begin{ppt}
+            [UUID]
+            {M\"obius 变换保持广义圆}
+            []
+            [Dedicatia, 猫猫]
+            M\"obius 变换将圆和直线变为圆和直线. 
         \end{ppt}
         
         \begin{ppt}
@@ -1453,6 +1455,20 @@
             {线性分式变换保持对称性}
             []
             [Dedicatia]
+        \end{ppt}
+        
+        \begin{ppt}
+            {}
+            在扩充平面上, 任取不相等的 \(z_2,z_3,z_4\) 三点, 存在唯一的线性分式变换可以将这三点映射到 \(1,0,\infty\) 上. \\
+            如果 \(z_2,z_3,z_4<\infty\), 那么该分式为
+            \[f(z)=\frac{\frac{z-z_3}{z-z_4}}{\frac{z_2-z_3}{z_2-z_4}}\]
+            如果 \(z_2=\infty\), 那么
+            \[f(z)=\frac{z-z_3}{z-z_4}\]
+            如果 \(z_3=\infty\), 那么
+            \[f(z)=\frac{z_2-z_4}{z-z_4}\]
+            如果 \(z_4=\infty\), 那么
+            \[f(z)=\frac{z-z_3}{z_2-z_3}\]
+            在该线性分式映照下, 点 \(z_1\) 的像称为 \(z_1,z_2,z_3,z_4\) 的交比, 
         \end{ppt}
 
         \begin{dfn}

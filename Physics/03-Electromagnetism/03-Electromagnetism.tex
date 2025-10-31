@@ -29,60 +29,24 @@
 \tableofcontents
 \newpage
 
-\section{经典电磁学}
+\section{静电学}
 
-    \subsection{带电体}
+    \subsection{静电场}
 
         \begin{dfn}
             [Electric-Charge]
             {电荷}
             [Electric Charge]
             [猫猫]
-            定义\textbf{电荷}为 \(\ElectricCurrent\cdot\Time\), 记作 \(\ElectricCharge\). 
-
-            定义\电荷 的单位 \textbf{Column} 为 \(\A\cdot\s\), 记作 \(\Clm\). 
+            定义\textbf{电荷}为 \(\ElectricCurrent\cdot\Time\), 记作 \(\ElectricCharge\); 单位 \textbf{Coulomb} 为 \(\A\cdot\s\), 记作 \(\Clm\). 
         \end{dfn}
-        
-        \begin{str}
-            [Single-Charged-Object]
-            {单带电体}
-            [Single Charged Object]
-            [猫猫]
-            定义\textbf{单带电体}类型派生自\物体, 承载以下信息: 
-            \begin{enumerate}
-                \item 维度 \(n:[3]\)
-                \item \(n\) 维光滑流形 \(M_Q\); 
-                \item \textbf{电荷分布} \(\rho_Q:M_Q\to\ElectricCharge\cdot\Length_{-n}\); 
-            \end{enumerate}
-        \end{str}
-        
-        \begin{dfn}
-            [Charged-Object]
-            {带电体}
-            [Charged Object]
-            [猫猫]
-            定义\textbf{带电体}类型是\单带电体 集合类型. 
-        \end{dfn}
-        
-        \begin{dfn}
-            []
-            {带电体的总电荷量}
-            []
-            [猫猫]
-            设 \(Q\) 是\带电体, 定义 \(Q\) 的\textbf{总电荷量}为: 
-            \[\int_M \rho_Q(\bm{r})\dd\bm{r}\]
-        \end{dfn}
-
-    \subsection{静电场}
         
         \begin{dfn}
             [Electric-Potential]
             {电势}
             [Electric Potential]
             [猫猫]
-            定义\textbf{电势}为 \(\Energy\cdot\ElectricCharge^{-1}\), 记作 \(\ElectricPotential\). 
-
-            定义\textbf{电势}的单位 \textbf{Volt} 为 \(\Nt\cdot\m\cdot\Clm^{-1}\), 记作 \(\Vlt\). 
+            定义\textbf{电势}为 \(\Energy\cdot\ElectricCharge^{-1}\), 记作 \(\ElectricPotential\); 单位 \textbf{Volt} 为 \(\Nt\cdot\m\cdot\Clm^{-1}\), 记作 \(\Vlt\). 
         \end{dfn}
         
         \begin{str}
@@ -93,6 +57,7 @@
             定义\textbf{电场}类型派生自\场, 包含以下信息: 
             \begin{enumerate}
                 \item \textbf{电势函数} \(\EPot[E]:\Length_3\to\ElectricPotential\): 
+                \item \textbf{光滑性}: \(\EPot[E]\in\Smooth{\infty}(\Length_3)\). 
             \end{enumerate}
         \end{str}
         
@@ -132,7 +97,7 @@
             []
             {电场强度场是保守场}
             []
-            [猫猫]
+            [猫猫]*
         \end{ppt}
         
         \begin{ppt}
@@ -145,14 +110,6 @@
         \end{ppt}
         
         \begin{dfn}
-            [Coulomb-Force]
-            {电场力 / Coulomb 力 / 静电力}
-            [Coulomb Force]
-            [猫猫]
-            设 \(E\) 是\电场, \(Q\) 是\带电体, 定义 \(E\) 作用在 \(Q\) 上的\textbf{电场力}. 
-        \end{dfn}
-        
-        \begin{dfn}
             [Electric-Flux]
             {电通量}
             [Electric Flux]
@@ -161,30 +118,54 @@
             \[\int_S\EInts[E](\bm{r})\cdot\bm{S}(\bm{r})\dd{\bm{r}}\]
             记作 \(\EFlx[E](S)\). 
         \end{dfn}
+
+    \subsection{静电系统}
         
-        \begin{thm}
-            []
-            {Gauss 定理}
-            [Gauss's Theorem]
+        \begin{str}
+            [Electric-Field-Source]
+            {电场源}
+            [Electric Field Source]
             [猫猫]
-            设 \(E\) 是电场, \(M\) 是 \(\Length_3\) 上的 \(3\) 维流形, 则: 
-            \[\EFlx[E](\partial M) = \frac{1}{\epsz}\int_M \rho(\bm{r})\dd\bm{r}\]
-        \end{thm}
-        
-        \begin{prf}
-            是 Stokes 定理的特例. 
-        \end{prf}
+            定义\textbf{电场源}类型是物体的派生类型. 
+        \end{str}
         
         \begin{dfn}
-            [Electric-Potential-Energy]
-            {电势能}
-            [Electric Potential Energy]
+            []
+            {电场源激发电场}
+            []
             [猫猫]
-            设 \(E\) 是\电场, \(Q\) 是\带电体, 定义 \(Q\) 在 \(E\) 中的\textbf{电势能}为: 
-            \[\]
+            设 \(\cdot\) 是电场源, 定义 \(\cdot\) 的\textbf{激发电场}, 记作 \(E_\cdot\). 
+        \end{dfn}
+        
+        % \begin{thm}
+        %     []
+        %     {电力叠加原理}
+        %     [Principle of Superposition]
+        %     [猫猫]
+        %     设 \(\{Q_n\}:\N\to\)电场, 则: 
+        %     \[\Phi_{\Im\{Q_n\}}=\sum_{n:\N}\Phi_{Q_n}\]
+        % \end{thm}
+
+        \begin{str}
+            [Electrostatic-System]
+            {静电系统}
+            [Electrostatic System]
+            [猫猫]
+            定义\textbf{静电系统}包含以下信息: 
+            \begin{enumerate}
+                \item \textbf{电场源集}; 
+                \item \textbf{外电场集}. 
+            \end{enumerate}
+        \end{str}
+        
+        \begin{dfn}
+            []
+            {合电场}
+            []
+            [猫猫]*
         \end{dfn}
 
-    \subsection{带电体激发的电场}
+    \subsection{自由电荷激发电场}
         
         \begin{dfn}
             [Vacuum-Permittivity]
@@ -210,19 +191,39 @@
             \[\ke \approx 8.9875\times{10}^9(\Nt\cdot\m^2\cdot\Clm^{-2})\]
         \end{ppt}
         
+        \begin{str}
+            [Charged-Object]
+            {带电体 / 自由电荷}
+            [Charged Object / Free Charge]
+            [猫猫]
+            定义\textbf{带电体}类型派生自\物体, 承载以下信息: 
+            \begin{enumerate}
+                \item 维度 \(n:[3]\); 
+                \item \(n\) 维光滑流形 \(M_Q\); 
+                \item \textbf{电荷分布} \(\rho_Q:M_Q\to\ElectricCharge\cdot\Length_{-n}\); 
+            \end{enumerate}
+        \end{str}
+        
         \begin{dfn}
+            []
+            {带电体的总电荷量}
+            []
+            [猫猫]
+            设 \(Q\) 是\带电体, 定义 \(Q\) 的\textbf{总电荷量}为: 
+            \[\int_M \rho_Q(\bm{r})\dd\bm{r}\]
+        \end{dfn}
+        
+        \begin{axm}
             []
             {带电体激发的电场}
             []
             [猫猫]
-            设 \(Q\) 是\带电体, 定义由 \(Q\) \textbf{激发的电场}为: 
+            设 \(Q\) 是\带电体, 则由 \(Q\) \textbf{激发的电场}为: 
             \begin{enumerate}
             \item 电势函数: 
             \[\EPot[Q]=\bm{x}\mapsto\ke\int_{M_Q}\frac{\rho_Q(\bm{r})}{\|\bm{x}-\bm{r}\|}\dd\bm{r}\]
             \end{enumerate}
-
-            记作 \(E_Q\). 
-        \end{dfn}
+        \end{axm}
         
         \begin{thm}
             []
@@ -230,17 +231,38 @@
             []
             [猫猫]
             设 \(Q\) 是\带电体, \(\bm{x}\)则: 
-            \[\bm{E}_Q(\bm{x})=\ke\int_{M_Q}\frac{\rho_Q(\bm{r})}{\|\bm{x}-\bm{r}\|^2}(\widehat{\bm{x}-\bm{r}})\dd\bm{r}\]
+            \[\EInts[Q](\bm{x})=\ke\int_{M_Q}\frac{\rho_Q(\bm{r})}{\|\bm{x}-\bm{r}\|^2}(\widehat{\bm{x}-\bm{r}})\dd\bm{r}\]
         \end{thm}
         
         \begin{thm}
             []
-            {电力叠加原理}
-            [Principle of Superposition]
+            {Gauss 定理}
+            [Gauss's Theorem]
             [猫猫]
-            设 \(\{Q_n\}:\N\to\带电体\), 则: 
-            \[\Phi_{\Im\{Q_n\}}=\sum_{n:\N}\Phi_{Q_n}\]
+            设 \(Q\) 是\带电体, \(M\) 是 \(\Length_3\) 上的 \(3\) 维流形, \(\partial M\) 是 Gauss 面, 则: 
+            \[\EFlx[E](\partial M) = \frac{1}{\epsz}\int_M \rho(\bm{r})\dd\bm{r}\]
         \end{thm}
+        
+        \begin{prf}
+            是 Stokes 定理的特例. 
+        \end{prf}
+        
+        \begin{dfn}
+            [Electric-Potential-Energy]
+            {电势能}
+            [Electric Potential Energy]
+            [猫猫]
+            设 \(E\) 是\电场, \(Q\) 是\带电体, 定义 \(Q\) 在 \(E\) 中的\textbf{电势能}为: 
+            \[\]
+        \end{dfn}
+        
+        \begin{dfn}
+            [Coulomb-Force]
+            {电场力 / Coulomb 力 / 静电力}
+            [Coulomb Force]
+            [猫猫]
+            设 \(E\) 是\电场, \(Q\) 是\带电体, 定义 \(E\) 作用在 \(Q\) 上的\textbf{电场力}. 
+        \end{dfn}
 
     \subsection{常见带电体模型}
         
@@ -249,10 +271,10 @@
             {点电荷}
             [Electric Point Charge]
             [猫猫]
-            定义\textbf{点电荷}类型是\单带电体 的子类型, 维数为 \(0\). 包含以下信息: 
+            定义\textbf{点电荷}类型是\带电体 的子类型, 维数为 \(0\). 包含以下信息: 
             \begin{enumerate}
-                \item 带电量 \(q:\ElectricCharge\)
-                \item 位置 \(\bm{r}:\Length_3\)
+                \item \textbf{带电量} \(q:\ElectricCharge\)
+                \item \textbf{位置} \(\bm{r}:\Length_3\)
             \end{enumerate}
         \end{str}
         
@@ -301,7 +323,7 @@
             {线带电体}
             []
             [猫猫]
-            定义\textbf{线带电体}为\单带电体 类型的子类型, 维数为 \(1\). 
+            定义\textbf{线带电体}为\带电体 类型的子类型, 维数为 \(1\). 
 
             包含以下信息: 
             \begin{enumerate}
@@ -451,6 +473,14 @@
 \section{静电感应}
 
     \subsection{导体的静电感应}
+        
+        \begin{dfn}
+            [Charged-Object]
+            {带电体}
+            [Charged Object]
+            [猫猫]
+            定义\textbf{带电体}类型是\带电体 集合类型. 
+        \end{dfn}
     
         \begin{dfn}
             [Conductor]
@@ -617,7 +647,7 @@
 
 \section{电流}
 
-    \subsection{电流的描述}
+    \subsection{电荷层面的电流模型}
         
         \begin{dfn}
             [Power-Supply]
@@ -625,7 +655,7 @@
             [Power Supply]
             [猫猫]
             \begin{enumerate}
-                \item 非静电力场强
+                \item \textbf{非静电力场强}函数 \(\bm{E}_k:\Length_3\to\); 
             \end{enumerate}
         \end{dfn}
         
@@ -639,81 +669,6 @@
 
             记作 \(\mathscr{E}\). 
         \end{dfn}
-
-        \begin{dfn}
-            []
-            {电流强度}
-            []
-            [猫猫]
-            设 \(C\) 是导体, \(S\) 是 \(C\) 上的截面, 定义通过截面 \(S\) 的\textbf{电流强度}为: 
-            \[\frac{\dd q}{\dd t}\]
-        \end{dfn}
-        
-        \begin{dfn}
-            []
-            {电流密度}
-            []
-            [猫猫]
-            设 \(C\) 是导体, \(S\) 是 \(C\) 上的截面, 定义通过截面 \(S\) 的\textbf{电流密度}为: 
-            \[\frac{\dd I}{\dd S}\]
-        \end{dfn}
-
-    \subsection{磁场}
-        
-        \begin{dfn}
-            [Magnetic-Induction-Intensity]
-            {磁感应强度}
-            [Magnetic-Induction-Intensity]
-            [猫猫]
-            定义\textbf{磁感应强度}为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\MagneticInductionIntensity\). 
-
-            定义磁感应强度的单位 \textbf{Tesla} 为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\Tsl\). 
-        \end{dfn}
-
-        \begin{str}
-            [Magnetic-Field]
-            {磁场}
-            [Magnetic Field]
-            [猫猫]
-            定义\textbf{磁场}是场, 包含以下信息: 
-            \begin{enumerate}
-                \item 磁感应强度函数 \(\bm{B}:\Length_3\to\); 
-            \end{enumerate}
-        \end{str}
-        
-        \begin{dfn}
-            []
-            {Lorentz 力 / 磁场力}
-            []
-            [猫猫]
-            设 \(B\) 是磁场, \(Q\) 是\带电体, \(Q\) 的带电量为 \(q\), \(\bm{v}\) 是 \(Q\) 的速度, 定义 \(B\) 作用在 \(Q\) 上的\textbf{Lorentz 力 / 磁场力}为: 
-            \[\bm{F} = q\bm{v}\times\bm{B}\]
-        \end{dfn}
-        
-        \begin{ppt}
-            {带电质点}
-        \end{ppt}
-        
-        \begin{dfn}
-            {运动电荷激发磁场}
-        \end{dfn}
-        
-        \begin{axm}
-            []
-            {Biot-Savart 定律}
-            [Biot-Savart Law]
-            [猫猫]
-            \[\bm{B}=\frac{\mu_0}{4\pi}\int_M\frac{I\dd\bm{l}\times\bm{r}}{r^3}\]
-        \end{axm}
-
-    \subsection{}
-        
-        \begin{dfn}
-            []
-            {}
-            []
-            []
-        \end{dfn}
         
         \begin{dfn}
             []
@@ -723,7 +678,7 @@
             设 \(C\) 是导体, \(n\) 是载流子数密度, \(\tau\) 是平均自由时间, 定义 \(C\) 的\textbf{电导率}为: 
             \[\frac{ne^2\tau}{2m}\]
 
-            记作 \(\gamma\). 
+            记作 \(\sigma\). 
         \end{dfn}
         
         \begin{thm}
@@ -735,7 +690,151 @@
             \[U=IR\]
         \end{thm}
 
+        \begin{dfn}
+            [Electric-Current-Intensity]
+            {电流强度}
+            [Electric-Current-Intensity]
+            [猫猫]
+            设 \(C\) 是导体, \(S\) 是 \(C\) 上的截面, 定义通过截面 \(S\) 的\textbf{电流强度}为: 
+            \[\frac{\dd q}{\dd t}\]
+        \end{dfn}
         
+        \begin{dfn}
+            [Electric-Current-Density]
+            {电流密度}
+            [Electric Current Density]
+            [猫猫]
+            设 \(C\) 是导体, \(\mathcal{I}\) 是 \(C\) 上的电流, 定义 \(\mathcal{I}\) 的\textbf{电流密度}函数为: 
+            \[\bm{x}:C\mapsto \]
+
+            记作 \(\Jelec[\mathcal{I}]\). 
+        \end{dfn}
+        
+        \begin{dfn}
+            [Steady-Electric-Current]
+            {稳恒电流}
+            [Steady Electric Current]
+            [猫猫]
+            设 \(C\) 是导体, \(\mathcal{I}\) 是 \(C\) 上的电流, 定义 \(\mathcal{I}\) \textbf{稳恒}, 当且仅当: 
+            \[\nabla\cdot\Jelec[\mathcal{I}](\bm{x})=\cdot\mapsto\bm{0}\]
+        \end{dfn}
+        
+        \begin{xmp}
+            {导线}
+        \end{xmp}
+
+    \subsection{磁场}
+        
+        \begin{dfn}
+            [Magnetic-Constant]
+            {磁力常数}
+            [Magnetic Constant]
+            [猫猫]
+            定义\textbf{磁力常数}为: 
+            \[1\times 10^{-7}(\Nt^{-1}\cdot\A^2)\]
+
+            记作 \(\km\). 
+        \end{dfn}
+        
+        \begin{dfn}
+            [Vacuum-Magnetic-Permeability]
+            {真空磁导率}
+            [Vacuum Magnetic Permeability]
+            [猫猫]
+            定义\textbf{真空磁导率}为: 
+            \[4\pi\km\]
+            
+            记作 \(\muz\). 
+        \end{dfn}
+        
+        \begin{dfn}
+            [Magnetic-Induction-Intensity]
+            {磁感应强度}
+            [Magnetic-Induction-Intensity]
+            [猫猫]
+            定义\textbf{磁感应强度}为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\MIInts\). 
+
+            定义磁感应强度的单位 \textbf{Tesla} 为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\Tsl\). 
+        \end{dfn}
+
+        \begin{str}
+            [Magnetic-Field]
+            {磁场}
+            [Magnetic Field]
+            [猫猫]
+            定义\textbf{磁场}是场, 包含以下信息: 
+            \begin{enumerate}
+                \item \textbf{磁感应强度}函数 \(\bm{B}:\Length_3\to\MIInts\); 
+            \end{enumerate}
+        \end{str}
+        
+        \begin{dfn}
+            []
+            {电流激发磁场}
+            []
+            [猫猫]
+        \end{dfn}
+        
+        \begin{ppt}
+            [Biot-Savart-Law]
+            {Biot-Savart 定律}
+            [Biot-Savart Law]
+            [猫猫]
+            设 \(C\) 是导线, \(\mathcal{I}\) 是 \(C\) 上的电流, 则: 
+            \[\bm{B}=\bm{r}:\Length_3\mapsto\km\int_C\frac{\Ielec[\mathcal{I}](\bm{l})\dd\bm{l}\times\bm{r}}{\|\bm{l}-\bm{r}\|^3}\]
+        \end{ppt}
+        
+        \begin{dfn}
+            []
+            {Lorentz 力 / 磁场力}
+            []
+            [猫猫]
+            设 \(B\) 是\磁场, \(Q\) 是\带电体, \(Q\) 的带电量为 \(q\), \(\bm{v}\) 是 \(Q\) 的速度, 定义 \(B\) 作用在 \(Q\) 上的\textbf{Lorentz 力 / 磁场力}为: 
+            \[\bm{F} = q\bm{v}\times\bm{B}\]
+        \end{dfn}
+        
+        \begin{str}
+            {带电质点}
+        \end{str}
+
+    \subsection{磁通量}
+        
+        \begin{dfn}
+            [Magnetic-Flux]
+            {磁通量}
+            [Magnetic Flux]
+            [猫猫]
+
+        \end{dfn}
+
+    \subsection{常见电流模型}
+        
+        \begin{xmp}
+            []
+            {匀速旋转均匀带电圆盘}
+            []
+            [猫猫]
+        \end{xmp}
+        
+        \begin{xmp}
+            []
+            {无限长直导线}
+            []
+            [猫猫]
+            设 \(L=(\{(0,0,z)|z:\Length\}, I)\) 是导线, 则 \(I\) 在距 \(L\) 为 \(d\) 处激发的磁场为: 
+            \[\frac{\mu_0 I}{2\pi d}\]
+        \end{xmp}
+        
+        \begin{xmp}
+            {通电圆环}
+        \end{xmp}
+        
+        \begin{xmp}
+            []
+            {无限长通电螺线管}
+            []
+            [猫猫]
+        \end{xmp}
 
 
 \end{document}
