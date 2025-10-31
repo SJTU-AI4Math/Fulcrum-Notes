@@ -23,6 +23,9 @@
 }
 \linespread{1.2}
 
+\DeclareMathOperator{\st}{\text{s.t. }}
+\newcommand{\bysorry}{\fcolorbox{black}{gray!20!white}{\texttt{\textcolor{black}{:= }\textcolor{blue}{by }\textcolor{red}{\textbf{sorry}}}}\;\;\,\texttt{\textcolor{gray}{{\footnotesize declaration uses 'sorry'.}}}}
+
 \begin{document}
 
 \tableofcontents
@@ -490,7 +493,8 @@
             \begin{enumerate}
                 \item 单调性:  \(F\) 在 \(\R\) 上单调增加的; 
                 \item 有界性:  \(F(\R)\subseteq\Icc{0}{1}\); 
-                \item 左连续性:  \(F\) 在 \(\R\) 上左连续; 
+                \item 左连续性:  \(F\) 在 \(\R\) 上左连续;
+                \item 右极限存在性: \(F\) 在 \(\R\) 上右极限存在; 
                 \item 极限性:  
                 \[
                 \begin{cases}
@@ -503,9 +507,9 @@
 
         \begin{dfn}
             [Expectation]
-            {平均值 / 数学期望 / Riemann-Stieltjes 积分}
-            [Mean / Expectation]
-            [猫猫]
+            {平均值 / 均值 / 数学期望 / Riemann-Stieltjes 积分 / 一阶矩}
+            [Mean / Expectation / First Moment]
+            [猫猫, Dedicatia]
             设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(F\) 是 \(X\) 的分布函数, 定义 \(X\) 在 \((\Omega,\mathscr{F},\mathbb{P})\) 中的\textbf{数学期望}为: 
             \[\int_{-\infty}^{+\infty}x\dd F(x)\]
 
@@ -521,6 +525,23 @@
             \[\forall\alpha,\beta:\R, \mathbb{E}(\alpha X+\beta Y)=\alpha\mathbb{E}(X)+\beta\mathbb{E}(Y)\]
         \end{ppt}
 
+        \begin{ppt}
+            []
+            {复合数学期望的计算}
+            []
+            [Dedicatia]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\离散型随机变量, 取值 \(x_i:1\leq i\leq n\), \(p(x_i)=P(X=x_i)\), $g:\R\to\R$, 那么
+            \[\Expct{g(X)}=\sum_{i=1}^n g(x_i)p(x_i)\]
+        \end{ppt}
+
+        \begin{dfn}
+            []
+            {\(n\) 阶矩}
+            []
+            [Dedicatia]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(n:\N^+\), 定义 \(X\) 的 $n$ 阶矩为 \(\Expct{X^n}\).
+        \end{dfn}
+
         \begin{dfn}
             [Variance]
             {方差与标准差}
@@ -533,6 +554,24 @@
 
             定义 \(X\) 在 \((\Omega,\mathscr{F},\mathbb{P})\) 中的\textbf{标准差}为: \(\sqrt{\Var{X}}\). 
         \end{dfn}
+
+        \begin{ppt}
+            [Variance2]
+            {方差的计算公式}
+            []
+            [Dedicatia]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, 则
+            \[\Var{X}=\Expct{X^2}-(\Expct{X})^2.\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {方差的线性性}
+            []
+            [Dedicatia]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(a,b\in\R\), 那么
+            \[\Var(aX+b)=a^2\Var(X).\]
+        \end{ppt}
 
         \begin{rmk}
             [猫猫]
@@ -627,7 +666,7 @@
         \end{ppt}
 
         \begin{xmp}
-            []
+            [Binom]
             {\(n\) 重 Bernoulli 分布 / 二项分布}
             [Binary Distribution]
             [Dedicatia, 猫猫]
@@ -875,6 +914,30 @@
             \[\Expct{X}=\dfrac{a+b}{2}\]
         \end{ppt}
 
+        \begin{thm}
+            []
+            []
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(X\sim U(0,1)\), 则\连续型随机变量 $Y=X^n$ 的密度函数为
+            \[f_Y(y)=\begin{cases}
+                &\frac{y^{\frac{1}{n-1}}}{n};\quad 0\leq y\leq 1\\
+                &0; y<0 \lor y>1.
+            \end{cases}\]
+        \end{thm}
+
+        \begin{thm}
+            []
+            {复合连续型随机变量的密度函数}
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, 具有密度函数 \(f_X\). $g(x)$ 是严格单调且可导的函数, 那么\连续型随机变量 \(Y=g(X)\) 的密度函数为
+            \[f_Y(y)=\begin{cases}
+                &f_X(g^{-1}(y))\dv{\cdot(g^{-1}(y))}{y};\quad \exists\,x\st y=g(x);\\
+                &0;\quad \forall\,x, y\neq g(x). 
+            \end{cases}\]
+        \end{thm}
+
         \begin{xmp}
             []
             {幂律分布}
@@ -884,30 +947,167 @@
         \end{xmp}
 
         \begin{xmp}
+            [Expo-Distribution]
             {指数分布}
             [Exponential Distribution]
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(\lambda:\R^+\), 定义 \(X\) 服从 \(\R\) 上参数为 \(\lambda\) 的\textbf{指数分布}, 如果其分布函数为
+            \[f(x)=\begin{cases}
+                &\lambda\exp(-\lambda x),\quad x\geq 0;\\
+                &0,\quad x< 0.
+            \end{cases}\]
+            记作 \(X\sim\mathfrak{E}(\lambda)\).
         \end{xmp}
 
+        \begin{ppt}
+            []
+            {指数分布的分布函数}
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\), $F$ 是 $X$ 的分布函数, 那么
+            \[F(x)=P(X\geq x)=1-\exp(-\lambda x), (x\geq 0).\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {指数分布的期望和方差}
+            []
+            []
+            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\), 则
+            \[\Expct{X}=\frac{1}{\lambda},\qquad \Var{X}=\frac{1}{\lambda^2}.\]
+        \end{ppt}
+
+        \begin{dfn}
+            [Hazard]
+            {失效率函数}
+            [Hazard Rate]
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, $X>0$, 其分布函数是 $F$, 其密度函数是 $f$, 定义 $X$ 的\textbf{失效率}为
+            \[\lambda(t)=\frac{f(t)}{1-F(t)}.\]
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {分布函数可由失效率唯一确定}
+            []
+            [Dedicatia]
+            以失效率函数 $\lambda(x)$ 可以唯一地确定它的分布函数 $F$.
+        \end{ppt}
+
+        \begin{prf}
+            对 $\lambda(x)$ 在 $[0,t]$ 上积分
+            \[\int_0^t \lambda(x)\dd{x}=\int_0^t \frac{f(x)}{1-F(x)}\dd{x}=-\ln(1-F(x))\bigg|_0^t=\ln(1-F(0))-\ln(1-F(t))=-\ln(1-F(t))\]
+            可解得
+            \[F(t)=1-\exp(-\int_0^t\lambda(x)\dd{x})\]
+        \end{prf}
+
+        \begin{ppt}
+            []
+            {指数分布的失效率是常数}
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\), 那么失效率 $\lambda(t)=\lambda$.
+        \end{ppt}
+
         \begin{xmp}
+            [Rayleigh]
+            {Rayleigh 分布}
+            [Rayleigh Distribution]
+            [Dedicatia]
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {Rayleigh 分布的分布函数、密度函数、失效率函数}
+            设 \(X\) 是\连续型随机变量, $X$ 服从Rayleigh分布, $b:\R$, 那么 $X$ 的分布函数为
+            \[F(t)=1-\exp(-\frac{bt^2}{2})\]
+            其密度函数为
+            \[f(t)=bt\exp(-\frac{bt^2}{2})\]
+            失效率函数为
+            \[\lambda(t)=bt\]
+            这说明失效率是线性的.
+        \end{ppt}
+
+        \begin{xmp}
+            [Gamma-Distribution]
             {\(\Gamma\) 分布}
             [\(\Gamma\) Distribution]
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, 定义 $X$ 服从\textbf{\(\Gamma\)分布}当且仅当其密度函数为
+            \[f(x)=\begin{cases}
+                &\frac{\lambda\exp(-\lambda x)\cdot(\lambda x)^{\alpha-1 }}{\Gamma(\alpha)},\quad x\geq 0;\\
+                &0,\quad x<0.
+            \end{cases}\]
+            记作 $X\sim\Gamma(\alpha,\lambda)$. 其中 $\Gamma(\alpha)$ 是 $\Gamma$ 函数.
         \end{xmp}
 
+        \begin{ppt}
+            []
+            {\(\Gamma\) 分布与指数分布的关系}
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\) 当且仅当 $x\sim \Gamma(1,\lambda)$.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {\(\Gamma\) 分布的期望与方差}
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(X\sim\Gamma(\alpha,\lambda)\), 那么
+            \[\Expct{X}=\frac{\alpha}{\lambda}\]
+            \[\Var{X}=\frac{\alpha}{\lambda^2}\]
+        \end{ppt}
+
         \begin{xmp}
+            [Cauchy-Distribution]
             {Cauchy 分布}
             [Cauchy Distribution]
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, $\theta:\R$, 定义 \(X\) 服从 Cauchy 分布当且仅当其密度函数为
+            \[f(x)=\frac{1}{\pi}\frac{1}{1+(x-\theta)^2}, \qquad x\in (-\infty,+\infty)\]
         \end{xmp}
+
+        \begin{ppt}
+            []
+            {标准 Cauchy 分布}
+            []
+            [Dedicatia]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {Cauchy 分布的期望不存在}
+            []
+            [Dedicatia]
+        \end{ppt}
 
         \begin{xmp}
             [Normal-Distribution]
             {正态分布}
             [Normal Distribution]
-            [猫猫]
-            设 \(X\) 是\连续型随机变量, \(\mu:\R\), \(\sigma:\R^+\), 定义 \(X\) 服从参数为 \(\mu\) 和 \(\sigma^2\) 的\textbf{正态分布}, 当且仅当: 
+            [猫猫, Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(\mu:\R\), \(\sigma:\R^+\), 定义 \(X\) 服从参数为 \(\mu\) 和 \(\sigma^2\) 的\textbf{正态分布}, 当且仅当其密度函数为: 
             \[f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\]
 
             记作 \(X\sim N(\mu,\sigma^2)\). 
         \end{xmp}
+
+        \begin{dfn}
+            []
+            {标准正态分布}
+            []
+            [Dedicatia]
+            定义\连续型随机变量 $X$ 服从\textbf{标准正态分布}, 如果 $X\sim N(0,1)$. \\
+            一般将标准正态分布的分布函数记作
+            \[\Phi(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^x\exp(\frac{-t^2}{2})\dd{t}.\]
+        \end{dfn}
+
+        \begin{rmk}
+            [Dedicatia]
+            正态分布的密度函数不具有初等的原函数，计算正态分布的概率的数值时常将正态分布随机变量线性地转换为服从标准正态分布的随机变量。
+            \[X\sim N(\mu,\sigma^2)\Longleftrightarrow Z=\frac{X-\mu}{\sigma}\sim N(0,1)\]
+        \end{rmk}
 
         \begin{ppt}
             []
@@ -916,6 +1116,24 @@
             [猫猫]
             设 \(X\) 是\连续型随机变量, \(X\sim N(\mu,\sigma^2)\), 则: 
             \[\Expct{X}=\mu\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {正态分布的方差}
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(X\sim N(\mu,\sigma^2)\), 则: 
+            \[\Var{X}=\sigma^2\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {二项分布的正态近似}
+            []
+            [Dedicatia]
+            设 \(X\) 是服从\hyperref[xmp:Binom]{二项分布}的\离散型随机变量, $X\sim B(n,p)$, 那么对任意 $a<b$,
+            \[\lim_{n\to\infty}P\qty(a\leq\frac{X-np}{\sqrt{np(1-p)}}\leq b)=\Phi(b)-\Phi(a)\]
         \end{ppt}
 
 \section{多维随机变量}
