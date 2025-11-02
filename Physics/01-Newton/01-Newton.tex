@@ -6,6 +6,7 @@
 
 \usepackage{FulcrumCN}
 \usepackage{OperatorListCN}
+\usepackage{F4Math}
 \usepackage{F4Physics}
 
 % margin
@@ -18,11 +19,6 @@
     right =2cm
 }
 \linespread{1.2}
-\DeclareMathOperator{\J}{\mathrm{J}}
-\DeclareMathOperator{\New}{\mathrm{N}}
-\DeclareMathOperator{\Pa}{\mathrm{Pa}}
-\DeclareMathOperator{\Ltr}{\mathrm{L}}
-\DeclareMathOperator{\Kv}{\mathrm{K}}
 
 \begin{document}
 
@@ -40,15 +36,15 @@
             {量纲}
             [Dimension]
             [猫猫]
-            定义\textbf{基本量纲} 包含: 
+            定义\textbf{基本量纲} 为以下之一: 
             \begin{enumerate}
-                \item \textbf{长度}, 记作 \(\Length\); 
-                \item \textbf{时间}, 记作 \(\Time\); 
-                \item \textbf{质量}, 记作 \(\Mass\); 
-                \item \textbf{电流}, 记作 \(\ElectricCurrent\); 
-                \item \textbf{温度}, 记作 \(\Temperature\); 
-                \item \textbf{物质的量}, 记作 \(\AmountOfSubstance\); 
-                \item \textbf{光强}, 记作 \(\LuminousIntensity\). 
+                \item \textbf{长度}, 记作 \(\Length\); 定义长度的单位为\textbf{米}, 记作 \(\m\); 
+                \item \textbf{时间}, 记作 \(\Time\); 定义时间的单位为\textbf{秒}, 记作 \(\s\); 
+                \item \textbf{质量}, 记作 \(\Mass\); 定义质量的单位为\textbf{千克}, 记作 \(\kg\); 
+                \item \textbf{电流}, 记作 \(\ElectricCurrent\); 定义电流的单位为 \textbf{Ampere}, 记作 \(\A\); 
+                \item \textbf{温度}, 记作 \(\Temperature\); 定义温度的单位为 \textbf{Kelvin}, 记作 \(\Klv\); 
+                \item \textbf{物质的量}, 记作 \(\AmountOfSubstance\); 定义物质的量的单位为\textbf{摩尔}, 记作 \(\mol\); 
+                \item \textbf{光强}, 记作 \(\LuminousIntensity\); 定义光强的单位为\textbf{坎德拉}, 记作 \(\cd\);
             \end{enumerate}
 
             定义\textbf{量纲}为基本量纲\(\to\Z\). 
@@ -66,119 +62,199 @@
             \end{enumerate}
         \end{str}
 
+        \begin{rmk}
+            [猫猫]
+            不引起混淆的情况下, 将物理量类型类型 \(\R\times\cdot\) 简记为 \(\cdot\). 
+        \end{rmk}
+
+        \begin{dfn}
+            [Quantity-Vector]
+            {向量}
+            [Vector]
+            [猫猫]
+        \end{dfn}
+
     \subsection{世界模型}
 
+        \begin{str}
+            [Space]
+            {空间}
+            [Space]
+            [猫猫]
+            设 \(n:[3]\), 定义 \(n\) 维\textbf{空间}为: \(\Length_n\). 
+        \end{str}
+
+\section{运动学}
+
+    \subsection{参考系}
+        
         \begin{dfn}
-            定义\textbf{物体}为类型. 
+            []
+            {坐标系}
+            [Coordinate System]
+            [猫猫]
+            设 \((S,\mathcal{T})\) 是\拓扑空间, \(n:\N\), \(\varphi:S\to\Length_n\), 定义 \((S,\varphi)\) 是 \(\Length_n\) 的\textbf{坐标系}, 当且仅当: \(\varphi\) 是一个同胚. 
         \end{dfn}
 
-\section{质点运动学}
+        \begin{xmp}
+            [Cartesian-Coordinate-System]
+            {直角坐标系}
+            [Cartesian Coordinate System]
+            [猫猫]
+            \[P(x,y,z) : X\times Y\times Z\]
+        \end{xmp}
 
-    \subsection{质点运动的描述}
-        
-        \begin{dfn}
-            []
-            {参考系}
-            [Reference Frame]
+        \begin{xmp}
+            [Polar-Coordinate-System]
+            {极坐标系}
+            [Polar Coordinate System]
             [猫猫]
-            用来描述物体运动而选作为"静止"的参考标准. 
-        
-            惯性系
-        
-            坐标系
-        
-                通过 Cartesian 积坐标来对物理空间建立的模型. 
-        
-                直角坐标系
-        
-                    $$P(x,y,z) : X\times Y\times Z$$
-        
-                    位置矢量/矢径: 由原点指向
-        
-                极坐标系
-        
-                    $$(r,\theta)$$
-        
-                    径向单位矢量 $\times$ 横向单位矢量
-                
-                球坐标系
-        
-                    $$(r,\theta,\varphi) : $$
-                    其中 $r$ 为半径, $\theta$ 为平面角, $\varphi$ 为高度角. 
-        
-                柱坐标系
-        
-                    $$(\rho,\theta,z) : $$
-                    其中 $(\rho,\theta)$ 构成二维平面上的极坐标系. 
-        
-                自然坐标系
-        \end{dfn}
-        
-        \begin{dfn}
-            []
-            {位矢}
-            [Position Vector]
-            [猫猫]
-            某一参考系的元素, 记为 \(\bm{r}\). 
+            \[(r,\theta)\]
+            径向单位矢量 $\times$ 横向单位矢量
+        \end{xmp}
 
-            一段连续的时间间隔 \(T\) 内位矢变化量称为\textbf{位移 (Displacement)}, 记为 \(\Delta\bm{r}_T\). 
-        \end{dfn}
-        
-        \begin{dfn}
-            []
-            {质量}
-            [Mass]
+        \begin{xmp}
+            [Spherical-Coordinate-System]
+            {球坐标系}
+            [Spherical Coordinate System]
             [猫猫]
-            记为 \(m\). 
-        \end{dfn}
-        
-        \begin{dfn}
-            []
-            {质点}
-            [Mass Point]
+            \[(r,\theta,\varphi)\]
+
+            其中 $r$ 为半径, $\theta$ 为平面角, $\varphi$ 为高度角. 
+        \end{xmp}
+
+        \begin{xmp}
+            [Cylindrical-Coordinate-System]
+            {柱坐标系}
+            [Cylindrical Coordinate System]
             [猫猫]
-            质点是在时间参量下由质量和位矢构造而成的物理对象. 
-            \[P=t\mapsto(m,\bm{r})\]
-        \end{dfn}
-        
-        \begin{dfn}
-            []
-            {平均速度}
-            [Average Velocity]
+            \[(\rho,\theta,z)\]
+            
+            其中 $(\rho,\theta)$ 构成二维平面上的极坐标系. 
+        \end{xmp}
+
+    \subsection{运动模型}
+
+        \begin{str}
+            [Object]
+            {物体}
+            [Object]
             [猫猫]
-            质点在一段连续的时间间隔 \(T\) 内的\textbf{平均速度}定义为位移与时间间隔长度之比, 记为 \(\bar{\bm{v}}_T\): 
-            \[\bar{\bm{v}}_T:=\frac{\Delta\bm{r}}{T}\]
+            设 \(n:[3]\), 定义 \(n\) 维\textbf{物体}类型. 
+        \end{str}
+
+        \begin{str}
+            [Translation]
+            {平动}
+            [Translation]
+            [猫猫]
+            设 \(n:[3]\), \(O\) 是 \物体[\(n\)], \(T\subseteq\Time\), 定义 \(O\) 在 \(T\) 上\textbf{平动}包含以下信息: 
+            \begin{enumerate}
+                \item \textbf{轨迹} \(\bm{x}_O:T\to\Length_n\)
+            \end{enumerate}
+        \end{str}
+        
+        \begin{dfn}
+            [Displacement]
+            {位移}
+            [Displacement]
+            [猫猫]
+            设 \(n:[3]\), \(O\) 是 \物体[\(n\)], \(a,b:\Time\), \(a<b\), \(O\) 在 \(\Icc{a}{b}\) 上\平动, 定义 \(O\) 在 \(\Icc{a}{b}\) 上的\textbf{位移}为: 
+            \[\traj{O}(b)-\traj{O}(a)\]
+
+            记作 \(\Delta\bm{x}_O\Icc{a}{b}\). 
         \end{dfn}
         
         \begin{dfn}
-            []
+            [Velocity]
             {瞬时速度}
             [Instantaneous Velocity]
             [猫猫]
-            \[\bm{v}=\lim_{\Delta t\to 0+}\frac{\Delta\bm{r}}{\Delta t}=\frac{\dd}{\dd t}\bm{r}\]
+            设 \(n:[3]\), \(O\) 是 \物体[\(n\)], \(T\subseteq\Time\), \(O\) 在 \(T\) 上\平动, \(t_0\in T\), 定义 \(O\) 在 \(t_0\) 时刻的\textbf{瞬时速度}, 简称\textbf{速度}, 为: 
+            \[\frac{\dd}{\dd t}\traj{O}(t_0)\]
 
-            * \textit{常简称\textbf{速度}, 一般情况下不特别指明``平均''即为瞬时速度. }
+            记作 \(\vlct{O}(t_0)\). 
+        \end{dfn}
+        
+        \begin{dfn}
+            [Average-Velocity]
+            {平均速度}
+            [Average Velocity]
+            [猫猫]
+            设 \(n:[3]\), \(O\) 是 \物体[\(n\)], \(T\subseteq\Time\), \(T\) Lebesgue 可测, 定义 \(O\) 在 \(T\) 上的\textbf{平均速度}为: 
+            \[\frac{1}{\mu(T)}\int_T\vlct{O}(t)\dd t\]
+
+            记作 \(\bar{\bm{v}}_O(T)\). 
         \end{dfn}
         
         \begin{dfn}
             {加速度}
             [Acceleration]
             [猫猫]
-            \[\bm{a}=\lim_{\Delta t\to 0+}\frac{\Delta\bm{v}}{\Delta t}=\frac{\dd}{\dd t}\bm{v}\]
-            \[\Delta\bm{v}=\int_T \bm{v}\dd t\]
+            设 \(n:[3]\), \(O\) 是 \物体[\(n\)], \(T\subseteq\Time\), \(O\) 在 \(T\) 上\平动, \(t_0\in T\), 定义 \(O\) 在 \(t_0\) 时刻的\textbf{加速度}为: 
+            \[\frac{\dd}{\dd t}\vlct{O}(t_0)\]
 
-            * \textit{常简称\textbf{加速度}, 一般情况下不特别指明``平均''即为瞬时加速度. }
+            记作 \(\bm{a}_O(t_0)\). 
         \end{dfn}
 
-    \subsection{牛顿运动定律}
+    \subsection{Galileo 变换}
         
         \begin{dfn}
             []
+            {参考系}
+            [Reference Frame]
+            [猫猫]
+        \end{dfn}
+
+\section{牛顿力学}
+
+    \subsection{牛顿运动定律}
+        
+        \begin{str}
+            [Massive-Object]
+            {有质物体}
+            [Massive Object]
+            [猫猫]
+            设 \(n:[3]\), 定义 \(n\) 维\textbf{有质物体}类型包含以下信息: 
+            \begin{enumerate}
+                \item \(n\) 维流形; 
+                \item \textbf{密度} \(\rho:\Length_n\to\Mass\cdot\Length^{-n}\); 
+            \end{enumerate}
+        \end{str}
+
+        \begin{str}
+            [Field]
+            {场}
+            [Field]
+            [猫猫]
+            定义\textbf{场}是\物体 的子类型. 
+        \end{str}
+        
+        \begin{dfn}
+            [Force]
             {力}
             [Force]
             [猫猫]
-            质点对另一质点施加作用, 使其改变运动状态的物理量称为\textbf{力}, 记为 \(\bm{F}\). 
+            设 \(A,B\) 是\有质物体, 定义 \(A\) 施加在 \(B\) 上的\textbf{力}为 \(\Mass\cdot\Length\cdot\Time^{-2}\), 记为 \(\Force_{AB}\). 
+
+            设 \(E\) 是\场, \(A\) 是\有质物体, 定义 \(E\) 施加在 \(A\) 上的\textbf{力}为 \(\Mass\cdot\Length\cdot\Time^{-2}\), 记为 \(\Force_{FA}\). 
+
+            定义 \(\Force\) 的单位为 \textbf{Newton}, 记作 \(\Nt\). 
         \end{dfn}
+
+        \begin{str}
+            []
+            {动力学系统}
+            [Dynamical System]
+            [猫猫]
+            定义\textbf{动力学系统}类型包含以下信息: 
+            \begin{enumerate}
+                \item 参考系; 
+                \item 场集 \(\mathcal{E}\); 
+                \item 有质物体集 \(\mathcal{O}\); 
+                \item 力集 \(\mathcal{F}\); 
+            \end{enumerate}
+        \end{str}
         
         \begin{dfn}
             []
@@ -203,6 +279,7 @@
             {Newton 第三定律}
             [Newton's Third Law]
             [猫猫]
+            设 \((R,\varnothing,\{A,B\},\mathcal{F})\) 是动力学系统, \(\bm{F}:\Force_{AB}\), 则: 
             \[\bm{F}_{12}=-\bm{F}_{21}\]
         \end{axm}
         
@@ -215,6 +292,20 @@
 
             一切惯性系在力学上等价. 
         \end{axm}
+
+    \subsection{质点模型}
+        
+        \begin{str}
+            [Mass-Point]
+            {质点}
+            [Mass Point]
+            [猫猫]
+            定义\textbf{质点}类型包含以下信息: 
+            \begin{enumerate}
+                \item 位置 \(\bm{x}\). 
+                \item 质量 \(m\); 
+            \end{enumerate}
+        \end{str}
 
     \subsection{常见力}
         

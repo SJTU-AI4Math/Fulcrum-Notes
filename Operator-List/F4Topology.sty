@@ -1,15 +1,18 @@
 % Topology
-\NewDocumentCommand{\intr}{s}{\catref[#1]{dfn:Interior}{\ensuremath{\operatorname{int}}}[内部]}
-\NewDocumentCommand{\cl}{s}{\catref[#1]{dfn:Closure}{\ensuremath{\operatorname{cl}}}[闭包]}
+\NewDocumentCommand{\intr}{s}{\catref[#1]{dfn:Interior}{\ensuremath{\operatorname{int}}\,}[内部]}
+\NewDocumentCommand{\cl}{s}{\catref[#1]{dfn:Closure}{\ensuremath{\operatorname{cl}}\,}[闭包]}
 \NewDocumentCommand{\bd}{s}{\catref[#1]{dfn:Boundary}{\ensuremath{\partial}}[边界]}
 
 \NewDocumentCommand{\Nbr}{smo}{\catref[#1]{dfn:Neighbourhood}{\ensuremath{\mathcal{V}}}[邻域]\IfNoValueTF{#3}{}{_{#3}}\left(#2\right)}
 \NewDocumentCommand{\DelNbr}{sm}{\catref[#1]{dfn:Deleted-Neighbourhood}{\ensuremath{\overset{\circ}{\mathcal{V}}}}[去心邻域]\left(#2\right)}
 
+\NewDocumentCommand{\diam}{so}{\catref[#1]{dfn:Metric-Diameter}{\ensuremath{\operatorname{diam}}}[直径]\IfNoValueTF{#2}{}{(#2)}}
+
 \NewDocumentCommand{\U}{s}{\catref[#1]{dfn:Deleted-Neighborhood}{\ensuremath{\overset{\circ}{\mathit{U}}}}[去心邻域]}
 \NewDocumentCommand{\DrvSet}{sm}{#2\catref[#1]{dfn:Derived-Set}{\ensuremath{'}}[导集]}
 
 \NewDocumentCommand{\Seqlim}{smmm}{\catref[#1]{dfn:Sequence-Limit}{\ensuremath{\lim\limits_{#2\to+\infty}}}[序列极限]\,#3=#4}
+\NewDocumentCommand{\Maplim}{smmmm}{\catref[#1]{dfn:Topology-Mapping-Limit}{\ensuremath{\lim\limits_{#2\to #3}}}[映射极限]\,#4=#5}
 
 \NewDocumentCommand{\Con}{s}{\catref[#1]{dfn:Continuous-Mapping}{\ensuremath{\operatorname{Con}}}[连续映射]}
 \NewDocumentCommand{\Homeo}{smm}{#2\catref[#1]{dfn:Homeomorphism}{\ensuremath{\cong}}[同胚]#3}
@@ -33,15 +36,22 @@
 \NewDocumentCommand{\开覆盖}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 的}}}\catref[#1]{dfn:Open-Cover}{\ensuremath{\text{开覆盖}}}}
 
 \NewDocumentCommand{\收敛}{so}{\IfNoValueTF{#2}{}{#2\,}\catref[#1]{dfn:Sequence-Limit}{\ensuremath{\text{收敛}}}[在\拓扑空间 中有极限]}
-\NewDocumentCommand{\完备}{s}{\catref[#1]{dfn:Completeness}{完备}}
 
 \NewDocumentCommand{\生成拓扑}{sm}{\ensuremath{\text{由}}\,\,#2\catref[#1]{dfn:Generated-Topology}{\ensuremath{\text{ 生成的拓扑}}}}
 
 \NewDocumentCommand{\Hausdorff空间}{so}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是 }}}\catref[#1]{dfn:Hausdorff-Space}{\ensuremath{\text{Hausdorff 空间}}}}
 
+% Metric space concepts
+
 \NewDocumentCommand{\度量}{s}{\catref[#1]{dfn:Metric-Space}{\ensuremath{\text{度量}}}[度量]}
 \NewDocumentCommand{\度量空间}{s}{\catref[#1]{dfn:Metric-Space}{\ensuremath{\text{度量空间}}}[度量空间]}
 
+\NewDocumentCommand{\Cauchy列}{soo}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\IfNoValueTF{#3}{}{\,#3\ensuremath{\text{ 上的}}}\catref[#1]{dfn:Cauchy-Sequence}{\ensuremath{\text{Cauchy 列}}}}
+\NewDocumentCommand{\完全有界}{so}{\IfNoValueTF{#2}{}{#2\,}\catref[#1]{dfn:Totally-Boundedness}{\ensuremath{\text{完全有界}}}}
+\NewDocumentCommand{\完备}{s}{\catref[#1]{dfn:Complete-Metric-Space}{完备}}
+\NewDocumentCommand{\完备度量空间}{s}{\catref[#1]{dfn:Complete-Metric-Space}{完备度量空间}}
+
+\NewDocumentCommand{\压缩映射}{so}{\IfNoValueTF{#2}{}{#2\ensuremath{\text{ 是}}}\catref[#1]{dfn:Contraction-Mapping}{\ensuremath{\text{压缩映射}}}}
 
 % Non-concept operators
 \DeclareMathOperator{\T}{\mathcal{T}}                   % Topology

@@ -9,19 +9,31 @@
 
 \NewDocumentCommand{\ulim}{s}{\catref[#1]{dfn:Upper-Limit}{\ensuremath{\overline{\operatorname{lim}}}}[上极限]}
 \NewDocumentCommand{\llim}{s}{\catref[#1]{dfn:Lower-Limit}{\ensuremath{\underline{\operatorname{lim}}}}[下极限]}
+\NewDocumentCommand{\leftlim}{smmmo}{\catref[#1]{dfn:Real-Function-Limit}{\ensuremath{\lim\limits_{#2\to#3-}}}[左极限]\oarg{#4}\IfValueT{#5}{=#5}}
+\NewDocumentCommand{\rightlim}{smmmo}{\catref[#1]{dfn:Real-Function-Limit}{\ensuremath{\lim\limits_{#2\to#3+}}}[右极限]\oarg{#4}\IfValueT{#5}{=#5}}
+
 
 \NewDocumentCommand{\diff}{smmm}{\left. #1 \right|_{#2}^{#3}}      % This command can be replaced by $\eval{#1}_{#2}^{#3}$ in package physics.
 
 \NewDocumentCommand{\Ball}{smm}{\catref[#1]{dfn:Open-Ball}{\mathcal{B}}[开球]\left(#2,#3\right)}	% Open Ball
 
+\NewDocumentCommand{\unilim}{so}{\underset{\oarg{#2}}{\catref[#1]{dfn:Sequence-Uniform-Convergence}{\rightrightarrows}[一致收敛]}}
+
+\NewDocumentCommand{\Smooth}{sm}{\catref[#1]{dfn:Real-Higher-Order-Derivative}{C}[光滑函数.]^{#2}}
+
 \NewDocumentCommand{\全可微}{soo}{\IfNoValueTF{#2}{}{#2\,\ensuremath{\text{在}}}\IfNoValueTF{#3}{}{\,#3\,\ensuremath{\text{处}}}\catref[#1]{dfn:Differentiable}{\ensuremath{\text{全可微}}}[多元可微.]}
 
+\NewDocumentCommand{\光滑曲线}{s}{\catref[#1]{dfn:Smooth-Curve}{光滑曲线}[光滑曲线.]}
 
 
 % Measure Theory
-\NewDocumentCommand{\Sigma代数}{soo}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的\,}\catref[#1]{dfn:Sigma-Algebra}{\(\sigma\)-代数}[\(\sigma\)-代数, 即包含全集且对补集与可数并封闭的集合族.]}
+\NewDocumentCommand{\Sigma代数}{soo}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的\,}\catref[#1]{str:Sigma-Algebra}{\(\sigma\)-代数}[\(\sigma\)-代数, 即包含全集且对补集与可数并封闭的集合族.]}
+\NewDocumentCommand{\Borel}{sm}{\catref[#1]{dfn:Borel-Set}{\mathscr{B}}[Borel 集族]\left(#2\right)}
 
 \NewDocumentCommand{\测度}{soo}{\catref[#1]{dfn:Measure}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的}测度}[测度空间.]}
+\NewDocumentCommand{\测度空间}{soo}{\catref[#1]{dfn:Measure}{\IfNoValueTF{#2}{}{#2是}\IfNoValueTF{#3}{}{#3上的}测度空间}[测度空间.]}
+
+\NewDocumentCommand{\Borel测度}{so}{\catref[#1]{dfn:Borel-Measure-Real}{\IfNoValueTF{#2}{}{#2是} Borel 测度}[Borel 测度.]}
 
 % Complex Analysis
 \NewDocumentCommand{\ii}{s}{\catref[#1]{str:Complex-Number}{\ensuremath{\mathrm{i}}}[虚数单位. ]}
@@ -31,11 +43,20 @@
 \NewDocumentCommand{\复可微}{soo}{\IfNoValueTF{#2}{}{#2\,\ensuremath{\text{在}}}\IfNoValueTF{#3}{}{\,#3\,\ensuremath{\text{处}}}\catref[#1]{dfn:Complex-Derivative}{\ensuremath{\text{复可微}}}[复可微.]}
 \NewDocumentCommand{\Holo}{so}{\catref[#1]{dfn:Holomorphic-Function}{\ensuremath{\mathcal{H}}}[\(D\subseteq\C\) 上的全纯函数.](\oarg{#2})}
 \NewDocumentCommand{\解析}{s}{\catref[#1]{dfn:Analyticality}{\ensuremath{\text{解析}}}[解析函数.]}
+\NewDocumentCommand{\Mobius}{s}{\catref[#1]{dfn:Mobius-Transformation}{\mathfrak{M}}[莫比乌斯变换.]}
+
+\NewDocumentCommand{\CTranslation}{s}{\catref[#1]{dfn:Basic-Mobius-Transformation}{\mathcal{T}_{\mathfrak{M}}}[复平面的平移.]}
+\NewDocumentCommand{\CScaling}{s}{\catref[#1]{dfn:Basic-Mobius-Transformation}{\mathcal{S}_{\mathfrak{M}}}[复平面的伸缩.]}
+\NewDocumentCommand{\CRotation}{s}{\catref[#1]{dfn:Basic-Mobius-Transformation}{\mathcal{R}_{\mathfrak{M}}}[复平面的旋转.]}
+\NewDocumentCommand{\CInversion}{s}{\catref[#1]{dfn:Basic-Mobius-Transformation}{\mathcal{I}_{\mathfrak{M}}}[复平面的反演.]}
+
+\NewDocumentCommand{\XRatio}{smmmm}{\left(#2,#3\catref[#1]{dfn:Cross-Ratio}{;}[交比]#4,#5\right)}
+
 \newcommand{\AngularForm}{\hyperref[dfn:AngularForm]{三角表示}}
 \newcommand{\PowerSeries}{\hyperref[dfn:PowerSeries]{幂级数}}
-\newcommand{\UniformConvergence}{\hyperref[dfn:UniformConvergence]{一致收敛}}
+\NewDocumentCommand{\一致收敛}{s}{\catref[#1]{dfn:UniformConvergence}{一致收敛}[一致收敛]}
 \newcommand{\ConformalMapping}{\hyperref[dfn:ConformalMapping]{共形映照}}
 \newcommand{\MeromorphicFunction}{\hyperref[dfn:MeromorphicFunction]{亚纯函数}}
-\newcommand{\EssentialSingularity}{\hyperref[dfn:   EssentialSingularity]{本性奇点}}
-\newcommand{\TaylorThm}{\hyperref[thm:Taylor]{Taylor定理}}
+\newcommand{\EssentialSingularity}{\hyperref[dfn:EssentialSingularity]{本性奇点}}
+\NewDocumentCommand{\Taylor定理}{s}{\catref[#1]{thm:Taylor}{Taylor 定理}[Taylor 定理]}
 \newcommand{\CauchyThm}{\hyperref[thm:Cauchy]{Cauchy积分定理}}

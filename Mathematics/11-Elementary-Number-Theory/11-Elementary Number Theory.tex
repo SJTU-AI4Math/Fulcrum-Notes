@@ -401,25 +401,220 @@
             \end{thm}
             
             \begin{thm}
-                []
+                [typeofsolutionoflinearDiophantineEquation]
                 {二元一次不定方程解的形状}
                 []
-                [猫猫]
+                [白菜]
+                设\(a, b, c:\mathbb{Z}\), \(a\neq 0\), \(b\neq 0\), 且 \(\gcd(a,b)\mid c\). 则二元一次不定方程
+                \[ax+by=c\]
+                的整数解可以表示为
+                \[
+                    \begin{cases}
+                    \begin{aligned}
+                        &x=x_0+\frac{b}{\gcd(a,b)}k\\
+                        &y=y_0-\frac{a}{\gcd(a,b)}k
+                    \end{aligned}
+                    \end{cases}         
+                \]
+                其中 \(k\in\mathbb{Z}\), \((x_0, y_0)\) 是该方程的一个特解.                    
+                
             \end{thm}
+
+            \begin{rmk}
+                    特解可以通过扩展欧几里得算法求出.
+            \end{rmk}
 
         \subsection{多元一次不定方程}
             
             \begin{thm}
+                [conditionofsolvabilityofmultivariablelineardiophantineequation]
+                {多元一次不定方程有解的充要条件}
                 []
-                {}
-                []
-                []
+                [白菜]
+                设\(a_1, a_2, \ldots, a_n, N:\mathbb{Z}\), 且不全为零. 则多元一次不定方程
+                \[a_1x_1+a_2x_2+\cdots+a_nx_n=N\]
+                有整数解的充要条件是
+                \[\gcd(a_1, a_2, \ldots, a_n)\mid N\]
             \end{thm}
 
-    
+            \begin{rmk}
+                    求解该不定方程时, 可以先求以下二元一次不定方程组的解:
+                    \[
+                        \begin{cases}
+                        \begin{aligned}
+                            &a_1x_1+a_2x_2=d_2t_2\\
+                            &d_2t_2+a_3x_3=d_3t_3\\
+                            &\cdots\\
+                            &d_{n-1}t_{n-1}+a_nx_n=N
+                        \end{aligned}
+                        \end{cases} 
+                    \]
+                    其中 \(d_i=\gcd(d_{i-1}, a_i)\). 中间变量 \(t_i\) 可被消去, 从而得到原多元一次不定方程的解.
+            \end{rmk}
+        \subsection{勾股方程}
+            \begin{lma}
+            [CoprimeProductIsSquareNecessaryCondition]
+            {互素积为平方的必要条件}
+            []
+            [白菜]
+            设\(a, b:\mathbb{Z}\), 且 \(a\) 与 \(b\) 互素. 若 \(ab\) 是完全平方数, 则 \(a\) 和 \(b\) 均为完全平方数.
+            \end{lma}
 
-    \section{同余方程}
+            \begin{rmk}
+                当我们考虑方程\(x^2+y^2=c^2\)时, 可以不妨假定\(x\)与\(y\)互素. 此时\(x,y\)必定一奇一偶, 因为若都是偶数与互素矛盾, 若都是奇数, 则\(z\)为偶数, 
+                则\(x^2+y^2\equiv 2\mod 4\), 但$z^2$模4只能为0或1, 矛盾. 故后面考虑勾股方程的解时, 可以假定\(x,y\)一奇一偶, 且两者互素.
+            \end{rmk}
 
+            \begin{thm}
+            [InternalSolutionsOfPythagoreanEquation]
+            {勾股方程的整数解}
+            []
+            [白菜]
+            设\(x, y, z:\mathbb{Z}\), 且 \(x, y, z>0\), \(\gcd(x,y=1)\), \(2\mid x\). 则方程
+            \[x^2+y^2=z^2\]
+            的整数解可以表示为
+            \[
+                \begin{cases}
+                \begin{aligned}
+                    &x=2mn\\
+                    &y=m^2-n^2\\
+                    &z=m^2+n^2
+                \end{aligned}
+                \end{cases}
+            \]
+
+            \end{thm}
+            
+            \begin{prf}
+                方程即
+                \[(\frac{x}{2})^2=(\frac{z+y}{2})(\frac{z-y}{2})\]
+                可知\(\gcd(\frac{z+y}{2},\frac{z-y}{2})=1\), 再由引理即得定理.
+            \end{prf}
+    \section{同余}
+        \subsection{同余的基本概念}
+            \begin{dfn}
+                [Congruence]
+                {同余}
+                [Congruence]
+                [白菜]
+                \DEF*
+                    [ \(a, b, m:\Z\), \(m>0\)]
+                    { \(a\) 与 \(b\) 模 \(m\) 同余}
+                    {\(m\mid (a-b)\)}
+                    [ \(a\equiv b \mod m\)]
+            \end{dfn}
+
+            \begin{ppt}
+                [CongruenceEquivalenceRelation]
+                {同余是等价关系}
+                [Equivalence Relation of Congruence]
+                [白菜]
+                \THM
+                    {同余关系是等价关系}
+            \end{ppt}
+
+            \begin{ppt}
+                [CongruenceLinearity]
+                {同余的线性性}
+                [Linearity of Congruence]
+                [白菜]
+                \THM
+                    [ \(a, b, c, d, m:\Z\), \(m>0\), \(a\equiv b(\mod m)\), \(c\equiv d(\mod m)\)]
+                    {\(\begin{cases}
+                    \begin{aligned}
+                        &a+c\equiv b+d \mod m\\
+                        &-a\equiv -b \mod m\\
+                    \end{aligned}
+                    \end{cases}\)}
+            \end{ppt}
+
+            \begin{ppt}
+                [CongruenceMultiplicativity]
+                {同余的乘法性质}
+                [Multiplicativity of Congruence]
+                [白菜]
+                \THM
+                    [ \(a, b, c, d, m:\Z\), \(m>0\), \(a\equiv b\mod m\), \(c\equiv d\mod m\)]
+                    {\(ac\equiv bd \mod m\)}
+            \end{ppt}
+
+        \subsection{剩余类与剩余系}
+            \begin{dfn}
+                [ResidueClass]
+                {剩余类}
+                [Residue Class]
+                [白菜]
+                设\(m:\Z\), 则由模 \(m\) 同余关系生成的等价类称为模 \(m\) 的\textbf{剩余类}. 
+                对于\(a:\Z\), 其模 \(m\) 的剩余类记作 \(\bar{a}\).
+            \end{dfn}
+
+            \begin{dfn}
+                [ResidueSystem]
+                {剩余系}
+                [Residue System]
+                [白菜]
+                由所有剩余类构成的集合称为模 \(m\) 的\textbf{剩余系}, 记作\(\Z/m\Z\).
+            \end{dfn}
+
+            \begin{dfn}
+                [OperationOnResidueSystem]
+                {剩余系上的运算}
+                [Operation on Residue System]
+                [白菜]
+                设\(m:\Z\), 则模 \(m\) 剩余系上的乘法定义为:
+                \[  
+                    \begin{aligned}
+                        \cdot: \Z/m\Z\times \Z/m\Z &\to \Z/m\Z\\
+                        (\bar{a}, \bar{b}) &\mapsto \overline{ab}
+                    \end{aligned}
+                \]
+                模 \(m\) 剩余系上的加法定义为:
+                \[  
+                    \begin{aligned}
+                        +: \Z/m\Z\times \Z/m\Z &\to \Z/m\Z\\
+                        (\bar{a}, \bar{b}) &\mapsto \overline{a+b}
+                    \end{aligned}
+                \]
+            \end{dfn}
+
+            \begin{thm}
+                [ResidueSystemIsCommutativeRing]
+                {剩余系是交换环}
+                [Residue System is Commutative Ring]
+                [白菜]
+                设\(m:\Z\), 则模 \(m\) 剩余系 \(\Z/m\Z\) 在上述加法与乘法下构成一个交换环.
+            \end{thm}
+
+            \begin{rmk}
+                当问题中只有环的运算时, 我们会说"在模\(m\)的意义下", 即将整数视为模\(m\)剩余系中的元素来进行运算.
+            \end{rmk}
+
+            \begin{dfn}
+                [ReducedResidueSystem]
+                {即约剩余系}
+                [Reduced Residue System]
+                [白菜]
+                设\(m:\Z\), 则模 \(m\) 的\textbf{即约剩余系}是指模 \(m\) 的所有与 \(m\) 互素的剩余类所构成的集合.
+            \end{dfn}
+
+            \begin{thm}
+                []
+                {互素整数诱导即约剩余系的自同态}
+                []
+                [白菜]
+                设\(m, a:\mathbb{Z}\), 且 \(\gcd(a,m)=1\). \(A\subset \Z/m\Z\), 为模\(m\)的即约剩余系, 则映射
+                \[ 
+                    \begin{aligned}
+                        f: A &\to A\\
+                        \bar{x} &\mapsto \overline{ax}
+                    \end{aligned}
+                \]
+                是模 \(m\) 的即约剩余系到其自身的一个双射.
+            \end{thm}
+
+            \begin{rmk}
+                或者说, 将模\(m\)即约剩余系中的每一个元素乘以与\(m\)互素的整数\(a\), 仍然得到模\(m\)即约剩余系中的元素, 且没有重复.
+            \end{rmk}
     \section{原根与指标}
         
         
