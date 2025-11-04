@@ -670,21 +670,12 @@
             {\(n\) 重 Bernoulli 分布 / 二项分布}
             [Binary Distribution]
             [Dedicatia, 猫猫]
-            设 \(n:\N\), \(p:\R\), \(p\in\Ioo{0}{1}\), 定义 \(X\) 服从成功率为 \(p\) 的 \(n\) 重\textbf{二项分布}, 当且仅当: 
+            设 \(n:\N\), \(p:\R\), \(p\in\Ioo{0}{1}\), 定义 \(X\) 服从成功率为 \(p\) 的 \(n\) 重 Bernoulli 分布\textbf{二项分布}, 当且仅当其分布列为
             
-            ？？？
+            \[\forall k:\N, k\leq n\implies\mathbb{P}(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\]
             
             记作 \(X\sim B(n,p)\)
         \end{xmp}
-
-        \begin{ppt}
-            []
-            {二项分布的分布列}
-            []
-            [Dedicatia, 猫猫]
-            设 \(X\) 是\离散型随机变量, \(X\sim B(n,p)\), 则: 
-            \[\forall k:\N, k\leq n\implies\mathbb{P}(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\]
-        \end{ppt}
 
         \begin{ppt}
             []
@@ -695,20 +686,23 @@
             \[\Expct{X}=np\]
         \end{ppt}
 
-        \begin{xmp}
+        \begin{ppt}
             []
-            {超几何分布}
-            [Hypergeometric Distribution]
+            {二项分布的方差}
             []
-        \end{xmp}
+            [Dedicatia]
+            设 \(X\) 是\离散型随机变量, \(X\sim B(n,p)\), 则: 
+            \[\Var{X}=np(1-p)\]
+        \end{ppt}
 
         \begin{ppt}
             []
-            {超几何分布的分布列}
-            []
+            {超几何分布}
+            [Hypergeometric Distribution]
             [猫猫]
-            设 \(X\) 是\离散型随机变量, \(X\) 服从超几何分布, 则:
+            设 \(X\) 是\离散型随机变量, \(X\) 服从超几何分布, 当且仅当其分布列为:
             \[\forall m:\N, m\leq M\land m\leq n\implies\mathbb{P}(X=m)=\frac{\binom{M}{m}\binom{N-M}{n-m}}{\binom{N}{n}}\]
+            记作 \(X\sim H(N,M,n)\)
         \end{ppt}
 
         \begin{ppt}
@@ -718,6 +712,15 @@
             [猫猫]
             设 \(X\) 是\离散型随机变量, \(X\) 服从超几何分布, 则: 
             \[\Expct{X}=\frac{nM}{N}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {超几何分布的方差}
+            []
+            [Dedicatia]
+            设 \(X\) 是\离散型随机变量, \(X\) 服从超几何分布, 则: 
+            \[\Var{X}=np(1-p)\qty(1-\frac{n-1}{N-1}).\]
         \end{ppt}
 
         \begin{xmp}
@@ -771,9 +774,9 @@
         \begin{xmp}
             []
             {几何分布}
-            []
+            [Geometric Distribution]
             [Dedicatia]
-             \(n\) 重Bernoulli试验中, 只会出现“成功”和“失败”两种结果. 
+            \(n\) 重Bernoulli试验中, 只会出现两种结果. 每次出现某种结果的概率为 $p$, 重复试验直到出现这种结果为止. 令 $X$ 为表示试验次数的随机变量, 那么 $X$ 服从几何分布.
         \end{xmp}
 
         \begin{ppt}
@@ -803,6 +806,15 @@
             \[\Expct{X}=\frac{1}{p}\]
         \end{ppt}
 
+        \begin{ppt}
+            []
+            {几何分布的方差}
+            []
+            [Dedicatia]
+            设 \(X\) 是\离散型随机变量, \(X\) 服从几何分布, 则: 
+            \[\Var{X}=\frac{1-p}{p^2}\]
+        \end{ppt}
+
         \begin{xmp}
             []
             {幂律分布}
@@ -824,7 +836,44 @@
             []
             {Pascal 分布 / 负二项分布}
             [Pascal Distribution / Negative Binomial Distribution]
-            [猫猫]
+            [猫猫, Dedicatia]
+            \(n\) 重Bernoulli试验中, 设每次出现某种结果的概率为 $p$, 重复试验直到累计出现 $r$ 次这种结果为止. 令 $X$ 为表示试验次数的随机变量, 那么 $X$ 服从负二项分布. 记作 $X\sim NB(r,p)$.
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {负二项分布与几何分布的关系}
+            []
+            [Dedicatia]
+            参数为 \((1,p)\) 的负二项分布就是几何分布.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {负二项分布的分布列}
+            []
+            [Dedicatia]
+            设 \(X\) 是\离散型随机变量, \(p:[0,1]\), \(r:\N^+\), 若 \(X\sim NB(r,p)\), 那么分布列为:
+            \[\forall\,n\in\{r,r+1,\cdots\},\,\mathbb{P}(X=n)=\binom{n-1}{r-1}p^r(1-p)^{n-r}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {负二项分布的期望与方差}
+            []
+            [Dedicatia]
+            设 \(X\) 是\离散型随机变量, \(p:[0,1]\), \(r:\N^+\), 若 \(X\sim NB(r,p)\), 那么
+            \[\Expct{X}=\frac{r}{p}\]
+            \[\Var{X}=\frac{r(1-p)}{p^2}\]
+        \end{ppt}
+
+        \begin{xmp}
+            []
+            {}
+            []
+            [Dedicatia]
+            \(n\) 重Bernoulli试验中, 设每次出现某种结果的概率为 $p$, 重复试验直到累计出现 $r$ 次这种结果为止. 在此之前共发生了 $m$ 次不成功的试验的概率为
+            \[\sum_{n=r}^{r+m-1}\binom{n-1}{r-1}p^r(1-p)^{n-r}\]
         \end{xmp}
 
     \subsection{连续型随机变量分布}
@@ -916,7 +965,7 @@
 
         \begin{thm}
             []
-            []
+            {均匀分布的幂的密度函数}
             []
             [Dedicatia]
             设 \(X\) 是\连续型随机变量, \(X\sim U(0,1)\), 则\连续型随机变量 $Y=X^n$ 的密度函数为

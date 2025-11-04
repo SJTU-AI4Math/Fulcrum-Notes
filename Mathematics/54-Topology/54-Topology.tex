@@ -1648,28 +1648,50 @@
             \begin{thm}
                 [Metric.Schauder]
                 {Schauder不动点定理}
-                \bysorry
+                []
+                [Dedicatia]
+                设 $X$ 是一个度量空间的闭凸子集, $f:X\to X$ 是连续映射, $f(X)$ 是序列紧的, 那么 $f$ 在 $X$ 上至少有一个\hyperref[dfn:Fixed]{不动点}.
             \end{thm}
 
             \begin{dfn}
                 [PointwiseBounded]
                 {逐点有界}
+                []
+                [Dedicatia]
                 Let $\{f_n\}$ be a function series defined over $X$. \texttt{DEF} $\{f_n\}$ is pointwise bounded \texttt{IF}
                 \[\exists\,\phi(x)<+\infty, \st |f_n(x)|\leq\phi(x)\]
             \end{dfn}
+
             \begin{dfn}
                 [UniBounded]
                 {一致有界}
                 Let $\{f_n\}$ be a function series defined over $X$. \texttt{DEF} $\{f_n\}$ is uniformally bounded \texttt{IF}
                 \[\exists\,M<+\infty, \st |f_n(x)|\leq M\]
             \end{dfn}
+
             \begin{thm}
-                [132701]
+                []
                 {可数集上逐点有界函数列存在逐点收敛的子函数列}
+                []
+                [Dedicatia]
+                设 $\{f_n\}$ 是定义在可数集 $E:=\{x_1,x_2,\cdots,x_n,\cdots\}$ 上的\hyperref[dfn:PointwiseBounded]{逐点有界}的函数列, 那么它存在\hyperref[dfn:Metric.PointwiseConv]{逐点收敛}的子列. 
             \end{thm}
+
+            \begin{cxmp}
+                []
+                {函数列一致有界不一定逐点收敛}
+                []
+                [Dedicatia]
+                考虑函数列 
+                \[f_n(x)=\sin nx,\quad (x\in[0,2\pi], n\in\N)\]
+                显然这是\hyperref[dfn:UniBounded]{一致有界的}. 但是它不存在\hyperref[dfn:Metric.PointwiseConv]{逐点收敛}的子列.
+            \end{cxmp}
+
             \begin{dfn}
                 [EquiCont]
                 {等度连续}
+                []
+                [Dedicatia]
                 Let $\{f_\alpha\}$ be a function series defined over $X$. $\alpha$ is arbitrary index set. \texttt{DEF} $\{f_\alpha\}$ is equicontinuous \texttt{IF}
                 \[\forall\varepsilon>0,\exists\delta>0,\st x_1,x_2\in E, d(x_1,x_2)<\delta, \forall\alpha, |f_\alpha(x_1)-f_\alpha(x_2)|<\varepsilon\]
             \end{dfn}
@@ -1678,17 +1700,34 @@
                 Let $K$ be a compact metric space, $f_n$ are \hyperref[dfn:Cont]{continuous} functions. If $\{f_n\}$ is \hyperref[dfn:UniCont]{uniformally convergent}, then $\{f_n\}$ is \hyperref[dfn:EquiCont]{equicontinuous}.
             \end{thm}
             \begin{ppt}
-                {等度连续且逐点收敛则连续}
+                {等度连续且逐点收敛则极限连续}
                 Let $\{f_n\}$ be a function series defined over $E\subseteq X$. If $\{f_n\}$ is \hyperref[dfn:EquiCont]{equicontinuous} and \hyperref[dfn:Real.PointwiseConv]{pointwise convergent} to $f$ over $E$, then $f$ is \hyperref[dfn:Cont]{continuous}.
             \end{ppt}
             \begin{ppt}
                 {等度连续且逐点收敛则一致收敛}
-                Let $\{f_n\}$ be a function series defined over $E\subseteq X$. If $\{f_n\}$ is \hyperref[dfn:EquiCont]{equicontinuous} and \hyperref[dfn:Real.PointwiseConv]{pointwise convergent} to $f$ over $E$, then $f$ is \hyperref[dfn:Metric.UniConv]{uniformally convergent} to $f$.
+                Let $\{f_n\}$ be a function series defined over $E\subseteq X$. If $\{f_n\}$ is \hyperref[dfn:EquiCont]{equicontinuous} and \hyperref[dfn:Real.PointwiseConv]{pointwise convergent} to $f$ over $E$, then $f_n$ is \hyperref[dfn:Metric.UniConv]{uniformally convergent} to $f$.
             \end{ppt}
             \begin{thm}
-                [Arzela]
+                [Arzela-Ascoli]
                 {Arzela-Ascoli定理}
                 Let $K$ be compact, $f_n$ are \hyperref[dfn:Cont]{continuous} functions. If $\{f_n\}$ is \hyperref[dfn:PointwiseBounded]{pointwise bounded} and \hyperref[dfn:EquiCont]{equicontinuous} over $K$, then $\{f_n\}$ is \hyperref[dfn:UniBounded]{uniformally bounded} over $K$ and $\{f_n\}$ has a \hyperref[dfn:UniCont]{uniformally convergent} subsequence.
+            \end{thm}
+
+            \begin{rmk}
+                [Dedicatia]
+                \hyperref[thm:Arzela-Ascoli]{Arzela-Ascoli定理}沟通了等度连续与函数空间上的序列紧性之间的关系。从拓扑空间的角度看，如果一个函数序列在紧集 $X$ 上是一致有界且等度连续的，那么该函数列作为拓扑空间必定是序列紧的。
+            \end{rmk}
+
+        \subsection{多项式的一致逼近}
+
+            \begin{thm}
+                [WeierstrassApprox]
+                {Weierstrass逼近定理}
+                [Weierstrass Apporximation Theorem]
+                [Dedicatia]
+                Let a \hyperref[dfn:Cont]{continuous} function $f:[a,b]\to\R$. Then there is a polynomial sequence $\{P_n\}$ such that
+                \[P_n\rightrightarrows f\]
+                over $[a,b]$.
             \end{thm}
 
 
