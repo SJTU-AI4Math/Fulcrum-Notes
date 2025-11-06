@@ -13,6 +13,7 @@
 \usepackage{F4Analysis}
 
 \DeclareMathOperator{\st}{\text{s.t. }}
+\newcommand{\bysorry}{\fcolorbox{black}{gray!20!white}{\texttt{\textcolor{black}{:= }\textcolor{blue}{by }\textcolor{red}{\textbf{sorry}}}}\;\;\,\texttt{\textcolor{gray}{{\footnotesize declaration uses 'sorry'.}}}}
 
 % margin
 \usepackage{geometry}
@@ -1332,6 +1333,19 @@
         \subsection{一致连续}
 
             \begin{dfn}
+                [Cont]
+                {度量空间上的连续}
+                []
+                [Dedicatia]
+                Let $(X,d_X),(Y,d_Y)$ be \度量空间, $E\subseteq X, x_0\in E$, $f:E\to Y$. \texttt{DEF} $f$ is continuous at $x_0$ \texttt{IF}
+                \[\forall\varepsilon>0,\exists\delta>0,\st x\in E, d_X(x,x_0)<\delta, d_Y(f(x),f(x_0))<\varepsilon\]
+            \end{dfn}
+
+            \begin{dfn}
+                [UniCont]
+                {一致连续}
+                []
+                [猫猫]
                 设 \((X,Y)\) 是\度量空间, \(f:X\to Y\), 定义 \(f\) \textbf{一致连续}, 当且仅当: 
                 \[\forall\varepsilon:\R^+, \exists\delta:\R^+, \forall x_1,x_2:X, d_X(x_1,x_2)<\delta\implies d_Y(f(x_1),f(x_2))<\varepsilon\]
             \end{dfn}
@@ -1340,10 +1354,34 @@
                 []
                 {紧集上连续蕴含一致连续}
                 []
-                [猫猫]
+                []
             \end{ppt}
 
         \subsection{压缩映射与不动点}
+
+            \begin{dfn}
+                [Fixed]
+                {不动点}
+                [Fixed Point]
+                [Dedicatia]
+                Let $X$ be a \度量空间, $f:X\to X$, \texttt{DEF} the fixed point of $f$ \texttt{AS} $x_0\in X\st f(x_0)=x_0$.
+            \end{dfn}
+
+            \begin{thm}
+                [Real-Brouwer]
+                {一维Brouwer不动点定理}
+                []
+                [Dedicatia]
+                Let $f:[a,b]\to [a,b]$ and $f$ is continuous, $f\neq C$, then $f$ has a \hyperref[dfn:Fixed]{fixed point} $x_0\in[a,b]$.
+            \end{thm}
+
+            \begin{thm}
+                [Euclid-Brouwer]
+                {多维Brouwer不动点定理}
+                []
+                [Dedicatia]
+                Let $f:B_n(r)\to B_n(r)$, $B_n(r):=\{\bm{x}\in\R^n \left\lVert \bm{x}\right\rVert\leq r,r>0\}$ and $f$ is continuous, $f\neq C$, then $f$ has a \hyperref[dfn:Fixed]{fixed point} $x_0\in B_n(r)$.
+            \end{thm}
             
             \begin{dfn}
                 [Contraction-Mapping]
@@ -1416,6 +1454,282 @@
                 []
                 []
             \end{thm}
+
+    \section{一致收敛}
+
+        \subsection{实数空间上的逐点收敛与一致收敛}
+
+            \begin{dfn}
+                [Real.PointwiseConv]
+                {函数列的逐点收敛/点态收敛}
+                []
+                [Dedicatia]
+                Let $E\subseteq\R$, $\{f_n\}$ is a function sequence. \texttt{DEF} $\{f_n\}$ is pointwise convergent to $f$ \texttt{IF}
+                \[\forall\,x\in E, \lim_{n\to\infty }f_n(x)=f(x)\]
+                or
+                \[\forall\,x\in E,\forall\varepsilon_x>0,\exists\,N\in\N,\st n>N, |f_n(x)-f(x)|<\varepsilon_x.\]
+                \texttt{DEF} limit function \texttt{AS} $f$.
+            \end{dfn}
+            
+            \begin{xmp}
+                []
+                {逐点收敛不保持连续性}
+                []
+                [Dedicatia]
+                函数列
+                \[f_n(x)=x^n,\quad x\in [0,1]\]
+                中每一个函数都是连续函数。但极限函数
+                \[f(x)=\lim_{n\to\infty}f_n(x)=\begin{cases}
+                    &0,\quad x\neq 1\\
+                    &1,\quad x=1
+                \end{cases}\]
+                不连续。
+            \end{xmp}
+
+            \begin{xmp}
+                {逐点收敛不保持Riemann可积性}
+            \end{xmp}
+
+            \begin{xmp}
+                {逐点收敛不保持可微性}
+            \end{xmp}
+
+            \begin{dfn}
+                [Real.UniConv]
+                {函数列的一致收敛}
+                []
+                [Dedicatia]
+                Let $E\subseteq\R$, $\{f_n\}$ is a function sequence. \texttt{DEF} $f$ is uniformally convergent to $f$ \texttt{IF}
+                \[\forall\varepsilon>0,\exists\,N\in\N,\st n>N, \forall\,x\in E, |f_n(x)-f(x)|<\varepsilon\]
+                Denoted as $f_n\rightrightarrows f$.
+            \end{dfn}
+
+            \begin{dfn}
+                [Real2.PointwiseConv]
+                {二元函数的逐点收敛/点态收敛}
+                []
+                [Dedicatia]
+                Let $D\times E\subseteq\R^2$, $\varphi(x,y):D\times E\to\R$. \texttt{DEF} $\varphi(x,y)$ is pointwise convergent to $f(x)$ about $x$ over $D$ when $y\to y_0$ \texttt{IF}
+                \[\forall\,x\in D, \lim_{y\to y_0}\varphi(x,y)=f(x)\]
+            \end{dfn}
+            \begin{dfn}
+                [Real2.UniConv]
+                {二元函数的一致收敛}
+                []
+                [Dedicatia]
+                Let $D\times E\subseteq\R^2$, $\varphi(x,y):D\times E\to\R$. \texttt{DEF} $\varphi(x,y)$ is uniformally convergent to $f(x)$ about $x$ over $D$ when $y\to y_0$ \texttt{IF}
+                \[\forall\varepsilon>0, \exists\delta>0, \st 0<|y-y_0|<\delta, \forall\,x\in E, |\varphi(x,y)-f(x)|<\varepsilon \]
+            \end{dfn}
+            \begin{thm}
+                [Real2.UniConvIffSupremum]
+                {二元函数一致收敛的确界判别法}
+                []
+                [Dedicatia]
+                $\varphi(x,y)$ is \hyperref[dfn:Real2.UniConv]{uniformally convergent} to $f(x)$ iff
+                \[\lim_{y\to y_0}\pqty{\sup_{x\in I}|\varphi(x,y)-f(x)| }=0\]
+            \end{thm}
+            \begin{thm}
+                [Real2.UniConvIfDominant]
+                {二元函数一致收敛的极大判别法}
+                []
+                [Dedicatia]
+                $\varphi(x,y)$ is \hyperref[dfn:Real2.UniConv]{uniformally convergent} to $f(x)$ if there is a $g(y)$ in the neighborhood $\overset{\circ}{U}(y)$ such that
+                \[\forall\,x\in D, |\varphi(x,y)-f(x)|\leq g(y),\quad\lim_{y\to y_0}g(y)=0 \]
+            \end{thm}
+            \begin{thm}
+                [Real2.UniConvIffSubseqUniConv]
+                {二元函数一致收敛等价于函数列一致收敛}
+                []
+                [Dedicatia]
+                $\varphi(x,y)$ is \hyperref[dfn:Real2.UniConv]{uniformally convergent} to $f(x)$ iff $\forall\{y_n\}\subset E\setminus\{y_0\}, \lim\limits_{n\to\infty}y_n\to y_0$, the function sequence $\{\varphi(x,y_n)\}$ is \hyperref[dfn:Real.UniConv]{uniformally convergent} to $f(x)$.
+            \end{thm}
+            \begin{thm}
+                [Real2.UniConvCauchy]
+                {二元函数一致收敛的Cauchy准则}
+                []
+                [Dedicatia]
+                $\varphi(x,y)$ \hyperref[dfn:Real2.UniConv]{uniformally converges} about $x$ over $I$ when $y\to y_0$ iff
+                \[\forall\varepsilon>0,\exists\delta>0, \st\forall y_1,y_2\in E, 0<|y_i-y_0|<\delta,\,i=1,2, \forall\,x\in I,|f(x,y_1)-f(x,y_2)|<\varepsilon. \]
+            \end{thm}
+
+        \subsection{一致收敛的性质}
+
+            \begin{ppt}
+                [Real.UniConvOfCommLimit]
+                {函数列一致收敛则极限可交换}
+                []
+                [Dedicatia]
+                Let $E\subseteq \R$, $\{f_n\}$ \hyperref[dfn:Real.UniConv]{uniformally converges} to $f$ over $E$, $x_0\in E'$, $\lim\limits_{x\to x_0}f_n(x)=A_n$, then $A_n$ \hyperref[dfn:Sequence-Limit]{converges} and
+                \[\lim_{x\to x_0}f(x)=\lim_{n\to\infty}A_n\]
+                or
+                \[\lim_{x\to x_0}\lim_{n\to\infty}f_n(x)=\lim_{n\to\infty}\lim_{x\to x_0}f_n(x)\]
+            \end{ppt}
+            
+            \begin{ppt}
+                [Real.UniConvOfCont]
+                {函数列一致收敛保持连续性}
+                []
+                [Dedicatia]
+                If $f_n$ are all \hyperref[dfn:Cont]{continuous}, $f_n\rightrightarrows f$, then $f$ is also \hyperref[dfn:Cont]{continuous}.
+                \[f_n(x_0)=\lim_{x\to x_0}f_n(x), f_n\rightrightarrows f, \implies f(x_0)=\lim_{x\to x_0}f(x).\]
+            \end{ppt}
+
+            \begin{ppt}
+                [Real.UniConvOfRiemannInteg]
+                {函数列一致收敛保持Riemann可积性}
+                []
+                [Dedicatia]
+                If $f_n$ are Riemann integrable over $[a,b]$ and $f_n\rightrightarrows f$, then $f$ is also Riemann integrable over $[a,b]$.
+                \[f_n\rightrightarrows f\implies \int_a^b f(x)\dd{x}=\int_a^b\lim_{n\to\infty}f_n(x)\dd{x}=\lim_{n\to\infty}\int_a^b f_n(x)\dd{x}. \]
+            \end{ppt}
+
+            \begin{ppt}
+                {二元函数一致收敛则极限可交换}
+            \end{ppt}
+            \begin{ppt}
+                {二元函数一致收敛保持Riemann可积性}
+            \end{ppt}
+
+        \subsection{度量空间上的一致收敛}
+
+            \begin{dfn}
+                [Metric.PointwiseConv]
+                {函数列的逐点收敛/点态收敛}
+                []
+                [Dedicatia]
+                Let $(X,d)$ be a \度量空间, $E\subseteq X$, $f_n:E\to\R$, $\{f_n\}$ is a function sequence defined over $E$. \texttt{DEF} $\{f_n\}$ is pointwise convergent to $f$ \texttt{IF}
+                \[\forall\,x\in E, \lim_{n\to\infty }f_n(x)=f(x)\]
+                or
+                \[\forall\,x\in E,\forall\varepsilon_x>0,\exists\,N\in\N,\st n>N, |f_n(x)-f(x)|<\varepsilon_x.\]
+                \texttt{DEF} limit function \texttt{AS} $f$.
+            \end{dfn}
+            \begin{dfn}
+                [Metric.UniConv]
+                {函数列的一致收敛}
+                []
+                [Dedicatia]
+                Let $(X,d)$ be a \度量空间, $E\subseteq X$, $f_n:E\to\R$, $\{f_n\}$ is a function sequence defined over $E$. \texttt{DEF} $f$ is uniformally convergent to $f$ over $E$ \texttt{IF}
+                \[\forall\varepsilon>0,\exists\,N\in\N,\st n>N, \forall\,x\in E, |f_n(x)-f(x)|<\varepsilon\]
+                Denoted as $f_n\rightrightarrows f$.
+            \end{dfn}
+            \begin{ppt}
+                [Real.UniConvOfCommLimit]
+                {函数列一致收敛则极限可交换}
+                []
+                [Dedicatia]
+                Let $(X,d)$ be a metric space, $E\subseteq X$, $f_n:E\to\R$, $\{f_n\}$ is a function sequence defined over $E$. If $\{f_n\}$ \hyperref[dfn:Real.UniConv]{uniformally converges} to $f$ over $E$, $x_0\in E'$, $\lim\limits_{x\to x_0}f_n(x)=A_n$, then $A_n$ \hyperref[dfn:Sequence-Limit]{converges} and
+                \[\lim_{x\to x_0}f(x)=\lim_{n\to\infty}A_n\]
+                or
+                \[\lim_{x\to x_0}\lim_{n\to\infty}f_n(x)=\lim_{n\to\infty}\lim_{x\to x_0}f_n(x)\]
+            \end{ppt}
+            \begin{ppt}
+                [Metric.UniConvOfCont]
+                {一致收敛保持连续性}
+                []
+                [Dedicatia]
+                Let $(X,d)$ be a metric space, $E\subseteq X$, $f_n:E\to\R$, $\{f_n\}$ is a function sequence defined over $E$. If $f\rightrightarrows f$ over $E$, and $f_n$ are all \hyperref[dfn:Cont]{continuous} on $E$, then $f$ is also \hyperref[dfn:Cont]{continuous} on $E$.
+            \end{ppt}
+
+            \begin{thm}
+                []
+                {单调逐点收敛保连续则一致收敛}
+                []
+                [Dedicatia]
+                Let $(K,d)$ is compact metric space. $\{f_n\}$ is a function series over $K$. If: $f_n$ \hyperref[dfn:Metric.PointwiseConv]{converges pointwise} to $f$, $f_n$ and $f$ are all \hyperref[dfn:Cont]{continuous}, $\forall\,x\in K$, $\{f_n(x)\}$ is monotone, then $f_n\rightrightarrows f$ over $K$.
+            \end{thm}
+
+            \begin{thm}
+                {有界连续函数在一致收敛意义下完备}
+                $(B(X),d_{\infty})$ is a complete metric space.
+            \end{thm}
+
+        \subsection{等度连续与序列紧致性}
+
+            \begin{thm}
+                [Metric.Schauder]
+                {Schauder不动点定理}
+                []
+                [Dedicatia]
+                设 $X$ 是一个度量空间的闭凸子集, $f:X\to X$ 是连续映射, $f(X)$ 是序列紧的, 那么 $f$ 在 $X$ 上至少有一个\hyperref[dfn:Fixed]{不动点}.
+            \end{thm}
+
+            \begin{dfn}
+                [PointwiseBounded]
+                {逐点有界}
+                []
+                [Dedicatia]
+                Let $\{f_n\}$ be a function series defined over $X$. \texttt{DEF} $\{f_n\}$ is pointwise bounded \texttt{IF}
+                \[\exists\,\phi(x)<+\infty, \st |f_n(x)|\leq\phi(x)\]
+            \end{dfn}
+
+            \begin{dfn}
+                [UniBounded]
+                {一致有界}
+                Let $\{f_n\}$ be a function series defined over $X$. \texttt{DEF} $\{f_n\}$ is uniformally bounded \texttt{IF}
+                \[\exists\,M<+\infty, \st |f_n(x)|\leq M\]
+            \end{dfn}
+
+            \begin{thm}
+                []
+                {可数集上逐点有界函数列存在逐点收敛的子函数列}
+                []
+                [Dedicatia]
+                设 $\{f_n\}$ 是定义在可数集 $E:=\{x_1,x_2,\cdots,x_n,\cdots\}$ 上的\hyperref[dfn:PointwiseBounded]{逐点有界}的函数列, 那么它存在\hyperref[dfn:Metric.PointwiseConv]{逐点收敛}的子列. 
+            \end{thm}
+
+            \begin{cxmp}
+                []
+                {函数列一致有界不一定逐点收敛}
+                []
+                [Dedicatia]
+                考虑函数列 
+                \[f_n(x)=\sin nx,\quad (x\in[0,2\pi], n\in\N)\]
+                显然这是\hyperref[dfn:UniBounded]{一致有界的}. 但是它不存在\hyperref[dfn:Metric.PointwiseConv]{逐点收敛}的子列.
+            \end{cxmp}
+
+            \begin{dfn}
+                [EquiCont]
+                {等度连续}
+                []
+                [Dedicatia]
+                Let $\{f_\alpha\}$ be a function series defined over $X$. $\alpha$ is arbitrary index set. \texttt{DEF} $\{f_\alpha\}$ is equicontinuous \texttt{IF}
+                \[\forall\varepsilon>0,\exists\delta>0,\st x_1,x_2\in E, d(x_1,x_2)<\delta, \forall\alpha, |f_\alpha(x_1)-f_\alpha(x_2)|<\varepsilon\]
+            \end{dfn}
+            \begin{thm}
+                {紧度量空间上连续且一致收敛则等度连续}
+                Let $K$ be a compact metric space, $f_n$ are \hyperref[dfn:Cont]{continuous} functions. If $\{f_n\}$ is \hyperref[dfn:UniCont]{uniformally convergent}, then $\{f_n\}$ is \hyperref[dfn:EquiCont]{equicontinuous}.
+            \end{thm}
+            \begin{ppt}
+                {等度连续且逐点收敛则极限连续}
+                Let $\{f_n\}$ be a function series defined over $E\subseteq X$. If $\{f_n\}$ is \hyperref[dfn:EquiCont]{equicontinuous} and \hyperref[dfn:Real.PointwiseConv]{pointwise convergent} to $f$ over $E$, then $f$ is \hyperref[dfn:Cont]{continuous}.
+            \end{ppt}
+            \begin{ppt}
+                {等度连续且逐点收敛则一致收敛}
+                Let $\{f_n\}$ be a function series defined over $E\subseteq X$. If $\{f_n\}$ is \hyperref[dfn:EquiCont]{equicontinuous} and \hyperref[dfn:Real.PointwiseConv]{pointwise convergent} to $f$ over $E$, then $f_n$ is \hyperref[dfn:Metric.UniConv]{uniformally convergent} to $f$.
+            \end{ppt}
+            \begin{thm}
+                [Arzela-Ascoli]
+                {Arzela-Ascoli定理}
+                Let $K$ be compact, $f_n$ are \hyperref[dfn:Cont]{continuous} functions. If $\{f_n\}$ is \hyperref[dfn:PointwiseBounded]{pointwise bounded} and \hyperref[dfn:EquiCont]{equicontinuous} over $K$, then $\{f_n\}$ is \hyperref[dfn:UniBounded]{uniformally bounded} over $K$ and $\{f_n\}$ has a \hyperref[dfn:UniCont]{uniformally convergent} subsequence.
+            \end{thm}
+
+            \begin{rmk}
+                [Dedicatia]
+                \hyperref[thm:Arzela-Ascoli]{Arzela-Ascoli定理}沟通了等度连续与函数空间上的序列紧性之间的关系。从拓扑空间的角度看，如果一个函数序列在紧集 $X$ 上是一致有界且等度连续的，那么该函数列作为拓扑空间必定是序列紧的。
+            \end{rmk}
+
+        \subsection{多项式的一致逼近}
+
+            \begin{thm}
+                [WeierstrassApprox]
+                {Weierstrass逼近定理}
+                [Weierstrass Apporximation Theorem]
+                [Dedicatia]
+                Let a \hyperref[dfn:Cont]{continuous} function $f:[a,b]\to\R$. Then there is a polynomial sequence $\{P_n\}$ such that
+                \[P_n\rightrightarrows f\]
+                over $[a,b]$.
+            \end{thm}
+
 
     \section{}
         

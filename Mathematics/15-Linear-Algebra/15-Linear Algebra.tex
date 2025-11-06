@@ -44,27 +44,29 @@
 			[Number-Field]
 			{\数域}
 			[Number Field]
-			[]
-			一个\数域 \(\K\) 称为是一个\textbf{\数域(Number Field)}, 若在 \(\K\) 上定义了两种 \(\K^2\to
-            \K\) 的二元运算加法" \(+\) "和乘法" \(\cdot\) ", 满足: 
+			[王绍轩]
+			设 \(K\) 是集合, 加法" \(+\) ": \(\K\to\K\to\K\), 乘法" \(\cdot\) ": \(\K\to\K\to\K\) , 
+			定义 \(K\) 是\textbf{\数域}, 当且仅当:
+			\begin{enumerate}
+			% 以下内容未改,数域是否应在抽象代数中定义?
+				\item \(\K\) 对加法运算封闭: 
+				\[\forall a,b\in \K, a+b\in \K\]
 			
-			(1) \(\K\) 对加法运算封闭: 
-			\[\forall a,b\in \K, a+b\in \K\]
+				\item 有一种加法运算的逆运算" \(-\) ", 且 \(\K\) 对该减法运算封闭: 
+				\[\forall a,b\in \K, \exists (b-a)\in \K: a+(b-a)=b\]
 			
-			(2)有一种加法运算的逆运算" \(-\) ", 且 \(\K\) 对该减法运算封闭: 
-			\[\forall a,b\in \K, \exists (b-a)\in \K: a+(b-a)=b\]
+				\item \(\K\) 对乘法运算封闭: 
+				\[\forall a,b\in \K, a\cdot b\in \K\]
 			
-			(3) \(\K\) 对乘法运算封闭: 
-			\[\forall a,b\in \K, a\cdot b\in \K\]
-			
-			(4)有一种乘法运算的逆运算" \(/\) ", 且 \(\K\) 对除数不为零的除法运算封闭: 
-			\[\forall a,b\in \K(a\neq 0), \exists (b/a)\in \K: a\cdot(b/a)=b\]
-		\end{dfn}	
+				\item 有一种乘法运算的逆运算" \(/\) ", 且 \(\K\) 对除数不为零的除法运算封闭: 
+				\[\forall a,b\in \K(a\neq 0), \exists (b/a)\in \K: a\cdot(b/a)=b\]
+			\end{enumerate}
+		\end{dfn}
 			
 		\begin{thm}
-            []
+            [The-Smallest-Infinite-Number-Field]
 			{最小的无限\数域}
-        	[]
+        	[The Smallest Infinite Number Field]
 			[]
 			全体无限\数域 的交集为有理\数域 \(\mathbb{Q}\). \textit{(有理\数域 是“最小”的无限\数域)}
 		\end{thm}
@@ -96,52 +98,69 @@
 			[Linear-Space]
 			{\线性空间}
 			[Linear Space]
-			[]
-			集合 \(V\) 称为是一个\textbf{\数域 \(\K\) 上的\线性空间(Linear Space on Number Field  \(\K\))}, 简称\textbf{\线性空间(Linear Space)}, V中的元素称为\textbf{向量(vector)}, 若在 \(V\) 上定义了两种运算: 加法"+":  \(V\times V\to V\)  和数乘:  \(\K\times V \to V\), 满足:
+			[王绍轩]
+			设 \(V\) 是非空集合, \(\K\) 是\数域, 加法" \(+\) ": \(V \times V \to V\), 数乘" \(\cdot\) ": \(\K \to V \to V\) ,
+			定义 \(V\) 是 \(\K\) 上的\textbf{\线性空间}, 当且仅当：
+			\begin{enumerate}
+				\item 加法交换律成立: 
+				\[\forall \alpha,\beta \in V, \alpha+\beta=\beta+\alpha\]
 
-			(1)加法交换律成立: 
-			\[\forall \alpha,\beta \in V, \alpha+\beta=\beta+\alpha\]
+				\item 加法结合律成立: 
+				\[\forall \alpha,\beta, \gamma \in V, \alpha+(\beta+\gamma)=(\alpha+\beta)+\gamma\] 
 
-			(2)加法结合律成立: 
-			\[\forall \alpha,\beta, \gamma \in V, \alpha+(\beta+\gamma)=(\alpha+\beta)+\gamma\]
-			
-			* 上述等式通常记为 \(\alpha+\beta+\gamma\). 
+				\item 加法恒等元存在: 
+				\[\exists \mathbf{0}\in V, \forall \alpha \in V, \alpha +\mathbf{0}=\alpha\]
+				
+				\item 加法逆元存在:
+				\[\forall \alpha \in V, \exists \beta \in V: \alpha+\beta=\mathbf{0}\]
+				
+				\item 数乘结合律成立: 
+				\[\forall k,l\in \K, \forall \alpha \in V, k(l\alpha) =(kl)\alpha\]
+				
+				\item 数乘分配律对 \(V\) 中的元素成立: 
+				\[\forall k\in \K, \forall \alpha, \beta \in V, k(\alpha +\beta)=k\alpha+k\beta\]
 
-			(3)加法恒等元存在: 
-			\[\exists e\in V, \forall \alpha \in V, \alpha +e=\alpha\]
-			
-			* 加法恒等元通常记为 \(\mathbf{0}\), 称为\textbf{零向量},  \(\mathbf{0}\neq 0\),  \(\mathbf{0}\) 是向量,  \(0\) 是数. 
-
-			(4)加法逆元存在: 
-			\[\forall \alpha \in V, \exists \beta \in V: \alpha+\beta=\mathbf{0}\]
-			
-			* 加法逆元通常称为 \(\alpha\) 的\textbf{负向量}, 记为 \(-\alpha\). 
-
-			(5)数乘结合律成立: 
-			\[\forall k,l\in \K, \forall \alpha \in V, k(l\alpha) =(kl)\alpha\]
-			
-			* 上述等式通常记为 \(kl\alpha\). 
-
-			(6)数乘分配律对 \(V\) 中的元素成立: 
-			\[\forall k\in \K, \forall \alpha, \beta \in V, k(\alpha +\beta)=k\alpha+k\beta\]
-
-			(7)数乘分配律对\数域 \(\K\) 中的数成立: 
-			\[\forall k,l\in \K, \forall \alpha \in V, (k+l)\alpha =k\alpha +l\alpha\]
-			
-			(8)数乘恒等元存在: 
-			\[\exists 1\in \K: \forall \alpha \in V, 1\alpha=\alpha\]
+				\item 数乘分配律对\数域 \(\K\) 中的数成立: 
+				\[\forall k,l\in \K, \forall \alpha \in V, (k+l)\alpha =k\alpha +l\alpha\]
+				
+				\item 数乘恒等元存在: 
+				\[\exists 1\in \K: \forall \alpha \in V, 1\alpha=\alpha\]
+			\end{enumerate}
 		\end{dfn}
+
+		\begin{rmk}
+            [王绍轩]
+			特别地,若 \(V\) 中的元素为向量,则称 \(V\) 是 \(\K\) 上的\textbf{向量空间}.
+        \end{rmk}
 		
+		\begin{rmk}
+		[王绍轩]
+		\(\forall \alpha \in V \), \(\alpha\) 的加法逆元记为 \(-\alpha\). 
+		\end{rmk}
+
+		\begin{rmk}
+		[王绍轩]
+		因为加法结合律存在,  \(\forall \alpha, \beta, \gamma \in V\),
+
+	 	\(\alpha+(\beta+\gamma)\) 和 \((\alpha+\beta)+\gamma\) 可以统一记为 \(\alpha+\beta+\gamma\).
+		\end{rmk}
+
+		\begin{rmk}
+		[王绍轩]
+		因为数乘结合律存在, \(\forall k,l\in \K, \forall \alpha \in V\),
+		
+		\(k(l\alpha)\) 和 \((kl)\alpha\) 可以统一记为 \(kl\alpha\).
+		\end{rmk}
+
 		\begin{ppt}
 			[]
 			{零向量的唯一性}
 			[]
-			[]
-			\线性空间 \(V\) 中的零向量 \(\mathbf{0}\) 唯一
+			[王绍轩]
+			设 \(V\) 为\线性空间,则: \(V\) 中的零向量 \(\mathbf{0}\) 唯一
 		\end{ppt}
         \begin{prf}设 \(\exists \mathbf{0}, \mathbf{0}' \in V\), 且它们都是\线性空间 \(V\) 零向量, 则: 
-			\[\mathbf{0}=\mathbf{0}+\mathbf{0}'=\mathbf{0}'\]
-			
+			\[\mathbf{0}=\mathbf{0}+\mathbf{0}'=\mathbf{0}'\]		
 			即零向量唯一.  \(\square\)  
         \end{prf}
 		
@@ -149,13 +168,11 @@
 			[]
 			{负向量的唯一性}
 			[]
-			[]
-			 \(\forall \alpha \in V\),  \(\alpha\) 的负向量 \(-\alpha\) 唯一
-		
+			[王绍轩]
+			设 \(V\) 为\线性空间, \(\alpha \in V\), 则: \(\alpha\) 的负向量 \(-\alpha\) 唯一	
 		\end{ppt}
         \begin{prf}设 \(\exists -\alpha, (-\alpha)' \in V: \alpha+ (-\alpha)= \alpha + (-\alpha)'=\mathbf{0}\), 则: 
 			\[-\alpha= -\alpha + \alpha + (-\alpha)'=(-\alpha)'\]
-			
 			即 \(\alpha\) 的负向量唯一.  \(\square\)  
         \end{prf}
 		
@@ -163,7 +180,8 @@
 			[]
 			{加法消去律成立}
 			[]
-			[]
+			[王绍轩]
+			设 \(V\) 为\线性空间, 则: 
 			\[\forall \alpha, \beta, \gamma \in V, \alpha +\gamma = \beta +\gamma \Longrightarrow \alpha =\beta\]
 		\end{ppt}
         \begin{prf}
@@ -176,7 +194,8 @@
 			[]
 			{0乘以任意向量等于零向量}
 			[]
-			[]
+			[王绍轩]
+			设 \(V\) 为\线性空间, 则: 
 			\[\forall \alpha \in V, 0\alpha =\mathbf{0}\]
 		\end{ppt}
         \begin{prf}
@@ -189,7 +208,8 @@
 			[]
 			{任意数乘以零向量等于零向量}
 			[]
-			[]
+			[王绍轩]
+			设 \(\K\) 是\数域, \(V\) 是 \(\K\) 上的\线性空间, \(\mathbf{0}\) 是 \(V\)中的零向量, 则: 
 			\[\forall k \in \K, k\mathbf{0}=\mathbf{0}\]
 		\end{ppt}
         \begin{prf}
@@ -200,7 +220,8 @@
 			[]
 			{-1乘以任意向量等于负向量}
 			[]
-			[]
+			[王绍轩]
+			设 \(V\) 为\线性空间, 则: 
 			\[\forall \alpha \in V, (-1)\alpha=-\alpha\]
 		\end{ppt}
         \begin{prf}
@@ -211,10 +232,10 @@
 			[]
 			{一个数与一个向量相乘为零向量, 当且仅当数为零或向量为零向量}
 			[]
-			[]
+			[王绍轩]
+			设 \(K\) 是\数域, \(V\) 是 \(K\)上的\线性空间, \(\mathbf{0}\) 是 \(V\)中的零向量, \(k \in K, \alpha \in V\),则: 
 			\[k\alpha=\mathbf{0}\Longrightarrow k=0\mbox{或}\alpha=\mathbf{0}\]
-		\end{ppt}
-  
+		\end{ppt}  
         \begin{prf}
 		    若 \(k=0\), 则结论已经成立; 
 			设 \(k\neq 0\), 则 \(\exists k^{-1}\in \K: kk^{-1}=1\), 则: 
@@ -231,31 +252,33 @@
 			[Linear-Combination]
 			{\线性组合}
 			[Linear Combination]
-			[]
-			设 \(V\) 是\数域 \(\K\) 上的\线性空间,  \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V\). 
-			
-			 \(\beta\) 称为是 \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\) 的\textbf{\线性组合(Linear Combination)}, 或称 \(\beta\) 可由 \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\) \textbf{线性表示(Linearly Expressed)}, 若: 
-			
-			\[\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: \beta = \sum_{i=1}^{n}k_{i}\alpha_{i}\]
-			
-			称向量组 \(A\) 可由向量组 \(B\) 线性表示, 若 \(\forall\alpha\in A, \alpha\) 能被 \(B\) 线性表示. 
-		
+			[王绍轩]
+			设 \(K\) 是\数域, \(V\) 是 \(\K\) 上的\线性空间,  \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V\), 
+			定义 \(\beta\) 是 \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\) 的\textbf{\线性组合}, 当且仅当: 		
+			\[\exists k_{1}, k_{2}, \cdots, k_{n}\in \K, \beta = \sum_{i=1}^{n}k_{i}\alpha_{i}\]
 		\end{dfn}
-		
+
+		\begin{rmk}
+            [王绍轩]
+            设 \(K\) 是\数域, \(V\) 是 \(\K\) 上的\线性空间,  \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V\).
+
+			\(\beta\) 是 \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\) 的\textbf{\线性组合}, 也称为 \(\beta\) 可被 \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\) \textbf{线性表示(Linearly Expressed)}. 
+        \end{rmk}
+	
+
 		\begin{dfn}
 			[Linearly-Related]
 			{\线性相关}
 			[Linearly Related]
-			[]
-			设 \(V\) 是\数域 \(\K\) 上的\线性空间,  \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\in V\). 
+			[王绍轩]
+			设 \(\K\) 是\数域,  \(V\) 是 \(\K\) 上的\线性空间,  \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\in V\),
+			定义向量组 \(\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) 是\textbf{\线性相关}的, 当且仅当: 
 		
-			向量组 \(\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) 称为是\textbf{\线性相关(Linearly Related)}的, 若: 
-		
-			\[\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: k_{1}, k_{2}, \cdots, k_{n}\mbox{不都}=0: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}\]
+			\[\exists k_{1}, k_{2}, \cdots, k_{n}\in \K, \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}, \exists j \in \{1,2,...,n\},k_j \ne 0\]
 			
-			向量组 \(\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) 称为是\textbf{线性无关(Linearly Independent)}的, 若: 
+			定义向量组 \(\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) 是\textbf{线性无关(Linearly Independent)}的, 当且仅当: 
 		
-			\[\exists k_{1}, k_{2}, \cdots, k_{n}\in \K: \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}\Longleftrightarrow k_{1}=k_{2}=\cdots=k_{n}=0\]
+			\[\forall k_{1}, k_{2}, \cdots, k_{n}\in \K, \sum_{i=1}^{n}k_{i}\alpha_{i}=\mathbf{0}\Longleftrightarrow k_{1}=k_{2}=\cdots=k_{n}=0\]
 			
 		\end{dfn}
 		
@@ -263,10 +286,12 @@
 			[]
 			{\线性相关 和线性无关的等价定义}
 			[]
-			[]
-			向量组 \(A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) \线性相关  \(\Longleftrightarrow \exists \alpha_{i} \in A:\alpha_{i}\) 可被 \(A-\{\alpha_{i}\}\) 线性表示; 
+			[王绍轩]
+			设 \(\K\) 是\数域,  \(V\) 是 \(\K\) 上的\线性空间, \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\in V\). 
+
+			向量组 \(A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) \线性相关  \(\Longleftrightarrow \exists \alpha_{i} \in A, \alpha_{i}\) 可被 \(A-\{\alpha_{i}\}\) 线性表示; 
 			
-			向量组 \(A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) 线性无关  \(\Longleftrightarrow \forall \alpha_{i} \in A:\alpha_{i}\) 不可被 \(A-\{\alpha_{i}\}\) 线性表示. 
+			向量组 \(A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) 线性无关  \(\Longleftrightarrow \forall \alpha_{i} \in A, \alpha_{i}\) 不可被 \(A-\{\alpha_{i}\}\) 线性表示. 
 		
 		\end{ppt}
 		\begin{prf}
@@ -299,7 +324,9 @@
 			[]
 			{\线性相关 和线性无关的另一等价定义}
 			[]
-			[]
+			[王绍轩]
+			设 \(\K\) 是\数域,  \(V\) 是 \(\K\) 上的\线性空间, \(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}, \beta \in V\). 
+
 			向量组 \(A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) 线性无关 \(\Longleftrightarrow \forall \beta: \beta\) 可被 \(A\) 线性表示, 这种表示唯一; 
 			
 			向量组 \(A=\{\alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}\) \线性相关 \(\Longleftrightarrow \forall \beta: \beta\) 可被 \(A\) 线性表示, 这种表示不唯一. 
@@ -3505,7 +3532,7 @@
 			{多项式}
 			[]
 			[]
-			设 \(\K\) 是一个数域,  \(X\) 是一个集合,  \(x\in X\) 称为未定元, 称函数 \(f:X\to X\) 为数域 \(\K\) 上一个关于未定元 \(x\) 的一元 \(n\) \textbf{多项式(Polynomial)}, 若: 
+			设 \(\K\) 是一个\数域,  \(X\) 是一个集合,  \(x\in X\) 称为未定元, 称函数 \(f:X\to X\) 为数域 \(\K\) 上一个关于未定元 \(x\) 的一元 \(n\) \textbf{多项式(Polynomial)}, 若: 
 			\[f(x)=\sum_{i=0}^n a_i x^i\quad(\forall i\in\{1,2,\cdots,n\}, a_i\in\K)\]
 
 			其中: 
@@ -3516,7 +3543,7 @@
 
 			若 \(f(x)=a\), 称  \(f(x)\)  为\textbf{常数多项式}; 若 \(a\neq 0\), 称 \(f(x)\) 的\textbf{次数}为 \(0\), 记为 \(\deg f(x)=0\) ; 若 \(a=0\), 称 \(f(x)\) 为\textbf{零多项式}, 规定其次数为 \(-\infty\), 记为 \(\deg f(x)=-\infty\). 
 
-			数域 \(\K\) 上一元多项式的全体记为 \(\K[x]\). 
+			\数域 \(\K\) 上一元多项式的全体记为 \(\K[x]\). 
 		\end{dfn}
 		
 		\begin{dfn}
@@ -3545,7 +3572,7 @@
 			{一元多项式代数}
 			[]
 			[]
-			 \(\K[x]\) 是数域 \(\K\) 上的代数, 称为数域 \(K\) 上的\textbf{一元多项式代数}. 
+			 \(\K[x]\) 是\数域 \(\K\) 上的代数, 称为\数域 \(K\) 上的\textbf{一元多项式代数}. 
 
 			 \(\K[x]\) 是一个环, 称为 \(\K\) 上的\textbf{一元多项式环}. 
 		\end{ppt}
@@ -3890,7 +3917,7 @@
 			{单项式}
 			[]
 			[]
-			设 \(\K\) 是数域,  \(x_1,x_2,\cdots x_n\) 是 \(n\) 个无关的未定元, 称 \(a\pi_{i=1}^n x_i^{k_i}\) 为一个\textbf{单项式}
+			设 \(\K\) 是\数域,  \(x_1,x_2,\cdots x_n\) 是 \(n\) 个无关的未定元, 称 \(a\pi_{i=1}^n x_i^{k_i}\) 为一个\textbf{单项式}
 		\end{dfn}
 	
 	\subsection{对称多项式与Newton公式}
@@ -3900,7 +3927,7 @@
 			{对称多项式}
 			[]
 			[]
-			设 \(f(x_1,x_2,\cdots,x_n)\) 是数域 \(\K\) 上的 \(n\) 元多项式, 称其为数域 \(\K\) 上的 \(n\) 元\textbf{对称多项式}, 若: 
+			设 \(f(x_1,x_2,\cdots,x_n)\) 是\数域 \(\K\) 上的 \(n\) 元多项式, 称其为\数域 \(\K\) 上的 \(n\) 元\textbf{对称多项式}, 若: 
 			\[\forall i,j\in\{1,2,\cdots,n\}, f(x_1,\cdots,x_i,\cdots,x_j,\cdots x_n)=f(x_1,\cdots,x_j,\cdots,x_i,\cdots x_n)\]
 		\end{dfn}
 
@@ -3925,7 +3952,7 @@
 			{初等对称多项式}
 			[]
 			[]
-			以下数域 \(\K\) 上的对称多项式称为\textbf{初等对称多项式}: 
+			以下\数域 \(\K\) 上的对称多项式称为\textbf{初等对称多项式}: 
 			\[\sigma_k:=\underset{|I|=k}{\sum_{I\subseteq\{1,\cdots,n\}}}\prod_{i\in I} x_i(k=0,1,\cdots,n)\]
 			
 			即
@@ -4100,7 +4127,7 @@
 			{Schur三角化定理}
 			[]
 			[]
-			若数域 \(\K\) 上矩阵的全部特征值均在 \(\K\) 中, 则其相似于某个上(下) 三角阵. 
+			若\数域 \(\K\) 上矩阵的全部特征值均在 \(\K\) 中, 则其相似于某个上(下) 三角阵. 
 
 			特别地, 当 \(\K=\C\) 时, 任何复方阵均相似于某个上(下) 三角阵. 
 		\end{thm}
@@ -4224,7 +4251,7 @@
 			{子空间的和为\直和}
 			[]
 			[]
-			设 \(\varphi\) 是数域 \(\K\) 上 \(n\) 维线性空间 \(V\) 上的线性变换,  \(\lambda_1,\lambda_2,\cdots,\lambda_m\) 是其 \(m\) 个不同的特征值, 则: 
+			设 \(\varphi\) 是\数域 \(\K\) 上 \(n\) 维线性空间 \(V\) 上的线性变换,  \(\lambda_1,\lambda_2,\cdots,\lambda_m\) 是其 \(m\) 个不同的特征值, 则: 
 			\[V_1+V_2+\cdots+V_m=V_1\oplus V_2\oplus\cdots\oplus V_m\]
 		\end{thm}
 
@@ -4267,7 +4294,7 @@
 			{可对角化的特征子空间性质}
 			[]
 			[]
-			设 \(\varphi\) 是数域 \(\K\) 上 \(n\) 维线性空间 \(V\) 上的线性变换,  \(\lambda_1,\lambda_2,\cdots,\lambda_m\) 是其 \(m\) 个不同的特征值,  \(V_i\) 是关于特征值 \(\lambda_i\) 的特征子空间, 则: 
+			设 \(\varphi\) 是\数域 \(\K\) 上 \(n\) 维线性空间 \(V\) 上的线性变换,  \(\lambda_1,\lambda_2,\cdots,\lambda_m\) 是其 \(m\) 个不同的特征值,  \(V_i\) 是关于特征值 \(\lambda_i\) 的特征子空间, 则: 
 			\[\varphi\text{可对角化}\iff V=V_1\oplus V_2\oplus\cdots\oplus V_m\]
 		\end{ppt}
 
@@ -4327,7 +4354,7 @@
 			{代数重数(Algebraic Multiplicity)与几何重数(Geometric Multiplicity)}
 			[]
 			[]
-			设 \(\varphi\) 是 \(n\) 维线性空间 \(V\) 上的线性变换,  \(\lambda_0\) 是 \(\varphi\) 的一个特征值,  \(V_0\) 是数域 \(\lambda_0\) 的特征子空间, 则: 
+			设 \(\varphi\) 是 \(n\) 维线性空间 \(V\) 上的线性变换,  \(\lambda_0\) 是 \(\varphi\) 的一个特征值,  \(V_0\) 是\数域 \(\lambda_0\) 的特征子空间, 则: 
 			
 			称 \(\dim V_0\) 为 \(\lambda_0\) 的\textbf{几何重数(也叫度数, Geometric Multiplicity)}; 
 
@@ -4424,7 +4451,7 @@
 			{零化多项式的存在性}
 			[]
 			[]
-			 \(\forall\) 数域 \(\K\) 上的 \(n\) 阶方阵 \(A\),  \(\exists f\in\K[x](f\neq 0\wedge f(A)=O)\). 
+			 \(\forall\) \数域 \(\K\) 上的 \(n\) 阶方阵 \(A\),  \(\exists f\in\K[x](f\neq 0\wedge f(A)=O)\). 
 		\end{thm}
 
 		\begin{prf}
@@ -4545,14 +4572,14 @@
 			设对称矩阵 \(A=A^T\) 是 \(n\) 阶实矩阵, 则 \(A\) 可以被正交对角化. 
 		\end{thm}
 
-		扩展到复数域上也有类似的结论: 
+		扩展到复\数域 上也有类似的结论: 
 
 		\begin{thm}
 			[]
 			{Schur定理}
 			[]
 			[]
-			对于复数域上, 设Hermite矩阵 \(A=A^*\) 是 \(n\) 阶复矩阵, 则 \(A\) 可以被酉对角化. 
+			对于复\数域 上, 设Hermite矩阵 \(A=A^*\) 是 \(n\) 阶复矩阵, 则 \(A\) 可以被酉对角化. 
 		\end{thm}
 
 		\begin{prf}
@@ -5034,7 +5061,7 @@
 			{}
 			[]
 			[]
-			设 \(\varphi\) 是数域 \(\K\) 上n维线性空间 \(V\) 的线性变换, 则: 任一与 \(\varphi\) 可交换的线性变换 \(\phi\) 一定可以表示为 \(\varphi\) 的不超过 \(n-1\) 次的多项式的充要条件为:  \(\varphi\) 的特征多项式等于极小多项式.
+			设 \(\varphi\) 是\数域 \(\K\) 上n维线性空间 \(V\) 的线性变换, 则: 任一与 \(\varphi\) 可交换的线性变换 \(\phi\) 一定可以表示为 \(\varphi\) 的不超过 \(n-1\) 次的多项式的充要条件为:  \(\varphi\) 的特征多项式等于极小多项式.
 		\end{thm}
 
 		\begin{prf}
@@ -5130,7 +5157,7 @@
             
         \end{prf}
     \subsection{多项式矩阵的相抵标准型}
-        与数域上的矩阵相似的是, 多项式矩阵也有三种初等变换:
+        与\数域 上的矩阵相似的是, 多项式矩阵也有三种初等变换:
         \begin{dfn}
 			[]
 			{}
@@ -5143,7 +5170,7 @@
         	\item 将矩阵的某一行乘以多项式 \(g(\lambda)\) 后加到另一行
         	\end{enumerate}
         \end{dfn}
-        和数域上的初等变换同理, 其也相当于左乘如下三种初等方阵
+        和\数域 上的初等变换同理, 其也相当于左乘如下三种初等方阵
         \begin{dfn}
 			[]
 			{初等方阵}
@@ -5270,7 +5297,7 @@
 			{}
 			[]
 			[]
-            数域上方阵 \(A,B\) 相似当且仅当 \(\lambda I-A, \lambda I-B\) 的不变因子组相同, 或其行列式因子组相同(我们也称 \(\lambda I-A, \lambda I-B\) 的不变因子组为 \(A,B\) 的不变因子组)
+            \数域 上方阵 \(A,B\) 相似当且仅当 \(\lambda I-A, \lambda I-B\) 的不变因子组相同, 或其行列式因子组相同(我们也称 \(\lambda I-A, \lambda I-B\) 的不变因子组为 \(A,B\) 的不变因子组)
         \end{crl}
         \begin{thm}
 			[]
@@ -5323,7 +5350,7 @@
 			{双线性型(Bilinear Form)/双线性泛函(Bilinear Functional)}
 			[]
 			[]
-			设 \(V_1,v_2\) 是数域 \(\K\) 上的有限维线性空间, 映射 \(f:V_1\times V_2\to\K\) 称为是 \(V_1\times V_2\) 上的一个\textbf{双线性型(Bilinear Form)}, 若它关于两个元都是线性泛函, 即: 
+			设 \(V_1,v_2\) 是\数域 \(\K\) 上的有限维线性空间, 映射 \(f:V_1\times V_2\to\K\) 称为是 \(V_1\times V_2\) 上的一个\textbf{双线性型(Bilinear Form)}, 若它关于两个元都是线性泛函, 即: 
 			\[
 			\begin{cases}
 				\forall u\in V_1, f_1:V_2\to\K(f_1(v)=f(u,v))\text{是线性的}\\
@@ -5369,7 +5396,7 @@
 			{双线性型的矩阵表示}
 			[]
 			[]
-			对任意 \(n\) 阶矩阵 \(A=(a_{ij})\), 一般称\[y^*Ax=\sum_{i = 1}^{n} \sum_{j = 1}^{n}a_{ij}x_i\bar{y}_j \]为矩阵 \(A\) (对应) 的 \(n\) 维(复) \textbf{双线性型}. 如果我们仅考虑实数域, 则此概念可以定义成: 
+			对任意 \(n\) 阶矩阵 \(A=(a_{ij})\), 一般称\[y^*Ax=\sum_{i = 1}^{n} \sum_{j = 1}^{n}a_{ij}x_i\bar{y}_j \]为矩阵 \(A\) (对应) 的 \(n\) 维(复) \textbf{双线性型}. 如果我们仅考虑实\数域, 则此概念可以定义成: 
 
 			对任意 \(n\) 阶矩阵 \(A=(a_{ij})\), 一般称\[y^TAx=\sum_{i = 1}^{n} \sum_{j = 1}^{n}a_{ij}x_iy_j \]为矩阵 \(A\) (对应) 的 \(n\) 维(实) \textbf{双线性型}.
 		\end{dfn}
@@ -5381,7 +5408,7 @@
 			{二次型 (Quadratic Form)}
 			[]
 			[]
-			数域  \(\K\)  上的  \(n\)  元\textbf{二次型}定义为数域  \(\K\)  上的  \(n\)  元二次齐次多项式: 
+			\数域  \(\K\)  上的  \(n\)  元\textbf{二次型}定义为\数域  \(\K\)  上的  \(n\)  元二次齐次多项式: 
                 \[ f(x_1,\cdots,x_n)=\sum_{i = 1}^{n} \sum_{j = 1}^{n}a_{i,j}x_i x_j
                 = \sum_{i = 1}^n a_{i,i}x_i^2 + 2\sum_{i\neq j} a_{i,j}x_i x_j
 			(a_{j,i}:=a_{i,j})\]
@@ -5729,7 +5756,7 @@
 			为 \(\K\) 上的一个 \(n\) 元Hermite二次型, 或者简称\textbf{Hermite型}. 其中 \(\bar{x}_i\) 代表其共轭复数. 
 		\end{dfn}
 
-		显然, Hermite型是Hermite矩阵的二次型表示, 它将我们的二次型理论拓宽到了复数域. 
+		显然, Hermite型是Hermite矩阵的二次型表示, 它将我们的二次型理论拓宽到了复\数域. 
 
 		\begin{dfn}
 			[]
@@ -5768,7 +5795,7 @@
 			{复二次型的惯性定理}
 			[]
 			[]
-			在复数域上, 任意一个复二次型都相合于\begin{displaymath}
+			在复\数域 上, 任意一个复二次型都相合于\begin{displaymath}
 				\diag(\overbrace{1,\cdots,1}^{r\text{个}},0,\cdots,0)
 			\end{displaymath}
 			其中 \(r\) 是该二次型矩阵的秩.
