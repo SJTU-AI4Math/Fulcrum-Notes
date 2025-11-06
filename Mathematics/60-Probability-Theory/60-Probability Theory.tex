@@ -493,9 +493,9 @@
             \begin{enumerate}
                 \item 单调性:  \(F\) 在 \(\R\) 上单调增加的; 
                 \item 有界性:  \(F(\R)\subseteq\Icc{0}{1}\); 
-                \item 左连续性:  \(F\) 在 \(\R\) 上左连续;
-                \item 右极限存在性: \(F\) 在 \(\R\) 上右极限存在; 
-                \item 极限性:  
+                \item 右连续性:  \(F\) 在 \(\R\) 上右连续;
+                \item 左极限存在性: \(F\) 在 \(\R\) 上左极限存在; 
+                \item 规范性:  
                 \[
                 \begin{cases}
                     \lim\limits_{x\to-\infty}F(x)=0\\
@@ -876,6 +876,17 @@
             \[\sum_{n=r}^{r+m-1}\binom{n-1}{r-1}p^r(1-p)^{n-r}\]
         \end{xmp}
 
+        \begin{xmp}
+            []
+            {匹配问题}
+            []
+            [Dedicatia]
+            有 $n$ 个不同种类的元素随机地将它们放入 $n$ 个集合里, 则没有一个元素归属于自己原先的集合的概率为:
+            \[P=1-\sum_{k=1}^{n}\frac{(-1)^{k-1}}{k!}\]
+            当 $n\to\infty$, 
+            \[P=\sum_{k=0}^{\infty}\frac{(-1)^{k}}{k!}\to \exp(-1).\]
+        \end{xmp}
+
     \subsection{连续型随机变量分布}
 
         \begin{dfn}
@@ -961,6 +972,15 @@
             [猫猫]
             设 \(X\) 是\连续型随机变量, \(X\sim U(a,b)\), 则: 
             \[\Expct{X}=\dfrac{a+b}{2}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {均匀分布的方差}
+            []
+            [Dedicatia]
+            设 \(X\) 是\连续型随机变量, \(X\sim U(a,b)\), 则: 
+            \[\Var{X}=\dfrac{(b-a)^2}{12}\]
         \end{ppt}
 
         \begin{thm}
