@@ -7,10 +7,7 @@
 \usepackage{FulcrumCN}
 
 \usepackage{OperatorListCN}
-\usepackage{F4Logic}
-\usepackage{F4Set}
-\usepackage{F4Topology}
-\usepackage{F4Analysis}
+\usepackage{F4Math}
 \usepackage{F4Physics}
 
 % margin
@@ -253,7 +250,7 @@
             [Electric Potential Energy]
             [猫猫]
             设 \(E\) 是\电场, \(Q\) 是\带电体, 定义 \(Q\) 在 \(E\) 中的\textbf{电势能}为: 
-            \[\]
+            \[\int_{M_Q}\EPot[Q](\bm{V})\cdot\rho(\bm{V})\dd\bm{V}\]
         \end{dfn}
         
         \begin{dfn}
@@ -308,17 +305,6 @@
         \end{thm}
         
         \begin{str}
-            [Discrete-Charged-Object]
-            {离散带电体}
-            []
-            [猫猫]
-        \end{str}
-        
-        \begin{ppt}
-            {}
-        \end{ppt}
-        
-        \begin{str}
             [Line-Charged-Object]
             {线带电体}
             []
@@ -327,42 +313,54 @@
 
             包含以下信息: 
             \begin{enumerate}
-                \item \(1\) 维光滑流形 \(M\); 
+                \item \光滑流形[\(1\)] \(M\); 
                 \item 线密度函数 \(\lambda:M\to\ElectricCharge\cdot\Length^{-1}\). 
             \end{enumerate}
         \end{str}
         
         \begin{xmp}
             []
-            {无限长带电直线的电场}
+            {无限长均匀带电直线的电场}
             []
             [猫猫]
-            设 \(L:=(\{(x,0,0)|x:\Length\}, \cdot\mapsto\lambda)\) 是\线带电体, 则: 
+            设 \(\bm{x}_0,\bm{v}:\Length_3\), \(L:=(\{\bm{x}_0+k\bm{v}|k:\R\}, \cdot\mapsto\lambda)\) 是\线带电体, \(\bm{x}:\Length_3\), \(d:\Length:=\bm{x}\) 到 \(L\) 距离, \(\hat{\bm{e}}\) 为 \(L\) 到 \(\bm{x}\) 的单位法向量, 则: 
             \begin{enumerate}
-                \item
-                    \[\bm{E}_L(d\cos\theta,d\sin\theta,\cdot)=\frac{2\ke\lambda}{d}(\cos\theta,\sin\theta,0)\]
+                \item 电势: 
+                    \[\EPot[L](\bm{x})=2\ke\lambda\ln d\]
 
-                \item
-                    \[\Phi_L(d\cos\theta,d\sin\theta,\cdot)=2\ke\lambda\ln d+C\]
+                \item 场强: 
+                    \[\EInts[L](\bm{x})=\frac{2\ke\lambda}{d}\hat{\bm{e}}\]
             \end{enumerate}
         \end{xmp}
         
         \begin{prf}
-            \[
-            \begin{aligned}
-                \|\bm{E}_L(d\cos\theta,d\sin\theta,z)\|
-                & = \|\bm{E}_L(d,0,0)\| \\
-                & = \ke\lambda\left\|\int_{-\infty}^{+\infty}\frac{(d,0,-z)}{(\sqrt{d^2+z^2})^3}\dd z\right\| \\
-                & = \ke\lambda d\int_{-\infty}^{\infty}\frac{1}{(\sqrt{d^2+z^2})^3}\dd z\\
-                & = \frac{2\ke\lambda}{d}\\
-            \end{aligned}\]
+            % \[
+            % \begin{aligned}
+            %     \|\bm{E}_L(d\cos\theta,d\sin\theta,z)\|
+            %     & = \|\bm{E}_L(d,0,0)\| \\
+            %     & = \ke\lambda\left\|\int_{-\infty}^{+\infty}\frac{(d,0,-z)}{(\sqrt{d^2+z^2})^3}\dd z\right\| \\
+            %     & = \ke\lambda d\int_{-\infty}^{\infty}\frac{1}{(\sqrt{d^2+z^2})^3}\dd z\\
+            %     & = \frac{2\ke\lambda}{d}\\
+            % \end{aligned}\]
+            根据柱对称性, 场强方向总沿径向. 
+
+            运用 Gauss 定理, 取半径为 \(d\) 的圆柱体, 高为 \(h\), 记作 \(C\), 则: 
+            \[\EFlx[L](\bd C)=\oint_{\bd C}\EInts[L]\cdot\dd\bm{S}=2\pi\|\EInts[L]\|dh\]
+            \[\frac{1}{\epsz}\int_{C}\lambda\dd\bm{l}=\frac{d\lambda}{\epsz}\]
+            \[\implies 2\pi\|\EInts[L]\|dh=\frac{h\lambda}{\epsz}\]
+            \[\implies \|\EInts[L]\|=\frac{\lambda}{2\pi\epsz d}=\frac{2\ke\lambda}{d}\]
+
+            当 \(\lambda\) 取值为正时, 场强方向沿径向向外. 
+            
+            电势分布求导即证\qed
         \end{prf}
         
         \begin{xmp}
             []
             {圆环带电体的电场}
             []
-            [猫猫]*
+            [猫猫]
+            设 \(R:\Length\), \(C:=(\{(R\cos\theta, R\sin\theta, 0)|\theta\in\Ico{0}{2\pi}\}, \cdot\mapsto\lambda)\) 是\线带电体, 则: 
         \end{xmp}
         
         \begin{str}
@@ -384,9 +382,19 @@
             {无限大均匀带电平面}
             []
             [猫猫]
-            设 \(P:=(\{(x,y,0)|x,y:\Length\}, \cdot\mapsto\sigma)\) 是\面带电体, 则 \(P\) 激发的电场在 \(\bm{r}:\Length^3\) 处的电场强度为: 
-            \[\bm{E}_P(\bm{r})=\dfrac{\sigma}{2\epsz}\]
+            设 \(P:=(\{(x,y,0)|x,y:\Length\}, \cdot\mapsto\sigma)\) 是\面带电体, 则: 
+            \[\EInts[P](\bm{r})=\dfrac{\sigma}{2\epsz}\]
         \end{xmp}
+        
+        \begin{prf}
+            根据柱对称性, 场强方向总沿平面法向. 
+
+            取底面积为 \(S\) 的柱体, 记作 \(C\), 则: 
+            \[\oint_{\bd C}\EInts[P]\cdot\dd\bm{S}=\frac{1}{\epsz}\int_{C}\sigma\dd\bm{S}\]
+            \[\implies\EInts[P]\cdot 2S=\frac{1}{\epsz}S\sigma\]
+            \[\implies\EInts[P]=\frac{\sigma}{2\epsz}\]
+            \qed
+        \end{prf}
         
         \begin{xmp}
             []
@@ -573,13 +581,22 @@
             \[\bm{P}(\bm{x})\cdot\hat{\bm{n}}(\bm{x})\]
         \end{dfn}
         
-        \begin{ppt}
+        \begin{dfn}
             [Displacement]
             {电位移矢量}
             [Electric Displacement]
             [猫猫]
             \[\bm{D}=\epsz\varepsilon_r\bm{E}\]
-        \end{ppt}
+        \end{dfn}
+        
+        \begin{thm}
+            []
+            {电介质中的 Gauss 定理}
+            [Gauss's Theorem in Dielectric]
+            [猫猫]
+            设 \(X\) 是\电介质, \(E\) 是\电场, \(M\) 是 \(\Length_3\) 上的 \(3\) 维流形, \(\partial M\) 是 Gauss 面, 则: 
+            \[\int_{\partial M}\bm{D}\cdot\dd\bm{S}=\int_M \rho_{free}(\bm{r})\dd\bm{r}\]
+        \end{thm}
 
     \subsection{电容器}
         
@@ -823,6 +840,13 @@
             [猫猫]
             设 \(L=(\{(0,0,z)|z:\Length\}, I)\) 是导线, 则 \(I\) 在距 \(L\) 为 \(d\) 处激发的磁场为: 
             \[\frac{\mu_0 I}{2\pi d}\]
+        \end{xmp}
+        
+        \begin{xmp}
+            []
+            {通电柱体}
+            []
+            [猫猫]
         \end{xmp}
         
         \begin{xmp}
