@@ -1457,7 +1457,7 @@
 
     \section{一致收敛}
 
-        \subsection{实数空间上的逐点收敛与一致收敛}
+        \subsection{几种实数空间上的一致收敛}
 
             \begin{dfn}
                 [Real.PointwiseConv]
@@ -1552,6 +1552,26 @@
                 \[\forall\varepsilon>0,\exists\delta>0, \st\forall y_1,y_2\in E, 0<|y_i-y_0|<\delta,\,i=1,2, \forall\,x\in I,|f(x,y_1)-f(x,y_2)|<\varepsilon. \]
             \end{thm}
 
+            \begin{dfn}
+                [RealSeries.UniConv]
+                {函数项级数的一致收敛}
+                []
+                [Dedicatia]
+                设函数项级数 \(\sum_{n=1}^{\infty} u_n(x), x\in E\subseteq\R\) , 令 \(S_n(x) = \sum_{k=1}^{n} u_k(x)\). 定义该函数项级数在 \(E\) 上\textbf{一致收敛}, 如果函数列 \(\{S_n(x)\}\) 在 \(E\) 上\hyperref[dfn:Real.UniConv]{一致收敛}于某个函数 \(S(x)\).
+            \end{dfn}
+
+            \begin{dfn}
+                [ParamInteg.UniConv]
+                {含参变量的反常积分的一致收敛}
+                []
+                [Dedicatia]
+                \textbf{无穷限反常积分}:\\
+                对于定义在 \([a,+\infty)\times Y\) 上的二元连续函数 $f$, 考虑积分 \(I(y) = \int_a^{\infty} f(x, y) \dd x\). 令 \(F_A(y) = \int_a^{A} f(x, y) \dd x\), 定义\textbf{一致收敛}, 当且仅当对于任意 \(\varepsilon > 0\)，存在与 \(y\) 无关的 \(A_0(\varepsilon) > a\)，使得当 \(A > A_0(\varepsilon)\) 时，对一切 \(y \in Y\)，有：
+                \[\forall\varepsilon>0, \exists A_0, \st A>A_0, \left| \int_A^{\infty} f(x, y) \dd x \right| < \varepsilon\]
+                \textbf{瑕积分}:\\
+                对于定义在 \([a,b)\times Y\) 上的二元连续函数 $f$, 其中 \(f(x, y)\) 在 \(x=b\) 附近无界. 令 \(F_{\eta}(y) = \int_a^{b-\eta} f(x, y) \, dx\), 称该瑕积分在 \(Y\) 上关于 \(y\) 一致收敛, 如果 \(F_{\eta}(y)\) 在 \(\eta \to 0^+\) 时关于 \(y \in Y\) 一致收敛于 \(I(y)\).
+            \end{dfn}
+
         \subsection{一致收敛的性质}
 
             \begin{ppt}
@@ -1584,8 +1604,63 @@
             \end{ppt}
 
             \begin{ppt}
-                {二元函数一致收敛则极限可交换}
+                [Real.UniConvOfDiff]
+                {函数列逐点收敛且导数一致收敛则保持可微性}
+                []
+                [Dedicatia]
+                若函数列 $\{f_n\}$ 满足: 每一个函数 $f_n(x)$ 在 $[a,b]$ 上可导且 $f'_n(x)$ 一致收敛于某个函数 $g$, 且 $\exists\,x_0\in[a,b]\st f_n(x_0)$ 收敛, 那么 $\{f_n\}$ 一致收敛于某个连续可微的函数 $f$ 并且 $f'=g$.
             \end{ppt}
+
+            \begin{rmk}
+                [Dedicatia]
+                注意: 函数列一致收敛不保持可微性!
+            \end{rmk}
+            
+            \begin{cxmp}
+                [212201]
+                {一致收敛的可微函数列导函数不一定收敛}
+                []
+                [Dedicatia]
+                设
+                \[f_n(x)=\frac{\sin nx}{\sqrt{n}}\]
+                则 $f_n$ 在 $(-\infty,+\infty)$ 上无穷次可微, 且 $f\rightrightarrows 0$. 但
+                \[f'_n(x)=\sqrt{n}\cos nx\]
+                显然在 $(-\infty,+\infty)$ 上处处不收敛.
+            \end{cxmp}
+            \begin{cxmp}
+                [213301]
+                {一致收敛的的可微函数列导函数不一定可微}
+                []
+                [Dedicatia]
+                著名的Weierstrass函数就是由函数项级数构造而来的. 函数项级数可以视作函数列:
+                \[W_n(x)=\sum_{k=0}^nb^k\cos(a^k\pi x)\]
+                这里 $0<b<1$ 用于控制收敛, $a$ 是正奇数, $ab>1+\frac{3\pi}{2}$. 显然 $W_n(x)$ 是无穷次可微函数, 且 $W_n$ 可以一致收敛于 $W$, $W$ 是连续函数, 但不是可微函数.
+            \end{cxmp}
+            \begin{cxmp}
+                [213801]
+                {一致收敛的可微函数列的求导与极限不能交换}
+                []
+                [Dedicatia]
+                设函数列
+                \[f_n(x)=\frac{1}{n}\arctan x^n\qquad x\in(-\infty,+\infty)\]
+                显然对所有的 $x$:
+                \[|f_n(x)-0|=\vqty{\frac{1}{n}\arctan x^n}\leq\frac{\pi}{2n}\to 0\]
+                由此可见函数列 $f_n\rightrightarrows 0$;\\
+                另一方面, 
+                \[\qty(\lim_{n\to\infty}f_n(x))\bigg|_{x=1}=0\]
+                \[\lim_{n\to\infty}f'_n(1)=\lim_{n\to\infty}\qty(\frac{x^{n-1}}{1+x^{2n}})\bigg|_{x=1}=\frac{1}{2}.\]
+                这说明即使原函数列一致收敛, 其极限的导函数也不一定等于其导函数的极限.
+            \end{cxmp}
+
+            \begin{ppt}
+                [Real2.UniConvOfCont]
+                {二元函数一致收敛则极限可交换}
+                []
+                [Dedicatia]
+                设 $I\subseteq\R$, $E\subseteq\R$, $\varphi(x,y):I\times E\to \R$, $y_0\in E'$. 若对于每个 $y\in E$, $\varphi(x,y)$ 关于 $x$ 在 $I$ 上连续, 在 $y\to y_0$ 时在 $I$ 上关于 $x$ 一致收敛到 $f(x)$, 那么 $f(x)$ 在 $I$ 上连续. 且 $\forall\,x_0\in I$
+                \[\lim_{x\to x_0}\lim_{y\to y_0}\varphi(x,y)=\lim_{y\to y_0}\lim_{x\to x_0}\varphi(x,y).\]
+            \end{ppt}
+
             \begin{ppt}
                 {二元函数一致收敛保持Riemann可积性}
             \end{ppt}
@@ -1685,6 +1760,21 @@
                 考虑函数列 
                 \[f_n(x)=\sin nx,\quad (x\in[0,2\pi], n\in\N)\]
                 显然这是\hyperref[dfn:UniBounded]{一致有界的}. 但是它不存在\hyperref[dfn:Metric.PointwiseConv]{逐点收敛}的子列.
+            \end{cxmp}
+
+            \begin{cxmp}
+                [205701]
+                {函数列一致有界且逐点收敛不一定有一致收敛的子列}
+                []
+                [Dedicatia]
+                设 
+                \[f_n(x)=\frac{x^2}{x^2+(1-nx)^2},\quad x\in[0,1],\,n\in\N^*\]
+                则对任何 $x\in[0,1]$ 和 $n$, $|f_n(x)|\leq 1$ 恒成立. 即 $f_n$ 一致有界;\\
+                又因为
+                \[\forall x_0\in[0,1],\lim_{n\to\infty}f_n(x_0)=0 \]
+                即 $f$ 逐点收敛到0; 但是
+                \[f_n\qty(\frac{1}{n})=1\]
+                可见 $f_n$ 的任何子列都无法一致收敛到0.
             \end{cxmp}
 
             \begin{dfn}
