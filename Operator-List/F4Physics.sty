@@ -49,7 +49,7 @@
 \NewDocumentCommand{\EPot}{so}{\catref[#1]{str:Electric-Field}{V}[电势函数]\IfValueT{#2}{\!_{#2}}}
 \NewDocumentCommand{\Vltg}{smm}{\catref[#1]{dfn:Voltage}{V}[电势差]\!_{#2#3}}
 \NewDocumentCommand{\EInts}{so}{\catref[#1]{dfn:Electric-Field-Intensity}{\bm{E}}[电场强度]\IfValueT{#2}{_{#2}}}
-\NewDocumentCommand{\EFlx}{so}{\catref[#1]{dfn:Electric-Flux}{\varPhi}[电通量]\IfValueT{#2}{_{#2}}}
+\NewDocumentCommand{\EFlx}{so}{\catref[#1]{dfn:Electric-Flux}{\varPhi_e}[电通量]\IfValueT{#2}{_{#2}}}
 
 \NewDocumentCommand{\MIInts}{s}{\catref[#1]{dfn:Magnetic-Induction-Intensity}{\mathsf{B}}[磁感应强度]}
 
@@ -81,3 +81,5 @@
 % Magnetics
 
 \NewDocumentCommand{\磁场}{s}{\catref[#1]{str:Magnetic-Field}{磁场}[磁场]}
+\NewDocumentCommand{\BInts}{so}{\catref[#1]{dfn:Magnetic-Induction-Intensity}{\bm{B}}[磁感应强度]\IfValueT{#2}{_{#2}}}
+\NewDocumentCommand{\BFlx}{so}{\catref[#1]{dfn:Magnetic-Flux}{\varPhi_m}[磁通量]\IfValueT{#2}{_{#2}}}
