@@ -458,22 +458,38 @@
             {随机变量}
             [Random Variable]
             [Dedicatia, 猫猫]
-            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X:\mathscr{F}\to\R\), 定义 \(X\) 是 \((\Omega,\mathscr{F},P)\) 上的\textbf{随机变量}, 当且仅当: 
-            \[\forall x:\R, \left\{\omega:\Omega|X(\omega)\leq x\right\}\in\mathscr{F}\]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X:\Omega\to\R\), 定义 \(X\) 是 \((\Omega,\mathscr{F},P)\) 上的\textbf{随机变量}, 当且仅当: 
+            \[\forall B\in\Borel{\R}, X^{-1}(B)\in\mathscr{F}\]
+            
             设 \(P\) 是 \(\R\) 上的一元谓词, 将 \(\mathbb{P}(\{\omega:\Omega|P(X(\omega))\})\) 记作 \(\mathbb{P}(P(X))\). 
         \end{dfn}
 
         \begin{rmk}
             [猫猫]
+            \随机变量 是将样本空间上的实值函数, 可测集的原像是事件. 
+            
             在语境中已指定\概率空间 后, 不加声明地使用\随机变量 的概念. 
         \end{rmk}
 
         \begin{ppt}
             []
-            {随机变量的运算}
+            {随机变量的实数身份}
             []
             [猫猫]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, 则: \((\Omega,\mathscr{F},\mathbb{P})\) 上的\随机变量 具有以下结构: 
+            \begin{enumerate}
+                \item 交换代数; 
+                \item \(L^p\) 空间; 
+                \item 序. 
+            \end{enumerate}
         \end{ppt}
+        
+        \begin{rmk}
+            [猫猫]
+            后续要说明多大程度上随机变量作为函数空间具有的结构与实数的等同的. 
+
+            后面方便起见, 在不引起混淆的前提下, 允许自然地对随机变量应用实定义函数. 
+        \end{rmk}
 
         \begin{dfn}
             [Distribution-Function]
@@ -566,11 +582,11 @@
 
         \begin{ppt}
             []
-            {方差的线性性}
+            {方差与线性运算}
             []
             [Dedicatia]
-            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(a,b\in\R\), 那么
-            \[\Var(aX+b)=a^2\Var(X).\]
+            设 \((\Omega,\mathscr{F},\mathbb{P})\) 是\概率空间, \(X\) 是\随机变量, \(a,b:\R\), 则: 
+            \[\Var{aX+b}=a^2\Var{X}\]
         \end{ppt}
 
         \begin{rmk}
@@ -596,6 +612,15 @@
             [猫猫]
             设 \(X\) 是\离散型随机变量, 则: 
             \[\Expct{X}=\sum_{x_i\in X(\Omega)}x_i\mathbb{P}(X=x_i)\]
+        \end{ppt}
+        
+        \begin{ppt}
+            []
+            {离散型随机变量的函数}
+            []
+            [猫猫]
+            设 \(X\) 是\离散型随机变量, \(f:\R\to\R\), 则: 
+            \[\forall y:\R, \mathbb{P}(f(X)=y)=\sum_{x_i\in f^{-1}(y)}\mathbb{P}(X=x_i)\]
         \end{ppt}
 
         \begin{dfn}
@@ -695,7 +720,7 @@
             \[\Var{X}=np(1-p)\]
         \end{ppt}
 
-        \begin{ppt}
+        \begin{xmp}
             []
             {超几何分布}
             [Hypergeometric Distribution]
@@ -703,7 +728,7 @@
             设 \(X\) 是\离散型随机变量, \(X\) 服从超几何分布, 当且仅当其分布列为:
             \[\forall m:\N, m\leq M\land m\leq n\implies\mathbb{P}(X=m)=\frac{\binom{M}{m}\binom{N-M}{n-m}}{\binom{N}{n}}\]
             记作 \(X\sim H(N,M,n)\)
-        \end{ppt}
+        \end{xmp}
 
         \begin{ppt}
             []
@@ -935,7 +960,16 @@
         \end{ppt}
 
         \begin{thm}
-            {}
+            []
+            {复合连续型随机变量的密度函数}
+            []
+            [Dedicatia, 猫猫]
+            设 \(X\) 是\连续型随机变量, 具有密度函数 \(f_X\), \(g(x)\) 严格单调且可微分, 则: 
+            \[f_{g(X)}=y\mapsto
+            \begin{cases}
+                f_X(g^{-1}(y))\dv{\cdot(g^{-1}(y))}{y} & \exists x:\R, y=g(x)\\
+                0 & \forall x:\R, y\neq g(x)
+            \end{cases}\]
         \end{thm}
 
         \begin{xmp}
@@ -995,24 +1029,17 @@
             \end{cases}\]
         \end{thm}
 
-        \begin{thm}
-            []
-            {复合连续型随机变量的密度函数}
-            []
-            [Dedicatia]
-            设 \(X\) 是\连续型随机变量, 具有密度函数 \(f_X\). $g(x)$ 是严格单调且可导的函数, 那么\连续型随机变量 \(Y=g(X)\) 的密度函数为
-            \[f_Y(y)=\begin{cases}
-                &f_X(g^{-1}(y))\dv{\cdot(g^{-1}(y))}{y};\quad \exists\,x\st y=g(x);\\
-                &0;\quad \forall\,x, y\neq g(x). 
-            \end{cases}\]
-        \end{thm}
-
         \begin{xmp}
             []
             {幂律分布}
             [Power-Law Distribution]
             [猫猫]
-            设 \(X\) 是\连续型随机变量, \(\alpha:\R\), 
+            设 \(X\) 是\连续型随机变量, \(\alpha:\R\), \(f\) 是 \(X\) 的密度函数, 定义 \(X\) 服从参数为 \(\alpha\) 的\textbf{幂律分布}, 当且仅当: 
+            \[f(x)=
+            \begin{cases}
+                \frac{\alpha}{x^{\alpha+1}}& x\geq 1\\
+                0 & x<1.
+            \end{cases}\]
         \end{xmp}
 
         \begin{xmp}

@@ -662,9 +662,9 @@
 
     \subsection{电势能}
 
-\section{电流}
+\section{电流与磁场}
 
-    \subsection{电荷层面的电流模型}
+    \subsection{电流模型}
         
         \begin{dfn}
             [Power-Supply]
@@ -743,6 +743,47 @@
     \subsection{磁场}
         
         \begin{dfn}
+            [Magnetic-Induction-Intensity]
+            {磁感应强度}
+            [Magnetic-Induction-Intensity]
+            [猫猫]
+            定义\textbf{磁感应强度}为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\MIInts\). 
+
+            定义磁感应强度的单位 \textbf{Tesla} 为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\Tsl\). 
+        \end{dfn}
+
+        \begin{str}
+            [Magnetic-Field]
+            {磁场}
+            [Magnetic Field]
+            [猫猫]
+            定义\textbf{磁场}是场, 包含以下信息: 
+            \begin{enumerate}
+                \item \textbf{磁感应强度}函数 \(\BInts:\Length_3\to\MIInts\); 
+            \end{enumerate}
+        \end{str}
+        
+        \begin{dfn}
+            [Magnetic-Flux]
+            {磁通量}
+            [Magnetic Flux]
+            [猫猫]
+            设 \(B\) 是\磁场, \(S\) 是 \(\Length_3\) 上的 \光滑流形[\(2\)], 定义 \(B\) 通过 \(S\) 的\textbf{磁通量}为: 
+            \[\int_S\BInts\cdot\dd\bm{S}\]
+
+            记作 \(\BFlx_B\). 
+        \end{dfn}
+
+    \subsection{电流激发的磁场}
+        
+        \begin{dfn}
+            []
+            {电流激发磁场}
+            []
+            [猫猫]
+        \end{dfn}
+        
+        \begin{dfn}
             [Magnetic-Constant]
             {磁力常数}
             [Magnetic Constant]
@@ -762,34 +803,6 @@
             \[4\pi\km\]
             
             记作 \(\muz\). 
-        \end{dfn}
-        
-        \begin{dfn}
-            [Magnetic-Induction-Intensity]
-            {磁感应强度}
-            [Magnetic-Induction-Intensity]
-            [猫猫]
-            定义\textbf{磁感应强度}为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\MIInts\). 
-
-            定义磁感应强度的单位 \textbf{Tesla} 为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\Tsl\). 
-        \end{dfn}
-
-        \begin{str}
-            [Magnetic-Field]
-            {磁场}
-            [Magnetic Field]
-            [猫猫]
-            定义\textbf{磁场}是场, 包含以下信息: 
-            \begin{enumerate}
-                \item \textbf{磁感应强度}函数 \(\bm{B}:\Length_3\to\MIInts\); 
-            \end{enumerate}
-        \end{str}
-        
-        \begin{dfn}
-            []
-            {电流激发磁场}
-            []
-            [猫猫]
         \end{dfn}
         
         \begin{ppt}
@@ -815,14 +828,6 @@
         \end{str}
 
     \subsection{磁通量}
-        
-        \begin{dfn}
-            [Magnetic-Flux]
-            {磁通量}
-            [Magnetic Flux]
-            [猫猫]
-
-        \end{dfn}
 
     \subsection{常见电流模型}
         
@@ -859,6 +864,30 @@
             []
             [猫猫]
         \end{xmp}
+
+    \subsection{平面载流线圈}
+    
+        \begin{xmp}
+            {平面载流线圈}
+        \end{xmp}
+        
+        \begin{ppt}
+            {平面载流线圈的磁矩}
+            []
+            [猫猫]
+            \[\bm{m}=IS\hat{\bm{S}_\perp}\]
+        \end{ppt}
+        
+        \begin{ppt}
+            {磁场对载流线圈的磁力矩}
+            []
+            [猫猫]
+            设 \(B\) 是\磁场, 
+            \[\bm{M}=\bm{m}\times\BInts[B]\]
+        \end{ppt}
+\section{电磁感应}
+
+        
 
 
 \end{document}
