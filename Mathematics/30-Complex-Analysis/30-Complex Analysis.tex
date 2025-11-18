@@ -45,7 +45,7 @@
 
 \newcommand{\continued}{{\Large to be continued...}}
 
-%\DeclareMathOperator{\ii}{\mathrm{i}}
+\DeclareMathOperator{\st}{\text{s.t. }}
 
 % 超链接: 
 
@@ -1904,7 +1904,7 @@
 
         \begin{thm}
             [UUID]
-            {Cauchy-Goursat定理}
+            {开圆盘上的Cauchy定理}
             []
             [Dedicatia]
             设 \(f\) 在开圆盘 \(D\) 上解析. 那么对于 \(D\) 上的任一条闭曲线 \(\gamma\), 都有
@@ -1913,7 +1913,7 @@
         
         \begin{thm}
             [UUID]
-            {考虑间断点的Cauchy-Goursat定理}
+            {考虑间断点的Cauchy定理}
             []
             [Dedicatia]
             设 \(f\) 在一个区域 \(D'\) 上解析, 这里的 \(D'\) 是上面所述的开圆盘 \(D\) 去掉有限个点 \(\zeta_i\) 得到的. 并且这些点 \(\zeta_i\) 满足
@@ -2007,6 +2007,14 @@
             \[f(a)=\frac{1}{2\pi\ii}\int_\gamma\frac{f(z)}{z-a}\dd{z}\]
         \end{crl}
 
+        \begin{dfn}
+            []
+            {Cauchy 核函数 / 再生核}
+            []
+            [Dedicatia]
+            在Cauchy积分公式中, 定义 $\frac{1}{2\pi\ii}\frac{1}{w-z}$ 为\textbf{Cauchy 核函数 / 再生核}.
+        \end{dfn}
+
         \begin{crl}
             [UUID]
             {Cauchy 积分公式的参数化}
@@ -2016,7 +2024,7 @@
             \[f(z)=\frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\dd{\zeta}\]
         \end{crl}
 
-    \subsection{高阶导数}
+    \subsection{高阶导数与解析函数的性质}
 
         我们来考察区域 \(D\) 上的解析函数 \(f(z)\). 对其在某点 \(a\) 的邻域（开圆盘 \(|z-a|<\delta\) 上）内确定一个圆 \(\gamma\), 使用Cauchy 积分公式, 由于 \(n(\gamma,a)=1\), 可得
         \[f(z)=\frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\dd{\zeta}\]
@@ -2062,21 +2070,29 @@
         这就证明了上面所说的高阶导数的存在性. 
 
         \begin{thm}
-            [UUID]
+            [Merora]
             {Morera定理}
             [Morera's Theorem]
             [Dedicatia]
             设 \(f(z)\) 在区域 \(D\) 中有定义且连续, 如果对任意 \(D\) 中的闭曲线 \(\gamma\) 都有 \(\oint_\gamma f(z)\dd{z}=0\), 那么就可以判定 \(f(z)\) 在 \(D\) 上是\解析.
         \end{thm}
 
+        \begin{crl}
+            []
+            {单连通区域上的解析函数存在原函数}
+            []
+            [Dedicatia]
+            设 $D\subseteq\C$ 是单连通区域, $f(z)$ 在 $D$ 上\解析, 那么存在 $F(z):D\to\C$ 使得 $F'=f$.
+        \end{crl}
+
         \begin{dfn}
-            [UUID]
+            [Cauchy-Approx]
             {Cauchy估值}
             [Cauchy's Approximate]
             [Dedicatia]
-            在\hyperrefc{dfn:HighOrderedDerivative}{高阶导数}的定义中, 设圆 \(\gamma\) 的半径是 \(r\), 并且在 \(C\) 上,  \(|f(\zeta)|\leqslant M\). 那么令 \(z=a\) 可以得到一个估值
+            设 $f$ 在区域 $D$ 上解析, 并且在 \(D\) 上, \(|f(\zeta)|\leqslant M\). 那么令 \(z=a\) 可以得到
             \[|f^{(n)}(a)|\leqslant Mn!r^{-n}.\]
-            称为\textbf{Cauchy估值}.
+            其中 $0<r\leq\operatorname{dist}(a,\partial D)$. 称为\textbf{Cauchy估值}.
         \end{dfn}
 
         \begin{thm}
@@ -2104,6 +2120,81 @@
         \begin{prf}
             使用反证: 设 \(P(z)\) 是任一次数大于0的多项式, 并假设其恒不等于0. 则 \(\dfrac{1}{P(z)}\) 就是全平面的解析函数. 又因为 \(\lim\limits_{z\to\infty}\dfrac{1}{P(z)}=0\), 所以 \(\dfrac{1}{P(z)}\) 也是一个有界函数. 那么根据\hyperrefc{thm:Liouville}{Liouville定理}, 它就是常解析函数. 但常函数的次数是0, 矛盾. 
         \end{prf}
+
+        \begin{thm}
+            []
+            {利用高阶导数的常解析函数的判定定理}
+            []
+            [Dedicatia]
+            设 $f$ 在区域 $D$ 上解析. 若 
+            \[\exists z_0\in D, \st f'(z_0)=\cdots=f^{(n)}(z_0)=\cdots=0  \]
+            那么 $f=C$ 是常解析函数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {解析函数的零点孤立性定理}
+            []
+            [Dedicatia]
+            设 $f$ 是区域 $D$ 上的不为常数的解析函数, 且 $z_0\in D$, $f(z_0)=0$, 那么存在 $\delta>0$, 使得 $z_0$ 是邻域 $U(z_0,\delta)$ 上的 $f$ 的唯一零点.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {解析函数的唯一性定理}
+            []
+            [Dedicatia]
+            设 $f,g$ 是区域 $D$ 上的解析函数, 若存在点列 $\{z_n\}$ 使得 $\forall\,z_i\in\{z_n\}, f(z_i)=g(z_i)$, 且 $\{z_n\}$ 有极限点 $z_0\in D$, 那么在 $D$ 上 $f=g$.
+        \end{thm}
+        
+        \begin{thm}
+            [Maximum-Principle]
+            {最大模原理}
+            [Maximum Principle]
+            [Dedicatia]
+            1. 如果函数 \(f(z)\) 在区域 \(D\) 上解析且不为常数, 那么 \(|f(z)|\) 在 \(D\) 中没有极大值. \\
+            2. 如果函数 \(f(z)\) 在有界闭集 \(E\) 上解析且不为常数, 那么 \(|f(z)|\) 的极大值出现在 \(E\) 的边界上. 
+        \end{thm}
+
+        \begin{crl}
+            []
+            {求导运算保持内闭一致收敛}
+            []
+            [Dedicatia]
+            如果解析函数列 $\{f_n\}$ 在区域 $D$ 上内闭一致收敛, 那么其任意阶导数 $\{f_n^{(k)}\}$ 在 $D$ 上也内闭一致收敛.
+        \end{crl}
+
+        \begin{thm}
+            [Meanvalue]
+            {平均值定理}
+            []
+            [Dedicatia]
+            设 $f$ 是区域 $D$ 上的解析函数, 那么 $\forall\,z_0\in D$, 
+            \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi}f(z_0+r\exp(\ii\theta))\dd{\theta}\]
+            其中 $0<r<\operatorname{dist}(z_0,\partial D)$.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {平均值不等式}
+            []
+            [Dedicatia]
+            设 $f$ 是区域 $D$ 上的解析函数, 那么 $\forall\,z_0\in D$, 
+            \[|f(z_0)|\leq\frac{1}{2\pi}\int_0^{2\pi}|f(z_0+r\exp(\ii\theta))|\dd{\theta}\]
+            其中 $0<r<\operatorname{dist}(z_0,\partial D)$.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {对面积的平均值定理}
+            []
+            [Dedicatia]
+            设 $f$ 是区域 $D$ 上的解析函数, 那么 $\forall\,z_0\in D$, 
+            \[f(z_0)=\frac{1}{\pi R^2}\iintop_{U(z_0,R)}f(z)\dd{\sigma}.\]
+            其中 $0<R<\operatorname{dist}(z_0,\partial D)$. \\
+            写作不等式, 为:
+            \[|f(z_0)|\leq\frac{1}{\pi R^2}\iintop_{U(z_0,R)}|f(z)|\dd{\sigma}.\]
+        \end{thm}
 
     \subsection{Taylor定理与解析函数的奇点}
         
@@ -2822,96 +2913,93 @@
     \continued
 
     \subsection{局部映射与幅角原理}
-    我们从证明解析函数的零点个数公式开始: 
-    \begin{thm}
-        [UUID]
-        {零点的环绕数定理}
-        []
-        [Dedicatia]
-        设函数 \(f(z)\) 是开圆盘 \(D\) 上的\解析 且不恒等于0,  \(z_i\) 是 \(f(z)\) 的零点, 各个零点按照阶数重复计算, 那么对于 \(D\) 上每一条不通过零点的闭曲线 \(\gamma\), 都有
-        \[\sum_{i=1}^n n(\gamma, z_i)\frac{1}{2\pi\ii}\oint_\gamma\frac{f'(z)}{f(z)}\dd{z} \] 
-        这里的求和只有有限项不为0.
-    \end{thm}
-    \begin{prf}
-        对函数 \(f(z)\) 反复使用\Taylor定理, 得到
-        \[f(z)=(z-z_1)(z-z_2)\cdots(z-z_n)g(z)\]
-        这里的 \(g(z)\) 是 \(D\) 上的解析函数且不恒为零. 计算 \(\frac{f'(z)}{f(z)}\) 的导数: 使用对数求导法可得
-        \[\pqty{\frac{f'(z)}{f(z)}}=\frac{1}{z-z_1}+\frac{1}{z-z_2}+\cdots+\frac{1}{z-z_n}+\frac{g'(z)}{g(z)}\]
-        由\CauchyThm 可得
-        \[\oint_\gamma\frac{g'(z)}{g(z)}=0 \]
-        再根据\hyperref[dfn:WindingNumber]{环绕数}的定义
-        \[n(\gamma,z_1)+n(\gamma,z_2)+\cdots+n(\gamma,z_n)=\frac{1}{2\pi\ii}\oint_\gamma \frac{f'(z)}{f(z)}\dd{z}\]
-        即得到证明. 
-    \end{prf}
-    \begin{crl}
-        [UUID]
-        {零点的环绕数定理的解释}
-        []
-        [Dedicatia]
-        如果我们设 \(w=f(z)\), 它将 \(\gamma\) 映照为 \(w\) 平面的 \(\Gamma\), 那么就有
-        \[\int_\Gamma\frac{\dd w}{w}=\int_\gamma \frac{f'(z)}{f(z)}\dd{z}.\]
-        所以在该平面中, \hyperref[dfn:WindingNumber]{环绕数}可以表示为
-        \[n(\Gamma,0)=\sum_{i=1}^n n(\gamma,z_i)\]
-    \end{crl}
-    \begin{crl}
-        [UUID]
-        {参数化的零点的环绕数定理}
-        []
-        [Dedicatia]
-        设 \(a\) 是任意一复数, 设 \(f(z)-a\) 的根是 \(z_j\), 记作 \(z_j(a)\), 那么就有
-        \[\sum_{j=1}^{k}n(\gamma,z_j(a))=\frac{1}{2\pi\ii}\int_\gamma\frac{f'(z)}{f(z)-a}\dd{z}\]
-        同时也有
-        \[n(\Gamma,a)=\sum_{j=1}^k n(\gamma,z_j(a))\]
-    \end{crl}
-    \begin{thm}
-        [UUID]
-        {开圆盘中的零点个数定理}
-        []
-        [Dedicatia]
-        设 \(f(z)\) 在 \(z_0\) 的领域上解析,  \(f(z_0)=w_0\), 函数 \(f(z_)-w_0\) 在 \(z=z_0\) 处有一 \(n\) 阶零点, 那么对任意小的 \(\varepsilon>0\), 都存在 \(\delta>0\), 使得 \(|a-w_0|<\delta\) 时, 方程 \(f(z)-a\) 在开圆盘 \(|z-z_0|<\varepsilon\) 上恰好有 \(n\) 个根. 
-    \end{thm}
-    立刻得到两个我们之前尚未一般证明的性质: 
-    \begin{crl}
-        [UUID]
-        {解析函数的拓扑保持性}
-        []
-        [Dedicatia]
-        非常数的解析函数将开集映照到开集. 
-    \end{crl}
-    \begin{crl}
-        [UUID]
-        {解析函数的共形性}
-        []
-        [Dedicatia]
-        如果解析函数在 \(z_0\) 有 \(f'(z_0)\neq 0\), 那么它是共形映照, 也是同胚映照. 
-    \end{crl}
-    \begin{thm}
-        [UUID]
-        {极值定理}
-        []
-        [Dedicatia]
-        1. 如果函数 \(f(z)\) 在区域 \(D\) 上解析且不为常数, 那么 \(|f(z)|\) 在 \(D\) 中没有极大值. \\
-        2. 如果函数 \(f(z)\) 在有界闭集 \(E\) 上解析且不为常数, 那么 \(|f(z)|\) 的极大值出现在 \(E\) 的边界上. 
-    \end{thm}
-    \begin{crl}
-        [UUID]
-        {辐角原理}
-        [Argument Principle]
-        [Dedicatia]
-        设 \(f(z)\) 是 \(D\) 上的\MeromorphicFunction, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链, 有
-        \[\frac{1}{2\pi\ii}\int_\gamma\frac{f'(z)}{f(z)}\dd{z}=\sum_{j = 1}^{n} n(\gamma,a_j)-\sum_{k = 1}^{m} n(\gamma,b_k)  \]
-        其中, 重零点与重极点要按阶数计算. 
-    \end{crl}
-    如果将上式的零点与极点参数化, 得到: 
-    \begin{crl}
-        [UUID]
-        {参数化的辐角原理}
-        []
-        [Dedicatia]
-        设 \(f(z)\) 是 \(D\) 上的\MeromorphicFunction, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链,  \(g(z)\) 是定义在 \(D\) 上的\解析, 有
-        \[\frac{1}{2\pi\ii}\int_\gamma g(z)\frac{f'(z)}{f(z)}\dd{z}=\sum_{j = 1}^{n} n(\gamma,a_j)g(a_j)-\sum_{k = 1}^{m} n(\gamma,b_k)g(b_k).  \]
-        其中, 重零点与重极点要按阶数计算. 
-    \end{crl}
+        我们从证明解析函数的零点个数公式开始: 
+        \begin{thm}
+            [UUID]
+            {零点的环绕数定理}
+            []
+            [Dedicatia]
+            设函数 \(f(z)\) 是开圆盘 \(D\) 上的\解析 且不恒等于0,  \(z_i\) 是 \(f(z)\) 的零点, 各个零点按照阶数重复计算, 那么对于 \(D\) 上每一条不通过零点的闭曲线 \(\gamma\), 都有
+            \[\sum_{i=1}^n n(\gamma, z_i)\frac{1}{2\pi\ii}\oint_\gamma\frac{f'(z)}{f(z)}\dd{z} \] 
+            这里的求和只有有限项不为0.
+        \end{thm}
+        \begin{prf}
+            对函数 \(f(z)\) 反复使用\Taylor定理, 得到
+            \[f(z)=(z-z_1)(z-z_2)\cdots(z-z_n)g(z)\]
+            这里的 \(g(z)\) 是 \(D\) 上的解析函数且不恒为零. 计算 \(\frac{f'(z)}{f(z)}\) 的导数: 使用对数求导法可得
+            \[\pqty{\frac{f'(z)}{f(z)}}=\frac{1}{z-z_1}+\frac{1}{z-z_2}+\cdots+\frac{1}{z-z_n}+\frac{g'(z)}{g(z)}\]
+            由\CauchyThm 可得
+            \[\oint_\gamma\frac{g'(z)}{g(z)}=0 \]
+            再根据\hyperref[dfn:WindingNumber]{环绕数}的定义
+            \[n(\gamma,z_1)+n(\gamma,z_2)+\cdots+n(\gamma,z_n)=\frac{1}{2\pi\ii}\oint_\gamma \frac{f'(z)}{f(z)}\dd{z}\]
+            即得到证明. 
+        \end{prf}
+
+        \begin{crl}
+            [UUID]
+            {零点的环绕数定理的解释}
+            []
+            [Dedicatia]
+            如果我们设 \(w=f(z)\), 它将 \(\gamma\) 映照为 \(w\) 平面的 \(\Gamma\), 那么就有
+            \[\int_\Gamma\frac{\dd w}{w}=\int_\gamma \frac{f'(z)}{f(z)}\dd{z}.\]
+            所以在该平面中, \hyperref[dfn:WindingNumber]{环绕数}可以表示为
+            \[n(\Gamma,0)=\sum_{i=1}^n n(\gamma,z_i)\]
+        \end{crl}
+
+        \begin{crl}
+            [UUID]
+            {参数化的零点的环绕数定理}
+            []
+            [Dedicatia]
+            设 \(a\) 是任意一复数, 设 \(f(z)-a\) 的根是 \(z_j\), 记作 \(z_j(a)\), 那么就有
+            \[\sum_{j=1}^{k}n(\gamma,z_j(a))=\frac{1}{2\pi\ii}\int_\gamma\frac{f'(z)}{f(z)-a}\dd{z}\]
+            同时也有
+            \[n(\Gamma,a)=\sum_{j=1}^k n(\gamma,z_j(a))\]
+        \end{crl}
+
+        \begin{thm}
+            [UUID]
+            {开圆盘中的零点个数定理}
+            []
+            [Dedicatia]
+            设 \(f(z)\) 在 \(z_0\) 的邻域上解析,  \(f(z_0)=w_0\), 函数 \(f(z_)-w_0\) 在 \(z=z_0\) 处有一 \(n\) 阶零点, 那么对任意小的 \(\varepsilon>0\), 都存在 \(\delta>0\), 使得 \(|a-w_0|<\delta\) 时, 方程 \(f(z)-a\) 在开圆盘 \(|z-z_0|<\varepsilon\) 上恰好有 \(n\) 个根. 
+        \end{thm}
+        立刻得到两个我们之前尚未一般证明的性质:
+        \begin{crl}
+            [UUID]
+            {解析函数的拓扑保持性}
+            []
+            [Dedicatia]
+            非常数的解析函数将开集映照到开集. 
+        \end{crl}
+
+        \begin{crl}
+            [UUID]
+            {解析函数的共形性}
+            []
+            [Dedicatia]
+            如果解析函数在 \(z_0\) 有 \(f'(z_0)\neq 0\), 那么它在 \(z_0\) 附近是共形映照. 
+        \end{crl}
+
+        \begin{crl}
+            [UUID]
+            {辐角原理}
+            [Argument Principle]
+            [Dedicatia]
+            设 \(f(z)\) 是 \(D\) 上的\MeromorphicFunction, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链, 有
+            \[\frac{1}{2\pi\ii}\int_\gamma\frac{f'(z)}{f(z)}\dd{z}=\sum_{j = 1}^{n} n(\gamma,a_j)-\sum_{k = 1}^{m} n(\gamma,b_k)  \]
+            其中, 重零点与重极点要按阶数计算. 
+        \end{crl}
+        如果将上式的零点与极点参数化, 得到: 
+        \begin{crl}
+            [UUID]
+            {参数化的辐角原理}
+            []
+            [Dedicatia]
+            设 \(f(z)\) 是 \(D\) 上的\MeromorphicFunction, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链,  \(g(z)\) 是定义在 \(D\) 上的\解析, 有
+            \[\frac{1}{2\pi\ii}\int_\gamma g(z)\frac{f'(z)}{f(z)}\dd{z}=\sum_{j = 1}^{n} n(\gamma,a_j)g(a_j)-\sum_{k = 1}^{m} n(\gamma,b_k)g(b_k).  \]
+            其中, 重零点与重极点要按阶数计算. 
+        \end{crl}
 
     \subsection{调和函数与Poisson积分}
 从某种意义上讲, 复分析实际上就是一对共轭调和函数上的实分析. 
