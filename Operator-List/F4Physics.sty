@@ -51,8 +51,6 @@
 \NewDocumentCommand{\EInts}{so}{\catref[#1]{dfn:Electric-Field-Intensity}{\bm{E}}[电场强度]\IfValueT{#2}{_{#2}}}
 \NewDocumentCommand{\EFlx}{so}{\catref[#1]{dfn:Electric-Flux}{\varPhi_e}[电通量]\IfValueT{#2}{_{#2}}}
 
-\NewDocumentCommand{\MIInts}{s}{\catref[#1]{dfn:Magnetic-Induction-Intensity}{\mathsf{B}}[磁感应强度]}
-
 \NewDocumentCommand{\epsz}{s}{\catref[#1]{dfn:Vacuum-Permittivity}{\ensuremath{\varepsilon_0}}[真空介电常数, 约为 \(8.8541\times10^{-12}(\Nt\cdot\m^2\cdot\Clm^{-2})\)]}
 \NewDocumentCommand{\ke}{s}{\catref[#1]{dfn:Coulomb-Constant}{\ensuremath{k_e}}[静电力常数, 约为 \(8.9875\times10^9(\Nt\cdot\m^2\cdot\Clm^{-2})\)]}
 
@@ -83,3 +81,11 @@
 \NewDocumentCommand{\磁场}{s}{\catref[#1]{str:Magnetic-Field}{磁场}[磁场]}
 \NewDocumentCommand{\BInts}{so}{\catref[#1]{dfn:Magnetic-Induction-Intensity}{\bm{B}}[磁感应强度]\IfValueT{#2}{_{#2}}}
 \NewDocumentCommand{\BFlx}{so}{\catref[#1]{dfn:Magnetic-Flux}{\varPhi_m}[磁通量]\IfValueT{#2}{_{#2}}}
+
+\NewDocumentCommand{\磁介质}{s}{\catref[#1]{str:Magnetic-Dielectric}{磁介质}[磁介质]}
+\NewDocumentCommand{\chim}{s}{\catref[#1]{str:Magnetic-Dielectric}{\chi_{\mathrm{m}}}[磁化率]}
+\NewDocumentCommand{\mur}{s}{\catref[#1]{dfn:Magnetic-Permeability}{\mu_{\mathrm{r}}}[相对磁导率]}
+\NewDocumentCommand{\MPerm}{so}{\catref[#1]{dfn:Magnetic-Permeability}{\mu}[绝对磁导率]\IfValueT{#2}{\!_{#2}}}
+
+\NewDocumentCommand{\磁化}{soo}{\catref[#1]{str:Magnetization}{磁化}[磁化]}
+\NewDocumentCommand{\MInts}{s}{\catref[#1]{str:Magnetization}{\bm{M}}[磁化强度]}

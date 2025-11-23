@@ -747,7 +747,7 @@
             {磁感应强度}
             [Magnetic-Induction-Intensity]
             [猫猫]
-            定义\textbf{磁感应强度}为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\MIInts\). 
+            定义\textbf{磁感应强度}为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\BInts\). 
 
             定义磁感应强度的单位 \textbf{Tesla} 为 \(\Nt\cdot\m^{-1}\cdot\A^{-1}\), 记作 \(\Tsl\). 
         \end{dfn}
@@ -759,7 +759,7 @@
             [猫猫]
             定义\textbf{磁场}是场, 包含以下信息: 
             \begin{enumerate}
-                \item \textbf{磁感应强度}函数 \(\BInts:\Length_3\to\MIInts\); 
+                \item \textbf{磁感应强度}函数 \(\BInts:\Length_3\to\BInts\); 
             \end{enumerate}
         \end{str}
         
@@ -885,7 +885,103 @@
             设 \(B\) 是\磁场, 
             \[\bm{M}=\bm{m}\times\BInts[B]\]
         \end{ppt}
+
+\section{磁介质}
+
+    \subsection{磁介质}
+        
+        \begin{str}
+            [Magnetic-Dielectric]
+            {磁介质}
+            [Magnetic Dielectric]
+            [猫猫]
+            定义\textbf{磁介质}类型包含以下信息: 
+            \begin{enumerate}
+                \item \textbf{磁化率} \(\chim\);
+            \end{enumerate}
+        \end{str}
+        
+        \begin{rmk}
+            [猫猫]
+            这里讨论的磁介质是各向同性磁介质. 
+
+            顺磁质, 抗磁质, 铁磁质, 超导体. 
+        \end{rmk}
+        
+        \begin{dfn}
+            [Magnetic-Permeability]
+            {磁导率}
+            [Magnetic-Permeability]
+            [猫猫]
+            设 \(X\) 是\磁介质, 定义 \(X\) 的\textbf{相对磁导率}为: \(1+\chim\), 记作 \(\mur\). 
+            
+            定义 \(X\) 的\textbf{绝对磁导率}为: \(\muz\mur\), 记作 \(\MPerm\). 
+        \end{dfn}
+        
+        \begin{rmk}
+            [猫猫]
+            绝对磁导率简称\textbf{磁导率}. 
+        \end{rmk}
+        
+        \begin{str}
+            [Magnetization]
+            {磁化}
+            [Magnetization]
+            [猫猫]
+            设 \(X\) 是\磁介质, \(\bm{B}\) 是\磁场, 定义 \(X\) 在 \(B\) 中\textbf{磁化}包含以下信息: 
+            \begin{enumerate}
+                \item \textbf{磁化强度} \(\MInts:\Length_3\to\ElectricCurrent\cdot\Length^{-1}\)
+            \end{enumerate}
+        \end{str}
+        
+        \begin{dfn}
+            []
+            {磁化电流}
+            []
+            [猫猫]
+            磁化面电流
+        \end{dfn}
+        
+        \begin{dfn}
+            []
+            {磁场强度矢量}
+            []
+            [猫猫]
+            设 \(B\) 是\磁场, \(X\) 是\磁介质, \(X\) 在 \(B\) 中\磁化, 定义 \(B\) 在 \(X\) 中的\textbf{磁场强度矢量}为: 
+            \[\frac{\BInts[B]}{\muz}-\bm{M}\]
+
+            记作 \(\bm{H}\). 
+        \end{dfn}
+        
+        \begin{ppt}
+            []
+            {磁感应强度与磁场强度矢量的关系}
+            []
+            [猫猫]
+            设 \(B\) 是\磁场, \(X\) 是\磁介质, \(X\) 在 \(B\) 中\磁化, 则: 
+            \[\BInts[B]=\MPerm\bm{H}\]
+        \end{ppt}
+        
+        \begin{thm}
+            []
+            {安培环路定理}
+            []
+            [猫猫]
+            设 \(B\) 是\磁场, \(S\) 是 \(\Length_3\) 上的 \光滑流形[\(2\)], 则: 
+            \[\oint_{\bd S}\bm{H}\cdot\dd\bm{l}=\int_S\dd\bm{I}\]
+        \end{thm}
+
 \section{电磁感应}
+        
+        \begin{thm}
+            {}
+            \[\mathscr{E}=\frac{\dd\varPhi_{\mathrm{m}}}{\dd t}\]
+        \end{thm}
+        
+        \begin{thm}
+            {}
+            \[\mathscr{E}=\int_{M}(\bm{v}\times\BInts)\cdot\dd\bm{x}\]
+        \end{thm}
 
         
 
