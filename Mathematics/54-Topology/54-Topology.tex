@@ -12,6 +12,8 @@
 \usepackage{F4Topology}
 \usepackage{F4Analysis}
 
+\DeclareMathOperator{\supp}{supp}    % support set
+
 \DeclareMathOperator{\st}{\text{s.t. }}
 \newcommand{\bysorry}{\fcolorbox{black}{gray!20!white}{\texttt{\textcolor{black}{:= }\textcolor{blue}{by }\textcolor{red}{\textbf{sorry}}}}\;\;\,\texttt{\textcolor{gray}{{\footnotesize declaration uses 'sorry'.}}}}
 
@@ -1833,6 +1835,165 @@
                 \[P_n\rightrightarrows f\]
                 over $[a,b]$.
             \end{thm}
+
+        \subsection{卷积及其应用}
+
+            \begin{dfn}
+                [Convolution]
+                {（一维）卷积}
+                [Convolution]
+                [Dedicatia]
+                设函数 $f,g:\R\to\R$ 是局部Riemann可积的. 定义其\textbf{卷积}为含参变量积分
+                \[(f\ast g)(x):=\int_{\R}f(t)g(x-t)\dd{t}.\]
+                定义 $g(x-t)$ 为 $f$ 的\textbf{卷积核}.
+            \end{dfn}
+
+            \begin{dfn}
+                [Supp]
+                {支撑集}
+                [Support Set]
+                [Dedicatia]
+                设函数 $f:\R\to\R$. 定义其\textbf{支撑集/支集}为
+                \[\supp f := \overline{\{x:x\in\R,f(x)\neq 0\}}.\]
+                将 $f$ 具有区间 $[a,b]$ 上的紧支撑集记作 $f\in C_0([a,b])$.
+            \end{dfn}
+            
+            \begin{dfn}
+                [Smooth]
+                {光滑}
+                [Smooth]
+                [Dedicatia]
+                定义 $f:E\subseteq\R\to\R$ 是 $n$ 阶光滑函数当且仅当 $f$ 具有 $n$ 阶连续的导函数. 记作 $f\in C(E)$.\\
+                定义 $f$ 是光滑函数（省略 $n$）指的是当且仅当 $f\in C^{\infty}(E)$.
+            \end{dfn}
+
+            \begin{ppt}
+                [Convolution]
+                {卷积的性质}
+                []
+                [Dedicatia]
+                定义函数 $f,g$ 的卷积为 $f\ast g$. 若该卷积收敛, 则具有以下性质:
+                \begin{enumerate}
+                    \item 对称性: $f\ast g=g\ast f$;
+                    \item 支撑集可加性: 设 $supp f\subseteq [a,b], \supp g\subseteq [c,d]$, 则 $\supp(f\ast g)\subseteq [a+c,b+d]$;
+                    \item 平移不变性: 定义 $T_{x_0}(f(x))=f(x-x_0)$. 那么 $T_{x_0}(f\ast g)=(T_{x_0}(f))\ast g=f\ast(T_{x_0}(g))$.
+                \end{enumerate}
+            \end{ppt}
+
+            \begin{ppt}
+                [181201]
+                {卷积保持周期性}
+                []
+                [Dedicatia]
+            \end{ppt}
+            \begin{crl}
+                [104601]
+                {卷积收敛的判定定理1}
+                []
+                [Dedicatia]
+                设函数 $f,g:\R\to\R$ 是局部Riemann可积的. 若 $|f|^2, |g|^2$ 均在 $\R$ 上Riemann可积, 则卷积收敛.
+            \end{crl}
+            \begin{crl}
+                [105501]
+                {卷积收敛的判定定理2}
+                []
+                [Dedicatia]
+                设函数 $f,g:\R\to\R$ 是局部Riemann可积的. 若 $\supp f$ 或 $\supp g$ 是紧集, 则卷积收敛.
+            \end{crl}
+            \begin{crl}
+                [110101]
+                {卷积收敛的判定定理3}
+                []
+                [Dedicatia]
+                设函数 $f,g:\R\to\R$ 是局部Riemann可积的. 若 $f$ 和 $g$ 一个绝对Riemann可积, 另一个有界, 则卷积收敛.
+            \end{crl}
+
+            \begin{thm}
+                [Convolution-Diff]
+                {卷积的求导运算}
+                []
+                [Dedicatia]
+                设函数 $f,g:\R\to\R$ 是局部Riemann可积的. $g\in C_0^n(\R)$. 那么 $f\ast g\in C^n(\R)$, $\forall 0<k\leq n, (f\ast g)^{(k)}=(f\ast g^{(k)})(x)$.
+                \[\dv[k]{x}\int_{\R}f(t)g(x-t)\dd{t}=\int_{\R}f(t)\dv[k]{g(x-t)}{x}\dd{t}.\]
+            \end{thm}
+
+            \begin{dfn}
+                [Smoothing-Kernel]
+                {磨光核}
+                [Smoothing Convolution Kernel]
+                [Dedicatia]
+                定义函数 $g:[a,b]\subseteq\R\to\R$ 是一个\textbf{磨光核}, 当且仅当 $g$ 满足以下条件:
+                \begin{enumerate}
+                    \item 非负性: $g\geq 0$;
+                    \item 光滑性: $g\in C^{\infty}([a,b])$;
+                    \item 规范性: $\int_{\R}g(x)\dd{x}=1$;
+                    \item 紧支撑: $g\in C_0([a,b])$.
+                \end{enumerate}
+            \end{dfn}
+
+            \begin{rmk}
+                [Dedicatia]
+                局部可积的函数可以与一个磨光核作卷积, 得到的新函数保持光滑性. 这就是磨光核的名称由来.
+            \end{rmk}
+            
+            \begin{dfn}
+                [Delta-Approx-Sequence]
+                {$\delta$-函数逼近列}
+                []
+                [Dedicatia]
+                定义函数列 $\{f_n\}$ 为一个 $\delta$-函数逼近列, 若满足
+                \begin{enumerate}
+                    \item 非负性: $\forall n\in\N^*, f_n\geq 0$;
+                    \item 规范性: $\forall n\in\N^*, \int_{\R}f_n(x)\dd{x}=1$;
+                    \item 0处有支撑: 对于 $x=0$ 的任意邻域 $U(0)$: \[\lim_{n\to\infty}\int_{U(0)}f_n(x)\dd{x}=1.\]
+                \end{enumerate}
+            \end{dfn}
+            \begin{dfn}
+                [Delta-Approx]
+                {$\delta$-函数逼近族}
+                []
+                [Dedicatia]
+                设 $\epsilon\in\Lambda$ 是参数, 定义函数列 $\{f_{\epsilon}\}$ 为一个 $\delta$-函数逼近列, 若满足
+                \begin{enumerate}
+                    \item 非负性: $\forall \epsilon\in\Lambda, f_\epsilon\geq 0$;
+                    \item 规范性: $\forall \epsilon\in\Lambda, \int_{\R}f_\epsilon(x)\dd{x}=1$;
+                    \item 0处有支撑: 对于 $x=0$ 的任意邻域 $U(0)$: \[\lim_{\epsilon\to\epsilon_0}\int_{U(0)}f_n(x)\dd{x}=1.\]
+                \end{enumerate}
+            \end{dfn}
+            \begin{xmp}
+                [Gauss-Kernel]
+                {Gauss核/热核}
+                []
+                [Dedicatia]
+                定义Gauss核为函数族
+                \[K_\epsilon(x):=\frac{1}{\sqrt{2\pi\epsilon}}\exp(-\frac{x^2}{2\epsilon}).\]
+                当 $\epsilon\to 0$ 时这是一个$\delta$-函数逼近族.
+            \end{xmp}
+            \begin{xmp}
+                [poisson-Kernel]
+                {poisson核}
+                []
+                [Dedicatia]
+                定义Poisson核为函数族
+                \[K_\epsilon(x):=\frac{1}{\pi}\cdot\frac{\epsilon}{x^2+\epsilon^2}\]
+                当 $\epsilon\to 0$ 时这是一个$\delta$-函数逼近族.
+            \end{xmp}
+            \begin{xmp}
+                []
+                {磨光核函数列是$\delta$-函数逼近列}
+                []
+                [Dedicatia]
+            \end{xmp}
+
+            \begin{thm}
+                [Delta-Approx]
+                {$\delta$-函数逼近族逼近定理}
+                []
+                [Dedicatia]
+                设 $\{\delta_\epsilon(x)\}$ 是$\delta$-函数逼近族, $f:\R\to\R$ 是 $(a,b)$ 上的有界一致连续函数, 那么 
+                \[\forall x\in \Icc{s}{t}\subseteq (a,b), \lim_{\epsilon\to\epsilon_0}f\ast\delta_\epsilon\rightrightarrows f. \]
+            \end{thm}
+
 
 
     \section{}
