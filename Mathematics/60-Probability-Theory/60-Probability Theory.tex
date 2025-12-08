@@ -1284,22 +1284,42 @@
         \begin{dfn}
             []
             {联合分布函数}
-            []
-            [猫猫]
+            [Joint Cumulative Distribution Function / Joint CDF]
+            [Dedicatia]
+            设 \(X=(X_1,\cdots,X_n)\) 是一个随机向量, 定义 \(X\) 的\textbf{联合分布函数}为:
+            \[F_X(x_1,\cdots,x_n)=\mathbb{P}(X_1\leq x_1,\cdots,X_n\leq x_n)\]
         \end{dfn}
+
+        \begin{ppt}
+            []
+            {联合分布函数的性质}
+            []
+            [Dedicatia]
+            联合分布函数具有以下性质:
+            \begin{enumerate}
+                \item 非负性: $F\geq 0$;
+                \item 单调性: $F$ 关于每个变量 $X_i$ 都是单调不减的函数;
+                \item 规范性: $F(+\infty,+\infty,\cdots,+\infty)=1, F(x_1,\cdots,x_{i-1},-\infty,x_{i+1},\cdots,x_n)=0$.
+                \item 右连续, 左极限存在
+            \end{enumerate}
+        \end{ppt}
 
         \begin{dfn}
             []
             {边缘分布函数}
-            []
-            [猫猫]
+            [Marginal Cumulative Distribution Function]
+            [Dedicatia]
+            设 \(X=(X_1,\cdots,X_n)\) 是一个随机向量, 其分布函数为 \(F\). 定义其某一分量 \(X_k\) 的\textbf{边缘分布函数}为:
+            \[F_{X_k}(x_k) = F(+\infty,\cdots,x_k,\cdots,+\infty).\]
         \end{dfn}
 
         \begin{dfn}
             []
             {分布独立}
-            []
+            [Independent Distribution]
             [猫猫]
+            设 \(X=(X_1,\cdots,X_n)\) 是一个随机向量, 其分布函数为 \(F\), 各分量 \(X_k\) 的边缘分布函数为 \(F_{X_k}(x_k)\). 定义其分量 \(X_1,\cdots,X_n\) 是\textbf{相互独立/独立分布的}, 当且仅当:
+            \[F(x_1,\cdots,x_n)=\prod_{k=1}^{n}F_{X_k}(x_k)\]
         \end{dfn}
 
         \begin{dfn}
@@ -1309,11 +1329,15 @@
             [猫猫]
         \end{dfn}
 
+    \subsection{期望、协方差与相关系数}
+
         \begin{dfn}
             []
             {期望}
-            []
-            [猫猫]
+            [Expectation]
+            [猫猫, Dedicatia]
+            设 $X$ 是 $n$ 维随机向量, 定义其期望为:
+            \[\Expct{X}=(\Expct{X_1}, \cdots, \Expct{X_n}).\]
         \end{dfn}
 
         \begin{ppt}
@@ -1325,7 +1349,6 @@
             \[|\Expct{XY}| \leq \sqrt{\Expct{X^2}}\sqrt{\Expct{Y^2}}\]
         \end{ppt}
 
-    \subsection{协方差与相关系数}
 
         \begin{dfn}
             [Covariance]
@@ -1485,6 +1508,29 @@
             {多维离散型随机变量}
             []
             [猫猫]
+            称取值离散的多维随机变量为多维离散型随机变量.
+        \end{dfn}
+
+        \begin{dfn}
+            {二维离散型随机变量的分布}
+            []
+            [Dedicatia]
+            称取值离散的二维随机变量为二维离散型随机变量. 其取值可以一一列出:
+            \[p_{ij}:=\mathbb{P}(X=x_i, Y=y_j)\]
+            可以列表表示为
+            \begin{center}
+            \begin{tabular}{c|cccc|c}
+                \((X,Y)\) & \(y_1\) & \(\cdots\) & \(y_i\) & \(\cdots\) & \(Y\) \\
+                \hline
+                \(x_1\) & \(p_{11}\) & \(\cdots\) & \(p_{1i}\) & \(\cdots\) & \(\mathbb{P}(X=x_1)\) \\
+                \(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) \\
+                \(x_i\) & \(p_{i1}\) & \(\cdots\) & \(p_{ii}\) & \(\cdots\) & \(\mathbb{P}(X=x_i)\) \\
+                \(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) \\
+                \hline
+                \(X\) & \(\mathbb{P}(Y=y_1)\) & \(\cdots\) & \(\mathbb{P}(Y=y_i)\) & \(\cdots\) & 1
+            \end{tabular}   
+            \end{center}
+            
         \end{dfn}
 
         \begin{dfn}
@@ -1492,6 +1538,8 @@
             {联合分布列}
             []
             [猫猫]
+            对于 $n$ 维离散型随机变量, 定义其联合分布列为
+            \[p_{x_{1},\cdots,x_{n}} := \mathbb{P}(X_1=x_1,\cdots,X_n=x_n)\]
         \end{dfn}
 
     \subsection{多维连续型随机变量}
@@ -1500,38 +1548,86 @@
             []
             {多维连续型随机变量}
             []
-            [猫猫]
+            [Dedicatia]
         \end{dfn}
 
         \begin{dfn}
             []
             {联合概率密度函数}
             []
-            [猫猫]
+            [Dedicatia]
+            设 \((X_1,\cdots,X_n)\) 是 \(n\) 维连续型随机变量, 具有分布函数 \(F(x_1,\cdots,x_n)\). 定义其概率密度函数为某函数 \(f(x_1,\cdots,x_n)\) 当且仅当:
+            \[F(x_1,\cdots,x_n)=\int_{-\infty}^{x_1}\cdots\int_{-\infty}^{x_n}f(t_1,\cdots,t_n)\dd{t_1}\cdots\dd{t_n}.\]
         \end{dfn}
 
         \begin{dfn}
             []
             {边缘概率密度函数}
             []
-            [猫猫]
+            [Dedicatia]
+            设 \((X_1,\cdots,X_n)\) 是 \(n\) 维连续型随机变量, 具有分布函数 \(F(x_1,\cdots,x_n)\). 定义其某个分量 \(X_k\) 的边缘密度函数为
+            \[f_{X_k}(x_k)=\int_{-\infty}^{+\infty}\cdots\int_{-\infty}^{+\infty}f(t_1,\cdots,t_{k-1},x_k,t_{k+1},\cdots,x_n)\dd{t_1}\cdots\dd{t_{k-1}}\dd{t_{k+1}}\cdots\dd{t_n}.\]
         \end{dfn}
 
     \subsection{常见多维分布}
 
         \begin{xmp}
-            []
+            [Multi-Uniform]
             {多维均匀分布}
             [Multi-Uniform Distribution]
-            []
+            [Dedicatia]
+            设定义在 \(\R^{n}\) 上的可测集 \(D\) 上的 \(n\) 维随机变量 \(X\) 服从\textbf{多维均匀分布}, 当且仅当其联合密度函数 \(f\) 满足
+            \[f(x_1,\cdots,x_n)=\begin{cases}
+                &\frac{1}{m(D)}, \text{ 如果 } (x_1,\cdots,x_n)\in D;\\
+                &0, \text{ 其他}
+            \end{cases}\]
+            记作 \(X\sim U(D).\)
         \end{xmp}
 
         \begin{xmp}
             []
+            {二维正态分布}
+            []
+            [Dedicatia]
+            二维随机变量 \((X,Y)\) 服从二维正态分布当且仅当其密度函数为
+            \[f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp(-\frac{1}{2(1-\rho^2)}\qty(\qty(\frac{x-\mu_1}{\sigma_1^2})^2-2\rho\frac{x-\mu_1}{\sigma_1}\frac{y-\mu_2}{\sigma_2}+\qty(\frac{y-\mu_2}{\sigma_2})^2))\]
+            其中 \(\rho\in(0,1)\). 记作 \((X,Y)\sim N(\mu_1,\mu_2, \sigma_1^2, \sigma_2^2, \rho)\).
+        \end{xmp}
+
+        \begin{xmp}
+            [Multi-Normal]
             {多维正态分布}
             [Multi-Normal Distribution]
-            []
+            [Dedicatia]
+            \(n\) 维随机变量 \((X_1,\cdots,X_n)\) 服从多维正态分布当且仅当其密度函数可以表示为
+            \[f(\mathbf{x})=\frac{1}{(\sqrt{2\pi})^n\sqrt{\det\Sigma}}\exp(-\frac{\Trans{(\mathbf{x}-\mathbf{\mu})}\Sigma(\mathbf{x}-\mathbf{\mu})}{2})\]
+            其中 \(\mathbf{x}=(x_1,\cdots,x_n)\), \(\mathbf{\mu}=(\mu_1,\cdots,\mu_n)\), \(\Sigma\) 是对称正定矩阵, 这时记作 \(X\sim N(\mathbf{\mu},\Sigma)\).
         \end{xmp}
+
+        \begin{ppt}
+            {二维正态分布的边缘密度}
+            []
+            [Dedicatia]
+            设 \((X,Y)\sim N(\mu_1,\mu_2, \sigma_1^2, \sigma_2^2, \rho)\), 那么 \(X,Y\) 的边缘密度函数为
+            \[f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma_1}\exp(-\frac{(x-\mu_1)^2}{2\sigma_1^2})\]
+            \[f_{Y}(y)=\frac{1}{\sqrt{2\pi}\sigma_2}\exp(-\frac{(x-\mu_2)^2}{2\sigma_2^2})\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {正态随机变量相互独立}
+            []
+            [Dedicatia]
+        \end{ppt}
+
+        \begin{cxmp}
+            {正态随机变量的联合分布不一定是多维正态分布}
+            []
+            [Dedicatia]
+            设 \((X,Y)\) 具有如下概率密度函数
+            \[f(x,y)=\frac{1}{2\pi}\exp(-\frac{x^2+y^2}{2})(1+\sin x+\sin y)\]
+            则边缘分布 \(X\sim N(0,1), Y\sim N(0,1)\), 但 \(X,Y\) 不服从二维正态分布.
+        \end{cxmp}
 
 \section{大数定理}
 
