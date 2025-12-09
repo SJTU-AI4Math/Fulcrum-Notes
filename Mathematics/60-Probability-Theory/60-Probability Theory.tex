@@ -1201,7 +1201,7 @@
 
         \begin{rmk}
             [Dedicatia]
-            正态分布的密度函数不具有初等的原函数，计算正态分布的概率的数值时常将正态分布随机变量线性地转换为服从标准正态分布的随机变量。
+            \正态分布 的密度函数不具有初等的原函数，计算正态分布的概率的数值时常将正态分布随机变量线性地转换为服从标准正态分布的随机变量。
             \[X\sim N(\mu,\sigma^2)\Longleftrightarrow Z=\frac{X-\mu}{\sigma}\sim N(0,1)\]
         \end{rmk}
 
@@ -1231,6 +1231,105 @@
             设 \(X\) 是服从\hyperref[xmp:Binom]{二项分布}的\离散型随机变量, $X\sim B(n,p)$, 那么对任意 $a<b$,
             \[\lim_{n\to\infty}P\qty(a\leq\frac{X-np}{\sqrt{np(1-p)}}\leq b)=\Phi(b)-\Phi(a)\]
         \end{ppt}
+
+        \begin{xmp}
+            [Chi-Square]
+            {卡方分布}
+            [Chi-Square Distribution]
+            [Dedicatia]
+            若\随机变量 \( Z_1, Z_2, \dots, Z_k \) 相互独立且均服从标准\正态分布 \( N(0, 1) \)，则它们的平方和所构成随机变量
+            \[
+            X = \sum_{i=1}^{k} Z_i^2
+            \]
+            服从自由度为 \( k \) 的\textbf{卡方分布}, 记作：
+            \[X \sim \chi^2(k)\]
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {卡方分布的概率密度函数}
+            []
+            [Dedicatia]
+            若\随机变量 \(X\sim\chi^2(k)\), 其概率密度函数为:
+            \[
+            f(x) = 
+            \begin{cases} 
+            \frac{1}{2^{k/2} \Gamma(k/2)} x^{k/2 - 1} e^{-x/2}, & x > 0 \\
+            0, & x \le 0
+            \end{cases}
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {卡方分布的数学期望}
+            []
+            [Dedicatia]
+            若\随机变量 \(X\sim\chi^2(k)\), 那么 \(\Expct{X}=k\).
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {卡方分布的方差}
+            []
+            [Dedicatia]
+            若\随机变量 \(X\sim\chi^2(k)\), 那么 \(\Var{X}=2k\).
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {卡方分布与 \(\Gamma\) 分布的关系}
+            []
+            [Dedicatia]
+            卡方分布是一种特殊的 \(\Gamma\) 分布:
+            \[\chi^2(k) = \Gamma\qty(\frac{k}{2},2).\]
+        \end{ppt}
+
+    \subsection{随机变量的其他数值特征}
+
+        \begin{dfn}
+            [Cv]
+            {变异系数}
+            [Coefficient of Variation]
+            [Dedicatia]
+            设 \(X\) 是\随机变量, 均值为 \(\mu\), 标准差为 \(\sigma\), 定义其变异系数为 \(Cv(X):=\frac{\sigma}{\mu}\). 即:
+            \[Cv(X) = \frac{\sqrt{\Var{X}}}{\Expct{X}}.\]
+        \end{dfn}
+
+        \begin{dfn}
+            [Skewness]
+            {偏度}
+            [Skewness]
+            [Dedicatia]
+            设 \(X\) 是\随机变量, 均值为 \(\mu\), 标准差为 \(\sigma\), 定义其偏度为
+            \[\Expct{\qty(\frac{X-\mu}{\sigma})^3}.\]
+        \end{dfn}
+        
+        \begin{dfn}
+            [Kurtosis]
+            {(超额)峰度}
+            [Kurtosis]
+            [Dedicatia]
+            设 \(X\) 是\随机变量, 均值为 \(\mu\), 标准差为 \(\sigma\), 定义其峰度为
+            \[\Expct{\qty(\frac{X-\mu}{\sigma})^4}-3.\]
+        \end{dfn}
+
+        \begin{xmp}
+            []
+            {几种分布的峰度}
+            []
+            [Dedicatia]
+            均匀分布 \(U(0,1)\) 的峰度为 \(-1.2\);\\
+            \正态分布 的峰度为 \(0\);\\
+            指数分布 \(\mathfrak{E}(\lambda)\) 的峰度为 \(6\);\\
+            \(\Gamma\)分布 \(\Gamma(\alpha,\lambda)\) 的峰度为 \(\frac{6}{\alpha}\).
+        \end{xmp}
+
+        \begin{rmk}
+            [Dedicatia]
+            偏度用来衡量分布关于其均值的不对称性. 偏度越大越不对称;\\
+            峰度用来衡量分布的尖峭程度, 峰度越大, 分布越陡峭. 其减3的原因是与\正态分布 作比较.
+        \end{rmk}
 
 \section{多维随机变量}
 
@@ -1286,7 +1385,7 @@
             {联合分布函数}
             [Joint Cumulative Distribution Function / Joint CDF]
             [Dedicatia]
-            设 \(X=(X_1,\cdots,X_n)\) 是一个随机向量, 定义 \(X\) 的\textbf{联合分布函数}为:
+            设 \(X=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 定义 \(X\) 的\textbf{联合分布函数}为:
             \[F_X(x_1,\cdots,x_n)=\mathbb{P}(X_1\leq x_1,\cdots,X_n\leq x_n)\]
         \end{dfn}
 
@@ -1306,11 +1405,20 @@
 
         \begin{dfn}
             []
-            {边缘分布函数}
+            {(单变量的)边缘分布函数}
             [Marginal Cumulative Distribution Function]
             [Dedicatia]
-            设 \(X=(X_1,\cdots,X_n)\) 是一个随机向量, 其分布函数为 \(F\). 定义其某一分量 \(X_k\) 的\textbf{边缘分布函数}为:
+            设 \(X=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某一分量 \(X_k\) 的\textbf{边缘分布函数}为:
             \[F_{X_k}(x_k) = F(+\infty,\cdots,x_k,\cdots,+\infty).\]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {多变量的边缘分布函数}
+            [Multivariate Marginal Cumulative Distribution Function]
+            [Dedicatia]
+            设 \(X=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某些分量 \(X_j,\cdots,X_k\) 的\textbf{边缘分布函数}为:
+            \[F_{X_k}(x_k) = F(+\infty,\cdots,x_j,\cdots,+\infty,x_k,\cdots,+\infty).\]
         \end{dfn}
 
         \begin{dfn}
@@ -1318,16 +1426,32 @@
             {分布独立}
             [Independent Distribution]
             [猫猫]
-            设 \(X=(X_1,\cdots,X_n)\) 是一个随机向量, 其分布函数为 \(F\), 各分量 \(X_k\) 的边缘分布函数为 \(F_{X_k}(x_k)\). 定义其分量 \(X_1,\cdots,X_n\) 是\textbf{相互独立/独立分布的}, 当且仅当:
+            设 \(X=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\), 各分量 \(X_k\) 的边缘分布函数为 \(F_{X_k}(x_k)\). 定义其分量 \(X_1,\cdots,X_n\) 是\textbf{相互独立/独立分布的}, 当且仅当:
             \[F(x_1,\cdots,x_n)=\prod_{k=1}^{n}F_{X_k}(x_k)\]
         \end{dfn}
 
+    \subsection{多维随机变量的条件分布}
+
         \begin{dfn}
             []
-            {条件分布}
+            {多维离散型随机变量的条件分布列}
             []
-            [猫猫]
+            [Dedicatia]
+            设\离散型随机向量{\(2\)} \((X,Y)\) 的联合分布列为 \(p_{ij}=p(x_i,y_j)=\mathbb{P}(X=x_i,Y=y_j)\), \(X\) 的边缘分布列为 \(p_{X}(x_i)\), 定义其在 \(X=x_i\) 的条件下 \(Y\) 的概率分布
+            \[\mathbb{P}(Y=y_j\mid X=x_i)=\frac{p_{ij}}{p_{i,\cdot}}=\frac{p(x_i,y_j)}{p_{X}(x_i)}=\frac{\mathbb{P}(X=x_i,Y=y_j)}{\mathbb{P}(X=x_i)}\]
+            记作
+            \[p_{Y}(y_j\mid x_i)\]
+            为 \(Y\) 的条件分布列.
         \end{dfn}
+
+        \begin{thm}
+            []
+            {多维离散型随机变量的全概率公式}
+            []
+            [Dedicatia]
+            设\离散型随机向量{\(2\)} \((X,Y)\) 的边缘分布列为 \(p_{X}(x_i), p_{Y}(y_j)\), 那么
+            \[p_{Y}(y_j)=\sum_{i=1}^{n} p_{X}(x_i)p_Y(y_j\mid x_i). \]
+        \end{thm}
 
     \subsection{期望、协方差与相关系数}
 
@@ -1336,7 +1460,7 @@
             {期望}
             [Expectation]
             [猫猫, Dedicatia]
-            设 $X$ 是 $n$ 维随机向量, 定义其期望为:
+            设 \(\bm{X}\) 是\随机向量{\(n\)}, 定义其期望为:
             \[\Expct{X}=(\Expct{X_1}, \cdots, \Expct{X_n}).\]
         \end{dfn}
 
@@ -1504,7 +1628,7 @@
     \subsection{多维离散型随机变量}
 
         \begin{dfn}
-            []
+            [Multi-Discrete-Random-Variable]
             {多维离散型随机变量}
             []
             [猫猫]
@@ -1515,22 +1639,21 @@
             {二维离散型随机变量的分布}
             []
             [Dedicatia]
-            称取值离散的二维随机变量为二维离散型随机变量. 其取值可以一一列出:
+            称取值离散的\随机向量{\(2\)}为二维离散型随机变量. 其取值可以一一列出:
             \[p_{ij}:=\mathbb{P}(X=x_i, Y=y_j)\]
             可以列表表示为
             \begin{center}
-            \begin{tabular}{c|cccc|c}
-                \((X,Y)\) & \(y_1\) & \(\cdots\) & \(y_i\) & \(\cdots\) & \(Y\) \\
-                \hline
-                \(x_1\) & \(p_{11}\) & \(\cdots\) & \(p_{1i}\) & \(\cdots\) & \(\mathbb{P}(X=x_1)\) \\
-                \(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) \\
-                \(x_i\) & \(p_{i1}\) & \(\cdots\) & \(p_{ii}\) & \(\cdots\) & \(\mathbb{P}(X=x_i)\) \\
-                \(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) \\
-                \hline
-                \(X\) & \(\mathbb{P}(Y=y_1)\) & \(\cdots\) & \(\mathbb{P}(Y=y_i)\) & \(\cdots\) & 1
-            \end{tabular}   
+                \begin{tabular}{c|cccc|c}
+                    \((X,Y)\) & \(y_1\) & \(\cdots\) & \(y_i\) & \(\cdots\) & \(Y\) \\
+                    \hline
+                    \(x_1\) & \(p_{11}\) & \(\cdots\) & \(p_{1i}\) & \(\cdots\) & \(\mathbb{P}(X=x_1)\) \\
+                    \(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) \\
+                    \(x_i\) & \(p_{i1}\) & \(\cdots\) & \(p_{ii}\) & \(\cdots\) & \(\mathbb{P}(X=x_i)\) \\
+                    \(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) \\
+                    \hline
+                    \(X\) & \(\mathbb{P}(Y=y_1)\) & \(\cdots\) & \(\mathbb{P}(Y=y_i)\) & \(\cdots\) & 1
+                \end{tabular}
             \end{center}
-            
         \end{dfn}
 
         \begin{dfn}
@@ -1545,7 +1668,7 @@
     \subsection{多维连续型随机变量}
 
         \begin{dfn}
-            []
+            [Multi-Continuous-Random-Variable]
             {多维连续型随机变量}
             []
             [Dedicatia]
@@ -1556,7 +1679,7 @@
             {联合概率密度函数}
             []
             [Dedicatia]
-            设 \((X_1,\cdots,X_n)\) 是 \(n\) 维连续型随机变量, 具有分布函数 \(F(x_1,\cdots,x_n)\). 定义其概率密度函数为某函数 \(f(x_1,\cdots,x_n)\) 当且仅当:
+            设 \((X_1,\cdots,X_n)\) 是\连续型随机向量{\(n\)}, 具有分布函数 \(F(x_1,\cdots,x_n)\). 定义其概率密度函数为某函数 \(f(x_1,\cdots,x_n)\) 当且仅当:
             \[F(x_1,\cdots,x_n)=\int_{-\infty}^{x_1}\cdots\int_{-\infty}^{x_n}f(t_1,\cdots,t_n)\dd{t_1}\cdots\dd{t_n}.\]
         \end{dfn}
 
@@ -1565,7 +1688,7 @@
             {边缘概率密度函数}
             []
             [Dedicatia]
-            设 \((X_1,\cdots,X_n)\) 是 \(n\) 维连续型随机变量, 具有分布函数 \(F(x_1,\cdots,x_n)\). 定义其某个分量 \(X_k\) 的边缘密度函数为
+            设 \((X_1,\cdots,X_n)\) 是\连续型随机向量{\(n\)}, 具有分布函数 \(F(x_1,\cdots,x_n)\). 定义其某个分量 \(X_k\) 的边缘密度函数为
             \[f_{X_k}(x_k)=\int_{-\infty}^{+\infty}\cdots\int_{-\infty}^{+\infty}f(t_1,\cdots,t_{k-1},x_k,t_{k+1},\cdots,x_n)\dd{t_1}\cdots\dd{t_{k-1}}\dd{t_{k+1}}\cdots\dd{t_n}.\]
         \end{dfn}
 
@@ -1576,12 +1699,12 @@
             {多维均匀分布}
             [Multi-Uniform Distribution]
             [Dedicatia]
-            设定义在 \(\R^{n}\) 上的可测集 \(D\) 上的 \(n\) 维随机变量 \(X\) 服从\textbf{多维均匀分布}, 当且仅当其联合密度函数 \(f\) 满足
+            设定义在 \(\R^{n}\) 上的可测集 \(D\) 上的 \随机向量{\(n\)} \(\bm{X}\) 服从\textbf{多维均匀分布}, 当且仅当其联合密度函数 \(f\) 满足
             \[f(x_1,\cdots,x_n)=\begin{cases}
                 &\frac{1}{m(D)}, \text{ 如果 } (x_1,\cdots,x_n)\in D;\\
                 &0, \text{ 其他}
             \end{cases}\]
-            记作 \(X\sim U(D).\)
+            记作 \(\bm{X}\sim U(D).\)
         \end{xmp}
 
         \begin{xmp}
@@ -1589,7 +1712,7 @@
             {二维正态分布}
             []
             [Dedicatia]
-            二维随机变量 \((X,Y)\) 服从二维正态分布当且仅当其密度函数为
+            \随机向量{\(2\)} \((X,Y)\) 服从二维正态分布当且仅当其密度函数为
             \[f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp(-\frac{1}{2(1-\rho^2)}\qty(\qty(\frac{x-\mu_1}{\sigma_1^2})^2-2\rho\frac{x-\mu_1}{\sigma_1}\frac{y-\mu_2}{\sigma_2}+\qty(\frac{y-\mu_2}{\sigma_2})^2))\]
             其中 \(\rho\in(0,1)\). 记作 \((X,Y)\sim N(\mu_1,\mu_2, \sigma_1^2, \sigma_2^2, \rho)\).
         \end{xmp}
@@ -1599,18 +1722,27 @@
             {多维正态分布}
             [Multi-Normal Distribution]
             [Dedicatia]
-            \(n\) 维随机变量 \((X_1,\cdots,X_n)\) 服从多维正态分布当且仅当其密度函数可以表示为
-            \[f(\mathbf{x})=\frac{1}{(\sqrt{2\pi})^n\sqrt{\det\Sigma}}\exp(-\frac{\Trans{(\mathbf{x}-\mathbf{\mu})}\Sigma(\mathbf{x}-\mathbf{\mu})}{2})\]
-            其中 \(\mathbf{x}=(x_1,\cdots,x_n)\), \(\mathbf{\mu}=(\mu_1,\cdots,\mu_n)\), \(\Sigma\) 是对称正定矩阵, 这时记作 \(X\sim N(\mathbf{\mu},\Sigma)\).
+            \随机向量{\(n\)} \((X_1,\cdots,X_n)\) 服从 \(n\) 维正态分布当且仅当其密度函数可以表示为
+            \[f(\bm{X})=\frac{1}{(\sqrt{2\pi})^n\sqrt{\det\Sigma}}\exp(-\frac{\Trans{(\bm{X}-\boldsymbol{\mu})}\Sigma(\bm{X}-\boldsymbol{\mu})}{2})\]
+            其中 \(\bm{X}=(x_1,\cdots,x_n)\), \(\boldsymbol{\mu}=(\mu_1,\cdots,\mu_n)\), \(\Sigma\) 是对称正定矩阵, 这时记作 \(X\sim N(\boldsymbol{\mu},\Sigma)\).
         \end{xmp}
 
         \begin{ppt}
+            []
             {二维正态分布的边缘密度}
             []
             [Dedicatia]
-            设 \((X,Y)\sim N(\mu_1,\mu_2, \sigma_1^2, \sigma_2^2, \rho)\), 那么 \(X,Y\) 的边缘密度函数为
+            设\随机向量{\(2\)} \((X,Y)\sim N(\mu_1,\mu_2, \sigma_1^2, \sigma_2^2, \rho)\), 那么 \(X,Y\) 的边缘密度函数为
             \[f_{X}(x)=\frac{1}{\sqrt{2\pi}\sigma_1}\exp(-\frac{(x-\mu_1)^2}{2\sigma_1^2})\]
             \[f_{Y}(y)=\frac{1}{\sqrt{2\pi}\sigma_2}\exp(-\frac{(x-\mu_2)^2}{2\sigma_2^2})\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {二维正态分布的相关系数}
+            []
+            [Dedicatia]
+            设\随机向量{\(2\)} \((X,Y)\sim N(\mu_1,\mu_2, \sigma_1^2, \sigma_2^2, \rho)\), 则相关系数 \(\rho(X,Y)=\rho\).
         \end{ppt}
 
         \begin{ppt}
@@ -1621,13 +1753,141 @@
         \end{ppt}
 
         \begin{cxmp}
+            []
             {正态随机变量的联合分布不一定是多维正态分布}
             []
             [Dedicatia]
             设 \((X,Y)\) 具有如下概率密度函数
             \[f(x,y)=\frac{1}{2\pi}\exp(-\frac{x^2+y^2}{2})(1+\sin x+\sin y)\]
-            则边缘分布 \(X\sim N(0,1), Y\sim N(0,1)\), 但 \(X,Y\) 不服从二维正态分布.
+            则边缘分布 \(X\sim N(0,1), Y\sim N(0,1)\), 但 \(X,Y\) 不服从\正态分布{\(2\)}.
         \end{cxmp}
+
+        \begin{xmp}
+            []
+            {多维t分布}
+            [Multivariate t-Distribution]
+            [Dedicatia]
+            设 \((X_1,\cdots,X_n)\) 是\随机向量{\(n\)}, 定义其服从 \(n\) 维t分布当且仅当其概率密度函数为
+            \[
+            f(\bm{X}) = 
+            \frac{\Gamma\left(\frac{\nu + p}{2}\right)}{\Gamma\left(\frac{\nu}{2}\right) (\nu \pi)^{\frac{p}{2}} |\boldsymbol{\Sigma}|^{\frac{1}{2}}}
+            \left[1 + \frac{1}{\nu} (\bm{X} - \boldsymbol{\mu})^T \boldsymbol{\Sigma}^{-1} (\bm{X} - \boldsymbol{\mu}) \right]^{-\frac{\nu + p}{2}}
+            \]
+            记作
+            \[(X_1,\cdots,X_n)\sim t_p(\boldsymbol{\mu}, \boldsymbol{\Sigma}, \nu).\]
+            其中 \(\boldsymbol{\mu}\) 是位置向量, \(\nu\) 为自由度. 二次型
+            \[
+            \Trans{(\bm{X} - \boldsymbol{\mu})} \boldsymbol{\Sigma}^{-1} (\bm{X} - \boldsymbol{\mu})
+            \]
+            称为Mahalanobis距离.
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {t分布与正态分布的关系}
+            []
+            [Dedicatia]
+            当 \(\nu\to+\infty\) 时, \(n\) 维t分布趋于\正态分布{\(n\)}.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {t分布的边缘分布仍为t分布}
+            []
+            [Dedicatia]
+            设 \((X_1,\cdots,X_n)\) 是服从 \(n\) 维t分布的\随机向量{\(n\)}, 则其任意分量 \(X_j,\cdots,X_k\) 也服从 \(k-j+1\) 维t分布.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {t分布的数值特征}
+            []
+            [Dedicatia]
+            设\随机向量{\(n\)} \(\bm{X}=(X_1,\cdots,X_n)\sim t_n(\boldsymbol{\mu}, \boldsymbol{\Sigma}, \nu)\). 那么当 \(\nu>1\) 时期望存在, 为
+            \[\Expct{\bm{X}} = \boldsymbol{\mu}\]
+            当 \(\nu>2\) 时\协方差 矩阵存在, 为
+            \[\Cov{\bm{X}}=\frac{\nu}{\nu-2}\boldsymbol{\Sigma}.\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {多维t分布的生成}
+            []
+            [Dedicatia]
+            \bysorry
+        \end{ppt}
+
+    \subsection{多维随机变量的像的分布}
+
+        \begin{thm}
+            []
+            {多维随机变量的像的分布}
+            []
+            [Dedicatia]
+            设 \((X_1,\cdots,X_n)\) 是\随机向量{\(n\)}, \(g(x_1,\cdots,x_n):\R^n\to\R\), 令 \(Z:=g(X_1,\cdots,X_n)\), 那么 \(Z\) 的分布函数为
+            \begin{itemize}
+                \item 离散型: \[F_Z(z)=\sum_{g(x_1,\cdots,x_n)\leq z}\mathbb{P}(X_1=x_1,\cdots,X_n=x_n)\]
+                \item 连续型, 具有密度函数 \(f\): \[F_Z(z)=\int\cdots\int_{g(x_1,\cdots,x_n)\leq z}f(x_1,\cdots,x_n)\dd{x_1}\cdots\dd{x_n}.\]
+            \end{itemize}
+        \end{thm}
+
+        \begin{xmp}
+            []
+            {二维随机变量的和/差的分布}
+            []
+            []
+            设 \((X,Y)\) 是\随机向量{\(2\)}, 定义 \(Z=X\pm Y\), 则 \(Z\) 的分布为
+            \begin{itemize}
+                \item 离散型: \(\forall z:\R, \mathbb{P}(Z=z)=\sum_{x_i\pm y_j=z}\mathbb{P}(X=x_i,Y=y_j)\)
+                \item 连续型, 具有密度函数 \(f_{X,Y}\): 
+                    \[f_Z(z) = \begin{cases}
+                        &\int_{-\infty}^{+\infty} f_{X,Y}(x, z - x) \dd{x}, \text{ 如果 } Z=X+Y;\\
+                        &\int_{-\infty}^{+\infty} f_{X,Y}(x, x - z) \dd{x}, \text{ 如果 } Z=X-Y.
+                    \end{cases}\]
+            \end{itemize}
+        \end{xmp}
+
+        \begin{ppt}
+            []
+            {Poisson分布具有可加性}
+            [the Additivity of Poisson Distribution]
+            []
+            设一列独立的\随机变量 \(X_1,X_2,\dots,X_n\) 服从参数为 \(\lambda_1,\lambda_2,\dots,\lambda_n\) 的Poisson分布, 则其和 \(Z=\sum_{i=1}^n X_i\) 服从参数为 \(\lambda=\sum_{i=1}^n \lambda_i\) 的Poisson分布.
+        \end{ppt}
+
+        \begin{prf}
+            设 \(Z=\sum_{i=1}^n X_i\), 则: 
+            \[\mathbb{P}(Z=k)=\sum_{x_1+x_2+\cdots+x_n=k}\prod_{i=1}^n\frac{\lambda_i^{x_i}}{x_i!}\exp(-\lambda_i)\]
+            其中 \(x_i\) 是 \(X_i\) 的取值. \\
+            令 \(x_i=k-y_1-y_2-\cdots-y_{i-1}\), 则: 
+            \[\mathbb{P}(Z=k)=\sum_{y_1+y_2+\cdots+y_n=k}\prod_{i=1}^n\frac{\lambda_i^{k-y_1-y_2-\cdots-y_{i-1}}}{(k-y_1-y_2-\cdots-y_{i-1})!}\exp(-\lambda_i)\]
+            令 \(y_i=k-z\), 则: 
+            \[\mathbb{P}(Z=k)=\sum_{z=0}^k\prod_{i=1}^n\frac{\lambda_i^{z}}{z!}\exp(-\lambda_i)\]
+            由 Poisson 分布的性质, 得: 
+            \[\mathbb{P}(Z=k)=\frac{\lambda^k}{k!}\exp(-\lambda)\]
+            其中 \(\lambda=\sum_{i=1}^n \lambda_i\).
+        \end{prf}
+
+        \begin{ppt}
+            []
+            {卡方分布具有可加性}
+            [the Additivity of Chi-Square Distribution]
+            [Dedicatia]
+            若\随机变量 \( X \sim \chi^2(m) \), \( Y \sim \chi^2(n) \), 且 \( X \) 与 \( Y \) 相互独立，则：
+            \[ X + Y \sim \chi^2(m + n)\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {正态分布具有可加性}
+            [the Additivity of Normal Distribution]
+            [Dedicatia]
+            设一列独立的\随机变量 \(X_1,X_2,\dots,X_n\) 满足
+            \[X_i\sim N(\mu_i,\sigma^2_i)\]
+            那么其和也服从\正态分布 :
+            \[Z=\sum_{i=1}^n\sim N\qty(\sum_{i=1}^n \mu_i, \sum_{i=1}^n \sigma^2_i).\]
+        \end{ppt}
+
 
 \section{大数定理}
 
@@ -1651,7 +1911,7 @@
             [猫猫]
             设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 
             \begin{enumerate}
-                \item 协方差非正: 
+                \item \协方差 非正: 
                     \[\forall i,j:\N, i\neq j\implies \Cov{X_i}{X_j}\leq 0\]
                 \item 方差受限: 
                     \[\frac{1}{n^2}\sum_{i=1}^n\Var{X_i}\plim 0\]
