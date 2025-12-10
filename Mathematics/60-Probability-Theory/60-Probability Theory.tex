@@ -1759,7 +1759,7 @@
             [Dedicatia]
             设 \((X,Y)\) 具有如下概率密度函数
             \[f(x,y)=\frac{1}{2\pi}\exp(-\frac{x^2+y^2}{2})(1+\sin x+\sin y)\]
-            则边缘分布 \(X\sim N(0,1), Y\sim N(0,1)\), 但 \(X,Y\) 不服从\正态分布{\(2\)}.
+            则边缘分布 \(X\sim N(0,1), Y\sim N(0,1)\), 但 \(X,Y\) 不服从\正态分布[\(2\)].
         \end{cxmp}
 
         \begin{xmp}
@@ -1787,7 +1787,7 @@
             {t分布与正态分布的关系}
             []
             [Dedicatia]
-            当 \(\nu\to+\infty\) 时, \(n\) 维t分布趋于\正态分布{\(n\)}.
+            当 \(\nu\to+\infty\) 时, \(n\) 维t分布趋于\正态分布[\(n\)].
         \end{ppt}
 
         \begin{ppt}
@@ -1888,6 +1888,56 @@
             \[Z=\sum_{i=1}^n\sim N\qty(\sum_{i=1}^n \mu_i, \sum_{i=1}^n \sigma^2_i).\]
         \end{ppt}
 
+        \begin{cxmp}
+            []
+            {不独立的正态随机变量不一定可加}
+            []
+            [Dedicatia]
+            反例如: \((X,Y)\) 具有如下概率密度函数:
+            \[f(x,y)=\frac{1}{2\pi}\exp(-\frac{x^2+y^2}{2})(1+\sin x+\sin y)\]
+            求取其边缘分布可知 \(X\sim N(0,1), Y\sim N(0,1)\). 但随机变量 \(Z:=X+Y\) 的概率密度函数为
+            \[f_Z(z)=\frac{1}{\sqrt{2\pi}}\exp(-\frac{u^2}{4})\qty(1-\frac{\cos u}{2}+\frac{\mathrm{e}^{-1}}{2}).\]
+        \end{cxmp}
+
+    \subsection{顺序统计量的分布}
+
+        \begin{dfn}
+            []
+            {顺序统计量}
+            [Order Statistics]
+            [Dedicatia]
+            设 \(X_1,X_2,\dots,X_n\) 是一组\随机变量, 记其从小到大的排列为 \(X_{(1)},X_{(2)},\dots,X_{(n)}\), 则定义 \(X_{(k)}\) 为 \(X_{i}\) 中的第 \(k\) 个\textbf{顺序统计量}.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {顺序统计量的分布}
+            []
+            [Dedicatia]
+            设 \(X_1,X_2,\dots,X_n\) 是一组\随机变量, 其分布函数为 \(F(x)\), 密度函数为 \(f(x)\). 则第 \(k\) 个顺序统计量 \(X_{(k)}\) 的分布函数与密度函数分别为
+            \[F_{X_{(k)}}(x)=\sum_{j=k}^{n}\binom{n}{j}[F(x)]^j[1-F(x)]^{n-j}\]
+            \[f_{X_{(k)}}(x)=\frac{n!}{(k-1)!(n-k)!}[F(x)]^{k-1}[1-F(x)]^{n-k}f(x)\]
+        \end{thm}
+
+        \begin{xmp}
+            []
+            {最大值与最小值的分布}
+            []
+            [Dedicatia]
+            设 \(X_1,X_2,\dots,X_n\) 是一组\随机变量, 其分布函数为 \(F(x)\), 密度函数为 \(f(x)\). 则最大值 \(X_{(n)}\) 与最小值 \(X_{(1)}\) 的分布函数与密度函数分别为
+            \[F_{X_{(n)}}(x)=[F(x)]^n, \quad f_{X_{(n)}}(x)=n[F(x)]^{n-1}f(x)\]
+            \[F_{X_{(1)}}(x)=1-[1-F(x)]^n, \quad f_{X_{(1)}}(x)=n[1-F(x)]^{n-1}f(x)\]
+        \end{xmp}
+
+        \begin{xmp}
+            []
+            {均匀分布的顺序统计量}
+            []
+            [Dedicatia]
+            设 \(X_1,X_2,\dots,X_n\) 是一组服从区间 \([0,1]\) 上均匀分布的\随机变量. 则第 \(k\) 个顺序统计量 \(X_{(k)}\) 的密度函数为
+            \[f_{X_{(k)}}(x)=\frac{n!}{(k-1)!(n-k)!}x^{k-1}(1-x)^{n-k}, \quad x\in[0,1]\]
+            其中 \(X_{(k)}\) 服从参数为 \(k, n-k+1\) 的Beta分布.
+        \end{xmp}
 
 \section{大数定理}
 
