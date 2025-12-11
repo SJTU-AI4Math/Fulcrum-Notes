@@ -613,6 +613,308 @@
             \begin{rmk}
                 或者说, 将模\(m\)即约剩余系中的每一个元素乘以与\(m\)互素的整数\(a\), 仍然得到模\(m\)即约剩余系中的元素, 且没有重复.
             \end{rmk}
+            
+            \subsection{欧拉函数与欧拉定理}
+
+            \begin{dfn}
+                [Eulerfunction]
+                {欧拉函数}
+                [Euler Function]
+                [白菜]
+                设\(m:\mathbb{Z}\), 则欧拉函数\(\varphi(m)\)定义为小于\(m\)且与\(m\)互素的正整数的个数.
+            \end{dfn}
+
+            \begin{ppt}
+                [NumberOfElementsInReducedResidueSystem]
+                {即约剩余系的元素个数为\(\varphi(m)\)}
+                []
+                [白菜]
+                设\(m\), \(A\subset \Z/m\Z\), 为模\(m\)的即约剩余系, 
+                则\(|A| = \varphi(m)\).
+            \end{ppt}
+
+            \begin{ppt}
+                [MultiplicativityOfEulerFunction]
+                {欧拉函数的乘性}
+                [Multiplicativity of Euler Function]
+                [白菜]
+                设\(m_1,m_2:\mathbb{Z}\), \(\gcd(m_1,m_2)=1\), 则\(\varphi(m_1m_2) = \varphi(m_1)\varphi(m_2)\).
+            \end{ppt}
+
+            \begin{crl}
+                []
+                {欧拉函数的显式公式}
+                []
+                [白菜]
+                设\(m:\mathbb{Z}\), 则
+                \[
+                \varphi(m) = m \prod_{p \mid m} \left(1 - \frac{1}{p}\right)
+                \]
+            \end{crl}
+
+            \begin{thm}
+                []
+                {费马小定理}
+                [Fermat's Little Theorem]
+                [白菜]
+                设\(p:\mathbb{Z}\), \(a:\mathbb{Z}\), 且 \(p\)为素数, \(\gcd(a,p)=1\), 则
+                \[
+                    a^{p-1} \equiv 1 \mod{p}
+                \]
+            \end{thm}
+
+            \begin{thm}
+                [EulerTheorem]
+                {欧拉定理}
+                [Euler's Theorem]
+                [白菜]
+                设\(m:\mathbb{Z}\), \(a:\mathbb{Z}\), 且 \(\gcd(a,m)=1\), 则
+                \[
+                    a^{\varphi(m)} \equiv 1 \mod{m}
+                \]
+            \end{thm}
+
+            \begin{thm}
+                [WilsonTheorem]
+                {威尔逊定理}
+                [Wilson's Theorem]
+                [白菜]
+                设\(m:\mathbb{Z}\), 则 \(m\)为素数当且仅当
+                \[
+                    (m-1)! \equiv -1 \mod{m}
+                \]
+            \end{thm}
+
+    \section{同余方程}
+        \subsection{基础概念与一次同余方程}
+            \begin{dfn}
+                [ModuleEquation]
+                {同余方程}
+                [Module Equation]
+                [白菜]
+                设\(f(x)=\sum_{i=0}^n a_i x^i\), \(a_i \in \mathbb{Z}\), 则同余方程指的是形如 
+                \[f(x) \equiv 0 \mod{m}\]
+                如果对于\(\bar{x}\in \Z/m\Z\), 有\(f(\bar{x}) = 0 \)在\(\Z/m\Z\)上成立. 则称其为上述同余方程的一个解
+            \end{dfn}
+
+            \begin{thm}
+                []
+                {一次同余方程的解}
+                []
+                [白菜]
+                设\(a,b:\mathbb{Z}\), 则一次同余方程
+                \[
+                    ax \equiv b \mod{m}
+                \]
+                有解的充要条件是\(\gcd(a,m) \mid b\), 且解数为\(\gcd(a,m)\).
+
+            \end{thm}
+
+            \begin{crl}
+                []
+                {乘积为1的同余方程的解}
+                []
+                [白菜]
+                设\(a,m:\mathbb{Z}\), 则同余方程
+                \[
+                    ax \equiv 1 \mod{m}
+                \]
+                有解的充要条件是\(\gcd(a,m) = 1\), 且解在模\(m\)意义下唯一.
+            \end{crl}
+
+            \begin{dfn}
+                []
+                {模\(m\)逆}
+                [Inverse modulo \(m\)]
+                [白菜]
+                设\(a,m:\mathbb{Z}\), \(\gcd(a,m)=1\), 则在模\(m\)意义下, 方程
+                \[
+                    ax \equiv 1 \mod{m}
+                \]
+                的唯一解称为\(a\)模\(m\)的逆. 记作\(a^{-1}\). 在模\(m\)意义下, 记\(ab^{-1}=b^{-1}a=\frac{a}{b}\).
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {模\(m\)的逆兼容有理运算}
+                []
+                [白菜]
+                设\(a_1,a_2,b_1,b_2,m:\mathbb{Z}\), \(\gcd(b_1,m)=\gcd(b_2,m)=1\). 则
+                \[
+                    \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1 a_2}{b_1 b_2} \mod m
+                \]
+
+                \[
+                    \frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1 b_2 + a_2 b_1}{b_1 b_2} \mod m
+                \] 
+
+            \end{ppt}
+
+            \begin{rmk}
+                在求解同余方程
+                \[ax+b\equiv 0 \mod{m}\]
+                时, 我们可以通过求解方程
+                \[
+                \frac{a}{\gcd(a,m)} x \equiv \frac{b}{\gcd(a,m)} \mod{\frac{m}{\gcd(a,m)}}
+                \]
+                的唯一解, 于是得到在方程\(ax+b\equiv 0 \mod{m}\)中的\(\gcd(a,m)\)个解.
+                这一步即通过求解\(\frac{a}{\gcd(a,m)} \)模\(\frac{m}{\gcd(a,m)}\)的逆元并消去后完成.
+            \end{rmk}
+
+        \subsection{一次同余方程组与中国剩余定理}
+            \begin{thm}
+                []
+                {同余方程组有解的判定}
+                []
+                [白菜]
+                设\(m_1, m_2, \ldots, m_k:\mathbb{Z}\), \(a_1, a_2, \ldots, a_k:\mathbb{Z}\). 则同余方程组
+                    \[
+                        \begin{cases}
+                        \begin{aligned}
+                            x &\equiv a_1 \pmod{m_1}\\
+                            x &\equiv a_2 \pmod{m_2}\\
+                                &\vdots\\
+                            x &\equiv a_k \pmod{m_k}
+                        \end{aligned}
+                        \end{cases}
+                    \]
+                    有解的充要条件是对于任意的 \(i, j\) 有
+                    \[
+                        a_i \equiv a_j \mod{\gcd(m_i, m_j)}
+                    \]
+                    若存在解, 则解在模 \(M = \lcm(m_1, m_2, \ldots, m_k)\) 的意义下唯一.
+            \end{thm}
+
+            \begin{thm}
+                [ChineseRemainderTheorem]
+                {中国剩余定理}
+                [Chinese Remainder Theorem]
+                [白菜]
+                设\(m_1, m_2, \ldots, m_k:\mathbb{Z}\), 且两两互素, \(a_1, a_2, \ldots, a_k:\mathbb{Z}\). 则同余方程组
+                    \[
+                        \begin{cases}
+                        \begin{aligned}
+                            x &\equiv a_1 \pmod{m_1}\\
+                            x &\equiv a_2 \pmod{m_2}\\
+                                &\vdots\\
+                            x &\equiv a_k \pmod{m_k}
+                        \end{aligned}
+                        \end{cases}
+                    \]
+                    在模 \(M = m_1 m_2 \cdots m_k\) 的意义下有唯一解. 该解可以表示为
+                    \[
+                        x \equiv \sum_{i=1}^{k} a_i M_i (M_i)^{-1} \pmod{M}
+                    \]
+                    其中 \(M_i = \frac{M}{m_i}\), \((M_i)^{-1}\) 是 \(M_i\) 模 \(m_i\) 的逆元.
+            \end{thm}
+
+        \subsection{高次同余方程}
+            \begin{thm}
+                []
+                {模素数幂同余方程的升幂解法}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 1,n\geq 1 \). 
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程\(f(x) \equiv 0 \mod{p^k}\)满足\(x \equiv x_0 \mod{p^{k-1}}\)的解为
+                \[
+                    x \equiv x_0 + t_j p^{k-1} \mod{p^k} (1\leq j \leq r)
+                \]
+                其中 \(t_j\) 为满足
+                \[
+                    f'(x_0) t_j \equiv -\frac{f(x_0)}{p^{k-1}} \mod{p}
+                \]
+                的全体解
+
+            \end{thm}
+
+            \begin{prf}
+                考虑泰勒展开
+                \[
+                    f(x_0 + t p^{k-1}) \equiv f(x_0) + f'(x_0) t p^{k-1} \mod{p^k}  
+                \]
+                则
+                \[
+                    f(x_0 + t p^{k-1}) \equiv 0 \mod{p^k} \iff f(x_0) + f'(x_0) t p^{k-1} \equiv 0 \mod{p^k}
+                \]
+                即
+                \[
+                    f'(x_0) t \equiv -\frac{f(x_0)}{p^{k-1}} \mod{p}
+                \]
+                故得证.
+            \end{prf}
+
+            \begin{rmk}
+                当\(f'(x_0) \not\equiv 0 \mod{p}\)时, 这次升幂可以得到唯一对应解; 
+                当\(f'(x_0) \equiv 0 \mod{p}\)且\(-\frac{f(x_0)}{p^{k-1}} \equiv 0 \mod{p}\)时, 
+                这次升幂可以得到\(p\)个解; 否则无解.
+            \end{rmk}
+
+            \begin{thm}
+                []
+                {模素数幂同余方程的降幂}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 2,n\geq 1 \).
+                \(f(x)\)为\(n\)次整系数多项式. 
+                则求解同余方程\(f(x) \equiv 0 \mod{p}\)的解与求解同余方程\(r(x) \equiv 0 \mod{p}\)的解等价.
+                其中
+                \[
+                    r(x) \equiv f(x) \mod{x^{p}-x}
+                \]
+                为一个次数不超过 \(p-1\) 的多项式.
+            \end{thm}
+
+            \begin{prf}
+                由于对任意\(x \in \Z\), 有
+                \[
+                    x^p - x \equiv 0 \mod{p}
+                \]
+                即证
+            \end{prf}
+
+            \begin{thm}
+                []
+                {多项式按根分解}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                \(f(x)\)为\(n\)次整系数多项式. 则在模\(p\)意义下, 有
+                \[
+                    f(x) \equiv \prod_{i=1}^{k} (x - a_i)^{r_i} g(x) \mod{p}
+                \]
+                其中 \(a_1, a_2, \ldots, a_k\) 是模 \(p\) 意义下的不同根, \(r_i \geq 1\), 
+                且 \(g(x)\) 不含模 \(p\) 意义下的根.
+            \end{thm}
+
+            \begin{crl}
+                []
+                {多项式根的个数上界}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程
+                \[
+                    f(x) \equiv 0 \mod{p}
+                \]
+                在模 \(p\) 意义下的不同根的个数不超过 \(n\).
+            \end{crl}
+
+            \begin{thm}
+                []
+                {解数等于次数的条件}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(1\leq n \leq p-1\).    
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程
+                \[
+                    f(x) \equiv 0 \mod{p}
+                \]
+                在模 \(p\) 意义下有 \(n\) 个不同根的充分必要条件是
+                \(f(x)\)除\(x^{p}-x\)的各项系数模 \(p\) 为零.
+                也即若
+                \[x^p-x=f(x) \cdot g(x)+r(x)(\deg r(x) < n)\]
+                则\(r(x)\)各项系数模 \(p\) 为零.
+            \end{thm}
     \section{原根与指标}
         
         

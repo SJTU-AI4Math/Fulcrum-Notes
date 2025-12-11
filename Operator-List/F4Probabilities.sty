@@ -19,5 +19,11 @@
 \NewDocumentCommand{\分布函数}{s}{\catref[#1]{dfn:Distribution-Function}{分布函数}[分布函数]}
 
 \NewDocumentCommand{\随机向量}{sm}{#2\,\catref[#1]{dfn:Multi-Random-Variable}{维随机向量}[多维随机向量]}
+\NewDocumentCommand{\离散型随机向量}{sm}{#2\,\catref[#1]{dfn:Multi-Discrete-Random-Variable}{维离散型随机向量}[多维随机向量]}
+\NewDocumentCommand{\连续型随机向量}{sm}{#2\,\catref[#1]{dfn:Multi-Continuous-Random-Variable}{维连续型随机向量}[多维随机向量]}
+
+\NewDocumentCommand{\协方差}{s}{\catref[#1]{dfn:Covariance}{协方差}[协方差]}
 
 \NewDocumentCommand{\plim}{s}{\catref[#1]{dfn:Probability-Limit}{\xrightarrow{P}}[概率极限]}
+
+\NewDocumentCommand{\正态分布}{so}{\IfNoValueTF{#2}{\catref[#1]{xmp:Normal-Distribution}{正态分布}[正态分布]}{#2\,维\catref[#1]{xmp:Multi-Normal}{正态分布}[#2\,维正态分布]}}
