@@ -342,7 +342,7 @@
             [Dedicatia]
         \end{ppt}
 
-        球面表示中, 对加法和对乘法没有什么简单的表示方法, 但是可以将无穷大纳入研究范围中. 称这个包含了无穷大的扩充复数系统为 \(\hat{\mathbb{C}}=\C\cup\infty \).
+        球面表示中, 对加法和对乘法没有什么简单的表示方法, 但是可以将无穷大纳入研究范围中. 称这个包含了无穷大的扩充复数系统为 \(\bar{\mathbb{C}}=\C\cup\infty \).
 
 \section{复函数}
     
@@ -1332,8 +1332,8 @@
             {M\"obius / 线性分式变换}
             [M\"obius / Linear Fractional Transformation]
             [Dedicatia, 猫猫]
-            定义 \(\hat{\C}\to\hat{\C}\) 上\textbf{线性分式变换}为 \(\hat{\C}\to\hat{\C}\) 的子类型: 
-            \[\left\{z\mapsto\frac{az+b}{cz+d}:\hat{\C}\to\hat{\C}\middle|a,b,c,d:\C, ad-bc\neq 0\right\}\]
+            定义 \(\bar{\C}\to\bar{\C}\) 上\textbf{线性分式变换}为 \(\bar{\C}\to\bar{\C}\) 的子类型: 
+            \[\left\{z\mapsto\frac{az+b}{cz+d}:\bar{\C}\to\bar{\C}\middle|a,b,c,d:\C, ad-bc\neq 0\right\}\]
 
             记作 \(\Mobius\). 
 
@@ -1350,8 +1350,8 @@
         
         \begin{rmk}
             [猫猫]
-            事实上, M\"obius 变换已然占据了全部 \(\hat{\C}\) 上的全纯双射, 即: 
-            \[\Mobius\cong\Aut(\hat{\C})\]
+            事实上, M\"obius 变换已然占据了全部 \(\bar{\C}\) 上的全纯双射, 即: 
+            \[\Mobius\cong\Aut(\bar{\C})\]
         \end{rmk}
 
         \begin{ppt}
@@ -1410,7 +1410,7 @@
             {交比}
             [Cross Ratio]
             [Dedicatia, 猫猫]
-            设 \(z_1,z_2,z_3,z_4:\hat{\C}\), 定义 \(z_1,z_2,z_3,z_4\) 的\textbf{交比}为: 
+            设 \(z_1,z_2,z_3,z_4:\bar{\C}\), 定义 \(z_1,z_2,z_3,z_4\) 的\textbf{交比}为: 
             \[\frac{(z_1-z_3)(z_2-z_4)}{(z_1-z_4)(z_2-z_3)}\]
 
             记作 \(\XRatio{z_1}{z_2}{z_3}{z_4}\). 
@@ -1421,7 +1421,7 @@
             {交比是 M\"obius 变换不变量}
             []
             [Dedicatia, 猫猫]
-            设 \(f:\Mobius\), \(z_1,z_2,z_3,z_4:\hat{\C}\), 则: 
+            设 \(f:\Mobius\), \(z_1,z_2,z_3,z_4:\bar{\C}\), 则: 
             \[\XRatio{f(z_1)}{f(z_2)}{f(z_3)}{f(z_4)}=\XRatio{z_1}{z_2}{z_3}{z_4}\]
         \end{ppt}
 
@@ -1430,7 +1430,7 @@
             {实交比等价于共圆或共线}
             []
             [Dedicatia, 猫猫]
-            设 \(z_1,z_2,z_3,z_4:\hat{\C}\), 则: 
+            设 \(z_1,z_2,z_3,z_4:\bar{\C}\), 则: 
             \[\XRatio{z_1}{z_2}{z_3}{z_4}\in\R\iff z_1,z_2,z_3,z_4\text{ 共圆或共线}\]
         \end{ppt}
 
@@ -2070,7 +2070,7 @@
         这就证明了上面所说的高阶导数的存在性. 
 
         \begin{thm}
-            [Merora]
+            [Morera]
             {Morera定理}
             [Morera's Theorem]
             [Dedicatia]
@@ -2317,7 +2317,7 @@
             {亚纯函数 / 半纯函数}
             [Meromorphic Function]
             [Dedicatia, 猫猫]
-            设 \(D\) 是区域, \(f:D\to\C\), 定义 \(f\) 是\textbf{亚纯函数 / 半纯函数}, 当且仅当: \(\forall z\in D, z\) 不是极点 \(\implies f\) 在 \(z\) 处解析. 
+            设 \(D\) 是区域, \(f:D\to\bar{\C}\), 定义 \(f\) 是\textbf{亚纯函数 / 半纯函数}, 当且仅当: \(\forall z\in D, z\) 不是极点 \(\implies f\) 在 \(z\) 处解析. 
         \end{dfn}
         
         \begin{ppt}
@@ -2380,7 +2380,7 @@
 
         \begin{thm}
             {本性奇点的Weierstass条件}
-            \(z_0\) 是 \(f(z)\) 的本性奇点的充要条件是:  \(\forall\,A\in\hat{\C}\), 都能在 \(z_0\) 的邻域内找到一列收敛到 \(z_0\) 的序列 \(\{z_n\}\), 使得 \(\lim_{n\to\infty}f(z_n)=A\).
+            \(z_0\) 是 \(f(z)\) 的本性奇点的充要条件是:  \(\forall\,A\in\bar{\C}\), 都能在 \(z_0\) 的邻域内找到一列收敛到 \(z_0\) 的序列 \(\{z_n\}\), 使得 \(\lim_{n\to\infty}f(z_n)=A\).
         \end{thm}
 
         \begin{thm}
@@ -2690,11 +2690,11 @@
     \[\oint_{C} \frac{\dd{z}}{(1+z^2)^2}=\int_{\Gamma_\rho}\frac{\dd{z}}{(1+z^2)^2}+\int_{-R}^R\frac{\dd{x}}{(1+x^2)^2}\]
     如果令 \(C\) 的半径趋于 \(+\infty\), 就会发现上式左边趋于0; 再令 \(\rho\) 趋于0, 即可发现函数在极点处的积分是一个确定的数, 为 \(\int_{-R}^R\frac{\dd{x}}{(1+x^2)^2}\). 这反映了函数的奇点处的积分性质的不同之处, 且这个数对于计算积分至关重要. 为此我们发明了“留数”这个名词: 
     \begin{dfn}
-        [UUID]
+        [Residue]
         {留数}
         [Residue]
         [Dedicatia]
-        设 \(f(z)\) 在 \(z=a\) 处有孤立奇点, 一个复数 \(R\) 使得函数 \(f(z)\) 在去心邻域 \(0<|z-a|<\delta\) 上是某一单值解析函数的导数, 这样确定的复数 \(R\) 就称为 \(f(z)\) 在 \(z=a\) 的留数. 记作 \(\underset{z=a}{\Res} f(z)\). 这种记法就默认了 \(a\) 是 \(f(z)\) 的孤立奇点. 
+        设 \(f(z)\) 在 \(z=a\) 处有孤立奇点, 一个复数 \(R\) 使得函数 \(f(z)\) 在去心邻域 \(0<|z-a|<\delta\) 上是某一单值解析函数的导数, 这样确定的复数 \(R\) 就称为 \(f(z)\) 在 \(z=a\) 的留数. 记作 \(\Res(f,a)\). 这种记法就默认了 \(a\) 是 \(f(z)\) 的孤立奇点. 
     \end{dfn}
     \begin{ppt}
         [UUID]
@@ -2702,16 +2702,16 @@
         []
         [Dedicatia]
         函数
-        \[f(z)-\frac{\underset{z=a}{\Res}f(z)}{z-a}\]
+        \[f(z)-\frac{\Res(f,a)}{z-a}\]
         的周期为0.
     \end{ppt}
     \begin{thm}
-        [UUID]
+        [Residue]
         {留数定理}
         []
         [Dedicatia]
         设 \(f(z)\) 在区域 \(D\) 上除去 \(n\) 个孤立奇点 \(a_j\) 之外处处解析. 那么对于 \(D\) 中的任意的不通过 \(a_j\) 的同调于零的闭链 \(\gamma\), 以下式子成立: 
-        \[\frac{1}{2\pi\ii}\int_\gamma f(z)\dd{z}=\sum_{j=1}^{n}n(\gamma,a_j)\underset{z=a_j}{\Res}f(z)\]
+        \[\frac{1}{2\pi\ii}\int_\gamma f(z)\dd{z}=\sum_{j=1}^{n}n(\gamma,a_j)\Res(f,a_j)\]
     \end{thm}
     \begin{prf}
         我们回忆曾经的Cauchy 积分公式: 
@@ -2719,13 +2719,16 @@
         要求 \(\gamma\) 在 \(D\) 上\hyperrefc{dfn:NullHomologous}{同调于零}且 \(f(z)\) 是\解析. 设 \(a_j\) 的去心邻域 \(0<|z-a_j|<\delta_j\) 上的闭圆环 \(C_j\) 半径小于 \(\delta_j\), 记
         \[P_j = \int_{C_j} f(z)\dd{z}\]
         则留数的定义为: 
-        \[\underset{z=a_j}{\Res}f(z)=\frac{P_j}{2\pi\ii}\]
+        \[\Res(f,a_j)=\frac{P_j}{2\pi\ii}\]
         由于 \(\gamma\) 关于 \(D\) 同调于零, 那么就有同调关系
         \[\gamma\sim\sum_j^nn(\gamma,a_j)C_j\sim 0\]
         根据同调意义下的Cauchy 积分定理, 可得
-        \[\int_\gamma f(z)\dd{z}=\sum_j^nn(\gamma,a_j)\int_{C_j} f(z)\dd{z}=\sum_j^nn(\gamma,a_j)P_j=2\pi\ii\sum_j^nn(\gamma,a_j)\underset{z=a_j}{\Res}f(z).\]
+        \[\int_\gamma f(z)\dd{z}=\sum_j^nn(\gamma,a_j)\int_{C_j} f(z)\dd{z}=\sum_j^nn(\gamma,a_j)P_j=2\pi\ii\sum_j^nn(\gamma,a_j)\Res(f,a_j).\]
     \end{prf}
-    留数定理的好处在于, 它将复函数的线积分变为了只对奇点的留数有关的计算: 对于\EssentialSingularity, 留数通常难以直接计算. 但是对于极点来说就十分简单: 
+    \begin{rmk}
+        [Dedicatia]
+        留数定理的好处在于, 它将复函数的线积分变为了只对奇点的留数有关的计算: 对于\EssentialSingularity, 留数通常难以直接计算. 但是对于极点来说就十分简单: 
+    \end{rmk}
     \begin{crl}
         [UUID]
         {极点的留数的求法}
@@ -2733,20 +2736,25 @@
         [Dedicatia]
         设 \(f(z)\) 在区域 \(D\) 上除去 \(h\) 阶极点 \(a\) 之外解析, 这时在 \(0<|z-a|<\delta\) 的邻域内 \(f(z)\) 可以展开成
         \[f(z)=B_h(z-a)^{-h}+\cdots+B_1(z-a)^{-1}+\varphi(z)\]
-        那么 \(\underset{z=a}{\Res}f(z)=B_1\).\\
-        特别地, 如果是单极点, 那么 \(\underset{z=a}{\Res}f(z)=(z-a)f(z)\Big|_{z=a}\).
+        那么 \(\Res(f,a)=B_1\).\\
+        特别地, 如果是单极点, 那么 \(\Res(f,a)=(z-a)f(z)\Big|_{z=a}\).
     \end{crl}
+    \begin{thm}
+        {留数的换元法}
+        设 \(f(z)\) 在区域 \(D\) 上除去孤立奇点 \(a\) 之外解析, 并且 \(z=g(w)\), \(g\) 在点 \(b\) 处有孤立奇点,  且 \(g(b)=a\). 那么
+        \[\Res(f,a)=\Res\qty(f(g(w))g'(w),b)\]
+    \end{thm}
     \begin{cxmp}
         {极点是 \(\infty\) 时的特殊情形}
-        公式 \(\underset{z=a}{\Res}f(z)=(z-a)f(z)\Big|_{z=a}\) 常不适用于极点 \(\infty\).\\
-        即使 \(\infty\) 是可去奇点,  \(\underset{z=\infty}{\Res}f(z)\) 也可能不为0.
+        公式 \(\Res(f,a)=(z-a)f(z)\Big|_{z=a}\) 常不适用于极点 \(\infty\).\\
+        即使 \(\infty\) 是可去奇点,  \(\Res(f,\infty)\) 也可能不为0.
     \end{cxmp}
     \begin{crl}
         {极点留数的L'Hospital法则}
         设 \(f=\frac{\varphi}{\psi}\) 在 \(a\) 处有极点, 那么
-        \[\underset{z=a}{\Res}f(z)=\frac{\varphi(a)}{\psi'(a)}\]
+        \[\Res(f,a)=\frac{\varphi(a)}{\psi'(a)}\]
         如果还是极点, 即 \(a\) 是 \(\varphi, \psi\) 的 \(n\),  \(n+1\) 阶零点, 那么
-        \[\underset{z=a}{\Res}f(z)=\lim_{z\to a}\frac{(z-a)\varphi(z)}{\psi(z)}=\frac{(n+1)\varphi^{(n)}(a)}{\psi^{(n+1)}(a)}\]
+        \[\Res(f,a)=\lim_{z\to a}\frac{(z-a)\varphi(z)}{\psi(z)}=\frac{(n+1)\varphi^{(n)}(a)}{\psi^{(n+1)}(a)}\]
     \end{crl}
     \begin{dfn}
         [UUID]
@@ -2762,7 +2770,7 @@
         []
         [Dedicatia]
         设 \(f(z)\) 在区域 \(D\) 上除去 \(n\) 个孤立奇点 \(a_j\) 之外处处解析. 那么对于 \(D\) 的不通过 \(a_j\) 的围线 \(\gamma\), 以下式子成立: 
-        \[\frac{1}{2\pi\ii}\int_\gamma f(z)\dd{z}=\sum_{j=1}^{n}\underset{z=a_j}{\Res}f(z)\]
+        \[\frac{1}{2\pi\ii}\int_\gamma f(z)\dd{z}=\sum_{j=1}^{n}\Res(f,a_j)\]
     \end{crl}
     Cauchy 积分公式可以看作留数定理的特例: 
     \begin{crl}
@@ -2781,7 +2789,7 @@
         []
         [Dedicatia]
         设 \(D\) 是一个区域, 由光滑曲线 \(\gamma\) 围成,  \(t_0\in\partial D\), 函数 \(f(z)\) 在 \(D\backslash\{t_0\}\) 上都是连续的, 但 \(t_0\) 是一个奇点, 这时留数定理写成: 
-        \[\int_\gamma f(z)\dd{z}=\theta\ii \underset{z=t_0}{\Res}f(z).\]
+        \[\int_\gamma f(z)\dd{z}=\theta\ii\Res(f,t_0).\]
         \(\theta\) 是 \(\gamma\) 在 \(t_0\) 处的张角大小, 在此情形下, 我们可以定义广义的\hyperref[dfn:WindingNumber]{环绕数}:
         \[n(\gamma,t_0)=\frac{\theta}{2\pi}\]
     \end{thm}
@@ -2795,7 +2803,7 @@
         先作代换 \(w=z^2\) : 这时积分区域 \(\gamma:|z|=1\) 要变成两圈的 \(|w|=1\);
         \[I=\frac{2}{\ii}\int_{\gamma}\frac{\dd{w}}{w^2+6w+1}=\frac{2}{\ii}\int_{\gamma}\frac{\dd{w}}{(w-(-3-\sqrt{8}))(w-(-3+\sqrt{8}))}\]
         在 \(\gamma:|w|=1\) 内显然只有一个一阶极点 \(w=-3+\sqrt{8}\) : 计算留数: 
-        \[\underset{w=-3+\sqrt{8}}{\Res}f(w)=\frac{1}{4\sqrt{2}}\]
+        \[\Res(f,w=-3+\sqrt{8})=\frac{1}{4\sqrt{2}}\]
         而 \(n(\gamma,-3+\sqrt{8})=2\). 从而
         \[I=\frac{2}{\ii}\cdot 2\pi\ii\cdot 2\cdot\frac{1}{4\sqrt{2}}=\sqrt{2}\pi.\]
     \end{xmp}
@@ -2822,7 +2830,7 @@
         其中
         \[z_1=-a+\sqrt{a^2+1},\qquad z_2=-a-\sqrt{a^2+1}\]
         这里的 \(z_1, z_2\in\R\) 都是单极点. 并且 \(|z_1|<1\),  \(z_2>1\), 只有 \(z_1\) 在该闭链 \(C:|z|=1\) 中. 根据留数定理: 
-        \[I=(2\pi\ii)(-2\ii)\underset{z=z_1}{\Res}f(z)=\frac{4\pi}{z_1-z_2}=\frac{2\pi}{\sqrt{a^2+1}}\]
+        \[I=(2\pi\ii)(-2\ii)\Res(f,z_1)=\frac{4\pi}{z_1-z_2}=\frac{2\pi}{\sqrt{a^2+1}}\]
     \end{xmp}
     我们在学习反常实积分时有一个概念: 
     \begin{dfn}
@@ -2849,7 +2857,7 @@
         []
         [Dedicatia]
         基于上述讨论我们有
-        \[\int_{-\infty}^{\infty} R(x) \cos(ax) \dd x +\ii\int_{-\infty}^{\infty} R(x) \sin(ax) \dd x =2\pi\ii\sum_{y>0}\underset{y>0}{\Res}(R(z)\exp\ii z).\]
+        \[\int_{-\infty}^{\infty} R(x) \cos(ax) \dd x +\ii\int_{-\infty}^{\infty} R(x) \sin(ax) \dd x =2\pi\ii\sum_{y>0}\Res(R(z)\exp\ii z,y).\]
     \end{crl}
     \begin{xmp}
         [UUID]
@@ -2865,9 +2873,9 @@
         求取 \(g(z)\) 的极点与留数: 
         \[g(z)=\frac{\exp 2\ii z}{(z+\ii)(z-\ii)}\]
         极点位于 \(z=\pm i\), 但我们只取在上半平面的极点 \(z=i\) 即可: 
-        \[\underset{z=i}{g(z)}=\eval{\frac{\exp 2\ii z}{z+i}}_{z=i}=\frac{\exp(-2)}{2\ii}\]
+        \[\Res(g,i)=\eval{\frac{\exp 2\ii z}{z+i}}_{z=i}=\frac{\exp(-2)}{2\ii}\]
         使用留数意义下的Cauchy 积分公式: 
-        \[I=\oint_C g(z)\dd{z}=2\pi\ii\sum_{y>0}\underset{y>0}{\Res}g(z)=2\pi\ii\cdot\frac{\exp(-2)}{2\ii}=\frac{\pi}{\ee^2}.\]
+        \[I=\oint_C g(z)\dd{z}=2\pi\ii\sum_{y>0}\Res(g,y)=2\pi\ii\cdot\frac{\exp(-2)}{2\ii}=\frac{\pi}{\ee^2}.\]
     \end{xmp}
     如果积分路径 \(C\) 包含了实的极点, 便不再符合Cauchy 积分公式发适用条件, 这时需要用小圆弧绕过极点: 
     \begin{lma}
@@ -2876,9 +2884,9 @@
         []
         [Dedicatia]
         如果  \(z=a\)  是  \(f(z)\)  的一个单极点, 那么当以小半圆弧  \(C_\delta\)  绕过它时（逆时针方向）, 有: 
-        \[\lim_{\delta \to 0} \int_{C_\delta} f(z) \dd z = \pi \ii \underset{z=z_0}{\Res}f(z)\]
+        \[\lim_{\delta \to 0} \int_{C_\delta} f(z) \dd z = \pi \ii \Res(f,z_0)\]
         与上面的计算方法合在一起就是: 
-        \[\int_{-\infty}^{\infty} R(x) \cos(ax) \dd x +\ii\int_{-\infty}^{\infty} R(x) \sin(ax) \dd x =2\pi\ii\sum_{y=0}\underset{z=a}{\Res}(R(z)\exp\ii z)+\pi\ii\sum_{y>0}\underset{z=a}{\Res}(R(z)\exp\ii z).\]
+        \[\int_{-\infty}^{\infty} R(x) \cos(ax) \dd x +\ii\int_{-\infty}^{\infty} R(x) \sin(ax) \dd x =2\pi\ii\sum_{y=0}\Res(R(z)\exp\ii z,a)+\pi\ii\sum_{y>0}\Res(R(z)\exp\ii z,a).\]
     \end{lma}
     \begin{xmp}
         [UUID]
@@ -2982,7 +2990,7 @@
         \end{crl}
 
         \begin{crl}
-            [UUID]
+            [Argument-Principle]
             {辐角原理}
             [Argument Principle]
             [Dedicatia]
@@ -2990,6 +2998,14 @@
             \[\frac{1}{2\pi\ii}\int_\gamma\frac{f'(z)}{f(z)}\dd{z}=\sum_{j = 1}^{n} n(\gamma,a_j)-\sum_{k = 1}^{m} n(\gamma,b_k)  \]
             其中, 重零点与重极点要按阶数计算. 
         \end{crl}
+
+        \begin{rmk}
+            [Dedicatia]
+            如果记 \(\Gamma=f(\gamma)\), 那么由 \(f\) 的亚纯性可知 \(\Gamma\) 也是不过原点的闭链. 记 \(w=f(z)\), 积分
+            \[\frac{1}{2\pi\ii}\int_{\gamma}\frac{f'(z)}{f(z)}\dd{z}=\frac{1}{2\pi\ii}\int_{\Gamma}\frac{\dd w}{w}\]
+            这表明这个积分就等于复函数 \(w=f(z)\) 沿着曲线 \(\Gamma\) 前进最后回到出发点的辐角改变量除以 \(2\pi\). 这就是辐角原理名称的由来.
+        \end{rmk}
+
         如果将上式的零点与极点参数化, 得到: 
         \begin{crl}
             [UUID]
@@ -3001,9 +3017,19 @@
             其中, 重零点与重极点要按阶数计算. 
         \end{crl}
 
+        \begin{thm}
+            [Rouche]
+            {Rouche定理}
+            [Rouche Theorem]
+            [Dedicatia]
+            设 \(f(z)\) 与 \(g(z)\) 在区域 \(D\) 上解析,  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的闭链, 如果在 \(\gamma\) 上有
+            \[|g(z)|<|f(z)|\]
+            那么 \(f(z)\) 与 \(f(z)+g(z)\) 在由 \(\gamma\) 围成的区域内有相同数目的零点, 重零点要按阶数计算.
+        \end{thm}
+
     \subsection{调和函数与Poisson积分}
-从某种意义上讲, 复分析实际上就是一对共轭调和函数上的实分析. 
-\continued
+        从某种意义上讲, 复分析实际上就是一对共轭调和函数上的实分析. 
+        \continued
 
 \section{线性代数视角下的复分析}
     
@@ -3088,7 +3114,7 @@
             \[\mqty(\pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y} & \pdv{v}{x}\dd{x}+\pdv{v}{y}\dd{y} \\ -\pdv{u}{x}\dd{x}-\pdv{v}{y}\dd{y} & \pdv{u}{x}\dd{x}+\pdv{u}{y}\dd{y})=A\mqty(\dd{x} & \dd{y} \\ -\dd{y} & \dd{x})=\mqty(a\dd x-b\dd y & a\dd y+b\dd x \\ -b\dd x-a\dd y & -b\dd y+a\dd x)\]
             其中 \(A:=\mqty(a&b\\-b&a)\in\operatorname{skew}(\R^{2\times 2}) \); 就称这个函数 \(f=u+\ii v\) 是共形的. 化简上式, 得到
             \[a=\pdv{u}{x}=\pdv{v}{y};\quad b=-\pdv{u}{y}=\pdv{v}{x}.\]
-            这便是\hyperref[thm:CREq]{Cauchy-Riemann方程}的形式. 
+            这便是\hyperref[thm:Cauchy-Riemann-Equation]{Cauchy-Riemann方程}的形式. 
         \end{dfn}
 
         \begin{dfn}
@@ -3103,7 +3129,7 @@
         \[\dd{f} = \mqty(\dd{u}\\ \dd{v})\]
         而 \(u,v\) 是 \(\R^2\to\R\) 的函数. 所以
         \[\mqty(\dd{u}\\ \dd{v})=\mqty(\pdv{u}{x} & \pdv{u}{y} \\ \pdv{v}{x} & \pdv{v}{y})\mqty(\dd{u}\\ \dd{v})\]
-        根据共形性, 应当满足 \(A:=\mqty(\pdv{u}{x} & \pdv{u}{y} \\ \pdv{v}{x} & \pdv{v}{y})\in\operatorname{skew}(\R^{2\times 2})\). 所以得到了\hyperref[thm:CREq]{Cauchy-Riemann方程}
+        根据共形性, 应当满足 \(A:=\mqty(\pdv{u}{x} & \pdv{u}{y} \\ \pdv{v}{x} & \pdv{v}{y})\in\operatorname{skew}(\R^{2\times 2})\). 所以得到了\hyperref[thm:Cauchy-Riemann-Equation]{Cauchy-Riemann方程}
         \[\pdv{u}{x}=\pdv{v}{y},\quad -\pdv{u}{y}=\pdv{v}{x}.\]
 
 \section{函数的级数展开与因子分解}
@@ -3264,18 +3290,21 @@
             这里的积分路径  \(C\)  是圆环内任意一条绕  \(z_0\)  的正向简单闭曲线. 
         \end{prf}
 
-        这时, \hyperref[thm:TaylorSeries]{Taylor级数}是Laurent级数在:  \(f(z)\) 在 \(z_0\) 处解析的条件下的特例: 这时就将Laurent级数中的圆环就是一个圆盘. 作出Laurent级数, 根据系数 \(a_n\) 的计算公式和\CauchyThm, 所有的负数幂系数都等于0. 这时的Laurent级数就变成了Taylor级数. 只要在非奇点处附近展开就会得到Taylor级数. 因此我们一般在奇点处求取Laurent级数. 
-
+        \begin{rmk}
+            [Dedicatia]
+            这时, \hyperref[thm:TaylorSeries]{Taylor级数}是Laurent级数在:  \(f(z)\) 在 \(z_0\) 处解析的条件下的特例: 这时就将Laurent级数中的圆环就是一个圆盘. 作出Laurent级数, 根据系数 \(a_n\) 的计算公式和\CauchyThm, 所有的负数幂系数都等于0. 这时的Laurent级数就变成了Taylor级数. 只要在非奇点处附近展开就会得到Taylor级数. 因此我们一般在奇点处求取Laurent级数. 
+        \end{rmk}
+        
         \begin{xmp}
             {求解Laurent级数的实例}
             计算: 
             \[f(z)=\frac{1}{z(z-1)}\]
-            在圆环 \(|z|>1\) 时的\hyperref[thm:Laurent]{Laurent级数}.\\
+            在圆环 \(|z|>1\) 时的\hyperref[thm:Laurent-Series]{Laurent级数}.\\
             先进行部分分式分解: 
             \[f(z)=\frac{1}{z}-\frac{1}{z+1}\]
             \(\frac{1}{z}\) 已经是Laurent级数的一部分, 所以我们考虑 \(\frac{1}{1+z}\).\\
             根据\hyperref[xmp:TaylorCommon]{Taylor展开式}
-            \[\frac{1}{1 + w} = \sum_{n=0}^{\infty} (-1)^n w^n, \quad \text{对于} |w| < 1\tag{ \(\ast\) }\]
+            \[\frac{1}{1 + w} = \sum_{n=0}^{\infty} (-1)^n w^n, \quad \text{对于} |w| < 1\tag{\(\ast\)}\]
             但 \(|z|>1\) 不满足上面的使用条件, 所以我们采取这种策略: 
             \[\frac{1}{1+z}=\frac{1}{z}\frac{1}{1+\frac{1}{z}}\]
             这时可以保证 \(\left\lvert \frac{1}{z}\right\rvert <1\). 这时再使用 \((\ast)\), 得到
@@ -3292,10 +3321,24 @@
             \end{itemize}
         \end{thm}
 
+        \begin{xmp}
+            {环路积分为0不一定全纯}
+            \hyperref[thm:Morera]{Morera定理}中对函数连续性的要求不能省略.
+        \end{xmp}
+
         \begin{crl}
             {留数与Laurent级数的关系}
             奇点的留数等于在奇点处的Laurent级数的负一次幂系数 \(a_{-1}\).
         \end{crl}
+
+        \begin{xmp}
+            {函数在 \(\infty\) 处的留数}
+            设函数 \(f(z)\) 在 \(\infty\) 处有孤立奇点, 那么我们可以定义 \(w=\frac{1}{z}\), 使得 \(z\to\infty\) 时, \(w\to 0\). 这时 \(f(z)=f\qty(\frac{1}{w})=g(w)\). 如果 \(g(w)\) 在 \(w=0\) 处的Laurent级数为
+            \[g(w)=\sum_{n=-\infty}^{+\infty}b_nw^n\]
+            用 \(f\) 表示, 则
+            \[f(z)=\sum_{n=-\infty}^{+\infty}b_n\qty(\frac{1}{z})^n=\sum_{n=-\infty}^{+\infty}a_nz^n\]
+            那么 \(f(z)\) 在 \(z=\infty\) 处的留数为 \(b_{-1}=a_1\).
+        \end{xmp}
 
         这使得我们有方法计算任意奇点的留数. 
 
@@ -3303,13 +3346,13 @@
             {高阶极点的留数的求法}
             对于 \(m\) 阶极点, 则 \(f\) 在 \(z_0\) 附近有
             \[f(z)=\frac{1}{(z-z_0)^m}\varphi(z)\]
-            \(\varphi(z)\) 在 \(z_0\) 处解析且不为0. 这时根据\hyperref[thm:Laurent]{Laurent级数}的负一次幂项系数等于 \(\varphi(z)\) 的\hyperref[thm:TaylorSeries]{Taylor级数}的 \(m-1\) 次幂项系数, 可得
-            \[\underset{z=z_0}{\Res}f(z)=a_{-1}=\frac{\varphi^{(m-1)}}{(m-1)!}=\frac{1}{(m-1)!}\varphi^{(m-1)}(z)=\frac{1}{(m-1)!}\lim_{z\to z_0}\dv[m-1]{z}((z-z_0)^mf(z))\]
+            \(\varphi(z)\) 在 \(z_0\) 处解析且不为0. 这时根据\hyperref[thm:Laurent-Series]{Laurent级数}的负一次幂项系数等于 \(\varphi(z)\) 的\hyperref[thm:TaylorSeries]{Taylor级数}的 \(m-1\) 次幂项系数, 可得
+            \[\Res(f,z_0)=a_{-1}=\frac{\varphi^{(m-1)}}{(m-1)!}=\frac{1}{(m-1)!}\varphi^{(m-1)}(z)=\frac{1}{(m-1)!}\lim_{z\to z_0}\dv[m-1]{z}((z-z_0)^mf(z))\]
         \end{crl}
     
     \subsection{亚纯函数的部分分式展开}
 
-        我们从\hyperrefc{thm:Laurent}{Laurent级数}中可以看到: 如果 \(f(z)\) 是一个\MeromorphicFunction, 对极点 \(b_n\), 就会有 \(f(z)\) 的非解析部分 \(P_n\qty(\frac{1}{z-b_n})\). 如此减去所有的非解析部分之后就会得到解析的函数 \(g(z)\). 也就是说我们可以将 \(f(z)\) 分解为
+        我们从\hyperrefc{thm:Laurent-Series}{Laurent级数}中可以看到: 如果 \(f(z)\) 是一个\MeromorphicFunction, 对极点 \(b_n\), 就会有 \(f(z)\) 的非解析部分 \(P_n\qty(\frac{1}{z-b_n})\). 如此减去所有的非解析部分之后就会得到解析的函数 \(g(z)\). 也就是说我们可以将 \(f(z)\) 分解为
         \[f(z)=\sum_{i=1}^{n}P_n\qty(\frac{1}{z-b_n})+g(z)\]
         但是这样定义,  \(P_n\) 往往是无限项, 还有可能不收敛. 所以我们改进: 
 
@@ -3351,7 +3394,7 @@
             {整函数}
             [Entire Function]
             [Dedicatia]
-            称在全平面 \(\hat{\C}\) 解析的复函数为整函数. 有以下三类: 
+            称在全平面 \(\C\) 解析的复函数为整函数. 有以下三类: 
             \begin{enumerate}
                 \item \hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}; 
                 \item 有理函数; 
@@ -3374,7 +3417,10 @@
         接下来我们来研究多个复数的乘积问题: 
 
         \begin{dfn}
+            [Infinite-Product]
             {无穷乘积}
+            [Infinite Product]
+            [Dedicatia]
             称序列 \(\{z_n\}^\infty\) 中的复数组成的乘积
             \[\prod_{n=1}^{\infty}z_n\]
             为一个\textbf{无穷乘积}. 其中, 前 \(k\) 项的乘积 \(P_k=\prod\limits_{n=1}^{k}z_n\) 称为\textbf{部分乘积}. 如果 \(P_k\) 的极限 \(P\) 存在且不为0, 就称该无穷乘积\textbf{收敛}. 
@@ -3479,7 +3525,7 @@
         \end{thm}
 
         \begin{dfn}
-            [CanonicalProduct]
+            [Canonical-Product]
             {典范乘积}
             [Canonical Product]
             [Dedicatia]
@@ -3497,7 +3543,10 @@
         \end{dfn}
 
         \begin{xmp}
+            []
             {函数的典范乘积表示}
+            []
+            [Dedicatia]
             将
             \[\sin \pi z\]
             表示为典型乘积形式，方法为：先找到 \(\sin\pi z\) 的全部零点，也就是 \(z=\pm n(n\in\Z)\). 由于$\sum_{n=1}^{+\infty}\frac{1}{n}$发散，$\sum_{n=1}^{+\infty}\frac{1}{n^2}$收敛，所以取$h=1$. 那么
@@ -3512,7 +3561,7 @@
             \[\sin\pi z=\pi z\prod_{n=1}^{+\infty}\qty(1-\frac{z^2}{n^2})\]
         \end{xmp}
 
-        有了这个例子，我们研究新函数就会变得直观：我们考虑使用\hyperref[dfn:CanonicalProduct]{典范乘积}定义以下复函数
+        有了这个例子，我们研究新函数就会变得直观：我们考虑使用\hyperref[dfn:Canonical-Product]{典范乘积}定义以下复函数
         \[G(z)=\pi z\prod_{n=1}^{+\infty}\qty(1+\frac{z}{n})\exp(-\frac{z}{n})\]
         它以所有非正的整数为零点。同样有$G(-z)$以所有非负整数为零点，将其与上述$\frac{\sin\pi z}{\pi}$的典范乘积作比较可得
         \[zG(z)G(-z)=\frac{\sin\pi z}{\pi}\]
@@ -3552,20 +3601,39 @@
         \end{dfn}
 
         \begin{ppt}
+            []
             {整递推公式}
+            [Recurrence Relation Formula]
+            [Dedicatia]
             根据$G(z-1)=z\exp(\gamma)G(z)$，得到
             \[\Gamma(z+1)=z\Gamma(z).\]
         \end{ppt}
 
         \begin{ppt}
+            []
             {余元公式}
+            [Reflection Formula]
+            [Dedicatia]
             根据$zG(z)G(-z)=\frac{\sin\pi z}{\pi}$, 得到
             \[\Gamma(z)\Gamma(1-z)=\frac{\pi}{\sin\pi z}.\]
         \end{ppt}
 
         \begin{ppt}
+            []
+            {对数导数公式}
+            [Logarithmic Derivative Formula]
+            [Dedicatia]
+            从 \(\ln\Gamma(z)\) 的二阶导数出发可以得到简单表达式
+            \[\dv{z}(\frac{\Gamma'(z)}{\Gamma(z)})=\sum_{n=0}^{\infty}\frac{1}{(z+n)^2}.\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
             {Legendre公式}
-            根据
+            [Legendre's Formula]
+            [Dedicatia]
+            Legendre加倍公式为:
+            \[\Gamma(2z)=\frac{2^{2z-1}}{\sqrt{\pi}}\Gamma(z)\Gamma(z+\frac{1}{2})\]
         \end{ppt}
 
     \subsection{Stirling公式}
