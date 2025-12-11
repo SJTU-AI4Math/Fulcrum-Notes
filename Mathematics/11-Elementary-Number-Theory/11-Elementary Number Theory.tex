@@ -765,6 +765,29 @@
 
         \subsection{一次同余方程组与中国剩余定理}
             \begin{thm}
+                []
+                {同余方程组有解的判定}
+                []
+                [白菜]
+                设\(m_1, m_2, \ldots, m_k:\mathbb{Z}\), \(a_1, a_2, \ldots, a_k:\mathbb{Z}\). 则同余方程组
+                    \[
+                        \begin{cases}
+                        \begin{aligned}
+                            x &\equiv a_1 \pmod{m_1}\\
+                            x &\equiv a_2 \pmod{m_2}\\
+                                &\vdots\\
+                            x &\equiv a_k \pmod{m_k}
+                        \end{aligned}
+                        \end{cases}
+                    \]
+                    有解的充要条件是对于任意的 \(i, j\) 有
+                    \[
+                        a_i \equiv a_j \mod{\gcd(m_i, m_j)}
+                    \]
+                    若存在解, 则解在模 \(M = \lcm(m_1, m_2, \ldots, m_k)\) 的意义下唯一.
+            \end{thm}
+
+            \begin{thm}
                 [ChineseRemainderTheorem]
                 {中国剩余定理}
                 [Chinese Remainder Theorem]
@@ -785,6 +808,114 @@
                         x \equiv \sum_{i=1}^{k} a_i M_i (M_i)^{-1} \pmod{M}
                     \]
                     其中 \(M_i = \frac{M}{m_i}\), \((M_i)^{-1}\) 是 \(M_i\) 模 \(m_i\) 的逆元.
+            \end{thm}
+
+        \subsection{高次同余方程}
+            \begin{thm}
+                []
+                {模素数幂同余方程的升幂解法}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 1,n\geq 1 \). 
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程\(f(x) \equiv 0 \mod{p^k}\)满足\(x \equiv x_0 \mod{p^{k-1}}\)的解为
+                \[
+                    x \equiv x_0 + t_j p^{k-1} \mod{p^k} (1\leq j \leq r)
+                \]
+                其中 \(t_j\) 为满足
+                \[
+                    f'(x_0) t_j \equiv -\frac{f(x_0)}{p^{k-1}} \mod{p}
+                \]
+                的全体解
+
+            \end{thm}
+
+            \begin{prf}
+                考虑泰勒展开
+                \[
+                    f(x_0 + t p^{k-1}) \equiv f(x_0) + f'(x_0) t p^{k-1} \mod{p^k}  
+                \]
+                则
+                \[
+                    f(x_0 + t p^{k-1}) \equiv 0 \mod{p^k} \iff f(x_0) + f'(x_0) t p^{k-1} \equiv 0 \mod{p^k}
+                \]
+                即
+                \[
+                    f'(x_0) t \equiv -\frac{f(x_0)}{p^{k-1}} \mod{p}
+                \]
+                故得证.
+            \end{prf}
+
+            \begin{rmk}
+                当\(f'(x_0) \not\equiv 0 \mod{p}\)时, 这次升幂可以得到唯一对应解; 
+                当\(f'(x_0) \equiv 0 \mod{p}\)且\(-\frac{f(x_0)}{p^{k-1}} \equiv 0 \mod{p}\)时, 
+                这次升幂可以得到\(p\)个解; 否则无解.
+            \end{rmk}
+
+            \begin{thm}
+                []
+                {模素数幂同余方程的降幂}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 2,n\geq 1 \).
+                \(f(x)\)为\(n\)次整系数多项式. 
+                则求解同余方程\(f(x) \equiv 0 \mod{p}\)的解与求解同余方程\(r(x) \equiv 0 \mod{p}\)的解等价.
+                其中
+                \[
+                    r(x) \equiv f(x) \mod{x^{p}-x}
+                \]
+                为一个次数不超过 \(p-1\) 的多项式.
+            \end{thm}
+
+            \begin{prf}
+                由于对任意\(x \in \Z\), 有
+                \[
+                    x^p - x \equiv 0 \mod{p}
+                \]
+                即证
+            \end{prf}
+
+            \begin{thm}
+                []
+                {多项式按根分解}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                \(f(x)\)为\(n\)次整系数多项式. 则在模\(p\)意义下, 有
+                \[
+                    f(x) \equiv \prod_{i=1}^{k} (x - a_i)^{r_i} g(x) \mod{p}
+                \]
+                其中 \(a_1, a_2, \ldots, a_k\) 是模 \(p\) 意义下的不同根, \(r_i \geq 1\), 
+                且 \(g(x)\) 不含模 \(p\) 意义下的根.
+            \end{thm}
+
+            \begin{crl}
+                []
+                {多项式根的个数上界}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程
+                \[
+                    f(x) \equiv 0 \mod{p}
+                \]
+                在模 \(p\) 意义下的不同根的个数不超过 \(n\).
+            \end{crl}
+
+            \begin{thm}
+                []
+                {解数等于次数的条件}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(1\leq n \leq p-1\).    
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程
+                \[
+                    f(x) \equiv 0 \mod{p}
+                \]
+                在模 \(p\) 意义下有 \(n\) 个不同根的充分必要条件是
+                \(f(x)\)除\(x^{p}-x\)的各项系数模 \(p\) 为零.
+                也即若
+                \[x^p-x=f(x) \cdot g(x)+r(x)(\deg r(x) < n)\]
+                则\(r(x)\)各项系数模 \(p\) 为零.
             \end{thm}
     \section{原根与指标}
         
