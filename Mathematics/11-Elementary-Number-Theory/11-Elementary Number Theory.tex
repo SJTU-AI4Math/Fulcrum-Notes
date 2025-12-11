@@ -8,7 +8,6 @@
 
 \usepackage{OperatorListCN}
 \usepackage{F4Logic}
-\usepackage{F4Type}
 \usepackage{F4NumberTheory}
 
 % margin
@@ -58,8 +57,7 @@
                 {整除的偏序性}
                 [Partial Order of Divisibility]
                 [猫猫]
-                \THM
-                    {整除关系是偏序关系}
+                整除是偏序关系. 
             \end{ppt}
             
             \begin{ppt}
@@ -67,8 +65,8 @@
                 {整除的线性性}
                 [Linearity of Divisibility]
                 [猫猫]
-                \THM
-                    {整除关系是线性关系}
+                设 \(m:\Z\), \(\{x_n\}:\N\to\Z\), \(\forall n:\N, m\mid x_n\), 则: 
+                \[\forall a_n:\N\to\Z, \mid[m][\sum_{i=0}^{n}a_ix_i]\]
             \end{ppt}
             
             \begin{ppt}
@@ -82,8 +80,8 @@
             \end{ppt}
             
             \begin{thm}
-                []
-                {余数唯一性}
+                [DivisonAlgorithm]
+                {带余除法}
                 []
                 [猫猫]
                 \THM
@@ -99,7 +97,7 @@
                 \DEF
                     [ \(a, b:\Z\), \(a\neq 0\)]
                     { \(b\) 除以 \(a\) 的不完全商}
-                    {}
+                    {由\hyperref[thm:DivisonAlgorithm]{带余除法}给出的 \(n\)}
                     [ \(b/a\)]
             \end{dfn}
             
@@ -125,13 +123,13 @@
                 \DEF
                     [ \(a, b:\Z\), \(a\neq 0\), \(b\neq 0\)]
                     { \(a\) 和 \(b\) 的最大公因数}
-                    {\(\max\{d|d\mid a \land d\mid b\}\)}
+                    {\(\max\{d\oldmid d\mid a \land d\mid b\}\)}
                     [ \(\gcd(a,b)\)]
 
                 \DEF
                     [ \(S\) 是 \(\Z\) 上的集合, \(S\neq\{0\}\)]
                     { \(S\) 的最大公因数}
-                    {\(\max\{d|\forall n\in S, d\mid n\}\)}
+                    {\(\max\{d\oldmid \forall n\in S, d\mid n\}\)}
                     [ \(\gcd S\)]
             \end{dfn}
 
@@ -150,9 +148,9 @@
                 {}
                 []
                 [猫猫]
-                \THM
-                    [ \(a, b, n:\Z\)]
-                    {\(\gcd(an,bn)=n\gcd(a,b)\)}
+                设 \(a, b, n:\Z\), 则 \(\gcd(an,bn)=n\gcd(a,b)\). 
+                设 \(\delta:\Z\), \(\delta\mid\gcd(a,b)\), 则: 
+                \[\gcd[\frac{a}{\delta}][\frac{b}{\delta}]=\frac{\gcd(a,b)}{|\delta|}\]
             \end{ppt}
 
             \begin{thm}
@@ -201,9 +199,9 @@
                 [Least Common Multiple]
                 [白菜]
                 设$a,b:\mathbb{Z}$, $a\neq 0, b\neq 0$, 定义 $a$ 和 $b$ 的最小公倍数为:
-                $\min\{a\mid d \land b\mid d\}$, 记作 $\lcm(a,b)$.
+                $\min\{a\oldmid d \land b\mid d\}$, 记作 $\lcm(a,b)$.
                 设 $S$ 是 $\mathbb{Z}$ 上的集合, $S\neq \{0\}$, 定义$S$的最小公倍数为:
-                $\min\{d|\forall n\in S, n>0 \land n \mid d \}$, 记作$\lcm S$
+                $\min\{d\oldmid\forall n\in S, n>0 \land n \mid d \}$, 记作$\lcm S$
             \end{dfn}
 
             \begin{thm}
@@ -303,7 +301,7 @@
                 \]  
                 其中 \(p_1<p_2<\cdots<p_k\) 是素数, \(\alpha_1,\alpha_2,\ldots,\alpha_k\) 和 \(\beta_1,\beta_2,\ldots,\beta_k\) 是非负整数. 则
                 \[\gcd(a,b)=p_1^{\min(\alpha_1,\beta_1)}p_2^{\min(\alpha_2,\beta_2)}\cdots p_k^{\min(\alpha_k,\beta_k)}\]
-                \[\lcm(a,b)=p_1^{\max(\alpha_1,\beta_1)}p_2^{\max(\alpha_2,\beta_2)}\cdots p_k^{\max(\alpha_k,\beta_k)}\]   
+                \[\lcm(a,b)=p_1^{\max(\alpha_1,\beta_1)}p_2^{\max(\alpha_2,\beta_2)}\cdots p_k^{\max(\alpha_k,\beta_k)}\]
 
             \end{ppt}
 
@@ -765,6 +763,29 @@
 
         \subsection{一次同余方程组与中国剩余定理}
             \begin{thm}
+                []
+                {同余方程组有解的判定}
+                []
+                [白菜]
+                设\(m_1, m_2, \ldots, m_k:\mathbb{Z}\), \(a_1, a_2, \ldots, a_k:\mathbb{Z}\). 则同余方程组
+                    \[
+                        \begin{cases}
+                        \begin{aligned}
+                            x &\equiv a_1 \pmod{m_1}\\
+                            x &\equiv a_2 \pmod{m_2}\\
+                                &\vdots\\
+                            x &\equiv a_k \pmod{m_k}
+                        \end{aligned}
+                        \end{cases}
+                    \]
+                    有解的充要条件是对于任意的 \(i, j\) 有
+                    \[
+                        a_i \equiv a_j \mod{\gcd(m_i, m_j)}
+                    \]
+                    若存在解, 则解在模 \(M = \lcm(m_1, m_2, \ldots, m_k)\) 的意义下唯一.
+            \end{thm}
+
+            \begin{thm}
                 [ChineseRemainderTheorem]
                 {中国剩余定理}
                 [Chinese Remainder Theorem]
@@ -786,9 +807,311 @@
                     \]
                     其中 \(M_i = \frac{M}{m_i}\), \((M_i)^{-1}\) 是 \(M_i\) 模 \(m_i\) 的逆元.
             \end{thm}
-    \section{原根与指标}
+
+        \subsection{高次同余方程}
+            \begin{thm}
+                []
+                {模素数幂同余方程的升幂解法}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 1,n\geq 1 \). 
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程\(f(x) \equiv 0 \mod{p^k}\)满足\(x \equiv x_0 \mod{p^{k-1}}\)的解为
+                \[
+                    x \equiv x_0 + t_j p^{k-1} \mod{p^k} (1\leq j \leq r)
+                \]
+                其中 \(t_j\) 为满足
+                \[
+                    f'(x_0) t_j \equiv -\frac{f(x_0)}{p^{k-1}} \mod{p}
+                \]
+                的全体解
+
+            \end{thm}
+
+            \begin{prf}
+                考虑泰勒展开
+                \[
+                    f(x_0 + t p^{k-1}) \equiv f(x_0) + f'(x_0) t p^{k-1} \mod{p^k}  
+                \]
+                则
+                \[
+                    f(x_0 + t p^{k-1}) \equiv 0 \mod{p^k} \iff f(x_0) + f'(x_0) t p^{k-1} \equiv 0 \mod{p^k}
+                \]
+                即
+                \[
+                    f'(x_0) t \equiv -\frac{f(x_0)}{p^{k-1}} \mod{p}
+                \]
+                故得证.
+            \end{prf}
+
+            \begin{rmk}
+                当\(f'(x_0) \not\equiv 0 \mod{p}\)时, 这次升幂可以得到唯一对应解; 
+                当\(f'(x_0) \equiv 0 \mod{p}\)且\(-\frac{f(x_0)}{p^{k-1}} \equiv 0 \mod{p}\)时, 
+                这次升幂可以得到\(p\)个解; 否则无解.
+            \end{rmk}
+
+            \begin{thm}
+                []
+                {模素数幂同余方程的降幂}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 2,n\geq 1 \).
+                \(f(x)\)为\(n\)次整系数多项式. 
+                则求解同余方程\(f(x) \equiv 0 \mod{p}\)的解与求解同余方程\(r(x) \equiv 0 \mod{p}\)的解等价.
+                其中
+                \[
+                    r(x) \equiv f(x) \mod{x^{p}-x}
+                \]
+                为一个次数不超过 \(p-1\) 的多项式.
+            \end{thm}
+
+            \begin{prf}
+                由于对任意\(x \in \Z\), 有
+                \[
+                    x^p - x \equiv 0 \mod{p}
+                \]
+                即证
+            \end{prf}
+
+            \begin{thm}
+                []
+                {多项式按根分解}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                \(f(x)\)为\(n\)次整系数多项式. 则在模\(p\)意义下, 有
+                \[
+                    f(x) \equiv \prod_{i=1}^{k} (x - a_i)^{r_i} g(x) \mod{p}
+                \]
+                其中 \(a_1, a_2, \ldots, a_k\) 是模 \(p\) 意义下的不同根, \(r_i \geq 1\), 
+                且 \(g(x)\) 不含模 \(p\) 意义下的根.
+            \end{thm}
+
+            \begin{crl}
+                []
+                {多项式根的个数上界}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程
+                \[
+                    f(x) \equiv 0 \mod{p}
+                \]
+                在模 \(p\) 意义下的不同根的个数不超过 \(n\).
+            \end{crl}
+
+            \begin{thm}
+                []
+                {解数等于次数的条件}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(1\leq n \leq p-1\).    
+                \(f(x)\)为\(n\)次整系数多项式. 则同余方程
+                \[
+                    f(x) \equiv 0 \mod{p}
+                \]
+                在模 \(p\) 意义下有 \(n\) 个不同根的充分必要条件是
+                \(f(x)\)除\(x^{p}-x\)的各项系数模 \(p\) 为零.
+                也即若
+                \[x^p-x=f(x) \cdot g(x)+r(x)(\deg r(x) < n)\]
+                则\(r(x)\)各项系数模 \(p\) 为零.
+            \end{thm}
+    \section{二次剩余}
+        \subsection{二次剩余与欧拉判别准则}
+            \begin{dfn}
+                [QuadraticResidue]
+                {二次剩余}
+                [Quadratic Residue]
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\), 且 \(\gcd(a,p)=1\). 若同余方程
+                \[
+                    x^2 \equiv a \mod{p}
+                \]
+                有解, 则称 \(a\) 为模 \(p\) 的一个\textbf{二次剩余}; 否则称 \(a\) 为模 \(p\) 的一个\textbf{二次非剩余}.
+            \end{dfn}
         
+            \begin{thm}
+                [EulerCriterion]
+                {欧拉判别准则}
+                [Euler's Criterion]
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\), 且 \(\gcd(a,p)=1\). 则
+                \[
+                    a \text{ 是模 } p \text{ 的二次剩余} \iff a^{\frac{p-1}{2}} \equiv 1 \mod{p}
+                \]
+                \[
+                    a \text{ 是模 } p \text{ 的二次非剩余} \iff a^{\frac{p-1}{2}} \equiv -1 \mod{p}
+                \]
+            \end{thm}
         
+            \begin{crl}
+                []
+                {模素数的二次剩余个数}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数, 则模 \(p\) 的二次剩余共有 \(\frac{p-1}{2}\) 个. 
+                且恰为\(1^2, 2^2, \ldots, \left(\frac{p-1}{2}\right)^2\)
+            \end{crl}
+
+        \subsection{勒让德符号}
+            \begin{dfn}
+                [LegendreSymbol]
+                {勒让德符号}
+                [Legendre Symbol]
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\). 则勒让德符号定义为
+                \[
+                    \left( \frac{a}{p} \right) =
+                    \begin{cases}
+                        0 & \text{若 } p \mid a\\
+                        1 & \text{若 } a \text{ 是模 } p \text{ 的二次剩余}\\
+                        -1 & \text{若 } a \text{ 是模 } p \text{ 的二次非剩余}
+                    \end{cases}
+                \]
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {勒让德符号的欧拉判别准则表示}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\). 则有
+                \[
+                    \left( \frac{a}{p} \right) \equiv a^{\frac{p-1}{2}} \mod{p}
+                \]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {勒让德符号的乘性}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数, \(a,b:\mathbb{Z}\). 则有
+                \[
+                    \left( \frac{ab}{p} \right) = \left( \frac{a}{p} \right) \left( \frac{b}{p} \right)
+                \]
+            \end{ppt}
+
+            \begin{ppt}
+                []
+                {-1的勒让德符号}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数. 则有
+                \[
+                    \left( \frac{-1}{p} \right) = (-1)^{\frac{p-1}{2}} =
+                    \begin{cases}
+                        1 & \text{若 } p \equiv 1 \mod{4}\\
+                        -1 & \text{若 } p \equiv 3 \mod{4}
+                    \end{cases}
+                \]
+            \end{ppt}
+        \subsection{Gauss引理与二次互反律}
+            \begin{thm}
+                [GaussLemma]
+                {Gauss引理}
+                [Gauss' Lemma]
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\), 且 \(\gcd(a,p)=1\). 记集合
+                \[
+                    S = \{a, 2a, 3a, \ldots, \frac{p-1}{2} a\}
+                \]
+                中模 \(p\) 意义下的最小正剩余中大于 \(\frac{p}{2}\) 的元素个数为 \(n\). 则有
+                \[
+                    \left( \frac{a}{p} \right) = (-1)^n
+                \]
+            \end{thm}
+
+            \begin{crl}
+                []
+                {2的勒让德符号}
+                []
+                [白菜]
+                设\(p:\mathbb{Z}\)为奇素数. 则有
+                \[
+                    \left( \frac{2}{p} \right) = (-1)^{\frac{p^2 - 1}{8}} =
+                    \begin{cases}
+                        1 & \text{若 } p \equiv 1 \text{ 或 } 7 \mod{8}\\
+                        -1 & \text{若 } p \equiv 3 \text{ 或 } 5 \mod{8}
+                    \end{cases}
+                \]
+            \end{crl}
+
+            \begin{lma}
+                [QuadraticReciprocityLemma]
+                {二次互反律引理}
+                []
+                [白菜] 
+                设\(p:\mathbb{Z}\)为奇素数. \(\gcd(p,2a)=1\), 记集合
+                \[
+                    S = \{a, 2a, 3a, \ldots, \frac{p-1}{2} a\}
+                \]
+                中模 \(p\) 意义下的最小正剩余中大于 \(\frac{p}{2}\) 的元素个数为 \(n\). 则有
+                \[
+                    n \equiv \frac{a-1}{2} \cdot \frac{p-1}{2} \mod{2}
+                \]
+            \end{lma}
+
+            \begin{thm}
+                [QuadraticReciprocityLaw]
+                {二次互反律}
+                [Quadratic Reciprocity Law]
+                [白菜]
+                设\(p,q:\mathbb{Z}\)为奇素数. 则有
+                \[
+                    \left( \frac{p}{q} \right) \left( \frac{q}{p} \right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}
+                \]
+            \end{thm}
+
+        \subsection{Jacobi符号}
+            \begin{dfn}
+                [JacobiSymbol]
+                {Jacobi符号}
+                [Jacobi Symbol]
+                [白菜]
+                设\(n:\mathbb{Z}\)为奇正整数, 且 \(n=p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\)为其素因子分解. 
+                对于任意\(a:\mathbb{Z}\), 定义Jacobi符号为
+                \[
+                    \left( \frac{a}{n} \right) = \prod_{i=1}^{k} \left( \frac{a}{p_i} \right)^{e_i}
+                \]
+                其中 \(\left( \frac{a}{p_i} \right)\) 为勒让德符号.
+            \end{dfn}
+
+            \begin{ppt}
+                []
+                {Jacobi符号的乘性}
+                []
+                [白菜]
+                设\(n, n_1,n_2:\mathbb{Z}\)为奇正整数, \(a,b:\mathbb{Z}\). 则有
+                \[
+                    \left( \frac{ab}{n} \right) = \left( \frac{a}{n} \right) \left( \frac{b}{n} \right)
+                \]
+                \[
+                    \left( \frac{a}{n_1 n_2} \right) = \left( \frac{a}{n_1} \right) \left( \frac{a}{n_2} \right)
+                \]
+            \end{ppt}
+
+
+
+            \begin{thm}
+                []
+                {Jacobi符号的二次互反律}
+                []
+                [白菜]
+                设\(m,n:\mathbb{Z}\)为奇正整数. 则有
+                \[
+                    \left( \frac{m}{n} \right) \left( \frac{n}{m} \right) = (-1)^{\frac{m-1}{2} \cdot \frac{n-1}{2}}
+                \]
+            \end{thm}
+
+            \begin{rmk}
+                此时, 即使\(\left( \frac{a}{n} \right) = 1\), 也不能保证同余方程
+                \[x^2 \equiv a \mod{n}\]
+                有解. 但是我们一定可以通过Jacobi符号的二次互反律计算legendre符号
+            \end{rmk}
+        \subsection{合数模的二次剩余}
+        \subsection{表素数为二平方和}
+    
+
 
 
 
