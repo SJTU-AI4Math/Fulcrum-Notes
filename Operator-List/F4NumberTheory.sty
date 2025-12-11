@@ -1,4 +1,22 @@
 \let\oldmid\mid
-\RenewDocumentCommand{\mid}{soo}{\catref[#1]{dfn:Div}{\oarg{#2}\ensuremath{\oldmid}\oarg{#3}}[整除]}
+\RenewDocumentCommand{\mid}{soo}{\oarg{#2}\catref[#1]{dfn:Div}{\ensuremath{\oldmid}}[整除]\oarg{#3}}
 
-\DeclareMathOperator{\lcm}{lcm}                         % LCM
+\let\oldnmid\nmid
+\RenewDocumentCommand{\nmid}{s}{\catref[#1]{dfn:Div}{\ensuremath{\oldnmid}}[不整除]}
+
+\let\oldgcd\gcd
+\RenewDocumentCommand{\gcd}{soo}{\catref[#1]{dfn:GCD}{\operatorname{gcd}}[最大公约数]\IfValueT{#2}{\left(\oarg{#2}\IfValueT{#3}{,#3}\right)}}
+\NewDocumentCommand{\lcm}{soo}{\catref[#1]{dfn:LCM}{\operatorname{lcm}}[最小公倍数]\IfValueT{#2}{\left(\oarg{#2}\IfValueT{#3}{,#3}\right)}}
+
+\NewDocumentCommand{\isPrime}{so}{\catref[#1]{dfn:Prime-Number}{\IfValueT{#2}{#2 是}素数}[素数判定函数]}
+\NewDocumentCommand{\isComposite}{so}{\catref[#1]{dfn:Composite-Number}{\IfValueT{#2}{#2 是}合数}[合数判定函数]}
+
+\NewDocumentCommand{\coprime}{soo}{\catref[#1]{dfn:Coprime}{IfValueT{#3}{\oarg{#2} 与 \oarg{#3}}互素}[互质]}
+
+\NewDocumentCommand{\vpn}{smo}{\catref[#1]{dfn:VPN}{v}[素因子幂函数]_{#2}\IfValueT{#3}{\left(#3\right)}}
+
+\NewDocumentCommand{\ZnZ}{sm}{\catref[#1]{dfn:ZnZ}{\ensuremath{\Z/#1\Z}}[#1 阶整数模环]}
+
+
+\NewDocumentCommand{\floor}{m}{\left\lfloor #1 \right\rfloor}
+\NewDocumentCommand{\ceil}{m}{\left\lceil #1 \right\rceil}

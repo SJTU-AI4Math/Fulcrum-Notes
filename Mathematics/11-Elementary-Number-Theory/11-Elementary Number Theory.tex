@@ -8,7 +8,6 @@
 
 \usepackage{OperatorListCN}
 \usepackage{F4Logic}
-\usepackage{F4Type}
 \usepackage{F4NumberTheory}
 
 % margin
@@ -58,8 +57,7 @@
                 {整除的偏序性}
                 [Partial Order of Divisibility]
                 [猫猫]
-                \THM
-                    {整除关系是偏序关系}
+                整除是偏序关系. 
             \end{ppt}
             
             \begin{ppt}
@@ -67,8 +65,8 @@
                 {整除的线性性}
                 [Linearity of Divisibility]
                 [猫猫]
-                \THM
-                    {整除关系是线性关系}
+                设 \(m:\Z\), \(\{x_n\}:\N\to\Z\), \(\forall n:\N, m\mid x_n\), 则: 
+                \[\forall a_n:\N\to\Z, \mid[m][\sum_{i=0}^{n}a_ix_i]\]
             \end{ppt}
             
             \begin{ppt}
@@ -82,8 +80,8 @@
             \end{ppt}
             
             \begin{thm}
-                []
-                {余数唯一性}
+                [DivisonAlgorithm]
+                {带余除法}
                 []
                 [猫猫]
                 \THM
@@ -99,7 +97,7 @@
                 \DEF
                     [ \(a, b:\Z\), \(a\neq 0\)]
                     { \(b\) 除以 \(a\) 的不完全商}
-                    {}
+                    {由\hyperref[thm:DivisonAlgorithm]{带余除法}给出的 \(n\)}
                     [ \(b/a\)]
             \end{dfn}
             
@@ -125,13 +123,13 @@
                 \DEF
                     [ \(a, b:\Z\), \(a\neq 0\), \(b\neq 0\)]
                     { \(a\) 和 \(b\) 的最大公因数}
-                    {\(\max\{d|d\mid a \land d\mid b\}\)}
+                    {\(\max\{d\oldmid d\mid a \land d\mid b\}\)}
                     [ \(\gcd(a,b)\)]
 
                 \DEF
                     [ \(S\) 是 \(\Z\) 上的集合, \(S\neq\{0\}\)]
                     { \(S\) 的最大公因数}
-                    {\(\max\{d|\forall n\in S, d\mid n\}\)}
+                    {\(\max\{d\oldmid \forall n\in S, d\mid n\}\)}
                     [ \(\gcd S\)]
             \end{dfn}
 
@@ -201,9 +199,9 @@
                 [Least Common Multiple]
                 [白菜]
                 设$a,b:\mathbb{Z}$, $a\neq 0, b\neq 0$, 定义 $a$ 和 $b$ 的最小公倍数为:
-                $\min\{a\mid d \land b\mid d\}$, 记作 $\lcm(a,b)$.
+                $\min\{a\oldmid d \land b\mid d\}$, 记作 $\lcm(a,b)$.
                 设 $S$ 是 $\mathbb{Z}$ 上的集合, $S\neq \{0\}$, 定义$S$的最小公倍数为:
-                $\min\{d|\forall n\in S, n>0 \land n \mid d \}$, 记作$\lcm S$
+                $\min\{d\oldmid\forall n\in S, n>0 \land n \mid d \}$, 记作$\lcm S$
             \end{dfn}
 
             \begin{thm}
@@ -303,7 +301,7 @@
                 \]  
                 其中 \(p_1<p_2<\cdots<p_k\) 是素数, \(\alpha_1,\alpha_2,\ldots,\alpha_k\) 和 \(\beta_1,\beta_2,\ldots,\beta_k\) 是非负整数. 则
                 \[\gcd(a,b)=p_1^{\min(\alpha_1,\beta_1)}p_2^{\min(\alpha_2,\beta_2)}\cdots p_k^{\min(\alpha_k,\beta_k)}\]
-                \[\lcm(a,b)=p_1^{\max(\alpha_1,\beta_1)}p_2^{\max(\alpha_2,\beta_2)}\cdots p_k^{\max(\alpha_k,\beta_k)}\]   
+                \[\lcm(a,b)=p_1^{\max(\alpha_1,\beta_1)}p_2^{\max(\alpha_2,\beta_2)}\cdots p_k^{\max(\alpha_k,\beta_k)}\]
 
             \end{ppt}
 
