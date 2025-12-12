@@ -727,7 +727,7 @@
         \begin{xmp}
             [Binom]
             {\(n\) 重 Bernoulli 分布 / 二项分布}
-            [Binary Distribution]
+            [Binomial Distribution]
             [Dedicatia, 猫猫]
             设 \(n:\N\), \(p:\R\), \(p\in\Ioo{0}{1}\), 定义 \(X\) 服从成功率为 \(p\) 的 \(n\) 重 Bernoulli 分布\textbf{二项分布}, 当且仅当其分布列为
             
@@ -1419,8 +1419,8 @@
             {联合分布函数}
             [Joint Cumulative Distribution Function / Joint CDF]
             [Dedicatia]
-            设 \(X=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 定义 \(X\) 的\textbf{联合分布函数}为:
-            \[F_X(x_1,\cdots,x_n)=\mathbb{P}(X_1\leq x_1,\cdots,X_n\leq x_n)\]
+            设 \(\bm{X}=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 定义 \(\bm{X}\) 的\textbf{联合分布函数}为:
+            \[F_{\bm{X}}(x_1,\cdots,x_n)=\mathbb{P}(X_1\leq x_1,\cdots,X_n\leq x_n)\]
         \end{dfn}
 
         \begin{ppt}
@@ -1442,7 +1442,7 @@
             {(单变量的)边缘分布函数}
             [Marginal Cumulative Distribution Function]
             [Dedicatia]
-            设 \(X=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某一分量 \(X_k\) 的\textbf{边缘分布函数}为:
+            设 \(\bm{X}=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某一分量 \(X_k\) 的\textbf{边缘分布函数}为:
             \[F_{X_k}(x_k) = F(+\infty,\cdots,x_k,\cdots,+\infty).\]
         \end{dfn}
 
@@ -1451,7 +1451,7 @@
             {多变量的边缘分布函数}
             [Multivariate Marginal Cumulative Distribution Function]
             [Dedicatia]
-            设 \(X=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某些分量 \(X_j,\cdots,X_k\) 的\textbf{边缘分布函数}为:
+            设 \(\bm{X}=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某些分量 \(X_j,\cdots,X_k\) 的\textbf{边缘分布函数}为:
             \[F_{X_k}(x_k) = F(+\infty,\cdots,x_j,\cdots,+\infty,x_k,\cdots,+\infty).\]
         \end{dfn}
 
@@ -1704,6 +1704,33 @@
         \end{dfn}
 
     \subsection{常见多维分布}
+
+        \begin{xmp}
+            []
+            {多项分布}
+            [Multinomial Distribution]
+            [Dedicatia]
+            设 \(\bm{X}=(X_1,X_2,\cdots,X_k)\) 是\随机向量{\(k\)}, 若其联合概率函数为
+            \[P(X_1=x_1,X_2=x_2,\cdots,X_k=x_k)=\frac{n!}{x_1!x_2!\cdots x_k!}p_1^{x_1}p_2^{x_2}\cdots p_k^{x_k}\]
+            其中 \(x_1,x_2,\cdots,x_k\) 为非负整数且满足 \(x_1+x_2+\cdots+x_k=n\), 且 \(p_1,p_2,\cdots,p_k\) 满足 \(p_1+p_2+\cdots+p_k=1\). 则称 \(\bm{X}\) 服从参数为 \(n\) 和 \((p_1,p_2,\cdots,p_k)\) 的\textbf{多项分布}, 记作 \(\bm{X}\sim M(n,p_1,p_2,\cdots,p_k)\).\\
+            多项分布是离散型分布.
+        \end{xmp}
+
+        \begin{rmk}
+            [Dedicatia]
+            多项分布是二项分布的推广, 当 \(k=2\) 时, 多项分布退化为二项分布.
+        \end{rmk}
+
+        \begin{xmp}
+            []
+            {多维超几何分布}
+            [Multivariate Hypergeometric Distribution]
+            [Dedicatia]
+            设 \(\bm{X}=(X_1,X_2,\cdots,X_k)\) 是\随机向量{\(k\)}, 若其联合概率函数为
+            \[P(X_1=x_1,X_2=x_2,\cdots,X_k=x_k)=\frac{\prod_{i=1}^{k}\Comb{N_i}{x_i}}{\Comb{N}{n}}\]
+            其中 \(x_1,x_2,\cdots,x_k\) 为非负整数且满足 \(x_1+x_2+\cdots+x_k=n\), 且 \(N_1,N_2,\cdots,N_k\) 满足 \(N_1+N_2+\cdots+N_k=N\). 则称 \(\bm{X}\) 服从参数为 \(N\), \(n\) 和 \((N_1,N_2,\cdots,N_k)\) 的\textbf{多维超几何分布}, 记作 \(\bm{X}\sim HG(N,n,N_1,N_2,\cdots,N_k)\).\\
+            多维超几何分布是离散型分布.
+        \end{xmp}
 
         \begin{xmp}
             [Multi-Uniform]
@@ -1970,6 +1997,7 @@
             [Dedicatia]
             若\随机变量 \( X \sim \chi^2(m) \), \( Y \sim \chi^2(n) \), 且 \( X \) 与 \( Y \) 相互独立，则：
             \[ X + Y \sim \chi^2(m + n)\]
+            可以推广到任意可数多个独立的卡方分布随机变量之和仍服从卡方分布.
         \end{ppt}
 
         \begin{ppt}
@@ -2063,7 +2091,7 @@
             {离散型随机变量的概率生成函数 / 概率母函数}
             []
             [Dedicatia]
-            设 \(X\) 是取值于非负整数集 \(\N_0\) 上的\随机变量, 定义其\textbf{概率生成函数}为
+            设 \(X\) 是取值于非负整数集 \(\N\) 上的\随机变量, 定义其\textbf{概率生成函数}为
             \[G_X(t)=\Expct{t^X}=\sum_{k=0}^{+\infty} p_k t^k\]
             其中 \(p_k=\mathbb{P}(X=k)\), \(t\in(-1,1)\). 也简称为生成函数.
         \end{dfn}
@@ -2195,7 +2223,7 @@
         
         \begin{rmk}
             [Dedicatia]
-            可以注意到, 特征函数与原概率密度函数之间存在傅里叶变换与反变换的关系.
+            可以注意到, 特征函数与原概率密度函数之间存在 Fourier 变换与反变换的关系.
         \end{rmk}
 
         \begin{xmp}
@@ -2229,9 +2257,9 @@
             {由特征函数求取概率分布}
             []
             [Dedicatia]
-            设 \(X\) 是任意连续型\随机变量, 其特征函数为 \(\Phi_X(t)\). 则 \(X\) 的概率密度函数为
+            设 \(X\) 是任意\连续型随机变量, 其特征函数为 \(\Phi_X(t)\). 则 \(X\) 的概率密度函数为
             \[f_X(x)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}\exp(-\ii tx)\Phi_X(t)\dd{t}.\]
-            如果 \(X\) 是任意离散型\随机变量, 其特征函数为 \(\Phi_X(t)\). 则 \(X\) 的概率分布列为
+            如果 \(X\) 是任意\离散型随机变量, 其特征函数为 \(\Phi_X(t)\). 则 \(X\) 的概率分布列为
             \[\mathbb{P}(X=x_k)=\frac{1}{2\pi}\int_{-\pi}^{\pi}\exp(-\ii t x_k)\Phi_X(t)\dd{t}.\]
         \end{crl}
 
