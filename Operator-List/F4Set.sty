@@ -1,6 +1,6 @@
 % Set Theory
 
-\NewDocumentCommand{\SetOf}{mm}{\left\{#1\middle\mid #2\right\}}
+\NewDocumentCommand{\SetOf}{mm}{\left\{ #1 \,\middle|\, #2 \right\}}
 
 \let\oldin\in
 \RenewDocumentCommand{\in}{soo}{\catref[#1]{dfn:SetMem}{\oarg{#2}\,\ensuremath{\oldin}\,\oarg{#3}}[属于]}

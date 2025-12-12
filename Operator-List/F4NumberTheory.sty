@@ -15,8 +15,11 @@
 
 \NewDocumentCommand{\vpn}{smo}{\catref[#1]{dfn:VPN}{v}[素因子幂函数]_{#2}\IfValueT{#3}{\left(#3\right)}}
 
-\NewDocumentCommand{\ZnZ}{sm}{\catref[#1]{dfn:ZnZ}{\ensuremath{\Z/#1\Z}}[#1 阶整数模环]}
+\NewDocumentCommand{\ZnZ}{sm}{\catref[#1]{dfn:ResidueSystem}{\ensuremath{\Z/#2\Z}}[#2 阶整数模环]}
+\NewDocumentCommand{\Euler}{s}{\catref[#1]{dfn:Euler-Totient}{\ensuremath{\varphi}}[欧拉函数]}
 
 
 \NewDocumentCommand{\floor}{m}{\left\lfloor #1 \right\rfloor}
 \NewDocumentCommand{\ceil}{m}{\left\lceil #1 \right\rceil}
+
+\NewDocumentCommand{\A}{s}{\catref[#1]{dfn:Algebraic-Number}{\ensuremath{\mathbb{A}}}[全体代数数]}
