@@ -7,6 +7,7 @@
 \usepackage{FulcrumCN}
 
 \usepackage{OperatorListCN}
+\usepackage{F4Set}
 \usepackage{F4Logic}
 \usepackage{F4NumberTheory}
 
@@ -158,7 +159,7 @@
                 {Euclid 辗转相除法}
                 [Euclidean algorithm]
                 [白菜]
-                设\(a,b:\mathbb{Z}\), \(a>0,b\geq 0\), 则通过以下递归关系可以计算$\gcd(a,b)$:
+                设\(a,b:\Z\), \(a>0,b\geq 0\), 则通过以下递归关系可以计算$\gcd(a,b)$:
                 \[
                     r_0=a, r_1=b
                 \]
@@ -171,12 +172,16 @@
 
             \begin{thm}
                 [BezoutThm]
-                {Bezout 定理}
-                [Bezout's Theorem]
+                {B\'ezout 定理}
+                [B\'ezout's Theorem]
                 [猫猫]
-                设$a,b:\mathbb{Z}$, 则存在正整数$u,v:\mathbb{Z}$, 使得
-                \[ua+vb=\gcd(a,b)\]
+                设 \(a,b:\Z\), 则 \(\exists u,v:\Z,ua+vb=\gcd(a,b)\).
             \end{thm}
+            
+            \begin{rmk}
+                [猫猫]
+                B\'ezout 定理中有某种``共振''的意味. 互素的两数的各个倍数足够不协调, 以至于它们的线性组合可以铺满所有整数.
+            \end{rmk}
 
             \begin{dfn}
                 {互素}
@@ -198,9 +203,9 @@
                 {最小公倍数}
                 [Least Common Multiple]
                 [白菜]
-                设$a,b:\mathbb{Z}$, $a\neq 0, b\neq 0$, 定义 $a$ 和 $b$ 的最小公倍数为:
+                设$a,b:\Z$, $a\neq 0, b\neq 0$, 定义 $a$ 和 $b$ 的最小公倍数为:
                 $\min\{a\oldmid d \land b\mid d\}$, 记作 $\lcm(a,b)$.
-                设 $S$ 是 $\mathbb{Z}$ 上的集合, $S\neq \{0\}$, 定义$S$的最小公倍数为:
+                设 $S$ 是 $\Z$ 上的集合, $S\neq \{0\}$, 定义$S$的最小公倍数为:
                 $\min\{d\oldmid\forall n\in S, n>0 \land n \mid d \}$, 记作$\lcm S$
             \end{dfn}
 
@@ -209,7 +214,7 @@
                 {两数之积等于其最大公因数与最小公倍数之积}
                 []
                 [白菜]
-                设\(a,b:\mathbb{Z}\), 则
+                设\(a,b:\Z\), 则
                 \[a\cdot b=\gcd(a,b)\cdot \lcm(a,b)\]
             \end{thm}
         
@@ -403,7 +408,7 @@
                 {二元一次不定方程解的形状}
                 []
                 [白菜]
-                设\(a, b, c:\mathbb{Z}\), \(a\neq 0\), \(b\neq 0\), 且 \(\gcd(a,b)\mid c\). 则二元一次不定方程
+                设\(a, b, c:\Z\), \(a\neq 0\), \(b\neq 0\), 且 \(\gcd(a,b)\mid c\). 则二元一次不定方程
                 \[ax+by=c\]
                 的整数解可以表示为
                 \[
@@ -414,7 +419,7 @@
                     \end{aligned}
                     \end{cases}         
                 \]
-                其中 \(k\in\mathbb{Z}\), \((x_0, y_0)\) 是该方程的一个特解.                    
+                其中 \(k\in\Z\), \((x_0, y_0)\) 是该方程的一个特解.                    
                 
             \end{thm}
 
@@ -429,7 +434,7 @@
                 {多元一次不定方程有解的充要条件}
                 []
                 [白菜]
-                设\(a_1, a_2, \ldots, a_n, N:\mathbb{Z}\), 且不全为零. 则多元一次不定方程
+                设\(a_1, a_2, \ldots, a_n, N:\Z\), 且不全为零. 则多元一次不定方程
                 \[a_1x_1+a_2x_2+\cdots+a_nx_n=N\]
                 有整数解的充要条件是
                 \[\gcd(a_1, a_2, \ldots, a_n)\mid N\]
@@ -455,7 +460,7 @@
             {互素积为平方的必要条件}
             []
             [白菜]
-            设\(a, b:\mathbb{Z}\), 且 \(a\) 与 \(b\) 互素. 若 \(ab\) 是完全平方数, 则 \(a\) 和 \(b\) 均为完全平方数.
+            设\(a, b:\Z\), 且 \(a\) 与 \(b\) 互素. 若 \(ab\) 是完全平方数, 则 \(a\) 和 \(b\) 均为完全平方数.
             \end{lma}
 
             \begin{rmk}
@@ -468,7 +473,7 @@
             {勾股方程的整数解}
             []
             [白菜]
-            设\(x, y, z:\mathbb{Z}\), 且 \(x, y, z>0\), \(\gcd(x,y=1)\), \(2\mid x\). 则方程
+            设\(x, y, z:\Z\), 且 \(x, y, z>0\), \(\gcd(x,y=1)\), \(2\mid x\). 则方程
             \[x^2+y^2=z^2\]
             的整数解可以表示为
             \[
@@ -536,22 +541,12 @@
                     {\(ac\equiv bd \mod m\)}
             \end{ppt}
 
-        \subsection{剩余类与剩余系}
-            \begin{dfn}
-                [ResidueClass]
-                {剩余类}
-                [Residue Class]
-                [白菜]
-                设\(m:\Z\), 则由模 \(m\) 同余关系生成的等价类称为模 \(m\) 的\textbf{剩余类}. 
-                对于\(a:\Z\), 其模 \(m\) 的剩余类记作 \(\bar{a}\).
-            \end{dfn}
-
             \begin{dfn}
                 [ResidueSystem]
                 {剩余系}
                 [Residue System]
                 [白菜]
-                由所有剩余类构成的集合称为模 \(m\) 的\textbf{剩余系}, 记作\(\Z/m\Z\).
+                设\(m:\Z\), 定义模 \(m\) 的\textbf{剩余系} 为 \(\Z\) 在模 \(m\) 同余关系下的商类型, 记作\(\ZnZ{m}\).
             \end{dfn}
 
             \begin{dfn}
@@ -577,13 +572,14 @@
 
             \begin{thm}
                 [ResidueSystemIsCommutativeRing]
-                {剩余系是交换环}
-                [Residue System is Commutative Ring]
+                {剩余系上的交换环结构}
+                []
                 [白菜]
                 设\(m:\Z\), 则模 \(m\) 剩余系 \(\Z/m\Z\) 在上述加法与乘法下构成一个交换环.
             \end{thm}
 
             \begin{rmk}
+                [白菜]
                 当问题中只有环的运算时, 我们会说"在模\(m\)的意义下", 即将整数视为模\(m\)剩余系中的元素来进行运算.
             \end{rmk}
 
@@ -591,24 +587,32 @@
                 [ReducedResidueSystem]
                 {即约剩余系}
                 [Reduced Residue System]
-                [白菜]
-                设\(m:\Z\), 则模 \(m\) 的\textbf{即约剩余系}是指模 \(m\) 的所有与 \(m\) 互素的剩余类所构成的集合.
+                [白菜, 猫猫]
+                设 \(m:\Z\), 定义模 \(m\) 的\textbf{即约剩余系}为: 
+                \[\SetOf{\bar{a} : \ZnZ{m}}{\gcd(a,m) = 1}\]
             \end{dfn}
-
+            
             \begin{thm}
                 []
-                {互素整数诱导即约剩余系的自同态}
+                {既约剩余系是交换群}
                 []
-                [白菜]
-                设\(m, a:\mathbb{Z}\), 且 \(\gcd(a,m)=1\). \(A\subset \Z/m\Z\), 为模\(m\)的即约剩余系, 则映射
-                \[ 
-                    \begin{aligned}
-                        f: A &\to A\\
-                        \bar{x} &\mapsto \overline{ax}
-                    \end{aligned}
-                \]
-                是模 \(m\) 的即约剩余系到其自身的一个双射.
+                [猫猫]
             \end{thm}
+
+            % \begin{thm}
+            %     []
+            %     {互素整数诱导即约剩余系的自同态}
+            %     []
+            %     [白菜]
+            %     设\(m, a:\Z\), 且 \(\gcd(a,m)=1\). \(A\subset \Z/m\Z\), 为模\(m\)的即约剩余系, 则映射
+            %     \[ 
+            %         \begin{aligned}
+            %             f: A &\to A\\
+            %             \bar{x} &\mapsto \overline{ax}
+            %         \end{aligned}
+            %     \]
+            %     是模 \(m\) 的即约剩余系到其自身的一个双射.
+            % \end{thm}
 
             \begin{rmk}
                 或者说, 将模\(m\)即约剩余系中的每一个元素乘以与\(m\)互素的整数\(a\), 仍然得到模\(m\)即约剩余系中的元素, 且没有重复.
@@ -617,11 +621,14 @@
             \subsection{欧拉函数与欧拉定理}
 
             \begin{dfn}
-                [Eulerfunction]
+                [Euler-Totient]
                 {欧拉函数}
                 [Euler Function]
                 [白菜]
-                设\(m:\mathbb{Z}\), 则欧拉函数\(\varphi(m)\)定义为小于\(m\)且与\(m\)互素的正整数的个数.
+                定义\textbf{欧拉函数}为:
+                \[\card{\SetOf{\bar{a} : \ZnZ{m}}{\gcd(a,m) = 1}}\]
+
+                记作 \(\Euler\). 
             \end{dfn}
 
             \begin{ppt}
@@ -638,7 +645,7 @@
                 {欧拉函数的乘性}
                 [Multiplicativity of Euler Function]
                 [白菜]
-                设\(m_1,m_2:\mathbb{Z}\), \(\gcd(m_1,m_2)=1\), 则\(\varphi(m_1m_2) = \varphi(m_1)\varphi(m_2)\).
+                设\(m_1,m_2:\Z\), \(\gcd(m_1,m_2)=1\), 则\(\varphi(m_1m_2) = \varphi(m_1)\varphi(m_2)\).
             \end{ppt}
 
             \begin{crl}
@@ -646,76 +653,88 @@
                 {欧拉函数的显式公式}
                 []
                 [白菜]
-                设\(m:\mathbb{Z}\), 则
+                设\(m:\Z\), 则
                 \[
                 \varphi(m) = m \prod_{p \mid m} \left(1 - \frac{1}{p}\right)
                 \]
             \end{crl}
 
             \begin{thm}
-                []
-                {费马小定理}
-                [Fermat's Little Theorem]
-                [白菜]
-                设\(p:\mathbb{Z}\), \(a:\mathbb{Z}\), 且 \(p\)为素数, \(\gcd(a,p)=1\), 则
-                \[
-                    a^{p-1} \equiv 1 \mod{p}
-                \]
-            \end{thm}
-
-            \begin{thm}
                 [EulerTheorem]
                 {欧拉定理}
                 [Euler's Theorem]
                 [白菜]
-                设\(m:\mathbb{Z}\), \(a:\mathbb{Z}\), 且 \(\gcd(a,m)=1\), 则
+                设\(m:\Z\), \(a:\Z\), 且 \(\gcd(a,m)=1\), 则
                 \[
                     a^{\varphi(m)} \equiv 1 \mod{m}
                 \]
             \end{thm}
+            
+            \begin{rmk}
+                [猫猫]
+                Lagrange 定理的推论. 
+            \end{rmk}
+
+            \begin{crl}
+                []
+                {费马小定理}
+                [Fermat's Little Theorem]
+                [白菜]
+                设\(p:\Z\), \(a:\Z\), 且 \(p\)为素数, \(\gcd(a,p)=1\), 则
+                \[
+                    a^{p-1} \equiv 1 \mod{p}
+                \]
+            \end{crl}
 
             \begin{thm}
                 [WilsonTheorem]
                 {威尔逊定理}
                 [Wilson's Theorem]
                 [白菜]
-                设\(m:\mathbb{Z}\), 则 \(m\)为素数当且仅当
+                设\(m:\Z\), 则 \(m\)为素数当且仅当
                 \[
                     (m-1)! \equiv -1 \mod{m}
                 \]
             \end{thm}
+            
+            \begin{rmk}
+                [猫猫]
+                在剩余类中互逆元配对即可.
+            \end{rmk}
 
     \section{同余方程}
         \subsection{基础概念与一次同余方程}
-            \begin{dfn}
-                [ModuleEquation]
-                {同余方程}
-                [Module Equation]
-                [白菜]
-                设\(f(x)=\sum_{i=0}^n a_i x^i\), \(a_i \in \mathbb{Z}\), 则同余方程指的是形如 
-                \[f(x) \equiv 0 \mod{m}\]
-                如果对于\(\bar{x}\in \Z/m\Z\), 有\(f(\bar{x}) = 0 \)在\(\Z/m\Z\)上成立. 则称其为上述同余方程的一个解
-            \end{dfn}
+            % \begin{dfn}
+            %     [ModuleEquation]
+            %     {同余方程}
+            %     [Module Equation]
+            %     [白菜]
+            %     设\(f(x)=\sum_{i=0}^n a_i x^i\), \(a_i \in \Z\), 则同余方程指的是形如 
+            %     \[f(x) \equiv 0 \mod{m}\]
+            %     如果对于\(\bar{x}\in \Z/m\Z\), 有\(f(\bar{x}) = 0 \)在\(\Z/m\Z\)上成立. 则称其为上述同余方程的一个解
+            % \end{dfn}
 
             \begin{thm}
                 []
                 {一次同余方程的解}
                 []
-                [白菜]
-                设\(a,b:\mathbb{Z}\), 则一次同余方程
-                \[
-                    ax \equiv b \mod{m}
-                \]
-                有解的充要条件是\(\gcd(a,m) \mid b\), 且解数为\(\gcd(a,m)\).
-
+                [白菜, 猫猫]
+                设\(a,b:\Z\), 则: 
+                \begin{enumerate}
+                    \item 有解的充要条件: 
+                        \[\exists ax \equiv b \mod{m}\iff\gcd(a,m) \mid b\]
+                    
+                    \item 解数:
+                        \[\card\SetOf{x \in \Z/m\Z}{ax \equiv b \mod{m}} = \gcd(a,m)\].
+                \end{enumerate}
             \end{thm}
 
             \begin{crl}
                 []
-                {乘积为1的同余方程的解}
+                {乘积为\(1\)的同余方程的解}
                 []
                 [白菜]
-                设\(a,m:\mathbb{Z}\), 则同余方程
+                设\(a,m:\Z\), 则同余方程
                 \[
                     ax \equiv 1 \mod{m}
                 \]
@@ -727,7 +746,7 @@
                 {模\(m\)逆}
                 [Inverse modulo \(m\)]
                 [白菜]
-                设\(a,m:\mathbb{Z}\), \(\gcd(a,m)=1\), 则在模\(m\)意义下, 方程
+                设\(a,m:\Z\), \(\gcd(a,m)=1\), 则在模\(m\)意义下, 方程
                 \[
                     ax \equiv 1 \mod{m}
                 \]
@@ -739,7 +758,7 @@
                 {模\(m\)的逆兼容有理运算}
                 []
                 [白菜]
-                设\(a_1,a_2,b_1,b_2,m:\mathbb{Z}\), \(\gcd(b_1,m)=\gcd(b_2,m)=1\). 则
+                设\(a_1,a_2,b_1,b_2,m:\Z\), \(\gcd(b_1,m)=\gcd(b_2,m)=1\). 则
                 \[
                     \frac{a_1}{b_1} \cdot \frac{a_2}{b_2} = \frac{a_1 a_2}{b_1 b_2} \mod m
                 \]
@@ -767,7 +786,7 @@
                 {同余方程组有解的判定}
                 []
                 [白菜]
-                设\(m_1, m_2, \ldots, m_k:\mathbb{Z}\), \(a_1, a_2, \ldots, a_k:\mathbb{Z}\). 则同余方程组
+                设\(m_1, m_2, \ldots, m_k:\Z\), \(a_1, a_2, \ldots, a_k:\Z\). 则同余方程组
                     \[
                         \begin{cases}
                         \begin{aligned}
@@ -790,7 +809,7 @@
                 {中国剩余定理}
                 [Chinese Remainder Theorem]
                 [白菜]
-                设\(m_1, m_2, \ldots, m_k:\mathbb{Z}\), 且两两互素, \(a_1, a_2, \ldots, a_k:\mathbb{Z}\). 则同余方程组
+                设\(m_1, m_2, \ldots, m_k:\Z\), 且两两互素, \(a_1, a_2, \ldots, a_k:\Z\). 则同余方程组
                     \[
                         \begin{cases}
                         \begin{aligned}
@@ -814,7 +833,7 @@
                 {模素数幂同余方程的升幂解法}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 1,n\geq 1 \). 
+                设 \(p:\Z\), \(p\) 为素数, \(k,n:\Z\), 且 \(k\geq 1,n\geq 1 \). 
                 \(f(x)\)为\(n\)次整系数多项式. 则同余方程\(f(x) \equiv 0 \mod{p^k}\)满足\(x \equiv x_0 \mod{p^{k-1}}\)的解为
                 \[
                     x \equiv x_0 + t_j p^{k-1} \mod{p^k} (1\leq j \leq r)
@@ -854,7 +873,7 @@
                 {模素数幂同余方程的降幂}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为素数, \(k,n:\mathbb{Z}\), 且 \(k\geq 2,n\geq 1 \).
+                设\(p:\Z\)为素数, \(k,n:\Z\), 且 \(k\geq 2,n\geq 1 \).
                 \(f(x)\)为\(n\)次整系数多项式. 
                 则求解同余方程\(f(x) \equiv 0 \mod{p}\)的解与求解同余方程\(r(x) \equiv 0 \mod{p}\)的解等价.
                 其中
@@ -877,7 +896,7 @@
                 {多项式按根分解}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                设\(p:\Z\)为素数, \(n:\Z\), 且 \(n\geq 1 \).    
                 \(f(x)\)为\(n\)次整系数多项式. 则在模\(p\)意义下, 有
                 \[
                     f(x) \equiv \prod_{i=1}^{k} (x - a_i)^{r_i} g(x) \mod{p}
@@ -891,7 +910,7 @@
                 {多项式根的个数上界}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(n\geq 1 \).    
+                设\(p:\Z\)为素数, \(n:\Z\), 且 \(n\geq 1 \).    
                 \(f(x)\)为\(n\)次整系数多项式. 则同余方程
                 \[
                     f(x) \equiv 0 \mod{p}
@@ -904,7 +923,7 @@
                 {解数等于次数的条件}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为素数, \(n:\mathbb{Z}\), 且 \(1\leq n \leq p-1\).    
+                设\(p:\Z\)为素数, \(n:\Z\), 且 \(1\leq n \leq p-1\).    
                 \(f(x)\)为\(n\)次整系数多项式. 则同余方程
                 \[
                     f(x) \equiv 0 \mod{p}
@@ -922,7 +941,7 @@
                 {二次剩余}
                 [Quadratic Residue]
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\), 且 \(\gcd(a,p)=1\). 若同余方程
+                设\(p:\Z\)为奇素数, \(a:\Z\), 且 \(\gcd(a,p)=1\). 若同余方程
                 \[
                     x^2 \equiv a \mod{p}
                 \]
@@ -934,7 +953,7 @@
                 {欧拉判别准则}
                 [Euler's Criterion]
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\), 且 \(\gcd(a,p)=1\). 则
+                设\(p:\Z\)为奇素数, \(a:\Z\), 且 \(\gcd(a,p)=1\). 则
                 \[
                     a \text{ 是模 } p \text{ 的二次剩余} \iff a^{\frac{p-1}{2}} \equiv 1 \mod{p}
                 \]
@@ -948,7 +967,7 @@
                 {模素数的二次剩余个数}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数, 则模 \(p\) 的二次剩余共有 \(\frac{p-1}{2}\) 个. 
+                设\(p:\Z\)为奇素数, 则模 \(p\) 的二次剩余共有 \(\frac{p-1}{2}\) 个. 
                 且恰为\(1^2, 2^2, \ldots, \left(\frac{p-1}{2}\right)^2\)
             \end{crl}
 
@@ -958,7 +977,7 @@
                 {勒让德符号}
                 [Legendre Symbol]
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\). 则勒让德符号定义为
+                设\(p:\Z\)为奇素数, \(a:\Z\). 则勒让德符号定义为
                 \[
                     \left( \frac{a}{p} \right) =
                     \begin{cases}
@@ -974,7 +993,7 @@
                 {勒让德符号的欧拉判别准则表示}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\). 则有
+                设\(p:\Z\)为奇素数, \(a:\Z\). 则有
                 \[
                     \left( \frac{a}{p} \right) \equiv a^{\frac{p-1}{2}} \mod{p}
                 \]
@@ -985,7 +1004,7 @@
                 {勒让德符号的乘性}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数, \(a,b:\mathbb{Z}\). 则有
+                设\(p:\Z\)为奇素数, \(a,b:\Z\). 则有
                 \[
                     \left( \frac{ab}{p} \right) = \left( \frac{a}{p} \right) \left( \frac{b}{p} \right)
                 \]
@@ -996,7 +1015,7 @@
                 {-1的勒让德符号}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数. 则有
+                设\(p:\Z\)为奇素数. 则有
                 \[
                     \left( \frac{-1}{p} \right) = (-1)^{\frac{p-1}{2}} =
                     \begin{cases}
@@ -1011,7 +1030,7 @@
                 {Gauss引理}
                 [Gauss' Lemma]
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数, \(a:\mathbb{Z}\), 且 \(\gcd(a,p)=1\). 记集合
+                设\(p:\Z\)为奇素数, \(a:\Z\), 且 \(\gcd(a,p)=1\). 记集合
                 \[
                     S = \{a, 2a, 3a, \ldots, \frac{p-1}{2} a\}
                 \]
@@ -1026,7 +1045,7 @@
                 {2的勒让德符号}
                 []
                 [白菜]
-                设\(p:\mathbb{Z}\)为奇素数. 则有
+                设\(p:\Z\)为奇素数. 则有
                 \[
                     \left( \frac{2}{p} \right) = (-1)^{\frac{p^2 - 1}{8}} =
                     \begin{cases}
@@ -1041,7 +1060,7 @@
                 {二次互反律引理}
                 []
                 [白菜] 
-                设\(p:\mathbb{Z}\)为奇素数. \(\gcd(p,2a)=1\), 记集合
+                设\(p:\Z\)为奇素数. \(\gcd(p,2a)=1\), 记集合
                 \[
                     S = \{a, 2a, 3a, \ldots, \frac{p-1}{2} a\}
                 \]
@@ -1056,7 +1075,7 @@
                 {二次互反律}
                 [Quadratic Reciprocity Law]
                 [白菜]
-                设\(p,q:\mathbb{Z}\)为奇素数. 则有
+                设\(p,q:\Z\)为奇素数. 则有
                 \[
                     \left( \frac{p}{q} \right) \left( \frac{q}{p} \right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}
                 \]
@@ -1068,8 +1087,8 @@
                 {Jacobi符号}
                 [Jacobi Symbol]
                 [白菜]
-                设\(n:\mathbb{Z}\)为奇正整数, 且 \(n=p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\)为其素因子分解. 
-                对于任意\(a:\mathbb{Z}\), 定义Jacobi符号为
+                设\(n:\Z\)为奇正整数, 且 \(n=p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\)为其素因子分解. 
+                对于任意\(a:\Z\), 定义Jacobi符号为
                 \[
                     \left( \frac{a}{n} \right) = \prod_{i=1}^{k} \left( \frac{a}{p_i} \right)^{e_i}
                 \]
@@ -1081,7 +1100,7 @@
                 {Jacobi符号的乘性}
                 []
                 [白菜]
-                设\(n, n_1,n_2:\mathbb{Z}\)为奇正整数, \(a,b:\mathbb{Z}\). 则有
+                设\(n, n_1,n_2:\Z\)为奇正整数, \(a,b:\Z\). 则有
                 \[
                     \left( \frac{ab}{n} \right) = \left( \frac{a}{n} \right) \left( \frac{b}{n} \right)
                 \]
@@ -1097,7 +1116,7 @@
                 {Jacobi符号的二次互反律}
                 []
                 [白菜]
-                设\(m,n:\mathbb{Z}\)为奇正整数. 则有
+                设\(m,n:\Z\)为奇正整数. 则有
                 \[
                     \left( \frac{m}{n} \right) \left( \frac{n}{m} \right) = (-1)^{\frac{m-1}{2} \cdot \frac{n-1}{2}}
                 \]
@@ -1111,7 +1130,40 @@
         \subsection{合数模的二次剩余}
         \subsection{表素数为二平方和}
     
+    \section{代数数}
 
+        \subsection{代数数与代数整数}
+
+            \begin{dfn}
+                [Algebraic-Number]
+                {代数数}
+                [Algebraic Number]
+                [猫猫]
+                设 \(\xi:\R\), 定义 \(\xi\) 为\textbf{代数数}, 当且仅当: 
+                \[\exists f \in \Q[x], f \neq 0, f(\xi) = 0\]
+
+                定义 \(\xi\) 为\textbf{代数整数}, 当且仅当:
+                \[\exists f \in \Z[x], f \text{首一}\land f(\xi) = 0\]
+
+                代数数类型记作 \(\A\). 
+            \end{dfn}
+            
+            \begin{ppt}
+                [MinimalPolynomial]
+                {极小多项式}
+                [MinimalPolynomial]
+                [猫猫]
+                设 \(\xi:\A\), 则: \(\existsuniq f\in\Q[x]\)
+                \begin{enumerate}
+                    \item \(f\) 首一; 
+                    \item \(f(\xi) = 0\);
+                    \item 极小:
+                    \[\forall g \in \Q[x], g(\xi)=0\implies f \mid g\]
+                \end{enumerate}
+            \end{ppt}
+
+        \subsection{代数整数环}
+        \subsection{代数整数环的理想}
 
 
 
