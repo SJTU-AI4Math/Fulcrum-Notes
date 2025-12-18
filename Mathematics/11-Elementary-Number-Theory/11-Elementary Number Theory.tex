@@ -98,7 +98,7 @@
                 \DEF
                     [ \(a, b:\Z\), \(a\neq 0\)]
                     { \(b\) 除以 \(a\) 的不完全商}
-                    {由\hyperref[thm:DivisonAlgorithm]{带余除法}给出的 \(n\)}
+                    {由带余除法给出的 \(n\)}
                     [ \(b/a\)]
             \end{dfn}
             
@@ -1095,6 +1095,47 @@
                 其中 \(\left( \frac{a}{p_i} \right)\) 为勒让德符号.
             \end{dfn}
 
+            \begin{lma}
+                []
+                {Jacobi符号二次互反律的引理}
+                []
+                [白菜]
+                设\(a,a_1,a_2,\ldots,a_k:\Z\), \(a=\prod_{i=1}^{k} a_i\), 且\(a_i\equiv 1 \mod{n}\) ,\(i=1,2,\ldots,k\). 则有
+                \[
+                    \frac{a-1}{n}\equiv \sum_{i=1}^{k} \frac{a_i - 1}{n} \mod{n}
+                \]
+            \end{lma}
+
+            \begin{crl}
+                []
+                {-1的Jacobi符号}
+                []
+                [白菜]
+                设\(n:\Z\)为奇正整数. 则有
+                \[
+                    \left( \frac{-1}{n} \right) = (-1)^{\frac{n-1}{2}} =
+                    \begin{cases}
+                        1 & \text{若 } n \equiv 1 \mod{4}\\
+                        -1 & \text{若 } n \equiv 3 \mod{4}
+                    \end{cases}
+                \]
+            \end{crl}
+
+            \begin{crl}
+                []
+                {2的Jacobi符号}
+                []
+                [白菜]
+                设\(n:\Z\)为奇正整数. 则有
+                \[
+                    \left( \frac{2}{n} \right) = (-1)^{\frac{n^2 - 1}{8}} =
+                    \begin{cases}
+                        1 & \text{若 } n \equiv 1 \text{ 或 } 7 \mod{8}\\
+                        -1 & \text{若 } n \equiv 3 \text{ 或 } 5 \mod{8}
+                    \end{cases}
+                \]
+            \end{crl}
+
             \begin{ppt}
                 []
                 {Jacobi符号的乘性}
@@ -1128,7 +1169,49 @@
                 有解. 但是我们一定可以通过Jacobi符号的二次互反律计算legendre符号
             \end{rmk}
         \subsection{合数模的二次剩余}
+            \begin{thm}
+                []
+                {模奇素数幂的二次剩余}
+                []
+                [白菜]
+                设\(p,a,\alpha:\Z\), \(p\)为奇素数, \(\alpha\geq 1\), \(\gcd(a,p)=1\)则方程
+                \[
+                    x^2\equiv a\mod p^\alpha
+                \]
+                有解的充要条件是
+                \(\left(\frac{a}{p}\right)=1\). 若有解, 解数为2.
+            \end{thm}
+
+            \begin{thm}
+                []
+                {模2的幂的二次剩余}
+                []
+                [白菜]
+                设\(a,\alpha:\Z\), \(a\)为奇数, \(\alpha\geq 3\). 则同余方程
+                \[
+                    x^2\equiv a \mod 2^\alpha
+                \]
+                有解的充要条件是
+                \[
+                    \alpha \equiv 1\mod 8
+                \]
+                若有解, 解数为4
+            \end{thm}
+
+            \begin{rmk}
+                模4, 模2的情况可以简单地讨论出来. 于是, 对于一般的二次方程
+                \[x^2\equiv a \mod m\]
+                其中\(m=2^{\alpha_0}p_1^{\alpha_1}\cdots p_s^{\alpha_s}\), 
+                可以将问题拆分为两两互素的二次同余方程组是否有解, 进而由中国剩余定理得到原方程是否有解
+            \end{rmk}
         \subsection{表素数为二平方和}
+            \begin{thm}
+                []
+                {费马二平方和定理}
+                []
+                []
+                
+            \end{thm}
     
     \section{代数数}
 

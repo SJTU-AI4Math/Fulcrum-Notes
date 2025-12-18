@@ -1978,7 +1978,7 @@
             []
             [Dedicatia]
             显然有: 
-            \[n(\gamma,a)=-n(\gamma,a).\]
+            \[n(-\gamma,a)=-n(\gamma,a).\]
         \end{ppt}
 
         \begin{ppt}
@@ -2047,7 +2047,7 @@
             []
             [Dedicatia]
             设 \(\phi(\zeta)\) 是 \(\gamma\) 弧上的连续函数. 那么函数
-            \[F_n(z)\int_\gamma \frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z)^n}\]
+            \[F_n(z)=\int_\gamma \frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z)^n}\]
             在 \(\gamma\) 所确定的任意区域上都解析, 且其导数为
             \[F_n'(z)=nF_{n+1}(z)\]
         \end{lma}
@@ -2063,7 +2063,7 @@
             接下来使用归纳法证明: 假设已有
             \[F'_{n-1}(z)=(n-1)F_n(z)\]
             我们计算
-            \[F_n(z)-F_n(z_0)=\bqty{\int_\gamma\frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z_0)(\zeta-z)^{n-1}}-\int_\gamma\frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z_0)^n}}+(z-z_0)\int_\gamma\frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z_0)(\zeta-z)^{n}}\]
+            \[F_n(z)-F_n(z_0)=\pqty{\int_\gamma\frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z_0)(\zeta-z)^{n-1}}-\int_\gamma\frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z_0)^n}}+(z-z_0)\int_\gamma\frac{\phi(\zeta)\dd{\zeta}}{(\zeta-z_0)(\zeta-z)^{n}}\]
             可知该函数是连续的: 令 \(z\to z_0\), 那么该式应该等于 \(n(z-z_0)F_{n+1}(z_0)\).
         \end{prf}
 
@@ -2279,7 +2279,7 @@
         \begin{prf}
             我们只要将上面的延拓定理应用到函数
             \[F(z)=\frac{f(z)-f(a)}{z-a}\]
-            上, 该函数在 \(z=a\) 上没有定义, 但是这却是一个可去奇点. 它满足 \(\lim\limits_z\to a(z-a)f(z)=0\). 当 \(z\to a\) 时 \(F(z)\) 的极限就是 \(f'(a)\). 因此, 我们找到了一个延拓函数
+            上, 该函数在 \(z=a\) 上没有定义, 但是这却是一个可去奇点. 它满足 \(\lim\limits_{z\to a}(z-a)f(z)=0\). 当 \(z\to a\) 时 \(F(z)\) 的极限就是 \(f'(a)\). 因此, 我们找到了一个延拓函数
             \[f_1(z)=\begin{cases}
                 \frac{f(z)-f(a)}{z-a}, & z\neq a;\\
                 f'(a), &z=a.
@@ -2928,7 +2928,7 @@
             []
             [Dedicatia]
             设函数 \(f(z)\) 是开圆盘 \(D\) 上的\解析 且不恒等于0,  \(z_i\) 是 \(f(z)\) 的零点, 各个零点按照阶数重复计算, 那么对于 \(D\) 上每一条不通过零点的闭曲线 \(\gamma\), 都有
-            \[\sum_{i=1}^n n(\gamma, z_i)\frac{1}{2\pi\ii}\oint_\gamma\frac{f'(z)}{f(z)}\dd{z} \] 
+            \[\sum_{i=1}^n n(\gamma, z_i)=\frac{1}{2\pi\ii}\oint_\gamma\frac{f'(z)}{f(z)}\dd{z} \] 
             这里的求和只有有限项不为0.
         \end{thm}
         \begin{prf}
@@ -3638,7 +3638,7 @@
 
     \subsection{Stirling公式}
 
-    \subsection{Riemann  \(\zeta\)  函数}
+    \subsection{Riemann \(\zeta\) 函数}
 
     \subsection{正规族}
 
@@ -3657,6 +3657,97 @@
 \section{椭圆函数}
 
 \section{Riemann曲面}
+
+    \subsection{解析延拓}
+
+        \begin{dfn}
+            [Analytic-Continuation]
+            {解析延拓}
+            [Analytic Continuation]
+            [Dedicatia]
+            设 \(D\subsetneqq\Omega\subseteq\C\), \(f\) 是定义在 \(D\) 上的解析函数. 若:
+            \[\exists\,F:\Omega\to\C, \st \forall\,z\in D,f(z)=F(z)\]
+            且 \(F\) 是解析函数, 那么就称 \(F\) 是 \(f\) 在 \(\Omega\) 上的\textbf{解析延拓}.
+        \end{dfn}
+
+        \begin{dfn}
+            [Natural-Domain]
+            {自然定义域}
+            [Natural Domain]
+            [Dedicatia]
+            设 \(f:D\to\C\) 是解析函数. 如果 \(\forall\Omega\supsetneqq D\), \(f\) 不存在 \(\Omega\) 上的解析延拓, 即 \(f\) 无法解析延拓到更大的定义域上, 就称 \(D\) 是 \(f\) 的\textbf{自然定义域}, \(\partial D\) 是 \(f\) 的\textbf{自然边界}. 
+        \end{dfn}
+
+        \begin{crl}
+            []
+            {解析延拓的幂级数判别法}
+            []
+            [Dedicatia]
+            设 \(f:D\to\C\) 是解析函数. 则 \(f\) 的自然定义域是 \(D\) 的充要条件是 \(\forall\,z_0\in D\), \(f\) 在 \(z_0\) 处的幂级数的收敛半径是 \(\operatorname{dist}(z_0,\partial D)\).
+        \end{crl}
+
+        \begin{dfn}
+            []
+            {奇异点}
+            []
+            [Dedicatia]
+            对于幂级数
+            \[\sum_{n=0}^{\infty}a_nz^n\]
+            定义其收敛半径上的某个点 \(\zeta_0\) 为奇异点, 如果在 \(\zeta_0\) 的任意邻域都不存在解析延拓.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {幂级数的奇异点存在性}
+            []
+            [Dedicatia]
+            对于幂级数
+            \[\sum_{n=0}^{\infty}a_nz^n\]
+            其收敛半径上至少存在一个奇异点.
+        \end{thm}
+
+        \begin{xmp}
+            []
+            {幂级数奇异点的实例}
+            []
+            [Dedicatia]
+            设幂级数
+            \[f(z)=\sum_{n=0}^{\infty}z^{n!}\]
+            其收敛半径是 1, 并且在 \(|z|=1\) 上的每个点都是奇异点. 例如在 \(z=1\) 处, 如果存在解析延拓 \(f(z)\), 那么
+            \[F(z)=\sum_{n=0}^{\infty}z^{n!}\]
+            那么
+            \[\lim_{z\to 1^-}F(z)=\lim_{z\to 1^-}\sum_{n=0}^{\infty}z^{n!}=\lim_{z\to 1^-}\frac{1}{1-z}=\infty\]
+            即 \(f(z)\) 在 \(z=1\) 处没有定义, 也就不存在解析延拓. 对于其他在 \(|z|=1\) 上的点也可以类似地证明其为奇异点.\\
+            这说明 \(|z|=1\) 是 \(f(z)\) 的自然边界.
+        \end{xmp}
+
+        \begin{dfn}
+            []
+            {解析元素}
+            []
+            [Dedicatia]
+            设 \(\gamma\subseteq\C\) 以 \(a,b\) 为端点, \(\Delta:\{z:|z-\zeta|<r\}\subseteq\C\), \(f:\Delta\to\C\) 是解析函数, 那么称对 \((f,\Delta)\) 为一个\textbf{解析元素}.\\
+            定义 \(f\) 沿曲线 \(\gamma\) 的解析延拓为: 存在一列解析元素 \((f_k,\Delta_k)\), 其中 \(k=0,1,2,\cdots,n\), 满足: \(\Delta_k\) 的圆心 \(a_k\) 在 \(\gamma\) 上, \(a_0=a\), \(a_n=b\), \(a_k\in\Delta_{k-1}\), 且在非空的区域 \(\Delta_k\cap\Delta_{k+1}\) 上 \(f_k=f_{k+1}\).
+        \end{dfn}
+
+        \begin{thm}
+            [Monodromy]
+            {Monodromy 定理 / 单值性定理}
+            [Monodromy Theorem / Single-Valuedness Theorem]
+            [Dedicatia]
+            设 \(D\subseteq\C\) 是单连通区域, \((f_0,\Delta_0)\) 是定义在 \(D\) 上的解析元素. 如果对于 \(D\) 上任意闭曲线 \(\gamma\) , 存在 \(f_0\) 沿着 \(\gamma\) 的解析延拓, 那么 \(f_0\) 可以解析延拓为 \(D\) 上的单值解析函数.\\
+            即, 如果解析函数在单连通区域存在任意曲线的解析延拓, 那么该解析延拓在该区域上仅与曲线的起点与终点有关.
+        \end{thm}
+
+        \begin{xmp}
+            []
+            {对幂级数 \(\sum_{n = 1}^{\infty}\frac{z^n}{n} \) 的解析延拓}
+            []
+            [Dedicatia]
+            设幂级数
+            \[f(z)=\sum_{n=1}^{\infty}\frac{z^n}{n}\]
+            其收敛半径为 1, 在 \(|z|<1\) 上解析. 现在我们考虑其在 \(\C\setminus\{1\}\) 上的解析延拓. 设 \(\gamma\) 是 \(\C\setminus\{1\}\) 上的一条闭曲线, 那么我们可以将 \(\gamma\) 分割为若干段, 每一段都在某个圆盘内, 且该圆盘不包含点 1. 这样就可以沿着 \(\gamma\) 作出 \(f(z)\) 的解析延拓. 由于该区域不满足单连通性, 所以得到的是多值函数.
+        \end{xmp}
 
 \section{全局解析函数}
 
