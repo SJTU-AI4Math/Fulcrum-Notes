@@ -7,5 +7,6 @@
 *.toc
 *.xdv
 *.pdf
+.vscode/
 
 ai.mkd
