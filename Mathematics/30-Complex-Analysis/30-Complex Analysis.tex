@@ -500,8 +500,7 @@
         
         \begin{rmk}
             [猫猫]
-            Cauchy-Riemann 方程通常简称 C-R 方程. 
-
+            Cauchy-Riemann 方程通常简称 C-R 方程. \\
             在复数域的矩阵表示视角下, 可立即得到 C-R 方程. 
         \end{rmk}
 
@@ -589,7 +588,7 @@
         \begin{dfn}
             [UUID]
             {反演变换}
-            []
+            [Inverse Transformation]
             [Dedicatia]
             \(z\) 和 \(\frac{1}{z}\) 互为反演变换. 它将 \(0\) 和 \(\infty\) 互换. 
         \end{dfn}
@@ -628,29 +627,37 @@
             [Series of Functions]
             [Dedicatia]
             定义在区间 \(D\) 上的一系列函数 \(u_n(x)\) 组成以下形式: \[f_n(x):=\sum_{n = 1}^{\infty} u_n(x)=u_1(x)+u_2(x)+\cdots+u_n(x)+\cdots \]
-            称 \(f_n\) 为一个\textbf{函数列}, 或者叫\textbf{函数项级数}. 
+            称 \(\{f_n\}\) 为一个\textbf{函数列}, 称 \(\displaystyle\sum_{n=1}^{\infty}u_n(x)\) 为\textbf{函数项级数}. 
         \end{dfn}
 
         习惯上一般记一个函数列为 \(f_n\), 记一个函数项级数为 \(\sum_{n = 1}^{\infty} u_n(x) \). 但二者实际上是同一个事物. \\
         当取定一个 \(x\) 的值后, 其变为一个数项级数. 我们考虑这个数项级数的敛散性. 
         
         \begin{dfn}
-            [UUID]
+            [Pointwise-Convergence]
             {逐点收敛}
             [Pointwise Convergence]
             [Dedicatia]
-            设 \(\sum u_n\) 是 \(D\) 上的一个函数项级数, 对 \(x_0\in D\), 若数列 \(S_n(x_0)\) 是收敛的数项级数, 则称函数列 \(f_n\) 在点 \(x_0\) 处\textbf{收敛}; 如果 \(S_n(x)\) 在区间 \([a,b]\) 上的任意一点 \(x_0\) 都收敛, 则称 \(f_n(x)\) 在区间 \([a,b]\) 上逐点收敛. 
+            设 \(\{f_n\}\) 是 \(D\) 上的函数列, 对 \(x_0\in D\), 若数列 \(S_n(x_0)\) 是收敛的数项级数, 则称函数列 \(f_n\) 在点 \(x_0\) 处\textbf{收敛}; 如果 \(S_n(x)\) 在区间 \([a,b]\) 上的任意一点 \(x_0\) 都收敛, 则称 \(f_n(x)\) 在区间 \([a,b]\) 上逐点收敛. 
         \end{dfn}
 
         \begin{dfn}
-            [UniformConvergence]
+            [Uniform-Convergence]
             {一致收敛}
             [Uniform Convergence]
             [Dedicatia]
-            称定义在 \(D\) 上的函数项级数 \(f_n\) 在 \(D\) 上\textbf{一致收敛} 于函数 \(f\), 若: 
+            称定义在 \(D\) 上的函数列 \(\{f_n\}\) 在 \(D\) 上\textbf{一致收敛} 于函数 \(f\), 若: 
             \[\forall\varepsilon\in\R^+, \exists N(\varepsilon)\in\N, \forall n>N, \forall x\in D, |f_n(x)-f(x)|<\varepsilon\]
             记作 \(f_n\rightrightarrows f\).\\
             值得注意的是, 这里的 \(N\) 要求与 \(x\) 无关, 这便是一致收敛与普通的逐点收敛的根本区别. 
+        \end{dfn}
+
+        \begin{dfn}
+            [Compact-Convergence]
+            {紧致收敛 / 内闭一致收敛}
+            [Compact Convergence / Locally Uniform Convergence]
+            [Dedicatia]
+            称定义在 \(D\) 上的函数列 \(\{f_n\}\) 在 \(D\) 上\textbf{紧致收敛 / 内闭一致收敛}于函数 \(f\), 当且仅当 \(\{f_n\}\) 在 \(D\) 的任意紧致子集 \(K\subseteq D\) 上都\一致收敛 于函数 \(f\).
         \end{dfn}
 
         \begin{crl}
@@ -658,7 +665,7 @@
             {对函数列的Cauchy收敛原理}
             [Cauchy's Convergence Theorem for Sequences of Functions]
             [Dedicatia]
-            设 \(D\) 上的函数项级数 \(f_n\), 则 \(f_n\) 在 \(D\) 上\一致收敛 当且仅当: 
+            设 \(D\) 上的函数列 \(\{f_n\}\), 则 \(f_n\) 在 \(D\) 上\一致收敛 当且仅当: 
             \[\forall\varepsilon\in\R^+, \exists N(\varepsilon)\in\N, \forall n_1,n_2>N, |f_{n_1}(x)-f_{n_2}(x)|<\varepsilon\]
         \end{crl}
 
@@ -676,7 +683,7 @@
         \begin{thm}
             [UUID]
             {Weierstrass判别法}
-            [Weierstrass's Test]
+            [Weierstrass Test]
             [Dedicatia]
             若存在收敛的正项级数 \(\sum_{n = 1}^{\infty} a_n \) 使得\[|u_n(x)|\leqslant a_n\]
             在那区间 \(D\) 上恒成立, 则级数 \(\sum_{n = 1}^{\infty} u_n(x) \) 在该区间上\一致收敛. 
@@ -703,7 +710,7 @@
             \begin{enumerate}
                 \item 每一个复数 \(|z|<R\) 都可以使\PowerSeries 绝对收敛. 设 \(0\leqslant\rho <R\), 当 \(|z|\in[0,\rho]\) 时, 级数\一致收敛; 
                 \item 当 \(|z|>R\) 时\PowerSeries 发散; 
-                \item 当 \(|z|<R\) 时的和是\解析, 根据\一致收敛 性, 其导数可以逐项微分求得. 
+                \item 当 \(|z|<R\) 时的和是\解析, 根据\一致收敛, 其导数可以逐项微分求得. 
             \end{enumerate}
             这个 \(R\) 由公式
             \[\frac{1}{R}=\lim_{n\to \infty}\sup\sqrt[n]{|a_n|}\]
@@ -772,7 +779,7 @@
             \[\sum_{k=0}^{\infty}\qty(\sum_{n=k}^{\infty}a_n\binom{n}{k}(z_1-z_0)^{(n-k)})(z-z_1)^k\]
             Then $f'(z_1)$ exists. To find it we let $k=1$:
             \[f'(z_1)=\sum_{n=1}^{\infty}a_nn(z_1-z_0)^{n-1}.\]
-            By \hyperref[thm:Hadamard]{Hadamard theorem} and the fact $n^{\frac{1}{n}}\to 1$, the series of $f'$ has the same \hyperref[dfn:Hadamard]{radius of convergence} as that of $f$.
+            By \hyperref[thm:Hadamard]{Hadamard theorem} and the fact $n^{\frac{1}{n}}\to 1$, the series of $f'$ has the same \hyperref[thm:Hadamard]{radius of convergence} as that of $f$.
         \end{prf}
         
         \begin{ppt}
@@ -793,7 +800,7 @@
         \end{thm}
 
         \begin{prf}
-            Suppose $f(z)=\sum\limits_{n=0}^{\infty}a_n(z-z_0)^n$. By \hyperref[thm:Differentiability if Analyticity]{the theorem differentiability if analyticity}, $a_1=f'(z_0)$, 
+            Suppose $f(z)=\sum\limits_{n=0}^{\infty}a_n(z-z_0)^n$. Then $a_1=f'(z_0)$, 
             \[f'(z)=\sum_{n=1}^{\infty}na_n(z-z_0)^{n-1}\]
             Continue, $2a_2=f''(z_0)$. By induction, $n!a_n=f^{(n)}(z_0)$. Thus we find the power series.
         \end{prf}
@@ -1670,10 +1677,10 @@
             为了将多值函数分解为多个单值函数, 我们需要阻碍绕行支点的路径. 我们在复平面上从支点（到另一个支点或延伸到无穷远）人为地画一条线, 并规定不允许自变量 \(z\) 穿过这条线. 这条线就称为支割线. 
         \end{dfn}
 
-        \begin{dfn}
-            {Riemann面}
-            [Riemann Surface]
-        \end{dfn}
+        \begin{rmk}
+            [Dedicatia]
+            关于多值函数的性质和生成方法, 将在之后的\hyperref[dfn:Analytic-Continuation]{解析延拓}这一节继续论述.
+        \end{rmk}
     
     \subsection{复函数视角下的场论}
 
@@ -2158,10 +2165,10 @@
 
         \begin{crl}
             []
-            {求导运算保持内闭一致收敛}
+            {求导运算保持紧致收敛}
             []
             [Dedicatia]
-            如果解析函数列 $\{f_n\}$ 在区域 $D$ 上内闭一致收敛, 那么其任意阶导数 $\{f_n^{(k)}\}$ 在 $D$ 上也内闭一致收敛.
+            如果解析函数列 $\{f_n\}$ 在区域 $D$ 上紧致收敛, 那么其任意阶导数 $\{f_n^{(k)}\}$ 在 $D$ 上也紧致收敛.
         \end{crl}
 
         \begin{thm}
@@ -2299,9 +2306,9 @@
         我们已经讨论过一类奇点. 自然可以发现另一类: 
 
         \begin{dfn}
-            [PolarSingularity]
+            [Pole]
             {极点}
-            [Polar Singularity]
+            [Pole]
             [Dedicatia, 猫猫]
             设 \(D\subseteq\C\), \(f:D\to\C\), \(z_0\in\cl D\), 定义 \(z_0\) 是 \(f(z)\) 的\textbf{极点}, 当且仅当: 
             \begin{enumerate}
@@ -2750,7 +2757,7 @@
         即使 \(\infty\) 是可去奇点,  \(\Res(f,\infty)\) 也可能不为0.
     \end{cxmp}
     \begin{crl}
-        {极点留数的L'Hospital法则}
+        {极点留数的商值法则}
         设 \(f=\frac{\varphi}{\psi}\) 在 \(a\) 处有极点, 那么
         \[\Res(f,a)=\frac{\varphi(a)}{\psi'(a)}\]
         如果还是极点, 即 \(a\) 是 \(\varphi, \psi\) 的 \(n\),  \(n+1\) 阶零点, 那么
@@ -3139,7 +3146,7 @@
         在之前的章节中我们研究幂级数, 主要是为了定义复数域上的初等解析函数. 其上的定理成立: 
 
         \begin{thm}
-            [UUID]
+            [Hadamard]
             {Hadamard定理}
             [Hadamard's Theorem]
             [Dedicatia]
@@ -3209,7 +3216,7 @@
             {Hurwitz定理}
             [Hurwitz's Theorem]
             [Dedicatia]
-            设函数 \(f_n(z)\) 在 \(D\) 上解析且不是常数, 并设 \(f_n(x)\) 在 \(D\) 的任意紧致子集上\一致收敛 于 \(f(x)\), 那么 \(f(z)\) 在 \(D\) 上或者恒等于0, 或者恒不等于0.
+            设函数 \(f_n(z)\) 在 \(D\) 上解析, 并设 \(f_n(x)\) 在 \(D\) 的任意紧致子集上\一致收敛 于 \(f(x)\), 那么 \(f(z)\) 在 \(D\) 上或者恒为常数, 或者是解析单射.
         \end{thm}
     
     \subsection{Taylor 级数与 Laurent 级数}
@@ -3316,7 +3323,7 @@
             设 \(z_0\) 是在其邻域内解析的函数 \(f\) 的一个奇点. 那么
             \begin{itemize}
                 \item 如果 \(z_0\) 是\hyperref[dfn:RemovableSingularity]{可去奇点}, 那么在 \(z_0\) 处的 \(f\) 的Laurent级数中不含负数次幂; 
-                \item 如果 \(z_0\) 是\hyperref[dfn:PolarSingularity]{极点}, 那么在 \(z_0\) 处的 \(f\) 的Laurent级数中只含有有限多项负数次幂; 
+                \item 如果 \(z_0\) 是\hyperref[dfn:Pole]{极点}, 那么在 \(z_0\) 处的 \(f\) 的Laurent级数中只含有有限多项负数次幂; 
                 \item 如果 \(z_0\) 是\hyperref[dfn:EssentialSingularity]{本性奇点}, 那么在 \(z_0\) 处的 \(f\) 的Laurent级数中有无限多项负数次幂. 
             \end{itemize}
         \end{thm}
@@ -3358,7 +3365,7 @@
 
         \begin{thm}
             {亚纯函数的部分分解定理}
-            设 \(\{b_n\}\) 是一个复数序列,  \(\lim_{n\to\infty }b_n=\infty\), 设 \(P_n\) 是不含常数项的多项式, 那么存在一些在全平面的\MeromorphicFunction  \(f(z)\), 其以 \(b_n\) 为\hyperref[dfn:PolarSingularity]{极点}, 非解析部分为所有的 \(P_n\qty(\frac{1}{z-b_n})\), 使得
+            设 \(\{b_n\}\) 是一个复数序列,  \(\lim_{n\to\infty }b_n=\infty\), 设 \(P_n\) 是不含常数项的多项式, 那么存在一些在全平面的\MeromorphicFunction  \(f(z)\), 其以 \(b_n\) 为\hyperref[dfn:Pole]{极点}, 非解析部分为所有的 \(P_n\qty(\frac{1}{z-b_n})\), 使得
             \[f(z)=\sum_{i=1}^{n}\pqty{P_n\pqty{\frac{1}{z-b_n}}-p_n(z)}+g(z)\]
             这里 \(p_n(z)\) 是有限项数的多项式,  \(g(z)\) 是全平面的\解析. 
         \end{thm}
@@ -3386,29 +3393,28 @@
             将两边同时取微分. 由于\一致收敛, 所以逐项微分是合法的: 
             \[\frac{\pi}{\tan\pi z}=\lim_{m\to\infty}\sum_{n=-m}^{m}\frac{1}{z-n}=\frac{1}{z}+\sum_{n=1}^{\infty}\frac{2z}{z^2-n^2}\]
         \end{xmp}
-    
-    \subsection{整函数的阶}
 
         \begin{dfn}
-            [EntireFunction]
+            [Entire-Function]
             {整函数}
             [Entire Function]
             [Dedicatia]
-            称在全平面 \(\C\) 解析的复函数为整函数. 有以下三类: 
+            称在全平面 \(\C\) 解析的复函数为整函数. \\
+            整函数有以下三类: 
             \begin{enumerate}
                 \item \hyperrefc{ppt:TrivialAnalyticalFunction}{常解析函数}; 
-                \item 有理函数; 
-                \item 非有理的解析函数. 
+                \item 有理函数, 即多项式; 
+                \item 非有理的解析函数, 即\textbf{超越整函数}.
             \end{enumerate}
         \end{dfn}
 
         \begin{ppt}
             {整函数在无穷远点处的行为}
-            上述三类整函数有如下的性质：
+            上述三类整函数有如下的性质:
             \begin{enumerate}
                 \item 整函数是常解析函数当且仅当无穷远点是它的\hyperrefc{dfn:RemovableSingularity}{可去奇点};
-                \item 整函数是有理函数当且仅当无穷远点是它的\hyperrefc{dfn:PolarSingularity}{极点};
-                \item 整函数是非有理解析函数当且仅当无穷远点是它的\EssentialSingularity.
+                \item 整函数是有理函数当且仅当无穷远点是它的\hyperrefc{dfn:Pole}{极点};
+                \item 整函数是超越整函数当且仅当无穷远点是它的\EssentialSingularity.
             \end{enumerate}
         \end{ppt}
     
@@ -3475,11 +3481,11 @@
 
         \begin{lma}
             {整函数的指数化引理}
-            任何\hyperref[dfn:EntireFunction]{整函数} \(f(z)\) 都可以写成 \(\exp g(z)\) 的形式, 其中 \(g(z)\) 是整函数.
+            任何\hyperref[dfn:Entire-Function]{整函数} \(f(z)\) 都可以写成 \(\exp g(z)\) 的形式, 其中 \(g(z)\) 是整函数.
         \end{lma}
 
         \begin{prf}
-            首先注意到 \(\frac{f'(z)}{f(z)}\) 是\hyperref[dfn:EntireFunction]{整函数}, 它是某个整函数 \(g(z)\) 的导数. 这就可以推出 \(f(z)\exp -g(z)\) 的导数为0. 所以 \(f(z)\) 必定是 \(\exp g(z)\) 的常数倍数. 这一常数不改变整函数的性质. 
+            首先注意到 \(\frac{f'(z)}{f(z)}\) 是\hyperref[dfn:Entire-Function]{整函数}, 它是某个整函数 \(g(z)\) 的导数. 这就可以推出 \(f(z)\exp -g(z)\) 的导数为0. 所以 \(f(z)\) 必定是 \(\exp g(z)\) 的常数倍数. 这一常数不改变整函数的性质. 
         \end{prf}
 
         \begin{dfn}
@@ -3496,7 +3502,7 @@
             {收敛化定理}
             若复数序列 \(\{a_n\}^\infty\) 满足 \(\lim\limits_{n\to\infty}a_n=\infty\), 其中 \(a_n\neq 0\), 那么就存在多项式序列 \(p_n(z)\) 使得下面的无穷乘积
             \[\prod_{n=1}^{\infty}\qty(1-\frac{z}{a_n})\exp p_n(z)\]
-            收敛到\hyperref[dfn:EntireFunction]{整函数}.
+            收敛到\hyperref[dfn:Entire-Function]{整函数}.
         \end{thm}
 
         \begin{prf}
@@ -3518,10 +3524,13 @@
         \end{prf}
 
         \begin{thm}
+            [Weierstrass-Factorization]
             {Weierstrass因子分解定理}
-            存在一个\hyperref[dfn:EntireFunction]{整函数}, 它的零点 \(a_n\) 可以任意取, 只要在零点个数无穷多且 \(\lim\limits_{n\to\infty }a_n=\infty\), 那么除了这些零点之外无其他零点的任意整函数 \(f(z)\) 可以表示为
+            [Weierstrass Factorization Theorem]
+            [Dedicatia]
+            存在一个\hyperref[dfn:Entire-Function]{整函数}, 它的零点 \(a_n\) 可以任意取, 只要在零点个数无穷多且 \(\lim\limits_{n\to\infty }a_n=\infty\), 那么除了这些零点之外无其他零点的任意整函数 \(f(z)\) 可以表示为
             \[f(z)=z^m\exp g(z)\prod_{n=1}^{\infty}\qty(1-\frac{z}{a_n})\exp(\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{\nu_n}\qty(\frac{z}{a_n})^{\nu_n})\]
-            其中乘积是对所有 \(a_n\neq 0\),  \(\nu_n\) 是取定的整数,  \(g(n)\) 是整函数. 通常情况下我们取所有的 \(\nu_n\) 互相相等. 
+            其中乘积是对所有 \(a_n\neq 0\),  \(\nu_n\) 是取定的整数,  \(g(n)\) 是\hyperref[dfn:Entire-Function]{整函数}. 通常情况下我们取所有的 \(\nu_n\) 互相相等. 
         \end{thm}
 
         \begin{dfn}
@@ -3589,13 +3598,13 @@
         \end{dfn}
 
         \begin{dfn}
-            {$\Gamma$函数}
+            {\(\Gamma\) 函数}
             定义$\Gamma$函数为
             \[\Gamma(z)=\frac{1}{zG(z)\exp(\gamma z)}\]
         \end{dfn}
 
         \begin{dfn}
-            {显式表示}
+            {\(\Gamma\) 函数的显式表示}
             $\Gamma$函数使用无穷乘积定义的显式表示式为
             \[\Gamma(z)=\frac{\exp\gamma z}{z}\prod_{n=1}^{\infty}\qty(1+\frac{z}{n})^n\exp(-\frac{z}{n})\]
         \end{dfn}
@@ -3638,13 +3647,151 @@
 
     \subsection{Stirling公式}
 
-    \subsection{Riemann \(\zeta\) 函数}
+        \begin{thm}
+            [Stirling]
+            {复形式的Stirling公式}
+            [Stirling's Formula]
+            [Dedicatia]
+            设积分
+            \[J(z)=\frac{1}{\pi}\int_{0}^{+\infty}\frac{z}{\eta^2+z^2}\ln(\frac{1}{1-\exp(-2\pi\eta)})\dd{\eta}\]
+            那么
+            \[\ln\Gamma(z)=\frac{1}{2}\ln 2\pi-z+\qty(z-\frac{1}{2})\ln z+J(z)\]
+            或者等价地写作指数式
+            \[\Gamma(z)=\frac{z^{z}\exp(J(z))}{\sqrt{2\pi z}\exp z}\]
+        \end{thm}
+
+        \begin{thm}
+            []
+            {\(\Gamma\) 函数的积分形式}
+            []
+            [Dedicatia]
+            应用 Stirling 公式可以得到
+            \[\Gamma(z)=\int_{0}^{+\infty}t^{z-1}\exp(-t)\dd{t}\]
+            当积分收敛时正确. 即 \(x>0\) 时.
+        \end{thm}
+
+        \begin{xmp}
+            []
+            {用 \(\Gamma\) 函数计算正态积分}
+            []
+            [Dedicatia]
+            可以利用 \(\Gamma\) 函数的积分形式计算正态积分:
+            \[\int_{0}^{+\infty}\exp(-t^2)\dd{t}=\frac{1}{2}\int_{0}^{+\infty}\exp(-x)x^{-\frac{1}{2}}\dd{x}=\frac{1}{2}\Gamma\qty(\frac{1}{2})=\frac{\sqrt{\pi}}{2}.\]
+        \end{xmp}
+
+    \subsection{整函数的阶}
 
     \subsection{正规族}
+
+        现在我们将研究的眼光放在函数列与函数族中.
+
+        \begin{dfn}
+            [Equicontinuity]
+            {等度连续}
+            [Equicontinuity]
+            [Dedicatia]
+            设复函数空间上的复函数族 \(\mathcal{F}\) 定义在 \(D\) 上, 定义其在区域 \(E\) 上是等度连续的, 当且仅当对于任意的 \(z,z_0\in E\)
+            \[\forall\varepsilon>0,\exists\delta>0, |z-z_0|\leq\delta, \forall\,f\in\mathcal{F}, d(f(z),f(z_0))<\varepsilon.\]
+        \end{dfn}
+
+        \begin{dfn}
+            [Compact-Equicontinuity]
+            {紧致等度连续 / 内闭等度连续}
+            []
+            [Dedicatia]
+            定义一个函数族 \(\mathcal{F}\) 在区域 \(D\) 上是\textbf{紧致等度连续的}, 当且仅当对于任意的紧致子集 \(K\subseteq D\), \(\mathcal{F}\) 在 \(K\) 上是等度连续的.
+        \end{dfn}
+
+        \begin{dfn}
+            [Normal-Family]
+            {正规族}
+            [Normal Family]
+            [Dedicatia]
+            定义一个函数族 \(\mathcal{F}\) 在 \(D\) 上是\textbf{正规的}, 当且仅当 \(\mathcal{F}\) 的任意一个函数列 \(\{f_n\}\) 都存在一个\hyperref[dfn:Compact-Convergence]{紧致收敛}的子序列 \(\{f_{n_k}\}\). 
+        \end{dfn}
+
+        \begin{rmk}
+            [Dedicatia]
+            正规族的定义并不要求该紧致收敛的子序列的极限在 \(\mathcal{F}\) 中.
+        \end{rmk}
+
+        \begin{dfn}
+            [Compact-Convergence-Metric]
+            {紧致收敛度量}
+            [Compact Convergence Metric]
+            [Dedicatia]
+            设区域 \(D\) 上的一列紧致子集 \(K_n\) 满足 \(K_{n+1}\subseteq K_n\) 且 \(\bigcup K_n=D\). 那么定义 \(D\) 上的解析函数空间上的度量
+            \[d(f,g):=\sum_{n=1}^{\infty}\frac{1}{2^n}\cdot\frac{\sup\limits_{z\in K_n}|f(z)-g(z)|}{1+\sup\limits_{z\in K_n}|f(z)-g(z)|}\]
+            为\textbf{紧致收敛度量 / 内闭一致收敛度量}.
+        \end{dfn}
+
+        \begin{rmk}
+            紧致收敛度量诱导的收敛是\hyperref[dfn:Compact-Convergence]{紧致收敛}. 也就是说, 紧致收敛拓扑是可度量化的.
+        \end{rmk}
+
+        \begin{thm}
+            []
+            {紧致收敛度量的Weiestrass定理}
+            []
+            [Dedicatia]
+            如果解析函数列 \(\{f_n\}\) 在 \(D\) 上紧致收敛, 那么其极限函数 \(f\) 也\解析.
+        \end{thm}
+
+        \begin{dfn}
+            []
+            {相对紧致}
+            [Relative Compactness]
+            [Dedicatia]
+            定义一个集合 \(E\) 是\textbf{相对紧致}的, 当且仅当其闭包 \(\cl E\) 是紧致集.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {正规族的函数空间定义}
+            []
+            [Dedicatia]
+            一个函数族 \(\mathcal{F}\) 是\hyperref[dfn:Normal-Family]{正规族}, 当且仅当其在装备了紧致收敛度量的解析函数空间中是相对紧致集.
+        \end{thm}
+
+        \begin{thm}
+            [Arzela-Ascoli]
+            {复函数的Arzela-Ascoli定理}
+            []
+            [Dedicatia]
+            函数族 \(\mathcal{F}\) 在区域 \(D\) 是\hyperref[dfn:Normal-Family]{正规族}当且仅当:\begin{enumerate}
+                \item \(\mathcal{F}\) 在 \(D\) 上紧致等度连续;
+                \item 设 \(K\) 是 \(D\) 的任意紧致子集, \(\mathcal{F}\) 在 \(K\) 上一致有界, 即 \(\forall\,f\in\mathcal{F}, \forall\,z\in K\subseteq D, |f(z)|\leq M\);
+            \end{enumerate}
+        \end{thm}
+
+        \begin{thm}
+            [Montel]
+            {Montel定理}
+            [Montel Theorem]
+            [Dedicatia]
+            设解析函数族 \(\mathcal{F}\) 在区域 \(D\) 的任意紧致子集 \(K\) 上一致有界, 那么 \(\mathcal{F}\) 是\hyperref[dfn:Normal-Family]{正规族}.
+        \end{thm}
+
+        \begin{dfn}
+            []
+            {广义正规族}
+            []
+            [Dedicatia]
+            定义一个函数族 \(\mathcal{F}\) 在 \(D\) 上是\textbf{（广义）正规的}, 当且仅当 \(\mathcal{F}\) 的任意一个函数列 \(\{f_n\}\) 都或者存在一个\hyperref[dfn:Compact-Convergence]{紧致收敛}的子序列 \(\{f_{n_k}\}\), 或者一致地趋于 \(\infty\).\\
+            有时也将广义正规族称为正规族. 
+        \end{dfn}
 
 \section{Riemann映照定理}
     
     \subsection{Riemann映照定理与边界表现}
+
+        \begin{thm}
+            [Riemann-Mapping]
+            {Riemann映照定理}
+            [Riemann Mapping Theorem]
+            [Dedicatia]
+            给定 \(D\subsetneqq\C\) 是单连通区域和 \(z_0\in D\), 在 \(D\) 上存在唯一一个解析函数 \(f\) 满足 \(f(z_0)=0, f'(z_0)>0\), 使得 \(f(z)\) 将 \(D\) 映到圆盘 \(\mathbb{D}\), 且 \(f\) 是\hyperref[dfn:Conformal-Mapping]{共形映照}.
+        \end{thm}
     
     \subsection{多边形的共性映射}
     
@@ -3748,6 +3895,28 @@
             \[f(z)=\sum_{n=1}^{\infty}\frac{z^n}{n}\]
             其收敛半径为 1, 在 \(|z|<1\) 上解析. 现在我们考虑其在 \(\C\setminus\{1\}\) 上的解析延拓. 设 \(\gamma\) 是 \(\C\setminus\{1\}\) 上的一条闭曲线, 那么我们可以将 \(\gamma\) 分割为若干段, 每一段都在某个圆盘内, 且该圆盘不包含点 1. 这样就可以沿着 \(\gamma\) 作出 \(f(z)\) 的解析延拓. 由于该区域不满足单连通性, 所以得到的是多值函数.
         \end{xmp}
+
+    \subsection{Riemann \(\zeta\) 函数}
+
+        \begin{dfn}
+            [Riemann-Zeta-Function]
+            {Riemann \(\zeta\) 函数}
+            [Riemann \(\zeta\) Function]
+            [Dedicatia]
+            定义以下复函数
+            \[\zeta(s)=\sum_{n=1}^{\infty}n^{-s}\]
+            为 \textbf{Riemann \(\zeta\) 函数}.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {\(\zeta\) 函数的因子分解}
+            [Factorization of \(zeta\) Function]
+            [Dedicatia]
+            对于 \(\Re s>1\) 时, 
+            \[\frac{1}{\zeta(s)}=\prod_{n=1}^{\infty}(1-p_n^{-s})\]
+            其中 \(p_n\) 是素数序列.
+        \end{thm}
 
 \section{全局解析函数}
 
