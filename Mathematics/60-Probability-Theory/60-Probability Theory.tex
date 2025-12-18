@@ -1439,21 +1439,37 @@
 
         \begin{dfn}
             []
-            {(单变量的)边缘分布函数}
+            {单分量边缘分布函数}
             [Marginal Cumulative Distribution Function]
-            [Dedicatia]
+            [Dedicatia, 猫猫]
             设 \(\bm{X}=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某一分量 \(X_k\) 的\textbf{边缘分布函数}为:
-            \[F_{X_k}(x_k) = F(+\infty,\cdots,x_k,\cdots,+\infty).\]
+            \[x\mapsto\mathbb{P}(X_k \leq x)\]
         \end{dfn}
+        
+        \begin{ppt}
+            []
+            {单分量边缘分布函数的分布函数表示}
+            []
+            [猫猫]
+            \[F_{X_k}(x_k) = F(+\infty,\cdots,x_k,\cdots,+\infty)\]
+        \end{ppt}
 
         \begin{dfn}
             []
-            {多变量的边缘分布函数}
+            {多分量边缘分布函数}
             [Multivariate Marginal Cumulative Distribution Function]
-            [Dedicatia]
-            设 \(\bm{X}=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某些分量 \(X_j,\cdots,X_k\) 的\textbf{边缘分布函数}为:
-            \[F_{X_k}(x_k) = F(+\infty,\cdots,x_j,\cdots,+\infty,x_k,\cdots,+\infty).\]
+            [Dedicatia, 猫猫]
+            设 \(\bm{X}=(X_1,\cdots,X_n)\) 是一个\随机向量{\(n\)}, 其分布函数为 \(F\). 定义其某些分量 \(X_{i_1},\cdots,X_{i_k}\) 的\textbf{边缘分布函数}为:
+            \[(x_1,\dots,x_k)\mapsto\mathbb{P}(X_{i_j} \leq x_j, j=1,\dots,k)\]
         \end{dfn}
+        
+        \begin{ppt}
+            []
+            {多分量边缘分布函数的分布函数表示}
+            []
+            [猫猫]
+            \[F_{X_k}(x_k) = F(+\infty,\cdots,x_j,\cdots,+\infty,x_k,\cdots,+\infty).\]
+        \end{ppt}
 
         \begin{dfn}
             []
@@ -1613,7 +1629,7 @@
             \end{bmatrix}
             \]
 
-            记作 \(\Sigma_{\bm{X}}\) 或 \(\Cov(\bm{X})\). 
+            记作 \(\Sigma_{\bm{X}}\) 或 \(\operatorname{Cov}(\bm{X})\). 
         \end{dfn}
 
         \begin{ppt}
