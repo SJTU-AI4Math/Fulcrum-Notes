@@ -38,6 +38,11 @@
             定义\textbf{电荷}为 \(\ElectricCurrent\cdot\Time\), 记作 \(\ElectricCharge\); 单位 \textbf{Coulomb} 为 \(\A\cdot\s\), 记作 \(\Clm\). 
         \end{dfn}
         
+        \begin{rmk}
+            [猫猫]
+            这里定义的电荷是量纲.
+        \end{rmk}
+        
         \begin{dfn}
             [Electric-Potential]
             {电势}
@@ -46,31 +51,22 @@
             定义\textbf{电势}为 \(\Energy\cdot\ElectricCharge^{-1}\), 记作 \(\ElectricPotential\); 单位 \textbf{Volt} 为 \(\Nt\cdot\m\cdot\Clm^{-1}\), 记作 \(\Vlt\). 
         \end{dfn}
         
+        \begin{rmk}
+            [猫猫]
+            这里定义的电势是量纲.
+        \end{rmk}
+        
         \begin{str}
             [Electric-Field]
             {电场}
             [Electric Field]
             [猫猫]
-            定义\textbf{电场}类型派生自\场, 包含以下信息: 
+            定义\textbf{电场}包含以下信息: 
             \begin{enumerate}
-                \item \textbf{电势函数} \(\EPot[E]:\Length_3\to\ElectricPotential\): 
-                \item \textbf{光滑性}: \(\EPot[E]\in\Smooth{\infty}(\Length_3)\). 
+                \item \textbf{电场强度} \(\EInts[E]:\Length_3\to\ElectricPotential\): 
+                \item \textbf{光滑性}: \(\EInts[E]\in\Smooth{\infty}(\Length_3)\). 
             \end{enumerate}
         \end{str}
-        
-        \begin{dfn}
-            []
-            {等势线}
-            []
-            [猫猫]*
-        \end{dfn}
-        
-        \begin{dfn}
-            []
-            {电场线}
-            []
-            [猫猫]*
-        \end{dfn}
         
         \begin{dfn}
             [Voltage]
