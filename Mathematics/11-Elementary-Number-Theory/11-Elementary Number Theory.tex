@@ -1209,10 +1209,240 @@
                 []
                 {费马二平方和定理}
                 []
-                []
+                [白菜]
+                设\(p:\Z\)为奇素数. 则\(p\)能表示为两个整数的平方和的充分必要条件是
+                \[p\equiv 1 \mod{4}\]
                 
             \end{thm}
-    
+
+    \section{原根与阶}
+        \subsection{阶}
+        \begin{dfn}
+            [Order]
+            {阶}
+            [Order]
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\). 定义\(a\)在模 \(m\) 意义下的\textbf{阶}(或\textbf{指数})为使得
+            \[a^d \equiv 1 \mod{m}\]
+            的最小正整数 \(d\). 记作 \(\delta_m(a)\).
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {阶可定义在剩余类上}
+            []
+            [白菜]
+            设\(m,a,b:\Z\), 且 \(a \equiv b \mod{m}\). 则
+            \[\delta_m(a) = \delta_m(b)\]
+        \end{ppt}
+
+        \begin{rmk}
+            这也就是说, 对于一个剩余类中的任一元素, 它们的阶都是相同的. 也就是说阶可以定义在剩余类上.
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {阶整除欧拉函数}
+            [Order divides Euler Function]
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\). 则
+            \[\delta_m(a) \mid \varphi(m)\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {数与其逆元的阶相同}
+            []
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\). 则
+            \[\delta_m(a) = \delta_m(a^{-1})\]
+            其中 \(a^{-1}\) 是 \(a\) 模 \(m\) 的逆元.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {阶的幂互异性}
+            []
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\), 则\(a^0,a^1,\dots,a^{\delta_m(a)-1}\)在模 \(m\) 下互不相同.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {阶的周期性}
+            []
+            [白菜]
+            设\(m,a,k_1,k_2:\Z\), \(\gcd(a,m)=1\), 则
+            \[
+                a^{k_1} \equiv a^{k_2} \mod{m} \iff k_1 \equiv k_2 \mod{\delta_m(a)}
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {阶的降幂性}
+            []
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\), 若\(\delta_m(a) = \delta_1\delta_2\), 则
+            \[\delta_m(a^{\delta_1}) = \delta_2\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {}
+            []
+            [白菜]
+            设\(m,a,b:\Z\), \(\gcd(a,m)=\gcd(b,m)=1\), 则
+            \[\delta_m(ab)=\delta_m(a)\delta_m(b)\iff\gcd(\delta_m(a),\delta_m(b))=1\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {阶的指数性}
+            []
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\), 则对于任意的\(k:\Z^+\), 有
+            \[\delta_m(a^k) = \frac{\delta_m(a)}{\gcd(\delta_m(a),k)}\]
+        \end{ppt}
+        
+    \subsection{原根}
+        \begin{dfn}
+            [PrimitiveRoot]
+            {原根}
+            [Primitive Root]
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\). 若 \(a\) 在模 \(m\) 意义下的阶等于 \(\varphi(m)\), 则称 \(a\) 为模 \(m\) 的一个\textbf{原根}.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {原根是乘法生成元}
+            []
+            [白菜]
+            设\(m,a:\Z\), \(\gcd(a,m)=1\). \(a\) 为模 \(m\) 的原根. 则
+            \[
+                S=\{\overline{a^0}, \overline{a^1}, \overline{a^2}, \cdots, \overline{a^{\varphi(m)-1}}\} 
+            \]
+            恰好为模\(m\)的一个即约剩余系.
+        \end{ppt}
+
+        \begin{thm}
+            []
+            {原根的个数}
+            []
+            [白菜]
+            设\(m:\Z\), 且 \(m\) 有原根. 则模 \(m\) 的原根个数为 \(\varphi(\varphi(m))\).
+        \end{thm}
+
+        \begin{lma}
+            []
+            {模2的幂的原根存在性}
+            []
+            [白菜]
+            设\(m,\alpha:\Z\), \(m=2^\alpha\). 则模 \(m\) 原根存在当且仅当 \(\alpha = 1\) 或 \(\alpha = 2\).
+        \end{lma}
+
+        \begin{lma}
+            []
+            {欧拉函数的卷积求和}
+            []
+            [白菜]
+            设\(m:\Z^+\). 则有
+            \[\sum_{d \mid m} \varphi(d) = m\]
+        \end{lma}
+
+        \begin{thm}
+            []
+            {}
+            []
+            [白菜]
+            设\(p,d:\Z\), \(p\)为奇素数, \(d\mid p-1\). 令
+            \[A_d=\{x|1\leq x \leq p-1, \delta_p(x) = d\}\] 
+            则有\(|A_d| = \varphi(d)\)
+        \end{thm}
+
+        \begin{crl}
+            []
+            {模奇素数的原根存在性}
+            []
+            [白菜]
+            设\(p:\Z\)为奇素数. 则模 \(p\) 有原根.
+        \end{crl}
+        
+        \begin{lma}
+            []
+            {素数高幂次的原根也是更低幂次的原根}
+            []
+            [白菜]
+            设\(p,\alpha:\Z\), \(p\)为奇素数, \(\alpha \geq 1\). 若 \(g\) 是模 \(p^\alpha\) 的原根, 则 \(g\) 也是模 \(p^{\alpha-1}\) 的原根.
+        \end{lma}
+
+        \begin{thm}
+            []
+            {模素数幂的原根存在性}
+            []
+            [白菜]
+            设\(p,\alpha:\Z\), \(p\)为奇素数, \(\alpha \geq 1\). 则模 \(p^\alpha\) 有原根. 
+            且存在整数\(g\), 对每一个\(\alpha\), \(g\)都是模\(p^\alpha\)的原根.
+        \end{thm}
+
+        \begin{crl}
+            []
+            {模2倍奇素数幂的原根存在性}
+            []
+            [白菜]
+            设\(m,\alpha,p:\Z\), \(m=2p^\alpha\), \(p\)为奇素数, \(\alpha \geq 1\). 则模 \(m\) 有原根.
+        \end{crl}
+
+        \begin{lma}
+            []
+            {大于2的互素数相乘的原根不存在}
+            []
+            [白菜]
+            设\(m_1,m_2:\Z\), 且 \(\gcd(m_1,m_2)=1\), \(m_1>2,m_2>2\). 则模 \(m_1m_2\) 无原根.
+        \end{lma}
+
+        \begin{thm}
+            []
+            {原根存在性的充分必要条件}
+            []
+            [白菜]
+            设\(m,\alpha:\Z^+\). 则模 \(m\) 有原根的充分必要条件是
+            \[
+                m=2,4,p^\alpha,2p^\alpha
+            \]
+            其中 \(p\) 为奇素数, \(\alpha \geq 1\).
+        \end{thm}
+    \subsection{离散对数与高次剩余}
+        \begin{dfn}
+            [DiscreteLogarithm]
+            {离散对数}
+            [Discrete Logarithm]
+            [白菜]
+            设\(m,a,b:\Z\), 且 \(a\) 为模 \(m\) 的原根. 
+            定义在模 \(m\) 意义下, \(b\) 关于基 \(a\) 的\textbf{离散对数}(或者\textbf{指标})为满足
+            \[a^x \equiv b \mod{m}\]
+            的最小非负整数 \(x\). 记作 \(\log_a b\).
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {离散对数的乘法性质}
+            []
+            [白菜]
+            设\(m,g,a_1,a_2:\Z\), 且 \(g\) 为模 \(m\) 的原根. 则有
+            \[\log_g (a_1 a_2) \equiv \log_g a_1 + \log_g a_2 \mod{\varphi(m)}\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {离散对数的幂性质}
+            []
+            [白菜]
+            设\(m,g_1,g_2,a:\Z\), 且 \(g_1,g_2\) 为模 \(m\) 的原根. 则有
+            \[\log_{g_1}a=\log_{g_1}g_2\cdot\log_{g_2}a\]
+        \end{ppt}
+        
     \section{代数数}
 
         \subsection{代数数与代数整数}
