@@ -4175,36 +4175,36 @@
 
 			\begin{dfn}
 			    []
-			    {Cesaro 和}
+			    {C\`esaro 和}
 			    []
 			    []
-				称无穷级数 \(\sum\limits_{n=1}^{+\infty}a_n\) 的部分和数列 \(\{S_n\}\) 的\textbf{Cesaro 和}为: 
+				称无穷级数 \(\sum\limits_{n=1}^{+\infty}a_n\) 的部分和数列 \(\{S_n\}\) 的\textbf{C\`esaro 和}为: 
 				\[\sigma_n:=\frac{1}{n}\sum_{k=1}^{n}S_k\]
 			\end{dfn}
 
 			\begin{dfn}
 				[]
-				{Cesaro 意义下收敛 / 均值收敛}
+				{C\`esaro 意义下收敛 / 均值收敛}
 				[]
 				[Dedicatia]
-				称函数列 \(\{f_n\}\) 在点 \(x\) 处\textbf{Cesaro 意义下收敛}于 \(f\), 如果 \(n\to+\infty, \sigma_n(f;x)\rightrightarrows f(x)\). 
+				称函数列 \(\{f_n\}\) 在点 \(x\) 处\textbf{C\`esaro 意义下收敛}于 \(f\), 如果 \(n\to+\infty, \sigma_n(f;x)\rightrightarrows f(x)\). 
 			\end{dfn}
 
 			\begin{ppt}
 			    []
-			    {一般收敛蕴含 Cesaro 收敛}
+			    {一般收敛蕴含 C\`esaro 收敛}
 			    []
 			    []
-				收敛级数 Cesaro 收敛. 
+				收敛级数 C\`esaro 收敛. 
 			\end{ppt}
 
 			\begin{prf}
-				运用 Stolz-Cesaro 定理即证. 
+				运用 Stolz-C\`esaro 定理即证. 
 			\end{prf}
 
 			\begin{thm}
 			    []
-			    {Fejer 定理}
+			    {Fej\'er 定理}
 			    []
 			    []
 				设 \(f\in\mathbf{R}\Icc{-\pi}{\pi}\), \(f(\pi)=f(-\pi)\), 则 \(f\) 的 Fourier 级数在 Cesaro 意义下收敛于 \(f\) 本身: 
@@ -4576,7 +4576,7 @@
 				{有界线性算子的赋范线性空间}
 				[]
 				[Dedicatia]
-				定义 \(\mathcal{L}(X,Y)\) 是赋范线性空间 \(X\) 到赋范线性空间 \(Y\) 的有界线性算子的全体. 
+				定义 \(L(X,Y)\) 是赋范线性空间 \(X\) 到赋范线性空间 \(Y\) 的有界线性算子的全体. 
 			\end{dfn}
 
 			\begin{thm}
@@ -4584,7 +4584,7 @@
 				{有界线性算子的赋范线性空间的完备性}
 				[]
 				[Dedicatia]
-				如果 \(Y\) 是Banach空间, \(\norm{\cdot}\) 是\(\mathcal{L}(X,Y)\) 上的范数, 那么 \((\mathcal{L}(X,Y), \norm{\cdot})\) 是Banach空间.
+				如果 \(Y\) 是Banach空间, \(\norm{\cdot}\) 是\(L(X,Y)\) 上的范数, 那么 \((L(X,Y), \norm{\cdot})\) 是Banach空间.
 			\end{thm}
 
 			\begin{dfn}
@@ -4604,6 +4604,83 @@
 				[Dedicatia]
 				设 \((X, \norm{\cdot}_X)\), \((Y, \norm{\cdot}_Y)\) 是两个赋范线性空间, \(T: X\to Y\) 是线性算子, 则 \(T\) 是有界线性算子当且仅当 \(T\) 是连续线性算子.
 			\end{thm}
+
+			\begin{ppt}
+				[]
+				{Euclid 空间上的有界线性算子的一致连续性}
+				[]
+				[Dedicatia]
+				设 \(A\in L(\R^n,\R^m)\), 则 \(A\) 是 \(\R^n\) 到 \(\R^m\) 的一致连续映射.
+			\end{ppt}
+
+			\begin{ppt}
+				[]
+				{Euclid 空间上的有界线性算子的不等式}
+				[]
+				[Dedicatia]
+				设 \(A,B\in L(\R^n,\R^m)\), 则:
+				\[\norm{A+B}\leq\norm{A}+\norm{B}\]
+				设 \(C\in L(\R^m,\R^k)\), 则:
+				\[\norm{A\circ C}\leq\norm{A}\norm{C}.\]
+			\end{ppt}
+
+		\subsection{微分法}
+
+			\begin{dfn}
+				[]
+				{微分 / Fr\'echet 微分}
+				[Fr\'echet Derivative]
+				[Dedicatia]
+				设 \(X, Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f: E\to Y\) 是映射, 若存在一个有界线性算子 \(A: X\to Y\), 使得对于 \(x\in X\):
+				\[f(x+h)-f(x)=Ah+R(x;h)\]
+				其中 \(R(x;h)\) 是关于 \(h\) 的高阶无穷小, 即:
+				\[\lim_{\norm{h}_X\to 0}\frac{\norm{R(x;h)}_Y}{\norm{h}_X}=0.\]
+				则称 \(f\) 在 \(x\) 处\textbf{可微}, 记 \(A=f'(x)\), 称为 \(f\) 在 \(x\) 处的\textbf{Fr\'echet 微分}.
+			\end{dfn}
+
+			\begin{ppt}
+				[]
+				{可微蕴含连续}
+				[]
+				[Dedicatia]
+			\end{ppt}
+
+			\begin{xmp}
+				[]
+				{Euclid 空间上的微分}
+				[]
+				[Dedicatia]
+				当 \(X=\R^n\), \(Y=\R\) 时, 定义 \(f: E\to\R\) 在 \(x\in E\) 处可微, 当且仅当存在一个向量 \(\bm{a}\in\R^n\), 使得:
+				\[f(\bm{x})=f(\bm{x}_0)+\inprod{\bm{a}}{\bm{x}-\bm{x}_0}+R(\bm{x};\bm{x}_0)\]
+				这时 \(Ah=\inprod{\bm{a}}{\dd\bm{x}}\) 即全微分:
+				\[\inprod{\bm{a}}{\dd\bm{x}}=\pdv{f}{x_1}\dd{x_1}+\cdots+\pdv{f}{x_n}\dd{x_n}.\]
+			\end{xmp}
+
+			\begin{ppt}
+				[]
+				{微分具有唯一性}
+				[]
+				[Dedicatia]
+			\end{ppt}
+
+			\begin{thm}
+				[]
+				{链式微分法则}
+				[]
+				[Dedicatia]
+				设 \(X, Y, Z\) 是赋范线性空间, \(E\subseteq X\), \(f: E\to Y\), \(g: f(E)\to Z\), 若 \(f\) 在 \(x_0\in E\) 处可微, 且 \(g\) 在 \(f(x_0)\) 处可微, 则复合映射 \(g\circ f: E\to Z\) 在 \(x_0\) 处可微, 且:
+				\[(g\circ f)'(x_0)=g'(f(x_0))\circ f'(x_0).\]
+			\end{thm}
+
+			\begin{dfn}
+				[]
+				{G\^ateaux 微分}
+				[G\^ateaux Derivative]
+				[Dedicatia]
+				设 \(X, Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f: E\to Y\) 是映射, 若对于任意的 \(\bm{h}\in X\), 极限
+				\[\lim_{t\to 0}\frac{f(\bm{x}+t\bm{h})-f(\bm{x})}{t}\]
+				存在, 则称该极限为 \(f\) 在 \(\bm{x}\) 处沿方向 \(\bm{h}\) 的\textbf{G\^ateaux 微分}, 记作 \(f'_{G}(\bm{x};\bm{h})\).
+			\end{dfn}
 
     \section{\(\R^n\) 上的函数}
 
@@ -4794,7 +4871,7 @@
 			    [Differentiable]
 			    [猫猫]
 				设 \(D\subseteq\R^n\), \(D\) 是开集, \(f:D\to\R\), \(\bm{x}_0:\R^n\), \(\bm{x}_0\in\intr D\), 定义 \(f\) 在 \(\bm{x}_0\) 处\textbf{可微}, 当且仅当: 
-				\[\exists\varphi_f:\R^n\to\R, \varphi_f\in\mathcal{L}(\R^n,\R), f(\bm{x}_0+\Delta\bm{x})=f(\bm{x}_0)+\varphi_f(\Delta\bm{x})+o(\|\Delta\bm{x}\|)\]
+				\[\exists\varphi_f:\R^n\to\R, \varphi_f\in L(\R^n,\R), f(\bm{x}_0+\Delta\bm{x})=f(\bm{x}_0)+\varphi_f(\Delta\bm{x})+o(\|\Delta\bm{x}\|)\]
 
 				定义 \(f\) 在 \(\bm{x}_0\) 处的 \textbf{Jacobi 矩阵}为: \(\varphi_f\) 在 \(\R^n\) 标准基下的表示矩阵, 记作 \(\bm{J}_f(\bm{x}_0)\). 
 			\end{dfn}

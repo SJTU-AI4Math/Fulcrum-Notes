@@ -674,22 +674,22 @@
             {对函数项级数的Cauchy收敛原理}
             [Cauchy's Convergence Theorem for Series of Functions]
             [Dedicatia]
-            设 \(D\) 上的函数列 \(\sum_{n=1}^{\infty} u_n(x)\), 其在 \(D\) 上\一致收敛 当且仅当: 
+            设 \(D\) 上的函数项级数 \(\sum_{n=1}^{\infty} u_n(x)\), 其在 \(D\) 上\一致收敛 当且仅当: 
             \[\forall\varepsilon\in\R^+, \exists N(\varepsilon)\in\N, \forall n>N, \forall p\in\N, |u_{n+1}(x)+\cdots+u_{n+p}(x)|<\varepsilon\]
         \end{crl}
 
         在实数序列使用的各判别法在复数序列中也可以使用. 例如:
 
         \begin{thm}
-            [UUID]
-            {Weierstrass判别法}
-            [Weierstrass Test]
+            [Majorant-Test]
+            {优级数判别法 / Weierstrass判别法}
+            [Majorant Test / Weierstrass Test]
             [Dedicatia]
             若存在收敛的正项级数 \(\sum_{n = 1}^{\infty} a_n \) 使得\[|u_n(x)|\leqslant a_n\]
-            在那区间 \(D\) 上恒成立, 则级数 \(\sum_{n = 1}^{\infty} u_n(x) \) 在该区间上\一致收敛. 
+            在区间 \(D\) 上恒成立, 则级数 \(\sum_{n = 1}^{\infty} u_n(x) \) 在该区间上\一致收敛. 
         \end{thm}
     
-    \subsection{幂级数}
+    \subsection{解析函数}
 
         \begin{dfn}
             [PowerSeries]
@@ -1291,7 +1291,15 @@
             \[\exists C:\C, \forall z\in\Omega, f(z)=C\]
         \end{ppt}
 
-        接下来我们把\解析  \(f(z)\) 看作映射: 它将按某种规律将曲线 \(\gamma\) 映射到曲线 \(\gamma'\). 
+        接下来我们把\解析  \(f(z)\) 看作映射: 它将按某种规律将曲线 \(\gamma\) 映射到曲线 \(\gamma'\).
+        
+        \begin{dfn}
+            [Univalent-Analytic-Function]
+            {单叶解析函数}
+            [Univalent Analytic Function]
+            [Dedicatia]
+            定义一个解析函数是\textbf{单叶的}, 当且仅当它在其定义域内是单射的. 也就是说, 对于任意 \(z_1,z_2\in\Omega\), 如果 \(f(z_1)=f(z_2)\), 那么 \(z_1=z_2\).
+        \end{dfn}
 
         \begin{thm}
             [UUID]
@@ -1663,12 +1671,12 @@
         \end{dfn}
 
         \begin{ppt}
-            {代数支点的构造方法}
+            {对数支点的构造方法}
             设 \(D\) 是单连通区域,  \(f(z)\) 是 \(D\) 上处处不为0的解析函数. 那么 \(\Log f(z)\) 在 \(D\) 上有单值解析分支, 即存在 \(g(z)\) 使得 \(\exp g(z)=f(z)\), 那么一个解析函数是 \(\Log f(z)\) 的单值解析分支当且仅当其具有 \(g(z)+2\ii k\pi\) 的形式, 其中 \(k\in\Z\).
         \end{ppt}
 
         \begin{ppt}
-            {对数支点的构造方法}
+            {代数支点的构造方法}
             设 \(D\) 是单连通区域,  \(f(z)\) 是 \(D\) 上处处不为0的解析函数. 那么对任意自然数 \(n\),  \(\sqrt[n]{f(z)}\) 有 \(n\) 个单值解析分支. 
         \end{ppt}
 
@@ -3893,7 +3901,8 @@
             [Dedicatia]
             设幂级数
             \[f(z)=\sum_{n=1}^{\infty}\frac{z^n}{n}\]
-            其收敛半径为 1, 在 \(|z|<1\) 上解析. 现在我们考虑其在 \(\C\setminus\{1\}\) 上的解析延拓. 设 \(\gamma\) 是 \(\C\setminus\{1\}\) 上的一条闭曲线, 那么我们可以将 \(\gamma\) 分割为若干段, 每一段都在某个圆盘内, 且该圆盘不包含点 1. 这样就可以沿着 \(\gamma\) 作出 \(f(z)\) 的解析延拓. 由于该区域不满足单连通性, 所以得到的是多值函数.
+            其收敛半径为 1, 在 \(|z|<1\) 上解析. 现在我们考虑其在 \(\C\setminus\{1\}\) 上的解析延拓. 设 \(\gamma\) 是 \(\C\setminus\{1\}\) 上的一条闭曲线, 那么我们可以将 \(\gamma\) 分割为若干段, 每一段都在某个圆盘内, 且该圆盘不包含点 1. 这样就可以沿着 \(\gamma\) 作出 \(f(z)\) 的解析延拓. 由于该区域不满足单连通性, 所以得到的是多值函数.\\
+            \continued
         \end{xmp}
 
     \subsection{Riemann \(\zeta\) 函数}
@@ -3907,6 +3916,18 @@
             \[\zeta(s)=\sum_{n=1}^{\infty}n^{-s}\]
             为 \textbf{Riemann \(\zeta\) 函数}.
         \end{dfn}
+
+        \begin{thm}
+            []
+            {\(\zeta\) 函数的收敛性}
+            []
+            [Dedicatia]
+            函数
+            \[\zeta(s)=\sum_{n=1}^{\infty}n^{-s}\]
+            在半平面
+            \[\{s:\Re s\geq 1+\delta, \delta>0\}\]
+            上一致收敛. 因而存在唯一的解析函数.
+        \end{thm}
 
         \begin{thm}
             []
