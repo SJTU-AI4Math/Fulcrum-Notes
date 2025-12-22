@@ -24,8 +24,7 @@
 \linespread{1.2}
 
 \DeclareMathOperator{\st}{\text{s.t. }}
-\DeclareMathOperator{\Poi}{Poi}
-\newcommand{\bysorry}{\fcolorbox{black}{gray!20!white}{\texttt{\textcolor{black}{:= }\textcolor{blue}{by }\textcolor{red}{\textbf{sorry}}}}\;\;\,\texttt{\textcolor{gray}{{\footnotesize declaration uses 'sorry'.}}}}
+\newcommand{\bysorry}{\fcolorbox{white}{gray!20!white}{\texttt{\textcolor{black}{:= }\textcolor{blue}{by }\textcolor{red}{\textbf{sorry}}}}\;\;\,\texttt{\textcolor{gray}{{\footnotesize declaration uses 'sorry'.}}}}
 
 \begin{document}
 
@@ -783,7 +782,7 @@
         \end{ppt}
 
         \begin{xmp}
-            []
+            [Poisson]
             {Poisson分布}
             []
             [Dedicatia, 猫猫]
@@ -797,7 +796,7 @@
             {Poisson 分布的分布列}
             []
             [猫猫]
-            设 \(X\) 是\离散型随机变量, \(X\sim Ps(\lambda)\), 则: 
+            设 \(X\) 是\离散型随机变量, \(X\sim\Poi(\lambda)\), 则: 
             \[\forall k:\N, \mathbb{P}(X=k)=\frac{\lambda^k}{k!}\exp (-\lambda)\]
         \end{ppt}
 
@@ -806,7 +805,7 @@
             {Poisson 分布的数学期望}
             []
             [猫猫]
-            设 \(X\) 是\离散型随机变量, \(X\sim Ps(\lambda)\), 则: 
+            设 \(X\) 是\离散型随机变量, \(X\sim\Poi(\lambda)\), 则: 
             \[\Expct{X}=\lambda\]
         \end{ppt}
 
@@ -1086,7 +1085,7 @@
                 &\lambda\exp(-\lambda x),\quad x\geq 0;\\
                 &0,\quad x< 0.
             \end{cases}\]
-            记作 \(X\sim\mathfrak{E}(\lambda)\).
+            记作 \(X\sim\Expo(\lambda)\).
         \end{xmp}
 
         \begin{ppt}
@@ -1094,7 +1093,7 @@
             {指数分布的分布函数}
             []
             [Dedicatia]
-            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\), $F$ 是 $X$ 的分布函数, 那么
+            设 \(X\) 是\连续型随机变量, \(X\sim\Expo(\lambda)\), $F$ 是 $X$ 的分布函数, 那么
             \[F(x)=P(X\geq x)=1-\exp(-\lambda x), (x\geq 0).\]
         \end{ppt}
 
@@ -1103,7 +1102,7 @@
             {指数分布的期望和方差}
             []
             []
-            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\), 则
+            设 \(X\) 是\连续型随机变量, \(X\sim\Expo(\lambda)\), 则
             \[\Expct{X}=\frac{1}{\lambda},\qquad \Var{X}=\frac{1}{\lambda^2}.\]
         \end{ppt}
 
@@ -1136,7 +1135,7 @@
             {指数分布的失效率是常数}
             []
             [Dedicatia]
-            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\), 那么失效率 $\lambda(t)=\lambda$.
+            设 \(X\) 是\连续型随机变量, \(X\sim\Expo(\lambda)\), 那么失效率 $\lambda(t)=\lambda$.
         \end{ppt}
 
         \begin{xmp}
@@ -1176,7 +1175,7 @@
             {\(\Gamma\) 分布与指数分布的关系}
             []
             [Dedicatia]
-            设 \(X\) 是\连续型随机变量, \(X\sim\mathfrak{E}(\lambda)\) 当且仅当 $x\sim \Gamma(1,\lambda)$.
+            设 \(X\) 是\连续型随机变量, \(X\sim\Expo(\lambda)\) 当且仅当 $x\sim \Gamma(1,\lambda)$.
         \end{ppt}
 
         \begin{ppt}
@@ -1224,9 +1223,9 @@
         \end{xmp}
 
         \begin{dfn}
-            []
+            [Canonical-Normal-Distribution]
             {标准正态分布}
-            []
+            [Canonical Normal Distribution]
             [Dedicatia]
             定义\连续型随机变量 $X$ 服从\textbf{标准正态分布}, 如果 $X\sim N(0,1)$. \\
             一般将标准正态分布的分布函数记作
@@ -1355,7 +1354,7 @@
             [Dedicatia]
             均匀分布 \(U(0,1)\) 的峰度为 \(-1.2\);\\
             \正态分布 的峰度为 \(0\);\\
-            指数分布 \(\mathfrak{E}(\lambda)\) 的峰度为 \(6\);\\
+            指数分布 \(\Expo(\lambda)\) 的峰度为 \(6\);\\
             \(\Gamma\)分布 \(\Gamma(\alpha,\lambda)\) 的峰度为 \(\frac{6}{\alpha}\).
         \end{xmp}
 
@@ -2256,6 +2255,7 @@
             {常见分布的特征函数}
             []
             [Dedicatia]
+            常见分布的特征函数有:
             \begin{itemize}
                 \item 二项分布 \(X\sim B(n,p)\):
                     \[\Phi_X(t)=(1-p+p\exp \ii t)^n.\]
@@ -2263,10 +2263,12 @@
                     \[\Phi_X(t)=\exp(\lambda(\exp \ii t-1)).\]
                 \item 几何分布 \(X\sim G(p)\):
                     \[\Phi_X(t)=\frac{p\exp \ii t}{1-(1-p)\exp \ii t}.\]
-                \item 指数分布 \(X\sim \mathfrak{E}(\lambda)\):
+                \item 指数分布 \(X\sim \Expo(\lambda)\):
                     \[\Phi_X(t)=\frac{\lambda}{\lambda-\ii t}.\]
                 \item 均匀分布 \(X\sim U(a,b)\):
                     \[\Phi_X(t)=\frac{\exp \ii tb-\exp \ii ta}{\ii t(b-a)}.\]
+                \item \正态分布\,\(X\sim N(0,1)\):
+                    \[\Phi_X(t)=\exp(-\frac{t^2}{2}).\]
             \end{itemize}
         \end{xmp}
 
@@ -2288,14 +2290,43 @@
             \[\mathbb{P}(X=x_k)=\frac{1}{2\pi}\int_{-\pi}^{\pi}\exp(-\ii t x_k)\Phi_X(t)\dd{t}.\]
         \end{crl}
 
+        \begin{xmp}
+            []
+            {离散分布的特征函数实例}
+            []
+            [Dedicatia]
+            Suppose the random Variable \(X\) has characteristic function:
+            \(\Psi(t)=\cos[2](t)\).\\
+            Since the characteristic function is not improperly integrable over \(\R\), it has no continuous PDF.\\
+            We consider the discrete distribution:
+            \begin{align*}
+                P(X=k)&=\frac{1}{2\pi}\int_{-\pi}^{\pi}\exp(-\ii tk)\cos^2t\dd{t}\\
+                &=\frac{1}{8\pi}\int_{-\pi}^{\pi}\exp(-\ii tk)(\exp(2\ii t)+\exp(-2\ii t)+2)\dd{t}\\
+            \end{align*}
+            Thus,
+            \[P(X=2)=\frac{1}{8\pi}\int_{-\pi}^{\pi}(1+\exp(-2\ii t)+2\exp(-4\ii t))\dd{t}=\frac{1}{8\pi}\int_{-\pi}^{\pi}\dd{t}=\frac{2\pi}{8\pi}=\frac{1}{4};\]
+            \[P(X=0)=\frac{1}{8\pi}\int_{-\pi}^{\pi}(\exp(-2\ii t)+2+\exp(2\ii t))\dd{t}=\frac{1}{8\pi}\int_{-\pi}^{\pi}2\dd{t}=\frac{4\pi}{8\pi}=\frac{1}{2};\]
+            \[P(X=2)=\frac{1}{8\pi}\int_{-\pi}^{\pi}(1+\exp(2\ii t)+2\exp(4\ii t))\dd{t}=\frac{1}{8\pi}\int_{-\pi}^{\pi}\dd{t}=\frac{2\pi}{8\pi}=\frac{1}{4}.\]
+            Therefore, the distribution is:
+            \begin{center}
+                \begin{tabular}{c|ccc}
+                    \hline
+                    \(X\) & -2 & 0 & 2 \\
+                    \hline
+                    \(P\) & \(\frac{1}{4}\) & \(\frac{1}{2}\) & \(\frac{1}{4}\) \\
+                    \hline
+                \end{tabular}
+            \end{center}
+        \end{xmp}
+
 \section{大数定理}
 
     \subsection{大数定理}
         
         \begin{dfn}
-            [Probability-Limit]
+            [Probability-Limiting]
             {依概率收敛}
-            []
+            [Convergence in Probability]
             [猫猫]
             设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, \(X\) 是\随机变量, 定义 \(\{X_n\}\) \textbf{依概率收敛}于 \(X\), 当且仅当: 
             \[\forall\varepsilon:\R^+, \lim_{n\to+\infty}\mathbb{P}(|X_n-X|<\varepsilon)=1\]
@@ -2304,13 +2335,13 @@
         \end{dfn}
         
         \begin{thm}
-            []
-            {弱大数定理}
+            [WLLN]
+            {弱大数定律}
             [Weak Law of Large Numbers]
             [猫猫]
             设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 
             \begin{enumerate}
-                \item \协方差 非正: 
+                \item \协方差\,非正: 
                     \[\forall i,j:\N, i\neq j\implies \Cov{X_i}{X_j}\leq 0\]
                 \item 方差受限: 
                     \[\frac{1}{n^2}\sum_{i=1}^n\Var{X_i}\plim 0\]
@@ -2322,7 +2353,7 @@
 
         \begin{crl}
             []
-            {}
+            {独立同分布且方差有限的随机变量序列服从弱大数定律}
             []
             []
             设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 
@@ -2338,13 +2369,217 @@
             则: 
             \[\frac{1}{n}\sum_{i=1}^n X_i\plim\mu\]
         \end{crl}
+
+        \begin{dfn}
+            [Almost-Everywhere-Convergent]
+            {几乎处处收敛 / 概率为1收敛}
+            [Almost-Sure Convergence / Almost Everywhere Convergence]
+            [Dedicatia]
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, \(X\) 是\随机变量, 定义 \(\{X_n\}\) \textbf{几乎处处收敛}于 \(X\), 当且仅当: 
+            \[\mathbb{P}\qty(\{\omega\mid\lim_{n\to+\infty}X_n(\omega)=X(\omega)\})=1\]
+            记作 \(X_n\aelim X\).
+        \end{dfn}
+
+        \begin{rmk}
+            [Dedicatia]
+            在测度论中, 该收敛方式别名叫依测度收敛.
+        \end{rmk}
+
+        \begin{xmp}
+            []
+            {几乎处处收敛的实例}
+            []
+            [Dedicatia]
+            设 \(\eta\sim U(0,1)\), 设\随机变量 序列 \(X_n(\eta)=\eta^n\). 由于只有在 \(\eta=1\) 时 \(\eta^n=1\), \(\eta<1\) 时 \(\displaystyle\lim_{n\to+\infty}\eta^n=0\). \\
+            由于连续分布取单点的概率是0, 所以我们可以称 \(X_n\aelim 0\).
+        \end{xmp}
         
         \begin{thm}
+            [SLLN]
+            {Kolmogorov 强大数定律}
+            [Kolmogorov Strong Law of Large Numbers]
             []
-            {大数定理}
-            [Law of Large Numbers]
-            []
-            设 \(X_1,X_2,\dots,X_n\) 是\随机变量, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu\), 方差为 \(\sigma^2\), 则: 
+            设 \(X_1,X_2,\dots,X_n,\dots\) 是\随机变量 序列, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu\), 方差为 \(\sigma^2\), 且
+            \[\sum_{n=1}^{+\infty}\frac{\Var{X_n}}{n^2}<+\infty.\] 
+            则:
+            \[\frac{1}{n}\sum_{i=1}^n\qty(X_i-\Expct{X_i})\aelim 0.\]
         \end{thm}
+
+        \begin{crl}
+            []
+            {独立同分布的随机变量序列服从强大数定律}
+            []
+            [Dedicatia]
+            设 \(X_1,X_2,\dots,X_n,\dots\) 是\随机变量 序列, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 且 \(\exists F:\R\to[0,1], \forall n:\N, X_n\) 的\分布函数 为 \(F\). 则:
+            \[\frac{1}{n}\sum_{i=1}^n X_i\aelim\mu=:\Expct{X_1}.\]
+        \end{crl}
+
+        \begin{rmk}
+            [Dedicatia]
+            在数理统计中, 样本 \(X_i\) 可以看作一系列相互独立的随机变量. 由强大数定律可知, \begin{enumerate}
+                \item 样本均值 \(\displaystyle\frac{1}{n}\sum_{i=1}^n X_i\) 几乎处处收敛于总体均值 \(\mu\);
+                \item 样本方差几乎处处收敛于总体方差 \(\sigma^2\).
+            \end{enumerate}
+        \end{rmk}
+
+        \begin{xmp}
+            []
+            {用多项式逼近连续函数的概率证明法}
+            []
+            [Dedicatia]
+            任意 \(\Icc{0}{1}\) 上的连续函数 \(g\) 可以被一列多项式
+            \[p_n(x):=\sum_{k=0}^{n}g\qty(\frac{k}{n})\Comb{n}{k}x^k(1-x)^{n-k}\]
+            一致地逼近.
+        \end{xmp}
+
+        \begin{prf}
+            构造随机变量 \(X_i\) 独立同分布于离散分布
+            \begin{center}
+                \begin{tabular}{c|cc}
+                    \(X_i\) & \(0\) & \(1\) \\
+                    \hline
+                    \(P\) & \(1-x\) & \(x\) \\
+                \end{tabular}
+            \end{center}
+            那么 
+            \[\Expct{g\qty(\frac{X_1+\dots+X_n}{n})} = \sum_{k=0}^{n} g\qty(\frac{k}{n}) \Comb{n}{k} x^k (1-x)^{n-k} = p_n(x).\]
+            于是 
+            \[\lim_{n\to+\infty}p_n(x)=\lim_{n\to+\infty}\sum_{k=0}^{n}g\qty(\frac{k}{n})\Comb{n}{k}x^k(1-x)^{n-k}=\lim_{n\to+\infty}\Expct{g\qty(\frac{X_1+\dots+X_n}{n})}\]
+            由于均为有界连续函数, 故可以交换极限与期望:
+            \[\lim_{n\to+\infty}\Expct{g\qty(\frac{X_1+\dots+X_n}{n})}=\Expct{\lim_{n\to+\infty}g\qty(\frac{X_1+\dots+X_n}{n})}.\]
+            使用强大数定律
+            \[\Expct{\lim_{n\to+\infty}g\qty(\frac{X_1+\dots+X_n}{n})}=g(\Expct{X_1})=g(x).\]
+        \end{prf}
+
+        \begin{xmp}
+            []
+            {不是独立同分布也有可能服从强大数定律}
+            []
+            [Dedicatia]
+            设随机变量序列 \(\{X_n\}\) 满足:
+        \end{xmp}
+
+    \subsection{中心极限定理}
+
+        \begin{thm}
+            []
+            {独立同分布的中心极限定理}
+            [Central Limit Theorem]
+            [Dedicatia]
+            设 \(X_1,X_2,\dots,X_n,\dots\) 是\随机变量 序列, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu\), 方差为 \(\sigma^2\). 则:
+            \[\lim_{n\to+\infty}P\qty(\frac{1}{\sigma \sqrt{n}}\sum_{k=1}^n (X_k - \mu) \leq x) = \Phi(x),\]
+            其中 \(\Phi\) 是\hyperref[dfn:Canonical-Normal-Distribution]{标准正态分布}的分布函数.
+        \end{thm}
+
+        \begin{prf}
+            定义 
+            \[Y_n :=\frac{1}{\sigma\sqrt{n} }\sum_{k=1}^n (X_k - \mu) \]
+            设 \(\psi_n(t)\) 是 \(Y_n\) 的特征函数, 则:
+            \[\psi_n(t) = \Expct{\exp(\ii t Y_n)}\]
+            \bysorry
+        \end{prf}
+
+        \begin{dfn}
+            [Distribution-Limiting]
+            {依分布收敛}
+            [Convergence in Distribution]
+            [Dedicatia]
+            设\随机变量 序列 \(X_n\) 的\分布函数 为 \(F_n(x)\). 另设随机变量 \(X\) 的\分布函数 为 \(F(x)\). 定义 \(X_n\) \textbf{依分布收敛}于 \(X\), 当且仅当对 \(F\) 的任意连续点都有:
+            \[\lim_{n\to+\infty}F_n(x)=F(x).\]
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {依分布收敛的等价条件}
+            []
+            [Dedicatia]
+            随机变量序列 \(X_n\) 依分布收敛于随机变量 \(X\) 的充分必要条件是对任意有界连续函数 \(g:\R\to\R\) 都有:
+            \[\lim_{n\to+\infty}\Expct{g(X_n)}=\Expct{g(X)}\]
+            或者写作
+            \[\lim_{n\to+\infty}\int_{\R}g(x)\dd{F_n(x)}=\int_{\R}g(x)\dd{F(x)}.\]
+        \end{ppt}
+
+        \begin{rmk}
+            [Dedicatia]
+            依分布收敛的别名叫做弱收敛. 在泛函分析中, 依分布收敛可以看作是随机变量分布函数空间中的弱收敛.\\
+            设 \(\mu_n,\mu\) 是 \(\R^d\) 上的概率测度, 其对应的分布函数分别为 \(F_n,F\). 则 \(\mu_n\) 弱收敛于 \(\mu\) 的充分必要条件是对所有有界连续函数 \(f:\R^d\to\R\) 都有:
+            \[\lim_{n\to+\infty}\int_{\R^d}f(x)\dd{\mu_n(x)}=\int_{\R^d}f(x)\dd{\mu(x)}.\]
+        \end{rmk}
+
+        \begin{rmk}
+            [Dedicatia]
+            依分布收敛是最弱的一种收敛. 它只关心随机变量的概率分布是否趋于一致, 而完全不关心随机变量本身. 
+        \end{rmk}
+
+        \begin{rmk}
+            [Dedicatia]
+            中心极限定理表明独立同分布的随机变量序列标准化后依分布收敛于标准正态分布. 记作
+            \[\frac{1}{\sigma \sqrt{n}}\sum_{k=1}^n (X_k - \mu) \dlim N(0,1).\]
+            其收敛到的是某种分布, 而不是某个特定的随机变量.
+        \end{rmk}
+
+        \begin{thm}
+            []
+            {中心极限定理的依分布收敛速度的估计}
+            []
+            [Dedicatia]
+            设 \(X_1,X_2,\dots,X_n,\dots\) 是\随机变量 序列, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, \(\Expct{X_1}=\mu\), \(\Var{X_1}=\sigma^2\). \(\exists\,T\in\R^+\) 使得
+            \[\Expct{\exp t\xi}<+\infty, |t|<T\]
+            则:
+            \[P(|\overline{X}_n-\mu|\geq\varepsilon )=\frac{2\sigma}{\varepsilon\sqrt{2\pi n}}\exp(-\frac{\varepsilon^2n}{2\sigma^2})\qty(1+O\qty(\frac{\sigma^2}{\varepsilon^2n})).\]
+        \end{thm}
+
+    \subsection{随机变量的收敛性}
+
+        \begin{dfn}
+            [R-Limiting]
+            {矩收敛}
+            [R-Order Convergence]
+            [Dedicatia]
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, \(X\) 是\随机变量, 定义 \(\{X_n\}\) 的 \(r\) 阶\textbf{矩收敛}于 \(X\), 当且仅当:
+            \[\lim_{n\to+\infty}\Expct{|X_n - X|^r}=0.\]
+            用积分表示为
+            \[\lim_{n\to+\infty}\int_{\R}|x - X|^r\dd{F_{X_n}(x)}=0.\]
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {随机变量的收敛性的蕴含关系}
+            []
+            [Dedicatia]
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, \(X\) 是\随机变量. 则:
+            \begin{enumerate}
+                \item \(X_n\aelim X\) \(\implies\) \(X_n\plim X\) \(\implies\) \(X_n\dlim X\);
+                \item \(X_n\rlim X\) \(\implies\) \(X_n\plim X\);
+                \item \(X_n\dlim c\Longleftrightarrow X_n\plim c\);
+                \item \(X_n\plim X\Longrightarrow\exists X_{n_k}\subseteq X_n, \st X_{n_k}\aelim X\).
+            \end{enumerate}
+        \end{thm}
+
+        \begin{cxmp}
+            []
+            {几乎处处收敛不蕴含矩收敛}
+            []
+            [Dedicatia]
+            设 \(a\in\Ioo{0}{1} \), 设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 定义为
+            \[X_n(a)\begin{cases}
+                & n^{\frac{1}{r}}, \; a\in\Ioo{0}{\frac{1}{n}};\\
+                & 0, \; a\in\Ico{\frac{1}{n}}{1}.
+            \end{cases}\]
+            那么
+            \[\mathbb{P}(X_n(a)=n^{\frac{1}{r}})=\frac{1}{n}\]
+            \[\mathbb{P}(X_n(a)=0)=1-\frac{1}{n}.\]
+            那么不论 \(a\) 如何取, \(X_n(a)\aelim 0\). 但是取 \(r\) 阶矩
+            \[\Expct{|X_n(a)-0|^r}=(n^{\frac{1}{r}})^r\cdot\frac{1}{n}=1\]
+            这说明 \(X_n\rlim 1\neq 0\).
+        \end{cxmp}
+
+        \begin{cxmp}
+            []
+            {矩收敛不蕴含几乎处处收敛}
+            []
+            [Dedicatia]
+            \bysorry
+        \end{cxmp}
 
 \end{document}
