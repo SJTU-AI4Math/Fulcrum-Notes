@@ -4628,14 +4628,14 @@
 
 			\begin{dfn}
 				[]
-				{微分 / Fr\'echet 微分}
+				{Fr\'echet 微分}
 				[Fr\'echet Derivative]
 				[Dedicatia]
 				设 \(X, Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f: E\to Y\) 是映射, 若存在一个有界线性算子 \(A: X\to Y\), 使得对于 \(x\in X\):
 				\[f(x+h)-f(x)=Ah+R(x;h)\]
 				其中 \(R(x;h)\) 是关于 \(h\) 的高阶无穷小, 即:
 				\[\lim_{\norm{h}_X\to 0}\frac{\norm{R(x;h)}_Y}{\norm{h}_X}=0.\]
-				则称 \(f\) 在 \(x\) 处\textbf{可微}, 记 \(A=f'(x)\), 称为 \(f\) 在 \(x\) 处的\textbf{Fr\'echet 微分}.
+				则称 \(f\) 在 \(x\) 处\textbf{可微}, 记 \(A=f'(x)\) 或 \(A=D(f(x))\), 称为 \(f\) 在 \(x\) 处的\textbf{Fr\'echet 微分}.
 			\end{dfn}
 
 			\begin{ppt}
@@ -4673,6 +4673,19 @@
 			\end{thm}
 
 			\begin{dfn}
+				[Derivative-Mapping]
+				{导映射 / 切映射}
+				[Derivative Mapping / Tangent Mapping]
+				[Dedicatia]
+				设 \(x\in E\subseteq X\), \(f:E\to Y\), 定义以下由 \(f\) 的微分确定的映射
+				\[Df:\begin{bmatrix}
+					E &\to &L(X,Y)\\
+					x&\mapsto & f'
+				\end{bmatrix}\]
+				为 \(f\) 在 \(x\) 处的导映射. 在微分流形中称为切映射. 其中 \(f'\) 是 \(f\) 的 Fr\'echet 微分.
+			\end{dfn}
+
+			\begin{dfn}
 				[]
 				{G\^ateaux 微分}
 				[G\^ateaux Derivative]
@@ -4681,6 +4694,115 @@
 				\[\lim_{t\to 0}\frac{f(\bm{x}+t\bm{h})-f(\bm{x})}{t}\]
 				存在, 则称该极限为 \(f\) 在 \(\bm{x}\) 处沿方向 \(\bm{h}\) 的\textbf{G\^ateaux 微分}, 记作 \(f'_{G}(\bm{x};\bm{h})\).
 			\end{dfn}
+
+			\begin{ppt}
+				[]
+				{可微蕴含 G\^ateaux 微分存在}
+				[]
+				[Dedicatia]
+				设 \(X,Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f:E\to Y\), \(\bm{x}_0\in E\), 若 \(f\) 在 \(\bm{x}_0\) 可微, 则 \(f\) 在 \(\bm{x}_0\) 存在有界的 G\^ateaux 微分, 且
+				\[f'(\bm{x}_0)\bm{h}=f'_G(\bm{x}_0;\bm{h}).\]
+			\end{ppt}
+
+			\begin{rmk}
+				[Dedicatia]
+				在 Euclid 空间中, G\^ateaux 微分就是对各个分量的\textbf{方向导数}. 可微一定存在方向导数, 但方向导数存在不一定可微.
+			\end{rmk}
+
+			\begin{thm}
+				[]
+				{Lipschitz 条件}
+				[]
+				[Dedicatia]
+				设 \(f: E\in\R^n\to\R^m\). \(f\) 在开集 \(E\) 上可微, 对于每个 \(x\in E\), 若存在 \(M\in\R\), 使得 \(\norm{f'(x)}\leq M\), 那么对一切 \(a,b\in E\), 有 
+				\[|f(a)-f(b)|\leq M|a-b|.\] 
+			\end{thm}
+
+			\begin{thm}
+				[]
+				{有限增量定理}
+				[]
+				[Dedicatia]
+				设 \(f: E\in\R^n\to\R^m\). \(f\) 在开集 \(E\) 上可微, 设 \(l:=\{\xi=x_0+\theta h,0<\theta< 1\}\subseteq E\), 若 \(f\) 在 \(\overline{l}\) 上连续, 在 \(l\) 上可微, 则:
+				\[\norm{f(x_0+h)-f(x_0)}_Y\leq\sup_{0<\theta<1}\norm{f'(x_0+\theta h)}_{L(X,Y)}\norm{h}_X.\]
+			\end{thm}
+
+		\subsection{Taylor 定理}
+
+			\begin{dfn}
+				[]
+				{多重线性算子}
+				[Multilinear Operator]
+				[Dedicatia]
+				设 \((X, \norm{\cdot}_X)\), \((Y, \norm{\cdot}_Y)\) 是赋范线性空间, 映射 \(A: \underbrace{X\times X\times\cdots\times X}_{n\text{ 个 }}\to Y\) 称为\textbf{多重线性算子}, 如果对任意的 \(i\in\{1,2,\cdots,n\}\), 固定其余变量, \(A\) 关于第 \(i\) 个变量是线性的.
+			\end{dfn}
+
+			\begin{dfn}
+				[]
+				{算子范数}
+				[Operator Norm]
+				[Dedicatia]
+				设多重线性算子 \(A:X_1\times X_2\times\cdots\times X_n\to Y\). 定义 \(A\) 的\textbf{算子范数}为:
+				\[\norm{A}=\sup_{\substack{x_i\in X_i, x_i\neq 0\\i=1,2,\cdots,n}}\frac{\norm{A(x_1,x_2,\cdots,x_n)}_Y}{\norm{x_1}_{X_1}\norm{x_2}_{X_2}\cdots\norm{x_n}_{X_n}}.\] 
+			\end{dfn}
+
+			\begin{dfn}
+				[]
+				{有界多重线性算子}
+				[Bounded Multilinear Operator]
+				[Dedicatia]
+				设多重线性算子 \(A:X_1\times X_2\times\cdots\times X_n\to Y\). 若存在 \(M>0\), 使得 \(\norm{A}\leq M\), 则称 \(A\) 为\textbf{有界多重线性算子}.
+			\end{dfn}
+
+			\begin{ppt}
+				[]
+				{有界等价于连续}
+			\end{ppt}
+
+			\begin{dfn}
+				[]
+				{二阶导映射}
+				[]
+				[Dedicatia]
+				设 \(X, Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f: E\to Y\) 是映射, \(Ax=f'(x)\) 是 \(f\) 在 \(x\) 处的导映射. 那么定义其二阶导映射为:
+				\[D^2f:\begin{bmatrix}
+					E & \to & L(X, L(X,Y)) \\
+					x & \mapsto & A'_{x}=(f')'
+				\end{bmatrix}\]
+				记二阶导映射在 \(x\) 处的值为 \(f''(x)\).
+			\end{dfn}
+
+			\begin{dfn}
+				[]
+				{高阶导映射}
+				[]
+				[Dedicatia]
+			\end{dfn}
+
+			\begin{rmk}
+				[Dedicatia]
+				如果 \(f^{(n)}\) 存在, 则 \(f^{(n)}(x)\) 是从 \(\underbrace{X\times X\times\cdots\times X}_{n\text{ 个 }}\) 到 \(Y\) 的有界多重线性算子. 可以记作
+				\[f^{(n)}\in L(\underbrace{X,L(X,\cdots,L(X,Y))}_{n\text{ 个 }}).\]
+			\end{rmk}
+
+			\begin{thm}
+				[]
+				{Taylor 定理}
+				[]
+				[Dedicatia]
+				设 \(X, Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f: E\to Y\) 是映射, 若 \(f\) 在 \(x_0\in E\) 处有 \(n\) 阶导映射, 则对任意的 \(h\in X\), 有:
+				\[f(x_0+h)=f(x_0)+\frac{1}{1!}f'(x_0)h+\frac{1}{2!}f''(x_0)(h,h)+\cdots+\frac{1}{n!}f^{(n)}(x_0)(\underbrace{h,h,\cdots,h}_{n\text{ 个 }})+R_n(x_0;h)\]
+				其中 \(R_n(x_0,h)\) 为余项, 且满足:
+				\[\lim_{\norm{h}_X\to 0}\frac{\norm{R_n(x_0;h)}_Y}{\norm{h}_X^n}=0.\]
+			\end{thm}
+
+			\begin{prf}
+				我们使用归纳法证明. 当 \(n=1\) 时, 根据微分的定义, 结论成立. \\
+				假设当 \(n=k\) 时结论成立, 现证明当 \(n=k+1\) 时结论也成立. 根据有限增量定理:
+				\[\lim_{h\to 0}\vqty{f(x+h)-\qty(f(x)+f'(x)h+\cdots+\frac{1}{n!}f^{(n)}(x)h^n)}\]
+				\[\leq\sup_{0\leq\theta\leq 1}\norm{f'(x+\theta h)-\qty(f'(x)+f''(x)(\theta h)+\cdots+\frac{1}{(n-1)!}f^{(n)}(x)(\theta h)^{n-1})}|h|\]
+				\[=o(|\theta h^{n-1}|)|h|=o(|h|^n).\]
+			\end{prf}
 
     \section{\(\R^n\) 上的函数}
 
