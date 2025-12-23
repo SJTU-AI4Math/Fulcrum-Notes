@@ -29,6 +29,6 @@
 \NewDocumentCommand{\plim}{s}{\catref[#1]{dfn:Probability-Limiting}{\xrightarrow[n\to+\infty]{P}}[概率极限]}
 \NewDocumentCommand{\dlim}{s}{\catref[#1]{dfn:Distribution-Limiting}{\xrightarrow[n\to+\infty]{d}}[依分布收敛的极限]}
 \NewDocumentCommand{\aelim}{s}{\catref[#1]{dfn:Almost-Everywhere-Convergent}{\xrightarrow[n\to+\infty]{\text{a.e.}}}[几乎处处收敛的极限 / 概率为1收敛的极限]}
-\NewDocumentCommand{\rlim}{sO{r}}{\catref[#1]{dfn:R-limiting}{\xrightarrow[n\to+\infty]{L^{#2}}}[依 #2 阶矩收敛]}
+\NewDocumentCommand{\rlim}{sO{r}}{\catref[#1]{dfn:R-Limiting}{\xrightarrow[n\to+\infty]{L^{#2}}}[依 #2 阶矩收敛]}
 
 \NewDocumentCommand{\正态分布}{so}{\IfNoValueTF{#2}{\catref[#1]{xmp:Normal-Distribution}{正态分布}[正态分布]}{#2\,维\catref[#1]{xmp:Multi-Normal}{正态分布}[#2\,维正态分布]}}
