@@ -1442,7 +1442,301 @@
             设\(m,g_1,g_2,a:\Z\), 且 \(g_1,g_2\) 为模 \(m\) 的原根. 则有
             \[\log_{g_1}a=\log_{g_1}g_2\cdot\log_{g_2}a\]
         \end{ppt}
+
+        \begin{dfn}
+            [HigherResidue]
+            {高次剩余}
+            [Higher Residue]
+            [白菜]
+            设\(m,a,k:\Z\), 且 \(\gcd(a,m)=1\). 若同余方程
+            \[
+                x^k \equiv a \mod{m}
+            \]
+            有解, 则称 \(a\) 为模 \(m\) 的一个\textbf{k次剩余}.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {高次剩余的判别准则}
+            []
+            [白菜]
+            设\(m,a,k:\Z\), 模\(m\)的原根存在且 \(g\) 为模 \(m\) 的原根, \(\gcd(a,m)=1\). 则同余方程
+            \[
+                x^k \equiv a \mod{m}
+            \]
+            有解的充分必要条件是
+            \[
+                \gcd(k,\varphi(m)) \mid \log_g a
+            \]
+        \end{thm}
+
+        \begin{prf}
+            设 \(x = g^y\), 则 \(x^k = (g^y)^k = g^{ky}\). 
+            故同余方程等价于
+            \[g^{ky} \equiv a \mod{m}\]
+            即
+            \[ky \equiv \log_g a \mod{\varphi(m)}\]
+            有解的充分必要条件是
+            \[\gcd(k,\varphi(m)) \mid \log_g a\]
+        \end{prf}
+
+        \begin{crl}
+            []
+            {高次剩余的解数}
+            []
+            [白菜]
+            设\(m,a,k:\Z\), 且 \(g\) 为模 \(m\) 的原根, \(\gcd(a,m)=1\). 若同余方程
+            \[
+                x^k \equiv a \mod{m}
+            \]
+            有解, 则其解数为 \(\gcd(k,\varphi(m))\).
+        \end{crl}
+
+        \begin{crl}
+            []
+            {模素数的高次剩余判别}
+            []
+            [白菜]
+            设\(p,a,k:\Z\), 且 \(p\)为素数, \(\gcd(a,p)=1\). 则同余方程
+            \[
+                x^k \equiv a \mod{p}
+            \]
+            有解的充分必要条件是
+            \[
+                a^{\frac{p-1}{k}} \equiv 1 \mod{p}
+            \]
+        \end{crl}
+
+\section{数论函数}
+    \subsection{Dirichlet卷积}
+        \begin{dfn}
+            [multiplicative function]
+            {可乘函数}
+            [multiplicative function]
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 若对任意满足 \(\gcd(m,n)=1\) 的正整数 \(m,n\), 有
+            \[
+                f(mn) = f(m)f(n)
+            \]
+            则称 \(f\) 为\textbf{可乘函数}.
+        \end{dfn}
         
+        \begin{dfn}
+            [completely multiplicative function]
+            {完全可乘函数}
+            [completely multiplicative function]
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 若对任意正整数 \(m,n\), 有
+            \[
+                f(mn) = f(m)f(n)
+            \]
+            则称 \(f\) 为\textbf{完全可乘函数}.
+        \end{dfn}
+        
+        \begin{dfn}
+            [DirichletConvolution]
+            {Dirichlet卷积}
+            [Dirichlet Convolution]
+            [白菜]
+            设 \(f,g:\Z^+ \to \C\), 定义它们的\textbf{Dirichlet卷积}为函数 \(f*g:\Z^+ \to \C\), 满足
+            \[
+                (f*g)(n) = \sum_{d \mid n} f(d) g\left(\frac{n}{d}\right)
+            \]
+            其中求和是对 \(n\) 的所有正因子 \(d\) 进行的.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {Dirichlet卷积的结合律}
+            []
+            [白菜]
+            设 \(f,g,h:\Z^+ \to \C\), 则有
+            \[
+                f*(g*h) = (f*g)*h
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {Dirichlet卷积的交换律}
+            []
+            [白菜]
+            设 \(f,g:\Z^+ \to \C\), 则有
+            \[
+                f*g = g*f
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {Dirichlet卷积的可乘性}
+            []
+            [白菜]
+            设 \(f,g:\Z^+ \to \C\) 为可乘函数, 则 \(f*g\) 也是可乘函数.
+        \end{ppt}
+
+        \begin{dfn}
+            []
+            {单位函数}
+            []
+            [白菜]
+            定义\textbf{单位函数} \(I:\Z^+ \to \C\), 
+            满足
+            \[
+                I(n) =
+                \begin{cases}
+                    1 & n=1\\
+                    0 & n>1
+                \end{cases}
+            \]
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {单位函数为Dirichlet卷积的单位元}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 则有
+            \[f * I = I * f = f\]
+        \end{ppt}
+    \subsection{Möbius函数与Möbius变换}
+        \begin{dfn}
+            []
+            {1-函数}
+            []
+            [白菜]
+            定义\textbf{1-函数} \(u:\Z^+ \to \C\), 满足
+            \[
+                u(n) = 1, \forall n \in \Z^+
+            \]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {Möbius函数}
+            [Möbius Function]
+            [白菜]
+            定义\textbf{Möbius函数} \(\mu:\Z^+ \to \C\), 满足
+            \[
+                \mu(n) =
+                \begin{cases}
+                    1 & n=1\\
+                    0 & n \text{有平方因子}\\
+                    (-1)^k & n \text{为} k \text{个不同素数的乘积}
+                \end{cases}
+            \]
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {Möbius函数的可乘性}
+            []
+            [白菜]
+            Möbius函数 \(\mu\) 为可乘函数.
+        \end{ppt}
+        
+        \begin{ppt}
+            []
+            {Möbius函数与1-函数互为卷积逆}
+            []
+            [白菜]
+            设 \(u\) 为1-函数, \(\mu\) 为Möbius函数. 则有
+            \[\mu * u = u * \mu = I\]
+        \end{ppt}
+
+        \begin{dfn}
+            []
+            {Möbius变换}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 定义\(f\)与1-函数 \(u\) 的Dirichlet卷积为\(f\)的Möbius变换, 记作 \(\mathcal{M}(f)\), 即
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {Möbius逆变换}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 定义\(f\)与Möbius函数 \(\mu\) 的Dirichlet卷积为\(f\)的Möbius逆变换, 记作 \(\mathcal{M}^{-1}(f)\), 即
+            \[
+                \mathcal{M}^{-1}(f)(n) = \sum_{d \mid n} f(d) \mu\left(\frac{n}{d}\right)
+            \]
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {Möbius变换与逆变换互为逆运算}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 则有
+            \[\mathcal{M}(\mathcal{M}^{-1}(f)) = \mathcal{M}^{-1}(\mathcal{M}(f)) = f\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {Möbius反演保持乘性}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\) 则\(f\)为可乘函数当且仅当\(\mathcal{M}(f)\)为可乘函数.
+        \end{ppt}
+    \subsection{Dirichlet级数}
+        \begin{dfn}
+            []
+            {Dirichlet级数}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 定义与 \(f\) 相关的\textbf{Dirichlet级数}为
+            \[
+                D_f(s) = \sum_{n=1}^{\infty} \frac{f(n)}{n^s}
+            \]
+            其中 \(s\) 为复变量.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {Dirichlet级数的乘法}
+            []
+            [白菜]
+            设 \(f,g:\Z^+ \to \C\), 则有
+            \[
+                D_{f*g}(s) = D_f(s) \cdot D_g(s)
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {单位函数的Dirichlet级数}
+            []
+            [白菜]
+            设 \(I\) 为单位函数, 则有
+            \[
+                D_I(s) = 1
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {1-函数的Dirichlet级数}
+            []
+            [白菜]
+            设 \(u\) 为1-函数, 则有
+            \[
+                D_u(s) = \zeta(s)
+            \]
+            其中 \(\zeta(s)\) 为Riemann zeta函数.
+        \end{ppt}
+    \subsection{若干数论函数的性质}
+        \begin{dfn}
+            []
+            {约数函数}
+            []
+            [白菜]
+            设 \(n,k:\Z^+\), 定义\textbf{约数函数} \(\sigma_k:\Z^+ \to \C\) 为
+            \[
+                \sigma_k(n) = \sum_{d \mid n} d^k
+            \]
+        \end{dfn}
+
     \section{代数数}
 
         \subsection{代数数与代数整数}
