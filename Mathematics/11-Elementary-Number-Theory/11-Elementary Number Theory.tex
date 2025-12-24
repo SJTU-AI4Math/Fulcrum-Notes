@@ -1509,6 +1509,7 @@
 
 \section{数论函数}
     \subsection{Dirichlet卷积}
+        *为便于复习, 数论函数的命名都与上课课件一致, 后面大概会把这小唐命名改一改(这条之后删)*
         \begin{dfn}
             [multiplicative function]
             {可乘函数}
@@ -1599,6 +1600,22 @@
             设 \(f:\Z^+ \to \C\), 则有
             \[f * I = I * f = f\]
         \end{ppt}
+
+        \begin{thm}
+            []
+            {Dirichlet卷积的可逆性}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\). 则 \(f\) 有Dirichlet卷积的逆元当且仅当 \(f(1) \neq 0\).
+        \end{thm}
+
+        \begin{ppt}
+            []
+            {非退化数论函数关于卷积运算成群}
+            []
+            [白菜]
+            设 \(\mathcal{F} = \{f:\Z^+ \to \C | f(1) \neq 0\}\). 则 \((\mathcal{F}, *)\) 关于Dirichlet卷积构成一个群.
+        \end{ppt}
     \subsection{Möbius函数与Möbius变换}
         \begin{dfn}
             []
@@ -1652,6 +1669,9 @@
             设 \(f:\Z^+ \to \C\), 定义\(f\)与1-函数 \(u\) 的Dirichlet卷积为\(f\)的Möbius变换, 记作 \(\mathcal{M}(f)\), 即
         \end{dfn}
 
+        \begin{rmk}
+            课件用的是\(\hat{f}\)表示Möbius变换, \(\check{f}\)表示逆变换. 拜托简直丑的无以复加(这条会删)
+        \end{rmk}
         \begin{dfn}
             []
             {Möbius逆变换}
@@ -1692,6 +1712,10 @@
             其中 \(s\) 为复变量.
         \end{dfn}
 
+        \begin{rmk}
+            同时, Dirichlet级数也可以唯一确定一个数论函数. 
+        \end{rmk}
+
         \begin{ppt}
             []
             {Dirichlet级数的乘法}
@@ -1700,6 +1724,17 @@
             设 \(f,g:\Z^+ \to \C\), 则有
             \[
                 D_{f*g}(s) = D_f(s) \cdot D_g(s)
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {卷积逆的Dirichlet级数}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 且 \(f(1) \neq 0\). 设 \(g\) 为 \(f\) 的Dirichlet卷积逆元, 则有
+            \[
+                D_g(s) = \frac{1}{D_f(s)}
             \]
         \end{ppt}
 
@@ -1725,18 +1760,388 @@
             \]
             其中 \(\zeta(s)\) 为Riemann zeta函数.
         \end{ppt}
-    \subsection{若干数论函数的性质}
-        \begin{dfn}
+
+        \begin{ppt}
             []
-            {约数函数}
+            {Möbius函数的Dirichlet级数}
             []
             [白菜]
-            设 \(n,k:\Z^+\), 定义\textbf{约数函数} \(\sigma_k:\Z^+ \to \C\) 为
+            设 \(\mu\) 为Möbius函数, 则有
             \[
-                \sigma_k(n) = \sum_{d \mid n} d^k
+                D_{\mu}(s) = \frac{1}{\zeta(s)}
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {Euler函数的Dirichlet级数}
+            []
+            [白菜]
+            设 \(\varphi\) 为Euler函数, 则有
+            \[
+                D_{\varphi}(s) = \frac{\zeta(s-1)}{\zeta(s)}
+            \]
+        \end{ppt}
+    \subsection{若干数论函数的定义与性质}
+        \begin{dfn}
+            []
+            {恒等函数}
+            [Identity Function]
+            [白菜]
+            定义\textbf{恒等函数} \(E:\Z^+ \to \C\)为:
+            \[E(n) = n\]
+        \end{dfn}
+
+        \begin{dfn}
+            [DivisorFunction]
+            {约数函数}
+            [Divisor Function]
+            [白菜]
+            定义\textbf{约数函数} \(d:\Z^+ \to \C\) 为
+            \[
+                d(n) = \sum_{d \mid n} 1
             \]
         \end{dfn}
 
+        \begin{rmk}
+            即约数个数
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {约数函数的卷积表示}
+            []
+            [白菜]
+            约数函数 \(\tau\) 为1-函数\(u\)与自身的Dirichlet卷积:
+            \[
+                \tau = u * u
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数函数的显式}
+            []
+            [白菜]
+            设 \(n:\Z^+\), \(\tau:\Z^+\to\C\), \(\tau\)为约数函数. \(n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}\) 为其素因子分解. 则有
+            \[
+                \tau(n) = \prod_{i=1}^{k} (\alpha_i + 1)
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数函数的乘性}
+            []
+            [白菜]
+            约数函数 \(\tau\) 为可乘函数.
+        \end{ppt}
+
+        \begin{dfn}
+            [SumOfDivisorsFunction]
+            {约数和函数}
+            [sum-of-divisors function]
+            [白菜]
+            设 \(n:\Z^+\), 定义\textbf{约数和函数} \(\sigma:\Z^+ \to \C\) 为
+            \[
+                \sigma(n) = \sum_{d \mid n} d
+            \]
+        \end{dfn}
+
+        \begin{rmk}
+            即全体约数之和
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {约数和函数的卷积表示}
+            []
+            [白菜]
+            约数和函数 \(\sigma\) 为恒等函数 \(E\) 与1-函数 \(u\) 的Dirichlet卷积:
+            \[
+                \sigma = E * u
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数函数的显式}
+            []
+            [白菜]
+            设 \(n:\Z^+\), 且 \(n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}\) 为其素因子分解. 则有
+            \[
+                \sigma(n) = \prod_{i=1}^{k} \frac{p_i^{\alpha_i + 1} - 1}{p_i - 1}
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数和函数的乘性}
+            []
+            [白菜]
+            约数和函数 \(\sigma\) 为可乘函数.
+        \end{ppt}
+
+        \begin{thm}
+            []
+            {Euler函数的卷积表示}
+            []
+            [白菜]
+            设 \(\varphi\) 为Euler函数, \(u\)为1-函数, \(E\)为恒等函数, 则有
+            \[\varphi * u = E\]
+        \end{thm}
+
+        \begin{crl}
+            []
+            {由Möbius反演诱导的Euler函数}
+            []
+            [白菜]
+            设 \(\varphi\) 为Euler函数, \(\mu\)为Möbius函数, \(E\)为恒等函数, 则有
+            \[\varphi = \mu * E\]
+        \end{crl}
+
+        \begin{dfn}
+            [VonMangoldtFunction]
+            {Von Mangoldt函数}
+            [Von Mangoldt Function]
+            [白菜]
+            定义\textbf{Von Mangoldt函数} \(\Lambda:\Z^+ \to \C\) 为
+            \[
+                \Lambda(n) = 
+                \begin{cases}
+                    \log p &\text{if } n = p^k, p\text{素数}, k\in\Z^+ \\
+                    0 &\text{otherwise}
+                \end{cases}
+            \]
+        \end{dfn}
+
+        \begin{dfn}
+            [LogarithmFunction]
+            {对数函数}
+            [Logarithm Function]
+            [白菜]
+            定义\textbf{对数函数} \(\log:\Z^+ \to \C\) 为
+            \[
+                \log(n) = \log n
+            \]
+        \end{dfn}
+
+        \begin{rmk}
+            课件用的是\(L\). (这条会删)
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {Von Mangoldt函数的卷积表示}
+            []
+            [白菜]
+            设 \(I\) 为单位函数, 则有
+            \[\Lambda * u = \log\]
+        \end{ppt}
+
+        \begin{crl}
+            []
+            {由Möbius反演诱导的Von Mangoldt函数}
+            []
+            [白菜]
+            设 \(\Lambda\) 为Von Mangoldt函数, \(\mu\)为Möbius函数, \(\log:\Z^+ \to \C\) 为对数函数, 则有
+            \[\Lambda = \mu * \log\]
+        \end{crl}
+    \subsection{阶的估计}
+        \begin{thm}
+            []
+            {约数函数阶的下界}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则对任意的\(\alpha > 0\). \(\frac{\tau(n)}{(\log n)^\alpha}\)无界
+        \end{thm}
+
+        \begin{thm}
+            []
+            {约数函数阶的上界}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则对任意的\(\epsilon > 0\), 有
+            \[\tau(n)=O(n^\epsilon)\]
+        \end{thm}
+        
+        \begin{thm}
+            []
+            {约数函数的平均阶}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则有
+            \[\sum_{n \leq x} \tau(n) = x \log x + (2\gamma - 1)x + O(\sqrt{x})\]
+            其中 \(\gamma\) 为Euler常数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {约数函数的正规阶}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则对任意的\(\epsilon > 0\), 除去\(o(n)\)个整数外, 有
+            \[\tau(n) = O((\log n)^{\log 2 + \epsilon})\]
+        \end{thm}
+
+        \begin{rmk}
+            由此可以看出, 约数函数的平均阶是由少部分很大的值贡献的.
+        \end{rmk}
+
+        \begin{thm}
+            []
+            {约数和函数的平均阶}
+            []
+            [白菜]
+            设 \(\sigma:\Z^+ \to \C\) 为约数和函数. 则有
+            \[\sum_{n \leq x} \sigma(n) = \frac{\pi^2}{12} x^2 + O(x\log x)\]
+        \end{thm}
+
+        \begin{thm}
+            []
+            {Euler函数的平均阶}
+            []
+            [白菜]
+            设 \(\varphi:\Z^+ \to \C\) 为Euler函数. 则有
+            \[\sum_{n \leq x} \varphi(n) = \frac{3}{\pi^2} x^2 + O(x \log x)\]
+        \end{thm}
+
+        \begin{dfn}
+            [Square-Free Number]
+            {无平方因子数}
+            [Square-Free Number]
+            [白菜]
+            设 \(n:\Z^+\). 若 \(n\) 无平方因子, 则称 \(n\) 为\textbf{无平方因子数}.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {无平方因子数的阶}
+            []
+            [白菜]
+            设 \(Q(x)\) 为不超过 \(x\) 的无平方因子数的个数. 则有
+            \[Q(x) = \frac{6}{\pi^2} x + O(\sqrt{x})\]
+        \end{thm}
+    \subsection{素数分布}
+        
+        \begin{dfn}
+            []
+            {素数计数函数}
+            []
+            [白菜]
+            设 \(x:\R^+\). 定义\textbf{素数计数函数} \(\pi:\R^+ \to \Z^+\) 为
+            \[
+                \pi(x) = card\{p  | p\leq x, p \text{为素数}\}
+            \]
+        \end{dfn}
+
+        \begin{lma}
+            []
+            {Chebyshev引理}
+            []
+            [白菜]
+            设 \(n:\Z^+\), \(\pi\) 为素数计数函数, 则
+            \[(\pi(2n)-\pi(n))\log n\leq\log \binom{2n}{n}\leq \pi(2n)\log 2n\]
+        \end{lma}
+
+        \begin{thm}
+            []
+            {Chebyshev定理}
+            []
+            [白菜]
+            存在常数 \(c_1, c_2 > 0\), 使得对所有 \(x \geq 2\), 有
+            \[c_1 x \leq \pi(x) \leq c_2 x\]    
+        \end{thm}
+
+        \begin{lma}
+            []
+            {素数积的估计}
+            []
+            [白菜]
+            设 \(n:\Z^+\), 则有
+            \[\prod_{p \leq n} p < 4^{n}\]
+        \end{lma}
+
+        \begin{thm}
+            []
+            {Bertrand-Chebyshev定理}
+            []
+            [白菜]
+            设 \(n:\Z^+\), 则在区间 \([n,2n]\) 内至少存在一个素数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {素数定理}
+            []
+            [白菜]
+            设 \(\pi:\R^+ \to \Z^+\) 为素数计数函数. 则有
+            \[\lim_{x \to \infty} \frac{\pi(x)}{x/\log x} = 1\]
+        \end{thm}
+
+        \begin{thm}
+            []
+            {素数倒数和的估计}
+            []
+            [白菜]
+            设 \(p\) 遍历所有素数. 则有
+            \[\sum_{p \leq x} \frac{1}{p} = \log \log x + C + O\left(\frac{1}{\log x}\right)\]
+            其中 \(C\) 为常数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {Mertens定理}
+            []
+            [白菜]
+            设 \(p\) 遍历所有素数. 则有
+            \[\prod_{p \leq x} \left(1 - \frac{1}{p}\right) \sim \frac{e^{-\gamma}}{\log x}\]
+            其中 \(\gamma\) 为Euler常数.
+        \end{thm}
+    \section{连分数}
+        \subsection{有限连分数}
+        \begin{dfn}
+            [FiniteContinuedFraction]
+            {有限连分数}
+            [Finite Continued Fraction]
+            [白菜]
+            设 \(n \in \Z^+\), 对\(1 \leq i \leq n\), 有 \(a_i \neq 0\). 定义由\(\{a_i\}_{i=1}^{n}\)生成的\textbf{有限连分数}为
+            \[
+                [a_1,a_2, a_3, \cdots, a_n] = a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{\ddots + \cfrac{1}{a_n}}}}
+            \]
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {简单连分数}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), 若对\(1 \leq i \leq n\), 有 \(a_i \in \Z^+\). 
+            则称由\(\{a_i\}_{i=1}^{n}\)生成的有限连分数为\textbf{简单连分数}.
+
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {渐进分数}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), 设有限连分数 \([a_1,a_2, a_3, \cdots, a_n]\) 的值为 \(\frac{p_n}{q_n}\).
+            则称 \(\frac{p_n}{q_n}\) 为该有限连分数的\textbf{渐进分数}.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {有限连分数的递推关系}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), 设有限连分数 \([a_1,a_2, a_3, \cdots, a_n]\) 的值为 \(\frac{p_n}{q_n}\).
+            则有
+            \[
+                p_n = a_n p_{n-1} + p_{n-2}, \quad q_n = a_n q_{n-1} + q_{n-2}
+            \]
+            其中初始条件为 \(p_{-1} = 1, p_0 = a_1; q_{-1} = 0, q_0 = 1\).
+        \end{ppt}
     \section{代数数}
 
         \subsection{代数数与代数整数}
