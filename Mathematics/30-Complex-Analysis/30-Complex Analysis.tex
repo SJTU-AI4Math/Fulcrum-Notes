@@ -3798,8 +3798,49 @@
             {Riemann映照定理}
             [Riemann Mapping Theorem]
             [Dedicatia]
-            给定 \(D\subsetneqq\C\) 是单连通区域和 \(z_0\in D\), 在 \(D\) 上存在唯一一个解析函数 \(f\) 满足 \(f(z_0)=0, f'(z_0)>0\), 使得 \(f(z)\) 将 \(D\) 映到圆盘 \(\mathbb{D}\), 且 \(f\) 是\hyperref[dfn:Conformal-Mapping]{共形映照}.
+            给定 \(D\subsetneqq\C\) 是单连通区域和 \(z_0\in D\), 在 \(D\) 上存在唯一一个解析函数 \(f\) 满足 \(f(z_0)=0, \arg f'(z_0)=\theta_0\), 使得 \(f(z)\) 将 \(D\) 映到圆盘 \(\mathbb{D}\), 且 \(f\) 是\hyperref[dfn:Conformal-Mapping]{共形映照}.
         \end{thm}
+
+        \begin{prf}
+            固定 \(z_0\in D\). 对任意解析单射 \(f:D\to\mathbb{D}\): 构造函数族
+            \[\mathcal{F}:=\{f:D\to\mathbb{D},f(z_0)=0 \}.\]
+            定义 
+            \[\alpha:=\sup_{f\in\mathcal{F}}|f'(z_0)|\in(0,+\infty]\]
+            现在要证明 \(f'\) 一致有界. 取 \(D\) 中以 \(z_0\) 为中心的闭圆盘 \(K\subseteq D\). 其具有有限的半径 \(r\). 根据 Cauchy 估值不等式
+            \[|f'(z_0)|\leq\frac{1}{r}\sup_{z\in\partial K}|f(z)|\leq \frac{1}{r}. \]
+            这说明 \(\exists\,M\in\R,\st |f'(z)|\leq M\).\\
+            接下来证明 \(f\) 是正规族 / 序列紧. 由于 \(f\) 将 \(D\) 映到单位圆盘, 所以 \(|f|\leq 1\), \(\mathcal{F}\) 是一致有界的. 根据 Montel 定理可知其是正规的. \\
+            设 \(\mathcal{F}\) 中的函数列 \(\{f_n\}\) 在 \(D\) 上紧致收敛到 \(f_0\). 由于 \(f\) 都是解析单射, 如果 \(f_0\) 是常解析函数就会使 \(\lim\limits_{n\to+\infty}f'_n=0\). 这是不可能的. 所以 \(f_0:U\to\mathbb{D}\) 也是解析单射.\\
+            接下来证明 \(\exists f_0\in\mathcal{F}\), \(|f'_0(z_0)|=\alpha\). 即该上确界可以取到. 可取一列函数列 \(\{f_n\}\subset\mathcal{F}\), 使得 \(|f'_n(z_0)|\to\alpha\). 由于函数列是紧致收敛的, 所以其导数也是紧致收敛的. 在 \(z_0\) 邻域的闭子集可以取到 \(\alpha\). 并且此 \(f_0\) 是解析单射.\\
+            接下来考虑 \(f_0\) 的像. 反设: \(f(D)=\Omega\subsetneqq\mathbb{D}\). 那么取 \(w_1\in\mathbb{D}\setminus\Omega\) 构造 M\"obius 同构
+            \[\phi(w)=\frac{w-w_1}{1-\bar{w}_1w}\]
+            其将 \(w_1\) 映到 \(0\). 定义映射 \(g:=\phi\circ f_0\). 为了将 \(g(z_0)\) 映到 \(0\), 定义复合映射
+            \[\tilde{g}(z)=\frac{g(z)-g(z_0)}{1-\overline{g(z_0)}g(z)}\]
+            显然有 \(\tilde{g}\in\mathcal{F}\) 且 \(\tilde{g}(z_0)=0\). 计算得
+            \[|\tilde{g}'(z_0)|=\frac{1-|g(z_0)|^2}{1-|w_1|^2}|f_0'(z_0)|\]
+            由于 \(w_1\notin\Omega \), 所以 
+            \[|\tilde{g}'(z_0)|=\frac{1-|g(z_0)|^2}{1-|w_1|^2}|f_0'(z_0)|\geq |f_0'(z_0)|\]
+            这说明 \(|\tilde{g}'(z_0)|\) 超过了上确界 \(\alpha\). 显然不可能发生. 这说明不存在这样的 \(w_1\). 即 \(f(D)=\mathbb{D}\), \(f_0\) 是满射, 因而 \(f_0\) 是解析双射, 也就是共形映射.\\
+            最后证明其唯一性: 如果 \(f,g\) 都是 \(D\to\mathbb{D}\) 上的共形映射且 \(f(z_0)=g(z_0)=0\), \(\arg f'(z_0)=\arg g'(z_0)=\theta_0\), 那么 \(f=g\). 证明 \(g^{-1}\circ f=\mathbf{1}\). 使用 Schwarz 引理可知 \(g^{-1}\circ f:\mathbb{D}\to\mathbb{D}=\exp(\ii t)\). 由于 \(\arg f'(z_0)=\arg g'(z_0)\) 的限制, 得到 \(\exp(\ii t)=1\) 恒成立. 所以 \(f=g\) 恒成立. 这就证明了共形映射是唯一的.
+        \end{prf}
+
+        \begin{rmk}
+            [Dedicatia]
+            这就说明了复平面上的任意单连通区域（不为 \(\C\) 本身）都可以被共形映照到单位圆盘上.
+        \end{rmk}
+
+        \begin{thm}
+            []
+            {边界对应原理}
+            []
+            [Dedicatia]
+            设区域 \(D\) 的边界 \(\gamma\) 是Jordan曲线, \(f:D\to\mathbb{D}\) 是\ConformalMapping. 那么 \(\exists\,\tilde{f}:\overline{D}\to\overline{\mathbb{D}}\), \(\tilde{f}\) 是一个\ConformalMapping.
+        \end{thm}
+
+        \begin{rmk}
+            [Dedicatia]
+            共形映射 \(f\) 将内点映到内点, 将边界点映到边界点.
+        \end{rmk}
     
     \subsection{多边形的共性映射}
     

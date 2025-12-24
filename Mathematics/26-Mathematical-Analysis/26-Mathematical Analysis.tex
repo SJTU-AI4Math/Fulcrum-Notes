@@ -4546,12 +4546,20 @@
 				\[A(\alpha\bm{x}+\beta\bm{y})=\alpha A(\bm{x})+\beta A(\bm{y}).\]
 			\end{dfn}
 
+			\begin{dfn}
+				[Linear-Functional]
+				{线性泛函}
+				[Linear Functional]
+				[Dedicatia]
+				设 \((V, \norm{\cdot})\) 是赋范线性空间, \(D\subseteq V\) 是 \(V\) 的线性子空间, 线性算子 \(T: D\to\F\) 称为\textbf{线性泛函}, 其中 \(\F\) 是数域 \(\R\) 或 \(\C\).
+			\end{dfn}
+
 			\begin{thm}
 				[]
 				{\(R^n\) 上的线性算子的双射性与维度的关系}
 				[]
 				[Dedicatia]
-				\(R^n\) 上的线性算子是双射当且仅当其值域是 \(\R^n\).
+				\(\R^n\) 上的线性算子是双射当且仅当其值域是 \(\R^n\).
 			\end{thm}
 
 			\begin{dfn}
@@ -4570,6 +4578,18 @@
 				[Dedicatia]
 				对于线性算子 \(T\), 若存在 \(M>0\) 使得 \(\norm{T}\leq M\), 则称 \(T\) 是\textbf{有界线性算子}. 
 			\end{dfn}
+
+			\begin{xmp}
+				[]
+				{无界线性算子}
+				[]
+				[Dedicatia]
+				设 \(C[0,1]\) 是 \([0,1]\) 上的连续函数空间, \(C^1[0,1]\) 是 \([0,1]\) 上的可导函数空间, 定义线性算子 \(A: C^1[0,1]\to C[0,1]\):
+				\[(Af)(t)=\dv{t}f(t)\]
+				则 \(A\) 是无界线性算子. 如果取函数列 \(f_n(t)=t^n\), 则 \(\norm{f_n}=\max_{t\in\Icc{0}{1}}|t^n|=1\). 而
+				\[\norm{Af_n}=\max_{t\in\Icc{0}{1}}|nt^{n-1}|=n.\]
+				因此, 对任意的 \(M>0\), 存在 \(n>M\), 使得 \(\norm{Af_n}>M\norm{f_n}\), 故 \(A\) 是无界线性算子.
+			\end{xmp}
 
 			\begin{dfn}
 				[]
@@ -4599,10 +4619,60 @@
 
 			\begin{thm}
 				[]
-				{有界线性算子当且仅当连续线性算子}
+				{有界线性算子等价于连续线性算子}
 				[]
 				[Dedicatia]
 				设 \((X, \norm{\cdot}_X)\), \((Y, \norm{\cdot}_Y)\) 是两个赋范线性空间, \(T: X\to Y\) 是线性算子, 则 \(T\) 是有界线性算子当且仅当 \(T\) 是连续线性算子.
+			\end{thm}
+
+			\begin{prf}
+				充分性: 设 \(T\) 是有界线性算子, 那么 \(\exists\,M>0\) 使得 \(\norm{Tx}\leq M\norm{x}\). 设 \(x_n\to x_0\), 则
+				\[\norm{T(x_n)-T(x_0)}=\norm{T(x_n-x_0)}\leq M\norm{x_n-x_0}\to 0.\]
+				必要性: 假设 \(T\) 无界, 那么 \(\forall\,n\in\N\), 存在函数列 \(x_n\) 使得
+				\[\norm{Tx_n}>n\norm{x_n}.\]
+				令 \(y_n=\frac{x_n}{n\norm{x_n}}\), 则 \(\norm{y_n}=\frac{1}{n}\to 0\). 但 \(\norm{Ty_n}=\frac{\norm{Tx_n}}{n\norm{x_n}}>1\not\to 0\). 这与 \(T\) 的连续型矛盾.
+			\end{prf}
+
+			\begin{dfn}
+				[]
+				{开映射}
+				[]
+				[Dedicatia]
+				设 \((X, \norm{\cdot}_X)\), \((Y, \norm{\cdot}_Y)\) 是两个赋范线性空间, \(T:X\to Y\) 是映射. 定义 \(T\) 是开映射, 当且仅当 \(X\) 中的开集 \(G\) 经过 \(T\) 映射到 \(Y\) 中的像 \(T(G)\) 也是开集.
+			\end{dfn}
+
+			\begin{thm}
+				[]
+				{线性映射的开映射定理}
+				[]
+				[Dedicatia]
+				设 \((X, \norm{\cdot}_X)\), \((Y, \norm{\cdot}_Y)\) 都是 Banach 空间. \(T:X\to Y\) 是连续线性映射且是满射, 那么 \(T\) 是开映射.
+			\end{thm}
+
+			\begin{thm}
+				[]
+				{有界逆算子定理}
+				[]
+				[Dedicatia]
+				设 \((X, \norm{\cdot}_X)\), \((Y, \norm{\cdot}_Y)\) 都是Banach空间. \(T:X\to Y\) 是有界线性算子且是双射, 那么 \(T^{-1}:Y\to X\) 也是有界线性算子.
+			\end{thm}
+
+			\begin{prf}
+				由于 \(T\) 是双射, 故 \(T^{-1}\) 存在且良定义. 由于 \(T\) 是线性算子, 容易证明 \(T^{-1}\) 也是线性算子. \\
+				由开映射定理, \(T\) 将 \(X\) 的开集 \(G\) 映到 \(Y\) 中的开集 \(T(G)\). 即
+				\[(T^{-1})^{-1}(G)=T(G)\]
+				是开集. \(T^{-1}\) 是连续映射. 故 \(T^{-1}\) 也是有界线性算子.
+			\end{prf}
+
+			\begin{thm}
+				[]
+				{一致有界定理}
+				[]
+				[Dedicatia]
+				设 \(X\) 是Banach空间, \(Y\) 是赋范线性空间, 一列有界线性算子 \(T_n\in L(X,Y)\) 满足
+				\[\forall\,x\in X,\sup_{n\in\N}\norm{T_n}_Y<+\infty\]
+				那么
+				\[\sup_{n\in\N}\norm{T_n}<+\infty.\]
 			\end{thm}
 
 			\begin{ppt}
@@ -4655,6 +4725,37 @@
 				这时 \(Ah=\inprod{\bm{a}}{\dd\bm{x}}\) 即全微分:
 				\[\inprod{\bm{a}}{\dd\bm{x}}=\pdv{f}{x_1}\dd{x_1}+\cdots+\pdv{f}{x_n}\dd{x_n}.\]
 			\end{xmp}
+
+			\begin{xmp}
+				[]
+				{Hammerstein 积分算子的 Fr\'echet 可微性}
+				[]
+				[Dedicatia]
+				定义 \textbf{Hammerstein 积分算子}
+				\[T:C[a,b]\to C[a,b]\]
+				\[(Tx)(t)=\int_{a}^{b}k(t,s)g(s,x(s))\dd{s}\]
+				其中 \(k(s,t)\) 在区域 \(\Icc{a}{b}\times\Icc{a}{b}\) 上连续, \(g(u,v)\) 在 \(\Icc{a}{b}\times\Ioo{-\infty}{+\infty}\) 上连续, 且导函数 \(\pdv{g}{v}\) 一致连续. 那么 \(T\) 是 Fr\'echet 可微的.
+			\end{xmp}
+
+			\begin{prf}
+				对任意 \(h\in C[a,b]\), 有:
+				\[(T(x+h)-T(x))(t)=\int_{a}^{b}k(t,s)(g(s, x(s)+h(s))-g(s,x(s)))\dd{s}\]
+				由Lagrange中值定理
+				\[g(s, x(s)+h(s))-g(s,x(s))=g'_v(s,x(s)+\theta(s)h(s))h(s)\]
+				其中 \(\theta(s)\in\Icc{0}{1}\). 由条件
+				\[g'_v(s,x(s)+\theta(s)h(s))h(s)=g'_v(s,x(s))+\alpha(h(s))\]
+				当 \(\norm{h}\to 0\), 由于 \(g'_v\) 是一致连续, 故 \(\alpha(h(s))\to 0\). \\
+				得到
+				\[\begin{matrix}
+					T(x+h) - T(x) & = & \int_{a}^{b} k(t,s)g'_v(s,x(s))h(s)\dd{s} & + & \int_{a}^{b} k(t,s)\alpha(h(s))\dd{s} \\
+					& & \downarrow & & \downarrow \\
+					& = & Ah & + & R(x;h). 
+				\end{matrix}\]
+				当 \(\norm{h}\to 0\) 时:
+				\[\frac{\norm{R(x;h)}}{\norm{h}}\leq \frac{\displaystyle\max_{t,s\in\Icc{a}{b}\times\Icc{a}{b}}|k(s,t)|\norm{(b-a)\alpha(h(s))}\norm{h}}{\norm{h}}\to 0.\]
+				所以 \(T\) 是 Fr\'echet 可微的:
+				\[T'h=\int_{a}^{b}k(t,s)g'_v(s,x(s))h(s)\dd{s}. \]
+			\end{prf}
 
 			\begin{ppt}
 				[]
