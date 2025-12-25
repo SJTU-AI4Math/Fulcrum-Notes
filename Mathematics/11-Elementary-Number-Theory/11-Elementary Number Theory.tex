@@ -2107,17 +2107,18 @@
             [白菜]
             设 \(n \in \Z^+\), 对\(1 \leq i \leq n\), 有 \(a_i \neq 0\). 定义由\(\{a_i\}_{i=1}^{n}\)生成的\textbf{有限连分数}为
             \[
-                [a_1,a_2, a_3, \cdots, a_n] = a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{\ddots + \cfrac{1}{a_n}}}}
+                a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{\ddots + \cfrac{1}{a_n}}}}
             \]
+            记作\([a_1,a_2, a_3, \cdots, a_n]\)
         \end{dfn}
 
         \begin{dfn}
             []
-            {简单连分数}
+            {简单有限连分数}
             []
             [白菜]
-            设 \(n \in \Z^+\), 若对\(1 \leq i \leq n\), 有 \(a_i \in \Z^+\). 
-            则称由\(\{a_i\}_{i=1}^{n}\)生成的有限连分数为\textbf{简单连分数}.
+            设 \(n \in \Z^+\), 若对\(2 \leq i \leq n\), 有 \(a_i \in \Z^+\). 
+            则称由\(\{a_i\}_{i=1}^{n}\)生成的有限连分数为\textbf{简单有限连分数}.
 
         \end{dfn}
 
@@ -2126,22 +2127,112 @@
             {渐进分数}
             []
             [白菜]
-            设 \(n \in \Z^+\), 设有限连分数 \([a_1,a_2, a_3, \cdots, a_n]\) 的值为 \(\frac{p_n}{q_n}\).
-            则称 \(\frac{p_n}{q_n}\) 为该有限连分数的\textbf{渐进分数}.
+            设 \(n \in \Z^+\), \(\{a_i\}_{i=1}^{\infty}\)为整数列, 设有限连分数 \([a_1,a_2, a_3, \cdots, a_n]\) 的值为 \(\frac{p_n}{q_n}\).
+            且\(\gcd(p_n,q_n) = 1\). 
+            则称 \(\frac{p_n}{q_n}\) 为该连分数的第\(n\)个\textbf{渐进分数}.
         \end{dfn}
 
         \begin{ppt}
             []
-            {有限连分数的递推关系}
+            {连分数的递推关系}
             []
             [白菜]
-            设 \(n \in \Z^+\), 设有限连分数 \([a_1,a_2, a_3, \cdots, a_n]\) 的值为 \(\frac{p_n}{q_n}\).
-            则有
+            设 \(n \in \Z^+\), 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 由下面的递推关系
+            定义的数列 \(\{p_n\}, \{q_n\}\) 的比值\(\frac{p_n}{q_n}\)恰为\(\{a_i\}_{i=1}^\infty\)前\(n\)项生成
+            的有限连分数的值. 其中
+            \[p_{-1} = 1, p_0 = a_1; q_{-1} = 0, q_0 = 1\]
             \[
-                p_n = a_n p_{n-1} + p_{n-2}, \quad q_n = a_n q_{n-1} + q_{n-2}
+                p_k = a_k p_{k-1} + p_{k-2}, \quad q_k = a_k q_{k-1} + q_{k-2}
             \]
-            其中初始条件为 \(p_{-1} = 1, p_0 = a_1; q_{-1} = 0, q_0 = 1\).
+            并且有
+            \[
+                \begin{vmatrix}
+                    p_{k} & p_{k-1} \\
+                    q_{k} & q_{k-1}
+                \end{vmatrix}
+                = (-1)^{k}
+            \]
+
+            \[
+                \begin{vmatrix}
+                    p_{k} & p_{k-2} \\
+                    q_{k} & q_{k-2}
+                \end{vmatrix}
+                = (-1)^{k-1} a_k
+            \]
+            于是\(\gcd(p_k,q_k) = 1\), \(\frac{p_n}{q_n}\)即为该连分数的渐进分数.
         \end{ppt}
+
+        \begin{ppt}
+            []
+            {渐进分数的单调性}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 设第\(n\)个渐进分数为\(\frac{p_n}{q_n}\). 则
+            \begin{enumerate}
+                \item 当\(k\geq 3\)时, \(q_k \geq q_{k-1} + q_{k-2}\)
+                \item 当 \(k \geq 2\) 时, \(\frac{p_{2k-3}}{q_{2k-3}} < \frac{p_{2k-1}}{q_{2k-1}} < \frac{p_{2k}}{q_{2k}} < \frac{p_{2k-2}}{q_{2k-2}}\)
+                \item \(\lim\limits_{k \to \infty} \left(\frac{p_{2k}}{q_{2k}} - \frac{p_{2k-1}}{q_{2k-1}}\right)=0\).
+            \end{enumerate}
+        \end{ppt}
+
+        \begin{rmk}
+            可以发现, \(\left[\frac{p_{2k-1}}{q_{2k-1}},\frac{p_{2k}}{q_{2k}}\right]\)构成一个闭区间套, 于是简单连分数序列一定收敛
+        \end{rmk}
+
+        \begin{crl}
+            []
+            {连分数的收敛性}
+            []
+            [白菜]
+            设 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 其渐进分数序列收敛.
+        \end{crl}
+
+        \begin{dfn}
+            [InfiniteContinuedFraction]
+            {无限连分数}
+            [Infinite Continued Fraction]
+            [白菜]
+            设 对于数列\(\{a_i\}_{i=1}^{\infty}\), 若极限\(\lim_{n \to \infty} [a_1,a_2,a_3,\cdots,a_n]\)存在, 
+            则称其为由\(\{a_i\}_{i=1}^{\infty}\)生成的\textbf{无限连分数}, 记作
+               \( [a_1,a_2,a_3,\cdots]\)或\([\{a_i\}_{i=1}^\infty]\)
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {用连分数序列逼近实数}
+            []
+            [白菜]
+            对任意\(x:\R\), 则由下面的归纳过程生成的数列\(\{a_n\}\)可得到一个收敛于\(x\)的有限或无限简单连分数:
+            \[a_1=\lfloor x \rfloor, y_1=\{x\}\]
+            \[a_{n+1}=\lfloor \frac{1}{y_n} \rfloor, y_{n+1}=\{\frac{1}{y_n}\}\]
+            当\(x\)为有理数时, 会在某步\(y_n=0\)时终止, 此时\(x\)恰好等于连分数\([a_1,a_2,\cdots,a_n]\);
+            否则若\(x\)为无理数, 递推会无限进行下去, 则连分数序列\(\{[a_1], [a_1,a_2], [a_1,a_2,a_3], \cdots\}\)收敛于\(x\).
+        \end{thm}
+
+        \begin{thm}
+            []
+            {连分数表示唯一性}
+            []
+            [白菜]
+            设 \(x:\R\). 若\(x\)为有理数, 则有且仅有两种有限简单连分数表示法, 即
+            \[x=[a_1,a_2,\cdots,a_{n-1},a_n] = [a_1,a_2,\cdots,a_{n-1},a_n - 1, 1]\]
+            若 \(x\)为无理数, 则有且仅有一个无限简单连分数表示法.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {连分数的最佳逼近性}
+            []
+            [白菜]
+            设 \(x:\R\), 且其连分数表示为 \([a_1,a_2,a_3,\cdots]\). 设第\(n\)个渐进分数为 \(\frac{p_n}{q_n}\). 则对任意满足
+            \(0 < q \leq q_n\) 的整数 \(q\), 有
+            \[
+                \left|x - \frac{p_n}{q_n}\right| \leq \left|x - \frac{p}{q}\right|
+            \]
+            其中等号成立当且仅当 \(\frac{p}{q} = \frac{p_n}{q_n}\).
+        \end{thm}
+
     \section{代数数}
 
         \subsection{代数数与代数整数}
