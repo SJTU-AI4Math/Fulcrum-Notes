@@ -1205,6 +1205,27 @@
                 可以将问题拆分为两两互素的二次同余方程组是否有解, 进而由中国剩余定理得到原方程是否有解
             \end{rmk}
         \subsection{表素数为二平方和}
+            \begin{lma}
+                []
+                {可表为二平方和的奇数模4余1}
+                []
+                [白菜]
+                设\(a:\Z\)为奇数. 若存在\(x,y:\Z\), 使得
+                \[a = x^2 + y^2\]
+                则有
+                \[a \equiv 1 \mod{4}\]
+            \end{lma}
+
+            \begin{lma}
+                []
+                {}
+                []
+                [白菜]
+                设\(p:\Z\)为奇素数, 则不定方程
+                \[p = x^2 + 2y^2\]
+                有解当且仅当\(\left(\frac{-2}{p}\right)=1\)当且仅当\(p\)模\(8\)余\(1\)或\(3\).
+            \end{lma}
+
             \begin{thm}
                 []
                 {费马二平方和定理}
@@ -1212,7 +1233,51 @@
                 [白菜]
                 设\(p:\Z\)为奇素数. 则\(p\)能表示为两个整数的平方和的充分必要条件是
                 \[p\equiv 1 \mod{4}\]
-                
+            \end{thm}
+
+            \begin{thm}
+                []
+                {素数表为二平方和的唯一性}
+                []
+                [白菜]
+                设\(p,x,y:\Z\), \(p\)为奇素数, 若\(p\equiv 1 \mod{4}\), 则不定方程\(p=x^2+y^2\)有且仅有一组正整数解满足
+                \(0<x<y\)
+            \end{thm}
+
+            \begin{lma}
+                []
+                {二平方和数的乘法封闭性}
+                []
+                [白菜]
+                设\(a,b, x,y,u,v:\Z\), 若\(a=x^2+y^2\), \(b=u^2+v^2\), 则
+                \[ab = (xu-yv)^2 + (xv+yu)^2\]
+            \end{lma}
+
+            \begin{thm}
+                []
+                {合数表为二平方和的充分必要条件}
+                []
+                [白菜]
+                设\(n:\Z\), 则\(n\)能表示为两个整数的平方和的充分必要条件是
+                对于任意形如\(4k+3\)的素数\(p\), 若\(p\mid n\), 则\(p\)在\(n\)的素因子分解中出现偶数次.
+            \end{thm}
+        \subsection{四平方和定理}
+            \begin{lma}
+                []
+                {四平方和数的乘法封闭性}
+                []
+                [白菜]
+                设\(a,b, x,y,u,v,w,z:\Z\), 若\(a=x^2+y^2+z^2+w^2\), \(b=u^2+v^2+w^2+z^2\), 则
+                \[ab = (xu-yv-zw-zw)^2 + (xv+yu+zw-zw)^2 + (xw-yz+zu-vw)^2 + (xz+yw-vu+wv)^2\]
+            \end{lma}
+
+            \begin{thm}
+                []
+                {Lagrange四平方和定理}
+                []
+                [白菜]
+                设\(n:\Z^+\), 则存在\(x,y,u,v:\Z\), 使得
+                \[n = x^2 + y^2 + u^2 + v^2\]
             \end{thm}
 
     \section{原根与阶}
@@ -2187,6 +2252,7 @@
             [白菜]
             设 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 其渐进分数序列收敛.
         \end{crl}
+        \subsection{无限连分数}
 
         \begin{dfn}
             [InfiniteContinuedFraction]
@@ -2233,16 +2299,55 @@
             其中等号成立当且仅当 \(\frac{p}{q} = \frac{p_n}{q_n}\).
         \end{thm}
 
+        \begin{dfn}
+            []
+            {循环连分数}    
+            []
+            [白菜]
+            设 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 存在正整数 \(k,m\), 使得对任意的 \(n \geq m\), 有
+            \[a_n = a_{n+k}\]
+            则称由\(\{a_i\}_{i=1}^{\infty}\)生成的连分数为\textbf{循环连分数}.
+            该数列生成的无限连分数记作
+            \[[a_1,a_2,\cdots,a_{m-1},\dot{a}_m,a_{m+1},\cdots,\dot{a}_{m+k-1}]\]    
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {循环连分数是二次代数数}
+            []
+            [白菜]
+            设 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 若其生成的连分数是循环连分数, 则该连分数表示的实数是二次代数数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {二次代数数的连分数表示是循环的}
+            []
+            [白菜]
+            设 \(x:\R\). 若 \(x\) 为二次代数数, 则其连分数表示为循环连分数.
+        \end{thm}
+    \subsection{Pell方程}
+        \begin{thm}
+            []
+            {Pell方程的解的存在性}
+            []
+            [白菜]
+            设 \(d \in \Z^+\) 为非完全平方数, 则方程
+            \[x^2 - d y^2 = 1\]
+            有无穷多组整数解 \((x,y)\), 且存在唯一的最小正整数解 \((x_1,y_1)\), 使得任意解均可表示为
+            \[
+                x_n + y_n \sqrt{d} = (x_1 + y_1 \sqrt{d})^n, n \in \Z^+
+            \]
+        \end{thm}
+        
     \section{代数数}
-
-        \subsection{代数数与代数整数}
-
+        \subsection{代数数与超越数}
             \begin{dfn}
                 [Algebraic-Number]
                 {代数数}
                 [Algebraic Number]
                 [猫猫]
-                设 \(\xi:\R\), 定义 \(\xi\) 为\textbf{代数数}, 当且仅当: 
+                设 \(\xi:\C\), 定义 \(\xi\) 为\textbf{代数数}, 当且仅当: 
                 \[\exists f \in \Q[x], f \neq 0, f(\xi) = 0\]
 
                 定义 \(\xi\) 为\textbf{代数整数}, 当且仅当:
@@ -2265,8 +2370,103 @@
                 \end{enumerate}
             \end{ppt}
 
+            \begin{dfn}
+                []
+                {超越数}
+                []
+                [白菜]
+                设 \(\xi:\C\), 定义 \(\xi\) 为\textbf{超越数}, 当且仅当:
+                \[\forall f \in \Q[x], f(\xi) \neq 0\]
+            \end{dfn}
+
+            \begin{thm}
+                []
+                {e的无理性}
+                []
+                [白菜]
+                设\(t:\Q\), \(e\)为自然常数, 则\(e^t\)为无理数.
+            \end{thm}
+
+            \begin{thm}
+                []
+                {\(\pi\)的无理性}
+                []
+                [白菜]
+                \(\pi\)和\(\pi^2\)均为无理数.
+            \end{thm}
+
+            \begin{thm}
+                []
+                {e与\(\pi\)的超越性}
+                []
+                [白菜]
+                \(e\)与\(\pi\)均为超越数.
+            \end{thm}
+        \subsection{代数数域}
+            \begin{thm}
+                []
+                {代数数构成域}
+                []
+                [白菜]
+                设 \(\A\) 为代数数集合. 则 \(\A\) 关于复数的加法与乘法构成一个\(\C\)的子域.
+            \end{thm}
+
+            \begin{prf}
+                设\(\alpha, \beta:\A\)设 \(f(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_0\) 是一个有理系数多项式。考虑其友阵为:
+                
+                \[
+                C(f) =
+                \begin{pmatrix}
+                0 & 0 & \cdots & 0 & -a_0 \\
+                1 & 0 & \cdots & 0 & -a_1 \\
+                0 & 1 & \cdots & 0 & -a_2 \\
+                \vdots & \vdots & \ddots & \vdots & \vdots \\
+                0 & 0 & \cdots & 1 & -a_{n-1}
+                \end{pmatrix}
+                \]
+                
+                则\(C(f)\)的特征多项式即为 \(f(x)\). 设\(\alpha, \beta\)的极小多项式分别为 \(f(x), g(x)\).
+                则\(\alpha\beta\)即为\(C(f)\otimes C(g)\)的特征值之一, 故代数数的乘法封闭.
+                \(\alpha+\beta\)即为\(C(f)\otimes I_1+I_2\otimes C(g)\)的特征值之一, 
+                其中\(I_1, I_2\)是单位矩阵, 大小适当选取以使得加法有意义. 故代数数的加法封闭.
+                而由于极小性, 若\(\alpha\neq 0\), 则\(C(f)\)可逆, 且逆矩阵也为有理系数矩阵. 
+                因此\(\alpha^{-1}\)也是有理系数多项式的根. 于是非零代数数的倒数也是代数数. 
+                \(1\)与\(0\)显然分别单位元与零元, 并且也为代数数, 故代数数构成域.
+            \end{prf}
         \subsection{代数整数环}
-        \subsection{代数整数环的理想}
+            \begin{dfn}
+                [AlgebraicInteger]
+                {代数整数}
+                [Algebraic Integer]
+                [白菜]
+                设 \(\xi:\C\), 定义 \(\xi\) 为\textbf{代数整数}, 当且仅当:
+                \[\exists f \in \Z[x], f \text{首一}\land f(\xi) = 0\]
+
+                代数整数类型记作 \(\mathbb{O}\). 
+            \end{dfn}
+
+            \begin{lma}
+                []
+                {代数数为代数整数当且仅当极小多项式为整系数多项式}
+                []
+                [白菜]
+                设 \(\xi:\A\), 则 \(\xi\) 为代数整数当且仅当 \(\xi\) 的极小多项式属于 \(\Z[x]\).
+            \end{lma}
+
+            \begin{thm}
+                []
+                {代数整数构成环}
+                []
+                [白菜]
+                设 \(\mathbb{O}\) 为代数整数集合. 则 \(\mathbb{O}\) 关于复数的加法与乘法构成一个环.
+            \end{thm}
+
+            \begin{prf}
+                依然是考虑极小多项式友阵的张量积. 可以证明加法和乘法的封闭性.
+            \end{prf}
+        \begin{rmk}
+            后面就是代数数论的内容了. 初等数论, 堂堂完结!
+        \end{rmk}
 
 
 
