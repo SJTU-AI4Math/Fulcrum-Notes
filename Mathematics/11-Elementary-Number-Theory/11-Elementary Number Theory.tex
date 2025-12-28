@@ -1205,6 +1205,27 @@
                 可以将问题拆分为两两互素的二次同余方程组是否有解, 进而由中国剩余定理得到原方程是否有解
             \end{rmk}
         \subsection{表素数为二平方和}
+            \begin{lma}
+                []
+                {可表为二平方和的奇数模4余1}
+                []
+                [白菜]
+                设\(a:\Z\)为奇数. 若存在\(x,y:\Z\), 使得
+                \[a = x^2 + y^2\]
+                则有
+                \[a \equiv 1 \mod{4}\]
+            \end{lma}
+
+            \begin{lma}
+                []
+                {}
+                []
+                [白菜]
+                设\(p:\Z\)为奇素数, 则不定方程
+                \[p = x^2 + 2y^2\]
+                有解当且仅当\(\left(\frac{-2}{p}\right)=1\)当且仅当\(p\)模\(8\)余\(1\)或\(3\).
+            \end{lma}
+
             \begin{thm}
                 []
                 {费马二平方和定理}
@@ -1212,7 +1233,51 @@
                 [白菜]
                 设\(p:\Z\)为奇素数. 则\(p\)能表示为两个整数的平方和的充分必要条件是
                 \[p\equiv 1 \mod{4}\]
-                
+            \end{thm}
+
+            \begin{thm}
+                []
+                {素数表为二平方和的唯一性}
+                []
+                [白菜]
+                设\(p,x,y:\Z\), \(p\)为奇素数, 若\(p\equiv 1 \mod{4}\), 则不定方程\(p=x^2+y^2\)有且仅有一组正整数解满足
+                \(0<x<y\)
+            \end{thm}
+
+            \begin{lma}
+                []
+                {二平方和数的乘法封闭性}
+                []
+                [白菜]
+                设\(a,b, x,y,u,v:\Z\), 若\(a=x^2+y^2\), \(b=u^2+v^2\), 则
+                \[ab = (xu-yv)^2 + (xv+yu)^2\]
+            \end{lma}
+
+            \begin{thm}
+                []
+                {合数表为二平方和的充分必要条件}
+                []
+                [白菜]
+                设\(n:\Z\), 则\(n\)能表示为两个整数的平方和的充分必要条件是
+                对于任意形如\(4k+3\)的素数\(p\), 若\(p\mid n\), 则\(p\)在\(n\)的素因子分解中出现偶数次.
+            \end{thm}
+        \subsection{四平方和定理}
+            \begin{lma}
+                []
+                {四平方和数的乘法封闭性}
+                []
+                [白菜]
+                设\(a,b, x,y,u,v,w,z:\Z\), 若\(a=x^2+y^2+z^2+w^2\), \(b=u^2+v^2+w^2+z^2\), 则
+                \[ab = (xu-yv-zw-zw)^2 + (xv+yu+zw-zw)^2 + (xw-yz+zu-vw)^2 + (xz+yw-vu+wv)^2\]
+            \end{lma}
+
+            \begin{thm}
+                []
+                {Lagrange四平方和定理}
+                []
+                [白菜]
+                设\(n:\Z^+\), 则存在\(x,y,u,v:\Z\), 使得
+                \[n = x^2 + y^2 + u^2 + v^2\]
             \end{thm}
 
     \section{原根与阶}
@@ -1509,6 +1574,7 @@
 
 \section{数论函数}
     \subsection{Dirichlet卷积}
+        *为便于复习, 数论函数的命名都与上课课件一致, 后面大概会把这小唐命名改一改(这条之后删)*
         \begin{dfn}
             [multiplicative function]
             {可乘函数}
@@ -1599,6 +1665,22 @@
             设 \(f:\Z^+ \to \C\), 则有
             \[f * I = I * f = f\]
         \end{ppt}
+
+        \begin{thm}
+            []
+            {Dirichlet卷积的可逆性}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\). 则 \(f\) 有Dirichlet卷积的逆元当且仅当 \(f(1) \neq 0\).
+        \end{thm}
+
+        \begin{ppt}
+            []
+            {非退化数论函数关于卷积运算成群}
+            []
+            [白菜]
+            设 \(\mathcal{F} = \{f:\Z^+ \to \C | f(1) \neq 0\}\). 则 \((\mathcal{F}, *)\) 关于Dirichlet卷积构成一个群.
+        \end{ppt}
     \subsection{Möbius函数与Möbius变换}
         \begin{dfn}
             []
@@ -1652,6 +1734,9 @@
             设 \(f:\Z^+ \to \C\), 定义\(f\)与1-函数 \(u\) 的Dirichlet卷积为\(f\)的Möbius变换, 记作 \(\mathcal{M}(f)\), 即
         \end{dfn}
 
+        \begin{rmk}
+            课件用的是\(\hat{f}\)表示Möbius变换, \(\check{f}\)表示逆变换. 拜托简直丑的无以复加(这条会删)
+        \end{rmk}
         \begin{dfn}
             []
             {Möbius逆变换}
@@ -1692,6 +1777,10 @@
             其中 \(s\) 为复变量.
         \end{dfn}
 
+        \begin{rmk}
+            同时, Dirichlet级数也可以唯一确定一个数论函数. 
+        \end{rmk}
+
         \begin{ppt}
             []
             {Dirichlet级数的乘法}
@@ -1700,6 +1789,17 @@
             设 \(f,g:\Z^+ \to \C\), 则有
             \[
                 D_{f*g}(s) = D_f(s) \cdot D_g(s)
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {卷积逆的Dirichlet级数}
+            []
+            [白菜]
+            设 \(f:\Z^+ \to \C\), 且 \(f(1) \neq 0\). 设 \(g\) 为 \(f\) 的Dirichlet卷积逆元, 则有
+            \[
+                D_g(s) = \frac{1}{D_f(s)}
             \]
         \end{ppt}
 
@@ -1725,28 +1825,529 @@
             \]
             其中 \(\zeta(s)\) 为Riemann zeta函数.
         \end{ppt}
-    \subsection{若干数论函数的性质}
-        \begin{dfn}
+
+        \begin{ppt}
             []
-            {约数函数}
+            {Möbius函数的Dirichlet级数}
             []
             [白菜]
-            设 \(n,k:\Z^+\), 定义\textbf{约数函数} \(\sigma_k:\Z^+ \to \C\) 为
+            设 \(\mu\) 为Möbius函数, 则有
             \[
-                \sigma_k(n) = \sum_{d \mid n} d^k
+                D_{\mu}(s) = \frac{1}{\zeta(s)}
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {Euler函数的Dirichlet级数}
+            []
+            [白菜]
+            设 \(\varphi\) 为Euler函数, 则有
+            \[
+                D_{\varphi}(s) = \frac{\zeta(s-1)}{\zeta(s)}
+            \]
+        \end{ppt}
+    \subsection{若干数论函数的定义与性质}
+        \begin{dfn}
+            []
+            {恒等函数}
+            [Identity Function]
+            [白菜]
+            定义\textbf{恒等函数} \(E:\Z^+ \to \C\)为:
+            \[E(n) = n\]
+        \end{dfn}
+
+        \begin{dfn}
+            [DivisorFunction]
+            {约数函数}
+            [Divisor Function]
+            [白菜]
+            定义\textbf{约数函数} \(d:\Z^+ \to \C\) 为
+            \[
+                d(n) = \sum_{d \mid n} 1
             \]
         \end{dfn}
 
+        \begin{rmk}
+            即约数个数
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {约数函数的卷积表示}
+            []
+            [白菜]
+            约数函数 \(\tau\) 为1-函数\(u\)与自身的Dirichlet卷积:
+            \[
+                \tau = u * u
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数函数的显式}
+            []
+            [白菜]
+            设 \(n:\Z^+\), \(\tau:\Z^+\to\C\), \(\tau\)为约数函数. \(n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}\) 为其素因子分解. 则有
+            \[
+                \tau(n) = \prod_{i=1}^{k} (\alpha_i + 1)
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数函数的乘性}
+            []
+            [白菜]
+            约数函数 \(\tau\) 为可乘函数.
+        \end{ppt}
+
+        \begin{dfn}
+            [SumOfDivisorsFunction]
+            {约数和函数}
+            [sum-of-divisors function]
+            [白菜]
+            设 \(n:\Z^+\), 定义\textbf{约数和函数} \(\sigma:\Z^+ \to \C\) 为
+            \[
+                \sigma(n) = \sum_{d \mid n} d
+            \]
+        \end{dfn}
+
+        \begin{rmk}
+            即全体约数之和
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {约数和函数的卷积表示}
+            []
+            [白菜]
+            约数和函数 \(\sigma\) 为恒等函数 \(E\) 与1-函数 \(u\) 的Dirichlet卷积:
+            \[
+                \sigma = E * u
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数函数的显式}
+            []
+            [白菜]
+            设 \(n:\Z^+\), 且 \(n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}\) 为其素因子分解. 则有
+            \[
+                \sigma(n) = \prod_{i=1}^{k} \frac{p_i^{\alpha_i + 1} - 1}{p_i - 1}
+            \]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {约数和函数的乘性}
+            []
+            [白菜]
+            约数和函数 \(\sigma\) 为可乘函数.
+        \end{ppt}
+
+        \begin{thm}
+            []
+            {Euler函数的卷积表示}
+            []
+            [白菜]
+            设 \(\varphi\) 为Euler函数, \(u\)为1-函数, \(E\)为恒等函数, 则有
+            \[\varphi * u = E\]
+        \end{thm}
+
+        \begin{crl}
+            []
+            {由Möbius反演诱导的Euler函数}
+            []
+            [白菜]
+            设 \(\varphi\) 为Euler函数, \(\mu\)为Möbius函数, \(E\)为恒等函数, 则有
+            \[\varphi = \mu * E\]
+        \end{crl}
+
+        \begin{dfn}
+            [VonMangoldtFunction]
+            {Von Mangoldt函数}
+            [Von Mangoldt Function]
+            [白菜]
+            定义\textbf{Von Mangoldt函数} \(\Lambda:\Z^+ \to \C\) 为
+            \[
+                \Lambda(n) = 
+                \begin{cases}
+                    \log p &\text{if } n = p^k, p\text{素数}, k\in\Z^+ \\
+                    0 &\text{otherwise}
+                \end{cases}
+            \]
+        \end{dfn}
+
+        \begin{dfn}
+            [LogarithmFunction]
+            {对数函数}
+            [Logarithm Function]
+            [白菜]
+            定义\textbf{对数函数} \(\log:\Z^+ \to \C\) 为
+            \[
+                \log(n) = \log n
+            \]
+        \end{dfn}
+
+        \begin{rmk}
+            课件用的是\(L\). (这条会删)
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {Von Mangoldt函数的卷积表示}
+            []
+            [白菜]
+            设 \(I\) 为单位函数, 则有
+            \[\Lambda * u = \log\]
+        \end{ppt}
+
+        \begin{crl}
+            []
+            {由Möbius反演诱导的Von Mangoldt函数}
+            []
+            [白菜]
+            设 \(\Lambda\) 为Von Mangoldt函数, \(\mu\)为Möbius函数, \(\log:\Z^+ \to \C\) 为对数函数, 则有
+            \[\Lambda = \mu * \log\]
+        \end{crl}
+    \subsection{阶的估计}
+        \begin{thm}
+            []
+            {约数函数阶的下界}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则对任意的\(\alpha > 0\). \(\frac{\tau(n)}{(\log n)^\alpha}\)无界
+        \end{thm}
+
+        \begin{thm}
+            []
+            {约数函数阶的上界}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则对任意的\(\epsilon > 0\), 有
+            \[\tau(n)=O(n^\epsilon)\]
+        \end{thm}
+        
+        \begin{thm}
+            []
+            {约数函数的平均阶}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则有
+            \[\sum_{n \leq x} \tau(n) = x \log x + (2\gamma - 1)x + O(\sqrt{x})\]
+            其中 \(\gamma\) 为Euler常数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {约数函数的正规阶}
+            []
+            [白菜]
+            设 \(\tau:\Z^+ \to \C\) 为约数函数. 则对任意的\(\epsilon > 0\), 除去\(o(n)\)个整数外, 有
+            \[\tau(n) = O((\log n)^{\log 2 + \epsilon})\]
+        \end{thm}
+
+        \begin{rmk}
+            由此可以看出, 约数函数的平均阶是由少部分很大的值贡献的.
+        \end{rmk}
+
+        \begin{thm}
+            []
+            {约数和函数的平均阶}
+            []
+            [白菜]
+            设 \(\sigma:\Z^+ \to \C\) 为约数和函数. 则有
+            \[\sum_{n \leq x} \sigma(n) = \frac{\pi^2}{12} x^2 + O(x\log x)\]
+        \end{thm}
+
+        \begin{thm}
+            []
+            {Euler函数的平均阶}
+            []
+            [白菜]
+            设 \(\varphi:\Z^+ \to \C\) 为Euler函数. 则有
+            \[\sum_{n \leq x} \varphi(n) = \frac{3}{\pi^2} x^2 + O(x \log x)\]
+        \end{thm}
+
+        \begin{dfn}
+            [Square-Free Number]
+            {无平方因子数}
+            [Square-Free Number]
+            [白菜]
+            设 \(n:\Z^+\). 若 \(n\) 无平方因子, 则称 \(n\) 为\textbf{无平方因子数}.
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {无平方因子数的阶}
+            []
+            [白菜]
+            设 \(Q(x)\) 为不超过 \(x\) 的无平方因子数的个数. 则有
+            \[Q(x) = \frac{6}{\pi^2} x + O(\sqrt{x})\]
+        \end{thm}
+    \subsection{素数分布}
+        
+        \begin{dfn}
+            []
+            {素数计数函数}
+            []
+            [白菜]
+            设 \(x:\R^+\). 定义\textbf{素数计数函数} \(\pi:\R^+ \to \Z^+\) 为
+            \[
+                \pi(x) = card\{p  | p\leq x, p \text{为素数}\}
+            \]
+        \end{dfn}
+
+        \begin{lma}
+            []
+            {Chebyshev引理}
+            []
+            [白菜]
+            设 \(n:\Z^+\), \(\pi\) 为素数计数函数, 则
+            \[(\pi(2n)-\pi(n))\log n\leq\log \binom{2n}{n}\leq \pi(2n)\log 2n\]
+        \end{lma}
+
+        \begin{thm}
+            []
+            {Chebyshev定理}
+            []
+            [白菜]
+            存在常数 \(c_1, c_2 > 0\), 使得对所有 \(x \geq 2\), 有
+            \[c_1 x \leq \pi(x) \leq c_2 x\]    
+        \end{thm}
+
+        \begin{lma}
+            []
+            {素数积的估计}
+            []
+            [白菜]
+            设 \(n:\Z^+\), 则有
+            \[\prod_{p \leq n} p < 4^{n}\]
+        \end{lma}
+
+        \begin{thm}
+            []
+            {Bertrand-Chebyshev定理}
+            []
+            [白菜]
+            设 \(n:\Z^+\), 则在区间 \([n,2n]\) 内至少存在一个素数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {素数定理}
+            []
+            [白菜]
+            设 \(\pi:\R^+ \to \Z^+\) 为素数计数函数. 则有
+            \[\lim_{x \to \infty} \frac{\pi(x)}{x/\log x} = 1\]
+        \end{thm}
+
+        \begin{thm}
+            []
+            {素数倒数和的估计}
+            []
+            [白菜]
+            设 \(p\) 遍历所有素数. 则有
+            \[\sum_{p \leq x} \frac{1}{p} = \log \log x + C + O\left(\frac{1}{\log x}\right)\]
+            其中 \(C\) 为常数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {Mertens定理}
+            []
+            [白菜]
+            设 \(p\) 遍历所有素数. 则有
+            \[\prod_{p \leq x} \left(1 - \frac{1}{p}\right) \sim \frac{e^{-\gamma}}{\log x}\]
+            其中 \(\gamma\) 为Euler常数.
+        \end{thm}
+    \section{连分数}
+        \subsection{有限连分数}
+        \begin{dfn}
+            [FiniteContinuedFraction]
+            {有限连分数}
+            [Finite Continued Fraction]
+            [白菜]
+            设 \(n \in \Z^+\), 对\(1 \leq i \leq n\), 有 \(a_i \neq 0\). 定义由\(\{a_i\}_{i=1}^{n}\)生成的\textbf{有限连分数}为
+            \[
+                a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{\ddots + \cfrac{1}{a_n}}}}
+            \]
+            记作\([a_1,a_2, a_3, \cdots, a_n]\)
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {简单有限连分数}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), 若对\(2 \leq i \leq n\), 有 \(a_i \in \Z^+\). 
+            则称由\(\{a_i\}_{i=1}^{n}\)生成的有限连分数为\textbf{简单有限连分数}.
+
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {渐进分数}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), \(\{a_i\}_{i=1}^{\infty}\)为整数列, 设有限连分数 \([a_1,a_2, a_3, \cdots, a_n]\) 的值为 \(\frac{p_n}{q_n}\).
+            且\(\gcd(p_n,q_n) = 1\). 
+            则称 \(\frac{p_n}{q_n}\) 为该连分数的第\(n\)个\textbf{渐进分数}.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {连分数的递推关系}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 由下面的递推关系
+            定义的数列 \(\{p_n\}, \{q_n\}\) 的比值\(\frac{p_n}{q_n}\)恰为\(\{a_i\}_{i=1}^\infty\)前\(n\)项生成
+            的有限连分数的值. 其中
+            \[p_{-1} = 1, p_0 = a_1; q_{-1} = 0, q_0 = 1\]
+            \[
+                p_k = a_k p_{k-1} + p_{k-2}, \quad q_k = a_k q_{k-1} + q_{k-2}
+            \]
+            并且有
+            \[
+                \begin{vmatrix}
+                    p_{k} & p_{k-1} \\
+                    q_{k} & q_{k-1}
+                \end{vmatrix}
+                = (-1)^{k}
+            \]
+
+            \[
+                \begin{vmatrix}
+                    p_{k} & p_{k-2} \\
+                    q_{k} & q_{k-2}
+                \end{vmatrix}
+                = (-1)^{k-1} a_k
+            \]
+            于是\(\gcd(p_k,q_k) = 1\), \(\frac{p_n}{q_n}\)即为该连分数的渐进分数.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {渐进分数的单调性}
+            []
+            [白菜]
+            设 \(n \in \Z^+\), 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 设第\(n\)个渐进分数为\(\frac{p_n}{q_n}\). 则
+            \begin{enumerate}
+                \item 当\(k\geq 3\)时, \(q_k \geq q_{k-1} + q_{k-2}\)
+                \item 当 \(k \geq 2\) 时, \(\frac{p_{2k-3}}{q_{2k-3}} < \frac{p_{2k-1}}{q_{2k-1}} < \frac{p_{2k}}{q_{2k}} < \frac{p_{2k-2}}{q_{2k-2}}\)
+                \item \(\lim\limits_{k \to \infty} \left(\frac{p_{2k}}{q_{2k}} - \frac{p_{2k-1}}{q_{2k-1}}\right)=0\).
+            \end{enumerate}
+        \end{ppt}
+
+        \begin{rmk}
+            可以发现, \(\left[\frac{p_{2k-1}}{q_{2k-1}},\frac{p_{2k}}{q_{2k}}\right]\)构成一个闭区间套, 于是简单连分数序列一定收敛
+        \end{rmk}
+
+        \begin{crl}
+            []
+            {连分数的收敛性}
+            []
+            [白菜]
+            设 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 其渐进分数序列收敛.
+        \end{crl}
+        \subsection{无限连分数}
+
+        \begin{dfn}
+            [InfiniteContinuedFraction]
+            {无限连分数}
+            [Infinite Continued Fraction]
+            [白菜]
+            设 对于数列\(\{a_i\}_{i=1}^{\infty}\), 若极限\(\lim_{n \to \infty} [a_1,a_2,a_3,\cdots,a_n]\)存在, 
+            则称其为由\(\{a_i\}_{i=1}^{\infty}\)生成的\textbf{无限连分数}, 记作
+               \( [a_1,a_2,a_3,\cdots]\)或\([\{a_i\}_{i=1}^\infty]\)
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {用连分数序列逼近实数}
+            []
+            [白菜]
+            对任意\(x:\R\), 则由下面的归纳过程生成的数列\(\{a_n\}\)可得到一个收敛于\(x\)的有限或无限简单连分数:
+            \[a_1=\lfloor x \rfloor, y_1=\{x\}\]
+            \[a_{n+1}=\lfloor \frac{1}{y_n} \rfloor, y_{n+1}=\{\frac{1}{y_n}\}\]
+            当\(x\)为有理数时, 会在某步\(y_n=0\)时终止, 此时\(x\)恰好等于连分数\([a_1,a_2,\cdots,a_n]\);
+            否则若\(x\)为无理数, 递推会无限进行下去, 则连分数序列\(\{[a_1], [a_1,a_2], [a_1,a_2,a_3], \cdots\}\)收敛于\(x\).
+        \end{thm}
+
+        \begin{thm}
+            []
+            {连分数表示唯一性}
+            []
+            [白菜]
+            设 \(x:\R\). 若\(x\)为有理数, 则有且仅有两种有限简单连分数表示法, 即
+            \[x=[a_1,a_2,\cdots,a_{n-1},a_n] = [a_1,a_2,\cdots,a_{n-1},a_n - 1, 1]\]
+            若 \(x\)为无理数, 则有且仅有一个无限简单连分数表示法.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {连分数的最佳逼近性}
+            []
+            [白菜]
+            设 \(x:\R\), 且其连分数表示为 \([a_1,a_2,a_3,\cdots]\). 设第\(n\)个渐进分数为 \(\frac{p_n}{q_n}\). 则对任意满足
+            \(0 < q \leq q_n\) 的整数 \(q\), 有
+            \[
+                \left|x - \frac{p_n}{q_n}\right| \leq \left|x - \frac{p}{q}\right|
+            \]
+            其中等号成立当且仅当 \(\frac{p}{q} = \frac{p_n}{q_n}\).
+        \end{thm}
+
+        \begin{dfn}
+            []
+            {循环连分数}    
+            []
+            [白菜]
+            设 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 存在正整数 \(k,m\), 使得对任意的 \(n \geq m\), 有
+            \[a_n = a_{n+k}\]
+            则称由\(\{a_i\}_{i=1}^{\infty}\)生成的连分数为\textbf{循环连分数}.
+            该数列生成的无限连分数记作
+            \[[a_1,a_2,\cdots,a_{m-1},\dot{a}_m,a_{m+1},\cdots,\dot{a}_{m+k-1}]\]    
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {循环连分数是二次代数数}
+            []
+            [白菜]
+            设 对于整数列\(\{a_i\}_{i=1}^{\infty}\), 若其生成的连分数是循环连分数, 则该连分数表示的实数是二次代数数.
+        \end{thm}
+
+        \begin{thm}
+            []
+            {二次代数数的连分数表示是循环的}
+            []
+            [白菜]
+            设 \(x:\R\). 若 \(x\) 为二次代数数, 则其连分数表示为循环连分数.
+        \end{thm}
+    \subsection{Pell方程}
+        \begin{thm}
+            []
+            {Pell方程的解的存在性}
+            []
+            [白菜]
+            设 \(d \in \Z^+\) 为非完全平方数, 则方程
+            \[x^2 - d y^2 = 1\]
+            有无穷多组整数解 \((x,y)\), 且存在唯一的最小正整数解 \((x_1,y_1)\), 使得任意解均可表示为
+            \[
+                x_n + y_n \sqrt{d} = (x_1 + y_1 \sqrt{d})^n, n \in \Z^+
+            \]
+        \end{thm}
+        
     \section{代数数}
-
-        \subsection{代数数与代数整数}
-
+        \subsection{代数数与超越数}
             \begin{dfn}
                 [Algebraic-Number]
                 {代数数}
                 [Algebraic Number]
                 [猫猫]
-                设 \(\xi:\R\), 定义 \(\xi\) 为\textbf{代数数}, 当且仅当: 
+                设 \(\xi:\C\), 定义 \(\xi\) 为\textbf{代数数}, 当且仅当: 
                 \[\exists f \in \Q[x], f \neq 0, f(\xi) = 0\]
 
                 定义 \(\xi\) 为\textbf{代数整数}, 当且仅当:
@@ -1769,8 +2370,103 @@
                 \end{enumerate}
             \end{ppt}
 
+            \begin{dfn}
+                []
+                {超越数}
+                []
+                [白菜]
+                设 \(\xi:\C\), 定义 \(\xi\) 为\textbf{超越数}, 当且仅当:
+                \[\forall f \in \Q[x], f(\xi) \neq 0\]
+            \end{dfn}
+
+            \begin{thm}
+                []
+                {e的无理性}
+                []
+                [白菜]
+                设\(t:\Q\), \(e\)为自然常数, 则\(e^t\)为无理数.
+            \end{thm}
+
+            \begin{thm}
+                []
+                {\(\pi\)的无理性}
+                []
+                [白菜]
+                \(\pi\)和\(\pi^2\)均为无理数.
+            \end{thm}
+
+            \begin{thm}
+                []
+                {e与\(\pi\)的超越性}
+                []
+                [白菜]
+                \(e\)与\(\pi\)均为超越数.
+            \end{thm}
+        \subsection{代数数域}
+            \begin{thm}
+                []
+                {代数数构成域}
+                []
+                [白菜]
+                设 \(\A\) 为代数数集合. 则 \(\A\) 关于复数的加法与乘法构成一个\(\C\)的子域.
+            \end{thm}
+
+            \begin{prf}
+                设\(\alpha, \beta:\A\)设 \(f(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_0\) 是一个有理系数多项式。考虑其友阵为:
+                
+                \[
+                C(f) =
+                \begin{pmatrix}
+                0 & 0 & \cdots & 0 & -a_0 \\
+                1 & 0 & \cdots & 0 & -a_1 \\
+                0 & 1 & \cdots & 0 & -a_2 \\
+                \vdots & \vdots & \ddots & \vdots & \vdots \\
+                0 & 0 & \cdots & 1 & -a_{n-1}
+                \end{pmatrix}
+                \]
+                
+                则\(C(f)\)的特征多项式即为 \(f(x)\). 设\(\alpha, \beta\)的极小多项式分别为 \(f(x), g(x)\).
+                则\(\alpha\beta\)即为\(C(f)\otimes C(g)\)的特征值之一, 故代数数的乘法封闭.
+                \(\alpha+\beta\)即为\(C(f)\otimes I_1+I_2\otimes C(g)\)的特征值之一, 
+                其中\(I_1, I_2\)是单位矩阵, 大小适当选取以使得加法有意义. 故代数数的加法封闭.
+                而由于极小性, 若\(\alpha\neq 0\), 则\(C(f)\)可逆, 且逆矩阵也为有理系数矩阵. 
+                因此\(\alpha^{-1}\)也是有理系数多项式的根. 于是非零代数数的倒数也是代数数. 
+                \(1\)与\(0\)显然分别单位元与零元, 并且也为代数数, 故代数数构成域.
+            \end{prf}
         \subsection{代数整数环}
-        \subsection{代数整数环的理想}
+            \begin{dfn}
+                [AlgebraicInteger]
+                {代数整数}
+                [Algebraic Integer]
+                [白菜]
+                设 \(\xi:\C\), 定义 \(\xi\) 为\textbf{代数整数}, 当且仅当:
+                \[\exists f \in \Z[x], f \text{首一}\land f(\xi) = 0\]
+
+                代数整数类型记作 \(\mathbb{O}\). 
+            \end{dfn}
+
+            \begin{lma}
+                []
+                {代数数为代数整数当且仅当极小多项式为整系数多项式}
+                []
+                [白菜]
+                设 \(\xi:\A\), 则 \(\xi\) 为代数整数当且仅当 \(\xi\) 的极小多项式属于 \(\Z[x]\).
+            \end{lma}
+
+            \begin{thm}
+                []
+                {代数整数构成环}
+                []
+                [白菜]
+                设 \(\mathbb{O}\) 为代数整数集合. 则 \(\mathbb{O}\) 关于复数的加法与乘法构成一个环.
+            \end{thm}
+
+            \begin{prf}
+                依然是考虑极小多项式友阵的张量积. 可以证明加法和乘法的封闭性.
+            \end{prf}
+        \begin{rmk}
+            后面就是代数数论的内容了. 初等数论, 堂堂完结!
+        \end{rmk}
 
 
 
