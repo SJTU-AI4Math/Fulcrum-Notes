@@ -2333,12 +2333,30 @@
 
             记作 \(X_n\plim X\). 
         \end{dfn}
+
+        \begin{thm}
+            []
+            {KhinChin 弱大数定律}
+            []
+            [Dedicatia]
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是独立同分布的\随机变量 序列, 如果其一阶矩存在, 那么
+            \[\frac{1}{n}\sum_{i=1}^n(X_k-\Expct{X_k})\plim 0.\]
+        \end{thm}
+
+        \begin{thm}
+            []
+            {Chebyshev 弱大数定律}
+            [Chebyshev Weak Law of Large Numbers]
+            [Dedicatia]
+            设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 其中 \(\Cov{X_i}{X_j}=0\) 对任意 \(X_i,X_j\) 成立, 如果其二阶矩存在且有界, 那么
+            \[\frac{1}{n}\sum_{i=1}^n(X_k-\Expct{X_k})\plim 0.\]
+        \end{thm}
         
         \begin{thm}
             [WLLN]
-            {Chebyshev 弱大数定律}
-            [Chebyshev Weak Law of Large Numbers]
-            [猫猫]
+            {Markov 弱大数定律}
+            [Markov Weak Law of Large Numbers]
+            [Dedicatia]
             设 \(\{X_n\}_{n=1}^{+\infty}\) 是\随机变量 序列, 
             \begin{enumerate}
                 \item \协方差\,非正: 
@@ -2432,7 +2450,7 @@
                     \hline
                      & 弱大数定律 & 强大数定律 \\
                     \hline
-                    充分条件 & Chebyshev 条件 & Kolmogorov 条件 \\
+                    充分条件 & Markov 条件 & Kolmogorov 条件 \\
                     期望 & 存在即可 & 存在即可 \\
                     方差 & 方差增长被 \(\frac{1}{n^2}\) 控制 & 方差的每一项都要被 \(\frac{1}{n^2}\) 控制, 即 \(\displaystyle\sum_{n=1}^{+\infty}\frac{\Var{X_n}}{n^2}<+\infty\) \\
                     协方差 & 非正即可(充分条件) & 更严格, 通常要求独立 \\
