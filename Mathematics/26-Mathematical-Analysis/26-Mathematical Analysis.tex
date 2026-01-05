@@ -4556,7 +4556,7 @@
 
 			\begin{thm}
 				[]
-				{\(R^n\) 上的线性算子的双射性与维度的关系}
+				{\(\R^n\) 上的线性算子的双射性与维度的关系}
 				[]
 				[Dedicatia]
 				\(\R^n\) 上的线性算子是双射当且仅当其值域是 \(\R^n\).
@@ -4828,6 +4828,20 @@
 				\[\norm{f(x_0+h)-f(x_0)}_Y\leq\sup_{0<\theta<1}\norm{f'(x_0+\theta h)}_{L(X,Y)}\norm{h}_X.\]
 			\end{thm}
 
+			\begin{rmk}
+				[Dedicatia]
+				有限增量定理是单变量微积分中拉格朗日中值定理在多变量情形下的推广. 在多变量情形下中值定理失效, 改为用不等式估计. \\
+				其核心意义就是: 函数在某一点的增量可以用该点处的导数来控制. 即: `路程 \(\leq\) 最大速度 \(\times\) 时间'.
+			\end{rmk}
+
+			\begin{crl}
+				[]
+				{导数恒为0则为常函数}
+				[]
+				[Dedicatia]
+				设 \(f: E\in\R^n\to\R^m\). \(f\) 在开集 \(E\) 上可微, 若对任意的 \(x\in E\), 有 \(f'(x)=0\), 则 \(f\) 在 \(E\) 上为常函数.
+			\end{crl}
+
 		\subsection{Taylor 定理}
 
 			\begin{dfn}
@@ -4904,6 +4918,96 @@
 				\[\leq\sup_{0\leq\theta\leq 1}\norm{f'(x+\theta h)-\qty(f'(x)+f''(x)(\theta h)+\cdots+\frac{1}{(n-1)!}f^{(n)}(x)(\theta h)^{n-1})}|h|\]
 				\[=o(|\theta h^{n-1}|)|h|=o(|h|^n).\]
 			\end{prf}
+
+			\begin{thm}
+				[]
+				{附有积分型余项的 Taylor 公式}
+				[]
+				[Dedicatia]
+				设 \(X, Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f: E\to Y\) 是映射, 若 \(f\) 在 \(x_0\in E\) 处有 \(n+1\) 阶导映射, 则对任意的 \(h\in X\), 有:
+				\[f(x_0+h)=f(x_0)+\frac{1}{1!}f'(x_0)h+\frac{1}{2!}f''(x_0)(h,h)+\cdots+\frac{1}{n!}f^{(n)}(x_0)(\underbrace{h,h,\cdots,h}_{n\text{ 个 }})+R_n(x_0;h)\]
+				其中余项 \(R_n(x_0;h)\) 满足:
+				\[R_n(x_0;h)=\frac{1}{n!}\int_{0}^{1}(1-t)^n f^{(n+1)}(x_0+th)(\underbrace{h,h,\cdots,h}_{n+1\text{ 个 }})\dd{t}.\]
+			\end{thm}
+
+			\begin{thm}
+				[]
+				{有限增量形式的 Taylor 定理}
+				[]
+				[Dedicatia]
+				设 \(X, Y\) 是赋范线性空间, \(E\) 是 \(X\) 中的开集, \(f: E\to Y\) 是映射, 若 \(f\) 在 \(x_0\in E\) 处有 \(n\) 阶有界的导映射, 则对任意的 \(h\in X\), 有:
+				\[f(x_0+h)=f(x_0)+\frac{1}{1!}f'(x_0)h+\frac{1}{2!}f''(x_0)(h,h)+\cdots+\frac{1}{n!}f^{(n)}(x_0)(\underbrace{h,h,\cdots,h}_{n\text{ 个 }})+R_n(x_0;h)\]
+				其中余项 \(R_n(x_0;h)\) 满足:
+				\[\norm{R_n(x_0;h)}_Y\leq\frac{M}{(n+1)!}\norm{h}_X^{n+1}. \]%\frac{1}{(n+1)!}\sup_{0\leq\theta\leq 1}\norm{f^{(n+1)}(x_0+\theta h)}_{L(\underbrace{X,X,\cdots,X}_{n+1\text{ 个 }},Y)}\norm{h}_X^{n+1}.\]
+			\end{thm}
+
+			\begin{thm}
+				[]
+				{\(\R^n\to\R^n\) 映射的逆映射定理}
+				[Inverse Mapping Theorem for \(\R^n\to\R^n\) Mapping]
+				[Dedicatia]
+				设 \(U\subseteq\R^n\) 是开集, 映射 \(f: U\to\R^n\) 在点 \(x_0\in U\) 处可微, 且其导数 \(f'(x_0)\) 是从 \(\R^n\) 到 \(\R^n\) 的双射. 那么存在 \(x_0\) 的某个邻域 \(V\subseteq U\), 使得 \(f\) 在 \(V\) 上是双射, 且其反函数 \(f^{-1}: f(V)\to V\) 在点 \(y_0=f(x_0)\in f(V)\) 处可微, 且
+				\[(f^{-1})'(y_0)=(f'(x_0))^{-1}.\]
+			\end{thm}
+
+			\begin{thm}
+				[]
+				{\(\R^n\to\R^m\) 映射的隐映射定理}
+				[Implicit Mapping Theorem for \(\R^n\to\R^m\) Mapping]
+				[Dedicatia]
+				设 \((\bm{x},\bm{y})\in\R^{n+m} \), \(U\subseteq\R^{n+m}\) 是包含点 \((\bm{x}_0,\bm{y}_0)\) 的开集, 映射 \(F: U\to\R^m\) 在点 \((\bm{x}_0,\bm{y}_0)\) 处可微, 且其关于 \(\bm{y}\) 的部分偏导数 \(F'_{\bm{y}}(\bm{x}_0,\bm{y}_0)\) 是从 \(\R^m\) 到 \(\R^m\) 的双射. 那么存在点 \(\bm{x}_0\) 的某个邻域 \(V\subseteq\R^n\), 和点 \(\bm{y}_0\) 的某个邻域 \(W\subseteq\R^m\), 使得在 \(V\times W\subseteq U\) 上, 方程
+				\[F(\bm{x},\bm{y})=0\]
+				有唯一解 \(\bm{y}=f(\bm{x})\), 且映射 \(f: V\to W\) 在点 \(\bm{x}_0\) 处可微, 且
+				\[f'(\bm{x}_0)=-(F'_{\bm{y}}(\bm{x}_0,\bm{y}_0))^{-1}\circ F'_{\bm{x}}(\bm{x}_0,\bm{y}_0).\]
+			\end{thm}
+
+			\begin{xmp}
+				[]
+				{\(\R^2\to\R\) 的函数的隐函数}
+				[]
+				[Dedicatia]
+				设由方程 \(F(x,y)=0\) 定义隐函数 \(y=f(x)\), 其中 \(F:\R^2\to\R\). 若在点 \((x_0,y_0)\) 处 \(F(x_0,y_0)=0\), 且 \(\pdv{F}{y}(x_0,y_0)\neq 0\), 则存在点 \(x_0\) 的某个邻域 \(V\), 使得在 \(V\) 上隐函数 \(y=f(x)\) 存在且唯一, 且 \(f\) 在点 \(x_0\) 处可微, 且
+				\[f'(x_0)=-\frac{\pdv{F}{x}\big|_{(x_0,y_0)}}{\pdv{F}{y}\big|_{(x_0,y_0)}}.\]
+			\end{xmp}
+
+			\begin{xmp}
+				[]
+				{\(\R^3\to\R\) 的函数的隐函数}
+				[]
+				[Dedicatia]
+				设由方程 \(F(x,y,z)=0\) 定义隐函数 \(z=z(x,y)\), 其中 \(F:\R^3\to\R\). 若在点 \((x_0,y_0,z_0)\) 处 \(F(x_0,y_0,z_0)=0\), 且 \(\pdv{F}{z}(x_0,y_0,z_0)\neq 0\), 则存在点 \((x_0,y_0)\) 的某个邻域 \(V\), 使得在 \(V\) 上隐函数 \(z=f(x,y)\) 存在且唯一, 且 \(f\) 在点 \((x_0,y_0)\) 处可微, 且
+				\[\pdv{z}{x}\Big|_{(x_0,y_0)}=-\frac{\pdv{F}{x}\big|_{(x_0,y_0,z_0)}}{\pdv{F}{z}\big|_{(x_0,y_0,z_0)}},\quad\pdv{z}{y}\Big|_{(x_0,y_0)}=-\frac{\pdv{F}{y}\big|_{(x_0,y_0,z_0)}}{\pdv{F}{z}\big|_{(x_0,y_0,z_0)}}.\]
+			\end{xmp}
+
+			\begin{xmp}
+				[]
+				{\(\R^3\to\R^2\) 的函数的隐函数}
+				[]
+				[Dedicatia]
+				设由方程组
+				\[\begin{cases}
+					F_1(x,y,z)=0\\
+					F_2(x,y,z)=0
+				\end{cases}\]
+				定义隐函数 \((y,z)=(y(x),z(x))\), 其中 \(F:\R^3\to\R^2\). 若在点 \((x_0,y_0,z_0)\) 处 \(F_1(x_0,y_0,z_0)=0\), \(F_2(x_0,y_0,z_0)=0\), 且 Jacobi 行列式
+				\[\begin{vmatrix}
+					\pdv{F_1}{y}(x_0,y_0,z_0) & \pdv{F_1}{z}(x_0,y_0,z_0)\\
+					\pdv{F_2}{y}(x_0,y_0,z_0) & \pdv{F_2}{z}(x_0,y_0,z_0)
+				\end{vmatrix}\neq 0\]
+				则存在点 \(x_0\) 的某个邻域 \(V\), 使得在 \(V\) 上隐函数 \((y,z)=(y(x),z(x))\) 存在且唯一, 且 \(y,z\) 在点 \(x_0\) 处可微, 且
+				\[\begin{bmatrix}
+					\dv{y}{x}(x_0)\\
+					\dv{z}{x}(x_0)
+				\end{bmatrix}
+				=-\begin{bmatrix}
+					\pdv{F_1}{y}(x_0,y_0,z_0) & \pdv{F_1}{z}(x_0,y_0,z_0)\\
+					\pdv{F_2}{y}(x_0,y_0,z_0) & \pdv{F_2}{z}(x_0,y_0,z_0)
+				\end{bmatrix}^{-1}
+				\begin{bmatrix}
+					\pdv{F_1}{x}(x_0,y_0,z_0)\\
+					\pdv{F_2}{x}(x_0,y_0,z_0)
+				\end{bmatrix}.\]
+			\end{xmp}
 
     \section{\(\R^n\) 上的函数}
 
@@ -5147,6 +5251,16 @@
 					0 & (x,y)=(0,0)
 				\end{cases}\]
 			\end{cxmp}
+
+			\begin{rmk}
+				[Dedicatia]
+				\[\text{偏导数存在且连续}\;\implies\;\text{可微}\;\implies\;\begin{cases}
+					& \text{连续}\\
+					& \text{偏导数存在}\\
+					& \text{各方向导数存在.}
+				\end{cases}\]
+				但是反之均不成立.
+			\end{rmk}
 			
 			\begin{thm}
 				[]

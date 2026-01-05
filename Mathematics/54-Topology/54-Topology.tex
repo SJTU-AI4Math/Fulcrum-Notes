@@ -1875,7 +1875,7 @@
                 定义函数 $f,g$ 的卷积为 $f\ast g$. 若该卷积收敛, 则具有以下性质:
                 \begin{enumerate}
                     \item 对称性: $f\ast g=g\ast f$;
-                    \item 支撑集可加性: 设 $supp f\subseteq [a,b], \supp g\subseteq [c,d]$, 则 $\supp(f\ast g)\subseteq [a+c,b+d]$;
+                    \item 支撑集可加性: 设 $\supp f\subseteq \Icc{a}{b}, \supp g\subseteq \Icc{c}{d}$, 则 $\supp(f\ast g)\subseteq \Icc{a+c}{b+d}$;
                     \item 平移不变性: 定义 $T_{x_0}(f(x))=f(x-x_0)$. 那么 $T_{x_0}(f\ast g)=(T_{x_0}(f))\ast g=f\ast(T_{x_0}(g))$.
                 \end{enumerate}
             \end{ppt}
@@ -1886,6 +1886,15 @@
                 []
                 [Dedicatia]
             \end{ppt}
+
+            \begin{xmp}
+                []
+                {\(\Gamma\) 函数}
+                [Gamma Function]
+                [Dedicatia]
+                设 $x>0$, 定义
+                \[\Gamma(x):=\int_0^{+\infty}t^{x-1}e^{-t}\dd{t}.\]
+            \end{xmp}
             \begin{crl}
                 [104601]
                 {卷积收敛的判定定理1}
@@ -1945,9 +1954,10 @@
                 \begin{enumerate}
                     \item 非负性: $\forall n\in\N^*, f_n\geq 0$;
                     \item 规范性: $\forall n\in\N^*, \int_{\R}f_n(x)\dd{x}=1$;
-                    \item 0处有支撑: 对于 $x=0$ 的任意邻域 $U(0)$: \[\lim_{n\to\infty}\int_{U(0)}f_n(x)\dd{x}=1.\]
+                    \item 集中在0附近: 对于 $x=0$ 的任意邻域 $U(0)$: \[\lim_{n\to\infty}\int_{U(0)}f_n(x)\dd{x}=1.\]
                 \end{enumerate}
             \end{dfn}
+
             \begin{dfn}
                 [Delta-Approx]
                 {$\delta$-函数逼近族}
@@ -1957,9 +1967,18 @@
                 \begin{enumerate}
                     \item 非负性: $\forall \epsilon\in\Lambda, f_\epsilon\geq 0$;
                     \item 规范性: $\forall \epsilon\in\Lambda, \int_{\R}f_\epsilon(x)\dd{x}=1$;
-                    \item 0处有支撑: 对于 $x=0$ 的任意邻域 $U(0)$: \[\lim_{\epsilon\to\epsilon_0}\int_{U(0)}f_n(x)\dd{x}=1.\]
+                    \item 集中在0附近: 对于 $x=0$ 的任意邻域 $U(0)$: \[\lim_{\epsilon\to\epsilon_0}\int_{U(0)}f_\epsilon(x)\dd{x}=1.\]
                 \end{enumerate}
             \end{dfn}
+
+            \begin{ppt}
+                []
+                {$\delta$-函数逼近族的弱收敛性}
+                []
+                [Dedicatia]
+                设 $\{\delta_\epsilon(x)\}$ 是$\delta$-函数逼近族, 则对于任意的有界\hyperref[dfn:Cont]{连续}函数 $f:\R\to\R$ 有
+                \[\lim_{\epsilon\to\epsilon_0}\int_{\R}f(x)\delta_\epsilon(x)\dd{x}=f(0).\]
+            \end{ppt}
             \begin{xmp}
                 [Gauss-Kernel]
                 {Gauss核/热核}
