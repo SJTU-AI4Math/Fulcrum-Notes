@@ -1912,12 +1912,25 @@
         \end{dfn}
 
         \begin{dfn}
-            []
+            [Conditional-Expectation]
             {条件期望}
             [Conditional Expectation]
             [Dedicatia]
+            设\离散型随机向量{\(2\)} \((X,Y)\) 有联合密度函数 $f_{X,Y}(x,y)$, 且 $Y$ 的边缘密度 $f_Y(y) > 0$, 则
+            \[
+            \Expct{X \mid Y=y} = \int_{-\infty}^{+\infty} x \cdot f_{X|Y}(x|y) dx = \frac{\int_{-\infty}^{+\infty} x \cdot f_{X,Y}(x,y) dx}{f_Y(y)}
+            \]
+            这是一个关于 \(y\) 的函数.\\
+            定义由上述分布函数确定的随机变量为\textbf{条件期望}, 这是一个新的随机变量. 记作 \(\Expct{X\mid Y}\).
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {离散型随机变量的条件期望}
+            []
+            [Dedicatia]
             设\随机向量{\(2\)} \((X,Y)\) 的条件分布列为 \(p_{Y}(y_j\mid x_i)\), 定义 \(Y\) 在 \(X=x_i\) 条件下的期望为
-            \[\Expct{Y\mid X=x_i}=\sum_{j} y_j p_{Y}(y_j\mid x_i).\]
+            \[\Expct{Y\mid X=x_i}=\frac{\Expct{Y\cdot\Indicator{X=x_i}}}{\mathbb{P}(A)}=\sum_{j} y_j p_{Y}(y_j\mid x_i).\]
             如果 \(X,Y\) 是\离散型随机变量, 则定义 \(Y\) 关于 \(X\) 的条件期望为
             \[\Expct{Y\mid X=x_i}=\sum_{j} y_j p_{Y}(y_j\mid X).\]
         \end{dfn}
@@ -1941,8 +1954,17 @@
             {条件期望的期望为无条件期望 / 是常数}
             []
             [Dedicatia]
-            设\离散型随机向量{\(2\)} \((X,Y)\) 的条件分布列为 \(p_{Y}(y_j\mid x_i)\), 那么
+            设\随机向量{\(2\)} \((X,Y)\), 那么
             \[\Expct{\Expct{Y\mid X}}=\Expct{Y}.\]
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {条件期望函数}
+            []
+            [Dedicatia]
+            设\随机向量{\(2\)} \((Y,Z)\), 那么
+            \[\Expct{\Expct{h(Y)Z\mid Y}}=h(Y)\Expct{Z\mid Y}.\]
         \end{ppt}
 
         \begin{ppt}
@@ -1950,9 +1972,18 @@
             {相互独立的随机变量的条件期望是无条件期望 / 是常数}
             []
             [Dedicatia]
-            设\离散型随机向量{\(2\)} \((X,Y)\) 独立, 那么
+            设\随机向量{\(2\)} \((X,Y)\) 独立, 那么
             \[\Expct{Y\mid X}=\Expct{Y}.\]
         \end{ppt}
+
+        \begin{thm}
+            []
+            {条件方差}
+            [Conditional Variance]
+            [Dedicatia]
+            设\随机向量{\(2\)} \((X,Y)\), 那么 \(X\) 的总方差等于条件期望的方差加上方差的期望:
+            \[\Var{X}=\Var{\Expct{X\mid Y}}+\Expct{\Var{X\mid Y}}.\]
+        \end{thm}
 
     \subsection{多维随机变量的像}
 
@@ -2032,7 +2063,7 @@
             []
             [Dedicatia]
             反例如: \((X,Y)\) 具有如下概率密度函数:
-            \[f(x,y)=\frac{1}{2\pi}\exp(-\frac{x^2+y^2}{2})(1+\sin x+\sin y)\]
+            \[f(x,y)=\frac{1}{2\pi}\exp(-\frac{x^2+y^2}{2})(1+\sin x\sin y)\]
             求取其边缘分布可知 \(X\sim N(0,1), Y\sim N(0,1)\). 但随机变量 \(Z:=X+Y\) 的概率密度函数为
             \[f_Z(z)=\frac{1}{\sqrt{2\pi}}\exp(-\frac{u^2}{4})\qty(1-\frac{\cos u}{2}+\frac{\mathrm{e}^{-1}}{2}).\]
         \end{cxmp}
@@ -2319,6 +2350,19 @@
             \end{center}
         \end{xmp}
 
+        \begin{thm}
+            []
+            {随机变量和的特征函数}
+            []
+            [Dedicatia]
+            设\随机变量 \(X,Y\) 具有特征分布函数 \(f_X,f_Y\) 和特征函数 \(\psi_X,\psi_Y\). 那么 \(Z=X+Y\) 的分布函数 \(f_Z=f_X\ast Y\), 特征函数 \(\psi_Z=\psi_X\psi_Y\).
+        \end{thm}
+
+        \begin{rmk}
+            [Dedicatia]
+            这说明我们求两个随机变量和的随机变量分布的时候可以求其特征函数, 再反变换回分布函数. 这样就避开了繁杂的卷积操作.
+        \end{rmk}
+
 \section{大数定理}
 
     \subsection{大数定理}
@@ -2335,8 +2379,8 @@
         \end{dfn}
 
         \begin{thm}
-            []
-            {KhinChin 弱大数定律}
+            [Khinchin-WLLN]
+            {Khinchin 弱大数定律}
             []
             [Dedicatia]
             设 \(\{X_n\}_{n=1}^{+\infty}\) 是独立同分布的\随机变量 序列, 如果其一阶矩存在, 那么
@@ -2411,6 +2455,28 @@
             设 \(\eta\sim U(0,1)\), 设\随机变量 序列 \(X_n(\eta)=\eta^n\). 由于只有在 \(\eta=1\) 时 \(\eta^n=1\), \(\eta<1\) 时 \(\displaystyle\lim_{n\to+\infty}\eta^n=0\). \\
             由于连续分布取单点的概率是0, 所以我们可以称 \(X_n\aelim 0\).
         \end{xmp}
+
+        \begin{dfn}
+            [Infinitely-Often]
+            {无穷多次发生}
+            [Infinitely Often]
+            [Dedicatia]
+            设一列事件 \(A_n\), 定义其\textbf{无穷多次发生}当且仅当 \(\forall\,N\in\N, \exists\,k>N\), \(A_k\) 发生. 用符号表示为
+            \[A=A_n\io:=\bigcap_{n=1}^{+\infty}\bigcup_{k=n}^{+\infty}A_k=\limsup A_n, P(A)>0.\]
+        \end{dfn}
+
+        \begin{thm}
+            []
+            {Borel-Cantelli 引理}
+            []
+            [Dedicatia]
+            设一列事件 \(A_n\), 若 \(\sum\limits_{n=1}^{+\infty}P(A_n)<+\infty\), 则 \(P(A\io)=0\).
+        \end{thm}
+
+        \begin{rmk}
+            [Dedicatia]
+            Borel-Cantelli 引理表明, 只要证明某种事件发生的概率加起来是有限的, 那么它最终一定会停止发生.
+        \end{rmk}
         
         \begin{thm}
             [SLLN]
@@ -2501,7 +2567,7 @@
 
         \begin{thm}
             []
-            {独立同分布的中心极限定理}
+            {独立同分布的中心极限定理 / Lindeberg-Lévy 定理}
             [Central Limit Theorem]
             [Dedicatia]
             设 \(X_1,X_2,\dots,X_n,\dots\) 是\随机变量 序列, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu\), 方差为 \(\sigma^2\). 则:
@@ -2567,22 +2633,34 @@
             \[P(|\overline{X}_n-\mu|\geq\varepsilon )=\frac{2\sigma}{\varepsilon\sqrt{2\pi n}}\exp(-\frac{\varepsilon^2n}{2\sigma^2})\qty(1+O\qty(\frac{\sigma^2}{\varepsilon^2n})).\]
         \end{thm}
 
+        \begin{dfn}
+            [Indicator-Function]
+            {指示函数 \(\mathbb{I}\)}
+            [Indicator Function \(\mathbb{I}\)]
+            [Dedicatia]
+            设 \(p\) 是某个命题, 定义其\textbf{指示函数}为:
+            \[\Indicator{A}:=\begin{cases}
+                1, & p \text{ is true} ;\\
+                0, & p \text{ is false} .
+            \end{cases}\]
+        \end{dfn}
+
         \begin{thm}
             []
-            {Lindeberg-Lévy 中心极限定理}
-            [Lindeberg-Lévy Central Limit Theorem]
+            {Lindeberg 中心极限定理}
+            [Lindeberg Central Limit Theorem]
             [Dedicatia]
             设 \(X_1,X_2,\dots,X_n,\dots\) 是\随机变量 序列, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu_i\), 方差为 \(\sigma_i^2\). 定义
             \[S_n=\sum_{i=1}^n X_i, \quad B_n^2=\sum_{i=1}^n \sigma_i^2.\]
             若随机变量序列适合\textbf{Lindeberg条件}, 即对任意 \(\varepsilon>0\) 都有:
-            \[\lim_{n\to+\infty}\frac{1}{B_n^2}\sum_{i=1}^n\Expct{(X_i-\mu_i)^2\cdot\mathbb{I}(|X_i-\mu_i|\geq\varepsilon B_n)}=0,\]
+            \[\lim_{n\to+\infty}\frac{1}{B_n^2}\sum_{i=1}^n\Expct{(X_i-\mu_i)^2\cdot\Indicator{|X_i-\mu_i|\geq\varepsilon B_n}}=0,\]
             则中心极限定理成立, 随机变量序列标准化后依分布收敛于标准正态分布, 即:
             \[\lim_{n\to+\infty}P\qty(\frac{S_n-\Expct{S_n}}{B_n}\leq x)=\Phi(x),\]
             其中 \(\Phi\) 是\hyperref[dfn:Canonical-Normal-Distribution]{标准正态分布}的分布函数.
         \end{thm}
 
         \begin{thm}
-            []
+            [Lyapunov-CLT]
             {Lyapunov 中心极限定理}
             [Lyapunov Central Limit Theorem]
             [Dedicatia]
@@ -2596,22 +2674,29 @@
         \end{thm}
 
         \begin{thm}
-            []
-            {Feller 中心极限定理}
-            [Feller Central Limit Theorem]
+            [Feller]
+            {Feller 条件}
+            [Feller Condition]
             [Dedicatia]
             设 \(X_1,X_2,\dots,X_n,\dots\) 是\随机变量 序列, \(\forall i,j:\N, i\neq j\implies X_i,X_j\) 独立, 其期望为 \(\mu_i\), 方差为 \(\sigma_i^2\). 定义
             \[S_n=\sum_{i=1}^n X_i, \quad B_n^2=\sum_{i=1}^n \sigma_i^2.\]
-            若随机变量序列适合\textbf{Feller条件}, 即对任意 \(\varepsilon>0\) 都有:
+            定义随机变量序列的\textbf{Feller条件}, 即对任意 \(\varepsilon>0\) 都有:
             \[\lim_{n\to+\infty}\max_{1\leq i\leq n}\frac{\sigma_i}{B_n}=0,\]
             或者等价地写作
             \[\begin{cases}
                 &\displaystyle\lim_{n\to+\infty}\sum_{i=1}^{n}\Var{X_i} =+\infty;\\
                 &\displaystyle\lim_{n\to+\infty}\frac{\Var{X_n}}{\sum_{i=1}^{n}\Var{X_i}}=0.
             \end{cases}\]
-            则中心极限定理成立, 随机变量序列标准化后依分布收敛于标准正态分布, 即:
-            \[\lim_{n\to+\infty}P\qty(\frac{S_n-\Expct{S_n}}{B_n}\leq x)=\Phi(x).\]
+            Feller 条件且满足中心极限定理等价于 Lindeberg 条件.
         \end{thm}
+
+        \begin{rmk}
+            [Dedicatia]
+            Feller 条件的含义是: 随机变量序列中最大的方差与总方差之比趋于0, 即没有某个随机变量的方差过大而主导了总方差.\\
+            Lindeberg 条件的含义是: 不能有随机变量的尾部过重, 否则会破坏中心极限定理的结论.\\
+            Lyapunov 条件是 Lindeberg 条件的一个更强的充分条件, 它要求随机变量的高阶矩也要受到控制.\\
+            这些条件都是为了确保随机变量序列的行为足够均匀, 从而使得中心极限定理成立.
+        \end{rmk}
 
     \subsection{随机变量的收敛性}
 
@@ -2635,10 +2720,22 @@
             \begin{enumerate}
                 \item \(X_n\aelim X\) \(\implies\) \(X_n\plim X\) \(\implies\) \(X_n\dlim X\);
                 \item \(X_n\rlim X\) \(\implies\) \(X_n\plim X\);
-                \item \(X_n\plim c\implies X_n\dlim c\);
-                \item \(X_n\plim X\Longrightarrow\exists X_{n_k}\subseteq X_n, \st X_{n_k}\aelim X\).
+                \item \(c\in\R\), \(X_n\plim c\Longleftrightarrow X_n\dlim c\);
+                \item \(X_n\plim X\implies\exists X_{n_k}\subseteq X_n, \st X_{n_k}\aelim X\).
             \end{enumerate}
         \end{thm}
+
+        \begin{thm}
+            []
+            {离散样本空间上的依概率收敛等价于几乎处处收敛}
+            []
+            [Dedicatia]
+        \end{thm}
+
+        \begin{rmk}
+            [Dedicatia]
+            当极限为常数时, 依概率收敛与依分布收敛等价. 这也就得到了\hyperref[thm:Khinchin-WLLN]{Khinchin 弱大数定律}.
+        \end{rmk}
 
         \begin{cxmp}
             []

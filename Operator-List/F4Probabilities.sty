@@ -8,6 +8,8 @@
 \NewDocumentCommand{\Var}{sm}{\catref[#1]{dfn:Variance}{\ensuremath{\mathrm{Var}}}[方差]\left(#2\right)}
 \NewDocumentCommand{\Cov}{smm}{\catref[#1]{dfn:Covariance}{\ensuremath{\mathrm{Cov}}}[协方差]\left(#2, #3\right)}
 
+\NewDocumentCommand{\Indicator}{sm}{\catref[#1]{dfn:Indicator-Function}{\ensuremath{\mathbb{I}}}[指示函数]\left\{#2\right\}}
+
 \NewDocumentCommand{\Expct}{som}{\catref[#1]{dfn:Expectation}{\ensuremath{\mathbb{E}}}[期望值]\IfNoValueTF{#2}{}{_{#2}}\left[#3\right]}
 \NewDocumentCommand{\Poi}{s}{\catref[#1]{xmp:Poisson}{\ensuremath{\mathrm{Poi}}}[服从 Poisson 分布的随机变量]}
 \NewDocumentCommand{\Expo}{s}{\catref[#1]{xmp:Expo-Distribution}{\ensuremath{\mathfrak{E}}}[服从指数分布的随机变量]}
@@ -26,6 +28,7 @@
 
 \NewDocumentCommand{\协方差}{s}{\catref[#1]{dfn:Covariance}{协方差}[协方差]}
 
+\NewDocumentCommand{\io}{s}{\catref[#1]{dfn:Infinitely-Often}{\text{ i.o.}}[无穷多次发生]}
 \NewDocumentCommand{\plim}{s}{\catref[#1]{dfn:Probability-Limiting}{\xrightarrow[n\to+\infty]{P}}[概率极限]}
 \NewDocumentCommand{\dlim}{s}{\catref[#1]{dfn:Distribution-Limiting}{\xrightarrow[n\to+\infty]{d}}[依分布收敛的极限]}
 \NewDocumentCommand{\aelim}{s}{\catref[#1]{dfn:Almost-Everywhere-Convergent}{\xrightarrow[n\to+\infty]{\text{a.e.}}}[几乎处处收敛的极限 / 概率为1收敛的极限]}

@@ -4111,16 +4111,7 @@
 				(2) \(f\) 在 \(x_0\) 处左右导数存在且有限, \(\Longrightarrow\mathcal{F}[f](x_0)=f(x_0)\). 
 			\end{thm}
 
-			\begin{thm}
-				[]
-				{正则性原理}
-				[]
-				[Dedicatia]
-				若以 \(2\pi\) 为周期的函数 \(f\) 附近满足 \(\alpha\) 阶 Lipschitz 条件, 那么 \(f\) 的 Fourier 级数存在, 且
-				\[a_n=O\qty(\frac{1}{n^\alpha}), b_n=O\qty(\frac{1}{n^\alpha}).\]
-			\end{thm}
-
-            \begin{prf}
+			\begin{prf}
 				设 \(f\) 在 \(x_0\) 处有两个有限的单侧导数,从而存在 \(\delta>0\), 当 \(0<\iota<\delta\) 时, 有
 				\[\mid f(x_0+t)-f(x_0)\mid\leqslant Lt,\quad\mid f(x_0-t)-f(x_0)\mid\leqslant Lt\]
 				这说明 \(f\) 在 \(x_0\) 的附近满足 \(1\) 阶Lipschitz条件, 而在其他几种情况下也能推出同样的结论
@@ -4132,6 +4123,25 @@
 				\[\mathcal{F}[f](x_0)=\frac{\lim\limits_{x\to x_0+}f(x)+\lim\limits_{x\to x_0-}f(x)}{2}\]
 			\end{prf}
 
+			\begin{thm}
+				[]
+				{正则性原理}
+				[]
+				[Dedicatia]
+				若以 \(2\pi\) 为周期的函数 \(f\) 附近满足 \(\alpha\) 阶 Lipschitz 条件, 那么 \(f\) 的 Fourier 级数存在, 且
+				\[a_n=O\qty(\frac{1}{n^\alpha}), b_n=O\qty(\frac{1}{n^\alpha}).\]
+			\end{thm}
+
+			\begin{prf}
+				\(f\) 在 \(x_0\) 附近满足 \(\alpha\) 阶 Lipschitz 条件, 则 \(f\) 连续, 其 Fourier 级数一定存在. 由 Fourier 系数的计算公式, \(a_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos nx \dd x\), \(b_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin nx \dd x\), 
+				令 \(x=t+\frac{\pi}{n}\), 则
+				\[a_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(t+\frac{\pi}{n})\cos nt \dd t\]
+				\[\implies a_{n}=\frac{1}{2\pi}\int_{-\pi}^{\pi}(f(x)-f(x+\frac{\pi}{n}))\cos nx\dd{x}\]
+				\[\implies |a_n|\leq \int_{-\pi}^{+\pi}\vqty{f(x)-f(x+\frac{\pi}{n})}|\cos nx|\dd{x}\leq \frac{L}{2\pi}\qty(\frac{\pi}{n})^\alpha\int_{-\pi}^{\pi}|\cos nx|\dd{x}\]
+				\[\implies a_n=O\qty(\frac{1}{n^\alpha}).\]
+				同理可证 \(b_n=O\qty(\frac{1}{n^\alpha})\).
+			\end{prf}
+			
 			\begin{crl}
 			    []
 			    {可微函数的 Fourier 级数收敛到自身}
