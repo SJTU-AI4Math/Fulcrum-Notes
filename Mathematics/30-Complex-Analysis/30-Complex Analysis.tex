@@ -2303,6 +2303,16 @@
             该定理说明了可去奇点的本质: 补上之后函数依然是解析的.
         \end{rmk}
 
+        \begin{ppt}
+            []
+            {Riemann 可去奇点定理}
+            []
+            [Dedicatia]
+            若 \(f\) 在去心邻域 \(0<|z-a|<r\) 上解析, 且满足
+            \[\lim_{z\to a}(z-a)f(z)=0\]
+            则 \(z=a\) 是 \(f\) 的可去奇点.
+        \end{ppt}
+
         \begin{crl}
             [UUID]
             {解析函数的延拓定理的推论}
@@ -2828,7 +2838,7 @@
         [Residue at Infinity]
         [Dedicatia]
         设函数 \(f(z)\) 在去心邻域 \(|z|>R\) 上解析, 那么定义 \(f(z)\) 在无穷远点处的留数为:
-        \[\Res(f,\infty)=-\Res\left(\frac{-1}{z^2}f\left(\frac{-1}{z}\right),0\right).\]
+        \[\Res(f,\infty)=-\Res\left(\frac{-1}{z^2}f\left(\frac{1}{z}\right),0\right).\]
     \end{dfn}
 
     \begin{cxmp}
@@ -2911,7 +2921,7 @@
         计算: 
         \[I=\int_0^{2\pi}\frac{\dd{\theta}}{a+\cos\theta},\quad a>1;\]
         作代换: 
-        \[z=\exp\ii t\]
+        \[z=\exp\ii\theta\]
         那么上式变为对 \(z\) 的函数: 
         \[\cos\theta=\frac{1}{2}\qty(z+\frac{1}{z})\]
         \[\sin\theta=\frac{1}{2\ii}\qty(z-\frac{1}{z})\]
@@ -3418,6 +3428,11 @@
             这时, \hyperref[thm:TaylorSeries]{Taylor级数}是Laurent级数在: \(f(z)\) 在 \(z_0\) 处解析的条件下的特例: 这时就将Laurent级数中的圆环就是一个圆盘. 作出Laurent级数, 根据系数 \(a_n\) 的计算公式和\hyperref[thm:Cauchy-Integral-Theorem]{Cauchy积分定理}, 所有的负数幂系数都等于0. 这时的Laurent级数就变成了Taylor级数. 只要在非奇点处附近展开就会得到Taylor级数. \\
             因此我们一般在奇点处求取Laurent级数. 
         \end{rmk}
+
+        \begin{rmk}
+            [Dedicatia]
+            从本质上看, Laurent级数就是两个幂级数拼接而成的, 这时要分析收敛性, 就需要分别分析两个幂级数的收敛性.
+        \end{rmk}
         
         \begin{xmp}
             {求解Laurent级数的实例}
@@ -3433,6 +3448,39 @@
             \[\frac{1}{1+z}=\frac{1}{z}\frac{1}{1+\frac{1}{z}}\]
             这时可以保证 \(\left\lvert \frac{1}{z}\right\rvert <1\). 这时再使用 \((\ast)\), 得到
             \[f(z)=\frac{1}{z}-\sum_{n=0}^{+\infty}(-1)^n\qty(\frac{1}{z})^{n+1}.\]
+        \end{xmp}
+
+        \begin{xmp}
+            {Laurent级数的系数计算实例}
+            计算函数
+            \[f(z)=\frac{1}{z(z-2)^3}\]
+            在 \(z=2\) 处的Laurent级数系数 \(a_{-1},a_{0},a_{1}\).\\
+            根据\hyperref[thm:Laurent-Series]{Laurent级数}的系数计算公式, 有
+            \[a_n=\frac{1}{2\pi\ii}\oint_{\gamma}\frac{f(\zeta)}{(\zeta-2)^{n+1}}\dd{\zeta}\]
+            其中 \(\gamma\) 是包含 \(z=2\) 的小圆周. 那么
+            \[a_{-1}=\frac{1}{2\pi\ii}\oint_{\gamma}\frac{f(\zeta)}{(\zeta-2)^{0}}\dd{\zeta}=\frac{1}{2\pi\ii}\oint_{\gamma}\frac{1}{\zeta(\zeta-2)^3}\dd{\zeta}\]
+            根据留数定理, 该积分等于 \(2\pi\ii\) 乘以 \(z=2\) 处的留数. 计算留数:
+            \[\Res(f,2)=\lim_{z\to 2}\dv[2]{z}((z-2)^3f(z))=\lim_{z\to 2}\dv[2]{z}(\frac{1}{z})=\frac{2}{8}=\frac{1}{4}\]
+            所以 \(a_{-1}=\frac{1}{4}\).
+        \end{xmp}
+
+        \begin{xmp}
+            []
+            {}
+            []
+            [Dedicatia]
+            由于当$|x|<1$时，$\sum\limits_{n=0}^{\infty}x^n=\frac{1}{1-x}$，所以对于某个收敛半径也是1的幂级数来说，当$|x|<1$时，有
+            \[\frac{1}{1-x}\sum_{n=0}^{\infty}a_nx^n=\sum_{n=0}^{\infty}S_nx^n,\]
+            $S_n=\sum\limits_{l=0}^na_l$.
+
+            所以我们得到了如下的式子：
+            \begin{align*}
+                \frac{1}{(1-x)^2}&=\sum_{n=0}^{\infty}(n+1)x^n;\\
+                \frac{1}{(1-x)^3}&=\sum_{n=0}^{\infty}\frac{(n+1)(n+2)}{2}x^n;\\
+                \frac{1}{(1-x)^4}&=\sum_{n=0}^{\infty}\frac{(n+1)(n+2)(n+3)}{6}x^n;\\
+                &\cdots 
+            \end{align*}
+            可以用来计算Laurent级数的系数.
         \end{xmp}
 
         \begin{thm}
@@ -3959,7 +4007,7 @@
             共形映射 \(f\) 将内点映到内点, 将边界点映到边界点.
         \end{rmk}
     
-    \subsection{多边形的共性映射}
+    \subsection{多边形的共形映射}
 
         \begin{thm}
             [Schwarz-Christoffel]
