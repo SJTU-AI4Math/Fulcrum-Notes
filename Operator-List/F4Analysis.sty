@@ -44,9 +44,10 @@
 
 \NewDocumentCommand{\复可微}{soo}{\IfNoValueTF{#2}{}{#2\,\ensuremath{\text{在}}}\IfNoValueTF{#3}{}{\,#3\,\ensuremath{\text{处}}}\catref[#1]{dfn:Complex-Derivative}{\ensuremath{\text{复可微}}}[复可微.]}
 \NewDocumentCommand{\Holo}{sO{D}}{\catref[#1]{dfn:Holomorphic-Function}{\ensuremath{\mathcal{H}}}[\(#2\subseteq\C\) 上的全纯函数.](\oarg{#2})}
-\NewDocumentCommand{\全纯}{s}{\catref[#1]{dfn:Holomorphic-Function}{\ensuremath{\text{解析函数}}}[解析函数.]}
+\NewDocumentCommand{\全纯}{s}{\catref[#1]{dfn:Holomorphic-Function}{\ensuremath{\text{全纯函数}}}[全纯函数.]}
 \NewDocumentCommand{\解析}{s}{\catref[#1]{dfn:Analyticity}{\ensuremath{\text{解析函数}}}[解析函数.]}
 \NewDocumentCommand{\Mobius}{s}{\catref[#1]{dfn:Mobius-Transformation}{\mathfrak{M}}[莫比乌斯变换.]}
+\NewDocumentCommand{\D}{s}{\catref[#1]{dfn:Unit-Disk}{\mathbb{D}}[单位圆盘.]}
 
 \NewDocumentCommand{\CTranslation}{s}{\catref[#1]{dfn:Basic-Mobius-Transformation}{\mathcal{T}_{\mathfrak{M}}}[复平面的平移.]}
 \NewDocumentCommand{\CScaling}{s}{\catref[#1]{dfn:Basic-Mobius-Transformation}{\mathcal{S}_{\mathfrak{M}}}[复平面的伸缩.]}

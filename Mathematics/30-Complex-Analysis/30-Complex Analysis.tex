@@ -54,6 +54,13 @@
 \date{Jul. 16th, 2025}
 
 \begin{document}
+
+    \begin{center}
+        {\LARGE\textbf{Complex Analysis}}\\[0.5cm]
+        {\large F4M Team}\\[0.2cm]        
+    \end{center}
+
+\newpage
 \tableofcontents
 \newpage
 
@@ -553,7 +560,7 @@
             [Harmonic Function]
             [Dedicatia]
             \(u(x,y)\) 是调和函数, 当且仅当其满足方程 \(\Delta u=0\). 其中 \(\Delta\) 是Laplace算子. \\
-            容易发现, \解析 的实部 \(u(x,y)\) 和虚部 \(v(x,y)\) \textbf{都是调和函数}. 
+            容易发现, \全纯 的实部 \(u(x,y)\) 和虚部 \(v(x,y)\) \textbf{都是调和函数}. 
         \end{dfn}
 
         \begin{dfn}
@@ -566,10 +573,10 @@
 
         \begin{thm}
             [UUID]
-            {共轭调和函数所确定的复变函数是解析函数}
+            {共轭调和函数所确定的复变函数是全纯函数}
             []
             [Dedicatia]
-            设 \(u(x,y)\) 和 \(v(x,y)\) 具有适合于Cauchy-Riemann方程的一阶连续偏导数, 那么 \(f(z)=u(x+\ii y)+\ii v(x+\ii y)\) 是\解析. 
+            设 \(u(x,y)\) 和 \(v(x,y)\) 具有适合于Cauchy-Riemann方程的一阶连续偏导数, 那么 \(f(z)=u(x+\ii y)+\ii v(x+\ii y)\) 是\全纯. 
         \end{thm}
 
     \subsection{复函数项级数}
@@ -734,8 +741,7 @@
             对于每个\PowerSeries  \((\star)\), 其存在一个非负值 \(R\), 称为它的\textbf{收敛半径}, 满足: 
             \begin{enumerate}
                 \item 每一个复数 \(|z|<R\) 都可以使\PowerSeries 绝对收敛. 设 \(0\leqslant\rho <R\), 当 \(|z|\in[0,\rho]\) 时, 级数\一致收敛; 
-                \item 当 \(|z|>R\) 时\PowerSeries 发散; 
-                \item 当 \(|z|<R\) 时的和是\解析, 根据\一致收敛, 其导数可以逐项微分求得. 
+                \item 当 \(|z|>R\) 时\PowerSeries 发散.
             \end{enumerate}
             这个 \(R\) 由公式
             \[\frac{1}{R}=\lim_{n\to \infty}\sup\sqrt[n]{|a_n|}\]
@@ -842,7 +848,7 @@
 
         \begin{thm}
             []
-            {全纯函数必定解析}
+            {全纯函数等价于解析函数}
             []
             [Dedicatia]
             A Complex-valued function $f\in\Holo[D]$ if and only if $f$ is \解析\, on $D$.
@@ -856,6 +862,12 @@
             \[f(z)=\frac{1}{2\pi\ii}\int_{C}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}=\frac{1}{2\pi\ii}\int_{C}\qty(\sum_{n=1}^{\infty}\frac{1}{(\zeta-z_0)^{n+1}}(z-z_0)^n)f(\zeta)\dd{\zeta}=\sum_{n=0}^{\infty}\qty(\frac{1}{2\pi\ii}\int_{C}\frac{f(\zeta)}{(\zeta-z_0)^{n+1}}\dd{\zeta})(z-z_0)^n\]
             Interchanging the order of summation and integration is justified by uniform convergence in $\zeta\in C$ of the series for $z$ fixed. Thus $f$ has a power series expansion convergent in $B_r$. Hence, $f$ is \解析\, in $D$.
         \end{prf}
+
+        \begin{rmk}
+            [Dedicatia]
+            只有在复数域上, 全纯函数才等价于解析函数. 在实数域上, 这二者并不等价. 例如, 函数 \(f(x)=e^{-\frac{1}{x^2}}\) 在 \(x=0\) 处的Taylor级数恒为0, 但 \(f(x)\) 并不恒为0.\\
+            由此可见, 复数域有着更强的约束力.
+        \end{rmk}
 
 \section{作为映照的解析函数}
 
@@ -1325,6 +1337,13 @@
         \end{dfn}
 
         \begin{thm}
+            []
+            {单叶解析映射等价于共性映射}
+            []
+            [Dedicatia]
+        \end{thm}
+
+        \begin{thm}
             [UUID]
             {参数化}
             []
@@ -1354,6 +1373,15 @@
             根据Cauchy-Riemann方程, 上式可写作
             \[S(D')=\iintop_{D}|f'(z)|^2\dd{x}\dd{y}.\]
         \end{rmk}
+
+        \begin{thm}
+            []
+            {单叶解析函数的面积定理}
+            []
+            [Dedicatia]
+            如果复函数 \(f\) 在区域 \(D\) 上是单叶解析函数, 那么像区域的面积
+            \[S(f(D))=\iintop_{D}|f'(z)|^2\dd{x}\dd{y}.\]
+        \end{thm}
 
     \subsection{复平面射影几何}
 
@@ -1602,9 +1630,10 @@
             {对数函数}
             [Logarithmic Function]
             [Dedicatia]
-            若 \(w=x+\ii y\), 那么总可以将其写成三角形式, 根据Euler公式可以将其写成 \(\exp z\) 的形式. 这时就可以用 \(\ln w\) 来表示 \(z\). 也就是
+            若 \(w=x+\ii y\), 那么总可以将其写成三角形式, 根据Euler公式可以将其写成 \(\exp z\) 的形式. 这时就可以用对数来表示 \(z\). 也就是
+            \[\Ln w=\ln|w|+\ii\Arg w (w\neq 0)\]
+            值得注意的是, \textbf{这是一个\hyperrefc{dfn:Multivalued}{多值函数}! }为了和一般的实对数区别, 我们记作 \(\Ln w\). 这时的每一组值称为一个\textbf{解析分支}. 如果我们取其中的一个分支, 规定 \(\arg w\in[0,2\pi)\), 就可以保证其是单值的, 这时可以使用 \(\ln w\):
             \[\ln w=\ln|w|+\ii\arg w (w\neq 0)\]
-            值得注意的是, \textbf{这是一个\hyperrefc{dfn:Multivalued}{多值函数}! }为了和一般的实对数区别, 我们记作 \(\Ln z\). 这时的每一组值称为一个\textbf{解析分支}. 如果我们取其中的一个分支, 规定 \(\arg w\in[0,2\pi)\), 就可以保证其是单值的, 这时可以使用 \(\ln z\).
         \end{dfn}
 
         \begin{dfn}
@@ -1654,7 +1683,7 @@
             [Dedicatia]
             幂函数指所有形如 \(w=z^\alpha (\alpha\in\C)\) 的函数. 定义为: 
             \[z^\alpha = \exp(\alpha \Ln z)\]
-            这时, 除非 \(\alpha\) 是正的实整数, 否则幂函数都是多值函数. 
+            这时, 除非 \(\alpha\) 是正的实整数, 否则幂函数都是\hyperrefc{dfn:Multivalued}{多值函数}. 
         \end{dfn}
 
         \begin{dfn}
@@ -3021,6 +3050,53 @@
     \end{xmp}
     \continued
 
+    \subsection{Schwarz引理与双曲度量}
+
+        \begin{dfn}
+            [Unit-Disk]
+            {单位圆盘}
+            [Unit Disk]
+            [Dedicatia]
+            复平面上的开集 \(\{z:|z|<1\}\) 称为\textbf{单位圆盘}. 用记号 \(\D\) 表示.
+        \end{dfn}
+
+        \begin{thm}
+            [Schwarz]
+            {Schwarz引理}
+            [Schwarz Lemma]
+            [Dedicatia]
+            设函数 \(f(z)\) 在 \(\D\) 上解析, 且满足 \(|f(z)|\leq 1\). 如果 \(f(0)=0\), 那么对任意的 \(z\) 都有
+            \[|f(z)|\leq |z|\]
+            并且
+            \[|f'(0)|\leq 1\]
+            如果在某一点 \(z_0\neq 0\) 处取等号, 或者在 \(f'(0)\) 处取等号, 那么存在一个实数 \(\theta\), 使得
+            \[f(z)=\exp(\ii\theta)z\]
+        \end{thm}
+
+        \begin{dfn}
+            [Hyperbolic-Metric]
+            {双曲度量}
+            [Hyperbolic Metric]
+            [Dedicatia]
+            设 \(D\) 是复平面上的一个开子集, 对任意 \(z\in D\), 定义
+            \[\rho_D(z)=\sup\frac{|f'(z)|}{1-|f(z)|^2}\]
+            这里的上确界是对所有将 \(D\) 映射到单位圆盘 \(|w|<1\) 上的解析函数 \(f(z)\) 取的. 那么称 \(\rho_D(z)|\dd{z}|\) 为区域 \(D\) 上的\textbf{双曲度量}.
+        \end{dfn}
+
+        \begin{thm}
+            [Schwarz-Pick]
+            {Schwarz-Pick定理}
+            []
+            [Dedicatia]
+            设 \(f:\D\to\D\) 是一个解析映射, 那么对任意的 \(z\in\D\), 都有
+            \[\frac{|f'(z)|}{1-|f(z)|^2}\leq \frac{1}{1-|z|^2}\]
+            如果在某一点 \(z_0\) 处取等号, 那么存在一个实数 \(\theta\), 使得
+            \[f(z)=\exp(\ii\theta)\frac{z+z_0}{1+\overline{z_0}z}.\]
+            即 \(f\) 是 \(\D\) 上的一个解析自同构.\\
+            Schwarz-Pick 定理也可以写作: 设 \(f:\D\to\D\) 是一个解析映射, 那么 \(\forall z_1,z_2\in\D\), 
+            \[\vqty{\frac{f(z_1)-f(z_2)}{1-\overline{f(z_2)}f(z_1)}} \leq \vqty{\frac{z_1-z_2}{1-\overline{z_2}z_1}}\]
+        \end{thm}
+
     \subsection{局部映射与幅角原理}
         我们从证明解析函数的零点个数公式开始: 
         \begin{thm}
@@ -3963,21 +4039,21 @@
             {Riemann映照定理}
             [Riemann Mapping Theorem]
             [Dedicatia]
-            给定 \(D\subsetneqq\C\) 是单连通区域和 \(z_0\in D\), 在 \(D\) 上存在唯一一个解析函数 \(f\) 满足 \(f(z_0)=0, \arg f'(z_0)=\theta_0\), 使得 \(f(z)\) 将 \(D\) 映到圆盘 \(\mathbb{D}\), 且 \(f\) 是\hyperref[dfn:Conformal-Mapping]{共形映照}.
+            给定 \(D\subsetneqq\C\) 是单连通区域和 \(z_0\in D\), 在 \(D\) 上存在唯一一个解析函数 \(f\) 满足 \(f(z_0)=0, \arg f'(z_0)=\theta_0\), 使得 \(f(z)\) 将 \(D\) 映到圆盘 \(\D\), 且 \(f\) 是\hyperref[dfn:Conformal-Mapping]{共形映照}.
         \end{thm}
 
         \begin{prf}
-            固定 \(z_0\in D\). 对任意解析单射 \(f:D\to\mathbb{D}\): 构造函数族
-            \[\mathcal{F}:=\{f:D\to\mathbb{D},f(z_0)=0 \}.\]
+            固定 \(z_0\in D\). 对任意解析单射 \(f:D\to\D\): 构造函数族
+            \[\mathcal{F}:=\{f:D\to\D,f(z_0)=0 \}.\]
             定义 
             \[\alpha:=\sup_{f\in\mathcal{F}}|f'(z_0)|\in(0,+\infty]\]
             现在要证明 \(f'\) 一致有界. 取 \(D\) 中以 \(z_0\) 为中心的闭圆盘 \(K\subseteq D\). 其具有有限的半径 \(r\). 根据 Cauchy 估值不等式
             \[|f'(z_0)|\leq\frac{1}{r}\sup_{z\in\partial K}|f(z)|\leq \frac{1}{r}. \]
             这说明 \(\exists\,M\in\R,\st |f'(z)|\leq M\).\\
             接下来证明 \(f\) 是正规族 / 序列紧. 由于 \(f\) 将 \(D\) 映到单位圆盘, 所以 \(|f|\leq 1\), \(\mathcal{F}\) 是一致有界的. 根据 Montel 定理可知其是正规的. \\
-            设 \(\mathcal{F}\) 中的函数列 \(\{f_n\}\) 在 \(D\) 上紧致收敛到 \(f_0\). 由于 \(f\) 都是解析单射, 如果 \(f_0\) 是常解析函数就会使 \(\lim\limits_{n\to+\infty}f'_n=0\). 这是不可能的. 所以 \(f_0:U\to\mathbb{D}\) 也是解析单射.\\
+            设 \(\mathcal{F}\) 中的函数列 \(\{f_n\}\) 在 \(D\) 上紧致收敛到 \(f_0\). 由于 \(f\) 都是解析单射, 如果 \(f_0\) 是常解析函数就会使 \(\lim\limits_{n\to+\infty}f'_n=0\). 这是不可能的. 所以 \(f_0:U\to\D\) 也是解析单射.\\
             接下来证明 \(\exists f_0\in\mathcal{F}\), \(|f'_0(z_0)|=\alpha\). 即该上确界可以取到. 可取一列函数列 \(\{f_n\}\subset\mathcal{F}\), 使得 \(|f'_n(z_0)|\to\alpha\). 由于函数列是紧致收敛的, 所以其导数也是紧致收敛的. 在 \(z_0\) 邻域的闭子集可以取到 \(\alpha\). 并且此 \(f_0\) 是解析单射.\\
-            接下来考虑 \(f_0\) 的像. 反设: \(f(D)=\Omega\subsetneqq\mathbb{D}\). 那么取 \(w_1\in\mathbb{D}\setminus\Omega\) 构造 M\"obius 同构
+            接下来考虑 \(f_0\) 的像. 反设: \(f(D)=\Omega\subsetneqq\D\). 那么取 \(w_1\in\D\setminus\Omega\) 构造 M\"obius 同构
             \[\phi(w)=\frac{w-w_1}{1-\bar{w}_1w}\]
             其将 \(w_1\) 映到 \(0\). 定义映射 \(g:=\phi\circ f_0\). 为了将 \(g(z_0)\) 映到 \(0\), 定义复合映射
             \[\tilde{g}(z)=\frac{g(z)-g(z_0)}{1-\overline{g(z_0)}g(z)}\]
@@ -3985,8 +4061,8 @@
             \[|\tilde{g}'(z_0)|=\frac{1-|g(z_0)|^2}{1-|w_1|^2}|f_0'(z_0)|\]
             由于 \(w_1\notin\Omega \), 所以 
             \[|\tilde{g}'(z_0)|=\frac{1-|g(z_0)|^2}{1-|w_1|^2}|f_0'(z_0)|\geq |f_0'(z_0)|\]
-            这说明 \(|\tilde{g}'(z_0)|\) 超过了上确界 \(\alpha\). 显然不可能发生. 这说明不存在这样的 \(w_1\). 即 \(f(D)=\mathbb{D}\), \(f_0\) 是满射, 因而 \(f_0\) 是解析双射, 也就是共形映射.\\
-            最后证明其唯一性: 如果 \(f,g\) 都是 \(D\to\mathbb{D}\) 上的共形映射且 \(f(z_0)=g(z_0)=0\), \(\arg f'(z_0)=\arg g'(z_0)=\theta_0\), 那么 \(f=g\). 证明 \(g^{-1}\circ f=\mathbf{1}\). 使用 Schwarz 引理可知 \(g^{-1}\circ f:\mathbb{D}\to\mathbb{D}=\exp(\ii t)\). 由于 \(\arg f'(z_0)=\arg g'(z_0)\) 的限制, 得到 \(\exp(\ii t)=1\) 恒成立. 所以 \(f=g\) 恒成立. 这就证明了共形映射是唯一的.
+            这说明 \(|\tilde{g}'(z_0)|\) 超过了上确界 \(\alpha\). 显然不可能发生. 这说明不存在这样的 \(w_1\). 即 \(f(D)=\D\), \(f_0\) 是满射, 因而 \(f_0\) 是解析双射, 也就是共形映射.\\
+            最后证明其唯一性: 如果 \(f,g\) 都是 \(D\to\D\) 上的共形映射且 \(f(z_0)=g(z_0)=0\), \(\arg f'(z_0)=\arg g'(z_0)=\theta_0\), 那么 \(f=g\). 证明 \(g^{-1}\circ f=\mathbf{1}\). 使用 Schwarz 引理可知 \(g^{-1}\circ f:\D\to\D=\exp(\ii t)\). 由于 \(\arg f'(z_0)=\arg g'(z_0)\) 的限制, 得到 \(\exp(\ii t)=1\) 恒成立. 所以 \(f=g\) 恒成立. 这就证明了共形映射是唯一的.
         \end{prf}
 
         \begin{rmk}
@@ -3999,13 +4075,31 @@
             {边界对应原理}
             []
             [Dedicatia]
-            设区域 \(D\) 的边界 \(\gamma\) 是Jordan曲线, \(f:D\to\mathbb{D}\) 是\ConformalMapping. 那么 \(\exists\,\tilde{f}:\overline{D}\to\overline{\mathbb{D}}\), \(\tilde{f}\) 是一个\ConformalMapping.
+            设区域 \(D\) 的边界 \(\gamma\) 是Jordan曲线, \(f:D\to\D\) 是\ConformalMapping. 那么 \(\exists\,\tilde{f}:\overline{D}\to\overline{\D}\), \(\tilde{f}\) 是一个\ConformalMapping.
         \end{thm}
 
         \begin{rmk}
             [Dedicatia]
             共形映射 \(f\) 将内点映到内点, 将边界点映到边界点.
         \end{rmk}
+
+        \begin{xmp}
+            []
+            {常用的共形映射}
+            []
+            [Dedicatia]
+            在求解实际问题中, 共形映射一般是很难找的, 对于特殊区域, 可以考虑以下几类或以下几类的复合映射:
+            \begin{enumerate}
+                \item 将上半平面 \(\mathbb{H}\) 映到单位圆盘 \(\D\) 的\textbf{M\"obius变换}: \[w=\frac{z-z_0}{z-\overline{z_0}}, \Im z_0>0\]
+                \item 将单位圆盘 \(\D\) 映到上半平面 \(\mathbb{H}\) 的\textbf{M\"obius变换}: \[w=\ii\frac{1+z}{1-z}\]
+                \item 将扇形 \(0\leq\arg z\leq \alpha\) 映到上半平面 \(\mathbb{H}\) 的幂函数: \[w=z^{\pi/\alpha}\]
+                \item 将水平条 \(\{z:a<\Im z<b\}\) 映到上半平面 \(\mathbb{H}\) 的指数函数: \[w=\exp\frac{\pi}{b-a}z\]
+                \item 将上半平面 \(\mathbb{H}\) 映到水平条 \(\{z:a<\Im z<b\}\) 的对数函数: \[w=\frac{b-a}{\pi}\ln z\]
+                \item 将半无穷条带 \(0\leq\Re z\leq\pi,\Im z>0\) 映到上半平面 \(\mathbb{H}\) 的三角函数: \[w=\sin z, w=\cos z, w=\sinh z, w=\cosh z\] 具体使用哪个要视情况而定.
+                \item \(\D\) 的自同构变换: \[w=\exp(\ii\theta)\frac{z-a}{1-\overline{a}z}, |a|<1, \theta\in\R\] 这会将复数 \(a\) 移动到原点.
+                \item 上半平面 \(\mathbb{H}\) 的自同构变换: \[w=\frac{az+b}{cz+d}, a,b,c,d\in\R, ad-bc>0\]
+            \end{enumerate}
+        \end{xmp}
     
     \subsection{多边形的共形映射}
 
@@ -4046,6 +4140,37 @@
             \[f^{-1}(w)=\frac{w^3}{1+3w+3w^2}.\]
             这是一个椭圆函数.
         \end{xmp}
+
+        \begin{thm}
+            []
+            {将上半平面映到矩形的Schwarz-Christoffel变换}
+            []
+            [Dedicatia]
+            存在唯一的共形映射 \(f\) 将上半平面映到矩形区域, 使得 \(f\) 将实轴上的点 \(0,1,\frac{1}{k^2},\infty\) 分别映到矩形的四个顶点, 其中 \(0<k<1\). 那么 \(f\) 的表达式为
+            \[f(z)=C\int_{0}^{z}\frac{\dd{\xi}}{\sqrt{\xi(1-\xi)(1-k^2\xi)}}+C_0\]
+            其中 \(C,C_0\in\C\) 是常数.\\
+            具体而言:\begin{itemize}
+                \item 区间 \([0,1]\) 映到矩形的下边 \([0,K(k)]\);
+                \item 区间 \([1,\frac{1}{k^2}]\) 映到矩形的右边 \([K(k),K(k)+\ii K'(k)]\);
+                \item 区间 \([\frac{1}{k^2},+\infty)\) 映到矩形的上边 \([K(k)+\ii K'(k),\ii K'(k)]\);
+                \item 区间 \((-\infty,0]\) 映到矩形的左边 \([\ii K'(k),0]\).
+            \end{itemize}
+        \end{thm}
+
+        \begin{rmk}
+            [Dedicatia]
+            使用 Riemann 映照定理的边界对应可以发现更一般的结论, 即任意单连通区域都可以共形映照到矩形区域上. 对于边界上的四点, 都可以通过共形映射将其映到 \(0,1,\frac{1}{k^2},\infty\).
+        \end{rmk}
+
+        \begin{dfn}
+            [Conformal-Modulus]
+            {共形模量}
+            [Conformal Modulus]
+            [Dedicatia]
+            设单连通区域 \(D\) 通过Schwarz-Christoffel变换映到了矩形区域 \([0,1]\times[0,m]\), 那么称 \(m\) 为区域 \(D\) 的\textbf{共形模量}.\\
+            其中:
+            \[m=\frac{K'(k)}{K(k)}.\]
+        \end{dfn}
     
     \subsection{反射原理}
 
