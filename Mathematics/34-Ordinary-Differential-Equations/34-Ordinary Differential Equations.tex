@@ -21,31 +21,34 @@
 
         现在我们给出明确的定义：
         \begin{dfn}
-            []
+            [ODE]
             {常微分方程}
             [Ordinary Differential Equation]
             []
-            联系自变量$x$与这个自变量的未知函数$y=y(x)$以及它的导数$y^{(n)}=y^{(n)}(x)$在内的方程
+            联系自变量 $x$ 与这个自变量的未知函数 $y=y(x)$ 以及它的导数 $y^{(n)}=y^{(n)}(x)$ 在内的方程
             \[F(x,y,y',\cdots,y^{(n)})=0\]
             叫做常微分方程。
         \end{dfn}
 
-        之所以给微分方程冠以“常”字，是因为我们研究的函数是一元的。如果是多元函数，就会出现偏导数。这时我们称之为\textbf{偏微分方程}.
+        \begin{rmk}
+            [Dedicatia]
+            之所以给微分方程冠以“常”字，是因为我们研究的函数是一元的。如果是多元函数，就会出现偏导数。这时我们称之为\textbf{偏微分方程}.
+        \end{rmk}
 
         \begin{dfn}
             []
             {常微分方程的阶}
             []
             []
-            某个常微分方程中导数实际出现的最高阶数$n$称作该常微分方程的\textbf{阶}。
+            某个常微分方程中导数的最高阶数 $n$ 称作该常微分方程的\textbf{阶}。
         \end{dfn}
 
         \begin{dfn}
             []
             {线性常微分方程}
             [Linear Ordinary Differential Equation]
-            []
-            如果常微分方程$F(x,y,y',\cdots,y^{(n)})=0$对于未知函数$y$及其各阶导数$y^{(n)}$都是一次的（线性的），就称该常微分方程为\textbf{线性常微分方程}.
+            [Dedicatia]
+            如果常微分方程 $F(x,y,y',\cdots,y^{(n)})=0$ 对于未知函数 $y$ 及其各阶导数 $y^{(n)}$ 都是线性的, 就称该常微分方程为\textbf{线性常微分方程}.
         \end{dfn}
 
         定义了方程必定要定义解。我们有：
@@ -55,12 +58,10 @@
             {常微分方程的解}
             [Solution to an ODE]
             []
-            如果在区间$D$上的函数$\varphi(x)$是连续函数且具有$n$阶导数，将其代入上述方程$F=0$中得到关于$x$的恒等式
-            \[\forall x\in J,\,F(x,\varphi(x),\cdots,\varphi^{(n)}(x))=0\]
-            就称$\varphi(x)$是常微分方程$F=0$在$J$上的一个解。
+            如果在区间 $D$ 上的函数 $\varphi(x)$ 是连续函数且具有 $n$ 阶导数，将其代入上述方程 $F=0$ 中得到关于 $x$ 的恒等式
+            \[\forall x\in J\subseteq D,\,F(x,\varphi(x),\cdots,\varphi^{(n)}(x))=0\]
+            就称 $\varphi(x)$ 是常微分方程 $F=0$ 在 $J$ 上的一个解。
         \end{dfn}
-
-        但事实上，常微分方程的解可以分为：
 
         \begin{dfn}
             []
@@ -97,8 +98,8 @@
         \begin{dfn}
             []
             {恰当方程}
-            [Appropriate Equation]
-            []
+            [Exact Equation]
+            [Dedicatia]
             考虑一阶微分方程可以变为
             \begin{align*}
                 P(x,y)\dd{x}+Q(x,y)\dd{y}=0\tag{$\star$}
@@ -113,11 +114,11 @@
         \begin{dfn}
             []
             {通积分}
-            []
+            [General Integral]
             []
             将恰当方程改写为全微分的形式，有
             \[\dd\Phi(x,y)=P(x,y)\dd{x}+Q(x,y)\dd{y}=0\]
-            从而$\Phi(x,y)=C$. 将其写为显式函数，我们便得到了一个通解。称这个$\Phi$为原常微分方程的\textbf{通积分}.
+            从而 $\Phi(x,y)=C$. 将其写为显式函数，我们便得到了一个通解。称这个 $\Phi$ 为原常微分方程的\textbf{通积分}.
         \end{dfn}
 
         \begin{thm}
@@ -125,13 +126,13 @@
             {微分方程恰当的充要条件}
             []
             []
-            设函数$P(x,y)$和$Q(x,y)$在区域$R:\{\alpha<x<\beta, \gamma<y<\delta\}$上连续且具有一阶的连续偏导数。则微分方程$(\star)$是恰当方程的充要条件是等式
+            设函数 $P(x,y)$ 和 $Q(x,y)$ 在区域 $R:\{\alpha<x<\beta, \gamma<y<\delta\}$ 上连续且具有一阶的连续偏导数。则微分方程$(\star)$是恰当方程的充要条件是等式
             \[\pdv{P(x,y)}{y}=\pdv{Q(x,y)}{x}\]
-            在$R$上恒成立。
+            在 $R$ 上恒成立。
 
-            当满足该等式时，方程$(\star)$的通积分为
+            当满足该等式时，方程 $(\star)$ 的通积分为
             \[\int_{x_0}^{x}P(x,y)\dd{x}+\int_{y_0}^{y}Q(x_0,y)\dd{y}=C\text{ 或 }\int_{x_0}^{x}P(x,y_0)\dd{x}+\int_{y_0}^{y}Q(x,y)\dd{y}=C\]
-            其中$(x_0,y_0)$是区域$R$中任意取定的一点。
+            其中 $(x_0,y_0)$ 是区域 $R$ 中任意取定的一点。
         \end{thm}
 
         \begin{dfn}
@@ -141,7 +142,7 @@
             []
             考虑一阶微分方程
             \begin{align*}
-                P(x,y)\dd{x}+Q(x,y)\dd{y}=0\tag{$\ast $}
+                P(x,y)\dd{x}+Q(x,y)\dd{y}=0 \tag{$\ast $}
             \end{align*}
             中的$P(x,y)$和$Q(x,y)$可以表示为$x$的一元函数与$y$的一元函数的乘积，就称$(\ast)$为\textbf{变量分离方程}。
         \end{dfn}
@@ -180,8 +181,9 @@
             [First-order Homogeneous Linear Differential Equation]
             []
             如果上面$(\star)$中的$q(x)$恒为0，即
-            \[\dv{y}{x}+p(x)y=q(x)\tag{$\star\star$}\]
-            则称$(\star)$为一阶齐次线性微分方程。否则称为一阶非齐次线性微分方程，并称$q(x)=0$时的微分方程为（相应的）齐次线性微分方程。
+            \[\dv{y}{x}+p(x)y=0\tag{$\star\star$}\]
+            则称 $(\star\star)$ 为一阶齐次线性微分方程.\\
+            否则称为一阶非齐次线性微分方程，并称$q(x)=0$时的微分方程为相应的齐次线性微分方程.
         \end{dfn}
 
         \begin{ppt}
@@ -225,14 +227,14 @@
             称上述解题过程中使用的因子$\mu(x)=\exp(\int p(x)\dd{x})$为\textbf{积分因子}。像这种找到合适的积分因子凑全微分的方法我们叫做\textbf{积分因子法}。
         \end{dfn}
 
-        一阶线性微分方程有如下的几个性质。并且这是线性微分方程独有的：
         \begin{ppt}
             []
             {与0的关系}
             []
             []
-            齐次线性方程的解或者恒等于0，或者恒不等于0.
+            齐次线性方程的解或者恒等于0, 或者恒不等于0.
         \end{ppt}
+
         \begin{ppt}
             []
             {解的线性性}
@@ -249,10 +251,111 @@
             {解的唯一性}
             []
             []
-            给定初值条件后，一阶线性微分方程的解存在且唯一。
+            给定初值条件后一阶线性微分方程的解存在且唯一.
         \end{ppt}
 
-    \subsection{比值微分方程}
+    \subsection{一阶线性微分方程的变体}
+
+        \begin{dfn}
+            []
+            {比值微分方程}
+            [Homogeneous Differential Equation]
+            [Dedicatia]
+            定义微分方程
+            \[P(x,y)\dd{x}+Q(x,y)\dd{y}=0\]
+            是\textbf{比值微分方程}, 当且仅当其中的函数 \(P(x,y)\) 与 \(Q(x,y)\) 都是 \(x,y\) 的 \(m\) 次齐次函数. 即
+            \[\forall\,n\in\R, P(nx,ny)=n^mP(x,y), \; Q(nx.ny)=n^mQ(x,y).\]
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {比值微分方程的等价定义}
+            []
+            []
+            如果一阶微分方程可以写成
+            \[\dv{y}{x}=f\qty(\frac{y}{x})\]
+            的形式，则称该微分方程为\textbf{比值微分方程}.
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {比值微分方程的解法}
+            []
+            [Dedicatia]
+            对于比值微分方程，我们令
+            \[u=\frac{y}{x}\Rightarrow y=ux\]
+            为新的未知函数. 那么
+            \[P(x,y)=P(x,ux)=x^mP(1,u)\]
+            \[Q(x,y)=Q(x,ux)=x^mQ(1,u)\]
+            因此原方程可写为
+            \[x^mP(1,u)\dd{x}+x^mQ(1,u)\dd{(ux)}=0\]
+            这是一个变量分离方程. 由此我们便可以解出该微分方程的通积分.
+        \end{ppt}
+
+        \begin{thm}
+            []
+            {比值微分方程积分因子的求法}
+            []
+            [Dedicatia]
+            对于比值微分方程
+            \[P(x,y)\dd{x}+Q(x,y)\dd{y}=0\]
+            其积分因子可取为
+            \[\mu(x,y)=\frac{1}{xP(x,y)+yQ(x,y)}.\]
+        \end{thm}
+
+        \begin{xmp}
+            []
+            {求解比值微分方程的实例}
+            []
+            [Dedicatia]
+            求解微分方程
+            \[\dv{y}{x}=\frac{x+y}{x-y}.\]
+            不妨令 \(u=\frac{y}{x}\). 则
+            \[\dv{y}{x}=u+x\dv{u}{x}=\frac{1+u}{1-u}.\]
+            整理得
+            \[\frac{\dd{x}}{x}=\frac{1-u}{1+u^2}\dd{u}\]
+            由此积分，得
+            \[\ln|x|=\frac{1}{2}\ln(1+u^2)-\arctan u+C.\]
+            将 \(u\) 换回 \(y/x\), 得到该微分方程的解为
+            \[\sqrt{x^2+y^2}=C\exp(\arctan\frac{y}{x}).\]
+            这时如果写成极坐标形式 \(x=r\cos\theta, y=r\sin\theta\), 则解可写为
+            \[r=C\exp\theta.\]
+            这是一族以原点为极点的对数螺线.
+        \end{xmp}
+
+        \begin{dfn}
+            []
+            {Bernoulli 方程}
+            [Bernoulli Equation]
+            [Dedicatia]
+            形如
+            \[\dv{y}{x}+p(x)y=q(x)y^n\]
+            其中 \(n\neq 0,1\) 的微分方程称为\textbf{Bernoulli 方程}.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {Bernoulli 方程的解法}
+            []
+            [Dedicatia]
+            对于 Bernoulli 方程, 在两端同时乘 \((1-n)y^{-n}\), 得
+            \[(1-n)y^{-n}\dv{y}{x}+(1-n)p(x)y^{1-n}=(1-n)q(x)\]
+            注意到
+            \[\dv{y^{1-n}}{x}=(1-n)y^{-n}\dv{y}{x}\]
+            所以令 \(v=y^{1-n}\). 则上式变为
+            \[\dv{v}{x}+(1-n)p(x)v=(1-n)q(x)\]
+            这是一个关于 \(v\) 的一阶线性微分方程. 
+        \end{ppt}
+
+        \begin{dfn}
+            []
+            {Riccati 方程}
+            [Riccati Equation]
+            [Dedicatia]
+            形如
+            \[\dv{y}{x}=p(x)y^2+q(x)y+r(x)\]
+            的微分方程称为\textbf{Riccati 方程}.
+        \end{dfn}
 
 \section{微分方程解的存在性与唯一性}
 

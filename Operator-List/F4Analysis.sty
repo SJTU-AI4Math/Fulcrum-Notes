@@ -1,4 +1,4 @@
-
+% Intervals
 \NewDocumentCommand{\Ioc}{smm}{\left(#2,#3\right]}                % Open-Closed Interval
 \NewDocumentCommand{\Ico}{smm}{\left[#2,#3\right)}                % Closed-Open Interval
 \NewDocumentCommand{\Icc}{smm}{\left[#2,#3\right]}                % Closed Interval
@@ -37,6 +37,7 @@
 
 % Complex Analysis
 \NewDocumentCommand{\ii}{s}{\catref[#1]{str:Complex-Number}{\ensuremath{\mathrm{i}}}[虚数单位. ]}
+\NewDocumentCommand{\barC}{s}{\catref[#1]{dfn:Extended-Complex}{\ensuremath{\bar{\mathbb{C}}}}[扩充复数系统与扩充复平面]}
 \NewDocumentCommand{\Arg}{s}{\catref[#1]{dfn:Argument}{\ensuremath{\operatorname{Arg}}}[复数的辐角. ]}
 \NewDocumentCommand{\Ln}{s}{\catref[#1]{dfn:Logarithmic}{\ensuremath{\operatorname{Ln}}}[复数对数函数]}
 \NewDocumentCommand{\Windn}{s}{\catref[#1]{dfn:Winding-Number}{\ensuremath{n}}[环绕数 / 指示数]}
@@ -44,8 +45,6 @@
 
 \NewDocumentCommand{\复可微}{soo}{\IfNoValueTF{#2}{}{#2\,\ensuremath{\text{在}}}\IfNoValueTF{#3}{}{\,#3\,\ensuremath{\text{处}}}\catref[#1]{dfn:Complex-Derivative}{\ensuremath{\text{复可微}}}[复可微.]}
 \NewDocumentCommand{\Holo}{sO{D}}{\catref[#1]{dfn:Holomorphic-Function}{\ensuremath{\mathcal{H}}}[\(#2\subseteq\C\) 上的全纯函数.](\oarg{#2})}
-\NewDocumentCommand{\全纯}{s}{\catref[#1]{dfn:Holomorphic-Function}{\ensuremath{\text{全纯函数}}}[全纯函数.]}
-\NewDocumentCommand{\解析}{s}{\catref[#1]{dfn:Analyticity}{\ensuremath{\text{解析函数}}}[解析函数.]}
 \NewDocumentCommand{\Mobius}{s}{\catref[#1]{dfn:Mobius-Transformation}{\mathfrak{M}}[莫比乌斯变换.]}
 \NewDocumentCommand{\D}{s}{\catref[#1]{dfn:Unit-Disk}{\mathbb{D}}[单位圆盘.]}
 
@@ -56,11 +55,14 @@
 
 \NewDocumentCommand{\XRatio}{smmmm}{\left(#2,#3\catref[#1]{dfn:Cross-Ratio}{;}[交比]#4,#5\right)}
 
+\NewDocumentCommand{\全纯}{s}{\catref[#1]{dfn:Holomorphic-Function}{全纯函数}[全纯函数.]}
+\NewDocumentCommand{\解析}{s}{\catref[#1]{dfn:Analyticity}{解析函数}[解析函数.]}
+\NewDocumentCommand{\亚纯}{s}{\catref[#1]{dfn:Meromorphic-Function}{亚纯函数}[亚纯函数.]}
+
 \newcommand{\AngularForm}{\hyperref[dfn:AngularForm]{三角表示}}
 \newcommand{\PowerSeries}{\hyperref[dfn:PowerSeries]{幂级数}}
 \NewDocumentCommand{\一致收敛}{s}{\catref[#1]{dfn:Uniform-Convergence}{一致收敛}[一致收敛]}
 \newcommand{\ConformalMapping}{\hyperref[dfn:Conformal-Mapping]{共形映照}}
-\newcommand{\MeromorphicFunction}{\hyperref[dfn:MeromorphicFunction]{亚纯函数}}
 \newcommand{\EssentialSingularity}{\hyperref[dfn:EssentialSingularity]{本性奇点}}
 \NewDocumentCommand{\Taylor定理}{s}{\catref[#1]{thm:Taylor}{Taylor 定理}[Taylor 定理]}
 \newcommand{\CauchyThm}{\hyperref[thm:Cauchy]{Cauchy积分定理}}

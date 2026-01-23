@@ -360,7 +360,17 @@
             [Dedicatia]
         \end{ppt}
 
-        球面表示中, 对加法和对乘法没有什么简单的表示方法, 但是可以将无穷大纳入研究范围中. 称这个包含了无穷大的扩充复数系统为 \(\bar{\mathbb{C}}=\C\cup\infty \).
+        \begin{dfn}
+            [Extended-Complex]
+            {扩充复平面}
+            [Extended Complex Plane]
+            [Dedicatia]
+            称通过球极投影建立复数与Riemann球面之间的对应关系所确定的复数全体为\textbf{扩充复平面}. \\
+            记作 \(\barC\).\\
+            \(\barC=\C\cup\{\infty\}\).
+        \end{dfn}
+
+        球面表示中, 对加法和对乘法没有什么简单的表示方法, 但是可以将无穷大纳入研究范围中.
 
 \section{复函数}
     
@@ -1390,8 +1400,8 @@
             {M\"obius / 线性分式变换}
             [M\"obius / Linear Fractional Transformation]
             [Dedicatia, 猫猫]
-            定义 \(\bar{\C}\to\bar{\C}\) 上\textbf{线性分式变换}为 \(\bar{\C}\to\bar{\C}\) 的子类型: 
-            \[\left\{z\mapsto\frac{az+b}{cz+d}:\bar{\C}\to\bar{\C}\middle|a,b,c,d:\C, ad-bc\neq 0\right\}\]
+            定义 \(\barC\to\barC\) 上\textbf{线性分式变换}为 \(\barC\to\barC\) 的子类型: 
+            \[\left\{z\mapsto\frac{az+b}{cz+d}:\barC\to\barC\middle|a,b,c,d:\C, ad-bc\neq 0\right\}\]
 
             记作 \(\Mobius\). 
 
@@ -1408,8 +1418,8 @@
         
         \begin{rmk}
             [猫猫]
-            事实上, M\"obius 变换已然占据了全部 \(\bar{\C}\) 上的全纯双射, 即: 
-            \[\Mobius\cong\Aut(\bar{\C})\]
+            事实上, M\"obius 变换已然占据了全部 \(\barC\) 上的全纯双射, 即: 
+            \[\Mobius\cong\Aut(\barC)\]
         \end{rmk}
 
         \begin{ppt}
@@ -1469,7 +1479,7 @@
             {交比}
             [Cross Ratio]
             [Dedicatia, 猫猫]
-            设 \(z_1,z_2,z_3,z_4:\bar{\C}\), 定义 \(z_1,z_2,z_3,z_4\) 的\textbf{交比}为: 
+            设 \(z_1,z_2,z_3,z_4:\barC\), 定义 \(z_1,z_2,z_3,z_4\) 的\textbf{交比}为: 
             \[\frac{(z_1-z_3)(z_2-z_4)}{(z_1-z_4)(z_2-z_3)}\]
 
             记作 \(\XRatio{z_1}{z_2}{z_3}{z_4}\). 
@@ -1480,7 +1490,7 @@
             {交比是 M\"obius 变换不变量}
             []
             [Dedicatia, 猫猫]
-            设 \(f:\Mobius\), \(z_1,z_2,z_3,z_4:\bar{\C}\), 则: 
+            设 \(f:\Mobius\), \(z_1,z_2,z_3,z_4:\barC\), 则: 
             \[\XRatio{f(z_1)}{f(z_2)}{f(z_3)}{f(z_4)}=\XRatio{z_1}{z_2}{z_3}{z_4}\]
         \end{ppt}
 
@@ -1489,7 +1499,7 @@
             {实交比等价于共圆或共线}
             []
             [Dedicatia, 猫猫]
-            设 \(z_1,z_2,z_3,z_4:\bar{\C}\), 则: 
+            设 \(z_1,z_2,z_3,z_4:\barC\), 则: 
             \[\XRatio{z_1}{z_2}{z_3}{z_4}\in\R\iff z_1,z_2,z_3,z_4\text{ 共圆或共线}\]
         \end{ppt}
 
@@ -2418,11 +2428,11 @@
         通过取倒数可以发现, 这里的极点与有理分式的极点并无区别. 为此我们新定义: 
 
         \begin{dfn}
-            [MeromorphicFunction]
+            [Meromorphic-Function]
             {亚纯函数 / 半纯函数}
             [Meromorphic Function]
             [Dedicatia, 猫猫]
-            设 \(D\) 是区域, \(f:D\to\bar{\C}\), 定义 \(f\) 是\textbf{亚纯函数 / 半纯函数}, 当且仅当: \(\forall z\in D, z\) 不是极点 \(\implies f\) 在 \(z\) 处解析. 
+            设 \(D\) 是区域, \(f:D\to\barC\), 定义 \(f\) 是\textbf{亚纯函数 / 半纯函数}, 当且仅当: \(\forall z\in D, z\) 不是极点 \(\implies f\) 在 \(z\) 处解析. 
         \end{dfn}
         
         \begin{ppt}
@@ -2440,7 +2450,7 @@
             {有理函数的亚纯性}
             []
             [Dedicatia]
-            有理分式 \(\frac{f(z)}{g(z)}\), 其中 \(g(z)\) 不恒为0, 那么它都是\MeromorphicFunction.
+            有理分式 \(\frac{f(z)}{g(z)}\), 其中 \(g(z)\) 不恒为0, 那么它都是\亚纯.
         \end{crl}
 
         \begin{ppt}
@@ -2454,7 +2464,7 @@
         还有没有其他可能的奇点呢？我们来讨论函数在奇点处的行为
         \[\lim_{z\to a}|z-a|^\alpha |f(z)|, (\alpha\in\R)\tag{\(\star\)}\]
         这时我们考虑, 假如对某一 \(\alpha\) 上式结果为0, 那么上式对更大的 \(\alpha\) 结果也为0. 这时就会有: (i) 对任意 \(\alpha\),  \((\star)\) 都为0. 这就表明了 \(f(z)\) 必须恒等于0; (ii) 存在 \(h\in\Z\), 对于 \(\alpha>h\) 时 \((\star)\) 为0,  \(\alpha<h\) 时 \((\star)\) 为 \(\infty\); (iii) 对任意 \(\alpha\),  \((\star)\) 都没有确定的值. \\
-        满足第(ii)条件的函数就是\MeromorphicFunction. 所以我们可以为极点定义
+        满足第(ii)条件的函数就是\亚纯. 所以我们可以为极点定义
 
         \begin{dfn}
             [UUID]
@@ -2485,7 +2495,7 @@
 
         \begin{thm}
             {本性奇点的Weierstass条件}
-            \(z_0\) 是 \(f(z)\) 的本性奇点的充要条件是:  \(\forall\,A\in\bar{\C}\), 都能在 \(z_0\) 的邻域内找到一列收敛到 \(z_0\) 的序列 \(\{z_n\}\), 使得 
+            \(z_0\) 是 \(f(z)\) 的本性奇点的充要条件是:  \(\forall\,A\in\barC\), 都能在 \(z_0\) 的邻域内找到一列收敛到 \(z_0\) 的序列 \(\{z_n\}\), 使得 
             \[\lim_{n\to\infty}f(z_n)=A.\]
         \end{thm}
 
@@ -3171,7 +3181,7 @@
             {辐角原理}
             [Argument Principle]
             [Dedicatia]
-            设 \(f(z)\) 是 \(D\) 上的\MeromorphicFunction, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链, 有
+            设 \(f(z)\) 是 \(D\) 上的\亚纯, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链, 有
             \[\frac{1}{2\pi\ii}\int_\gamma\frac{f'(z)}{f(z)}\dd{z}=\sum_{j = 1}^{n} \Windn(\gamma,a_j)-\sum_{k = 1}^{m} \Windn(\gamma,b_k)  \]
             其中, 重零点与重极点要按阶数计算. 
         \end{crl}
@@ -3189,7 +3199,7 @@
             {参数化的辐角原理}
             []
             [Dedicatia]
-            设 \(f(z)\) 是 \(D\) 上的\MeromorphicFunction, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链,  \(g(z)\) 是定义在 \(D\) 上的\解析, 有
+            设 \(f(z)\) 是 \(D\) 上的\亚纯, 具有 \(m\) 个零点 \(a_j\) 和 \(n\) 个极点 \(b_k\),  \(\gamma\) 是 \(D\) 上的\hyperrefc{dfn:NullHomologous}{同调于零}的不过 \(a_j\) 与 \(b_k\) 的闭链,  \(g(z)\) 是定义在 \(D\) 上的\解析, 有
             \[\frac{1}{2\pi\ii}\int_\gamma g(z)\frac{f'(z)}{f(z)}\dd{z}=\sum_{j = 1}^{n} \Windn(\gamma,a_j)g(a_j)-\sum_{k = 1}^{m} \Windn(\gamma,b_k)g(b_k).  \]
             其中, 重零点与重极点要按阶数计算. 
         \end{crl}
@@ -3608,13 +3618,13 @@
     
     \subsection{亚纯函数的部分分式展开}
 
-        我们从\hyperrefc{thm:Laurent-Series}{Laurent级数}中可以看到: 如果 \(f(z)\) 是一个\MeromorphicFunction, 对极点 \(b_n\), 就会有 \(f(z)\) 的非解析部分 \(P_n\qty(\frac{1}{z-b_n})\). 如此减去所有的非解析部分之后就会得到解析的函数 \(g(z)\). 也就是说我们可以将 \(f(z)\) 分解为
+        我们从\hyperrefc{thm:Laurent-Series}{Laurent级数}中可以看到: 如果 \(f(z)\) 是一个\亚纯, 对极点 \(b_n\), 就会有 \(f(z)\) 的非解析部分 \(P_n\qty(\frac{1}{z-b_n})\). 如此减去所有的非解析部分之后就会得到解析的函数 \(g(z)\). 也就是说我们可以将 \(f(z)\) 分解为
         \[f(z)=\sum_{i=1}^{n}P_n\qty(\frac{1}{z-b_n})+g(z)\]
         但是这样定义,  \(P_n\) 往往是无限项, 还有可能不收敛. 所以我们改进: 
 
         \begin{thm}
             {亚纯函数的部分分解定理}
-            设 \(\{b_n\}\) 是一个复数序列,  \(\lim_{n\to\infty }b_n=\infty\), 设 \(P_n\) 是不含常数项的多项式, 那么存在一些在全平面的\MeromorphicFunction  \(f(z)\), 其以 \(b_n\) 为\hyperref[dfn:Pole]{极点}, 非解析部分为所有的 \(P_n\qty(\frac{1}{z-b_n})\), 使得
+            设 \(\{b_n\}\) 是一个复数序列,  \(\lim_{n\to\infty }b_n=\infty\), 设 \(P_n\) 是不含常数项的多项式, 那么存在一些在全平面的\亚纯 \(f(z)\), 其以 \(b_n\) 为\hyperref[dfn:Pole]{极点}, 非解析部分为所有的 \(P_n\qty(\frac{1}{z-b_n})\), 使得
             \[f(z)=\sum_{i=1}^{n}\pqty{P_n\pqty{\frac{1}{z-b_n}}-p_n(z)}+g(z)\]
             这里 \(p_n(z)\) 是有限项数的多项式,  \(g(z)\) 是全平面的\解析. 
         \end{thm}
@@ -4092,10 +4102,10 @@
             \begin{enumerate}
                 \item 将上半平面 \(\mathbb{H}\) 映到单位圆盘 \(\D\) 的\textbf{M\"obius变换}: \[w=\frac{z-z_0}{z-\overline{z_0}}, \Im z_0>0\]
                 \item 将单位圆盘 \(\D\) 映到上半平面 \(\mathbb{H}\) 的\textbf{M\"obius变换}: \[w=\ii\frac{1+z}{1-z}\]
-                \item 将扇形 \(0\leq\arg z\leq \alpha\) 映到上半平面 \(\mathbb{H}\) 的幂函数: \[w=z^{\pi/\alpha}\]
-                \item 将水平条 \(\{z:a<\Im z<b\}\) 映到上半平面 \(\mathbb{H}\) 的指数函数: \[w=\exp\frac{\pi}{b-a}z\]
-                \item 将上半平面 \(\mathbb{H}\) 映到水平条 \(\{z:a<\Im z<b\}\) 的对数函数: \[w=\frac{b-a}{\pi}\ln z\]
-                \item 将半无穷条带 \(0\leq\Re z\leq\pi,\Im z>0\) 映到上半平面 \(\mathbb{H}\) 的三角函数: \[w=\sin z, w=\cos z, w=\sinh z, w=\cosh z\] 具体使用哪个要视情况而定.
+                \item 将扇形 \(0\leq\arg z\leq \alpha\) 映到上半平面 \(\mathbb{H}\) 的\textbf{幂函数}: \[w=z^{\pi/\alpha}\]
+                \item 将水平条 \(\{z:a<\Im z<b\}\) 映到上半平面 \(\mathbb{H}\) 的\textbf{指数函数}: \[w=\exp\frac{\pi}{b-a}z\]
+                \item 将上半平面 \(\mathbb{H}\) 映到水平条 \(\{z:a<\Im z<b\}\) 的\textbf{对数函数}: \[w=\frac{b-a}{\pi}\ln z\]
+                \item 将半无穷条带 \(0\leq\Re z\leq\pi,\Im z>0\) 映到上半平面 \(\mathbb{H}\) 的\textbf{三角函数}: \[w=\sin z, w=\cos z, w=\sinh z, w=\cosh z\] 具体使用哪个要视情况而定.
                 \item \(\D\) 的自同构变换: \[w=\exp(\ii\theta)\frac{z-a}{1-\overline{a}z}, |a|<1, \theta\in\R\] 这会将复数 \(a\) 移动到原点.
                 \item 上半平面 \(\mathbb{H}\) 的自同构变换: \[w=\frac{az+b}{cz+d}, a,b,c,d\in\R, ad-bc>0\]
             \end{enumerate}
@@ -4227,7 +4237,7 @@
             {亚纯反射原理}
             []
             [Dedicatia]
-            设区域 \(D\) 被一条实轴上的直线 \(L\) 分成两部分 \(D^+\) 和 \(D^-\), 且 \(D^-\) 是 \(D^+\) 关于 \(L\) 的镜像. 如果函数 \(f\) 在 \(D^+\) 上是\MeromorphicFunction 且在 \(L\) 上取实值, 那么可以定义函数 \(\tilde{f}\) 在整个区域 \(D\) 也是\MeromorphicFunction, 其定义为
+            设区域 \(D\) 被一条实轴上的直线 \(L\) 分成两部分 \(D^+\) 和 \(D^-\), 且 \(D^-\) 是 \(D^+\) 关于 \(L\) 的镜像. 如果函数 \(f\) 在 \(D^+\) 上是\亚纯 且在 \(L\) 上取实值, 那么可以定义函数 \(\tilde{f}\) 在整个区域 \(D\) 也是\亚纯, 其定义为
             \[\tilde{f}(z)=\begin{cases}
                 f(z), & z\in D^+\\
                 \overline{f(\bar{z})}, & z\in D^-
@@ -4245,6 +4255,145 @@
     \subsection{Dirichlet问题}
 
 \section{椭圆函数}
+
+    \subsection{椭圆函数的引入}
+
+        \begin{dfn}
+            [Doubly-Periodic-Function]
+            {双周期函数}
+            [Doubly Periodic Function]
+            [Dedicatia]
+            设复函数 \(f:\C\to\C\), 如果存在两个实线性无关的复数 \(\omega_1,\omega_2\), 即不存在 \(a\in\R\) 满足 \(\omega_1=a\omega_2\), 使得对于任意的 \(z\in\C\), 都有
+            \[f(z+\omega_1)=f(z),\quad f(z+\omega_2)=f(z),\]
+            那么就称 \(f\) 是一个\textbf{双周期函数}. 并定义 \(\omega_1,\omega_2\) 为 \(f\) 的\textbf{基本周期}.
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {基本周期区域}
+            []
+            [Dedicatia]
+            设双周期函数的基本周期为 \(\omega_1,\omega_2\). 那么由 \(\omega_1,\omega_2\) 张成的平行四边形区域
+            \[D:=\{z=t\omega_1+s\omega_2:t,s\in[0,1]\}\]
+            称为该双周期函数的\textbf{基本周期区域}.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {双周期解析函数一定是常解析函数}
+            []
+            [Dedicatia]
+            设 \(f:\C\to\C\) 是双周期函数且同时是解析函数. 那么 \(f\) 一定是常解析函数.
+        \end{ppt}
+
+        \begin{prf}
+            设 \(D\) 是由周期 \(\omega_1,\omega_2\) 张成的平行四边形区域. 由于 \(f\) 是双周期函数, 所以 \(f\) 在整个复平面上都由其在 \(D\) 上的值唯一确定. 由于 \(f\) 在 \(D\) 上解析且 \(D\) 是紧致集, 所以 \(f\) 在 \(D\) 上有界. 根据最大模原理可知, \(f\) 在整个复平面上有界. 根据 Liouville 定理可知, \(f\) 一定是常解析函数.
+        \end{prf}
+
+        \begin{ppt}
+            []
+            {双周期函数在基本周期区域的留数和为零}
+            []
+            [Dedicatia]
+            设 \(f:\C\to\C\) 是双周期函数且在基本周期区域 \(D\) 内只有有限个孤立奇点 \(a_1,a_2,\cdots,a_n\). 那么有
+            \[\sum_{k=1}^{n}\Res(f,a_k)=0.\]
+        \end{ppt}
+
+        \begin{dfn}
+            [Elliptic-Function]
+            {椭圆函数}
+            [Elliptic Function]
+            [Dedicatia]
+            定义复函数 \(f\) 是椭圆函数, 当且仅当 \(f\) 是双周期函数且在基本周期区域内是\亚纯.
+        \end{dfn}
+
+        \begin{dfn}
+            []
+            {椭圆函数的阶}
+            [Order]
+            [Dedicatia]
+            定义椭圆函数的\textbf{阶}为其在基本周期区域内的极点个数, 计重数.
+        \end{dfn}
+
+        \begin{ppt}
+            []
+            {椭圆函数的阶数下界}
+            []
+            [Dedicatia]
+            设 \(f\) 是椭圆函数, 那么 \(f\) 的阶数至少为 2.\\
+            不存在阶数为 1 的椭圆函数.
+        \end{ppt}
+
+        \begin{prf}
+            反设 \(f\) 是阶数为 1 的椭圆函数, 那么在基本周期区域内只有一个极点 \(a\). 根据前面的结论可知, 该极点的留数为零. 这说明该极点是不可能是单极点, 因为 \(\frac{1}{z}\) 的奇性使得留数不可能为0. 这就出现了矛盾. 所以椭圆函数的阶数至少为 2.
+        \end{prf}
+
+        \begin{rmk}
+            \textbf{椭圆函数的得名}是起源于对椭圆积分的反函数的研究. 椭圆积分是指形如
+            \[\int R\left(x,\sqrt{P(x)}\right)\dd{x}\]
+            的积分, 其中 \(R\) 是有理函数, \(P(x)\) 是三次或四次多项式且无重根. 这些积分最初出现在计算椭圆的弧长时. \\
+            圆函数 \(\sin x\) 和 \(\cos x\) 可以看作是计算单位圆弧长积分
+            \[\int_{0}^{x}\frac{\dd{t}}{\sqrt{1-t^2}}\]
+            的反函数. 类似地, 通过研究
+            \[\int_{0}^{x}\frac{\dd{t}}{\sqrt{(1-t^2)(1-k^2t^2)}},\quad k\in(0,1)\]
+            这些椭圆弧长积分的反函数, 因此被称为椭圆函数.
+        \end{rmk}
+
+    \subsection{Weierstrass \(\wp\) 函数}
+
+        \begin{dfn}
+            [Weierstrass-P]
+            {Weierstrass \(\wp\) 函数}
+            [Weierstrass \(\wp\) Function]
+            [Dedicatia]
+            设复数 \(\omega_1,\omega_2\) 实线性无关, 定义点族
+            \[\Lambda:=\{m\omega_1+n\omega_2:m,n\in\Z\}.\]
+            则 Weierstrass \(\wp\) 函数定义为
+            \[\wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\{0\}}\left(\frac{1}{(z-\omega)^2}-\frac{1}{\omega^2}\right).\]
+        \end{dfn}
+
+        \begin{rmk}
+            [Dedicatia]
+            Weierstrass 直接从构造的角度出发. 为了找到一个椭圆函数的显式表达式, 就考虑构造一个在复平面上有周期排列的极点的亚纯函数: 由于椭圆函数的极点必须至少是二阶, 所以考虑构造一个在每个周期点都有二阶极点的函数. \\
+            最直观的想法就是将函数 \(\frac{1}{z^2}\) 沿着周期点进行平移, 并将这些平移后的函数进行叠加:
+            \[\sum_{\omega\in\Lambda}\frac{1}{(z-\omega)^2}.\]
+            但是该级数并不在 \(\C\) 上收敛, 因为其项的绝对值与 \(\sum_{\omega\in\Lambda}\frac{1}{|\omega|^2}\) 同阶, 而后者是发散的. 为了使得该级数收敛, 可以对每一项进行适当的调整, 即减去 \(\frac{1}{\omega^2}\), 使得其在无穷远处的行为更好一些. 经过调整后得到 Weierstrass \(\wp\)-函数的定义:
+            \[\wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\{0\}}\left(\frac{1}{(z-\omega)^2}-\frac{1}{\omega^2}\right).\]
+        \end{rmk}
+
+        \begin{ppt}
+            []
+            {\(\wp\) 函数是偶函数}
+            []
+            [Dedicatia]
+            \(\wp\) 函数是偶函数, 即对于任意的 \(z\in\C\), 都有
+            \(\wp(-z)=\wp(z).\)
+        \end{ppt}
+
+        \begin{ppt}
+            []
+            {\(\wp\) 函数的导函数}
+            []
+            [Dedicatia]
+            \(\wp\) 函数的导函数为
+            \[\wp'(z)=-2\sum_{\omega\in\Lambda}\frac{1}{(z-\omega)^3}.\]
+            这是一个 3 阶椭圆函数, 且是奇函数.
+        \end{ppt}
+
+        利用其导数可以得到一个恒等式
+
+        \begin{ppt}
+            []
+            {Weierstrass \(\wp\) 函数的微分方程}
+            []
+            [Dedicatia]
+            Weierstrass \(\wp\) 函数满足如下微分方程:
+            \[(\wp'(z))^2=4(\wp(z))^3-g_2\wp(z)-g_3.\]
+            其中 \(g_2,g_3\) 是与周期 \(\omega_1,\omega_2\) 有关的待定常数. 因此称之为\textbf{模不变量}. 其形式上的定义为
+            \[g_2=60\sum_{\omega\in\Lambda\setminus\{0\}}\frac{1}{\omega^4},\quad g_3=140\sum_{\omega\in\Lambda\setminus\{0\}}\frac{1}{\omega^6}.\]
+        \end{ppt}
+
+    \subsection{Jacobi 三角函数}
 
 \section{Riemann曲面}
 
